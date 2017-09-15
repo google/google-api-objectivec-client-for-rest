@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Transfer Service API (bigquerydatatransfer/v1)
+//   BigQuery Data Transfer API (bigquerydatatransfer/v1)
 // Description:
 //   Transfers data from partner SaaS applications to Google BigQuery on a
 //   scheduled, managed basis.
@@ -54,7 +54,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatformRead
 //
 
 /**
- *  Service for executing BigQuery Data Transfer Service API queries.
+ *  Service for executing BigQuery Data Transfer API queries.
  *
  *  Transfers data from partner SaaS applications to Google BigQuery on a
  *  scheduled, managed basis.

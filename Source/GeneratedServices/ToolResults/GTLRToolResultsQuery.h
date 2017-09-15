@@ -864,10 +864,10 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 @end
 
 /**
- *  Creates a PerfMetricsSummary resource.
- *  May return any of the following error code(s): - ALREADY_EXISTS - A
- *  PerfMetricSummary already exists for the given Step - NOT_FOUND - The
- *  containing Step does not exist
+ *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
+ *  already been created.
+ *  May return any of the following error code(s): - NOT_FOUND - The containing
+ *  Step does not exist
  *
  *  Method: toolresults.projects.histories.executions.steps.perfMetricsSummary.create
  *
@@ -893,10 +893,10 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 /**
  *  Fetches a @c GTLRToolResults_PerfMetricsSummary.
  *
- *  Creates a PerfMetricsSummary resource.
- *  May return any of the following error code(s): - ALREADY_EXISTS - A
- *  PerfMetricSummary already exists for the given Step - NOT_FOUND - The
- *  containing Step does not exist
+ *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
+ *  already been created.
+ *  May return any of the following error code(s): - NOT_FOUND - The containing
+ *  Step does not exist
  *
  *  @param object The @c GTLRToolResults_PerfMetricsSummary to include in the
  *    query.

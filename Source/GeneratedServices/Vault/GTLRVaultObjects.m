@@ -3,8 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Vault API (vault/v1)
+// Description:
+//   Archiving and eDiscovery for G Suite.
 // Documentation:
-//   https://apps.google.com/products/vault/
+//   https://developers.google.com/vault
 
 #import "GTLRVaultObjects.h"
 

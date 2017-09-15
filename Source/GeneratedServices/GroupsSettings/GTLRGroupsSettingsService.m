@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeGroupsSettingsAppsGroupsSettings = @"https://www.
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"groups/v1/groups/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/groupssettings/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

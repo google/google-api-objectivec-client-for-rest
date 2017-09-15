@@ -1100,7 +1100,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.

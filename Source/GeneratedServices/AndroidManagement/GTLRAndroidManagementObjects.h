@@ -481,6 +481,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonCompl
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled;
 /**
+ *  The application is installed but not updated to the minimum version code
+ *  specified by policy
+ *
+ *  Value: "APP_NOT_UPDATED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated;
+/**
  *  The setting has an invalid value.
  *
  *  Value: "INVALID_VALUE"
@@ -549,6 +556,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition
  *  Value: "APP_NOT_INSTALLED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled;
+/**
+ *  The application is installed but not updated to the minimum version code
+ *  specified by policy
+ *
+ *  Value: "APP_NOT_UPDATED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated;
 /**
  *  The setting has an invalid value.
  *
@@ -1917,6 +1931,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled
  *        The application required to implement the policy is not installed.
  *        (Value: "APP_NOT_INSTALLED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated
+ *        The application is installed but not updated to the minimum version
+ *        code specified by policy (Value: "APP_NOT_UPDATED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified
@@ -1976,6 +1993,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled
  *        The application required to implement the policy is not installed.
  *        (Value: "APP_NOT_INSTALLED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated
+ *        The application is installed but not updated to the minimum version
+ *        code specified by policy (Value: "APP_NOT_UPDATED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified
@@ -2285,6 +2305,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
 
 /**
+ *  Whether auto time is required, which prevents the user from manually setting
+ *  the date and time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoTimeRequired;
+
+/**
  *  Whether applications other than the ones configured in applications are
  *  blocked from being installed. When set, applications that were installed
  *  under a previous policy but no longer appear in the policy are automatically
@@ -2476,6 +2504,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+/**
+ *  Whether configuring WiFi access points is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled;
+
+/**
+ *  Whether WiFi networks defined in Open Network Configuration are locked so
+ *  they cannot be edited by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wifiConfigsLockdownEnabled;
 
 @end
 

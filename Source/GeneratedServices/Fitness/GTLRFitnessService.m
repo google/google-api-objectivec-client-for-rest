@@ -45,7 +45,7 @@ NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite = @"https://www.go
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"fitness/v1/users/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/fitness/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

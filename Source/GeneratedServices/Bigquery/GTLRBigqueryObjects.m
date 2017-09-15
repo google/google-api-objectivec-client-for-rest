@@ -188,6 +188,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_EncryptionConfiguration
+//
+
+@implementation GTLRBigquery_EncryptionConfiguration
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ErrorProto
 //
 
@@ -294,6 +304,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_GetServiceAccountResponse
+//
+
+@implementation GTLRBigquery_GetServiceAccountResponse
+@dynamic email, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_GoogleSheetsOptions
 //
 
@@ -388,10 +408,11 @@
 
 @implementation GTLRBigquery_JobConfigurationLoad
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, createDisposition,
-         destinationTable, encoding, fieldDelimiter, ignoreUnknownValues,
-         maxBadRecords, nullMarker, projectionFields, quote, schema,
-         schemaInline, schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
-         sourceFormat, sourceUris, timePartitioning, writeDisposition;
+         destinationEncryptionConfiguration, destinationTable, encoding,
+         fieldDelimiter, ignoreUnknownValues, maxBadRecords, nullMarker,
+         projectionFields, quote, schema, schemaInline, schemaInlineFormat,
+         schemaUpdateOptions, skipLeadingRows, sourceFormat, sourceUris,
+         timePartitioning, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -411,9 +432,10 @@
 //
 
 @implementation GTLRBigquery_JobConfigurationQuery
-@dynamic allowLargeResults, createDisposition, defaultDataset, destinationTable,
-         flattenResults, maximumBillingTier, maximumBytesBilled, parameterMode,
-         preserveNulls, priority, query, queryParameters, schemaUpdateOptions,
+@dynamic allowLargeResults, createDisposition, defaultDataset,
+         destinationEncryptionConfiguration, destinationTable, flattenResults,
+         maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
+         priority, query, queryParameters, schemaUpdateOptions,
          tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
          userDefinedFunctionResources, writeDisposition;
 
@@ -449,8 +471,8 @@
 //
 
 @implementation GTLRBigquery_JobConfigurationTableCopy
-@dynamic createDisposition, destinationTable, sourceTable, sourceTables,
-         writeDisposition;
+@dynamic createDisposition, destinationEncryptionConfiguration,
+         destinationTable, sourceTable, sourceTables, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -537,7 +559,7 @@
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, numDmlAffectedRows, queryPlan, referencedTables,
          schema, statementType, totalBytesBilled, totalBytesProcessed,
-         undeclaredQueryParameters;
+         totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -792,11 +814,11 @@
 //
 
 @implementation GTLRBigquery_Table
-@dynamic creationTime, descriptionProperty, ETag, expirationTime,
-         externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, numBytes, numLongTermBytes, numRows,
-         schema, selfLink, streamingBuffer, tableReference, timePartitioning,
-         type, view;
+@dynamic creationTime, descriptionProperty, encryptionConfiguration, ETag,
+         expirationTime, externalDataConfiguration, friendlyName, identifier,
+         kind, labels, lastModifiedTime, location, numBytes, numLongTermBytes,
+         numRows, schema, selfLink, streamingBuffer, tableReference,
+         timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1060,7 +1082,7 @@
 //
 
 @implementation GTLRBigquery_TimePartitioning
-@dynamic expirationMs, type;
+@dynamic expirationMs, field, type;
 @end
 
 

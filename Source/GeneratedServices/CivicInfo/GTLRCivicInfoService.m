@@ -19,7 +19,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"civicinfo/v2/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/civicinfo/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

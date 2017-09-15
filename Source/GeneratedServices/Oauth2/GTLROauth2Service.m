@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeOauth2UserinfoProfile = @"https://www.googleapis.
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/oauth2/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

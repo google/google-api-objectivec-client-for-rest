@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -88,6 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -122,6 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -158,6 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -196,6 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -250,6 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
@@ -291,6 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */

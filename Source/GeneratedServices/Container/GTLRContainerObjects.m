@@ -264,8 +264,10 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_IPAllocationPolicy
-@dynamic clusterIpv4Cidr, createSubnetwork, nodeIpv4Cidr, servicesIpv4Cidr,
-         subnetworkName, useIpAliases;
+@dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
+         createSubnetwork, nodeIpv4Cidr, nodeIpv4CidrBlock, servicesIpv4Cidr,
+         servicesIpv4CidrBlock, servicesSecondaryRangeName, subnetworkName,
+         useIpAliases;
 @end
 
 
@@ -391,7 +393,8 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, diskSizeGb, imageType, labels, localSsdCount,
-         machineType, metadata, oauthScopes, preemptible, serviceAccount, tags;
+         machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
+         serviceAccount, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -478,8 +481,8 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_Operation
-@dynamic detail, name, operationType, selfLink, status, statusMessage,
-         targetLink, zoneProperty;
+@dynamic detail, endTime, name, operationType, selfLink, startTime, status,
+         statusMessage, targetLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

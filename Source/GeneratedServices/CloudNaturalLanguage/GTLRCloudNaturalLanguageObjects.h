@@ -79,6 +79,41 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest.encodingType
+
+/**
+ *  If `EncodingType` is not specified, encoding-dependent information (such as
+ *  `begin_offset`) will be set at `-1`.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  languages that use this encoding natively.
+ *
+ *  Value: "UTF16"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-32 encoding of the input. Python is an example of a language
+ *  that uses this encoding natively.
+ *
+ *  Value: "UTF32"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
+ *  that use this encoding natively.
+ *
+ *  Value: "UTF8"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf8;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnalyzeSentimentRequest.encodingType
 
 /**
@@ -229,6 +264,12 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Amod
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Appos;
 /**
+ *  Aspect marker
+ *
+ *  Value: "ASP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Asp;
+/**
  *  Attribute dependent of a copular verb
  *
  *  Value: "ATTR"
@@ -343,11 +384,29 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Expl
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Foreign;
 /**
+ *  Genitive modifier
+ *
+ *  Value: "GMOD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gmod;
+/**
+ *  Genitive object
+ *
+ *  Value: "GOBJ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gobj;
+/**
  *  Goes with (part of a word in a text not well edited)
  *
  *  Value: "GOESWITH"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Goeswith;
+/**
+ *  Infinitival modifier
+ *
+ *  Value: "INFMOD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Infmod;
 /**
  *  Indirect object
  *
@@ -373,6 +432,12 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_List
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mark;
 /**
+ *  Measure
+ *
+ *  Value: "MES"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mes;
+/**
  *  Multi-word expression
  *
  *  Value: "MWE"
@@ -384,6 +449,12 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwe;
  *  Value: "MWV"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwv;
+/**
+ *  Nominal complement of a noun
+ *
+ *  Value: "NCOMP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ncomp;
 /**
  *  Negation modifier
  *
@@ -1345,6 +1416,66 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 
 
 /**
+ *  The entity-level sentiment analysis request message.
+ */
+@interface GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest : GTLRObject
+
+/** Input document. */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
+
+/**
+ *  The encoding type used by the API to calculate offsets.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None
+ *        If `EncodingType` is not specified, encoding-dependent information
+ *        (such as
+ *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        of
+ *        languages that use this encoding natively. (Value: "UTF16")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-32 encoding of the input. Python is an example of a
+ *        language
+ *        that uses this encoding natively. (Value: "UTF32")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf8
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages
+ *        that use this encoding natively. (Value: "UTF8")
+ */
+@property(nonatomic, copy, nullable) NSString *encodingType;
+
+@end
+
+
+/**
+ *  The entity-level sentiment analysis response message.
+ */
+@interface GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse : GTLRObject
+
+/**
+ *  The recognized entities in the input document with associated sentiments.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Entity *> *entities;
+
+/**
+ *  The language of the text, which will be the same as the language specified
+ *  in the request or, if not specified, the automatically-detected language.
+ *  See Document.language field for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
  *  The sentiment analysis request message.
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeSentimentRequest : GTLRObject
@@ -1587,6 +1718,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *        modifier of an NP (Value: "AMOD")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Appos Appositional
  *        modifier of an NP (Value: "APPOS")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Asp Aspect marker
+ *        (Value: "ASP")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Attr Attribute
  *        dependent of a copular verb (Value: "ATTR")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Aux Auxiliary
@@ -1626,8 +1759,14 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *        (Value: "EXPL")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Foreign Foreign
  *        words (Value: "FOREIGN")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gmod Genitive
+ *        modifier (Value: "GMOD")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gobj Genitive
+ *        object (Value: "GOBJ")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Goeswith Goes with
  *        (part of a word in a text not well edited) (Value: "GOESWITH")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Infmod Infinitival
+ *        modifier (Value: "INFMOD")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Iobj Indirect
  *        object (Value: "IOBJ")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Kw Keyword (Value:
@@ -1636,10 +1775,14 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *        chains of comparable items (Value: "LIST")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mark Marker (word
  *        introducing a subordinate clause) (Value: "MARK")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mes Measure (Value:
+ *        "MES")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwe Multi-word
  *        expression (Value: "MWE")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwv Multi-word
  *        verbal expression (Value: "MWV")
+ *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ncomp Nominal
+ *        complement of a noun (Value: "NCOMP")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Neg Negation
  *        modifier (Value: "NEG")
  *    @arg @c kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nn Noun compound
@@ -1814,6 +1957,14 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 @property(nonatomic, strong, nullable) NSNumber *salience;
 
 /**
+ *  For calls to AnalyzeEntitySentiment or if
+ *  AnnotateTextRequest.Features.extract_entity_sentiment is set to
+ *  true, this field will contain the aggregate sentiment expressed for this
+ *  entity in the provided document.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
+
+/**
  *  The entity type.
  *
  *  Likely values:
@@ -1858,6 +2009,14 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_EntityMention : GTLRObject
 
+/**
+ *  For calls to AnalyzeEntitySentiment or if
+ *  AnnotateTextRequest.Features.extract_entity_sentiment is set to
+ *  true, this field will contain the sentiment expressed for this mention of
+ *  the entity in the provided document.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
+
 /** The mention text. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_TextSpan *text;
 
@@ -1896,6 +2055,13 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *extractEntities;
+
+/**
+ *  Extract entities and their associated sentiment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extractEntitySentiment;
 
 /**
  *  Extract syntax information.

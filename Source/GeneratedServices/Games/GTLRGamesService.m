@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeGamesPlusLogin    = @"https://www.googleapis.com/
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"games/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/games/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

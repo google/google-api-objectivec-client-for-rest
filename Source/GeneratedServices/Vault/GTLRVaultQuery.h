@@ -3,8 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Vault API (vault/v1)
+// Description:
+//   Archiving and eDiscovery for G Suite.
 // Documentation:
-//   https://apps.google.com/products/vault/
+//   https://developers.google.com/vault
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -36,6 +38,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// state
+
+/** Value: "CLOSED" */
+GTLR_EXTERN NSString * const kGTLRVaultStateClosed;
+/** Value: "DELETED" */
+GTLR_EXTERN NSString * const kGTLRVaultStateDeleted;
+/** Value: "OPEN" */
+GTLR_EXTERN NSString * const kGTLRVaultStateOpen;
+/** Value: "STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRVaultStateStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // view
 
 /** Value: "BASIC" */
@@ -63,6 +77,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Adds an account as a matter collaborator.
  *
  *  Method: vault.matters.addPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersAddPermissions : GTLRVaultQuery
 // Previous library name was
@@ -91,6 +108,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Closes the specified matter. Returns matter with updated state.
  *
  *  Method: vault.matters.close
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersClose : GTLRVaultQuery
 // Previous library name was
@@ -115,9 +135,14 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Creates a new matter. Returns created matter with default view.
+ *  Creates a new matter with the given name and description. The initial state
+ *  is open, and the owner is the method caller. Returns the created matter
+ *  with default view.
  *
  *  Method: vault.matters.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersCreate : GTLRVaultQuery
 // Previous library name was
@@ -126,7 +151,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Matter.
  *
- *  Creates a new matter. Returns created matter with default view.
+ *  Creates a new matter with the given name and description. The initial state
+ *  is open, and the owner is the method caller. Returns the created matter
+ *  with default view.
  *
  *  @param object The @c GTLRVault_Matter to include in the query.
  *
@@ -140,6 +167,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Deletes the specified matter. Returns matter with updated state.
  *
  *  Method: vault.matters.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersDelete : GTLRVaultQuery
 // Previous library name was
@@ -165,6 +195,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Gets the specified matter.
  *
  *  Method: vault.matters.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersGet : GTLRVaultQuery
 // Previous library name was
@@ -202,6 +236,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  hold will result in an error.
  *
  *  Method: vault.matters.holds.accounts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsCreate : GTLRVaultQuery
 // Previous library name was
@@ -237,6 +274,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  no held accounts, the hold will not apply to any accounts.
  *
  *  Method: vault.matters.holds.accounts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsDelete : GTLRVaultQuery
 // Previous library name was
@@ -276,6 +316,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  to enumerate its members.
  *
  *  Method: vault.matters.holds.accounts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsList : GTLRVaultQuery
 // Previous library name was
@@ -309,6 +353,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Creates a hold in the given matter.
  *
  *  Method: vault.matters.holds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsCreate : GTLRVaultQuery
 // Previous library name was
@@ -336,6 +383,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Removes a hold by ID. This will release any HeldAccounts on this Hold.
  *
  *  Method: vault.matters.holds.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsDelete : GTLRVaultQuery
 // Previous library name was
@@ -366,6 +416,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Gets a hold by ID.
  *
  *  Method: vault.matters.holds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsGet : GTLRVaultQuery
 // Previous library name was
@@ -397,6 +451,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  denotes no more holds to list.
  *
  *  Method: vault.matters.holds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsList : GTLRVaultQuery
 // Previous library name was
@@ -441,6 +499,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  individual accounts. Accounts listed in the hold will be ignored.
  *
  *  Method: vault.matters.holds.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsUpdate : GTLRVaultQuery
 // Previous library name was
@@ -475,6 +536,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Lists matters the user has access to.
  *
  *  Method: vault.matters.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersList : GTLRVaultQuery
 // Previous library name was
@@ -488,6 +553,18 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 
 /** The pagination token as returned in the response. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  If set, list only matters with that specific state. The default is listing
+ *  matters of all states.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVaultStateStateUnspecified Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRVaultStateOpen Value "OPEN"
+ *    @arg @c kGTLRVaultStateClosed Value "CLOSED"
+ *    @arg @c kGTLRVaultStateDeleted Value "DELETED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Specifies which parts of the matter to return in response.
@@ -518,6 +595,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Removes an account as a matter collaborator.
  *
  *  Method: vault.matters.removePermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersRemovePermissions : GTLRVaultQuery
 // Previous library name was
@@ -546,6 +626,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Reopens the specified matter. Returns matter with updated state.
  *
  *  Method: vault.matters.reopen
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersReopen : GTLRVaultQuery
 // Previous library name was
@@ -573,6 +656,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Undeletes the specified matter. Returns matter with updated state.
  *
  *  Method: vault.matters.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersUndelete : GTLRVaultQuery
 // Previous library name was
@@ -604,6 +690,9 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Returns the default view of the matter.
  *
  *  Method: vault.matters.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersUpdate : GTLRVaultQuery
 // Previous library name was

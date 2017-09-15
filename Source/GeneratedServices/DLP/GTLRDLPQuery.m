@@ -20,6 +20,26 @@
 
 @end
 
+@implementation GTLRDLPQuery_ContentDeidentify
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2beta1/content:deidentify";
+  GTLRDLPQuery_ContentDeidentify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentResponse class];
+  query.loggingName = @"dlp.content.deidentify";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_ContentInspect
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1InspectContentRequest *)object {
@@ -55,6 +75,26 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1RedactContentResponse class];
   query.loggingName = @"dlp.content.redact";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_DataSourceAnalyze
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2beta1/dataSource:analyze";
+  GTLRDLPQuery_DataSourceAnalyze *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningOperation class];
+  query.loggingName = @"dlp.dataSource.analyze";
   return query;
 }
 
@@ -176,6 +216,88 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1ListInspectFindingsResponse class];
   query.loggingName = @"dlp.inspect.results.findings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_RiskAnalysisOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}:cancel";
+  GTLRDLPQuery_RiskAnalysisOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.riskAnalysis.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_RiskAnalysisOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDLPQuery_RiskAnalysisOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.riskAnalysis.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_RiskAnalysisOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDLPQuery_RiskAnalysisOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningOperation class];
+  query.loggingName = @"dlp.riskAnalysis.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_RiskAnalysisOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDLPQuery_RiskAnalysisOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"dlp.riskAnalysis.operations.list";
   return query;
 }
 

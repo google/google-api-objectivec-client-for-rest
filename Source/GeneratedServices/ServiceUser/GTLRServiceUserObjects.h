@@ -764,8 +764,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  The number of seconds to wait for a response from a request. The
- *  default depends on the deployment context.
+ *  The number of seconds to wait for a response from a request. The default
+ *  deadline for gRPC is infinite (no deadline) and HTTP requests is 5 seconds.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2418,7 +2418,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.

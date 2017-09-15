@@ -18,7 +18,6 @@
 
 NSString * const kGTLRAuthScopeCloudTraceCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeCloudTraceTraceAppend   = @"https://www.googleapis.com/auth/trace.append";
-NSString * const kGTLRAuthScopeCloudTraceTraceReadonly = @"https://www.googleapis.com/auth/trace.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudTraceService

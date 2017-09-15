@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeReplicapoolComputeReadonly      = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"replicapool/v1beta2/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/replicapool/v1beta2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

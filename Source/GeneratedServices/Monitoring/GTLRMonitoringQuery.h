@@ -148,7 +148,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRMonitoring_Empty.
+ *  Fetches a @c GTLRMonitoring_CreateCollectdTimeSeriesResponse.
  *
  *  Stackdriver Monitoring Agent only: Creates a new time
  *  series.<aside class="caution">This method is only for use by the Stackdriver

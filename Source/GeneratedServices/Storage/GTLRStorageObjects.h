@@ -1147,6 +1147,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_Policy_Bindings_Item : GTLRObject
 
 /**
+ *  condition
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id condition;
+
+/**
  *  A collection of identifiers for members who may assume the provided role.
  *  Recognized identifiers are as follows:
  *  - allUsers — A special identifier that represents anyone on the internet;

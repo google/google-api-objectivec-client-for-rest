@@ -23,6 +23,7 @@
 @class GTLRServiceControl_AuditLog_Response;
 @class GTLRServiceControl_AuditLog_ServiceData;
 @class GTLRServiceControl_AuthenticationInfo;
+@class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
 @class GTLRServiceControl_CheckError;
 @class GTLRServiceControl_CheckInfo;
@@ -52,6 +53,7 @@
 @class GTLRServiceControl_ReportError;
 @class GTLRServiceControl_ReportInfo;
 @class GTLRServiceControl_RequestMetadata;
+@class GTLRServiceControl_ResourceInfo;
 @class GTLRServiceControl_Status;
 @class GTLRServiceControl_Status_Details_Item;
 
@@ -787,12 +789,36 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *authoritySelector;
 
 /**
- *  The email address of the authenticated user making the request.
- *  For privacy reasons, the principal email address is redacted for all
- *  read-only operations that fail with a "permission denied" error.
+ *  The email address of the authenticated user (or service account on behalf
+ *  of third party principal) making the request. For privacy reasons, the
+ *  principal email address is redacted for all read-only operations that fail
+ *  with a "permission denied" error.
  */
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
+/**
+ *  The third party identification (if any) of the authenticated user making
+ *  the request.
+ *  When the JSON object represented here has a proto equivalent, the proto
+ *  name will be indicated in the `\@type` property.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal *thirdPartyPrincipal;
+
+@end
+
+
+/**
+ *  The third party identification (if any) of the authenticated user making
+ *  the request.
+ *  When the JSON object represented here has a proto equivalent, the proto
+ *  name will be indicated in the `\@type` property.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal : GTLRObject
 @end
 
 
@@ -1610,11 +1636,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
-/**
- *  DO NOT USE.
- *  This field is not ready for use yet.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceContainers;
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ResourceInfo *> *resources;
 
 /** Required. Start time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2157,6 +2179,27 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  NOLINT
  */
 @property(nonatomic, copy, nullable) NSString *callerSuppliedUserAgent;
+
+@end
+
+
+/**
+ *  DO NOT USE.
+ *  This definition is not ready for use yet.
+ */
+@interface GTLRServiceControl_ResourceInfo : GTLRObject
+
+/**
+ *  The identifier of the parent of this resource instance.
+ *  Must be in one of the following formats:
+ *  - “projects/<project-id or project-number>”
+ *  - “folders/<folder-id>”
+ *  - “organizations/<organization-id>”
+ */
+@property(nonatomic, copy, nullable) NSString *resourceContainer;
+
+/** Name of the resource. This is used for auditing purposes. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 

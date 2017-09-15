@@ -146,7 +146,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1Beta2
-@dynamic request, target, type;
+@dynamic request, target, type, versionId;
 @end
 
 

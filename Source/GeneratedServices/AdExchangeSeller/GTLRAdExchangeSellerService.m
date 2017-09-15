@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeAdExchangeSellerAdexchangeSellerReadonly = @"http
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"adexchangeseller/v2.0/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/adexchangeseller/v2.0";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

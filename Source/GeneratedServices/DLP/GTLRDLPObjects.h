@@ -25,42 +25,87 @@
 @class GTLRDLP_GoogleLongrunningOperation_Response;
 @class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Bucket;
+@class GTLRDLP_GooglePrivacyDlpV2beta1BucketingConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CharacterMaskConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Color;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Condition;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Conditions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ContentItem;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CryptoHashConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CryptoKey;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions;
+@class GTLRDLP_GooglePrivacyDlpV2beta1DeidentificationSummary;
+@class GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1EntityId;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1FieldId;
+@class GTLRDLP_GooglePrivacyDlpV2beta1FieldTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2beta1FileSet;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Finding;
+@class GTLRDLP_GooglePrivacyDlpV2beta1FixedSizeBucketingConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoType;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics;
+@class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformation;
+@class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InspectResult;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Key;
 @class GTLRDLP_GooglePrivacyDlpV2beta1KindExpression;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KmsWrappedCryptoKey;
+@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass;
+@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket;
+@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Location;
+@class GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PartitionId;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PathElement;
+@class GTLRDLP_GooglePrivacyDlpV2beta1PrimitiveTransformation;
+@class GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Projection;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Range;
+@class GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition;
 @class GTLRDLP_GooglePrivacyDlpV2beta1RecordKey;
+@class GTLRDLP_GooglePrivacyDlpV2beta1RecordSuppression;
+@class GTLRDLP_GooglePrivacyDlpV2beta1RecordTransformations;
+@class GTLRDLP_GooglePrivacyDlpV2beta1RedactConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ReplaceConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1ReplaceValueConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1ReplaceWithInfoTypeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Row;
 @class GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Table;
 @class GTLRDLP_GooglePrivacyDlpV2beta1TableLocation;
+@class GTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1TransformationSummary;
+@class GTLRDLP_GooglePrivacyDlpV2beta1TransientCryptoKey;
+@class GTLRDLP_GooglePrivacyDlpV2beta1UnwrappedCryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Value;
+@class GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency;
 @class GTLRDLP_GoogleRpcStatus;
 @class GTLRDLP_GoogleRpcStatus_Details_Item;
 @class GTLRDLP_GoogleTypeDate;
@@ -75,6 +120,128 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore.commonCharactersToIgnore
+
+/**
+ *  a-z
+ *
+ *  Value: "ALPHA_LOWER_CASE"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase;
+/**
+ *  A-Z
+ *
+ *  Value: "ALPHA_UPPER_CASE"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase;
+/** Value: "CHARACTER_GROUP_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_CharacterGroupUnspecified;
+/**
+ *  0-9
+ *
+ *  Value: "NUMERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Numeric;
+/**
+ *  US Punctuation, one of !"#$%&'()*+,-./:;<=>?\@[\\]^_`{|}~
+ *
+ *  Value: "PUNCTUATION"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Punctuation;
+/**
+ *  Whitespace character, one of [ \\t\\n\\x0B\\f\\r]
+ *
+ *  Value: "WHITESPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Whitespace;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1Condition.operatorProperty
+
+/**
+ *  Equal.
+ *
+ *  Value: "EQUAL_TO"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_EqualTo;
+/**
+ *  Exists
+ *
+ *  Value: "EXISTS"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_Exists;
+/**
+ *  Greater than.
+ *
+ *  Value: "GREATER_THAN"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_GreaterThan;
+/**
+ *  Greater than or equals.
+ *
+ *  Value: "GREATER_THAN_OR_EQUALS"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_GreaterThanOrEquals;
+/**
+ *  Less than.
+ *
+ *  Value: "LESS_THAN"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_LessThan;
+/**
+ *  Less than or equals.
+ *
+ *  Value: "LESS_THAN_OR_EQUALS"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_LessThanOrEquals;
+/**
+ *  Not equal to.
+ *
+ *  Value: "NOT_EQUAL_TO"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_NotEqualTo;
+/** Value: "RELATIONAL_OPERATOR_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_RelationalOperatorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig.commonAlphabet
+
+/**
+ *  [0-9A-Za-z] (radix of 62)
+ *
+ *  Value: "ALPHA_NUMERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric;
+/** Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified;
+/**
+ *  [0-9A-F] (radix of 16)
+ *
+ *  Value: "HEXADECIMAL"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal;
+/**
+ *  [0-9] (radix of 10)
+ *
+ *  Value: "NUMERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric;
+/**
+ *  [0-9A-Z] (radix of 36)
+ *
+ *  Value: "UPPER_CASE_ALPHA_NUMERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1Expressions.logicalOperator
+
+/** Value: "AND" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Expressions_LogicalOperator_And;
+/** Value: "LOGICAL_OPERATOR_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Expressions_LogicalOperator_LogicalOperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2beta1Finding.likelihood
@@ -140,6 +307,58 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryUnlikely;
 
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1SummaryResult.code
+
+/** Value: "ERROR" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_Error;
+/** Value: "SUCCESS" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_Success;
+/** Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_TransformationResultCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig.partToExtract
+
+/**
+ *  [1-31]
+ *
+ *  Value: "DAY_OF_MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_DayOfMonth;
+/**
+ *  [1-7]
+ *
+ *  Value: "DAY_OF_WEEK"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_DayOfWeek;
+/**
+ *  [0-24]
+ *
+ *  Value: "HOUR_OF_DAY"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_HourOfDay;
+/**
+ *  [1-12]
+ *
+ *  Value: "MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Month;
+/** Value: "TIME_PART_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_TimePartUnspecified;
+/**
+ *  [1-52]
+ *
+ *  Value: "WEEK_OF_YEAR"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_WeekOfYear;
+/**
+ *  [000-9999]
+ *
+ *  Value: "YEAR"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Year;
+
 /**
  *  The request message for Operations.CancelOperation.
  */
@@ -179,7 +398,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -233,6 +452,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  Request for creating a risk analysis operation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest : GTLRObject
+
+/** Privacy metric to compute. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric *privacyMetric;
+
+/** Input dataset to compute metrics over. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *sourceTable;
+
+@end
+
+
+/**
  *  Options defining BigQuery table and row identifiers.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions : GTLRObject
@@ -274,6 +507,112 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  Buckets represented as ranges, along with replacement values. Ranges must
+ *  be non-overlapping.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Bucket : GTLRObject
+
+/** Upper bound of the range, exclusive; type must match min. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *max;
+
+/**
+ *  Lower bound of the range, inclusive. Type should be the same as max if
+ *  used.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *min;
+
+/**
+ *  Replacement value for this bucket. If not provided
+ *  the default behavior will be to hyphenate the min-max range.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *replacementValue;
+
+@end
+
+
+/**
+ *  Generalization function that buckets values based on ranges. The ranges and
+ *  replacement values are dynamically provided by the user for custom behavior,
+ *  such as 1-30 -> LOW 31-65 -> MEDIUM 66-100 -> HIGH
+ *  This can be used on
+ *  data of type: number, long, string, timestamp.
+ *  If the bound `Value` type differs from the type of data being transformed,
+ *  we
+ *  will first attempt converting the type of the data to be transformed to
+ *  match
+ *  the type of the bound before comparing.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1BucketingConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Bucket *> *buckets;
+
+@end
+
+
+/**
+ *  Compute numerical stats over an individual column, including
+ *  number of distinct values and value count distribution.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig : GTLRObject
+
+/**
+ *  Field to compute categorical stats on. All column types are
+ *  supported except for arrays and structs. However, it may be more
+ *  informative to use NumericalStats when the field type is supported,
+ *  depending on the data.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+@end
+
+
+/**
+ *  GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket : GTLRObject
+
+/**
+ *  Total number of records in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Sample of value frequencies in this bucket. The total number of
+ *  values returned per bucket is capped at 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency *> *bucketValues;
+
+/**
+ *  Lower bound on the value frequency of the values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueFrequencyLowerBound;
+
+/**
+ *  Upper bound on the value frequency of the values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueFrequencyUpperBound;
+
+@end
+
+
+/**
+ *  Result of the categorical stats computation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult : GTLRObject
+
+/** Histogram of value frequencies in the column. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket *> *valueFrequencyHistogramBuckets;
+
+@end
+
+
+/**
  *  Info Type Category description.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription : GTLRObject
@@ -283,6 +622,87 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** Internal name of the category. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Partially mask a string by replacing a given number of characters with a
+ *  fixed character. Masking can start from the beginning or end of the string.
+ *  This can be used on data of any type (numbers, longs, and so on) and when
+ *  de-identifying structured data we'll attempt to preserve the original data's
+ *  type. (This allows you to take a long like 123 and modify it to a string
+ *  like
+ *  **3.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CharacterMaskConfig : GTLRObject
+
+/**
+ *  When masking a string, items in this list will be skipped when replacing.
+ *  For example, if your string is 555-555-5555 and you ask us to skip `-` and
+ *  mask 5 chars with * we would produce ***-*55-5555.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore *> *charactersToIgnore;
+
+/**
+ *  Character to mask the sensitive values&mdash;for example, "*" for an
+ *  alphabetic string such as name, or "0" for a numeric string such as ZIP
+ *  code or credit card number. String must have length 1. If not supplied, we
+ *  will default to "*" for strings, 0 for digits.
+ */
+@property(nonatomic, copy, nullable) NSString *maskingCharacter;
+
+/**
+ *  Number of characters to mask. If not set, all matching chars will be
+ *  masked. Skipped characters do not count towards this tally.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberToMask;
+
+/**
+ *  Mask characters in reverse order. For example, if `masking_character` is
+ *  '0', number_to_mask is 14, and `reverse_order` is false, then
+ *  1234-5678-9012-3456 -> 00000000000000-3456
+ *  If `masking_character` is '*', `number_to_mask` is 3, and `reverse_order`
+ *  is true, then 12345 -> 12***
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reverseOrder;
+
+@end
+
+
+/**
+ *  Characters to skip when doing deidentification of a value. These will be
+ *  left
+ *  alone and skipped.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *charactersToSkip;
+
+/**
+ *  commonCharactersToIgnore
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase
+ *        a-z (Value: "ALPHA_LOWER_CASE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase
+ *        A-Z (Value: "ALPHA_UPPER_CASE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_CharacterGroupUnspecified
+ *        Value "CHARACTER_GROUP_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Numeric
+ *        0-9 (Value: "NUMERIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Punctuation
+ *        US Punctuation, one of !"#$%&'()*+,-./:;<=>?\@[\\]^_`{|}~ (Value:
+ *        "PUNCTUATION")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CharsToIgnore_CommonCharactersToIgnore_Whitespace
+ *        Whitespace character, one of [ \\t\\n\\x0B\\f\\r] (Value:
+ *        "WHITESPACE")
+ */
+@property(nonatomic, copy, nullable) NSString *commonCharactersToIgnore;
 
 @end
 
@@ -357,6 +777,69 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  The field type of `value` and `field` do not need to match to be
+ *  considered equal, but not all comparisons are possible.
+ *  A `value` of type:
+ *  - `string` can be compared against all other types
+ *  - `boolean` can only be compared against other booleans
+ *  - `integer` can be compared against doubles or a string if the string value
+ *  can be parsed as an integer.
+ *  - `double` can be compared against integers or a string if the string can
+ *  be parsed as a double.
+ *  - `Timestamp` can be compared against strings in RFC 3339 date string
+ *  format.
+ *  - `TimeOfDay` can be compared against timestamps and strings in the format
+ *  of 'HH:mm:ss'.
+ *  If we fail to compare do to type mismatch, a warning will be given and
+ *  the condition will evaluate to false.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Condition : GTLRObject
+
+/** Field within the record this condition is evaluated against. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+/**
+ *  Operator used to compare the field or info type to the value. [required]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_EqualTo
+ *        Equal. (Value: "EQUAL_TO")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_Exists
+ *        Exists (Value: "EXISTS")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_GreaterThan
+ *        Greater than. (Value: "GREATER_THAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_GreaterThanOrEquals
+ *        Greater than or equals. (Value: "GREATER_THAN_OR_EQUALS")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_LessThan
+ *        Less than. (Value: "LESS_THAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_LessThanOrEquals
+ *        Less than or equals. (Value: "LESS_THAN_OR_EQUALS")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_NotEqualTo
+ *        Not equal to. (Value: "NOT_EQUAL_TO")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Condition_OperatorProperty_RelationalOperatorUnspecified
+ *        Value "RELATIONAL_OPERATOR_UNSPECIFIED"
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/** Value to compare against. [Required, except for `EXISTS` tests.] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *value;
+
+@end
+
+
+/**
+ *  GTLRDLP_GooglePrivacyDlpV2beta1Conditions
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Conditions : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Condition *> *conditions;
+
+@end
+
+
+/**
  *  Container structure for the content to inspect.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1ContentItem : GTLRObject
@@ -401,24 +884,140 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *  Optional location to store findings. The bucket must already exist and
  *  the Google APIs service account for DLP must have write permission to
  *  write to the given bucket.
- *  <p>Results are split over multiple csv files with each file name matching
+ *  Results are split over multiple csv files with each file name matching
  *  the pattern "[operation_id]_[count].csv", for example
  *  `3094877188788974909_1.csv`. The `operation_id` matches the
  *  identifier for the Operation, and the `count` is a counter used for
- *  tracking the number of files written. <p>The CSV file(s) contain the
- *  following columns regardless of storage type scanned: <li>id <li>info_type
- *  <li>likelihood <li>byte size of finding <li>quote <li>timestamp<br/>
- *  <p>For Cloud Storage the next columns are: <li>file_path
- *  <li>start_offset<br/>
- *  <p>For Cloud Datastore the next columns are: <li>project_id
- *  <li>namespace_id <li>path <li>column_name <li>offset<br/>
- *  <p>For BigQuery the next columns are: <li>row_number <li>project_id
- *  <li>dataset_id <li>table_id
+ *  tracking the number of files written.
+ *  The CSV file(s) contain the following columns regardless of storage type
+ *  scanned:
+ *  - id
+ *  - info_type
+ *  - likelihood
+ *  - byte size of finding
+ *  - quote
+ *  - timestamp
+ *  For Cloud Storage the next columns are:
+ *  - file_path
+ *  - start_offset
+ *  For Cloud Datastore the next columns are:
+ *  - project_id
+ *  - namespace_id
+ *  - path
+ *  - column_name
+ *  - offset
+ *  For BigQuery the next columns are:
+ *  - row_number
+ *  - project_id
+ *  - dataset_id
+ *  - table_id
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig *outputConfig;
 
 /** Specification of the data set to process. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig *storageConfig;
+
+@end
+
+
+/**
+ *  Pseudonymization method that generates surrogates via cryptographic hashing.
+ *  Uses SHA-256.
+ *  The key size must be either 32 or 64 bytes.
+ *  Outputs a 32 byte digest as an uppercase hex string
+ *  (for example, 41D1567F7F99F1DC2A5FAB886DEE5BEE).
+ *  Currently, only string and integer values can be hashed.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CryptoHashConfig : GTLRObject
+
+/** The key used by the hash function. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CryptoKey *cryptoKey;
+
+@end
+
+
+/**
+ *  This is a data encryption key (DEK) (as opposed to
+ *  a key encryption key (KEK) stored by KMS).
+ *  When using KMS to wrap/unwrap DEKs, be sure to set an appropriate
+ *  IAM policy on the KMS CryptoKey (KEK) to ensure an attacker cannot
+ *  unwrap the data crypto key.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CryptoKey : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KmsWrappedCryptoKey *kmsWrapped;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1TransientCryptoKey *transient;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1UnwrappedCryptoKey *unwrapped;
+
+@end
+
+
+/**
+ *  Replaces an identifier with an surrogate using FPE with the FFX
+ *  mode of operation.
+ *  The identifier must be encoded as ASCII.
+ *  For a given crypto key and context, the same identifier will be
+ *  replaced with the same surrogate.
+ *  Note that a given identifier must be either the empty string or be at
+ *  least two characters long.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig : GTLRObject
+
+/**
+ *  commonAlphabet
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric
+ *        [0-9A-Za-z] (radix of 62) (Value: "ALPHA_NUMERIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified
+ *        Value "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal
+ *        [0-9A-F] (radix of 16) (Value: "HEXADECIMAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric
+ *        [0-9] (radix of 10) (Value: "NUMERIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric
+ *        [0-9A-Z] (radix of 36) (Value: "UPPER_CASE_ALPHA_NUMERIC")
+ */
+@property(nonatomic, copy, nullable) NSString *commonAlphabet;
+
+/**
+ *  The 'tweak', a context may be used for higher security since the same
+ *  identifier in two different contexts won't be given the same surrogate. If
+ *  the context is not set, a default tweak will be used.
+ *  If the context is set but:
+ *  1. there is no record present when transforming a given value or
+ *  1. the field is not present when transforming a given value,
+ *  a default tweak will be used.
+ *  Note that case (1) is expected when an `InfoTypeTransformation` is
+ *  applied to both structured and non-structured `ContentItem`s.
+ *  Currently, the referenced field may be of value type integer or string.
+ *  The tweak is constructed as a sequence of bytes in big endian byte order
+ *  such that:
+ *  - a 64 bit integer is encoded followed by a single byte of value 1
+ *  - a string is encoded in UTF-8 format followed by a single byte of value 2
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *context;
+
+/** The key used by the encryption algorithm. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CryptoKey *cryptoKey;
+
+/**
+ *  This is supported by mapping these to the alphanumeric characters
+ *  that the FFX mode natively supports. This happens before/after
+ *  encryption/decryption.
+ *  Each character listed must appear only once.
+ *  Number of characters must be in the range [2, 62].
+ *  This must be encoded as ASCII.
+ *  The order of characters does not matter.
+ */
+@property(nonatomic, copy, nullable) NSString *customAlphabet;
+
+/**
+ *  The native way to select the alphabet. Must be in the range [2, 62].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *radix;
 
 @end
 
@@ -458,12 +1057,167 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  High level summary of deidentification.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1DeidentificationSummary : GTLRObject
+
+/** Transformations applied to the dataset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1TransformationSummary *> *transformationSummaries;
+
+/**
+ *  Total size in bytes that were transformed in some way.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformedBytes;
+
+@end
+
+
+/**
+ *  The configuration that controls how the data will change.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyConfig : GTLRObject
+
+/**
+ *  Treat the dataset as free-form text and apply the same free text
+ *  transformation everywhere.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformations *infoTypeTransformations;
+
+/**
+ *  Treat the dataset as structured. Transformations can be applied to
+ *  specific locations within structured datasets, such as transforming
+ *  a column within a table.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RecordTransformations *recordTransformations;
+
+@end
+
+
+/**
+ *  Request to de-identify a list of items.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest : GTLRCollectionObject
+
+/** Configuration for the de-identification of the list of content items. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyConfig *deidentifyConfig;
+
+/** Configuration for the inspector. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig *inspectConfig;
+
+/**
+ *  The list of items to inspect. Up to 100 are allowed per request.
+ *  All items will be treated as text/ *.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ContentItem *> *items;
+
+@end
+
+
+/**
+ *  Results of de-identifying a list of items.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentResponse : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ContentItem *> *items;
+
+/** A review of the transformations that took place for each item. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1DeidentificationSummary *> *summaries;
+
+@end
+
+
+/**
+ *  An entity in a dataset is a field or set of fields that correspond to a
+ *  single person. For example, in medical records the `EntityId` might be
+ *  a patient identifier, or for financial records it might be an account
+ *  identifier. This message is used when generalizations or analysis must be
+ *  consistent across multiple rows pertaining to the same entity.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1EntityId : GTLRObject
+
+/** Composite key indicating which field contains the entity identifier. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+@end
+
+
+/**
+ *  A collection of expressions
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Expressions : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Conditions *conditions;
+
+/**
+ *  The operator to apply to the result of conditions. Default and currently
+ *  only supported value is `AND`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Expressions_LogicalOperator_And
+ *        Value "AND"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1Expressions_LogicalOperator_LogicalOperatorUnspecified
+ *        Value "LOGICAL_OPERATOR_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *logicalOperator;
+
+@end
+
+
+/**
  *  General identifier of a data field in a storage service.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1FieldId : GTLRObject
 
 /** Name describing the field. */
 @property(nonatomic, copy, nullable) NSString *columnName;
+
+@end
+
+
+/**
+ *  The transformation to apply to the field.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1FieldTransformation : GTLRObject
+
+/**
+ *  Only apply the transformation if the condition evaluates to true for the
+ *  given `RecordCondition`. The conditions are allowed to reference fields
+ *  that are not used in the actual transformation. [optional]
+ *  Example Use Cases:
+ *  - Apply a different bucket transformation to an age column if the zip code
+ *  column for the same record is within a specific range.
+ *  - Redact a field if the date of birth field is greater than 85.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition *condition;
+
+/** Input field(s) to apply the transformation to. [required] */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *fields;
+
+/**
+ *  Treat the contents of the field as free text, and selectively
+ *  transform content that matches an `InfoType`.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformations *infoTypeTransformations;
+
+/** Apply the transformation to the entire field. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrimitiveTransformation *primitiveTransformation;
 
 @end
 
@@ -518,6 +1272,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** The specific string that may be potentially sensitive info. */
 @property(nonatomic, copy, nullable) NSString *quote;
+
+@end
+
+
+/**
+ *  Buckets values based on fixed size ranges. The
+ *  Bucketing transformation can provide all of this functionality,
+ *  but requires more configuration. This message is provided as a convenience
+ *  to
+ *  the user for simple bucketing strategies.
+ *  The resulting value will be a hyphenated string of
+ *  lower_bound-upper_bound.
+ *  This can be used on data of type: double, long.
+ *  If the bound Value type differs from the type of data
+ *  being transformed, we will first attempt converting the type of the data to
+ *  be transformed to match the type of the bound before comparing.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1FixedSizeBucketingConfig : GTLRObject
+
+/**
+ *  Size of each bucket (except for minimum and maximum buckets). So if
+ *  `lower_bound` = 10, `upper_bound` = 89, and `bucket_size` = 10, then the
+ *  following buckets would be used: -10, 10-20, 20-30, 30-40, 40-50, 50-60,
+ *  60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works. [Required].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Lower bound value of buckets. All values less than `lower_bound` are
+ *  grouped together into a single bucket; for example if `lower_bound` = 10,
+ *  then all values less than 10 are replaced with the value “-10”. [Required].
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *lowerBound;
+
+/**
+ *  Upper bound value of buckets. All values greater than upper_bound are
+ *  grouped together into a single bucket; for example if `upper_bound` = 89,
+ *  then all values greater than 89 are replaced with the value “89+”.
+ *  [Required].
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *upperBound;
 
 @end
 
@@ -654,6 +1451,41 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** The type of finding this stat is for. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
+
+@end
+
+
+/**
+ *  A transformation to apply to text that is identified as a specific
+ *  info_type.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformation : GTLRObject
+
+/**
+ *  Info types to apply the transformation to. Empty list will match all
+ *  available info types for this transformation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoType *> *infoTypes;
+
+/** Primitive transformation to apply to the info type. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrimitiveTransformation *primitiveTransformation;
+
+@end
+
+
+/**
+ *  A type of transformation that will scan unstructured text and
+ *  apply various `PrimitiveTransformation`s to each finding, where the
+ *  transformation is applied to only values that were identified as a specific
+ *  info_type.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformations : GTLRObject
+
+/**
+ *  Transformation for each info type. Cannot specify more than one
+ *  for a given info type. [required]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeTransformation *> *transformations;
 
 @end
 
@@ -834,6 +1666,98 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  k-anonymity metric, used for analysis of reidentification risk.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig : GTLRObject
+
+/**
+ *  Optional message indicating that each distinct `EntityId` should not
+ *  contribute to the k-anonymity count more than once per equivalence class.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1EntityId *entityId;
+
+/**
+ *  Set of fields to compute k-anonymity over. When multiple fields are
+ *  specified, they are considered a single composite key. Structs and
+ *  repeated data types are not supported; however, nested fields are
+ *  supported so long as they are not structs themselves or nested within
+ *  a repeated field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *quasiIds;
+
+@end
+
+
+/**
+ *  The set of columns' values that share the same ldiversity value
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass : GTLRObject
+
+/**
+ *  Size of the equivalence class, for example number of rows with the
+ *  above set of values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSize;
+
+/**
+ *  Set of values defining the equivalence class. One value per
+ *  quasi-identifier column in the original KAnonymity metric message.
+ *  The order is always the same as the original request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
+
+@end
+
+
+/**
+ *  GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket : GTLRObject
+
+/**
+ *  Total number of records in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Sample of equivalence classes in this bucket. The total number of
+ *  classes returned per bucket is capped at 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass *> *bucketValues;
+
+/**
+ *  Lower bound on the size of the equivalence classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSizeLowerBound;
+
+/**
+ *  Upper bound on the size of the equivalence classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSizeUpperBound;
+
+@end
+
+
+/**
+ *  Result of the k-anonymity computation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult : GTLRObject
+
+/** Histogram of k-anonymity equivalence classes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket *> *equivalenceClassHistogramBuckets;
+
+@end
+
+
+/**
  *  A unique identifier for a Datastore entity.
  *  If a key's partition ID or any of its path kinds or names are
  *  reserved/read-only, the key is reserved/read-only.
@@ -870,6 +1794,127 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** The name of the kind. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Include to use an existing data crypto key wrapped by KMS.
+ *  Authorization requires the following IAM permissions when sending a request
+ *  to perform a crypto transformation using a kms-wrapped crypto key:
+ *  dlp.kms.encrypt
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KmsWrappedCryptoKey : GTLRObject
+
+/**
+ *  The resource name of the KMS CryptoKey to use for unwrapping. [required]
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
+/**
+ *  The wrapped data crypto key. [required]
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedKey;
+
+@end
+
+
+/**
+ *  l-diversity metric, used for analysis of reidentification risk.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig : GTLRObject
+
+/**
+ *  Set of quasi-identifiers indicating how equivalence classes are
+ *  defined for the l-diversity computation. When multiple fields are
+ *  specified, they are considered a single composite key.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *quasiIds;
+
+/** Sensitive field for computing the l-value. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *sensitiveAttribute;
+
+@end
+
+
+/**
+ *  The set of columns' values that share the same ldiversity value.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass : GTLRObject
+
+/**
+ *  Size of the k-anonymity equivalence class.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSize;
+
+/**
+ *  Number of distinct sensitive values in this equivalence class.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numDistinctSensitiveValues;
+
+/**
+ *  Quasi-identifier values defining the k-anonymity equivalence
+ *  class. The order is always the same as the original request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
+
+/** Estimated frequencies of top sensitive values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency *> *topSensitiveValues;
+
+@end
+
+
+/**
+ *  GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket : GTLRObject
+
+/**
+ *  Total number of records in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Sample of equivalence classes in this bucket. The total number of
+ *  classes returned per bucket is capped at 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass *> *bucketValues;
+
+/**
+ *  Lower bound on the sensitive value frequencies of the equivalence
+ *  classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sensitiveValueFrequencyLowerBound;
+
+/**
+ *  Upper bound on the sensitive value frequencies of the equivalence
+ *  classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sensitiveValueFrequencyUpperBound;
+
+@end
+
+
+/**
+ *  Result of the l-diversity computation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult : GTLRObject
+
+/** Histogram of l-diversity equivalence class sensitive value frequencies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket *> *sensitiveValueFrequencyHistogramBuckets;
 
 @end
 
@@ -938,6 +1983,41 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** Location within a `ContentItem.Table`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1TableLocation *tableLocation;
+
+@end
+
+
+/**
+ *  Compute numerical stats over an individual column, including
+ *  min, max, and quantiles.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig : GTLRObject
+
+/**
+ *  Field to compute numerical stats on. Supported types are
+ *  integer, float, date, datetime, timestamp, time.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+@end
+
+
+/**
+ *  Result of the numerical stats computation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult : GTLRObject
+
+/** Maximum value appearing in the column. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *maxValue;
+
+/** Minimum value appearing in the column. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *minValue;
+
+/**
+ *  List of 99 values that partition the set of field values into 100 equal
+ *  sized buckets.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quantileValues;
 
 @end
 
@@ -1027,6 +2107,37 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  A rule for transforming a value.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1PrimitiveTransformation : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BucketingConfig *bucketingConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CharacterMaskConfig *characterMaskConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CryptoHashConfig *cryptoHashConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig *cryptoReplaceFfxFpeConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FixedSizeBucketingConfig *fixedSizeBucketingConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RedactConfig *redactConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1ReplaceValueConfig *replaceConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1ReplaceWithInfoTypeConfig *replaceWithInfoTypeConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig *timePartConfig;
+
+@end
+
+
+/**
+ *  Privacy metric to compute for reidentification risk analysis.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig *categoricalStatsConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig *kAnonymityConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig *lDiversityConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig *numericalStatsConfig;
+
+@end
+
+
+/**
  *  A representation of a Datastore property in a projection.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1Projection : GTLRObject
@@ -1074,6 +2185,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  A condition for determing whether a transformation should be applied to
+ *  a field.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Expressions *expressions;
+
+@end
+
+
+/**
  *  Message for a unique key indicating a record that contains a finding.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1RecordKey : GTLRObject
@@ -1081,6 +2203,44 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageKey *cloudStorageKey;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey *datastoreKey;
 
+@end
+
+
+/**
+ *  Configuration to suppress records whose suppression conditions evaluate to
+ *  true.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RecordSuppression : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition *condition;
+
+@end
+
+
+/**
+ *  A type of transformation that is applied over structured data such as a
+ *  table.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RecordTransformations : GTLRObject
+
+/** Transform the record by applying various field transformations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldTransformation *> *fieldTransformations;
+
+/**
+ *  Configuration defining which records get suppressed entirely. Records that
+ *  match any suppression rule are omitted from the output [optional].
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1RecordSuppression *> *recordSuppressions;
+
+@end
+
+
+/**
+ *  Redact a given value. For example, if used with an `InfoTypeTransformation`
+ *  transforming PHONE_NUMBER, and input 'My phone number is 206-555-0123', the
+ *  output would be 'My phone number is '.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RedactConfig : GTLRObject
 @end
 
 
@@ -1155,6 +2315,54 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  Replace each input value with a given `Value`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1ReplaceValueConfig : GTLRObject
+
+/** Value to replace it with. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *newValue NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Replace each matching finding with the name of the info_type.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1ReplaceWithInfoTypeConfig : GTLRObject
+@end
+
+
+/**
+ *  Metadata returned within GetOperation for risk analysis.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationMetadata : GTLRObject
+
+/** The time which this request was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Privacy metric to compute. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric *requestedPrivacyMetric;
+
+/** Input dataset to compute metrics over. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *requestedSourceTable;
+
+@end
+
+
+/**
+ *  Result of a risk analysis operation request.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationResult : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult *categoricalStatsResult;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult *kAnonymityResult;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult *lDiversityResult;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult *numericalStatsResult;
+
+@end
+
+
+/**
  *  GTLRDLP_GooglePrivacyDlpV2beta1Row
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1Row : GTLRObject
@@ -1182,6 +2390,41 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  A collection that informs the user the number of times a particular
+ *  `TransformationResultCode` and error details occurred.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1SummaryResult : GTLRObject
+
+/**
+ *  code
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_Error Value
+ *        "ERROR"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_Success Value
+ *        "SUCCESS"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1SummaryResult_Code_TransformationResultCodeUnspecified
+ *        Value "TRANSFORMATION_RESULT_CODE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  count
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  A place for warnings or errors to show up if a transformation didn't
+ *  work as expected.
+ */
+@property(nonatomic, copy, nullable) NSString *details;
+
+@end
+
+
+/**
  *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1Table : GTLRObject
@@ -1203,6 +2446,100 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowIndex;
+
+@end
+
+
+/**
+ *  For use with `Date`, `Timestamp`, and `TimeOfDay`, extract or preserve a
+ *  portion of the value.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig : GTLRObject
+
+/**
+ *  partToExtract
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_DayOfMonth
+ *        [1-31] (Value: "DAY_OF_MONTH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_DayOfWeek
+ *        [1-7] (Value: "DAY_OF_WEEK")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_HourOfDay
+ *        [0-24] (Value: "HOUR_OF_DAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Month
+ *        [1-12] (Value: "MONTH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_TimePartUnspecified
+ *        Value "TIME_PART_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_WeekOfYear
+ *        [1-52] (Value: "WEEK_OF_YEAR")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Year
+ *        [000-9999] (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *partToExtract;
+
+@end
+
+
+/**
+ *  Summary of a single tranformation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1TransformationSummary : GTLRObject
+
+/** Set if the transformation was limited to a specific FieldId. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+/**
+ *  The field transformation that was applied. This list will contain
+ *  multiple only in the case of errors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldTransformation *> *fieldTransformations;
+
+/** Set if the transformation was limited to a specific info_type. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
+
+/** The specific suppression option these stats apply to. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RecordSuppression *recordSuppress;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1SummaryResult *> *results;
+
+/** The specific transformation these stats apply to. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrimitiveTransformation *transformation;
+
+@end
+
+
+/**
+ *  Use this to have a random data crypto key generated.
+ *  It will be discarded after the operation/request finishes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1TransientCryptoKey : GTLRObject
+
+/**
+ *  Name of the key. [required]
+ *  This is an arbitrary string used to differentiate different keys.
+ *  A unique key is generated per name: two separate `TransientCryptoKey`
+ *  protos share the same generated key if their names are the same.
+ *  When the data crypto key is generated, this name is not used in any way
+ *  (repeating the api call will result in a different key being generated).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Using raw keys is prone to security risks due to accidentally
+ *  leaking the key. Choose another type of key if possible.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1UnwrappedCryptoKey : GTLRObject
+
+/**
+ *  The AES 128/192/256 bit key. [required]
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 
@@ -1238,6 +2575,24 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @property(nonatomic, copy, nullable) NSString *stringValue;
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeTimeOfDay *timeValue;
+
+@end
+
+
+/**
+ *  A value of a field, including its frequency.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency : GTLRObject
+
+/**
+ *  How many times the value is contained in the field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** A value contained in the field in question. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *value;
 
 @end
 

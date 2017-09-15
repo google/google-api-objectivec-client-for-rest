@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeSurveysUserinfoEmail = @"https://www.googleapis.c
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"surveys/v2/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/surveys/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

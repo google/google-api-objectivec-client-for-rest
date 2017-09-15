@@ -36,6 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform;
 /**
+ *  Authorization scope: Manage your source code repositories
+ *
+ *  Value "https://www.googleapis.com/auth/source.full_control"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl;
+/**
  *  Authorization scope: View the contents of your source code repositories
  *
  *  Value "https://www.googleapis.com/auth/source.read_only"

@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeGroupsMigrationAppsGroupsMigration = @"https://ww
     self.servicePath = @"groups/v1/groups/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/groupsmigration/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -21,7 +21,9 @@
 #endif
 
 @class GTLRDLP_GoogleLongrunningCancelOperationRequest;
+@class GTLRDLP_GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest;
+@class GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InspectContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta1RedactContentRequest;
 
@@ -39,6 +41,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  De-identifies potentially sensitive info from a list of strings.
+ *  This method has limits on input size and output size.
+ *
+ *  Method: dlp.content.deidentify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ContentDeidentify : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForContentDeidentifyWithObject:]
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentResponse.
+ *
+ *  De-identifies potentially sensitive info from a list of strings.
+ *  This method has limits on input size and output size.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest
+ *    to include in the query.
+ *
+ *  @returns GTLRDLPQuery_ContentDeidentify
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest *)object;
 
 @end
 
@@ -95,6 +125,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRDLPQuery_ContentRedact
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1RedactContentRequest *)object;
+
+@end
+
+/**
+ *  Schedules a job to compute risk analysis metrics over content in a Google
+ *  Cloud Platform repository.
+ *
+ *  Method: dlp.dataSource.analyze
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_DataSourceAnalyze : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForDataSourceAnalyzeWithObject:]
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleLongrunningOperation.
+ *
+ *  Schedules a job to compute risk analysis metrics over content in a Google
+ *  Cloud Platform repository.
+ *
+ *  @param object The @c
+ *    GTLRDLP_GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest to include in
+ *    the query.
+ *
+ *  @returns GTLRDLPQuery_DataSourceAnalyze
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest *)object;
 
 @end
 
@@ -275,18 +334,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Restricts findings to items that match. Supports info_type and likelihood.
- *  <p>Examples:<br/>
- *  <li>info_type=EMAIL_ADDRESS
- *  <li>info_type=PHONE_NUMBER,EMAIL_ADDRESS
- *  <li>likelihood=VERY_LIKELY
- *  <li>likelihood=VERY_LIKELY,LIKELY
- *  <li>info_type=EMAIL_ADDRESS,likelihood=VERY_LIKELY,LIKELY
+ *  Examples:
+ *  - info_type=EMAIL_ADDRESS
+ *  - info_type=PHONE_NUMBER,EMAIL_ADDRESS
+ *  - likelihood=VERY_LIKELY
+ *  - likelihood=VERY_LIKELY,LIKELY
+ *  - info_type=EMAIL_ADDRESS,likelihood=VERY_LIKELY,LIKELY
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Identifier of the results set returned as metadata of
- *  the longrunning operation created by a call to CreateInspectOperation.
+ *  the longrunning operation created by a call to InspectDataSource.
  *  Should be in the format of `inspect/results/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -310,10 +369,144 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns list of results for given inspect operation result set id.
  *
  *  @param name Identifier of the results set returned as metadata of
- *    the longrunning operation created by a call to CreateInspectOperation.
+ *    the longrunning operation created by a call to InspectDataSource.
  *    Should be in the format of `inspect/results/{id}`.
  *
  *  @returns GTLRDLPQuery_InspectResultsFindingsList
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Cancels an operation. Use the get method to check whether the cancellation
+ *  succeeded or whether the operation completed despite cancellation.
+ *
+ *  Method: dlp.riskAnalysis.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_RiskAnalysisOperationsCancel : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForRiskAnalysisOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Cancels an operation. Use the get method to check whether the cancellation
+ *  succeeded or whether the operation completed despite cancellation.
+ *
+ *  @param object The @c GTLRDLP_GoogleLongrunningCancelOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @returns GTLRDLPQuery_RiskAnalysisOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  This method is not supported and the server returns `UNIMPLEMENTED`.
+ *
+ *  Method: dlp.riskAnalysis.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_RiskAnalysisOperationsDelete : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForRiskAnalysisOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  This method is not supported and the server returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @returns GTLRDLPQuery_RiskAnalysisOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: dlp.riskAnalysis.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_RiskAnalysisOperationsGet : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForRiskAnalysisOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @returns GTLRDLPQuery_RiskAnalysisOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch the list of long running operations.
+ *
+ *  Method: dlp.riskAnalysis.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_RiskAnalysisOperationsList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForRiskAnalysisOperationsListWithname:]
+
+/** This parameter supports filtering by done, ie done=true or done=false. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The list page size. The max allowed value is 256 and default is 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleLongrunningListOperationsResponse.
+ *
+ *  Fetch the list of long running operations.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @returns GTLRDLPQuery_RiskAnalysisOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

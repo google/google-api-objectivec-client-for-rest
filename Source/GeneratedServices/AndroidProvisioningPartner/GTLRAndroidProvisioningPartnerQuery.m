@@ -4,7 +4,7 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Automates reseller integration into Zero Touch Provisioning by assigning
+//   Automates reseller integration into zero-touch enrollment by assigning
 //   devices to customers and creating device reports.
 // Documentation:
 //   https://developers.google.com/zero-touch/
@@ -33,6 +33,31 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAndroidProvisioningPartner_Operation class];
   query.loggingName = @"androiddeviceprovisioning.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_CreateCustomerRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers";
+  GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidProvisioningPartner_Company class];
+  query.loggingName = @"androiddeviceprovisioning.partners.customers.create";
   return query;
 }
 

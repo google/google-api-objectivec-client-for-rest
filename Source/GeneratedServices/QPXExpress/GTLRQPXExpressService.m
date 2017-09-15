@@ -18,7 +18,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"qpxExpress/v1/trips/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/qpxExpress/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

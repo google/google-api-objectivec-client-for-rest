@@ -58,6 +58,7 @@
 @class GTLRPeopleService_Status_Details_Item;
 @class GTLRPeopleService_Tagline;
 @class GTLRPeopleService_Url;
+@class GTLRPeopleService_UserDefined;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1302,6 +1303,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's associated URLs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Url *> *urls;
 
+/** The person's user defined data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_UserDefined *> *userDefined;
+
 @end
 
 
@@ -1435,6 +1439,16 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  help others recognize the person.
  */
 @interface GTLRPeopleService_Photo : GTLRObject
+
+/**
+ *  True if the photo is a default photo;
+ *  false if the photo is a user-provided photo.
+ *
+ *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultProperty;
 
 /** Metadata about the photo. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
@@ -1804,6 +1818,23 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** The URL. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Arbitrary user data that is populated by the end users.
+ */
+@interface GTLRPeopleService_UserDefined : GTLRObject
+
+/** The end user specified key of the user defined data. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Metadata about the user defined data. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
+
+/** The end user specified value of the user defined data. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end

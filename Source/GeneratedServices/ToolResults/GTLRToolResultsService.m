@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeToolResultsCloudPlatform = @"https://www.googleap
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"toolresults/v1beta3/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/toolresults/v1beta3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeCloudUserAccountsCloudUseraccountsReadonly = @"ht
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"clouduseraccounts/vm_alpha/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/clouduseraccounts/vm_alpha";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

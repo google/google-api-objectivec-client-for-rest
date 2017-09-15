@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopePlaycustomappAndroidpublisher = @"https://www.goo
     self.servicePath = @"playcustomapp/v1/accounts/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/playcustomapp/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeIdentityToolkitFirebase      = @"https://www.goog
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"identitytoolkit/v3/relyingparty/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/identitytoolkit/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

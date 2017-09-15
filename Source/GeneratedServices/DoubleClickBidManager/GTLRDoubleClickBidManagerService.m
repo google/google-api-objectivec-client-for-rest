@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeDoubleClickBidManager = @"https://www.googleapis.
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"doubleclickbidmanager/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/doubleclickbidmanager/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -14,6 +14,7 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl = @"https://www.googleapis.com/auth/source.full_control";
 NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly = @"https://www.googleapis.com/auth/source.read_only";
 NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite = @"https://www.googleapis.com/auth/source.read_write";
 

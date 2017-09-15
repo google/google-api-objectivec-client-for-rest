@@ -1086,6 +1086,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - User cancelled the subscription
  *  - Subscription was cancelled by the system, for example because of a billing
  *  problem
+ *  - Subscription was replaced with a new subscription
  *
  *  Uses NSNumber of intValue.
  */

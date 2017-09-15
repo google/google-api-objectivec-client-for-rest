@@ -309,7 +309,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_ChannelBannersInsert
 
-@dynamic onBehalfOfContentOwner;
+@dynamic channelId, onBehalfOfContentOwner;
 
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelBannerResource *)object
                uploadParameters:(GTLRUploadParameters *)uploadParameters {

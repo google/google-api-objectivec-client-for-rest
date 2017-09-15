@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeAppState = @"https://www.googleapis.com/auth/apps
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"appstate/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/appstate/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -312,6 +312,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
 /**
+ *  Whether the account should be deleted if the account has offers. Only
+ *  applicable if the method is delete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
  *  The ID of the managing account.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -4192,6 +4200,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_DeliveryTime *deliveryTime;
+
+/**
+ *  Minimum order value for this service. If set, indicates that customers will
+ *  have to spend at least this amount. All prices within a service must have
+ *  the same currency.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *minimumOrderValue;
 
 /**
  *  Free-form name of the service. Must be unique within target account.

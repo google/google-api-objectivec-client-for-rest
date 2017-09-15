@@ -976,12 +976,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder',
- *  'modifiedByMeTime', 'modifiedTime', 'name', 'quotaBytesUsed', 'recency',
- *  'sharedWithMeTime', 'starred', and 'viewedByMeTime'. Each key sorts
- *  ascending by default, but may be reversed with the 'desc' modifier. Example
- *  usage: ?orderBy=folder,modifiedTime desc,name. Please note that there is a
- *  current limitation for users with approximately one million files in which
- *  the requested sort order is ignored.
+ *  'modifiedByMeTime', 'modifiedTime', 'name', 'name_natural',
+ *  'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and
+ *  'viewedByMeTime'. Each key sorts ascending by default, but may be reversed
+ *  with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime
+ *  desc,name. Please note that there is a current limitation for users with
+ *  approximately one million files in which the requested sort order is
+ *  ignored.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

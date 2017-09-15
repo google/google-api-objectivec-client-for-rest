@@ -83,7 +83,7 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.expectedObjectClass = [GTLRMonitoring_CreateCollectdTimeSeriesResponse class];
   query.loggingName = @"monitoring.projects.collectdTimeSeries.create";
   return query;
 }

@@ -37,7 +37,6 @@
 @class GTLRCloudTrace_Status_Details_Item;
 @class GTLRCloudTrace_TimeEvent;
 @class GTLRCloudTrace_TimeEvents;
-@class GTLRCloudTrace_Trace;
 @class GTLRCloudTrace_TruncatableString;
 
 // Generated comments include content from the discovery document; avoid them
@@ -268,62 +267,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  The response message for the `ListSpans` method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "spans" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudTrace_ListSpansResponse : GTLRCollectionObject
-
-/**
- *  If defined, indicates that there might be more spans that match the
- *  request. Pass this as the value of `pageToken` in a subsequent request to
- *  retrieve additional spans.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The requested spans, if there are any in the specified trace.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Span *> *spans;
-
-@end
-
-
-/**
- *  The response message for the `ListTraces` method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "traces" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudTrace_ListTracesResponse : GTLRCollectionObject
-
-/**
- *  If there might be more results than those appearing in this response, then
- *  `next_page_token` is included. To get the next set of results, call this
- *  method again using the value of `next_page_token` as `page_token`.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  List of trace records returned.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Trace *> *traces;
-
-@end
-
-
-/**
  *  Binary module.
  */
 @interface GTLRCloudTrace_Module : GTLRObject
@@ -349,18 +292,18 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRCloudTrace_NetworkEvent : GTLRObject
 
 /**
+ *  The number of compressed bytes sent or received.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *compressedMessageSize;
+
+/**
  *  An identifier for the message, which must be unique in this span.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *messageId;
-
-/**
- *  The number of bytes sent or received.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *messageSize;
 
 /**
  *  For sent messages, this is the time at which the first bit was sent.
@@ -382,6 +325,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  *        type. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The number of uncompressed bytes sent or received.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncompressedMessageSize;
 
 @end
 
@@ -696,24 +646,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 
 /** A collection of `TimeEvent`s. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_TimeEvent *> *timeEvent;
-
-@end
-
-
-/**
- *  A trace describes how long it takes for an application to perform some
- *  operations. It consists of a set of spans, each representing
- *  an operation and including time information and operation details.
- */
-@interface GTLRCloudTrace_Trace : GTLRObject
-
-/**
- *  The resource name of the trace in the following format:
- *  projects/[PROJECT_ID]/traces/TRACE_ID is a unique identifier for a trace
- *  within a project.
- *  The ID is assigned when the trace is created.
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

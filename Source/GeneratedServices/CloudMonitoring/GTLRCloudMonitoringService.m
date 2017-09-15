@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeCloudMonitoringMonitoring    = @"https://www.goog
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"cloudmonitoring/v2beta2/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/cloudmonitoring/v2beta2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
