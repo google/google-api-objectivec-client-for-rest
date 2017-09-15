@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest;
+@class GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -107,6 +108,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
  */
 + (instancetype)queryWithDynamicLink:(NSString *)dynamicLink;
+
+@end
+
+/**
+ *  Get iOS strong/weak-match info for post-install attribution.
+ *
+ *  Method: firebasedynamiclinks.installAttribution
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
+ */
+@interface GTLRFirebaseDynamicLinksQuery_V1InstallAttribution : GTLRFirebaseDynamicLinksQuery
+// Previous library name was
+//   +[GTLQueryFirebaseDynamicLinks queryForInstallAttributionWithObject:]
+
+/**
+ *  Fetches a @c GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.
+ *
+ *  Get iOS strong/weak-match info for post-install attribution.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest to include in
+ *    the query.
+ *
+ *  @returns GTLRFirebaseDynamicLinksQuery_V1InstallAttribution
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest *)object;
 
 @end
 

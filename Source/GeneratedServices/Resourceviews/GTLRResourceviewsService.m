@@ -33,7 +33,7 @@ NSString * const kGTLRAuthScopeResourceviewsNdevCloudmanReadonly = @"https://www
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"resourceviews/v1beta2/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/resourceviews/v1beta2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

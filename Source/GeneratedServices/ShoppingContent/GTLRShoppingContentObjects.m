@@ -107,7 +107,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountsCustomBatchRequestEntry
-@dynamic account, accountId, batchId, merchantId, method, overwrite;
+@dynamic account, accountId, batchId, force, merchantId, method, overwrite;
 @end
 
 
@@ -1988,7 +1988,8 @@
 //
 
 @implementation GTLRShoppingContent_Service
-@dynamic active, currency, deliveryCountry, deliveryTime, name, rateGroups;
+@dynamic active, currency, deliveryCountry, deliveryTime, minimumOrderValue,
+         name, rateGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

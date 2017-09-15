@@ -328,6 +328,25 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @end
 
+@implementation GTLRBigqueryQuery_ProjectsGetServiceAccount
+
+@dynamic projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"projects/{projectId}/serviceAccount";
+  GTLRBigqueryQuery_ProjectsGetServiceAccount *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRBigquery_GetServiceAccountResponse class];
+  query.loggingName = @"bigquery.projects.getServiceAccount";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_ProjectsList
 
 @dynamic maxResults, pageToken;

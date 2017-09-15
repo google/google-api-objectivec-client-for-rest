@@ -840,10 +840,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** If provided, get source from this location in a Cloud Repo. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *repoSource;
 
-/**
- *  If provided, get the source from this location in in Google Cloud
- *  Storage.
- */
+/** If provided, get the source from this location in Google Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *storageSource;
 
 @end

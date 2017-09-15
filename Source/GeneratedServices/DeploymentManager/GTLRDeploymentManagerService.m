@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly = @"https:/
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"deploymentmanager/v2/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/deploymentmanager/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

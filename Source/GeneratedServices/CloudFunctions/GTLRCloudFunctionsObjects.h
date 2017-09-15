@@ -178,7 +178,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -280,6 +280,14 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *        Triggered by UpdateFunction call (Value: "UPDATE_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Version id of the function created or updated by an API call.
+ *  This field is only pupulated for Create and Update operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionId;
 
 @end
 

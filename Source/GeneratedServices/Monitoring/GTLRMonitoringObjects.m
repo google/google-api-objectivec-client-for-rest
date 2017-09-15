@@ -133,11 +133,39 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_CollectdPayloadError
+//
+
+@implementation GTLRMonitoring_CollectdPayloadError
+@dynamic error, index, valueErrors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"valueErrors" : [GTLRMonitoring_CollectdValueError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_CollectdValue
 //
 
 @implementation GTLRMonitoring_CollectdValue
 @dynamic dataSourceName, dataSourceType, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_CollectdValueError
+//
+
+@implementation GTLRMonitoring_CollectdValueError
+@dynamic error, index;
 @end
 
 
@@ -152,6 +180,24 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"collectdPayloads" : [GTLRMonitoring_CollectdPayload class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_CreateCollectdTimeSeriesResponse
+//
+
+@implementation GTLRMonitoring_CreateCollectdTimeSeriesResponse
+@dynamic payloadErrors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"payloadErrors" : [GTLRMonitoring_CollectdPayloadError class]
   };
   return map;
 }
@@ -546,6 +592,38 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRMonitoring_SourceContext
 @dynamic fileName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Status
+//
+
+@implementation GTLRMonitoring_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRMonitoring_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Status_Details_Item
+//
+
+@implementation GTLRMonitoring_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

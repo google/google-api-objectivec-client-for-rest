@@ -40,6 +40,26 @@
 
 @end
 
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
+
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/documents:analyzeEntitySentiment";
+  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse class];
+  query.loggingName = @"language.documents.analyzeEntitySentiment";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSentimentRequest *)object {

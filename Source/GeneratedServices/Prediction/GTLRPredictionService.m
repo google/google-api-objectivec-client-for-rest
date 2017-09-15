@@ -32,7 +32,7 @@ NSString * const kGTLRAuthScopePredictionDevstorageReadWrite   = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"prediction/v1.6/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/prediction/v1.6";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

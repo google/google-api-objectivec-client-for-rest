@@ -18,7 +18,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"spectrum/v1explorer/paws/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/spectrum/v1explorer";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeURLShortener = @"https://www.googleapis.com/auth/
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"urlshortener/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/urlshortener/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

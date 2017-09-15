@@ -101,6 +101,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppIncompatible = @"APP_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending = @"PENDING";
@@ -113,6 +114,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplian
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppIncompatible = @"APP_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending = @"PENDING";
@@ -651,7 +653,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Policy
-@dynamic addUserDisabled, adjustVolumeDisabled, applications,
+@dynamic addUserDisabled, adjustVolumeDisabled, applications, autoTimeRequired,
          blockApplicationsEnabled, cameraDisabled, complianceRules,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          factoryResetDisabled, frpAdminEmails, funDisabled,
@@ -660,7 +662,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          openNetworkConfiguration, passwordRequirements,
          persistentPreferredActivities, removeUserDisabled, safeBootDisabled,
          screenCaptureDisabled, statusBarDisabled, statusReportingSettings,
-         stayOnPluggedModes, systemUpdate, unmuteMicrophoneDisabled, version;
+         stayOnPluggedModes, systemUpdate, unmuteMicrophoneDisabled, version,
+         wifiConfigDisabled, wifiConfigsLockdownEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

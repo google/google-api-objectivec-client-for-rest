@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Transfer Service API (bigquerydatatransfer/v1)
+//   BigQuery Data Transfer API (bigquerydatatransfer/v1)
 // Description:
 //   Transfers data from partner SaaS applications to Google BigQuery on a
 //   scheduled, managed basis.
@@ -78,9 +78,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshTyp
 /**
  *  The data source won't support data auto refresh, which is default value.
  *
- *  Value: "NONE"
+ *  Value: "DATA_REFRESH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_None;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified;
 /**
  *  The data source supports data auto refresh, and runs will be scheduled
  *  for the past few days. Does not allow custom values to be set for each
@@ -161,51 +161,51 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRBigQueryDataTransfer_TransferConfig.status
+// GTLRBigQueryDataTransfer_TransferConfig.state
 
 /**
  *  Data transfer is cancelled.
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Cancelled;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled;
 /**
  *  Data transfer failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Failed;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
 /**
  *  Data transfer is inactive.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Inactive;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Inactive;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by
  *  data transfer backend.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Pending;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending;
 /**
  *  Data transfer is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Running;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
 /**
  *  Data transfer completed successsfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_Succeeded;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded;
 /**
- *  Status placeholder.
+ *  State placeholder.
  *
- *  Value: "TRANSFER_STATUS_UNSPECIFIED"
+ *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Status_TransferStatusUnspecified;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferMessage.severity
@@ -236,51 +236,51 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
-// GTLRBigQueryDataTransfer_TransferRun.status
+// GTLRBigQueryDataTransfer_TransferRun.state
 
 /**
  *  Data transfer is cancelled.
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Cancelled;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled;
 /**
  *  Data transfer failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Failed;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
 /**
  *  Data transfer is inactive.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Inactive;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Inactive;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by
  *  data transfer backend.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Pending;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending;
 /**
  *  Data transfer is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Running;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
 /**
  *  Data transfer completed successsfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Succeeded;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded;
 /**
- *  Status placeholder.
+ *  State placeholder.
  *
- *  Value: "TRANSFER_STATUS_UNSPECIFIED"
+ *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnspecified;
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified;
 
 /**
  *  A request to determine whether the user has valid credentials. This method
@@ -349,9 +349,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *        for the past few days. Allows custom values to be set for each
  *        transfer
  *        config. (Value: "CUSTOM_SLIDING_WINDOW")
- *    @arg @c kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_None The data
- *        source won't support data auto refresh, which is default value.
- *        (Value: "NONE")
+ *    @arg @c kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified
+ *        The data source won't support data auto refresh, which is default
+ *        value. (Value: "DATA_REFRESH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_SlidingWindow
  *        The data source supports data auto refresh, and runs will be scheduled
  *        for the past few days. Does not allow custom values to be set for each
@@ -400,6 +400,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  */
 @property(nonatomic, strong, nullable) NSNumber *manualRunsDisabled;
 
+/** The minimum interval between two consecutive scheduled runs. */
+@property(nonatomic, strong, nullable) GTLRDuration *minimumScheduleInterval;
+
 /** Data source resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -413,14 +416,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  e.g., https://www.googleapis.com/auth/bigquery
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
-
-/**
- *  The number of seconds to wait for a status update from the data source
- *  before BigQuery marks the transfer as failed.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *statusUpdateDeadlineSeconds;
 
 /**
  *  Specifies whether the data source supports a user defined schedule, or
@@ -455,6 +450,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *        "TRANSFER_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *transferType;
+
+/**
+ *  The number of seconds to wait for an update from the data source
+ *  before BigQuery marks the transfer as failed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updateDeadlineSeconds;
 
 @end
 
@@ -582,28 +585,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 
 
 /**
- *  A request to determine whether data transfer is enabled for the project.
- */
-@interface GTLRBigQueryDataTransfer_IsEnabledRequest : GTLRObject
-@end
-
-
-/**
- *  A response to indicate whether data transfer is enabled for the project.
- */
-@interface GTLRBigQueryDataTransfer_IsEnabledResponse : GTLRObject
-
-/**
- *  Indicates whether the project is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-@end
-
-
-/**
  *  Returns list of supported data sources and their metadata.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -626,7 +607,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  this token can be used as the
  *  `ListDataSourcesRequest.page_token`
  *  to request the next page of list results.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -672,13 +653,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  this token can be used as the
  *  `ListTransferConfigsRequest.page_token`
  *  to request the next page of list results.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The stored pipeline transfer configurations.
- *  \@OutputOnly
+ *  Output only.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -703,13 +684,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  this token can be used as the
  *  `GetTransferRunLogRequest.page_token`
  *  to request the next page of list results.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The stored pipeline transfer messages.
- *  \@OutputOnly
+ *  Output only.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -734,13 +715,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  this token can be used as the
  *  `ListTransferRunsRequest.page_token`
  *  to request the next page of list results.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The stored pipeline transfer runs.
- *  \@OutputOnly
+ *  Output only.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -811,10 +792,10 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 @interface GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest : GTLRObject
 
 /** End time of the range of transfer runs. */
-@property(nonatomic, strong, nullable) GTLRDateTime *rangeEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** Start time of the range of transfer runs. */
-@property(nonatomic, strong, nullable) GTLRDateTime *rangeStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -824,23 +805,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  */
 @interface GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse : GTLRObject
 
-/** The transfer runs that were created. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferRun *> *createdRuns;
-
-@end
-
-
-/**
- *  A request to set whether data transfer is enabled or disabled for a project.
- */
-@interface GTLRBigQueryDataTransfer_SetEnabledRequest : GTLRObject
-
-/**
- *  Whether data transfer should be enabled or disabled for the project.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
+/** The transfer runs that were scheduled. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferRun *> *runs;
 
 @end
 
@@ -870,7 +836,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 /**
  *  Region in which BigQuery dataset is located. Currently possible values are:
  *  "US" and "EU".
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *datasetRegion;
 
@@ -892,18 +858,18 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the transfer run.
- *  Transfer run names have the form
+ *  The resource name of the transfer config.
+ *  Transfer config names have the form
  *  `projects/{project_id}/transferConfigs/{config_id}`.
  *  Where `config_id` is usually a uuid, even though it is not
- *  guaranteed or required. The name is ignored when creating a transfer run.
+ *  guaranteed or required. The name is ignored when creating a transfer
+ *  config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Next time when data transfer will run. Output only. Applicable
- *  only for batch data transfers.
- *  \@OutputOnly
+ *  Next time when data transfer will run.
+ *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextRunTime;
 
@@ -927,39 +893,39 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 @property(nonatomic, copy, nullable) NSString *schedule;
 
 /**
- *  Status of the most recently updated transfer run.
- *  \@OutputOnly
+ *  State of the most recently updated transfer run.
+ *  Output only.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Cancelled Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled Data
  *        transfer is cancelled. (Value: "CANCELLED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Failed Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Failed Data
  *        transfer failed. (Value: "FAILED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Inactive Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Inactive Data
  *        transfer is inactive. (Value: "INACTIVE")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Pending Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Pending Data
  *        transfer is scheduled and is waiting to be picked up by
  *        data transfer backend. (Value: "PENDING")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Running Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Running Data
  *        transfer is in progress. (Value: "RUNNING")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_Succeeded Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded Data
  *        transfer completed successsfully. (Value: "SUCCEEDED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_Status_TransferStatusUnspecified
- *        Status placeholder. (Value: "TRANSFER_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified
+ *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Data transfer modification time. Ignored by server on input.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  GaiaID of the user on whose behalf transfer is done. Applicable only
+ *  Unique ID of the user on whose behalf transfer is done. Applicable only
  *  to data sources that do not support service accounts. When set to 0,
  *  the data source service account credentials are used.
- *  \@OutputOnly
+ *  Output only.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1017,13 +983,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 /**
  *  Region in which BigQuery dataset is located. Currently possible values are:
  *  "US" and "EU".
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *datasetRegion;
 
 /**
  *  Data source id.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
@@ -1033,7 +999,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 /**
  *  Time when transfer run ended. Parameter ignored by server for input
  *  requests.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1060,7 +1026,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  this is empty.
  *  NOTE: the system might choose to delay the schedule depending on the
  *  current load, so `schedule_time` doesn't always matches this.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -1070,42 +1036,44 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 /**
  *  Time when transfer run was started. Parameter ignored by server for input
  *  requests.
- *  \@OutputOnly
+ *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Data transfer run status. Ignored for input requests.
- *  \@OutputOnly
+ *  Data transfer run state. Ignored for input requests.
+ *  Output only.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Cancelled Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled Data
  *        transfer is cancelled. (Value: "CANCELLED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Failed Data transfer
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Failed Data transfer
  *        failed. (Value: "FAILED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Inactive Data
- *        transfer is inactive. (Value: "INACTIVE")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Pending Data transfer
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Inactive Data transfer
+ *        is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Pending Data transfer
  *        is scheduled and is waiting to be picked up by
  *        data transfer backend. (Value: "PENDING")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Running Data transfer
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Running Data transfer
  *        is in progress. (Value: "RUNNING")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_Succeeded Data
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded Data
  *        transfer completed successsfully. (Value: "SUCCEEDED")
- *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnspecified
- *        Status placeholder. (Value: "TRANSFER_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified
+ *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Last time the data transfer run status was updated.
- *  \@OutputOnly
+ *  Last time the data transfer run state was updated.
+ *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  The user id for this transfer run.
- *  \@OutputOnly
+ *  Unique ID of the user on whose behalf transfer is done. Applicable only
+ *  to data sources that do not support service accounts. When set to 0,
+ *  the data source service account credentials are used.
+ *  Output only.
  *
  *  Uses NSNumber of longLongValue.
  */

@@ -19,41 +19,6 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataRead = 
 NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCloudSourceRepositories_CloudAuditOptions.logName
-NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
-NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
-NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
-
-// GTLRCloudSourceRepositories_Condition.iam
-NSString * const kGTLRCloudSourceRepositories_Condition_Iam_Approver = @"APPROVER";
-NSString * const kGTLRCloudSourceRepositories_Condition_Iam_Attribution = @"ATTRIBUTION";
-NSString * const kGTLRCloudSourceRepositories_Condition_Iam_Authority = @"AUTHORITY";
-NSString * const kGTLRCloudSourceRepositories_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
-NSString * const kGTLRCloudSourceRepositories_Condition_Iam_NoAttr = @"NO_ATTR";
-
-// GTLRCloudSourceRepositories_Condition.op
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_Discharged = @"DISCHARGED";
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_Equals = @"EQUALS";
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_In  = @"IN";
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_NoOp = @"NO_OP";
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_NotEquals = @"NOT_EQUALS";
-NSString * const kGTLRCloudSourceRepositories_Condition_Op_NotIn = @"NOT_IN";
-
-// GTLRCloudSourceRepositories_Condition.sys
-NSString * const kGTLRCloudSourceRepositories_Condition_Sys_Ip = @"IP";
-NSString * const kGTLRCloudSourceRepositories_Condition_Sys_Name = @"NAME";
-NSString * const kGTLRCloudSourceRepositories_Condition_Sys_NoAttr = @"NO_ATTR";
-NSString * const kGTLRCloudSourceRepositories_Condition_Sys_Region = @"REGION";
-NSString * const kGTLRCloudSourceRepositories_Condition_Sys_Service = @"SERVICE";
-
-// GTLRCloudSourceRepositories_Rule.action
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_Allow = @"ALLOW";
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_Deny = @"DENY";
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_DenyWithLog = @"DENY_WITH_LOG";
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_Log  = @"LOG";
-NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudSourceRepositories_AuditConfig
@@ -97,7 +62,7 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 //
 
 @implementation GTLRCloudSourceRepositories_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -111,57 +76,25 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSourceRepositories_CloudAuditOptions
-//
-
-@implementation GTLRCloudSourceRepositories_CloudAuditOptions
-@dynamic logName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSourceRepositories_Condition
-//
-
-@implementation GTLRCloudSourceRepositories_Condition
-@dynamic iam, op, svc, sys, value, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSourceRepositories_CounterOptions
-//
-
-@implementation GTLRCloudSourceRepositories_CounterOptions
-@dynamic field, metric;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSourceRepositories_DataAccessOptions
-//
-
-@implementation GTLRCloudSourceRepositories_DataAccessOptions
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSourceRepositories_Empty
 //
 
 @implementation GTLRCloudSourceRepositories_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Expr
+//
+
+@implementation GTLRCloudSourceRepositories_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -189,16 +122,6 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSourceRepositories_LogConfig
-//
-
-@implementation GTLRCloudSourceRepositories_LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSourceRepositories_MirrorConfig
 //
 
@@ -213,7 +136,7 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 //
 
 @implementation GTLRCloudSourceRepositories_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic auditConfigs, bindings, ETag, iamOwned, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -222,8 +145,7 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLRCloudSourceRepositories_AuditConfig class],
-    @"bindings" : [GTLRCloudSourceRepositories_Binding class],
-    @"rules" : [GTLRCloudSourceRepositories_Rule class]
+    @"bindings" : [GTLRCloudSourceRepositories_Binding class]
   };
   return map;
 }
@@ -238,37 +160,6 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 
 @implementation GTLRCloudSourceRepositories_Repo
 @dynamic mirrorConfig, name, size, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSourceRepositories_Rule
-//
-
-@implementation GTLRCloudSourceRepositories_Rule
-@dynamic action, conditions, descriptionProperty, inProperty, logConfig, notIn,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"inProperty" : @"in"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudSourceRepositories_Condition class],
-    @"in" : [NSString class],
-    @"logConfig" : [GTLRCloudSourceRepositories_LogConfig class],
-    @"notIn" : [NSString class],
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

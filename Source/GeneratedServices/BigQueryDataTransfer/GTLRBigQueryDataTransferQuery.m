@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Transfer Service API (bigquerydatatransfer/v1)
+//   BigQuery Data Transfer API (bigquerydatatransfer/v1)
 // Description:
 //   Transfers data from partner SaaS applications to Google BigQuery on a
 //   scheduled, managed basis.
@@ -26,14 +26,14 @@ NSString * const kGTLRBigQueryDataTransferMessageTypesWarning  = @"WARNING";
 NSString * const kGTLRBigQueryDataTransferRunAttemptLatest     = @"LATEST";
 NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified = @"RUN_ATTEMPT_UNSPECIFIED";
 
-// statuses
-NSString * const kGTLRBigQueryDataTransferStatusesCancelled    = @"CANCELLED";
-NSString * const kGTLRBigQueryDataTransferStatusesFailed       = @"FAILED";
-NSString * const kGTLRBigQueryDataTransferStatusesInactive     = @"INACTIVE";
-NSString * const kGTLRBigQueryDataTransferStatusesPending      = @"PENDING";
-NSString * const kGTLRBigQueryDataTransferStatusesRunning      = @"RUNNING";
-NSString * const kGTLRBigQueryDataTransferStatusesSucceeded    = @"SUCCEEDED";
-NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"TRANSFER_STATUS_UNSPECIFIED";
+// states
+NSString * const kGTLRBigQueryDataTransferStatesCancelled      = @"CANCELLED";
+NSString * const kGTLRBigQueryDataTransferStatesFailed         = @"FAILED";
+NSString * const kGTLRBigQueryDataTransferStatesInactive       = @"INACTIVE";
+NSString * const kGTLRBigQueryDataTransferStatesPending        = @"PENDING";
+NSString * const kGTLRBigQueryDataTransferStatesRunning        = @"RUNNING";
+NSString * const kGTLRBigQueryDataTransferStatesSucceeded      = @"SUCCEEDED";
+NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRANSFER_STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -103,31 +103,6 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListDataSourcesResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.dataSources.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryDataTransferQuery_ProjectsIsEnabled
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_IsEnabledRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:isEnabled";
-  GTLRBigQueryDataTransferQuery_ProjectsIsEnabled *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryDataTransfer_IsEnabledResponse class];
-  query.loggingName = @"bigquerydatatransfer.projects.isEnabled";
   return query;
 }
 
@@ -215,31 +190,6 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
 
 @end
 
-@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsIsEnabled
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_IsEnabledRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:isEnabled";
-  GTLRBigQueryDataTransferQuery_ProjectsLocationsIsEnabled *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryDataTransfer_IsEnabledResponse class];
-  query.loggingName = @"bigquerydatatransfer.projects.locations.isEnabled";
-  return query;
-}
-
-@end
-
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -254,31 +204,6 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
   query.name = name;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListLocationsResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.locations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsSetEnabled
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_SetEnabledRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:setEnabled";
-  GTLRBigQueryDataTransferQuery_ProjectsLocationsSetEnabled *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Empty class];
-  query.loggingName = @"bigquerydatatransfer.projects.locations.setEnabled";
   return query;
 }
 
@@ -438,11 +363,11 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsList
 
-@dynamic pageSize, pageToken, parent, runAttempt, statuses;
+@dynamic pageSize, pageToken, parent, runAttempt, states;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"statuses" : [NSString class]
+    @"states" : [NSString class]
   };
   return map;
 }
@@ -508,31 +433,6 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryDataTransferQuery_ProjectsSetEnabled
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_SetEnabledRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:setEnabled";
-  GTLRBigQueryDataTransferQuery_ProjectsSetEnabled *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Empty class];
-  query.loggingName = @"bigquerydatatransfer.projects.setEnabled";
   return query;
 }
 
@@ -692,11 +592,11 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsList
 
-@dynamic pageSize, pageToken, parent, runAttempt, statuses;
+@dynamic pageSize, pageToken, parent, runAttempt, states;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"statuses" : [NSString class]
+    @"states" : [NSString class]
   };
   return map;
 }

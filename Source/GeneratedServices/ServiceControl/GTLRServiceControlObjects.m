@@ -195,7 +195,21 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuthenticationInfo
-@dynamic authoritySelector, principalEmail;
+@dynamic authoritySelector, principalEmail, thirdPartyPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal
+//
+
+@implementation GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -476,13 +490,13 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 @implementation GTLRServiceControl_Operation
 @dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
          operationId, operationName, quotaProperties, resourceContainer,
-         resourceContainers, startTime, userLabels;
+         resources, startTime, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"logEntries" : [GTLRServiceControl_LogEntry class],
     @"metricValueSets" : [GTLRServiceControl_MetricValueSet class],
-    @"resourceContainers" : [NSString class]
+    @"resources" : [GTLRServiceControl_ResourceInfo class]
   };
   return map;
 }
@@ -715,6 +729,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 @implementation GTLRServiceControl_RequestMetadata
 @dynamic callerIp, callerSuppliedUserAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ResourceInfo
+//
+
+@implementation GTLRServiceControl_ResourceInfo
+@dynamic resourceContainer, resourceName;
 @end
 
 

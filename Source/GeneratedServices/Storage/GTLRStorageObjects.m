@@ -548,7 +548,7 @@
 //
 
 @implementation GTLRStorage_Policy_Bindings_Item
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

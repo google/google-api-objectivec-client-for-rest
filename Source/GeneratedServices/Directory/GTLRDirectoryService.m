@@ -55,7 +55,7 @@ NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity  = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"admin/directory/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/admin/directory_v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -66,7 +66,6 @@
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
-@class GTLRDataflow_LogBucket;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
@@ -96,6 +95,7 @@
 @class GTLRDataflow_SeqMapTask_UserFn;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
 @class GTLRDataflow_ShellTask;
+@class GTLRDataflow_SideInputId;
 @class GTLRDataflow_SideInputInfo;
 @class GTLRDataflow_SideInputInfo_Kind;
 @class GTLRDataflow_Sink;
@@ -150,6 +150,8 @@
 @class GTLRDataflow_WorkerPool_Metadata;
 @class GTLRDataflow_WorkerPool_PoolArgs;
 @class GTLRDataflow_WorkerSettings;
+@class GTLRDataflow_WorkerShutdownNotice;
+@class GTLRDataflow_WorkerShutdownNoticeResponse;
 @class GTLRDataflow_WorkItem;
 @class GTLRDataflow_WorkItemServiceState;
 @class GTLRDataflow_WorkItemServiceState_HarnessData;
@@ -1491,6 +1493,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
+/** The GroupByKey step name from the original graph. */
+@property(nonatomic, copy, nullable) NSString *originalShuffleStepName;
+
 /**
  *  System generated name of the original step in the user's graph, before
  *  optimization.
@@ -1512,6 +1517,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        a value. (Value: "VALUE")
  */
 @property(nonatomic, copy, nullable) NSString *portion;
+
+/**
+ *  ID of a side input being read from/written to. Side inputs are identified
+ *  by a pair of (reader, input_index). The reader is usually equal to the
+ *  original name, but it may be different, if a ParDo emits it's Iterator /
+ *  Map side input object.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_SideInputId *sideInput;
 
 /** ID of a particular worker. */
 @property(nonatomic, copy, nullable) NSString *workerId;
@@ -1864,12 +1877,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The count of the number of elements present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *count;
-
-/**
- *  (Optional) Logarithmic histogram of values.
- *  Each log may be in no more than one bucket. Order does not matter.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_LogBucket *> *logBuckets;
 
 /** The maximum value present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *max;
@@ -3033,35 +3040,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Bucket of values for Distribution's logarithmic histogram.
- */
-@interface GTLRDataflow_LogBucket : GTLRObject
-
-/**
- *  Number of values in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  floor(log2(value)); defined to be zero for nonpositive values.
- *  log(-1) = 0
- *  log(0) = 0
- *  log(1) = 0
- *  log(2) = 1
- *  log(3) = 1
- *  log(4) = 2
- *  log(5) = 2
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *log;
-
-@end
-
-
-/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -3915,6 +3893,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exitCode;
+
+@end
+
+
+/**
+ *  Uniquely identifies a side input.
+ */
+@interface GTLRDataflow_SideInputId : GTLRObject
+
+/** The step that receives and usually consumes this side input. */
+@property(nonatomic, copy, nullable) NSString *declaringStepName;
+
+/**
+ *  The index of the side input, from the list of non_parallel_inputs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputIndex;
 
 @end
 
@@ -5066,6 +5062,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Resource metrics reported by workers. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ResourceUtilizationReport *workerMetrics;
 
+/** Shutdown notice by workers. */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerShutdownNotice *workerShutdownNotice;
+
 @end
 
 
@@ -5176,6 +5175,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Service's response to reporting worker metrics (currently empty). */
 @property(nonatomic, strong, nullable) GTLRDataflow_ResourceUtilizationReportResponse *workerMetricsResponse;
+
+/** Service's response to shutdown notice (currently empty). */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerShutdownNoticeResponse *workerShutdownNoticeResponse;
 
 @end
 
@@ -5435,6 +5437,30 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Shutdown notification from workers. This is to be sent by the shutdown
+ *  script of the worker VM so that the backend knows that the VM is being
+ *  shut down.
+ */
+@interface GTLRDataflow_WorkerShutdownNotice : GTLRObject
+
+/**
+ *  Optional reason to be attached for the shutdown notice.
+ *  For example: "PREEMPTION" would indicate the VM is being shut down because
+ *  of preemption. Other possible reasons may be added in the future.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Service-side response to WorkerMessage issuing shutdown notice.
+ */
+@interface GTLRDataflow_WorkerShutdownNoticeResponse : GTLRObject
+@end
+
+
+/**
  *  WorkItem represents basic information about a WorkItem to be executed
  *  in the cloud.
  */
@@ -5661,6 +5687,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  P' and R' must be together equivalent to P, etc.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *stopPosition;
+
+/**
+ *  Total time the worker spent being throttled by external systems.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalThrottlerWaitTimeSeconds;
 
 /** Identifies the WorkItem. */
 @property(nonatomic, copy, nullable) NSString *workItemId;

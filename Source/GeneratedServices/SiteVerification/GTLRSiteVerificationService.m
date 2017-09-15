@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeSiteVerificationVerifyOnly = @"https://www.google
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"siteVerification/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/siteVerification/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

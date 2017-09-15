@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeAdSenseReadonly = @"https://www.googleapis.com/au
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"adsense/v1.4/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/adsense/v1.4";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

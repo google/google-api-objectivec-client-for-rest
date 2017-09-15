@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeTaskqueueConsumer = @"https://www.googleapis.com/
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"taskqueue/v1beta2/projects/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/taskqueue/v1beta2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

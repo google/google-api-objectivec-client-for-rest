@@ -676,6 +676,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
 
+/** List of permission IDs for users with access to this file. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissionIds;
+
 /**
  *  The full list of permissions for the file. This is only available if the
  *  requesting user can share the file. Not populated for Team Drive files.

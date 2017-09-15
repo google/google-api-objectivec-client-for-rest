@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeAndroidPublisher = @"https://www.googleapis.com/a
     self.servicePath = @"androidpublisher/v2/applications/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/androidpublisher/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

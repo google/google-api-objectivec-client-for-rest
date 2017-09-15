@@ -44,12 +44,6 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTraceCloudPlatform;
  *  Value "https://www.googleapis.com/auth/trace.append"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTraceTraceAppend;
-/**
- *  Authorization scope: Read Trace data for a project or application
- *
- *  Value "https://www.googleapis.com/auth/trace.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTraceTraceReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudTraceService

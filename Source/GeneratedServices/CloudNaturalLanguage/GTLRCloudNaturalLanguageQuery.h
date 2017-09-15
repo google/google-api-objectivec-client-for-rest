@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest;
+@class GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest;
 @class GTLRCloudNaturalLanguage_AnalyzeSentimentRequest;
 @class GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest;
 @class GTLRCloudNaturalLanguage_AnnotateTextRequest;
@@ -70,6 +71,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest *)object;
+
+@end
+
+/**
+ *  Finds entities, similar to AnalyzeEntities in the text and analyzes
+ *  sentiment associated with each entity and its mentions.
+ *
+ *  Method: language.documents.analyzeEntitySentiment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
+ */
+@interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment : GTLRCloudNaturalLanguageQuery
+// Previous library name was
+//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeEntitySentimentWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse.
+ *
+ *  Finds entities, similar to AnalyzeEntities in the text and analyzes
+ *  sentiment associated with each entity and its mentions.
+ *
+ *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest
+ *    to include in the query.
+ *
+ *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
+ */
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object;
 
 @end
 

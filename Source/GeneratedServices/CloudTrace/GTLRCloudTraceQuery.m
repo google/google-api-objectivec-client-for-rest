@@ -46,44 +46,6 @@
 
 @end
 
-@implementation GTLRCloudTraceQuery_ProjectsTracesList
-
-@dynamic endTime, filter, orderBy, pageSize, pageToken, parent, startTime;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2/{+parent}/traces";
-  GTLRCloudTraceQuery_ProjectsTracesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudTrace_ListTracesResponse class];
-  query.loggingName = @"cloudtrace.projects.traces.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudTraceQuery_ProjectsTracesListSpans
-
-@dynamic pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2/{+parent}:listSpans";
-  GTLRCloudTraceQuery_ProjectsTracesListSpans *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudTrace_ListSpansResponse class];
-  query.loggingName = @"cloudtrace.projects.traces.listSpans";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudTraceQuery_ProjectsTracesSpansCreate
 
 @dynamic name;

@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeCalendarReadonly = @"https://www.googleapis.com/a
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"calendar/v3/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/calendar/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

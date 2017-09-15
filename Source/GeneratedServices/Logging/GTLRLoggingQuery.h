@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRLogging_ListLogEntriesRequest;
+@class GTLRLogging_LogExclusion;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
 @class GTLRLogging_WriteLogEntriesRequest;
@@ -37,6 +38,254 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  Method: logging.billingAccounts.exclusions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsExclusionsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsExclusionsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource in which to create the exclusion:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ *  Examples: "projects/my-logging-project", "organizations/123456789".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param parent Required. The parent resource in which to create the
+ *    exclusion:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsExclusionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an exclusion.
+ *
+ *  Method: logging.billingAccounts.exclusions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsExclusionsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsExclusionsDeleteWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion to delete:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion to delete:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsExclusionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the description of an exclusion.
+ *
+ *  Method: logging.billingAccounts.exclusions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsExclusionsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsExclusionsGetWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Gets the description of an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsExclusionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  Method: logging.billingAccounts.exclusions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsExclusionsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsExclusionsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose exclusions are to be listed.
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListExclusionsResponse.
+ *
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  @param parent Required. The parent resource whose exclusions are to be
+ *    listed.
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsExclusionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  Method: logging.billingAccounts.exclusions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsExclusionsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsExclusionsPatchWithObject:name:]
+
+/**
+ *  Required. The resource name of the exclusion to update:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A nonempty list of fields to change in the existing exclusion. New
+ *  values for the fields are taken from the corresponding fields in the
+ *  LogExclusion included in this request. Fields not mentioned in update_mask
+ *  are not changed and are ignored in the request.For example, to change the
+ *  filter and description of an exclusion, specify an update_mask of
+ *  "filter,description".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param name Required. The resource name of the exclusion to update:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsExclusionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -151,10 +400,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.billingAccounts.sinks.create
  *
@@ -193,10 +441,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -363,9 +610,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.billingAccounts.sinks.patch
  *
@@ -402,12 +649,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -427,9 +689,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.billingAccounts.sinks.update
  *
@@ -466,12 +728,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -521,7 +798,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes log entries to Stackdriver Logging.
+ *  Log entry resourcesWrites log entries to Stackdriver Logging. This API
+ *  method is the only way to send log entries to Stackdriver Logging. This
+ *  method is used, directly or indirectly, by the Stackdriver Logging agent
+ *  (fluentd) and all logging libraries configured to use Stackdriver Logging.
  *
  *  Method: logging.entries.write
  *
@@ -537,7 +817,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_WriteLogEntriesResponse.
  *
- *  Writes log entries to Stackdriver Logging.
+ *  Log entry resourcesWrites log entries to Stackdriver Logging. This API
+ *  method is the only way to send log entries to Stackdriver Logging. This
+ *  method is used, directly or indirectly, by the Stackdriver Logging agent
+ *  (fluentd) and all logging libraries configured to use Stackdriver Logging.
  *
  *  @param object The @c GTLRLogging_WriteLogEntriesRequest to include in the
  *    query.
@@ -545,6 +828,254 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRLoggingQuery_EntriesWrite
  */
 + (instancetype)queryWithObject:(GTLRLogging_WriteLogEntriesRequest *)object;
+
+@end
+
+/**
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  Method: logging.folders.exclusions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersExclusionsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersExclusionsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource in which to create the exclusion:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ *  Examples: "projects/my-logging-project", "organizations/123456789".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param parent Required. The parent resource in which to create the
+ *    exclusion:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *
+ *  @returns GTLRLoggingQuery_FoldersExclusionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an exclusion.
+ *
+ *  Method: logging.folders.exclusions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersExclusionsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersExclusionsDeleteWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion to delete:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion to delete:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_FoldersExclusionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the description of an exclusion.
+ *
+ *  Method: logging.folders.exclusions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersExclusionsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersExclusionsGetWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Gets the description of an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_FoldersExclusionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  Method: logging.folders.exclusions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersExclusionsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersExclusionsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose exclusions are to be listed.
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListExclusionsResponse.
+ *
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  @param parent Required. The parent resource whose exclusions are to be
+ *    listed.
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *
+ *  @returns GTLRLoggingQuery_FoldersExclusionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  Method: logging.folders.exclusions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersExclusionsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersExclusionsPatchWithObject:name:]
+
+/**
+ *  Required. The resource name of the exclusion to update:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A nonempty list of fields to change in the existing exclusion. New
+ *  values for the fields are taken from the corresponding fields in the
+ *  LogExclusion included in this request. Fields not mentioned in update_mask
+ *  are not changed and are ignored in the request.For example, to change the
+ *  filter and description of an exclusion, specify an update_mask of
+ *  "filter,description".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param name Required. The resource name of the exclusion to update:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_FoldersExclusionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -659,10 +1190,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.folders.sinks.create
  *
@@ -701,10 +1231,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -871,9 +1400,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.folders.sinks.patch
  *
@@ -910,12 +1439,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -935,9 +1479,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.folders.sinks.update
  *
@@ -974,12 +1518,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1041,6 +1600,254 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  Method: logging.organizations.exclusions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsExclusionsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsExclusionsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource in which to create the exclusion:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ *  Examples: "projects/my-logging-project", "organizations/123456789".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param parent Required. The parent resource in which to create the
+ *    exclusion:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsExclusionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an exclusion.
+ *
+ *  Method: logging.organizations.exclusions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsExclusionsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsExclusionsDeleteWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion to delete:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion to delete:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsExclusionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the description of an exclusion.
+ *
+ *  Method: logging.organizations.exclusions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsExclusionsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsExclusionsGetWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Gets the description of an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsExclusionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  Method: logging.organizations.exclusions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsExclusionsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsExclusionsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose exclusions are to be listed.
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListExclusionsResponse.
+ *
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  @param parent Required. The parent resource whose exclusions are to be
+ *    listed.
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsExclusionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  Method: logging.organizations.exclusions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsExclusionsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsExclusionsPatchWithObject:name:]
+
+/**
+ *  Required. The resource name of the exclusion to update:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A nonempty list of fields to change in the existing exclusion. New
+ *  values for the fields are taken from the corresponding fields in the
+ *  LogExclusion included in this request. Fields not mentioned in update_mask
+ *  are not changed and are ignored in the request.For example, to change the
+ *  filter and description of an exclusion, specify an update_mask of
+ *  "filter,description".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param name Required. The resource name of the exclusion to update:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsExclusionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1155,10 +1962,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.organizations.sinks.create
  *
@@ -1197,10 +2003,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -1367,9 +2172,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.organizations.sinks.patch
  *
@@ -1406,12 +2211,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1431,9 +2251,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.organizations.sinks.update
  *
@@ -1470,12 +2290,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1490,6 +2325,254 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  Method: logging.projects.exclusions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsExclusionsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsExclusionsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource in which to create the exclusion:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ *  Examples: "projects/my-logging-project", "organizations/123456789".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Creates a new exclusion in a specified parent resource. Only log entries
+ *  belonging to that resource can be excluded. You can have up to 10 exclusions
+ *  in a resource.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param parent Required. The parent resource in which to create the
+ *    exclusion:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *
+ *  @returns GTLRLoggingQuery_ProjectsExclusionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an exclusion.
+ *
+ *  Method: logging.projects.exclusions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsExclusionsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsExclusionsDeleteWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion to delete:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion to delete:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_ProjectsExclusionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the description of an exclusion.
+ *
+ *  Method: logging.projects.exclusions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsExclusionsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsExclusionsGetWithname:]
+
+/**
+ *  Required. The resource name of an existing exclusion:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Gets the description of an exclusion.
+ *
+ *  @param name Required. The resource name of an existing exclusion:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_ProjectsExclusionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  Method: logging.projects.exclusions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsExclusionsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsExclusionsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose exclusions are to be listed.
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListExclusionsResponse.
+ *
+ *  Lists all the exclusions in a parent resource.
+ *
+ *  @param parent Required. The parent resource whose exclusions are to be
+ *    listed.
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *    "folders/[FOLDER_ID]"
+ *
+ *  @returns GTLRLoggingQuery_ProjectsExclusionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  Method: logging.projects.exclusions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsExclusionsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsExclusionsPatchWithObject:name:]
+
+/**
+ *  Required. The resource name of the exclusion to update:
+ *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A nonempty list of fields to change in the existing exclusion. New
+ *  values for the fields are taken from the corresponding fields in the
+ *  LogExclusion included in this request. Fields not mentioned in update_mask
+ *  are not changed and are ignored in the request.For example, to change the
+ *  filter and description of an exclusion, specify an update_mask of
+ *  "filter,description".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogExclusion.
+ *
+ *  Changes one or more properties of an existing exclusion.
+ *
+ *  @param object The @c GTLRLogging_LogExclusion to include in the query.
+ *  @param name Required. The resource name of the exclusion to update:
+ *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
+ *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *
+ *  @returns GTLRLoggingQuery_ProjectsExclusionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1808,10 +2891,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.projects.sinks.create
  *
@@ -1850,10 +2932,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the current
- *  time is outside the sink's start and end times or the sink's writer_identity
- *  is not permitted to write to the destination. A sink can export log entries
- *  only from the resource owning the sink.
+ *  export of newly-ingested log entries begins immediately, unless the sink's
+ *  writer_identity is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -2020,9 +3101,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.projects.sinks.patch
  *
@@ -2059,12 +3140,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -2084,9 +3180,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -2123,12 +3219,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
+ *  Optional. Field mask that specifies the fields in sink that need an update.
+ *  A sink field will be overwritten if, and only if, it is in the update mask.
+ *  name and output only fields cannot be updated.An empty updateMask is
+ *  temporarily treated as using the following mask for backwards compatibility
+ *  purposes: destination,filter,includeChildren At some point in the future,
+ *  behavior will be removed and specifying an empty updateMask will be an
+ *  error.For a detailed FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, filter,
- *  output_version_format, start_time, and end_time. The updated sink might also
- *  have a new writer_identity; see the unique_writer_identity field.
+ *  sink with values from the new sink: destination, and filter. The updated
+ *  sink might also have a new writer_identity; see the unique_writer_identity
+ *  field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,

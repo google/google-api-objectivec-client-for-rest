@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeFusionTablesReadonly = @"https://www.googleapis.c
     self.servicePath = @"fusiontables/v2/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/fusiontables/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

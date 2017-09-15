@@ -20,7 +20,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"webfonts/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/webfonts/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

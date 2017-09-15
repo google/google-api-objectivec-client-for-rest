@@ -27,6 +27,7 @@
 @class GTLRBigquery_DatasetList_Datasets_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item_Labels;
 @class GTLRBigquery_DatasetReference;
+@class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_ErrorProto;
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
@@ -561,6 +562,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_EncryptionConfiguration
+ */
+@interface GTLRBigquery_EncryptionConfiguration : GTLRObject
+
+/**
+ *  [Optional] Describes the Cloud KMS encryption key that will be used to
+ *  protect destination BigQuery table. The BigQuery Service Account associated
+ *  with your project requires access to this encryption key.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  GTLRBigquery_ErrorProto
  */
 @interface GTLRBigquery_ErrorProto : GTLRObject
@@ -940,6 +956,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_GetServiceAccountResponse
+ */
+@interface GTLRBigquery_GetServiceAccountResponse : GTLRObject
+
+/** The service account email address. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The resource type of the response. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  GTLRBigquery_GoogleSheetsOptions
  */
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
@@ -1177,6 +1207,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
+/** [Experimental] Custom encryption configuration (e.g., Cloud KMS keys). */
+@property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
+
 /** [Required] The destination table to load the data into. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
 
@@ -1367,6 +1400,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *defaultDataset;
 
+/** [Experimental] Custom encryption configuration (e.g., Cloud KMS keys). */
+@property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
+
 /**
  *  [Optional] Describes the table where the query results should be stored. If
  *  not present, a new table will be created to store the results. This property
@@ -1526,6 +1562,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  occur as one atomic update upon job completion.
  */
 @property(nonatomic, copy, nullable) NSString *createDisposition;
+
+/** [Experimental] Custom encryption configuration (e.g., Cloud KMS keys). */
+@property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
 
 /** [Required] The destination table */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
@@ -1753,6 +1792,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
+
+/**
+ *  [Output-only] Slot-milliseconds for the job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
 /**
  *  [Output-only, Experimental] Standard SQL only: list of undeclared query
@@ -2273,6 +2319,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** [Experimental] Custom encryption configuration (e.g., Cloud KMS keys). */
+@property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *encryptionConfiguration;
+
 /** [Output-only] A hash of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -2751,8 +2800,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *expirationMs;
 
 /**
+ *  [Experimental] [Optional] If not set, the table is partitioned by pseudo
+ *  column '_PARTITIONTIME'; if set, the table is partitioned by this field. The
+ *  field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE
+ *  or REQUIRED.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
  *  [Required] The only type supported is DAY, which will generate one partition
- *  per day based on data loading time.
+ *  per day.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

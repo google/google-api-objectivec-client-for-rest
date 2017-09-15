@@ -4,7 +4,7 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Automates reseller integration into Zero Touch Provisioning by assigning
+//   Automates reseller integration into zero-touch enrollment by assigning
 //   devices to customers and creating device reports.
 // Documentation:
 //   https://developers.google.com/zero-touch/
@@ -49,13 +49,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAndroidProvisioningPartner_ClaimDeviceRequest.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -65,13 +65,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -81,13 +81,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_Section
 // GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata.processingStatus
 
 /**
- *  In progress
+ *  In progress.
  *
  *  Value: "BATCH_PROCESS_IN_PROGRESS"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress;
 /**
- *  Pending
+ *  Pending.
  *
  *  Value: "BATCH_PROCESS_PENDING"
  */
@@ -111,13 +111,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
 // GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -127,13 +127,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerR
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -143,13 +143,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_Sectio
 // GTLRAndroidProvisioningPartner_PartnerUnclaim.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -172,20 +172,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType;
 /**
  *  Other error.
- *  Other error is we know/expect this error, but not having proper error
- *  code yet.
+ *  We know/expect this error, but there's no defined error code for the
+ *  error.
  *
  *  Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError;
 /**
- *  Permission denied
+ *  Permission denied.
  *
  *  Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied;
 /**
- *  This section is claimed by other company.
+ *  This section is claimed by another company.
  *
  *  Value: "SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS"
  */
@@ -198,13 +198,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess;
 /**
  *  Unknown error.
- *  Unknown error is we don't expect it here.
+ *  We don't expect this error to occur here.
  *
  *  Value: "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError;
 /**
- *  Invalid code. Shouldn' be used.
+ *  Invalid code. Shouldn't be used.
  *
  *  Value: "SINGLE_DEVICE_STATUS_UNSPECIFIED"
  */
@@ -214,13 +214,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
 // GTLRAndroidProvisioningPartner_UnclaimDeviceRequest.sectionType
 
 /**
- *  Unspecified
+ *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch
+ *  Zero touch section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -242,13 +242,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  Section to claim
+ *  The section to claim.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -261,15 +261,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_ClaimDeviceResponse : GTLRObject
 
 /**
- *  the device id of the claimed device.
+ *  The device ID of the claimed device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
 /**
- *  the resource name of the device in
- *  'partners/[PARTNER_ID]/devices/[DEVICE_ID]'.
+ *  The resource name of the device in the format
+ *  `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *deviceName;
 
@@ -281,7 +281,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_ClaimDevicesRequest : GTLRObject
 
-/** list of claims. */
+/** List of claims. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_PartnerClaim *> *claims;
 
 @end
@@ -293,29 +293,32 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
- *  Admin email.
- *  Admins will be able to operate on the portal.
- *  This field is a WRITE-only field at creation time.
+ *  Admin emails.
+ *  Admins are able to operate on the portal.
+ *  This field is a write-only field at creation time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
 
 /**
- *  company id
+ *  Company ID.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *companyId;
 
-/** company name */
+/** Company name. */
 @property(nonatomic, copy, nullable) NSString *companyName;
 
-/** REST Resource name. */
+/**
+ *  The API resource name of the company in the format
+ *  `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Owner email.
- *  Owner is able to operate on the portal, and modify admins and other owners.
- *  This field is a WRITE-only field at creation time.
+ *  Owner emails.
+ *  Owners are able to operate on the portal, and modify admins or other
+ *  owners. This field is a write-only field at creation time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
@@ -323,11 +326,22 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Device
+ *  Request message to create a customer.
+ */
+@interface GTLRAndroidProvisioningPartner_CreateCustomerRequest : GTLRObject
+
+/** The customer to create. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_Company *customer;
+
+@end
+
+
+/**
+ *  An Android device.
  */
 @interface GTLRAndroidProvisioningPartner_Device : GTLRObject
 
-/** claims */
+/** Claims. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_DeviceClaim *> *claims;
 
 /**
@@ -337,44 +351,44 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, copy, nullable) NSString *configuration;
 
 /**
- *  Device id
+ *  Device ID.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** Device identifier */
+/** Device identifier. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
-/** Device metadata */
+/** Device metadata. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
-/** Resource name in 'partners/[PARTNER_ID]/devices/[DEVICE_ID]'. */
+/** Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  containing the necessary info about a claim for a partner.
+ *  Information about a device claimed for a partner.
  */
 @interface GTLRAndroidProvisioningPartner_DeviceClaim : GTLRObject
 
 /**
- *  owner id
+ *  Owner ID.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ownerCompanyId;
 
 /**
- *  section type.
+ *  Section type of the device claim.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -382,11 +396,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  DeviceIdentifiers identifies an unique device.
+ *  Identifies a unique device.
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
-/** IMEI */
+/** IMEI number. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
@@ -396,17 +410,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
-/** MEID */
+/** MEID number. */
 @property(nonatomic, copy, nullable) NSString *meid;
 
-/** Serial number (optional) */
+/** Serial number (optional). */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
 
 /**
- *  A key value pair of the device metadata.
+ *  A key-value pair of the device metadata.
  */
 @interface GTLRAndroidProvisioningPartner_DeviceMetadata : GTLRObject
 
@@ -445,9 +459,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress
- *        In progress (Value: "BATCH_PROCESS_IN_PROGRESS")
+ *        In progress. (Value: "BATCH_PROCESS_IN_PROGRESS")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending
- *        Pending (Value: "BATCH_PROCESS_PENDING")
+ *        Pending. (Value: "BATCH_PROCESS_PENDING")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessProcessed
  *        Processed.
  *        This doesn't mean all items were processed sucessfully, you should
@@ -475,8 +489,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_DevicesLongRunningOperationResponse : GTLRObject
 
 /**
- *  processing status for each device.
- *  One PerDeviceStatus per device. The order is the same as in your requests.
+ *  Processing status for each device.
+ *  One `PerDeviceStatus` per device. The order is the same as in your requests.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_OperationPerDevice *> *perDeviceStatus;
 
@@ -508,7 +522,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest : GTLRObject
 
-/** The device identifier to search */
+/** The device identifier to search. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
@@ -518,7 +532,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
-/** Page token */
+/** Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 @end
@@ -542,7 +556,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
 
-/** Page token of next page */
+/** Page token of the next page. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -554,7 +568,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest : GTLRObject
 
 /**
- *  List of customer ids to search for.
+ *  List of customer IDs to search for.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -567,7 +581,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
-/** Page token */
+/** Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -575,9 +589,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -602,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
 
-/** Page token of next page */
+/** Page token of the next page. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -720,7 +734,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_PartnerClaim : GTLRObject
 
 /**
- *  customer id to claim for.
+ *  Customer ID to claim for.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -729,17 +743,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /** Device identifier of the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
-/** metadata to set at claim. */
+/** Metadata to set at claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
 /**
- *  section type to claim.
+ *  Section type to claim.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -752,23 +766,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_PartnerUnclaim : GTLRObject
 
 /**
- *  device id of the device.
+ *  Device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** device identifier of the device. */
+/** Device identifier of the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  section type to unclaim.
+ *  Section type to unclaim.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -781,7 +795,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch : GTLRObject
 
 /**
- *  device id of the device if process succeeds.
+ *  Device ID of the device if process succeeds.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -790,7 +804,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /** Error identifier. */
 @property(nonatomic, copy, nullable) NSString *errorIdentifier;
 
-/** Error message */
+/** Error message. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
@@ -805,21 +819,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *        "SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError
  *        Other error.
- *        Other error is we know/expect this error, but not having proper error
- *        code yet. (Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR")
+ *        We know/expect this error, but there's no defined error code for the
+ *        error. (Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied
- *        Permission denied (Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED")
+ *        Permission denied. (Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours
- *        This section is claimed by other company. (Value:
+ *        This section is claimed by another company. (Value:
  *        "SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess
  *        Success. (Value: "SINGLE_DEVICE_STATUS_SUCCESS")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError
  *        Unknown error.
- *        Unknown error is we don't expect it here. (Value:
+ *        We don't expect this error to occur here. (Value:
  *        "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnspecified
- *        Invalid code. Shouldn' be used. (Value:
+ *        Invalid code. Shouldn't be used. (Value:
  *        "SINGLE_DEVICE_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -915,13 +929,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_UnclaimDeviceRequest : GTLRObject
 
 /**
- *  The device id returned by ClaimDevice.
+ *  The device ID returned by `ClaimDevice`.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** The device identifier you use when you claimed this device. */
+/** The device identifier you used when you claimed this device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
@@ -929,9 +943,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified
- *        Unspecified (Value: "SECTION_TYPE_UNSPECIFIED")
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -943,7 +957,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UnclaimDevicesRequest : GTLRObject
 
-/** list of unclaims. */
+/** List of devices to unclaim. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_PartnerUnclaim *> *unclaims;
 
 @end
@@ -954,7 +968,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest : GTLRObject
 
-/** list of metadata updates. */
+/** List of metadata updates. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_UpdateMetadataArguments *> *updates;
 
 @end
@@ -977,13 +991,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_UpdateMetadataArguments : GTLRObject
 
 /**
- *  device id of the device.
+ *  Device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** device identifier. */
+/** Device identifier. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /** The metadata to update. */

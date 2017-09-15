@@ -3,8 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Vault API (vault/v1)
+// Description:
+//   Archiving and eDiscovery for G Suite.
 // Documentation:
-//   https://apps.google.com/products/vault/
+//   https://developers.google.com/vault
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -23,8 +25,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: Manage your eDiscovery data
+ *
+ *  Value "https://www.googleapis.com/auth/ediscovery"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeVaultEdiscovery;
+/**
+ *  Authorization scope: View your eDiscovery data
+ *
+ *  Value "https://www.googleapis.com/auth/ediscovery.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeVaultEdiscoveryReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRVaultService
+//
+
 /**
  *  Service for executing Google Vault API queries.
+ *
+ *  Archiving and eDiscovery for G Suite.
  */
 @interface GTLRVaultService : GTLRService
 

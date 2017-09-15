@@ -38,7 +38,7 @@ NSString * const kGTLRAuthScopeGmailSettingsSharing = @"https://www.googleapis.c
     self.servicePath = @"gmail/v1/users/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/gmail/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

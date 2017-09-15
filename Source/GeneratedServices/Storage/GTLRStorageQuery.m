@@ -1095,6 +1095,19 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   return query;
 }
 
++ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
+                                 bucket:(NSString *)bucket
+                                 object:(NSString *)object_param {
+  GTLRStorageQuery_ObjectsPatch *query =
+    [self queryWithObject:object
+                   bucket:bucket
+                   object:object_param];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download storage.objects.patch";
+  return query;
+}
+
 @end
 
 @implementation GTLRStorageQuery_ObjectsRewrite

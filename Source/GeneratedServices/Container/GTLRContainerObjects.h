@@ -863,19 +863,33 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_IPAllocationPolicy : GTLRObject
 
+/** This field is deprecated, use cluster_ipv4_cidr_block. */
+@property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
+
 /**
  *  The IP address range for the cluster pod IPs. If this field is set, then
  *  `cluster.cluster_ipv4_cidr` must be left blank.
  *  This field is only applicable when `use_ip_aliases` is true.
- *  Set to blank to have a range will be chosen with the default size.
- *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  Set to blank to have a range chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range chosen with a specific
  *  netmask.
- *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  Set to a
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
  *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
  *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
  *  to use.
  */
-@property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *clusterIpv4CidrBlock;
+
+/**
+ *  The name of the secondary range to be used for the cluster CIDR
+ *  block. The secondary range will be used for pod IP
+ *  addresses. This must be an existing secondary range associated
+ *  with the cluster subnetwork.
+ *  This field is only applicable with use_ip_aliases is true and
+ *  create_subnetwork is false.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterSecondaryRangeName;
 
 /**
  *  Whether a new subnetwork will be created automatically for the cluster.
@@ -885,32 +899,50 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *createSubnetwork;
 
+/** This field is deprecated, use node_ipv4_cidr_block. */
+@property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr;
+
 /**
  *  The IP address range of the instance IPs in this cluster.
  *  This is applicable only if `create_subnetwork` is true.
- *  Set to blank to have a range will be chosen with the default size.
- *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  Set to blank to have a range chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range chosen with a specific
  *  netmask.
- *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  Set to a
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
  *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
  *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
  *  to use.
  */
-@property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *nodeIpv4CidrBlock;
+
+/** This field is deprecated, use services_ipv4_cidr_block. */
+@property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
 
 /**
  *  The IP address range of the services IPs in this cluster. If blank, a range
  *  will be automatically chosen with the default size.
  *  This field is only applicable when `use_ip_aliases` is true.
- *  Set to blank to have a range will be chosen with the default size.
- *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  Set to blank to have a range chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range chosen with a specific
  *  netmask.
- *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  Set to a
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
  *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
  *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
  *  to use.
  */
-@property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
+
+/**
+ *  The name of the secondary range to be used as for the services
+ *  CIDR block. The secondary range will be used for service
+ *  ClusterIPs. This must be an existing secondary range associated
+ *  with the cluster subnetwork.
+ *  This field is only applicable with use_ip_aliases is true and
+ *  create_subnetwork is false.
+ */
+@property(nonatomic, copy, nullable) NSString *servicesSecondaryRangeName;
 
 /**
  *  A custom subnetwork name to be used if `create_subnetwork` is true. If
@@ -1147,7 +1179,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  the Kubernetes version -- it's best to assume the behavior is undefined
  *  and conflicts should be avoided.
  *  For more information, including usage and the valid values, see:
- *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
 
@@ -1184,6 +1216,18 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  The total size of all keys and values must be less than 512 KB.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
+
+/**
+ *  Minimum cpu/platform to be used by this instance. The instance may be
+ *  scheduled on the specified or newer cpu/platform. Applicable values are the
+ *  friendly names of CPU platforms, such as
+ *  <code>minCpuPlatform: &quot;Intel Haswell&quot;</code> or
+ *  <code>minCpuPlatform: &quot;Intel Sandy Bridge&quot;</code>. For more
+ *  information, read
+ *  <a href="/compute/docs/instances/specify-min-cpu-platform">Specifying a
+ *  Minimum CPU Platform</a>.
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
  *  The set of Google API scopes to be made available on all of the
@@ -1234,7 +1278,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  the Kubernetes version -- it's best to assume the behavior is undefined
  *  and conflicts should be avoided.
  *  For more information, including usage and the valid values, see:
- *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1423,6 +1467,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** Detailed operation progress, if available. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
+/**
+ *  [Output only] The time the operation completed, in
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ */
+@property(nonatomic, copy, nullable) NSString *endTime;
+
 /** The server-assigned ID for the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1467,6 +1517,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output only] The time the operation started, in
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  The current status of the operation.

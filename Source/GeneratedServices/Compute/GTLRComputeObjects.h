@@ -2384,10 +2384,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
 
 /**
- *  Assigns a zero-based index to this disk, where 0 is reserved for the boot
- *  disk. For example, if you have many disks attached to an instance, each disk
- *  would have a unique index number. If not specified, the server will choose
- *  an appropriate value.
+ *  [Output Only] A zero-based index to this disk, where 0 is reserved for the
+ *  boot disk. If you have many disks attached to an instance, each disk would
+ *  have a unique index number.
  *
  *  Uses NSNumber of intValue.
  */

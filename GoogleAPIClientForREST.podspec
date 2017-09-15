@@ -166,6 +166,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudSourceRepositories/*.{h,m}'
   end
+  s.subspec 'CloudTasks' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudTasks/*.{h,m}'
+  end
   s.subspec 'CloudTrace' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudTrace/*.{h,m}'
@@ -257,6 +261,10 @@ Pod::Spec.new do |s|
   s.subspec 'FirebaseDynamicLinks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseDynamicLinks/*.{h,m}'
+  end
+  s.subspec 'FirebaseRemoteConfig' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseRemoteConfig/*.{h,m}'
   end
   s.subspec 'FirebaseRules' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

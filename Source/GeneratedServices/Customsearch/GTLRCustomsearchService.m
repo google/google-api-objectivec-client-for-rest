@@ -18,7 +18,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"customsearch/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/customsearch/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

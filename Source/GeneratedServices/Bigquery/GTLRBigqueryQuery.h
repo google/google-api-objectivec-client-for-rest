@@ -611,6 +611,38 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
+ *  Returns the email address of the service account for your project used for
+ *  interactions with Google Cloud KMS.
+ *
+ *  Method: bigquery.projects.getServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_ProjectsGetServiceAccount : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForProjectsGetServiceAccountWithprojectId:]
+
+/** Project ID for which the service account is requested. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_GetServiceAccountResponse.
+ *
+ *  Returns the email address of the service account for your project used for
+ *  interactions with Google Cloud KMS.
+ *
+ *  @param projectId Project ID for which the service account is requested.
+ *
+ *  @returns GTLRBigqueryQuery_ProjectsGetServiceAccount
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
  *  Lists all projects to which you have been granted any project role.
  *
  *  Method: bigquery.projects.list

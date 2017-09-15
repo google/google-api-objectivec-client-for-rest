@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeDataTransferDatatransferReadonly = @"https://www.
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"admin/datatransfer/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/admin/datatransfer_v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

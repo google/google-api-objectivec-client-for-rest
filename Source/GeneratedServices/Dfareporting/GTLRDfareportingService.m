@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     self.servicePath = @"dfareporting/v2.8/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/dfareporting/v2.8";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

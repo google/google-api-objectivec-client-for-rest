@@ -227,11 +227,12 @@
          headRevisionId, iconLink, identifier, imageMediaMetadata,
          isAppAuthorized, kind, lastModifyingUser, md5Checksum, mimeType,
          modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
-         ownedByMe, owners, parents, permissions, properties, quotaBytesUsed,
-         shared, sharedWithMeTime, sharingUser, size, spaces, starred,
-         teamDriveId, thumbnailLink, thumbnailVersion, trashed, trashedTime,
-         trashingUser, version, videoMediaMetadata, viewedByMe, viewedByMeTime,
-         viewersCanCopyContent, webContentLink, webViewLink, writersCanShare;
+         ownedByMe, owners, parents, permissionIds, permissions, properties,
+         quotaBytesUsed, shared, sharedWithMeTime, sharingUser, size, spaces,
+         starred, teamDriveId, thumbnailLink, thumbnailVersion, trashed,
+         trashedTime, trashingUser, version, videoMediaMetadata, viewedByMe,
+         viewedByMeTime, viewersCanCopyContent, webContentLink, webViewLink,
+         writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -245,6 +246,7 @@
   NSDictionary<NSString *, Class> *map = @{
     @"owners" : [GTLRDrive_User class],
     @"parents" : [NSString class],
+    @"permissionIds" : [NSString class],
     @"permissions" : [GTLRDrive_Permission class],
     @"spaces" : [NSString class]
   };

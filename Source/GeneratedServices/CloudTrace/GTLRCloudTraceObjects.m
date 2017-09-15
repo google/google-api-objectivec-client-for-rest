@@ -132,50 +132,6 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTrace_ListSpansResponse
-//
-
-@implementation GTLRCloudTrace_ListSpansResponse
-@dynamic nextPageToken, spans;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"spans" : [GTLRCloudTrace_Span class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"spans";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTrace_ListTracesResponse
-//
-
-@implementation GTLRCloudTrace_ListTracesResponse
-@dynamic nextPageToken, traces;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"traces" : [GTLRCloudTrace_Trace class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"traces";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTrace_Module
 //
 
@@ -190,7 +146,7 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRCloudTrace_NetworkEvent
-@dynamic messageId, messageSize, time, type;
+@dynamic compressedMessageSize, messageId, time, type, uncompressedMessageSize;
 @end
 
 
@@ -302,16 +258,6 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTrace_Trace
-//
-
-@implementation GTLRCloudTrace_Trace
-@dynamic name;
 @end
 
 

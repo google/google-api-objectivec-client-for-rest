@@ -372,8 +372,9 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyUploadAccountRequest
-@dynamic allowOverwrite, delegatedProjectNumber, hashAlgorithm, memoryCost,
-         rounds, saltSeparator, sanityCheck, signerKey, targetProjectId, users;
+@dynamic allowOverwrite, blockSize, cpuMemCost, delegatedProjectNumber, dkLen,
+         hashAlgorithm, memoryCost, parallelization, rounds, saltSeparator,
+         sanityCheck, signerKey, targetProjectId, users;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

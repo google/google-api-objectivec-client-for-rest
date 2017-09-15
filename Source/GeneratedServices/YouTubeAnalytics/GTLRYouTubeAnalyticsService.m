@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly = @"https://w
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"youtube/analytics/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/youtubeAnalytics/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

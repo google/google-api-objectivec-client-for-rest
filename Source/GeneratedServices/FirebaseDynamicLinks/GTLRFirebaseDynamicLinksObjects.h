@@ -20,6 +20,7 @@
 
 @class GTLRFirebaseDynamicLinks_AnalyticsInfo;
 @class GTLRFirebaseDynamicLinks_AndroidInfo;
+@class GTLRFirebaseDynamicLinks_DeviceInfo;
 @class GTLRFirebaseDynamicLinks_DynamicLinkEventStat;
 @class GTLRFirebaseDynamicLinks_DynamicLinkInfo;
 @class GTLRFirebaseDynamicLinks_DynamicLinkWarning;
@@ -287,6 +288,88 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_Warnin
 GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnrecognizedParam;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.retrievalMethod
+
+/**
+ *  iSDK performs a strong match only if weak match is found upon a dev
+ *  API call.
+ *
+ *  Value: "EXPLICIT_STRONG_AFTER_WEAK_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch;
+/**
+ *  iSDK performs a server lookup by device fingerprint upon a dev API call.
+ *
+ *  Value: "EXPLICIT_WEAK_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch;
+/**
+ *  iSDK performs a server lookup by device fingerprint in the background
+ *  when app is first-opened; no API called by developer.
+ *
+ *  Value: "IMPLICIT_WEAK_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch;
+/**
+ *  Unknown method.
+ *
+ *  Value: "UNKNOWN_PAYLOAD_RETRIEVAL_METHOD"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.visualStyle
+
+/**
+ *  Custom style.
+ *
+ *  Value: "CUSTOM_STYLE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle;
+/**
+ *  Default style.
+ *
+ *  Value: "DEFAULT_STYLE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_DefaultStyle;
+/**
+ *  Unknown style.
+ *
+ *  Value: "UNKNOWN_VISUAL_STYLE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_UnknownVisualStyle;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.attributionConfidence
+
+/**
+ *  Default confidence, match based on fingerprint
+ *
+ *  Value: "DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default;
+/**
+ *  Unique confidence, match based on "unique match link to check" or other
+ *  means
+ *
+ *  Value: "UNIQUE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique;
+/**
+ *  Unset.
+ *
+ *  Value: "UNKNOWN_ATTRIBUTION_CONFIDENCE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence;
+/**
+ *  Weak confidence, more than one matching link found or link suspected to
+ *  be false positive
+ *
+ *  Value: "WEAK"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_Suffix.option
 
 /**
@@ -391,6 +474,37 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /** Information about potential warnings on link creation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDynamicLinks_DynamicLinkWarning *> *warning;
+
+@end
+
+
+/**
+ *  Signals associated with the device making the request.
+ */
+@interface GTLRFirebaseDynamicLinks_DeviceInfo : GTLRObject
+
+/** Device model name. */
+@property(nonatomic, copy, nullable) NSString *deviceModelName;
+
+/** Device language code setting. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Device display resolution height.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenResolutionHeight;
+
+/**
+ *  Device display resolution width.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenResolutionWidth;
+
+/** Device timezone setting. */
+@property(nonatomic, copy, nullable) NSString *timezone;
 
 @end
 
@@ -612,6 +726,183 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /** The warning message to help developers improve their requests. */
 @property(nonatomic, copy, nullable) NSString *warningMessage;
+
+@end
+
+
+/**
+ *  Request for iSDK to execute strong match flow for post-install attribution.
+ *  This is meant for iOS requests only. Requests from other platforms will
+ *  not be honored.
+ */
+@interface GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest : GTLRObject
+
+/**
+ *  App installation epoch time (https://en.wikipedia.org/wiki/Unix_time).
+ *  This is a client signal for a more accurate weak match.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appInstallationTime;
+
+/** APP bundle ID. */
+@property(nonatomic, copy, nullable) NSString *bundleId;
+
+/** Device information. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DeviceInfo *device;
+
+/**
+ *  iOS version, ie: 9.3.5.
+ *  Consider adding "build".
+ */
+@property(nonatomic, copy, nullable) NSString *iosVersion;
+
+/**
+ *  App post install attribution retrieval information. Disambiguates
+ *  mechanism (iSDK or developer invoked) to retrieve payload from
+ *  clicked link.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch
+ *        iSDK performs a strong match only if weak match is found upon a dev
+ *        API call. (Value: "EXPLICIT_STRONG_AFTER_WEAK_MATCH")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch
+ *        iSDK performs a server lookup by device fingerprint upon a dev API
+ *        call. (Value: "EXPLICIT_WEAK_MATCH")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch
+ *        iSDK performs a server lookup by device fingerprint in the background
+ *        when app is first-opened; no API called by developer. (Value:
+ *        "IMPLICIT_WEAK_MATCH")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod
+ *        Unknown method. (Value: "UNKNOWN_PAYLOAD_RETRIEVAL_METHOD")
+ */
+@property(nonatomic, copy, nullable) NSString *retrievalMethod;
+
+/** Google SDK version. */
+@property(nonatomic, copy, nullable) NSString *sdkVersion;
+
+/**
+ *  Possible unique matched link that server need to check before performing
+ *  fingerprint match. If passed link is short server need to expand the link.
+ *  If link is long server need to vslidate the link.
+ */
+@property(nonatomic, copy, nullable) NSString *uniqueMatchLinkToCheck;
+
+/**
+ *  Strong match page information. Disambiguates between default UI and
+ *  custom page to present when strong match succeeds/fails to find cookie.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle
+ *        Custom style. (Value: "CUSTOM_STYLE")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_DefaultStyle
+ *        Default style. (Value: "DEFAULT_STYLE")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_UnknownVisualStyle
+ *        Unknown style. (Value: "UNKNOWN_VISUAL_STYLE")
+ */
+@property(nonatomic, copy, nullable) NSString *visualStyle;
+
+@end
+
+
+/**
+ *  Response for iSDK to execute strong match flow for post-install attribution.
+ */
+@interface GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse : GTLRObject
+
+/**
+ *  The minimum version for app, specified by dev through ?imv= parameter.
+ *  Return to iSDK to allow app to evaluate if current version meets this.
+ */
+@property(nonatomic, copy, nullable) NSString *appMinimumVersion;
+
+/**
+ *  The confidence of the returned attribution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default
+ *        Default confidence, match based on fingerprint (Value: "DEFAULT")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique
+ *        Unique confidence, match based on "unique match link to check" or
+ *        other
+ *        means (Value: "UNIQUE")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence
+ *        Unset. (Value: "UNKNOWN_ATTRIBUTION_CONFIDENCE")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak
+ *        Weak confidence, more than one matching link found or link suspected
+ *        to
+ *        be false positive (Value: "WEAK")
+ */
+@property(nonatomic, copy, nullable) NSString *attributionConfidence;
+
+/**
+ *  The deep-link attributed post-install via one of several techniques
+ *  (fingerprint, copy unique).
+ */
+@property(nonatomic, copy, nullable) NSString *deepLink;
+
+/**
+ *  User-agent specific custom-scheme URIs for iSDK to open. This will be set
+ *  according to the user-agent tha the click was originally made in. There is
+ *  no Safari-equivalent custom-scheme open URLs.
+ *  ie: googlechrome://www.example.com
+ *  ie: firefox://open-url?url=http://www.example.com
+ *  ie: opera-http://example.com
+ */
+@property(nonatomic, copy, nullable) NSString *externalBrowserDestinationLink;
+
+/**
+ *  The link to navigate to update the app if min version is not met.
+ *  This is either (in order): 1) fallback link (from ?ifl= parameter, if
+ *  specified by developer) or 2) AppStore URL (from ?isi= parameter, if
+ *  specified), or 3) the payload link (from required link= parameter).
+ */
+@property(nonatomic, copy, nullable) NSString *fallbackLink;
+
+/**
+ *  Invitation ID attributed post-install via one of several techniques
+ *  (fingerprint, copy unique).
+ */
+@property(nonatomic, copy, nullable) NSString *invitationId;
+
+/**
+ *  Instruction for iSDK to attemmpt to perform strong match. For instance,
+ *  if browser does not support/allow cookie or outside of support browsers,
+ *  this will be false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isStrongMatchExecutable;
+
+/**
+ *  Describes why match failed, ie: "discarded due to low confidence".
+ *  This message will be publicly visible.
+ */
+@property(nonatomic, copy, nullable) NSString *matchMessage;
+
+/**
+ *  Entire FDL (short or long) attributed post-install via one of several
+ *  techniques (fingerprint, copy unique).
+ */
+@property(nonatomic, copy, nullable) NSString *requestedLink;
+
+/**
+ *  The entire FDL, expanded from a short link. It is the same as the
+ *  requested_link, if it is long. Parameters from this should not be
+ *  used directly (ie: server can default utm_[campaign|medium|source]
+ *  to a value when requested_link lack them, server determine the best
+ *  fallback_link when requested_link specifies >1 fallback links).
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedLink;
+
+/** Scion campaign value to be propagated by iSDK to Scion at post-install. */
+@property(nonatomic, copy, nullable) NSString *utmCampaign;
+
+/** Scion medium value to be propagated by iSDK to Scion at post-install. */
+@property(nonatomic, copy, nullable) NSString *utmMedium;
+
+/** Scion source value to be propagated by iSDK to Scion at post-install. */
+@property(nonatomic, copy, nullable) NSString *utmSource;
 
 @end
 

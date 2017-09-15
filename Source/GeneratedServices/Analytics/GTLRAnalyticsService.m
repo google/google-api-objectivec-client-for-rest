@@ -34,7 +34,7 @@ NSString * const kGTLRAuthScopeAnalyticsReadonly            = @"https://www.goog
     self.servicePath = @"analytics/v3/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/analytics/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

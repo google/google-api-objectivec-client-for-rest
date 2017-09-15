@@ -58,6 +58,23 @@ NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_Unnece
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosUrlScheme = @"UNNECESSARY_IOS_URL_SCHEME";
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnrecognizedParam = @"UNRECOGNIZED_PARAM";
 
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.retrievalMethod
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch = @"EXPLICIT_STRONG_AFTER_WEAK_MATCH";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch = @"EXPLICIT_WEAK_MATCH";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch = @"IMPLICIT_WEAK_MATCH";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod = @"UNKNOWN_PAYLOAD_RETRIEVAL_METHOD";
+
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.visualStyle
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle = @"CUSTOM_STYLE";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_DefaultStyle = @"DEFAULT_STYLE";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_UnknownVisualStyle = @"UNKNOWN_VISUAL_STYLE";
+
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.attributionConfidence
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default = @"DEFAULT";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique = @"UNIQUE";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence = @"UNKNOWN_ATTRIBUTION_CONFIDENCE";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak = @"WEAK";
+
 // GTLRFirebaseDynamicLinks_Suffix.option
 NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspecified = @"OPTION_UNSPECIFIED";
 NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Short = @"SHORT";
@@ -114,6 +131,17 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDynamicLinks_DeviceInfo
+//
+
+@implementation GTLRFirebaseDynamicLinks_DeviceInfo
+@dynamic deviceModelName, languageCode, screenResolutionHeight,
+         screenResolutionWidth, timezone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDynamicLinks_DynamicLinkEventStat
 //
 
@@ -158,6 +186,30 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkWarning
 @dynamic warningCode, warningDocumentLink, warningMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest
+//
+
+@implementation GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest
+@dynamic appInstallationTime, bundleId, device, iosVersion, retrievalMethod,
+         sdkVersion, uniqueMatchLinkToCheck, visualStyle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse
+//
+
+@implementation GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse
+@dynamic appMinimumVersion, attributionConfidence, deepLink,
+         externalBrowserDestinationLink, fallbackLink, invitationId,
+         isStrongMatchExecutable, matchMessage, requestedLink, resolvedLink,
+         utmCampaign, utmMedium, utmSource;
 @end
 
 

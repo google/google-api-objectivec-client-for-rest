@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher = @"https://ww
     self.servicePath = @"games/v1configuration/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/gamesConfiguration/v1configuration";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

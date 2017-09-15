@@ -555,6 +555,13 @@ NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku7   = @"meku7";
 NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuS   = @"mekuS";
 NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuUnrated = @"mekuUnrated";
 
+// GTLRYouTube_ContentRating.menaMpaaRating
+NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaG = @"menaMpaaG";
+NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg = @"menaMpaaPg";
+NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg13 = @"menaMpaaPg13";
+NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaR = @"menaMpaaR";
+NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaUnrated = @"menaMpaaUnrated";
+
 // GTLRYouTube_ContentRating.mibacRating
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacT = @"mibacT";
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacUnrated = @"mibacUnrated";
@@ -590,6 +597,10 @@ NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg  = @"mpaaPg";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13 = @"mpaaPg13";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR   = @"mpaaR";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated = @"mpaaUnrated";
+
+// GTLRYouTube_ContentRating.mpaatRating
+NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatGb = @"mpaatGb";
+NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatRb = @"mpaatRb";
 
 // GTLRYouTube_ContentRating.mtrcbRating
 NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbG = @"mtrcbG";
@@ -758,6 +769,7 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_Clo
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost = @"closedCaptionsHttpPost";
 
 // GTLRYouTube_LiveBroadcastContentDetails.projection
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh = @"mesh";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular = @"rectangular";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360 = @"360";
 
@@ -788,9 +800,6 @@ NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted = @"unl
 NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_NotRecording = @"notRecording";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recorded = @"recorded";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recording = @"recording";
-
-// GTLRYouTube_LiveBroadcastTopic.type
-NSString * const kGTLRYouTube_LiveBroadcastTopic_Type_VideoGame = @"videoGame";
 
 // GTLRYouTube_LiveChatBanSnippet.type
 NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Permanent = @"permanent";
@@ -1004,6 +1013,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ProjectFile = @"
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_UnsupportedSpatialAudioLayout = @"unsupportedSpatialAudioLayout";
 
 // GTLRYouTube_VideoSuggestions.processingHints
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_HdrVideo = @"hdrVideo";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov = @"nonStreamableMov";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo = @"sendBestQualityVideo";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SpatialAudio = @"spatialAudio";
@@ -1014,10 +1024,13 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_VrVideo = @"vrVid
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_HasEditlist = @"hasEditlist";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_InconsistentResolution = @"inconsistentResolution";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicAudioCodec = @"problematicAudioCodec";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicHdrLookupTable = @"problematicHdrLookupTable";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicVideoCodec = @"problematicVideoCodec";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownAudioCodec = @"unknownAudioCodec";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer = @"unknownContainer";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec = @"unknownVideoCodec";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrColorMetadata = @"unsupportedHdrColorMetadata";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrPixelFormat = @"unsupportedHdrPixelFormat";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType = @"unsupportedSphericalProjectionType";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrStereoMode = @"unsupportedVrStereoMode";
 
@@ -1814,11 +1827,11 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
          grfilmRating, icaaRating, ifcoRating, ilfilmRating, incaaRating,
          kfcbRating, kijkwijzerRating, kmrbRating, lsfRating, mccaaRating,
          mccypRating, mcstRating, mdaRating, medietilsynetRating, mekuRating,
-         mibacRating, mocRating, moctwRating, mpaaRating, mtrcbRating,
-         nbcplRating, nbcRating, nfrcRating, nfvcbRating, nkclvRating,
-         oflcRating, pefilmRating, rcnofRating, resorteviolenciaRating,
-         rtcRating, rteRating, russiaRating, skfilmRating, smaisRating,
-         smsaRating, tvpgRating, ytRating;
+         menaMpaaRating, mibacRating, mocRating, moctwRating, mpaaRating,
+         mpaatRating, mtrcbRating, nbcplRating, nbcRating, nfrcRating,
+         nfvcbRating, nkclvRating, oflcRating, pefilmRating, rcnofRating,
+         resorteviolenciaRating, rtcRating, rteRating, russiaRating,
+         skfilmRating, smaisRating, smsaRating, tvpgRating, ytRating;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2140,8 +2153,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcast
-@dynamic contentDetails, ETag, identifier, kind, snippet, statistics, status,
-         topicDetails;
+@dynamic contentDetails, ETag, identifier, kind, snippet, statistics, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2162,7 +2174,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_LiveBroadcastContentDetails
 @dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
          enableClosedCaptions, enableContentEncryption, enableDvr, enableEmbed,
-         enableLowLatency, monitorStream, projection, recordFromStart,
+         enableLowLatency, mesh, monitorStream, projection, recordFromStart,
          startWithSlate;
 @end
 
@@ -2224,44 +2236,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveBroadcastStatus
 @dynamic lifeCycleStatus, liveBroadcastPriority, privacyStatus, recordingStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveBroadcastTopic
-//
-
-@implementation GTLRYouTube_LiveBroadcastTopic
-@dynamic snippet, type, unmatched;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveBroadcastTopicDetails
-//
-
-@implementation GTLRYouTube_LiveBroadcastTopicDetails
-@dynamic topics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"topics" : [GTLRYouTube_LiveBroadcastTopic class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveBroadcastTopicSnippet
-//
-
-@implementation GTLRYouTube_LiveBroadcastTopicSnippet
-@dynamic name, releaseDate;
 @end
 
 

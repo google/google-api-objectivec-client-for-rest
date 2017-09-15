@@ -19,7 +19,7 @@
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"pagespeedonline/v2/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/pagespeedonline/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

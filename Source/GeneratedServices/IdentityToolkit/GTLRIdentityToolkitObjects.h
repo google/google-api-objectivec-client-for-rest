@@ -870,12 +870,33 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *allowOverwrite;
 
 /**
+ *  blockSize
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockSize;
+
+/**
+ *  The following 4 fields are for standard scrypt algorithm.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuMemCost;
+
+/**
  *  GCP project number of the requesting delegated app. Currently only intended
  *  for Firebase V1 migration.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
+
+/**
+ *  dkLen
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dkLen;
 
 /** The password hash algorithm. */
 @property(nonatomic, copy, nullable) NSString *hashAlgorithm;
@@ -886,6 +907,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *memoryCost;
+
+/**
+ *  parallelization
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallelization;
 
 /**
  *  Rounds for hash calculation. Used by scrypt and similar algorithms.

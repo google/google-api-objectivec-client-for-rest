@@ -35,7 +35,7 @@ NSString * const kGTLRAuthScopeBigqueryInsertdata            = @"https://www.goo
     self.servicePath = @"bigquery/v2/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/bigquery/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -48,6 +48,7 @@ NSString * const kGTLRAuthScopeBigqueryInsertdata            = @"https://www.goo
     //     GTLRBigquery_DatasetList_Datasets_Item
     @"bigquery#datasetList" : [GTLRBigquery_DatasetList class],
     @"bigquery#getQueryResultsResponse" : [GTLRBigquery_GetQueryResultsResponse class],
+    @"bigquery#getServiceAccountResponse" : [GTLRBigquery_GetServiceAccountResponse class],
     // Skipping "bigquery#job", was used on multiple classes:
     //     GTLRBigquery_Job
     //     GTLRBigquery_JobList_Jobs_Item

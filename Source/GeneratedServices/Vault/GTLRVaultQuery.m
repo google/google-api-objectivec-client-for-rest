@@ -3,8 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Vault API (vault/v1)
+// Description:
+//   Archiving and eDiscovery for G Suite.
 // Documentation:
-//   https://apps.google.com/products/vault/
+//   https://developers.google.com/vault
 
 #import "GTLRVaultQuery.h"
 
@@ -12,6 +14,12 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// state
+NSString * const kGTLRVaultStateClosed           = @"CLOSED";
+NSString * const kGTLRVaultStateDeleted          = @"DELETED";
+NSString * const kGTLRVaultStateOpen             = @"OPEN";
+NSString * const kGTLRVaultStateStateUnspecified = @"STATE_UNSPECIFIED";
 
 // view
 NSString * const kGTLRVaultViewBasic           = @"BASIC";
@@ -334,7 +342,7 @@ NSString * const kGTLRVaultViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRVaultQuery_MattersList
 
-@dynamic pageSize, pageToken, view;
+@dynamic pageSize, pageToken, state, view;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/matters";

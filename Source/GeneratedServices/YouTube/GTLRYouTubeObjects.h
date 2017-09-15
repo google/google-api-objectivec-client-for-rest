@@ -85,9 +85,6 @@
 @class GTLRYouTube_LiveBroadcastSnippet;
 @class GTLRYouTube_LiveBroadcastStatistics;
 @class GTLRYouTube_LiveBroadcastStatus;
-@class GTLRYouTube_LiveBroadcastTopic;
-@class GTLRYouTube_LiveBroadcastTopicDetails;
-@class GTLRYouTube_LiveBroadcastTopicSnippet;
 @class GTLRYouTube_LiveChatBanSnippet;
 @class GTLRYouTube_LiveChatFanFundingEventDetails;
 @class GTLRYouTube_LiveChatMessage;
@@ -1266,6 +1263,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuS;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuUnrated;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_ContentRating.menaMpaaRating
+
+/** Value: "menaMpaaG" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaG;
+/** Value: "menaMpaaPg" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg;
+/** Value: "menaMpaaPg13" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg13;
+/** Value: "menaMpaaR" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaR;
+/** Value: "menaMpaaUnrated" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaUnrated;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mibacRating
 
 /** Value: "mibacT" */
@@ -1336,6 +1347,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR;
 /** Value: "mpaaUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ContentRating.mpaatRating
+
+/** Value: "mpaatGb" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatGb;
+/** Value: "mpaatRb" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatRb;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mtrcbRating
@@ -1672,6 +1691,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCapt
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.projection
 
+/** Value: "mesh" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh;
 /** Value: "rectangular" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular;
 /** Value: "360" */
@@ -1732,12 +1753,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_No
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recorded;
 /** Value: "recording" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recording;
-
-// ----------------------------------------------------------------------------
-// GTLRYouTube_LiveBroadcastTopic.type
-
-/** Value: "videoGame" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastTopic_Type_VideoGame;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveChatBanSnippet.type
@@ -2164,6 +2179,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_Unsu
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingHints
 
+/** Value: "hdrVideo" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_HdrVideo;
 /** Value: "nonStreamableMov" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov;
 /** Value: "sendBestQualityVideo" */
@@ -2184,6 +2201,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Ha
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_InconsistentResolution;
 /** Value: "problematicAudioCodec" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicAudioCodec;
+/** Value: "problematicHdrLookupTable" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicHdrLookupTable;
 /** Value: "problematicVideoCodec" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicVideoCodec;
 /** Value: "unknownAudioCodec" */
@@ -2192,6 +2211,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer;
 /** Value: "unknownVideoCodec" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec;
+/** Value: "unsupportedHdrColorMetadata" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrColorMetadata;
+/** Value: "unsupportedHdrPixelFormat" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrPixelFormat;
 /** Value: "unsupportedSphericalProjectionType" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType;
 /** Value: "unsupportedVrStereoMode" */
@@ -4105,7 +4128,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /**
  *  Ratings schemes. The country-specific ratings are mostly for movies and
- *  shows. NEXT_ID: 69
+ *  shows. NEXT_ID: 71
  */
 @interface GTLRYouTube_ContentRating : GTLRObject
 
@@ -4843,6 +4866,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *mekuRating;
 
 /**
+ *  The rating system for MENA countries, a clone of MPAA. It is needed to
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaG Value
+ *        "menaMpaaG"
+ *    @arg @c kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg Value
+ *        "menaMpaaPg"
+ *    @arg @c kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg13 Value
+ *        "menaMpaaPg13"
+ *    @arg @c kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaR Value
+ *        "menaMpaaR"
+ *    @arg @c kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaUnrated Value
+ *        "menaMpaaUnrated"
+ */
+@property(nonatomic, copy, nullable) NSString *menaMpaaRating;
+
+/**
  *  The video's rating from the Ministero dei Beni e delle Attività Culturali e
  *  del Turismo (Italy).
  *
@@ -4901,6 +4941,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "mpaaUnrated"
  */
 @property(nonatomic, copy, nullable) NSString *mpaaRating;
+
+/**
+ *  The rating system for trailer, DVD, and Ad in the US. See
+ *  http://movielabs.com/md/ratings/v2.3/html/US_MPAAT_Ratings.html.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ContentRating_MpaatRating_MpaatGb Value "mpaatGb"
+ *    @arg @c kGTLRYouTube_ContentRating_MpaatRating_MpaatRb Value "mpaatRb"
+ */
+@property(nonatomic, copy, nullable) NSString *mpaatRating;
 
 /**
  *  The video's rating from the Movie and Television Review and Classification
@@ -5893,8 +5943,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 /** The status object contains information about the event's status. */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastStatus *status;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastTopicDetails *topicDetails;
-
 @end
 
 
@@ -5974,6 +6022,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) NSNumber *enableLowLatency;
 
 /**
+ *  mesh
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *mesh;
+
+/**
  *  The monitorStream object contains information about the monitor stream,
  *  which the broadcaster can use to review the event content before the
  *  broadcast stream is shown publicly.
@@ -5984,6 +6040,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The projection format of this broadcast. This defaults to rectangular.
  *
  *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh Value
+ *        "mesh"
  *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular
  *        Value "rectangular"
  *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360 Value
@@ -6260,57 +6318,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "recording"
  */
 @property(nonatomic, copy, nullable) NSString *recordingStatus;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveBroadcastTopic
- */
-@interface GTLRYouTube_LiveBroadcastTopic : GTLRObject
-
-/** Information about the topic matched. */
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastTopicSnippet *snippet;
-
-/**
- *  The type of the topic.
- *
- *  Likely values:
- *    @arg @c kGTLRYouTube_LiveBroadcastTopic_Type_VideoGame Value "videoGame"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  If this flag is set it means that we have not been able to match the topic
- *  title and type provided to a known entity.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unmatched;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveBroadcastTopicDetails
- */
-@interface GTLRYouTube_LiveBroadcastTopicDetails : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveBroadcastTopic *> *topics;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveBroadcastTopicSnippet
- */
-@interface GTLRYouTube_LiveBroadcastTopicSnippet : GTLRObject
-
-/** The name of the topic. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The date at which the topic was released. Filled for types: videoGame */
-@property(nonatomic, copy, nullable) NSString *releaseDate;
 
 @end
 

@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeAppsactivityDriveReadonly       = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"appsactivity/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/appsactivity/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
