@@ -12,11 +12,13 @@ Pod::Spec.new do |s|
       framework for accessing JSON REST APIs.  This is the recommended library
       for accessing JSON-based Google APIs for iOS, OS X, and tvOS applications.
 
-      This version can be used with iOS ≥ 7.0, OS X ≥ 10.9, tvOS ≥ 9.0.
+      This version can be used with iOS ≥ 7.0, OS X ≥ 10.9, tvOS ≥ 9.0, watchOS ≥ 2.0.
                    DESC
+
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.0'
+  s.watchos.deployment_target = '2.0'
 
   # Require at least 1.1.7 of the SessionFetcher for some changes in that
   # project's headers.
