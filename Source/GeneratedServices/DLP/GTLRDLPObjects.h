@@ -409,26 +409,32 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *error;
 
 /**
- *  This field will contain an InspectOperationMetadata object. This will always
- *  be returned with the Operation.
+ *  This field will contain an InspectOperationMetadata object for
+ *  `inspect.operations.create` or a RiskAnalysisOperationMetadata object for
+ *  `dataSource.analyze`. This will always be returned with the Operation.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
- *  The server-assigned name, The `name` should have the format of
+ *  The server-assigned name. The `name` should have the format of
  *  `inspect/operations/<identifier>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** This field will contain an InspectOperationResult object. */
+/**
+ *  This field will contain an InspectOperationResult object for
+ *  `inspect.operations.create` or a RiskAnalysisOperationResult object for
+ *  `dataSource.analyze`.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleLongrunningOperation_Response *response;
 
 @end
 
 
 /**
- *  This field will contain an InspectOperationMetadata object. This will always
- *  be returned with the Operation.
+ *  This field will contain an InspectOperationMetadata object for
+ *  `inspect.operations.create` or a RiskAnalysisOperationMetadata object for
+ *  `dataSource.analyze`. This will always be returned with the Operation.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -440,7 +446,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  This field will contain an InspectOperationResult object.
+ *  This field will contain an InspectOperationResult object for
+ *  `inspect.operations.create` or a RiskAnalysisOperationResult object for
+ *  `dataSource.analyze`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -567,7 +575,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket
+ *  Histogram bucket of value frequencies in the column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket : GTLRObject
 
@@ -923,7 +931,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 /**
  *  Pseudonymization method that generates surrogates via cryptographic hashing.
  *  Uses SHA-256.
- *  The key size must be either 32 or 64 bytes.
  *  Outputs a 32 byte digest as an uppercase hex string
  *  (for example, 41D1567F7F99F1DC2A5FAB886DEE5BEE).
  *  Currently, only string and integer values can be hashed.
@@ -981,9 +988,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 @property(nonatomic, copy, nullable) NSString *commonAlphabet;
 
 /**
- *  The 'tweak', a context may be used for higher security since the same
- *  identifier in two different contexts won't be given the same surrogate. If
- *  the context is not set, a default tweak will be used.
+ *  A context may be used for higher security since the same
+ *  identifier in two different contexts likely will be given a distinct
+ *  surrogate. The principle is that the likeliness is inversely related
+ *  to the ratio of the number of distinct identifiers per context over the
+ *  number of possible surrogates: As long as this ratio is small, the
+ *  likehood is large.
+ *  If the context is not set, a default tweak will be used.
  *  If the context is set but:
  *  1. there is no record present when transforming a given value or
  *  1. the field is not present when transforming a given value,
@@ -995,6 +1006,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  such that:
  *  - a 64 bit integer is encoded followed by a single byte of value 1
  *  - a string is encoded in UTF-8 format followed by a single byte of value 2
+ *  This is also known as the 'tweak', as in tweakable encryption.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *context;
 
@@ -1397,17 +1409,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  Info type description.
+ *  Description of the information type (infoType).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription : GTLRObject
 
-/** List of categories this info type belongs to. */
+/** List of categories this infoType belongs to. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription *> *categories;
 
-/** Human readable form of the info type name. */
+/** Human readable form of the infoType name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Internal name of the info type. */
+/** Internal name of the infoType. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1689,7 +1701,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  The set of columns' values that share the same ldiversity value
+ *  The set of columns' values that share the same k-anonymity value.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass : GTLRObject
 
@@ -1712,7 +1724,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket
+ *  Histogram bucket of equivalence class sizes in the table.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket : GTLRObject
 
@@ -1841,7 +1853,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  The set of columns' values that share the same ldiversity value.
+ *  The set of columns' values that share the same l-diversity value.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass : GTLRObject
 
@@ -1872,7 +1884,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket
+ *  Histogram bucket of sensitive value frequencies in the table.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket : GTLRObject
 
@@ -2333,7 +2345,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  Metadata returned within GetOperation for risk analysis.
+ *  Metadata returned within the
+ *  [`riskAnalysis.operations.get`](/dlp/docs/reference/rest/v2beta1/riskAnalysis.operations/get)
+ *  for risk analysis.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationMetadata : GTLRObject
 
@@ -2350,7 +2364,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  Result of a risk analysis operation request.
+ *  Result of a risk analysis
+ *  [`Operation`](/dlp/docs/reference/rest/v2beta1/inspect.operations)
+ *  request.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationResult : GTLRObject
 

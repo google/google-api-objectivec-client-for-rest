@@ -13,6 +13,8 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeClassroomAnnouncements          = @"https://www.googleapis.com/auth/classroom.announcements";
+NSString * const kGTLRAuthScopeClassroomAnnouncementsReadonly  = @"https://www.googleapis.com/auth/classroom.announcements.readonly";
 NSString * const kGTLRAuthScopeClassroomCourses                = @"https://www.googleapis.com/auth/classroom.courses";
 NSString * const kGTLRAuthScopeClassroomCoursesReadonly        = @"https://www.googleapis.com/auth/classroom.courses.readonly";
 NSString * const kGTLRAuthScopeClassroomCourseworkMe           = @"https://www.googleapis.com/auth/classroom.coursework.me";

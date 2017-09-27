@@ -41,6 +41,18 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly;
+/**
+ *  Authorization scope: View and manage your Google Compute Engine resources
+ *
+ *  Value "https://www.googleapis.com/auth/compute"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
+/**
+ *  Authorization scope: View your Google Compute Engine resources
+ *
+ *  Value "https://www.googleapis.com/auth/compute.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginComputeReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudOSLoginService

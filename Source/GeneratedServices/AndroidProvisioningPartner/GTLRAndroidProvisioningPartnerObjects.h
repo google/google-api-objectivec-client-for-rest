@@ -288,37 +288,41 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Company
+ *  A customer resource in the zero-touch enrollment API.
  */
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
- *  Admin emails.
- *  Admins are able to operate on the portal.
- *  This field is a write-only field at creation time.
+ *  Input only. Optional. Email address of customer's users in the admin role.
+ *  Each email address must be associated with a Google Account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
 
 /**
- *  Company ID.
+ *  Output only. The ID of the company. Assigned by the server.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *companyId;
 
-/** Company name. */
+/**
+ *  Required. The name of the company. For example _XYZ Corp_. Characters
+ *  allowed are: Latin letters, numerals, hyphens, and spaces. Displayed to the
+ *  customer's employees in the zero-touch enrollment portal.
+ */
 @property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
- *  The API resource name of the company in the format
- *  `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`.
+ *  Output only. The API resource name of the company in the format
+ *  `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`. Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Owner emails.
- *  Owners are able to operate on the portal, and modify admins or other
- *  owners. This field is a write-only field at creation time.
+ *  Input only. Email address of customer's users in the owner role. At least
+ *  one `owner_email` is required. Each email address must be associated with a
+ *  Google Account. Owners share the same access as admins but can also add,
+ *  delete, and edit your organization's portal users.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
@@ -330,7 +334,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_CreateCustomerRequest : GTLRObject
 
-/** The customer to create. */
+/**
+ *  Required. The company data to populate the new customer. Must contain a
+ *  value for `companyName` and at least one `owner_email` that's associated
+ *  with a Google Account. The values for `companyId` and `name` must be empty.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_Company *customer;
 
 @end

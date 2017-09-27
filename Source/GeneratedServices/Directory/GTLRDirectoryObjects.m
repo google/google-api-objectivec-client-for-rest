@@ -96,8 +96,8 @@
 //
 
 @implementation GTLRDirectory_CalendarResource
-@dynamic etags, kind, resourceDescription, resourceEmail, resourceId,
-         resourceName, resourceType;
+@dynamic etags, generatedResourceName, kind, resourceDescription, resourceEmail,
+         resourceId, resourceName, resourceType;
 @end
 
 
@@ -894,10 +894,10 @@
 @implementation GTLRDirectory_User
 @dynamic addresses, agreedToTerms, aliases, changePasswordAtNextLogin,
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
-         externalIds, hashFunction, identifier, ims, includeInGlobalAddressList,
-         ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
-         isEnrolledIn2Sv, isMailboxSetup, keywords, kind, languages,
-         lastLoginTime, locations, name, nonEditableAliases, notes,
+         externalIds, gender, hashFunction, identifier, ims,
+         includeInGlobalAddressList, ipWhitelisted, isAdmin, isDelegatedAdmin,
+         isEnforcedIn2Sv, isEnrolledIn2Sv, isMailboxSetup, keywords, kind,
+         languages, lastLoginTime, locations, name, nonEditableAliases, notes,
          organizations, orgUnitPath, password, phones, posixAccounts,
          primaryEmail, relations, sshPublicKeys, suspended, suspensionReason,
          thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
@@ -988,6 +988,16 @@
 
 @implementation GTLRDirectory_UserExternalId
 @dynamic customType, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserGender
+//
+
+@implementation GTLRDirectory_UserGender
+@dynamic addressMeAs, customGender, type;
 @end
 
 

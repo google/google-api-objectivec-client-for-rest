@@ -2401,7 +2401,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @dynamic archiveSizeBytes, creationTimestamp, deprecated, descriptionProperty,
          diskSizeGb, family, guestOsFeatures, identifier, imageEncryptionKey,
          kind, labelFingerprint, labels, licenses, name, rawDisk, selfLink,
-         sourceDisk, sourceDiskEncryptionKey, sourceDiskId, sourceType, status;
+         sourceDisk, sourceDiskEncryptionKey, sourceDiskId, sourceImage,
+         sourceImageEncryptionKey, sourceImageId, sourceType, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

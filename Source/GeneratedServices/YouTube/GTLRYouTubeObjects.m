@@ -768,6 +768,11 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_Clo
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsEmbedded = @"closedCaptionsEmbedded";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost = @"closedCaptionsHttpPost";
 
+// GTLRYouTube_LiveBroadcastContentDetails.latencyPreference
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Low = @"low";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Normal = @"normal";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_UltraLow = @"ultraLow";
+
 // GTLRYouTube_LiveBroadcastContentDetails.projection
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh = @"mesh";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular = @"rectangular";
@@ -2174,8 +2179,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_LiveBroadcastContentDetails
 @dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
          enableClosedCaptions, enableContentEncryption, enableDvr, enableEmbed,
-         enableLowLatency, mesh, monitorStream, projection, recordFromStart,
-         startWithSlate;
+         enableLowLatency, latencyPreference, mesh, monitorStream, projection,
+         recordFromStart, startWithSlate;
 @end
 
 

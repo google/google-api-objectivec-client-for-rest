@@ -14,12 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRServiceControl_AllocateQuotaRequest.allocationMode
-NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_BestEffort = @"BEST_EFFORT";
-NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_CheckOnly = @"CHECK_ONLY";
-NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Normal = @"NORMAL";
-NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Unspecified = @"UNSPECIFIED";
-
 // GTLRServiceControl_CheckError.code
 NSString * const kGTLRServiceControl_CheckError_Code_AbuserDetected = @"ABUSER_DETECTED";
 NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyExpired = @"API_KEY_EXPIRED";
@@ -100,11 +94,29 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_AllocateInfo
+//
+
+@implementation GTLRServiceControl_AllocateInfo
+@dynamic unusedArguments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unusedArguments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_AllocateQuotaRequest
 //
 
 @implementation GTLRServiceControl_AllocateQuotaRequest
-@dynamic allocateOperation, allocationMode, serviceConfigId;
+@dynamic allocateOperation, serviceConfigId;
 @end
 
 
@@ -114,7 +126,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AllocateQuotaResponse
-@dynamic allocateErrors, operationId, quotaMetrics, serviceConfigId;
+@dynamic allocateErrors, allocateInfo, operationId, quotaMetrics,
+         serviceConfigId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -133,15 +146,30 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuditLog
-@dynamic authenticationInfo, authorizationInfo, methodName, numResponseItems,
-         request, requestMetadata, resourceName, response, serviceData,
-         serviceName, status;
+@dynamic authenticationInfo, authorizationInfo, metadata, methodName,
+         numResponseItems, request, requestMetadata, resourceName, response,
+         serviceData, serviceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"authorizationInfo" : [GTLRServiceControl_AuthorizationInfo class]
+    @"authorizationInfo" : [GTLRServiceControl_AuthorizationInfo class],
+    @"metadata" : [GTLRServiceControl_AuditLog_Metadata_Item class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog_Metadata_Item
+//
+
+@implementation GTLRServiceControl_AuditLog_Metadata_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

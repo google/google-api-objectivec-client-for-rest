@@ -24,8 +24,6 @@ NSString * const kGTLRDatastore_CompositeFilter_Op_And         = @"AND";
 NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
-NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_BuildIndex = @"BUILD_INDEX";
-NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ClearIndex = @"CLEAR_INDEX";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities = @"EXPORT_ENTITIES";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ImportEntities = @"IMPORT_ENTITIES";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";

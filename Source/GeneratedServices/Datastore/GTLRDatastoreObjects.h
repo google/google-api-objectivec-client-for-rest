@@ -110,18 +110,6 @@ GTLR_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecifi
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
 
 /**
- *  Build an index.
- *
- *  Value: "BUILD_INDEX"
- */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_BuildIndex;
-/**
- *  Clear an index.
- *
- *  Value: "CLEAR_INDEX"
- */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ClearIndex;
-/**
  *  ExportEntities.
  *
  *  Value: "EXPORT_ENTITIES"
@@ -145,14 +133,14 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMet
 
 /**
  *  Request has finished being cancelled after user called
- *  longrunning.Operations.CancelOperation.
+ *  google.longrunning.Operations.CancelOperation.
  *
  *  Value: "CANCELLED"
  */
 GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
- *  longrunning.Operations.CancelOperation on the operation.
+ *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
@@ -649,10 +637,6 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  ListOperationsRequest.
  *
  *  Likely values:
- *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_BuildIndex
- *        Build an index. (Value: "BUILD_INDEX")
- *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ClearIndex
- *        Clear an index. (Value: "CLEAR_INDEX")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities
  *        ExportEntities. (Value: "EXPORT_ENTITIES")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ImportEntities
@@ -671,11 +655,11 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelled
  *        Request has finished being cancelled after user called
- *        longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelling
  *        Request is in the process of being cancelled after user called
- *        longrunning.Operations.CancelOperation on the operation. (Value:
- *        "CANCELLING")
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Failed
  *        Request has finished being processed, but encountered an error.
  *        (Value: "FAILED")
@@ -711,7 +695,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Identifies a subset of entities in a project. This is specified as
- *  combinations of kind + namespace (either or both of which may be all, as
+ *  combinations of kinds and namespaces (either or both of which may be all, as
  *  described in the following examples).
  *  Example usage:
  *  Entire project:
@@ -822,7 +806,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleDatastoreAdminV1beta1Progress : GTLRObject
 
 /**
- *  Note that this may be greater than work_estimated.
+ *  The amount of work that has been completed. Note that this may be greater
+ *  than work_estimated.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -871,7 +856,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.

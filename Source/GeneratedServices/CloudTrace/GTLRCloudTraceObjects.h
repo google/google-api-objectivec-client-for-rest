@@ -609,7 +609,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  */
 @interface GTLRCloudTrace_TimeEvent : GTLRObject
 
-/** One or more key:value pairs. */
+/** Text annotation with a set of attributes. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Annotation *annotation;
 
 /** An event describing an RPC message sent/received on the network. */

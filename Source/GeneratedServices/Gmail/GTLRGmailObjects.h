@@ -29,7 +29,6 @@
 @class GTLRGmail_HistoryMessageAdded;
 @class GTLRGmail_HistoryMessageDeleted;
 @class GTLRGmail_Label;
-@class GTLRGmail_LabelColor;
 @class GTLRGmail_Message;
 @class GTLRGmail_MessagePart;
 @class GTLRGmail_MessagePartBody;
@@ -533,13 +532,6 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_Label : GTLRObject
 
 /**
- *  Color to assign to the label. This field is hidden behind an API server
- *  mendel experiment and only available for user-defined labels. Will be unset
- *  if the label doesn't have a color configured.
- */
-@property(nonatomic, strong, nullable) GTLRGmail_LabelColor *color;
-
-/**
  *  The immutable ID of the label.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -612,27 +604,6 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_Label_Type_User Value "user"
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  GTLRGmail_LabelColor
- */
-@interface GTLRGmail_LabelColor : GTLRObject
-
-/**
- *  Background color represented as hex string #RRGGBB (ex #000000). Only a
- *  restricted predefined set of color values are allowed. See
- *  (go/gmail-api-label-colors).
- */
-@property(nonatomic, copy, nullable) NSString *backgroundColor;
-
-/**
- *  Text color represented as hex string #RRGGBB (ex #000000). Only a restricted
- *  predefined set of color values are allowed. See (go/gmail-api-label-colors).
- */
-@property(nonatomic, copy, nullable) NSString *textColor;
 
 @end
 

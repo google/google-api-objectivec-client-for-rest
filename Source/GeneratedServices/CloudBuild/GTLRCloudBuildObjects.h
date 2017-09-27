@@ -175,6 +175,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  - $TAG_NAME: the tag name specified by RepoSource.
  *  - $REVISION_ID or $COMMIT_SHA: the commit SHA specified by RepoSource or
  *  resolved from the specified branch or tag.
+ *  - $SHORT_SHA: first 7 characters of $REVISION_ID or $COMMIT_SHA.
  */
 @interface GTLRCloudBuild_Build : GTLRObject
 

@@ -158,8 +158,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Cancels an operation. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels an operation. Use the `inspect.operations.get` to check whether the
+ *  cancellation succeeded or the operation completed despite cancellation.
  *
  *  Method: dlp.inspect.operations.cancel
  *
@@ -176,8 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Cancels an operation. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels an operation. Use the `inspect.operations.get` to check whether the
+ *  cancellation succeeded or the operation completed despite cancellation.
  *
  *  @param object The @c GTLRDLP_GoogleLongrunningCancelOperationRequest to
  *    include in the query.
@@ -280,7 +280,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Fetch the list of long running operations.
+ *  Fetches the list of long running operations.
  *
  *  Method: dlp.inspect.operations.list
  *
@@ -291,13 +291,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDLP queryForInspectOperationsListWithname:]
 
-/** This parameter supports filtering by done, ie done=true or done=false. */
+/** Filters by `done`. That is, `done=true` or `done=false`. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list page size. The max allowed value is 256 and default is 100. */
+/**
+ *  The list page size. The maximum allowed value is 256 and the default is 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The standard list page token. */
@@ -306,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_GoogleLongrunningListOperationsResponse.
  *
- *  Fetch the list of long running operations.
+ *  Fetches the list of long running operations.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -379,8 +381,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Cancels an operation. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels an operation. Use the `inspect.operations.get` to check whether the
+ *  cancellation succeeded or the operation completed despite cancellation.
  *
  *  Method: dlp.riskAnalysis.operations.cancel
  *
@@ -397,8 +399,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Cancels an operation. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels an operation. Use the `inspect.operations.get` to check whether the
+ *  cancellation succeeded or the operation completed despite cancellation.
  *
  *  @param object The @c GTLRDLP_GoogleLongrunningCancelOperationRequest to
  *    include in the query.
@@ -472,7 +474,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Fetch the list of long running operations.
+ *  Fetches the list of long running operations.
  *
  *  Method: dlp.riskAnalysis.operations.list
  *
@@ -483,13 +485,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDLP queryForRiskAnalysisOperationsListWithname:]
 
-/** This parameter supports filtering by done, ie done=true or done=false. */
+/** Filters by `done`. That is, `done=true` or `done=false`. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list page size. The max allowed value is 256 and default is 100. */
+/**
+ *  The list page size. The maximum allowed value is 256 and the default is 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The standard list page token. */
@@ -498,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_GoogleLongrunningListOperationsResponse.
  *
- *  Fetch the list of long running operations.
+ *  Fetches the list of long running operations.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -62,11 +62,17 @@
 @class GTLRSheets_ConditionalFormatRule;
 @class GTLRSheets_ConditionValue;
 @class GTLRSheets_CopyPasteRequest;
+@class GTLRSheets_CreateDeveloperMetadataRequest;
+@class GTLRSheets_CreateDeveloperMetadataResponse;
 @class GTLRSheets_CutPasteRequest;
+@class GTLRSheets_DataFilter;
+@class GTLRSheets_DataFilterValueRange;
 @class GTLRSheets_DataValidationRule;
 @class GTLRSheets_DeleteBandingRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleResponse;
+@class GTLRSheets_DeleteDeveloperMetadataRequest;
+@class GTLRSheets_DeleteDeveloperMetadataResponse;
 @class GTLRSheets_DeleteDimensionRequest;
 @class GTLRSheets_DeleteEmbeddedObjectRequest;
 @class GTLRSheets_DeleteFilterViewRequest;
@@ -74,6 +80,9 @@
 @class GTLRSheets_DeleteProtectedRangeRequest;
 @class GTLRSheets_DeleteRangeRequest;
 @class GTLRSheets_DeleteSheetRequest;
+@class GTLRSheets_DeveloperMetadata;
+@class GTLRSheets_DeveloperMetadataLocation;
+@class GTLRSheets_DeveloperMetadataLookup;
 @class GTLRSheets_DimensionProperties;
 @class GTLRSheets_DimensionRange;
 @class GTLRSheets_DuplicateFilterViewRequest;
@@ -101,6 +110,8 @@
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
 @class GTLRSheets_IterativeCalculationSettings;
+@class GTLRSheets_MatchedDeveloperMetadata;
+@class GTLRSheets_MatchedValueRange;
 @class GTLRSheets_MergeCellsRequest;
 @class GTLRSheets_MoveDimensionRequest;
 @class GTLRSheets_NamedRange;
@@ -143,6 +154,8 @@
 @class GTLRSheets_UpdateChartSpecRequest;
 @class GTLRSheets_UpdateConditionalFormatRuleRequest;
 @class GTLRSheets_UpdateConditionalFormatRuleResponse;
+@class GTLRSheets_UpdateDeveloperMetadataRequest;
+@class GTLRSheets_UpdateDeveloperMetadataResponse;
 @class GTLRSheets_UpdateDimensionPropertiesRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionResponse;
@@ -151,6 +164,7 @@
 @class GTLRSheets_UpdateProtectedRangeRequest;
 @class GTLRSheets_UpdateSheetPropertiesRequest;
 @class GTLRSheets_UpdateSpreadsheetPropertiesRequest;
+@class GTLRSheets_UpdateValuesByDataFilterResponse;
 @class GTLRSheets_UpdateValuesResponse;
 @class GTLRSheets_ValueRange;
 
@@ -429,6 +443,166 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_PercentStack
  *  Value: "STACKED"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchGetValuesByDataFilterRequest.dateTimeRenderOption
+
+/**
+ *  Instructs date, time, datetime, and duration fields to be output
+ *  as strings in their given number format (which is dependent
+ *  on the spreadsheet locale).
+ *
+ *  Value: "FORMATTED_STRING"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString;
+/**
+ *  Instructs date, time, datetime, and duration fields to be output
+ *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
+ *  The whole number portion of the value (left of the decimal) counts
+ *  the days since December 30th 1899. The fractional portion (right of
+ *  the decimal) counts the time as a fraction of the day. For example,
+ *  January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *  December 30st 1899, and .5 because noon is half a day. February 1st
+ *  1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *  not a leap year.
+ *
+ *  Value: "SERIAL_NUMBER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_SerialNumber;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchGetValuesByDataFilterRequest.majorDimension
+
+/**
+ *  Operates on the columns of a sheet.
+ *
+ *  Value: "COLUMNS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Columns;
+/**
+ *  The default value, do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_DimensionUnspecified;
+/**
+ *  Operates on the rows of a sheet.
+ *
+ *  Value: "ROWS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Rows;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchGetValuesByDataFilterRequest.valueRenderOption
+
+/**
+ *  Values will be calculated & formatted in the reply according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale,
+ *  not the requesting user's locale.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then `A2` would return `"$1.23"`.
+ *
+ *  Value: "FORMATTED_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue;
+/**
+ *  Values will not be calculated. The reply will include the formulas.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then A2 would return `"=A1"`.
+ *
+ *  Value: "FORMULA"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula;
+/**
+ *  Values will be calculated, but not formatted in the reply.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then `A2` would return the number `1.23`.
+ *
+ *  Value: "UNFORMATTED_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseDateTimeRenderOption
+
+/**
+ *  Instructs date, time, datetime, and duration fields to be output
+ *  as strings in their given number format (which is dependent
+ *  on the spreadsheet locale).
+ *
+ *  Value: "FORMATTED_STRING"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString;
+/**
+ *  Instructs date, time, datetime, and duration fields to be output
+ *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
+ *  The whole number portion of the value (left of the decimal) counts
+ *  the days since December 30th 1899. The fractional portion (right of
+ *  the decimal) counts the time as a fraction of the day. For example,
+ *  January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *  December 30st 1899, and .5 because noon is half a day. February 1st
+ *  1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *  not a leap year.
+ *
+ *  Value: "SERIAL_NUMBER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseValueRenderOption
+
+/**
+ *  Values will be calculated & formatted in the reply according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale,
+ *  not the requesting user's locale.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then `A2` would return `"$1.23"`.
+ *
+ *  Value: "FORMATTED_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue;
+/**
+ *  Values will not be calculated. The reply will include the formulas.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then A2 would return `"=A1"`.
+ *
+ *  Value: "FORMULA"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_Formula;
+/**
+ *  Values will be calculated, but not formatted in the reply.
+ *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
+ *  then `A2` would return the number `1.23`.
+ *
+ *  Value: "UNFORMATTED_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchUpdateValuesByDataFilterRequest.valueInputOption
+
+/**
+ *  Default input value. This value must not be used.
+ *
+ *  Value: "INPUT_VALUE_OPTION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_InputValueOptionUnspecified;
+/**
+ *  The values the user has entered will not be parsed and will be stored
+ *  as-is.
+ *
+ *  Value: "RAW"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_Raw;
+/**
+ *  The values will be parsed as if the user typed them into the UI.
+ *  Numbers will stay as numbers, but strings may be converted to numbers,
+ *  dates, etc. following the same rules that are applied when entering
+ *  text into a cell via the Google Sheets UI.
+ *
+ *  Value: "USER_ENTERED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_UserEntered;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesRequest.responseDateTimeRenderOption
@@ -1199,6 +1373,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNormal;
 GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_DataFilterValueRange.majorDimension
+
+/**
+ *  Operates on the columns of a sheet.
+ *
+ *  Value: "COLUMNS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Columns;
+/**
+ *  The default value, do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified;
+/**
+ *  Operates on the rows of a sheet.
+ *
+ *  Value: "ROWS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_DeleteRangeRequest.shiftDimension
 
 /**
@@ -1219,6 +1415,153 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Dimen
  *  Value: "ROWS"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DeveloperMetadata.visibility
+
+/**
+ *  Default value.
+ *
+ *  Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_DeveloperMetadataVisibilityUnspecified;
+/**
+ *  Document-visible metadata is accessible from any developer project with
+ *  access to the document.
+ *
+ *  Value: "DOCUMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Document;
+/**
+ *  Project-visible metadata is only visible to and accessible by the developer
+ *  project that created the metadata.
+ *
+ *  Value: "PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Project;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DeveloperMetadataLocation.locationType
+
+/**
+ *  Developer metadata associated on an entire column dimension.
+ *
+ *  Value: "COLUMN"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Column;
+/**
+ *  Default value.
+ *
+ *  Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_DeveloperMetadataLocationTypeUnspecified;
+/**
+ *  Developer metadata associated on an entire row dimension.
+ *
+ *  Value: "ROW"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Row;
+/**
+ *  Developer metadata associated on an entire sheet.
+ *
+ *  Value: "SHEET"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Sheet;
+/**
+ *  Developer metadata associated on the entire spreadsheet.
+ *
+ *  Value: "SPREADSHEET"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Spreadsheet;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DeveloperMetadataLookup.locationMatchingStrategy
+
+/**
+ *  Default value. This value must not be used.
+ *
+ *  Value: "DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_DeveloperMetadataLocationMatchingStrategyUnspecified;
+/**
+ *  Indicates that a specified location should be matched exactly. For
+ *  example, if row three were specified as a location this matching strategy
+ *  would only match developer metadata also associated on row three. Metadata
+ *  associated on other locations would not be considered.
+ *
+ *  Value: "EXACT_LOCATION"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_ExactLocation;
+/**
+ *  Indicates that a specified location should match that exact location as
+ *  well as any intersecting locations. For example, if row three were
+ *  specified as a location this matching strategy would match developer
+ *  metadata associated on row three as well as metadata associated on
+ *  locations that intersect row three. If, for instance, there was developer
+ *  metadata associated on column B, this matching strategy would also match
+ *  that location because column B intersects row three.
+ *
+ *  Value: "INTERSECTING_LOCATION"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_IntersectingLocation;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DeveloperMetadataLookup.locationType
+
+/**
+ *  Developer metadata associated on an entire column dimension.
+ *
+ *  Value: "COLUMN"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Column;
+/**
+ *  Default value.
+ *
+ *  Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_DeveloperMetadataLocationTypeUnspecified;
+/**
+ *  Developer metadata associated on an entire row dimension.
+ *
+ *  Value: "ROW"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Row;
+/**
+ *  Developer metadata associated on an entire sheet.
+ *
+ *  Value: "SHEET"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Sheet;
+/**
+ *  Developer metadata associated on the entire spreadsheet.
+ *
+ *  Value: "SPREADSHEET"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Spreadsheet;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DeveloperMetadataLookup.visibility
+
+/**
+ *  Default value.
+ *
+ *  Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified;
+/**
+ *  Document-visible metadata is accessible from any developer project with
+ *  access to the document.
+ *
+ *  Value: "DOCUMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Document;
+/**
+ *  Project-visible metadata is only visible to and accessible by the developer
+ *  project that created the metadata.
+ *
+ *  Value: "PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Project;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DimensionRange.dimension
@@ -2611,6 +2954,38 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  The request for clearing more than one range selected by a
+ *  DataFilter in a spreadsheet.
+ */
+@interface GTLRSheets_BatchClearValuesByDataFilterRequest : GTLRObject
+
+/** The DataFilters used to determine which ranges to clear. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+@end
+
+
+/**
+ *  The response when clearing a range of values selected with
+ *  DataFilters in a spreadsheet.
+ */
+@interface GTLRSheets_BatchClearValuesByDataFilterResponse : GTLRObject
+
+/**
+ *  The ranges that were cleared, in A1 notation.
+ *  (If the requests were for an unbounded range or a ranger larger
+ *  than the bounds of the sheet, this will be the actual ranges
+ *  that were cleared, bounded to the sheet's limits.)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
+
+/** The spreadsheet the updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+@end
+
+
+/**
  *  The request for clearing more than one range of values in a spreadsheet.
  */
 @interface GTLRSheets_BatchClearValuesRequest : GTLRObject
@@ -2636,6 +3011,104 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The spreadsheet the updates were applied to. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+@end
+
+
+/**
+ *  The request for retrieving a range of values in a spreadsheet selected by a
+ *  set of DataFilters.
+ */
+@interface GTLRSheets_BatchGetValuesByDataFilterRequest : GTLRObject
+
+/**
+ *  The data filters used to match the ranges of values to retrieve. Ranges
+ *  that match any of the specified data filters will be included in the
+ *  response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/**
+ *  How dates, times, and durations should be represented in the output.
+ *  This is ignored if value_render_option is
+ *  FORMATTED_VALUE.
+ *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString
+ *        Instructs date, time, datetime, and duration fields to be output
+ *        as strings in their given number format (which is dependent
+ *        on the spreadsheet locale). (Value: "FORMATTED_STRING")
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_SerialNumber
+ *        Instructs date, time, datetime, and duration fields to be output
+ *        as doubles in "serial number" format, as popularized by Lotus 1-2-3.
+ *        The whole number portion of the value (left of the decimal) counts
+ *        the days since December 30th 1899. The fractional portion (right of
+ *        the decimal) counts the time as a fraction of the day. For example,
+ *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *        not a leap year. (Value: "SERIAL_NUMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *dateTimeRenderOption;
+
+/**
+ *  The major dimension that results should use.
+ *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
+ *  then a request that selects that range and sets `majorDimension=ROWS` will
+ *  return `[[1,2],[3,4]]`,
+ *  whereas a request that sets `majorDimension=COLUMNS` will return
+ *  `[[1,3],[2,4]]`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Columns
+ *        Operates on the columns of a sheet. (Value: "COLUMNS")
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_DimensionUnspecified
+ *        The default value, do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Rows
+ *        Operates on the rows of a sheet. (Value: "ROWS")
+ */
+@property(nonatomic, copy, nullable) NSString *majorDimension;
+
+/**
+ *  How values should be represented in the output.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue
+ *        Values will be calculated & formatted in the reply according to the
+ *        cell's formatting. Formatting is based on the spreadsheet's locale,
+ *        not the requesting user's locale.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then `A2` would return `"$1.23"`. (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula
+ *        Values will not be calculated. The reply will include the formulas.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then A2 would return `"=A1"`. (Value: "FORMULA")
+ *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue
+ *        Values will be calculated, but not formatted in the reply.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then `A2` would return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ */
+@property(nonatomic, copy, nullable) NSString *valueRenderOption;
+
+@end
+
+
+/**
+ *  The response when retrieving more than one range of values in a spreadsheet
+ *  selected by DataFilters.
+ */
+@interface GTLRSheets_BatchGetValuesByDataFilterResponse : GTLRObject
+
+/** The ID of the spreadsheet the data was retrieved from. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+/** The requested values with the list of data filters that matched them. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_MatchedValueRange *> *valueRanges;
 
 @end
 
@@ -2714,6 +3187,146 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  [BatchUpdateSpreadsheetRequest.include_spreadsheet_in_response] is `true`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Spreadsheet *updatedSpreadsheet;
+
+@end
+
+
+/**
+ *  The request for updating more than one range of values in a spreadsheet.
+ */
+@interface GTLRSheets_BatchUpdateValuesByDataFilterRequest : GTLRObject
+
+/**
+ *  The new values to apply to the spreadsheet. If more than one range is
+ *  matched by the specified DataFilter the specified values will be
+ *  applied to all of of those ranges.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilterValueRange *> *data;
+
+/**
+ *  Determines if the update response should include the values
+ *  of the cells that were updated. By default, responses
+ *  do not include the updated values. The `updatedData` field within
+ *  each of the BatchUpdateValuesResponse.responses will contain
+ *  the updated values. If the range to write was larger than than the range
+ *  actually written, the response will include all values in the requested
+ *  range (excluding trailing empty rows and columns).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeValuesInResponse;
+
+/**
+ *  Determines how dates, times, and durations in the response should be
+ *  rendered. This is ignored if response_value_render_option is
+ *  FORMATTED_VALUE.
+ *  The default dateTime render option is
+ *  DateTimeRenderOption.SERIAL_NUMBER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString
+ *        Instructs date, time, datetime, and duration fields to be output
+ *        as strings in their given number format (which is dependent
+ *        on the spreadsheet locale). (Value: "FORMATTED_STRING")
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber
+ *        Instructs date, time, datetime, and duration fields to be output
+ *        as doubles in "serial number" format, as popularized by Lotus 1-2-3.
+ *        The whole number portion of the value (left of the decimal) counts
+ *        the days since December 30th 1899. The fractional portion (right of
+ *        the decimal) counts the time as a fraction of the day. For example,
+ *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *        not a leap year. (Value: "SERIAL_NUMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
+
+/**
+ *  Determines how values in the response should be rendered.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue
+ *        Values will be calculated & formatted in the reply according to the
+ *        cell's formatting. Formatting is based on the spreadsheet's locale,
+ *        not the requesting user's locale.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then `A2` would return `"$1.23"`. (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_Formula
+ *        Values will not be calculated. The reply will include the formulas.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then A2 would return `"=A1"`. (Value: "FORMULA")
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue
+ *        Values will be calculated, but not formatted in the reply.
+ *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
+ *        currency,
+ *        then `A2` would return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ */
+@property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
+
+/**
+ *  How the input data should be interpreted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_InputValueOptionUnspecified
+ *        Default input value. This value must not be used. (Value:
+ *        "INPUT_VALUE_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_Raw
+ *        The values the user has entered will not be parsed and will be stored
+ *        as-is. (Value: "RAW")
+ *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_UserEntered
+ *        The values will be parsed as if the user typed them into the UI.
+ *        Numbers will stay as numbers, but strings may be converted to numbers,
+ *        dates, etc. following the same rules that are applied when entering
+ *        text into a cell via the Google Sheets UI. (Value: "USER_ENTERED")
+ */
+@property(nonatomic, copy, nullable) NSString *valueInputOption;
+
+@end
+
+
+/**
+ *  The response when updating a range of values in a spreadsheet.
+ */
+@interface GTLRSheets_BatchUpdateValuesByDataFilterResponse : GTLRObject
+
+/** The response for each range updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_UpdateValuesByDataFilterResponse *> *responses;
+
+/** The spreadsheet the updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+/**
+ *  The total number of cells updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedCells;
+
+/**
+ *  The total number of columns where at least one cell in the column was
+ *  updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedColumns;
+
+/**
+ *  The total number of rows where at least one cell in the row was updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedRows;
+
+/**
+ *  The total number of sheets where at least one cell in the sheet was
+ *  updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedSheets;
 
 @end
 
@@ -3922,6 +4535,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  A request to create developer metadata.
+ */
+@interface GTLRSheets_CreateDeveloperMetadataRequest : GTLRObject
+
+/** The developer metadata to create. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadata *developerMetadata;
+
+@end
+
+
+/**
+ *  The response from creating developer metadata.
+ */
+@interface GTLRSheets_CreateDeveloperMetadataResponse : GTLRObject
+
+/** The developer metadata that was created. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadata *developerMetadata;
+
+@end
+
+
+/**
  *  Moves data from the source to the destination.
  */
 @interface GTLRSheets_CutPasteRequest : GTLRObject
@@ -3954,6 +4589,63 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The source data to cut. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
+
+@end
+
+
+/**
+ *  Filter that describes what data should be selected or returned from a
+ *  request.
+ */
+@interface GTLRSheets_DataFilter : GTLRObject
+
+/** Selects data that matches the specified A1 range. */
+@property(nonatomic, copy, nullable) NSString *a1Range;
+
+/**
+ *  Selects data associated with the developer metadata matching the criteria
+ *  described by this DeveloperMetadataLookup.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadataLookup *developerMetadataLookup;
+
+/** Selects data that matches the range described by the GridRange. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *gridRange;
+
+@end
+
+
+/**
+ *  A range of values whose location is specified by a DataFilter.
+ */
+@interface GTLRSheets_DataFilterValueRange : GTLRObject
+
+/**
+ *  The data filter describing the location of the values in the spreadsheet.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DataFilter *dataFilter;
+
+/**
+ *  The major dimension of the values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DataFilterValueRange_MajorDimension_Columns Operates
+ *        on the columns of a sheet. (Value: "COLUMNS")
+ *    @arg @c kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified
+ *        The default value, do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DataFilterValueRange_MajorDimension_Rows Operates on
+ *        the rows of a sheet. (Value: "ROWS")
+ */
+@property(nonatomic, copy, nullable) NSString *majorDimension;
+
+/**
+ *  The data to be written. If the provided values exceed any of the ranges
+ *  matched by the data filter then the request will fail. If the provided
+ *  values are less than the matched ranges only the specified values will be
+ *  written, existing values in the matched ranges will remain unaffected.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSArray *> *values;
 
 @end
 
@@ -4032,6 +4724,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The rule that was deleted. */
 @property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
+
+@end
+
+
+/**
+ *  A request to delete developer metadata.
+ */
+@interface GTLRSheets_DeleteDeveloperMetadataRequest : GTLRObject
+
+/**
+ *  The data filter describing the criteria used to select which developer
+ *  metadata entry to delete.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DataFilter *dataFilter;
+
+@end
+
+
+/**
+ *  The response from deleting developer metadata.
+ */
+@interface GTLRSheets_DeleteDeveloperMetadataResponse : GTLRObject
+
+/** The metadata that was deleted. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *deletedDeveloperMetadata;
 
 @end
 
@@ -4146,9 +4863,244 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  Developer metadata associated with a location or object in a spreadsheet.
+ *  Developer metadata may be used to associate arbitrary data with various
+ *  parts of a spreadsheet and will remain associated at those locations as they
+ *  move around and the spreadsheet is edited. For example, if developer
+ *  metadata is associated with row 5 and another row is then subsequently
+ *  inserted above row 5, that original metadata will still be associated with
+ *  the row it was first associated with (what is now row 6). If the associated
+ *  object is deleted its metadata will be deleted too.
+ */
+@interface GTLRSheets_DeveloperMetadata : GTLRObject
+
+/** The location where the metadata is associated. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadataLocation *location;
+
+/**
+ *  The spreadsheet-scoped unique ID that identifies the metadata. IDs may be
+ *  specified when metadata is created, otherwise one will be randomly
+ *  generated and assigned. Must be positive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metadataId;
+
+/**
+ *  The metadata key. There may be multiple metadata in a spreadsheet with the
+ *  same key. Developer metadata must always have a key specified.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataKey;
+
+/** Data associated with the metadata's key. */
+@property(nonatomic, copy, nullable) NSString *metadataValue;
+
+/**
+ *  The metadata visibility. Developer metadata must always have a visibility
+ *  specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeveloperMetadata_Visibility_DeveloperMetadataVisibilityUnspecified
+ *        Default value. (Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeveloperMetadata_Visibility_Document Document-visible
+ *        metadata is accessible from any developer project with
+ *        access to the document. (Value: "DOCUMENT")
+ *    @arg @c kGTLRSheets_DeveloperMetadata_Visibility_Project Project-visible
+ *        metadata is only visible to and accessible by the developer
+ *        project that created the metadata. (Value: "PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
+
+@end
+
+
+/**
+ *  A location where metadata may be associated in a spreadsheet.
+ */
+@interface GTLRSheets_DeveloperMetadataLocation : GTLRObject
+
+/**
+ *  Represents the row or column when metadata is associated with
+ *  a dimension. The specified DimensionRange must represent a single row
+ *  or column; it cannot be unbounded or span multiple rows or columns.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *dimensionRange;
+
+/**
+ *  The type of location this object represents. This field is read-only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeveloperMetadataLocation_LocationType_Column
+ *        Developer metadata associated on an entire column dimension. (Value:
+ *        "COLUMN")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLocation_LocationType_DeveloperMetadataLocationTypeUnspecified
+ *        Default value. (Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLocation_LocationType_Row Developer
+ *        metadata associated on an entire row dimension. (Value: "ROW")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLocation_LocationType_Sheet Developer
+ *        metadata associated on an entire sheet. (Value: "SHEET")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLocation_LocationType_Spreadsheet
+ *        Developer metadata associated on the entire spreadsheet. (Value:
+ *        "SPREADSHEET")
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+/**
+ *  The ID of the sheet when metadata is associated with an entire sheet.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
+
+/**
+ *  True when metadata is associated with an entire spreadsheet.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spreadsheet;
+
+@end
+
+
+/**
+ *  Selects DeveloperMetadata that matches all of the specified fields. For
+ *  example, if only a metadata ID is specified this will consider the
+ *  DeveloperMetadata with that particular unique ID. If a metadata key is
+ *  specified, all developer metadata with that key will be considered. If a
+ *  key, visibility, and location type are all specified, then all
+ *  developer metadata with that key, visibility, and associated with a
+ *  location of that type will be considered. In general, this
+ *  selects all DeveloperMetadata that matches the intersection of all the
+ *  specified fields; any field or combination of fields may be specified.
+ */
+@interface GTLRSheets_DeveloperMetadataLookup : GTLRObject
+
+/**
+ *  Determines how this lookup matches the location. If this field is
+ *  specified as EXACT, only developer metadata associated on the exact
+ *  location specified will be matched. If this field is specified to
+ *  INTERSECTING,
+ *  developer metadata associated on intersecting locations will also be
+ *  matched. If left unspecified, this field will assume a default value of
+ *  INTERSECTING.
+ *  If this field is specified, a metadataLocation
+ *  must also be specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_DeveloperMetadataLocationMatchingStrategyUnspecified
+ *        Default value. This value must not be used. (Value:
+ *        "DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_ExactLocation
+ *        Indicates that a specified location should be matched exactly. For
+ *        example, if row three were specified as a location this matching
+ *        strategy
+ *        would only match developer metadata also associated on row three.
+ *        Metadata
+ *        associated on other locations would not be considered. (Value:
+ *        "EXACT_LOCATION")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_IntersectingLocation
+ *        Indicates that a specified location should match that exact location
+ *        as
+ *        well as any intersecting locations. For example, if row three were
+ *        specified as a location this matching strategy would match developer
+ *        metadata associated on row three as well as metadata associated on
+ *        locations that intersect row three. If, for instance, there was
+ *        developer
+ *        metadata associated on column B, this matching strategy would also
+ *        match
+ *        that location because column B intersects row three. (Value:
+ *        "INTERSECTING_LOCATION")
+ */
+@property(nonatomic, copy, nullable) NSString *locationMatchingStrategy;
+
+/**
+ *  Limits the selected developer metadata to those entries which are
+ *  associated with locations of the specified type. For example, specifying
+ *  this as ROW will only consider
+ *  developer metadata associated on rows. If left unspecified, all location
+ *  types will be considered. This field cannot be specified as
+ *  SPREADSHEET when the
+ *  locationMatchingStrategy is
+ *  specified as INTERSECTING or when the
+ *  metadataLocation is specified as a
+ *  non-spreadsheet location: spreadsheet metadata cannot intersect any other
+ *  developer metadata location. This field also must be left unspecified when
+ *  the
+ *  locationMatchingStrategy is
+ *  specified as EXACT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_Column Developer
+ *        metadata associated on an entire column dimension. (Value: "COLUMN")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_DeveloperMetadataLocationTypeUnspecified
+ *        Default value. (Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_Row Developer
+ *        metadata associated on an entire row dimension. (Value: "ROW")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_Sheet Developer
+ *        metadata associated on an entire sheet. (Value: "SHEET")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_Spreadsheet
+ *        Developer metadata associated on the entire spreadsheet. (Value:
+ *        "SPREADSHEET")
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+/**
+ *  Limits the selected developer metadata to that which has a matching
+ *  DeveloperMetadata.metadata_id.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metadataId;
+
+/**
+ *  Limits the selected developer metadata to that which has a matching
+ *  DeveloperMetadata.metadata_key.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataKey;
+
+/**
+ *  Limits the selected developer metadata to those entries associated with
+ *  the specified location. This field either matches exact locations or all
+ *  intersecting locations according the specified
+ *  locationMatchingStrategy.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadataLocation *metadataLocation;
+
+/**
+ *  Limits the selected developer metadata to that which has a matching
+ *  DeveloperMetadata.metadata_value.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataValue;
+
+/**
+ *  Limits the selected developer metadata to that which has a matching
+ *  DeveloperMetadata.visibility. If left unspecified, all developer
+ *  metadata visibile to the requesting project will be considered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified
+ *        Default value. (Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_Visibility_Document
+ *        Document-visible metadata is accessible from any developer project
+ *        with
+ *        access to the document. (Value: "DOCUMENT")
+ *    @arg @c kGTLRSheets_DeveloperMetadataLookup_Visibility_Project
+ *        Project-visible metadata is only visible to and accessible by the
+ *        developer
+ *        project that created the metadata. (Value: "PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
+
+@end
+
+
+/**
  *  Properties about a dimension.
  */
 @interface GTLRSheets_DimensionProperties : GTLRObject
+
+/** The developer metadata associated with a single row or column. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *developerMetadata;
 
 /**
  *  True if this dimension is being filtered.
@@ -4635,6 +5587,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  The request for retrieving a Spreadsheet.
+ */
+@interface GTLRSheets_GetSpreadsheetByDataFilterRequest : GTLRObject
+
+/**
+ *  The DataFilters used to select which ranges to retrieve from
+ *  the spreadsheet.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/**
+ *  True if grid data should be returned.
+ *  This parameter is ignored if a field mask was set in the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeGridData;
+
+@end
+
+
+/**
  *  A rule that applies a gradient color scale format, based on
  *  the interpolation points listed. The format of a cell will vary
  *  based on its contents as compared to the values of the interpolation
@@ -5055,6 +6029,38 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+@end
+
+
+/**
+ *  A developer metadata entry and the data filters specified in the original
+ *  request that matched it.
+ */
+@interface GTLRSheets_MatchedDeveloperMetadata : GTLRObject
+
+/** All filters matching the returned developer metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/** The developer metadata matching the specified filters. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadata *developerMetadata;
+
+@end
+
+
+/**
+ *  A value range that was matched by one or more data filers.
+ */
+@interface GTLRSheets_MatchedValueRange : GTLRObject
+
+/**
+ *  The DataFilters from the request that matched the range of
+ *  values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/** The values matched by the DataFilter. */
+@property(nonatomic, strong, nullable) GTLRSheets_ValueRange *valueRange;
 
 @end
 
@@ -5813,6 +6819,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** Copies data from one area and pastes it to another. */
 @property(nonatomic, strong, nullable) GTLRSheets_CopyPasteRequest *copyPaste NS_RETURNS_NOT_RETAINED;
 
+/** Creates new developer metadata */
+@property(nonatomic, strong, nullable) GTLRSheets_CreateDeveloperMetadataRequest *createDeveloperMetadata;
+
 /** Cuts data from one area and pastes it to another. */
 @property(nonatomic, strong, nullable) GTLRSheets_CutPasteRequest *cutPaste;
 
@@ -5821,6 +6830,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** Deletes an existing conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteConditionalFormatRuleRequest *deleteConditionalFormatRule;
+
+/** Deletes developer metadata */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDeveloperMetadataRequest *deleteDeveloperMetadata;
 
 /** Deletes rows or columns in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionRequest *deleteDimension;
@@ -5903,6 +6915,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** Updates an existing conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleRequest *updateConditionalFormatRule;
 
+/** Updates an existing developer metadata entry */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateDeveloperMetadataRequest *updateDeveloperMetadata;
+
 /** Updates dimensions' properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateDimensionPropertiesRequest *updateDimensionProperties;
 
@@ -5950,8 +6965,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** A reply from adding a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSheetResponse *addSheet;
 
+/** A reply from creating a developer metadata entry. */
+@property(nonatomic, strong, nullable) GTLRSheets_CreateDeveloperMetadataResponse *createDeveloperMetadata;
+
 /** A reply from deleting a conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteConditionalFormatRuleResponse *deleteConditionalFormatRule;
+
+/** A reply from deleting a developer metadata entry. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDeveloperMetadataResponse *deleteDeveloperMetadata;
 
 /** A reply from duplicating a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewResponse *duplicateFilterView;
@@ -5964,6 +6985,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** A reply from updating a conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleResponse *updateConditionalFormatRule;
+
+/** A reply from updating a developer metadata entry. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateDeveloperMetadataResponse *updateDeveloperMetadata;
 
 /** A reply from updating an embedded object's position. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionResponse *updateEmbeddedObjectPosition;
@@ -5978,6 +7002,33 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The values in the row, one per column. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_CellData *> *values;
+
+@end
+
+
+/**
+ *  A request to retrieve all developer metadata matching the set of specified
+ *  criteria.
+ */
+@interface GTLRSheets_SearchDeveloperMetadataRequest : GTLRObject
+
+/**
+ *  The data filters describing the criteria used to determine which
+ *  DeveloperMetadata entries to return. DeveloperMetadata matching any of the
+ *  specified filters will be included in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+@end
+
+
+/**
+ *  A reply to a developer metadata search request.
+ */
+@interface GTLRSheets_SearchDeveloperMetadataResponse : GTLRObject
+
+/** The metadata matching the criteria of the search request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_MatchedDeveloperMetadata *> *matchedDeveloperMetadata;
 
 @end
 
@@ -6039,6 +7090,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  and `startColumn 3` (zero-based column D).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridData *> *data;
+
+/** The developer metadata associated with a sheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *developerMetadata;
 
 /** The filter views in this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_FilterView *> *filterViews;
@@ -6212,6 +7266,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Resource that represents a spreadsheet.
  */
 @interface GTLRSheets_Spreadsheet : GTLRObject
+
+/** The developer metadata associated with a spreadsheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *developerMetadata;
 
 /** The named ranges defined in a spreadsheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_NamedRange *> *namedRanges;
@@ -6637,6 +7694,47 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  A request to update properties of developer metadata.
+ *  Updates the properties of the developer metadata selected by the filters to
+ *  the values provided in the DeveloperMetadata resource. Callers must
+ *  specify the properties they wish to update in the fields parameter, as well
+ *  as specify at least one DataFilter matching the metadata they wish to
+ *  update.
+ */
+@interface GTLRSheets_UpdateDeveloperMetadataRequest : GTLRObject
+
+/** The filters matching the developer metadata entries to update. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/**
+ *  The value that all metadata matched by the data filters will be updated to.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DeveloperMetadata *developerMetadata;
+
+/**
+ *  The fields that should be updated. At least one field must be specified.
+ *  The root `developerMetadata` is implied and should not be specified.
+ *  A single `"*"` can be used as short-hand for listing every field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+
+/**
+ *  The response from updating developer metadata.
+ */
+@interface GTLRSheets_UpdateDeveloperMetadataResponse : GTLRObject
+
+/** The updated developer metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *developerMetadata;
+
+@end
+
+
+/**
  *  Updates properties of dimensions within the specified range.
  */
 @interface GTLRSheets_UpdateDimensionPropertiesRequest : GTLRObject
@@ -6807,6 +7905,49 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The properties to update. */
 @property(nonatomic, strong, nullable) GTLRSheets_SpreadsheetProperties *properties;
+
+@end
+
+
+/**
+ *  The response when updating a range of values by a data filter in a
+ *  spreadsheet.
+ */
+@interface GTLRSheets_UpdateValuesByDataFilterResponse : GTLRObject
+
+/** The data filter that selected the range that was updated. */
+@property(nonatomic, strong, nullable) GTLRSheets_DataFilter *dataFilter;
+
+/**
+ *  The number of cells updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedCells;
+
+/**
+ *  The number of columns where at least one cell in the column was updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedColumns;
+
+/**
+ *  The values of the cells in the range matched by the dataFilter after all
+ *  updates were applied. This is only included if the request's
+ *  `includeValuesInResponse` field was `true`.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ValueRange *updatedData;
+
+/** The range (in A1 notation) that updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *updatedRange;
+
+/**
+ *  The number of rows where at least one cell in the row was updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedRows;
 
 @end
 

@@ -504,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Updates the metadata of a Photo, such
  *  as pose, place association, connections, etc. Changing the pixels of a
  *  photo is not supported.
- *  Only the fields specified in
+ *  Only the fields specified in the
  *  updateMask
  *  field are used. If `updateMask` is not present, the update applies to all
  *  fields.
@@ -536,9 +536,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 
 /**
  *  Mask that identifies fields on the photo metadata to update.
- *  If not present, the old Photo metadata will be entirely replaced with the
- *  new Photo metadata in this request. The update fails if invalid fields are
- *  specified. Multiple fields can be specified in a comma-delimited list.
+ *  If not present, the old Photo
+ *  metadata will be entirely replaced with the
+ *  new Photo metadata in this request.
+ *  The update fails if invalid fields are specified. Multiple fields can be
+ *  specified in a comma-delimited list.
  *  The following fields are valid:
  *  * `pose.heading`
  *  * `pose.latLngPair`
@@ -566,7 +568,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Updates the metadata of a Photo, such
  *  as pose, place association, connections, etc. Changing the pixels of a
  *  photo is not supported.
- *  Only the fields specified in
+ *  Only the fields specified in the
  *  updateMask
  *  field are used. If `updateMask` is not present, the update applies to all
  *  fields.

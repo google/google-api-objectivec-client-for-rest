@@ -29,6 +29,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: View and manage announcements in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.announcements"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomAnnouncements;
+/**
+ *  Authorization scope: View announcements in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.announcements.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomAnnouncementsReadonly;
+/**
  *  Authorization scope: Manage your Google Classroom classes
  *
  *  Value "https://www.googleapis.com/auth/classroom.courses"

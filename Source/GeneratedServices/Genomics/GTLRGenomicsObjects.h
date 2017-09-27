@@ -1632,7 +1632,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  If importing ReadGroupSets, an ImportReadGroupSetsResponse is returned. If
  *  importing Variants, an ImportVariantsResponse is returned. For pipelines and
- *  exports, an empty response is returned.
+ *  exports, an Empty response is returned.
  */
 @property(nonatomic, strong, nullable) GTLRGenomics_Operation_Response *response;
 
@@ -1655,7 +1655,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  If importing ReadGroupSets, an ImportReadGroupSetsResponse is returned. If
  *  importing Variants, an ImportVariantsResponse is returned. For pipelines and
- *  exports, an empty response is returned.
+ *  exports, an Empty response is returned.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tasks API (cloudtasks/v2beta2)
+//   Google Cloud Testing API (testing/v1)
 // Description:
-//   Manages the execution of large numbers of distributed requests. Cloud Tasks
-//   is in Alpha.
+//   Allows developers to run automated tests for their mobile applications on
+//   Google infrastructure.
 // Documentation:
-//   https://cloud.google.com/cloud-tasks/
+//   https://developers.google.com/cloud-test-lab/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -35,24 +35,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTasksCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeTestingCloudPlatform;
+/**
+ *  Authorization scope: View your data across Google Cloud Platform services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeTestingCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudTasksService
+//   GTLRTestingService
 //
 
 /**
- *  Service for executing Cloud Tasks API queries.
+ *  Service for executing Google Cloud Testing API queries.
  *
- *  Manages the execution of large numbers of distributed requests. Cloud Tasks
- *  is in Alpha.
+ *  Allows developers to run automated tests for their mobile applications on
+ *  Google infrastructure.
  */
-@interface GTLRCloudTasksService : GTLRService
+@interface GTLRTestingService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudTasksQuery.h. The query can the be sent with GTLRService's execute
+// GTLRTestingQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

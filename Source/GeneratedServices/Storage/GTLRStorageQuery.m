@@ -260,7 +260,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsInsert
 
-@dynamic predefinedAcl, predefinedDefaultObjectAcl, project, projection;
+@dynamic predefinedAcl, predefinedDefaultObjectAcl, project, projection,
+         userProject;
 
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                         project:(NSString *)project {
@@ -284,7 +285,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsList
 
-@dynamic maxResults, pageToken, prefix, project, projection;
+@dynamic maxResults, pageToken, prefix, project, projection, userProject;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSString *pathURITemplate = @"b";
@@ -1095,19 +1096,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   return query;
 }
 
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
-                                 bucket:(NSString *)bucket
-                                 object:(NSString *)object_param {
-  GTLRStorageQuery_ObjectsPatch *query =
-    [self queryWithObject:object
-                   bucket:bucket
-                   object:object_param];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download storage.objects.patch";
-  return query;
-}
-
 @end
 
 @implementation GTLRStorageQuery_ObjectsRewrite
@@ -1283,7 +1271,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ProjectsServiceAccountGet
 
-@dynamic projectId;
+@dynamic projectId, userProject;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];

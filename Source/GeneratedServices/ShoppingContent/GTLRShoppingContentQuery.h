@@ -1028,7 +1028,23 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedstatusesGetWithmerchantId:datafeedId:]
 
+/**
+ *  The country for which to get the datafeed status. If this parameter is
+ *  provided then language must also be provided. Note that this parameter is
+ *  required for feeds targeting multiple countries and languages, since a feed
+ *  may have a different status for each target.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
 @property(nonatomic, assign) unsigned long long datafeedId;
+
+/**
+ *  The language for which to get the datafeed status. If this parameter is
+ *  provided then country must also be provided. Note that this parameter is
+ *  required for feeds targeting multiple countries and languages, since a feed
+ *  may have a different status for each target.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
 
 @property(nonatomic, assign) unsigned long long merchantId;
 

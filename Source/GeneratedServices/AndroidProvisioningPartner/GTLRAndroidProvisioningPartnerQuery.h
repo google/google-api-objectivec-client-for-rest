@@ -76,9 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  A customer for zero-touch enrollment will be created.
- *  After a Customer is created, their admins and owners will be able to manage
- *  devices on partner.android.com/zerotouch or via their API.
+ *  Creates a customer for zero-touch enrollment. After the method returns
+ *  successfully, admin and owner roles can manage devices and EMM configs
+ *  by calling API methods or using their zero-touch enrollment portal. The API
+ *  doesn't notify the customer that they have access.
  *
  *  Method: androiddeviceprovisioning.partners.customers.create
  */
@@ -86,19 +87,25 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersCreateWithObject:parent:]
 
-/** The parent resource in format `partners/[PARTNER_ID]'. */
+/**
+ *  Required. The parent resource ID in format `partners/[PARTNER_ID]` that
+ *  identifies the reseller.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Company.
  *
- *  A customer for zero-touch enrollment will be created.
- *  After a Customer is created, their admins and owners will be able to manage
- *  devices on partner.android.com/zerotouch or via their API.
+ *  Creates a customer for zero-touch enrollment. After the method returns
+ *  successfully, admin and owner roles can manage devices and EMM configs
+ *  by calling API methods or using their zero-touch enrollment portal. The API
+ *  doesn't notify the customer that they have access.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_CreateCustomerRequest to
  *    include in the query.
- *  @param parent The parent resource in format `partners/[PARTNER_ID]'.
+ *  @param parent Required. The parent resource ID in format
+ *    `partners/[PARTNER_ID]` that
+ *    identifies the reseller.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate
  */
@@ -108,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the customers that are enrolled to the reseller identified by the
+ *  Lists the customers that are enrolled to the reseller identified by the
  *  `partnerId` argument. This list includes customers that the reseller
  *  created and customers that enrolled themselves using the portal.
  *
@@ -124,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_ListCustomersResponse.
  *
- *  List the customers that are enrolled to the reseller identified by the
+ *  Lists the customers that are enrolled to the reseller identified by the
  *  `partnerId` argument. This list includes customers that the reseller
  *  created and customers that enrolled themselves using the portal.
  *

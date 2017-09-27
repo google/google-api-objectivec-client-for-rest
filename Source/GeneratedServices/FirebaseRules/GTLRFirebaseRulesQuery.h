@@ -30,6 +30,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// executableVersion
+
+/** Value: "FIREBASE_RULES_EXECUTABLE_V1" */
+GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1;
+/** Value: "FIREBASE_RULES_EXECUTABLE_V2" */
+GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2;
+/** Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Firebase Rules query classes.
  */
@@ -171,6 +188,54 @@ NS_ASSUME_NONNULL_BEGIN
  *    Format: `projects/{project_id}/releases/{release_id}`
  *
  *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the `Release` executable to use when enforcing rules.
+ *
+ *  Method: firebaserules.projects.releases.getExecutable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseRulesCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
+ */
+@interface GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable : GTLRFirebaseRulesQuery
+// Previous library name was
+//   +[GTLQueryFirebaseRules queryForProjectsReleasesGetExecutableWithname:]
+
+/**
+ *  The requested runtime executable version.
+ *  Defaults to FIREBASE_RULES_EXECUTABLE_V1
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified
+ *        Value "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED"
+ *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1 Value
+ *        "FIREBASE_RULES_EXECUTABLE_V1"
+ *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2 Value
+ *        "FIREBASE_RULES_EXECUTABLE_V2"
+ */
+@property(nonatomic, copy, nullable) NSString *executableVersion;
+
+/**
+ *  Resource name of the `Release`.
+ *  Format: `projects/{project_id}/releases/{release_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseRules_GetReleaseExecutableResponse.
+ *
+ *  Get the `Release` executable to use when enforcing rules.
+ *
+ *  @param name Resource name of the `Release`.
+ *    Format: `projects/{project_id}/releases/{release_id}`
+ *
+ *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
  */
 + (instancetype)queryWithName:(NSString *)name;
 

@@ -66,7 +66,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGmailModify;
 /**
- *  Authorization scope: View your emails messages and settings
+ *  Authorization scope: View your email messages and settings
  *
  *  Value "https://www.googleapis.com/auth/gmail.readonly"
  */

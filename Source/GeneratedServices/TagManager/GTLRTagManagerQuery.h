@@ -222,6 +222,24 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeResolution;
 /** Value: "sdkVersion" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
+/** Value: "videoCurrentTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoCurrentTime;
+/** Value: "videoDuration" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoDuration;
+/** Value: "videoElapsedTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoElapsedTime;
+/** Value: "videoPercent" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoPercent;
+/** Value: "videoProvider" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoProvider;
+/** Value: "videoStatus" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoStatus;
+/** Value: "videoTitle" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoTitle;
+/** Value: "videoUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoUrl;
+/** Value: "videoVisible" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1130,6 +1148,15 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1284,6 +1311,15 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1479,6 +1515,15 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

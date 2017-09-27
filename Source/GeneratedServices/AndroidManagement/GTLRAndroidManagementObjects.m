@@ -27,6 +27,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstall
 
 // GTLRAndroidManagement_Command.resetPasswordFlags
 NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot = @"DO_NOT_ASK_CREDENTIALS_ON_BOOT";
+NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow = @"LOCK_NOW";
 NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_RequireEntry = @"REQUIRE_ENTRY";
 NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_ResetPasswordFlagUnspecified = @"RESET_PASSWORD_FLAG_UNSPECIFIED";
 

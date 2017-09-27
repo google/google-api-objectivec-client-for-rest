@@ -162,6 +162,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_CreateSessionRequest
+//
+
+@implementation GTLRSpanner_CreateSessionRequest
+@dynamic session;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Database
 //
 
@@ -421,6 +431,28 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListSessionsResponse
+//
+
+@implementation GTLRSpanner_ListSessionsResponse
+@dynamic nextPageToken, sessions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sessions" : [GTLRSpanner_Session class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessions";
 }
 
 @end
@@ -696,7 +728,21 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Session
-@dynamic name;
+@dynamic approximateLastUseTime, createTime, labels, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Session_Labels
+//
+
+@implementation GTLRSpanner_Session_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

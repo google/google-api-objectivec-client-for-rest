@@ -4,8 +4,8 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Cloud Tasks enables developers to manage the execution of large numbers of
-//   distributed requests. Cloud Tasks is in Alpha.
+//   Manages the execution of large numbers of distributed requests. Cloud Tasks
+//   is in Alpha.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -64,6 +64,75 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Get information about a location.
+ *
+ *  Method: cloudtasks.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsGet : GTLRCloudTasksQuery
+// Previous library name was
+//   +[GTLQueryCloudTasks queryForProjectsLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_Location.
+ *
+ *  Get information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @returns GTLRCloudTasksQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: cloudtasks.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsList : GTLRCloudTasksQuery
+// Previous library name was
+//   +[GTLQueryCloudTasks queryForProjectsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @returns GTLRCloudTasksQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -871,7 +940,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Sort order used for the query. The fields supported for sorting
- *  are Task.schedule_time and PullTaskTarget.tag. All results will be
+ *  are Task.schedule_time and PullMessage.tag. All results will be
  *  returned in ascending order. The default ordering is by
  *  Task.schedule_time.
  */

@@ -791,10 +791,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @interface GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest : GTLRObject
 
-/** End time of the range of transfer runs. */
+/**
+ *  End time of the range of transfer runs. For example,
+ *  `"2017-05-30T00:00:00+00:00"`.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Start time of the range of transfer runs. */
+/**
+ *  Start time of the range of transfer runs. For example,
+ *  `"2017-05-25T00:00:00+00:00"`.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end

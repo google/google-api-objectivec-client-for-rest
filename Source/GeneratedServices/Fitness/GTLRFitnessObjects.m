@@ -289,6 +289,25 @@ NSString * const kGTLRFitness_Device_Type_Watch       = @"watch";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFitness_ListDataPointChangesResponse
+//
+
+@implementation GTLRFitness_ListDataPointChangesResponse
+@dynamic dataSourceId, deletedDataPoint, insertedDataPoint, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deletedDataPoint" : [GTLRFitness_DataPoint class],
+    @"insertedDataPoint" : [GTLRFitness_DataPoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFitness_ListDataSourcesResponse
 //
 

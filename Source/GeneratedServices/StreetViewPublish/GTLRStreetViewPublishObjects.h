@@ -282,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /**
- *  Required when updating photo. Output only when creating photo.
+ *  Required when updating a photo. Output only when creating a photo.
  *  Identifier for the photo, which is unique among all photos in
  *  Google.
  */
@@ -303,8 +303,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
 /**
- *  Required when creating photo. Input only. The resource URL where the photo
- *  bytes are uploaded to.
+ *  Required when creating a photo. Input only. The resource URL where the
+ *  photo bytes are uploaded to.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_UploadRef *uploadReference;
 
@@ -364,7 +364,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStreetViewPublish_Place : GTLRObject
 
 /**
- *  Required. Place identifier, as described in
+ *  Place identifier, as described in
  *  https://developers.google.com/places/place-id.
  */
 @property(nonatomic, copy, nullable) NSString *placeId;
@@ -527,9 +527,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Mask that identifies fields on the photo metadata to update.
- *  If not present, the old Photo metadata will be entirely replaced with the
- *  new Photo metadata in this request. The update fails if invalid fields are
- *  specified. Multiple fields can be specified in a comma-delimited list.
+ *  If not present, the old Photo
+ *  metadata will be entirely replaced with the
+ *  new Photo metadata in this request.
+ *  The update fails if invalid fields are specified. Multiple fields can be
+ *  specified in a comma-delimited list.
  *  The following fields are valid:
  *  * `pose.heading`
  *  * `pose.latLngPair`
