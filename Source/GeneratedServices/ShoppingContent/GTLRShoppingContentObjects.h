@@ -35,6 +35,7 @@
 @class GTLRShoppingContent_AccounttaxCustomBatchResponseEntry;
 @class GTLRShoppingContent_AccountTaxTaxRule;
 @class GTLRShoppingContent_AccountUser;
+@class GTLRShoppingContent_AccountYouTubeChannelLink;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
 @class GTLRShoppingContent_Datafeed;
@@ -47,6 +48,7 @@
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequestEntry;
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchResponseEntry;
 @class GTLRShoppingContent_DatafeedStatusExample;
+@class GTLRShoppingContent_DatafeedTarget;
 @class GTLRShoppingContent_DeliveryTime;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
@@ -80,6 +82,7 @@
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryRefund;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems;
+@class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment;
 @class GTLRShoppingContent_OrdersCustomBatchResponseEntry;
 @class GTLRShoppingContent_OrderShipment;
@@ -182,6 +185,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The merchant's website. */
 @property(nonatomic, copy, nullable) NSString *websiteUrl;
+
+/**
+ *  List of linked YouTube channels that are active or pending approval. To
+ *  create a new link request, add a new link with status active to the list. It
+ *  will remain in a pending state until approved or rejected in the YT Creator
+ *  Studio interface. To delete an active link, or to cancel a link request,
+ *  remove it from the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountYouTubeChannelLink *> *youtubeChannelLinks;
 
 @end
 
@@ -865,6 +877,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_AccountYouTubeChannelLink
+ */
+@interface GTLRShoppingContent_AccountYouTubeChannelLink : GTLRObject
+
+/** Channel ID. */
+@property(nonatomic, copy, nullable) NSString *channelId;
+
+/**
+ *  Status of the link between this Merchant Center account and the YouTube
+ *  channel. Upon retrieval, it represents the actual status of the link and can
+ *  be either active if it was approved in YT Creator Studio or pending if it's
+ *  pending approval. Upon insertion, it represents the intended status of the
+ *  link. Re-uploading a link with status active when it's still pending or with
+ *  status pending when it's already active will have no effect: the status will
+ *  remain unchanged. Re-uploading a link with deprecated status inactive is
+ *  equivalent to not submitting the link at all and will delete the link if it
+ *  was active or cancel the link request if it was pending.
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_CarrierRate
  */
 @interface GTLRShoppingContent_CarrierRate : GTLRObject
@@ -937,8 +973,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *attributeLanguage;
 
 /**
- *  The two-letter ISO 639-1 language of the items in the feed. Must be a valid
- *  language for targetCountry.
+ *  [DEPRECATED] Please use target.language instead. The two-letter ISO 639-1
+ *  language of the items in the feed. Must be a valid language for
+ *  targetCountry.
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
@@ -967,8 +1004,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The list of intended destinations (corresponds to checked check boxes in
- *  Merchant Center).
+ *  [DEPRECATED] Please use target.includedDestination instead. The list of
+ *  intended destinations (corresponds to checked check boxes in Merchant
+ *  Center).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *intendedDestinations;
 
@@ -982,10 +1020,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The country where the items in the feed will be included in the search
- *  index, represented as a CLDR territory code.
+ *  [DEPRECATED] Please use target.country instead. The country where the items
+ *  in the feed will be included in the search index, represented as a CLDR
+ *  territory code.
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
+
+/**
+ *  The targets this feed should apply to (country, language, destinations).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_DatafeedTarget *> *targets;
 
 @end
 
@@ -1200,6 +1244,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_DatafeedStatus : GTLRObject
 
 /**
+ *  The country for which the status is reported, represented as a CLDR
+ *  territory code.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
  *  The ID of the feed for which the status is reported.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -1228,6 +1278,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#datafeedStatus".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** The two-letter ISO 639-1 language for which the status is reported. */
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The last date at which the feed was uploaded. */
 @property(nonatomic, copy, nullable) NSString *lastUploadDate;
@@ -1289,11 +1342,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
 /**
- *  The ID of the data feed to get or delete.
+ *  The country for which to get the datafeed status. If this parameter is
+ *  provided then language must also be provided. Note that for multi-target
+ *  datafeeds this parameter is required.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The ID of the data feed to get.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *datafeedId;
+
+/**
+ *  The language for which to get the datafeed status. If this parameter is
+ *  provided then country must also be provided. Note that for multi-target
+ *  datafeeds this parameter is required.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The ID of the managing account.
@@ -1395,6 +1462,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The problematic value. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_DatafeedTarget
+ */
+@interface GTLRShoppingContent_DatafeedTarget : GTLRObject
+
+/**
+ *  The country where the items in the feed will be included in the search
+ *  index, represented as a CLDR territory code.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The list of destinations to exclude for this target (corresponds to
+ *  unchecked check boxes in Merchant Center).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
+
+/**
+ *  The list of destinations to include for this target (corresponds to checked
+ *  check boxes in Merchant Center). Default destinations are always included
+ *  unless provided in the excluded_destination field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
+
+/**
+ *  The two-letter ISO 639-1 language of the items in the feed. Must be a valid
+ *  language for targets[].country.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
 
 @end
 
@@ -2227,7 +2327,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderLineItemShippingDetailsMethod : GTLRObject
 
-/** The carrier for the shipping. Optional. */
+/**
+ *  The carrier for the shipping. Optional. See shipments[].carrier for a list
+ *  of acceptable values.
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /**
@@ -2278,7 +2381,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** The billing phone number. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
-/** The type of instrument (VISA, Mastercard, etc). */
+/**
+ *  The type of instrument.
+ *  Acceptable values are:
+ *  - "AMEX"
+ *  - "DISCOVER"
+ *  - "JCB"
+ *  - "MASTERCARD"
+ *  - "UNIONPAY"
+ *  - "VISA"
+ *  - ""
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -2743,11 +2856,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems : GTLRObject
 
-/** The carrier handling the shipment. */
+/**
+ *  Deprecated. Please use shipmentInfo instead. The carrier handling the
+ *  shipment. See shipments[].carrier in the Orders resource representation for
+ *  a list of acceptable values.
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /** Line items to ship. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderShipmentLineItemShipment *> *lineItems;
+
+/** Deprecated. Please use shipmentInfo instead. The ID of the shipment. */
+@property(nonatomic, copy, nullable) NSString *shipmentId;
+
+/**
+ *  Shipment information. This field is repeated because a single line item can
+ *  be shipped in several packages (and have several tracking IDs).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo *> *shipmentInfos;
+
+/**
+ *  Deprecated. Please use shipmentInfo instead. The tracking id for the
+ *  shipment.
+ */
+@property(nonatomic, copy, nullable) NSString *trackingId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo
+ */
+@interface GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo : GTLRObject
+
+/**
+ *  The carrier handling the shipment. See shipments[].carrier in the Orders
+ *  resource representation for a list of acceptable values.
+ */
+@property(nonatomic, copy, nullable) NSString *carrier;
 
 /** The ID of the shipment. */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
@@ -2763,7 +2909,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment : GTLRObject
 
-/** The carrier handling the shipment. Not updated if missing. */
+/**
+ *  The carrier handling the shipment. Not updated if missing. See
+ *  shipments[].carrier in the Orders resource representation for a list of
+ *  acceptable values.
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /** The ID of the shipment. */
@@ -2874,7 +3024,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderShipment : GTLRObject
 
-/** The carrier handling the shipment. */
+/**
+ *  The carrier handling the shipment.
+ *  Acceptable values are:
+ *  - "gsx"
+ *  - "ups"
+ *  - "united parcel service"
+ *  - "usps"
+ *  - "united states postal service"
+ *  - "fedex"
+ *  - "dhl"
+ *  - "ecourier"
+ *  - "cxt"
+ *  - "google"
+ *  - "on trac"
+ *  - "ontrac"
+ *  - "on-trac"
+ *  - "on_trac"
+ *  - "delvic"
+ *  - "dynamex"
+ *  - "lasership"
+ *  - "smartpost"
+ *  - "fedex smartpost"
+ *  - "mpx"
+ *  - "uds"
+ *  - "united delivery service"
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /** Date on which the shipment has been created, in ISO 8601 format. */
@@ -3043,7 +3218,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersShipLineItemsRequest : GTLRObject
 
-/** The carrier handling the shipment. */
+/**
+ *  Deprecated. Please use shipmentInfo instead. The carrier handling the
+ *  shipment. See shipments[].carrier in the Orders resource representation for
+ *  a list of acceptable values.
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /** Line items to ship. */
@@ -3054,10 +3233,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
-/** The ID of the shipment. */
+/** Deprecated. Please use shipmentInfo instead. The ID of the shipment. */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
 
-/** The tracking id for the shipment. */
+/**
+ *  Shipment information. This field is repeated because a single line item can
+ *  be shipped in several packages (and have several tracking IDs).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo *> *shipmentInfos;
+
+/**
+ *  Deprecated. Please use shipmentInfo instead. The tracking id for the
+ *  shipment.
+ */
 @property(nonatomic, copy, nullable) NSString *trackingId;
 
 @end
@@ -3121,7 +3309,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersUpdateShipmentRequest : GTLRObject
 
-/** The carrier handling the shipment. Not updated if missing. */
+/**
+ *  The carrier handling the shipment. Not updated if missing. See
+ *  shipments[].carrier in the Orders resource representation for a list of
+ *  acceptable values.
+ */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /**

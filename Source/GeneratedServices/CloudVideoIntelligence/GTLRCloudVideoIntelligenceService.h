@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Video Intelligence API (videointelligence/v1beta1)
+//   Cloud Video Intelligence API (videointelligence/v1beta1)
 // Description:
-//   Google Cloud Video Intelligence API.
+//   Cloud Video Intelligence API.
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
@@ -41,9 +41,9 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Video Intelligence API queries.
+ *  Service for executing Cloud Video Intelligence API queries.
  *
- *  Google Cloud Video Intelligence API.
+ *  Cloud Video Intelligence API.
  */
 @interface GTLRCloudVideoIntelligenceService : GTLRService
 

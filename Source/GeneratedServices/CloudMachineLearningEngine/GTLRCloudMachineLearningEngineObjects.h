@@ -289,6 +289,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
 /**
+ *  A single worker instance with a [Cloud TPU](/tpu)
+ *
+ *  Value: "BASIC_TPU"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu;
+/**
  *  The CUSTOM tier is not a set tier, but rather enables you to use your
  *  own cluster specification. When you use this tier, set values to
  *  configure your processing cluster according to these guidelines:
@@ -515,7 +521,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput : GTLRObject
 
-/** All recorded object metrics for this trial. */
+/**
+ *  All recorded object metrics for this trial. This field is not currently
+ *  populated.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *> *allMetrics;
 
 /** The final objective metric seen for this trial. */
@@ -1426,6 +1435,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
  *        A single worker instance [with a
  *        GPU](/ml-engine/docs/how-tos/using-gpus). (Value: "BASIC_GPU")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu
+ *        A single worker instance with a [Cloud TPU](/tpu) (Value: "BASIC_TPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
@@ -1521,7 +1532,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *  Next ID: 18
+ *  Next ID: 19
  *  LINT.IfChange
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject

@@ -4,8 +4,8 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Cloud Tasks enables developers to manage the execution of large numbers of
-//   distributed requests. Cloud Tasks is in Alpha.
+//   Manages the execution of large numbers of distributed requests. Cloud Tasks
+//   is in Alpha.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -28,6 +28,9 @@
 @class GTLRCloudTasks_AppEngineTaskTarget_Headers;
 @class GTLRCloudTasks_AttemptStatus;
 @class GTLRCloudTasks_Binding;
+@class GTLRCloudTasks_Location;
+@class GTLRCloudTasks_Location_Labels;
+@class GTLRCloudTasks_Location_Metadata;
 @class GTLRCloudTasks_Policy;
 @class GTLRCloudTasks_PullMessage;
 @class GTLRCloudTasks_PullQueueConfig;
@@ -376,7 +379,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  the task is dispatched.
  *  This proto can only be used for tasks in a queue which has
  *  Queue.app_engine_http_target set.
- *  Using this type of target requires
+ *  Using AppEngineHttpRequest requires
  *  [`appengine.applications.get`](/appengine/docs/admin-api/access-control)
  *  Google IAM permission for the project
  *  and the following scope:
@@ -545,7 +548,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  specified by its AppEngineHttpTarget and AppEngineHttpRequest.
  *  The documentation for AppEngineHttpRequest explains how the
  *  task's host URL is constructed.
- *  Using this type of queue configuration requires
+ *  Using AppEngineHttpTarget requires
  *  [`appengine.applications.get`](/appengine/docs/admin-api/access-control)
  *  Google IAM permission for the project
  *  and the following scope:
@@ -685,94 +688,18 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
- *  App Engine task target.
- *  An App Engine task is a task that has AppEngineTaskTarget set.
- *  This proto can only be used for tasks in a queue which has
- *  Queue.app_engine_queue_config set.
- *  Using this type of task target requires
- *  [`appengine.applications.get`](/appengine/docs/admin-api/access-control)
- *  Google IAM permission for the project
- *  and the following scope:
- *  `https://www.googleapis.com/auth/cloud-platform`
- *  The task will be delivered to the URL specified by the
- *  AppEngineQueueConfig and AppEngineTaskTarget in the App Engine app
- *  which belongs to the same project as the queue. For more information, see
- *  [How Requests are
- *  Routed](/appengine/docs/standard/python/how-requests-are-routed)
- *  and how routing is affected by
- *  [dispatch files](/appengine/docs/python/config/dispatchref).
- *  The AppEngineRouting used to construct the URL can be set at
- *  the queue-level or task-level:
- *  * If set, AppEngineQueueConfig.app_engine_routing_override is used for
- *  all tasks in the queue, no matter what the setting is for the
- *  task-level app_engine_routing.
- *  The `url` that the task will be sent to is:
- *  * `url =` AppEngineRouting.host `+` AppEngineTaskTarget.relative_url
- *  The task will be sent to a task handler by an HTTP
- *  request using the specified AppEngineTaskTarget.http_method (for example
- *  POST, HTTP GET, etc). The task attempt has succeeded if the task handler
- *  returns an HTTP response code in the range [200 - 299]. Error 503 is
- *  considered an App Engine system error instead of an application error.
- *  Requests returning error 503 will be retried regardless of retry
- *  configuration and not counted against retry counts.
- *  Any other response code or a failure to receive a response before the
- *  deadline is a failed attempt.
+ *  Deprecated. Use AppEngineHttpRequest.
  */
 @interface GTLRCloudTasks_AppEngineTaskTarget : GTLRObject
 
-/**
- *  Task-level setting for App Engine routing.
- *  If set, AppEngineQueueConfig.app_engine_routing_override is used for
- *  all tasks in the queue, no matter what the setting is for the
- *  task-level app_engine_routing.
- */
+/** Deprecated. Use AppEngineHttpRequest.app_engine_routing. */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineRouting *appEngineRouting;
 
-/**
- *  HTTP request headers.
- *  This map contains the header field names and values.
- *  Headers can be set when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
- *  Repeated headers are not supported but a header value can contain commas.
- *  Cloud Tasks sets some headers to default values:
- *  * `User-Agent`: By default, this header is
- *  `"AppEngine-Google; (+http://code.google.com/appengine)"`.
- *  This header can be modified, but Cloud Tasks will append
- *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
- *  modified `User-Agent`.
- *  If the task has an AppEngineTaskTarget.payload, Cloud Tasks sets the
- *  following headers:
- *  * `Content-Type`: By default, the `Content-Type` header is set to
- *  `"application/octet-stream"`. The default can be overridden by explictly
- *  setting `Content-Type` to a particular media type when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
- *  For example, `Content-Type` can be set to `"application/json"`.
- *  * `Content-Length`: This is computed by Cloud Tasks. This value is
- *  output only. It cannot be changed.
- *  The headers below cannot be set or overridden:
- *  * `Host`
- *  * `X-Google-*`
- *  * `X-AppEngine-*`
- *  In addition, some App Engine headers, which contain
- *  task-specific information, are also be sent to the task handler; see
- *  [request
- *  headers](/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
- */
+/** Deprecated. Use AppEngineHttpRequest.headers. */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineTaskTarget_Headers *headers;
 
 /**
- *  The HTTP method to use for the request. The default is POST.
- *  The app's request handler for the task's target URL must be able to handle
- *  HTTP requests with this http_method, otherwise the task attempt will fail
- *  with error code 405 "Method Not Allowed" because "the method specified in
- *  the Request-Line is not allowed for the resource identified by the
- *  Request-URI". See
- *  [Writing a push task request
- *  handler](/appengine/docs/java/taskqueue/push/creating-handlers#writing_a_push_task_request_handler)
- *  and the documentation for the request handlers in the language your app is
- *  written in e.g.
- *  [python
- *  RequestHandler](/appengine/docs/python/tools/webapp/requesthandlerclass).
+ *  Deprecated. Use AppEngineHttpRequest.http_method.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Delete HTTP Delete
@@ -791,58 +718,21 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *httpMethod;
 
 /**
- *  Payload.
- *  The payload will be sent as the HTTP message body. A message
- *  body, and thus a payload, is allowed only if the HTTP method is
- *  POST or PUT. It is an error to set a data payload on a task with
- *  an incompatible HttpMethod.
+ *  Deprecated. Use AppEngineHttpRequest.payload.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 
-/**
- *  The relative URL.
- *  The relative URL must begin with "/" and must be a valid HTTP relative URL.
- *  It can contain a path, query string arguments, and `#` fragments.
- *  If the relative URL is empty, then the root path "/" will be used.
- *  No spaces are allowed, and the maximum length allowed is 2083 characters.
- */
+/** Deprecated. Use AppEngineHttpRequest.relative_url. */
 @property(nonatomic, copy, nullable) NSString *relativeUrl;
 
 @end
 
 
 /**
- *  HTTP request headers.
- *  This map contains the header field names and values.
- *  Headers can be set when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
- *  Repeated headers are not supported but a header value can contain commas.
- *  Cloud Tasks sets some headers to default values:
- *  * `User-Agent`: By default, this header is
- *  `"AppEngine-Google; (+http://code.google.com/appengine)"`.
- *  This header can be modified, but Cloud Tasks will append
- *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
- *  modified `User-Agent`.
- *  If the task has an AppEngineTaskTarget.payload, Cloud Tasks sets the
- *  following headers:
- *  * `Content-Type`: By default, the `Content-Type` header is set to
- *  `"application/octet-stream"`. The default can be overridden by explictly
- *  setting `Content-Type` to a particular media type when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
- *  For example, `Content-Type` can be set to `"application/json"`.
- *  * `Content-Length`: This is computed by Cloud Tasks. This value is
- *  output only. It cannot be changed.
- *  The headers below cannot be set or overridden:
- *  * `Host`
- *  * `X-Google-*`
- *  * `X-AppEngine-*`
- *  In addition, some App Engine headers, which contain
- *  task-specific information, are also be sent to the task handler; see
- *  [request
- *  headers](/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
+ *  Deprecated. Use AppEngineHttpRequest.headers.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1060,6 +950,30 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudTasks_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_Location *> *locations;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for CloudTasks.ListQueues.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1123,6 +1037,61 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_Task *> *tasks;
 
+@end
+
+
+/**
+ *  A resource that represents Google Cloud Platform location.
+ */
+@interface GTLRCloudTasks_Location : GTLRObject
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Location_Labels *labels;
+
+/** The canonical id for this location. For example: `"us-east1"`. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations.
+ *  For example: `"projects/example-project/locations/us-east1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudTasks_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTasks_Location_Metadata : GTLRObject
 @end
 
 
@@ -1250,7 +1219,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  `filter` can be used to specify a subset of tasks to lease.
  *  When `filter` is set to `tag=<my-tag>` then the
  *  PullTasksResponse will contain only tasks whose
- *  PullTaskTarget.tag is equal to `<my-tag>`. `<my-tag>` can be
+ *  PullMessage.tag is equal to `<my-tag>`. `<my-tag>` can be
  *  a bytes encoded as a string and must be less than 500 bytes.
  *  If `<my-tag>` includes whitespace or special characters (characters which
  *  aren't letters, numbers, or underscores), then it must be double-quoted.
@@ -1342,15 +1311,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
- *  Pull task target.
- *  A pull task is a task that has PullTaskTarget set.
- *  This proto can only be used for tasks in a queue which has
- *  Queue.pull_queue_config set.
+ *  Deprecated. Use PullMessage.
  */
 @interface GTLRCloudTasks_PullTaskTarget : GTLRObject
 
 /**
- *  A data payload consumed by the task worker to execute the task.
+ *  Deprecated. Use PullMessage.payload.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1358,10 +1324,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *payload;
 
 /**
- *  A meta-data tag for this task.
- *  This value is used by CloudTasks.PullTasks calls when
- *  PullTasksRequest.filter is `tag=<tag>`.
- *  The tag must be less than 500 bytes.
+ *  Deprecated. Use PullMessage.tag.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1956,7 +1919,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  [bucket_size in
  *  queue.yaml](/appengine/docs/standard/python/config/queueref#bucket_size).
  *
- *  Uses NSNumber of doubleValue.
+ *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBurstSize;
 

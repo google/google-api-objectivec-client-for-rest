@@ -4,8 +4,8 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Cloud Tasks enables developers to manage the execution of large numbers of
-//   distributed requests. Cloud Tasks is in Alpha.
+//   Manages the execution of large numbers of distributed requests. Cloud Tasks
+//   is in Alpha.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -222,6 +222,28 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_ListLocationsResponse
+//
+
+@implementation GTLRCloudTasks_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRCloudTasks_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_ListQueuesResponse
 //
 
@@ -259,6 +281,44 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 + (NSString *)collectionItemsKey {
   return @"tasks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_Location
+//
+
+@implementation GTLRCloudTasks_Location
+@dynamic labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_Location_Labels
+//
+
+@implementation GTLRCloudTasks_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_Location_Metadata
+//
+
+@implementation GTLRCloudTasks_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

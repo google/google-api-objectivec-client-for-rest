@@ -121,6 +121,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
 
 /** Value: "DO_NOT_ASK_CREDENTIALS_ON_BOOT" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot;
+/** Value: "LOCK_NOW" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow;
 /** Value: "REQUIRE_ENTRY" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_RequireEntry;
 /** Value: "RESET_PASSWORD_FLAG_UNSPECIFIED" */
@@ -462,8 +464,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonCompl
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ApiLevel;
 /**
- *  The setting cannot be applied to the application because its target SDK
- *  version is not high enough.
+ *  The setting cannot be applied to the application because the application
+ *  doesn't support it, for example because its target SDK version is not high
+ *  enough.
  *
  *  Value: "APP_INCOMPATIBLE"
  */
@@ -538,8 +541,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ApiLevel;
 /**
- *  The setting cannot be applied to the application because its target SDK
- *  version is not high enough.
+ *  The setting cannot be applied to the application because the application
+ *  doesn't support it, for example because its target SDK version is not high
+ *  enough.
  *
  *  Value: "APP_INCOMPATIBLE"
  */
@@ -1872,8 +1876,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
 /**
- *  If package_name is set and the non-compliance reason is APP_NOT_INSTALLED,
- *  the detailed reason the app cannot be installed.
+ *  If package_name is set and the non-compliance reason is APP_NOT_INSTALLED or
+ *  APP_NOT_UPDATED, the detailed reason the app cannot be installed or updated.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InProgress
@@ -1924,8 +1928,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        The setting is not supported in the API level of Android OS version
  *        the device is running. (Value: "API_LEVEL")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppIncompatible
- *        The setting cannot be applied to the application because its target
- *        SDK version is not high enough. (Value: "APP_INCOMPATIBLE")
+ *        The setting cannot be applied to the application because the
+ *        application doesn't support it, for example because its target SDK
+ *        version is not high enough. (Value: "APP_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled
  *        A blocked application is installed. (Value: "APP_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled
@@ -1986,8 +1991,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        The setting is not supported in the API level of Android OS version
  *        the device is running. (Value: "API_LEVEL")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppIncompatible
- *        The setting cannot be applied to the application because its target
- *        SDK version is not high enough. (Value: "APP_INCOMPATIBLE")
+ *        The setting cannot be applied to the application because the
+ *        application doesn't support it, for example because its target SDK
+ *        version is not high enough. (Value: "APP_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled
  *        A blocked application is installed. (Value: "APP_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled
@@ -2014,9 +2020,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The package name indicating which application is out of compliance. If not
- *  set, then this condition matches any package name. If this field is set,
- *  then setting_name must be unset or set to applications; otherwise, the
- *  condition would never be satisfied.
+ *  set, then this condition matches any package name.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -2421,12 +2425,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag to specify if network escape hatch is enabled. If this flag has been
- *  enabled then upon device boot if device has no network connection, then an
- *  activity will be shown that allows the user to temporarily connect to a
- *  network to fetch the latest policy. The launched activity will time out if
- *  no network has been connected for a given while and will return to the
- *  previous activity that was shown.
+ *  Whether the network escape hatch is enabled. If a network connection can't
+ *  be made at boot time, the escape hatch prompts the user to temporarily
+ *  connect to a network in order to refresh the device policy. After applying
+ *  policy, the temporary network will be forgotten and the device will continue
+ *  booting. This prevents being unable to connect to a network if there is no
+ *  suitable network in the last policy and the device boots into an app in lock
+ *  task mode, or the user is otherwise unable to reach device settings.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -139,11 +139,11 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
          currentNodeCount, currentNodeVersion, descriptionProperty,
          enableKubernetesAlpha, endpoint, expireTime, initialClusterVersion,
          initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
-         labelFingerprint, legacyAbac, locations, loggingService, masterAuth,
-         masterAuthorizedNetworksConfig, monitoringService, name, network,
-         networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools, resourceLabels,
-         selfLink, servicesIpv4Cidr, status, statusMessage, subnetwork,
-         zoneProperty;
+         labelFingerprint, legacyAbac, locations, loggingService,
+         maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
+         monitoringService, name, network, networkPolicy, nodeConfig,
+         nodeIpv4CidrSize, nodePools, resourceLabels, selfLink,
+         servicesIpv4Cidr, status, statusMessage, subnetwork, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -226,6 +226,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_CreateNodePoolRequest
 @dynamic nodePool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DailyMaintenanceWindow
+//
+
+@implementation GTLRContainer_DailyMaintenanceWindow
+@dynamic duration, startTime;
 @end
 
 
@@ -344,6 +354,26 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MaintenancePolicy
+//
+
+@implementation GTLRContainer_MaintenancePolicy
+@dynamic window;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MaintenanceWindow
+//
+
+@implementation GTLRContainer_MaintenanceWindow
+@dynamic dailyMaintenanceWindow;
 @end
 
 
@@ -590,6 +620,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_SetLoggingServiceRequest
 @dynamic loggingService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetMaintenancePolicyRequest
+//
+
+@implementation GTLRContainer_SetMaintenancePolicyRequest
+@dynamic maintenancePolicy;
 @end
 
 

@@ -45,6 +45,8 @@
 @class GTLRSpanner_ResultSetMetadata;
 @class GTLRSpanner_ResultSetStats;
 @class GTLRSpanner_ResultSetStats_QueryStats;
+@class GTLRSpanner_Session;
+@class GTLRSpanner_Session_Labels;
 @class GTLRSpanner_ShortRepresentation;
 @class GTLRSpanner_ShortRepresentation_Subqueries;
 @class GTLRSpanner_Status;
@@ -445,6 +447,17 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  length.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
+
+@end
+
+
+/**
+ *  The request for CreateSession.
+ */
+@interface GTLRSpanner_CreateSessionRequest : GTLRObject
+
+/** The session to create. */
+@property(nonatomic, strong, nullable) GTLRSpanner_Session *session;
 
 @end
 
@@ -1048,6 +1061,34 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  The response for ListSessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListSessionsResponse : GTLRCollectionObject
+
+/**
+ *  `next_page_token` can be sent in a subsequent
+ *  ListSessions call to fetch more of the matching
+ *  sessions.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of requested sessions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Session *> *sessions;
+
+@end
+
+
+/**
  *  A modification to one or more Cloud Spanner rows. Mutations can be
  *  applied to a Cloud Spanner database by sending them in a
  *  Commit call.
@@ -1100,7 +1141,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1571,6 +1612,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /**
  *  If greater than zero, only the first `limit` rows are yielded. If `limit`
  *  is zero, the default is no limit.
+ *  A limit cannot be specified if partition_token is set.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1728,9 +1770,45 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_Session : GTLRObject
 
-/** Required. The name of the session. */
+/**
+ *  Output only. The approximate timestamp when the session is last used. It is
+ *  typically earlier than the actual last use time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *approximateLastUseTime;
+
+/** Output only. The timestamp when the session is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The labels for the session.
+ *  * Label keys must be between 1 and 63 characters long and must conform to
+ *  the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
+ *  * Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
+ *  * No more than 20 labels can be associated with a given session.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Session_Labels *labels;
+
+/** The name of the session. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  The labels for the session.
+ *  * Label keys must be between 1 and 63 characters long and must conform to
+ *  the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
+ *  * Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
+ *  * No more than 20 labels can be associated with a given session.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpanner_Session_Labels : GTLRObject
 @end
 
 

@@ -728,6 +728,41 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
+
+@dynamic clusterId, projectId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRContainer_SetMaintenancePolicyRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterId", @"projectId", @"zone"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy";
+  GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.zoneProperty = zoneProperty;
+  query.clusterId = clusterId;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.zones.clusters.setMaintenancePolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth
 
 @dynamic clusterId, projectId, zoneProperty;

@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The default group ID.
  *
- *  Uses NSNumber of unsignedIntValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *gid;
 
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The user ID.
  *
- *  Uses NSNumber of unsignedIntValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *uid;
 
@@ -150,7 +150,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *expirationTimeUsec;
 
-/** [Output Only] The SHA-256 fingerprint of the SSH public key. */
+/**
+ *  The SHA-256 fingerprint of the SSH public key.
+ *  Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**

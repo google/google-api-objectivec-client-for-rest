@@ -628,6 +628,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
+/** The project to be billed for this request, for Requester Pays buckets. */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
 /**
  *  Fetches a @c GTLRStorage_Bucket.
  *
@@ -688,6 +691,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        properties. (Value: "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/** The project to be billed for this request, for Requester Pays buckets. */
+@property(nonatomic, copy, nullable) NSString *userProject;
 
 /**
  *  Fetches a @c GTLRStorage_Buckets.
@@ -2511,7 +2517,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Patches an object's metadata.
+ *  Updates an object's metadata. This method supports patch semantics.
  *
  *  Method: storage.objects.patch
  *
@@ -2604,7 +2610,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_Object.
  *
- *  Patches an object's metadata.
+ *  Updates an object's metadata. This method supports patch semantics.
  *
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
@@ -2616,22 +2622,6 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param;
-
-/**
- *  Fetches the requested resource data as a @c GTLRDataObject.
- *
- *  Patches an object's metadata.
- *
- *  @param object The @c GTLRStorage_Object to include in the query.
- *  @param bucket Name of the bucket in which the object resides.
- *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
- *
- *  @returns GTLRStorageQuery_ObjectsPatch
- */
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
-                                 bucket:(NSString *)bucket
-                                 object:(NSString *)object_param;
 
 @end
 
@@ -3154,6 +3144,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Project ID */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The project to be billed for this request, for Requester Pays buckets. */
+@property(nonatomic, copy, nullable) NSString *userProject;
 
 /**
  *  Fetches a @c GTLRStorage_ServiceAccount.

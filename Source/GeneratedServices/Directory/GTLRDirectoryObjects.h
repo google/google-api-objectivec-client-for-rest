@@ -182,6 +182,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *etags;
 
 /**
+ *  The auto-generated name of the calendar resource which includes metadata
+ *  about the resource such as building name, floor, capacity, etc. For example,
+ *  NYC-2-Training Room 1A (16)
+ */
+@property(nonatomic, copy, nullable) NSString *generatedResourceName;
+
+/**
  *  The type of the resource. For calendar resources, the value is
  *  admin#directory#resources#calendars#CalendarResource.
  */
@@ -1696,6 +1703,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) id externalIds;
 
+/**
+ *  gender
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id gender;
+
 /** Hash function name for password. Supported are MD5, SHA-1 and crypt */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 
@@ -2025,6 +2039,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRDirectory_UserGender
+ */
+@interface GTLRDirectory_UserGender : GTLRObject
+
+/**
+ *  AddressMeAs. A human-readable string containing the proper way to refer to
+ *  the profile owner by humans, for example "he/him/his" or "they/them/their".
+ */
+@property(nonatomic, copy, nullable) NSString *addressMeAs;
+
+/** Custom gender. */
+@property(nonatomic, copy, nullable) NSString *customGender;
+
+/** Gender. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  JSON template for instant messenger of an user.
  */
 @interface GTLRDirectory_UserIm : GTLRObject
@@ -2335,7 +2369,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The default group ID.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *gid;
 
@@ -2358,7 +2392,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The POSIX compliant user ID.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *uid;
 

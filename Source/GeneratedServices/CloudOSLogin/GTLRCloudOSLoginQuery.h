@@ -46,6 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
+ *    @c kGTLRAuthScopeCloudOSLoginComputeReadonly
  */
 @interface GTLRCloudOSLoginQuery_UsersGetLoginProfile : GTLRCloudOSLoginQuery
 // Previous library name was
@@ -77,6 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersImportSshPublicKey : GTLRCloudOSLoginQuery
 // Previous library name was
@@ -109,6 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysDelete : GTLRCloudOSLoginQuery
 // Previous library name was
@@ -144,6 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysGet : GTLRCloudOSLoginQuery
 // Previous library name was
@@ -180,6 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysPatch : GTLRCloudOSLoginQuery
 // Previous library name was

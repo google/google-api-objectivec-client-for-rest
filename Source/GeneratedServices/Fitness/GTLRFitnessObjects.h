@@ -766,6 +766,33 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
+ *  GTLRFitness_ListDataPointChangesResponse
+ */
+@interface GTLRFitness_ListDataPointChangesResponse : GTLRObject
+
+/** The data stream ID of the data source with data point changes. */
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
+
+/**
+ *  Data points that have been removed and will not be included in any other
+ *  request for dataset contents.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataPoint *> *deletedDataPoint;
+
+/** Data points listed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataPoint *> *insertedDataPoint;
+
+/**
+ *  The continuation token, which is used to page through large result sets.
+ *  Provide this value in a subsequent request to return the next page of
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRFitness_ListDataSourcesResponse
  */
 @interface GTLRFitness_ListDataSourcesResponse : GTLRObject

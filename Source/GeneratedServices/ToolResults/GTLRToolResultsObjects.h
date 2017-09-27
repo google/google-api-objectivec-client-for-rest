@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 @interface GTLRToolResults_FailureDetail : GTLRObject
 
 /**
- *  If the failure was severe because the system under test crashed.
+ *  If the failure was severe because the system (app) under test crashed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -685,7 +685,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 @property(nonatomic, strong, nullable) NSNumber *notInstalled;
 
 /**
- *  If a native process other than the app crashed.
+ *  If a native process (including any other than the app) crashed.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -1150,16 +1150,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The ID of the Google Cloud Platform Console project that owns the job.
- *  Required.
- */
+/** The ID of the Google Cloud Platform Console project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  Schedule specification.
- *  Required.
- */
+/** Schedule specification. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Schedule *schedule;
 
 /**
@@ -1184,10 +1178,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/**
- *  Transfer specification.
- *  Required.
- */
+/** Transfer specification. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferSpec *transferSpec;
 
 @end

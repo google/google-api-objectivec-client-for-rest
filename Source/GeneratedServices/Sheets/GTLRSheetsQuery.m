@@ -102,6 +102,54 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @end
 
+@implementation GTLRSheetsQuery_SpreadsheetsDeveloperMetadataGet
+
+@dynamic metadataId, spreadsheetId;
+
++ (instancetype)queryWithSpreadsheetId:(NSString *)spreadsheetId
+                            metadataId:(NSInteger)metadataId {
+  NSArray *pathParams = @[
+    @"metadataId", @"spreadsheetId"
+  ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}";
+  GTLRSheetsQuery_SpreadsheetsDeveloperMetadataGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.spreadsheetId = spreadsheetId;
+  query.metadataId = metadataId;
+  query.expectedObjectClass = [GTLRSheets_DeveloperMetadata class];
+  query.loggingName = @"sheets.spreadsheets.developerMetadata.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSheetsQuery_SpreadsheetsDeveloperMetadataSearch
+
+@dynamic spreadsheetId;
+
++ (instancetype)queryWithObject:(GTLRSheets_SearchDeveloperMetadataRequest *)object
+                  spreadsheetId:(NSString *)spreadsheetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"spreadsheetId" ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/developerMetadata:search";
+  GTLRSheetsQuery_SpreadsheetsDeveloperMetadataSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.expectedObjectClass = [GTLRSheets_SearchDeveloperMetadataResponse class];
+  query.loggingName = @"sheets.spreadsheets.developerMetadata.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRSheetsQuery_SpreadsheetsGet
 
 @dynamic includeGridData, ranges, spreadsheetId;
@@ -123,6 +171,31 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
   query.spreadsheetId = spreadsheetId;
   query.expectedObjectClass = [GTLRSheets_Spreadsheet class];
   query.loggingName = @"sheets.spreadsheets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSheetsQuery_SpreadsheetsGetByDataFilter
+
+@dynamic spreadsheetId;
+
++ (instancetype)queryWithObject:(GTLRSheets_GetSpreadsheetByDataFilterRequest *)object
+                  spreadsheetId:(NSString *)spreadsheetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"spreadsheetId" ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}:getByDataFilter";
+  GTLRSheetsQuery_SpreadsheetsGetByDataFilter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.expectedObjectClass = [GTLRSheets_Spreadsheet class];
+  query.loggingName = @"sheets.spreadsheets.getByDataFilter";
   return query;
 }
 
@@ -213,6 +286,31 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @end
 
+@implementation GTLRSheetsQuery_SpreadsheetsValuesBatchClearByDataFilter
+
+@dynamic spreadsheetId;
+
++ (instancetype)queryWithObject:(GTLRSheets_BatchClearValuesByDataFilterRequest *)object
+                  spreadsheetId:(NSString *)spreadsheetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"spreadsheetId" ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter";
+  GTLRSheetsQuery_SpreadsheetsValuesBatchClearByDataFilter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.expectedObjectClass = [GTLRSheets_BatchClearValuesByDataFilterResponse class];
+  query.loggingName = @"sheets.spreadsheets.values.batchClearByDataFilter";
+  return query;
+}
+
+@end
+
 @implementation GTLRSheetsQuery_SpreadsheetsValuesBatchGet
 
 @dynamic dateTimeRenderOption, majorDimension, ranges, spreadsheetId,
@@ -240,6 +338,31 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @end
 
+@implementation GTLRSheetsQuery_SpreadsheetsValuesBatchGetByDataFilter
+
+@dynamic spreadsheetId;
+
++ (instancetype)queryWithObject:(GTLRSheets_BatchGetValuesByDataFilterRequest *)object
+                  spreadsheetId:(NSString *)spreadsheetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"spreadsheetId" ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter";
+  GTLRSheetsQuery_SpreadsheetsValuesBatchGetByDataFilter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.expectedObjectClass = [GTLRSheets_BatchGetValuesByDataFilterResponse class];
+  query.loggingName = @"sheets.spreadsheets.values.batchGetByDataFilter";
+  return query;
+}
+
+@end
+
 @implementation GTLRSheetsQuery_SpreadsheetsValuesBatchUpdate
 
 @dynamic spreadsheetId;
@@ -260,6 +383,31 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
   query.spreadsheetId = spreadsheetId;
   query.expectedObjectClass = [GTLRSheets_BatchUpdateValuesResponse class];
   query.loggingName = @"sheets.spreadsheets.values.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRSheetsQuery_SpreadsheetsValuesBatchUpdateByDataFilter
+
+@dynamic spreadsheetId;
+
++ (instancetype)queryWithObject:(GTLRSheets_BatchUpdateValuesByDataFilterRequest *)object
+                  spreadsheetId:(NSString *)spreadsheetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"spreadsheetId" ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter";
+  GTLRSheetsQuery_SpreadsheetsValuesBatchUpdateByDataFilter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.expectedObjectClass = [GTLRSheets_BatchUpdateValuesByDataFilterResponse class];
+  query.loggingName = @"sheets.spreadsheets.values.batchUpdateByDataFilter";
   return query;
 }
 

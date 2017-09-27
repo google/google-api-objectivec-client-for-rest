@@ -13,6 +13,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRClassroom_Announcement.assigneeMode
+NSString * const kGTLRClassroom_Announcement_AssigneeMode_AllStudents = @"ALL_STUDENTS";
+NSString * const kGTLRClassroom_Announcement_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
+NSString * const kGTLRClassroom_Announcement_AssigneeMode_IndividualStudents = @"INDIVIDUAL_STUDENTS";
+
+// GTLRClassroom_Announcement.state
+NSString * const kGTLRClassroom_Announcement_State_AnnouncementStateUnspecified = @"ANNOUNCEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_Announcement_State_Deleted     = @"DELETED";
+NSString * const kGTLRClassroom_Announcement_State_Draft       = @"DRAFT";
+NSString * const kGTLRClassroom_Announcement_State_Published   = @"PUBLISHED";
+
 // GTLRClassroom_Course.courseState
 NSString * const kGTLRClassroom_Course_CourseState_Active      = @"ACTIVE";
 NSString * const kGTLRClassroom_Course_CourseState_Archived    = @"ARCHIVED";
@@ -20,6 +31,11 @@ NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified = @"CO
 NSString * const kGTLRClassroom_Course_CourseState_Declined    = @"DECLINED";
 NSString * const kGTLRClassroom_Course_CourseState_Provisioned = @"PROVISIONED";
 NSString * const kGTLRClassroom_Course_CourseState_Suspended   = @"SUSPENDED";
+
+// GTLRClassroom_CourseWork.assigneeMode
+NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AllStudents = @"ALL_STUDENTS";
+NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
+NSString * const kGTLRClassroom_CourseWork_AssigneeMode_IndividualStudents = @"INDIVIDUAL_STUDENTS";
 
 // GTLRClassroom_CourseWork.state
 NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified = @"COURSE_WORK_STATE_UNSPECIFIED";
@@ -37,6 +53,11 @@ NSString * const kGTLRClassroom_CourseWork_WorkType_Assignment = @"ASSIGNMENT";
 NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified = @"COURSE_WORK_TYPE_UNSPECIFIED";
 NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion = @"MULTIPLE_CHOICE_QUESTION";
 NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHORT_ANSWER_QUESTION";
+
+// GTLRClassroom_Feed.feedType
+NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges = @"COURSE_ROSTER_CHANGES";
+NSString * const kGTLRClassroom_Feed_FeedType_DomainRosterChanges = @"DOMAIN_ROSTER_CHANGES";
+NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified = @"FEED_TYPE_UNSPECIFIED";
 
 // GTLRClassroom_GlobalPermission.permission
 NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse = @"CREATE_COURSE";
@@ -58,6 +79,16 @@ NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified = @"COURSE
 NSString * const kGTLRClassroom_Invitation_Role_Owner          = @"OWNER";
 NSString * const kGTLRClassroom_Invitation_Role_Student        = @"STUDENT";
 NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
+
+// GTLRClassroom_ModifyAnnouncementAssigneesRequest.assigneeMode
+NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AllStudents = @"ALL_STUDENTS";
+NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
+NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_IndividualStudents = @"INDIVIDUAL_STUDENTS";
+
+// GTLRClassroom_ModifyCourseWorkAssigneesRequest.assigneeMode
+NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AllStudents = @"ALL_STUDENTS";
+NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
+NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_IndividualStudents = @"INDIVIDUAL_STUDENTS";
 
 // GTLRClassroom_SharedDriveFile.shareMode
 NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit = @"EDIT";
@@ -86,6 +117,30 @@ NSString * const kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent = @"R
 NSString * const kGTLRClassroom_StudentSubmission_State_Returned = @"RETURNED";
 NSString * const kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
 NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Announcement
+//
+
+@implementation GTLRClassroom_Announcement
+@dynamic alternateLink, assigneeMode, courseId, creationTime, creatorUserId,
+         identifier, individualStudentsOptions, materials, scheduledTime, state,
+         text, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRClassroom_Material class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -122,6 +177,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Attachment
 @dynamic driveFile, form, link, youTubeVideo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_CloudPubsubTopic
+//
+
+@implementation GTLRClassroom_CloudPubsubTopic
+@dynamic topicName;
 @end
 
 
@@ -194,13 +259,24 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_CourseRosterChangesInfo
+//
+
+@implementation GTLRClassroom_CourseRosterChangesInfo
+@dynamic courseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_CourseWork
 //
 
 @implementation GTLRClassroom_CourseWork
-@dynamic alternateLink, assignment, associatedWithDeveloper, courseId,
-         creationTime, descriptionProperty, dueDate, dueTime, identifier,
-         materials, maxPoints, multipleChoiceQuestion, scheduledTime, state,
+@dynamic alternateLink, assigneeMode, assignment, associatedWithDeveloper,
+         courseId, creationTime, creatorUserId, descriptionProperty, dueDate,
+         dueTime, identifier, individualStudentsOptions, materials, maxPoints,
+         multipleChoiceQuestion, scheduledTime, state,
          submissionModificationMode, title, updateTime, workType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -272,6 +348,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Feed
+//
+
+@implementation GTLRClassroom_Feed
+@dynamic courseRosterChangesInfo, feedType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Form
 //
 
@@ -322,6 +408,24 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_IndividualStudentsOptions
+//
+
+@implementation GTLRClassroom_IndividualStudentsOptions
+@dynamic studentIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"studentIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Invitation
 //
 
@@ -342,6 +446,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Link
 @dynamic thumbnailUrl, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListAnnouncementsResponse
+//
+
+@implementation GTLRClassroom_ListAnnouncementsResponse
+@dynamic announcements, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"announcements" : [GTLRClassroom_Announcement class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"announcements";
+}
+
 @end
 
 
@@ -555,6 +681,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ModifyAnnouncementAssigneesRequest
+//
+
+@implementation GTLRClassroom_ModifyAnnouncementAssigneesRequest
+@dynamic assigneeMode, modifyIndividualStudentsOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_ModifyAttachmentsRequest
 //
 
@@ -564,6 +700,35 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"addAttachments" : [GTLRClassroom_Attachment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ModifyCourseWorkAssigneesRequest
+//
+
+@implementation GTLRClassroom_ModifyCourseWorkAssigneesRequest
+@dynamic assigneeMode, modifyIndividualStudentsOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ModifyIndividualStudentsOptions
+//
+
+@implementation GTLRClassroom_ModifyIndividualStudentsOptions
+@dynamic addStudentIds, removeStudentIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addStudentIds" : [NSString class],
+    @"removeStudentIds" : [NSString class]
   };
   return map;
 }
@@ -615,6 +780,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_ReclaimStudentSubmissionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Registration
+//
+
+@implementation GTLRClassroom_Registration
+@dynamic cloudPubsubTopic, expiryTime, feed, registrationId;
 @end
 
 

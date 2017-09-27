@@ -1689,6 +1689,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCapt
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_LiveBroadcastContentDetails.latencyPreference
+
+/** Value: "low" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Low;
+/** Value: "normal" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Normal;
+/** Value: "ultraLow" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_UltraLow;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.projection
 
 /** Value: "mesh" */
@@ -6020,6 +6030,22 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableLowLatency;
+
+/**
+ *  If both this and enable_low_latency are set, they must match. LATENCY_NORMAL
+ *  should match enable_low_latency=false LATENCY_LOW should match
+ *  enable_low_latency=true LATENCY_ULTRA_LOW should have enable_low_latency
+ *  omitted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Low
+ *        Value "low"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Normal
+ *        Value "normal"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_UltraLow
+ *        Value "ultraLow"
+ */
+@property(nonatomic, copy, nullable) NSString *latencyPreference;
 
 /**
  *  mesh

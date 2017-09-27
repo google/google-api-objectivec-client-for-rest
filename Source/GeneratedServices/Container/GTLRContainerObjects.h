@@ -27,11 +27,14 @@
 @class GTLRContainer_Cluster;
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
+@class GTLRContainer_MaintenancePolicy;
+@class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_NetworkPolicy;
@@ -556,6 +559,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *loggingService;
 
+/** Configure the maintenance policy for this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
+
 /** The authentication information for accessing the master endpoint. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
@@ -809,6 +815,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  Time window specified for daily maintenance operations.
+ */
+@interface GTLRContainer_DailyMaintenanceWindow : GTLRObject
+
+/**
+ *  [Output only] Duration of the time window, automatically chosen to be
+ *  smallest possible in the given scenario.
+ *  Duration will be in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+ *  format "PTnHnMnS".
+ */
+@property(nonatomic, copy, nullable) NSString *duration;
+
+/**
+ *  Time within the maintenance window to start the maintenance operations.
+ *  Time format should be in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+ *  format "HH:MM”, where HH : [00-23] and MM : [00-59] GMT.
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -1039,6 +1068,28 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** A list of operations in the project in the specified zone. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_Operation *> *operations;
+
+@end
+
+
+/**
+ *  MaintenancePolicy defines the maintenance policy to be used for the cluster.
+ */
+@interface GTLRContainer_MaintenancePolicy : GTLRObject
+
+/** Specifies the maintenance window in which maintenance may be performed. */
+@property(nonatomic, strong, nullable) GTLRContainer_MaintenanceWindow *window;
+
+@end
+
+
+/**
+ *  MaintenanceWindow defines the maintenance window to be used for the cluster.
+ */
+@interface GTLRContainer_MaintenanceWindow : GTLRObject
+
+/** DailyMaintenanceWindow specifies a daily maintenance operation window. */
+@property(nonatomic, strong, nullable) GTLRContainer_DailyMaintenanceWindow *dailyMaintenanceWindow;
 
 @end
 
@@ -1687,6 +1738,20 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  * "none" - no metrics will be exported from the cluster
  */
 @property(nonatomic, copy, nullable) NSString *loggingService;
+
+@end
+
+
+/**
+ *  SetMaintenancePolicyRequest sets the maintenance policy for a cluster.
+ */
+@interface GTLRContainer_SetMaintenancePolicyRequest : GTLRObject
+
+/**
+ *  The maintenance policy to be set for the cluster. An empty field
+ *  clears the existing maintenance policy.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
 
 @end
 

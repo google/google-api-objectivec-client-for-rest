@@ -13,6 +13,18 @@
 
 #import "GTLRFirebaseRulesObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// executableVersion
+NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1 = @"FIREBASE_RULES_EXECUTABLE_V1";
+NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2 = @"FIREBASE_RULES_EXECUTABLE_V2";
+NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified = @"RELEASE_EXECUTABLE_VERSION_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRFirebaseRulesQuery
 
 @dynamic fields;
@@ -77,6 +89,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseRules_Release class];
   query.loggingName = @"firebaserules.projects.releases.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
+
+@dynamic executableVersion, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getExecutable";
+  GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseRules_GetReleaseExecutableResponse class];
+  query.loggingName = @"firebaserules.projects.releases.getExecutable";
   return query;
 }
 

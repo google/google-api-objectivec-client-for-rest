@@ -153,6 +153,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  results ordered by descending end_time
+ *
+ *  Method: fitness.users.dataSources.dataPointChanges.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFitnessActivityRead
+ *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
+ *    @c kGTLRAuthScopeFitnessBodyWrite
+ *    @c kGTLRAuthScopeFitnessLocationRead
+ *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
+ */
+@interface GTLRFitnessQuery_UsersDataSourcesDataPointChangesList : GTLRFitnessQuery
+// Previous library name was
+//   +[GTLQueryFitness queryForUsersDataSourcesDataPointChangesListWithuserId:dataSourceId:]
+
+/** The data stream ID of the data source that created the dataset. */
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
+
+/**
+ *  If specified, no more than this many data point changes will be included in
+ *  the response. The default is 500 data point changes.
+ */
+@property(nonatomic, assign) NSInteger limit;
+
+/**
+ *  The continuation token, which is used to page through large result sets. To
+ *  get the next page of results, set this parameter to the value of
+ *  nextPageToken from the previous response.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  List data points for the person identified. Use "me" to indicate the
+ *  authenticated user. Only "me" is supported at this time.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRFitness_ListDataPointChangesResponse.
+ *
+ *  results ordered by descending end_time
+ *
+ *  @param userId List data points for the person identified. Use "me" to
+ *    indicate the authenticated user. Only "me" is supported at this time.
+ *  @param dataSourceId The data stream ID of the data source that created the
+ *    dataset.
+ *
+ *  @returns GTLRFitnessQuery_UsersDataSourcesDataPointChangesList
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                   dataSourceId:(NSString *)dataSourceId;
+
+@end
+
+/**
  *  Performs an inclusive delete of all data points whose start and end times
  *  have any overlap with the time range specified by the dataset ID. For most
  *  data types, the entire data point will be deleted. For data types where the

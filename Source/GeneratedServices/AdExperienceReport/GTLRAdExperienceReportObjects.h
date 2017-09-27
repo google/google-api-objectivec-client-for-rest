@@ -33,28 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRAdExperienceReport_PlatformSummary.abusiveStatus
-
-/**
- *  Failing.
- *
- *  Value: "FAILING"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Failing;
-/**
- *  Passing.
- *
- *  Value: "PASSING"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Passing;
-/**
- *  Not reviewed.
- *
- *  Value: "UNKNOWN"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Unknown;
-
-// ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.betterAdsStatus
 
 /**
@@ -130,19 +108,6 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  *  Summary of the ad experience rating of a site for a specific platform.
  */
 @interface GTLRAdExperienceReport_PlatformSummary : GTLRObject
-
-/**
- *  The status of the site reviewed for abusive ads.
- *
- *  Likely values:
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Failing
- *        Failing. (Value: "FAILING")
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Passing
- *        Passing. (Value: "PASSING")
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Unknown Not
- *        reviewed. (Value: "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *abusiveStatus;
 
 /**
  *  The status of the site reviewed for the Better Ads Standards.

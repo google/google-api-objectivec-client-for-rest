@@ -4,8 +4,8 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Cloud Tasks enables developers to manage the execution of large numbers of
-//   distributed requests. Cloud Tasks is in Alpha.
+//   Manages the execution of large numbers of distributed requests. Cloud Tasks
+//   is in Alpha.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -28,6 +28,44 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
 @implementation GTLRCloudTasksQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudTasksQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta2/{+name}";
+  GTLRCloudTasksQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTasks_Location class];
+  query.loggingName = @"cloudtasks.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTasksQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta2/{+name}/locations";
+  GTLRCloudTasksQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTasks_ListLocationsResponse class];
+  query.loggingName = @"cloudtasks.projects.locations.list";
+  return query;
+}
 
 @end
 

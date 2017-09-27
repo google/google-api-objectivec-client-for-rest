@@ -29,6 +29,7 @@
 @class GTLRContainer_SetLegacyAbacRequest;
 @class GTLRContainer_SetLocationsRequest;
 @class GTLRContainer_SetLoggingServiceRequest;
+@class GTLRContainer_SetMaintenancePolicyRequest;
 @class GTLRContainer_SetMasterAuthRequest;
 @class GTLRContainer_SetMonitoringServiceRequest;
 @class GTLRContainer_SetNetworkPolicyRequest;
@@ -1204,6 +1205,59 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRContainerQuery_ProjectsZonesClustersResourceLabels
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLabelsRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId;
+
+@end
+
+/**
+ *  Sets the maintenance policy for a cluster.
+ *
+ *  Method: container.projects.zones.clusters.setMaintenancePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsZonesClustersSetMaintenancePolicyWithObject:projectId:zoneProperty:clusterId:]
+
+/** The name of the cluster to update. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  Sets the maintenance policy for a cluster.
+ *
+ *  @param object The @c GTLRContainer_SetMaintenancePolicyRequest to include in
+ *    the query.
+ *  @param projectId The Google Developers Console [project ID or project
+ *    number](https://support.google.com/cloud/answer/6158840).
+ *  @param zoneProperty The name of the Google Compute Engine
+ *    [zone](/compute/docs/zones#available) in which the cluster
+ *    resides.
+ *  @param clusterId The name of the cluster to update.
+ *
+ *  @returns GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
+ */
++ (instancetype)queryWithObject:(GTLRContainer_SetMaintenancePolicyRequest *)object
                       projectId:(NSString *)projectId
                    zoneProperty:(NSString *)zoneProperty
                       clusterId:(NSString *)clusterId;

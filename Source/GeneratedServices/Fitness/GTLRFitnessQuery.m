@@ -69,6 +69,29 @@
 
 @end
 
+@implementation GTLRFitnessQuery_UsersDataSourcesDataPointChangesList
+
+@dynamic dataSourceId, limit, pageToken, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                   dataSourceId:(NSString *)dataSourceId {
+  NSArray *pathParams = @[
+    @"dataSourceId", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}/dataPointChanges";
+  GTLRFitnessQuery_UsersDataSourcesDataPointChangesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.dataSourceId = dataSourceId;
+  query.expectedObjectClass = [GTLRFitness_ListDataPointChangesResponse class];
+  query.loggingName = @"fitness.users.dataSources.dataPointChanges.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRFitnessQuery_UsersDataSourcesDatasetsDelete
 
 @dynamic currentTimeMillis, datasetId, dataSourceId, modifiedTimeMillis, userId;

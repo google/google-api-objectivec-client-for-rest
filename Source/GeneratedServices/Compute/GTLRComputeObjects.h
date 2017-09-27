@@ -2037,7 +2037,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_Address : GTLRObject
 
-/** The static external IP address represented by this resource. */
+/** The static IP address represented by this resource. */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
@@ -5444,8 +5444,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The type of supported feature. Currently only VIRTIO_SCSI_MULTIQUEUE is
  *  supported. For newer Windows images, the server might also populate this
  *  property with the value WINDOWS to indicate that this is a Windows image.
- *  This value is purely informational and does not enable or disable any
- *  features.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
@@ -6104,9 +6102,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  can only enable VIRTIO_SCSI_MULTIQUEUE on images with driver version
  *  1.2.0.1621 or higher. Linux images with kernel versions 3.17 and higher will
  *  support VIRTIO_SCSI_MULTIQUEUE.
- *  For new Windows images, the server might also populate this field with the
- *  value WINDOWS, to indicate that this is a Windows image. This value is
- *  purely informational and does not enable or disable any features.
+ *  For newer Windows images, the server might also populate this property with
+ *  the value WINDOWS to indicate that this is a Windows image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_GuestOsFeature *> *guestOsFeatures;
 
@@ -6199,6 +6196,28 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  instance of a given disk name.
  */
 @property(nonatomic, copy, nullable) NSString *sourceDiskId;
+
+/**
+ *  URL of the source image used to create this image. This can be a full or
+ *  valid partial URL. You must provide exactly one of:
+ *  - this property, or
+ *  - the rawDisk.source property, or
+ *  - the sourceDisk property in order to create an image.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceImage;
+
+/**
+ *  The customer-supplied encryption key of the source image. Required if the
+ *  source image is protected by a customer-supplied encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceImageEncryptionKey;
+
+/**
+ *  [Output Only] The ID value of the image used to create this image. This
+ *  value may be used to determine whether the image was taken from the current
+ *  or a previous instance of a given image name.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceImageId;
 
 /**
  *  The type of the image used to create this disk. The default and only value
@@ -10940,9 +10959,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output Only] A size of the the storage used by the snapshot. As snapshots
- *  share storage, this number is expected to change with snapshot
- *  creation/deletion.
+ *  [Output Only] A size of the storage used by the snapshot. As snapshots share
+ *  storage, this number is expected to change with snapshot creation/deletion.
  *
  *  Uses NSNumber of longLongValue.
  */

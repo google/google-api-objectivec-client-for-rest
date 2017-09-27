@@ -104,6 +104,15 @@ NSString * const kGTLRTagManagerTypeRandomNumber               = @"randomNumber"
 NSString * const kGTLRTagManagerTypeReferrer                   = @"referrer";
 NSString * const kGTLRTagManagerTypeResolution                 = @"resolution";
 NSString * const kGTLRTagManagerTypeSdkVersion                 = @"sdkVersion";
+NSString * const kGTLRTagManagerTypeVideoCurrentTime           = @"videoCurrentTime";
+NSString * const kGTLRTagManagerTypeVideoDuration              = @"videoDuration";
+NSString * const kGTLRTagManagerTypeVideoElapsedTime           = @"videoElapsedTime";
+NSString * const kGTLRTagManagerTypeVideoPercent               = @"videoPercent";
+NSString * const kGTLRTagManagerTypeVideoProvider              = @"videoProvider";
+NSString * const kGTLRTagManagerTypeVideoStatus                = @"videoStatus";
+NSString * const kGTLRTagManagerTypeVideoTitle                 = @"videoTitle";
+NSString * const kGTLRTagManagerTypeVideoUrl                   = @"videoUrl";
+NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible";
 
 // ----------------------------------------------------------------------------
 // Query Classes

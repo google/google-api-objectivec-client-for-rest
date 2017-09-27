@@ -602,7 +602,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_DatafeedstatusesGet
 
-@dynamic datafeedId, merchantId;
+@dynamic country, datafeedId, language, merchantId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                          datafeedId:(unsigned long long)datafeedId {
