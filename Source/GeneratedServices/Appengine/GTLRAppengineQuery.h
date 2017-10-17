@@ -21,8 +21,10 @@
 
 @class GTLRAppengine_Application;
 @class GTLRAppengine_AuthorizedCertificate;
+@class GTLRAppengine_BatchUpdateIngressRulesRequest;
 @class GTLRAppengine_DebugInstanceRequest;
 @class GTLRAppengine_DomainMapping;
+@class GTLRAppengine_FirewallRule;
 @class GTLRAppengine_RepairApplicationRequest;
 @class GTLRAppengine_Service;
 @class GTLRAppengine_Version;
@@ -585,6 +587,254 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 + (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
                          appsId:(NSString *)appsId
                domainMappingsId:(NSString *)domainMappingsId;
+
+@end
+
+/**
+ *  Replaces the entire firewall ruleset in one bulk operation. This overrides
+ *  and replaces the rules of an existing firewall with the new rules.If the
+ *  final rule does not match traffic with the '*' wildcard IP range, then an
+ *  "allow all" rule is explicitly added to the end of the list.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesBatchUpdateWithObject:appsId:]
+
+/**
+ *  Part of `name`. Name of the Firewall collection to set. Example:
+ *  apps/myapp/firewall/ingressRules.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_BatchUpdateIngressRulesResponse.
+ *
+ *  Replaces the entire firewall ruleset in one bulk operation. This overrides
+ *  and replaces the rules of an existing firewall with the new rules.If the
+ *  final rule does not match traffic with the '*' wildcard IP range, then an
+ *  "allow all" rule is explicitly added to the end of the list.
+ *
+ *  @param object The @c GTLRAppengine_BatchUpdateIngressRulesRequest to include
+ *    in the query.
+ *  @param appsId Part of `name`. Name of the Firewall collection to set.
+ *    Example: apps/myapp/firewall/ingressRules.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_BatchUpdateIngressRulesRequest *)object
+                         appsId:(NSString *)appsId;
+
+@end
+
+/**
+ *  Creates a firewall rule for the application.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesCreate : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesCreateWithObject:appsId:]
+
+/**
+ *  Part of `parent`. Name of the parent Firewall collection in which to create
+ *  a new rule. Example: apps/myapp/firewall/ingressRules.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_FirewallRule.
+ *
+ *  Creates a firewall rule for the application.
+ *
+ *  @param object The @c GTLRAppengine_FirewallRule to include in the query.
+ *  @param appsId Part of `parent`. Name of the parent Firewall collection in
+ *    which to create a new rule. Example: apps/myapp/firewall/ingressRules.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
+                         appsId:(NSString *)appsId;
+
+@end
+
+/**
+ *  Deletes the specified firewall rule.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesDelete : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesDeleteWithappsId:ingressRulesId:]
+
+/**
+ *  Part of `name`. Name of the Firewall resource to delete. Example:
+ *  apps/myapp/firewall/ingressRules/100.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/** Part of `name`. See documentation of `appsId`. */
+@property(nonatomic, copy, nullable) NSString *ingressRulesId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Empty.
+ *
+ *  Deletes the specified firewall rule.
+ *
+ *  @param appsId Part of `name`. Name of the Firewall resource to delete.
+ *    Example: apps/myapp/firewall/ingressRules/100.
+ *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesDelete
+ */
++ (instancetype)queryWithAppsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId;
+
+@end
+
+/**
+ *  Gets the specified firewall rule.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesGet : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesGetWithappsId:ingressRulesId:]
+
+/**
+ *  Part of `name`. Name of the Firewall resource to retrieve. Example:
+ *  apps/myapp/firewall/ingressRules/100.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/** Part of `name`. See documentation of `appsId`. */
+@property(nonatomic, copy, nullable) NSString *ingressRulesId;
+
+/**
+ *  Fetches a @c GTLRAppengine_FirewallRule.
+ *
+ *  Gets the specified firewall rule.
+ *
+ *  @param appsId Part of `name`. Name of the Firewall resource to retrieve.
+ *    Example: apps/myapp/firewall/ingressRules/100.
+ *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesGet
+ */
++ (instancetype)queryWithAppsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId;
+
+@end
+
+/**
+ *  Lists the firewall rules of an application.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesList : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesListWithappsId:]
+
+/**
+ *  Part of `parent`. Name of the Firewall collection to retrieve. Example:
+ *  apps/myapp/firewall/ingressRules.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  A valid IP Address. If set, only rules matching this address will be
+ *  returned. The first returned rule will be the rule that fires on requests
+ *  from this IP.
+ */
+@property(nonatomic, copy, nullable) NSString *matchingAddress;
+
+/** Maximum results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAppengine_ListIngressRulesResponse.
+ *
+ *  Lists the firewall rules of an application.
+ *
+ *  @param appsId Part of `parent`. Name of the Firewall collection to retrieve.
+ *    Example: apps/myapp/firewall/ingressRules.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAppsId:(NSString *)appsId;
+
+@end
+
+/**
+ *  Updates the specified firewall rule.
+ *
+ *  Method: appengine.apps.firewall.ingressRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_AppsFirewallIngressRulesPatch : GTLRAppengineQuery
+// Previous library name was
+//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesPatchWithObject:appsId:ingressRulesId:]
+
+/**
+ *  Part of `name`. Name of the Firewall resource to update. Example:
+ *  apps/myapp/firewall/ingressRules/100.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/** Part of `name`. See documentation of `appsId`. */
+@property(nonatomic, copy, nullable) NSString *ingressRulesId;
+
+/**
+ *  Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppengine_FirewallRule.
+ *
+ *  Updates the specified firewall rule.
+ *
+ *  @param object The @c GTLRAppengine_FirewallRule to include in the query.
+ *  @param appsId Part of `name`. Name of the Firewall resource to update.
+ *    Example: apps/myapp/firewall/ingressRules/100.
+ *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
+ *
+ *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
+                         appsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId;
 
 @end
 

@@ -165,6 +165,44 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStreetViewPublish_Operation
+//
+
+@implementation GTLRStreetViewPublish_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_Operation_Metadata
+//
+
+@implementation GTLRStreetViewPublish_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_Operation_Response
+//
+
+@implementation GTLRStreetViewPublish_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStreetViewPublish_Photo
 //
 

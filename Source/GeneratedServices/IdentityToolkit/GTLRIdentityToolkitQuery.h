@@ -22,6 +22,7 @@
 @class GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest;
 @class GTLRIdentityToolkit_RelyingpartyDeleteAccountRequest;
 @class GTLRIdentityToolkit_RelyingpartyDownloadAccountRequest;
+@class GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest;
 @class GTLRIdentityToolkit_RelyingpartyGetAccountInfoRequest;
 @class GTLRIdentityToolkit_RelyingpartyResetPasswordRequest;
 @class GTLRIdentityToolkit_RelyingpartySendVerificationCodeRequest;
@@ -128,6 +129,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRIdentityToolkitQuery_RelyingpartyDownloadAccount
  */
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyDownloadAccountRequest *)object;
+
+@end
+
+/**
+ *  Reset password for a user.
+ *
+ *  Method: identitytoolkit.relyingparty.emailLinkSignin
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
+ */
+@interface GTLRIdentityToolkitQuery_RelyingpartyEmailLinkSignin : GTLRIdentityToolkitQuery
+// Previous library name was
+//   +[GTLQueryIdentityToolkit queryForRelyingpartyEmailLinkSigninWithObject:]
+
+/**
+ *  Fetches a @c GTLRIdentityToolkit_EmailLinkSigninResponse.
+ *
+ *  Reset password for a user.
+ *
+ *  @param object The @c GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest
+ *    to include in the query.
+ *
+ *  @returns GTLRIdentityToolkitQuery_RelyingpartyEmailLinkSignin
+ */
++ (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest *)object;
 
 @end
 

@@ -17,11 +17,12 @@
 
 @implementation GTLRIdentityToolkit_CreateAuthUriResponse
 @dynamic allProviders, authUri, captchaRequired, forExistingProvider, kind,
-         providerId, registered, sessionId;
+         providerId, registered, sessionId, signinMethods;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allProviders" : [NSString class]
+    @"allProviders" : [NSString class],
+    @"signinMethods" : [NSString class]
   };
   return map;
 }
@@ -58,6 +59,16 @@
   return @"users";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdentityToolkit_EmailLinkSigninResponse
+//
+
+@implementation GTLRIdentityToolkit_EmailLinkSigninResponse
+@dynamic email, expiresIn, idToken, isNewUser, kind, localId, refreshToken;
 @end
 
 
@@ -189,6 +200,16 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyDownloadAccountRequest
 @dynamic delegatedProjectNumber, maxResults, nextPageToken, targetProjectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest
+@dynamic email, idToken, oobCode;
 @end
 
 

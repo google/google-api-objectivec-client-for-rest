@@ -774,12 +774,12 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
- *  Data points that have been removed and will not be included in any other
- *  request for dataset contents.
+ *  Deleted data points for the user. Note, for modifications this should be
+ *  parsed before handling insertions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataPoint *> *deletedDataPoint;
 
-/** Data points listed. */
+/** Inserted data points for the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataPoint *> *insertedDataPoint;
 
 /**

@@ -1687,6 +1687,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_Agenc
  */
 GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedMobileFromAddChannel;
 /**
+ *  Agency opted in for migrating their exams to Academy for Ads.
+ *
+ *  Value: "AGENCY_SELECTED_OPT_IN_AFA_MIGRATION"
+ */
+GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptInAfaMigration;
+/**
  *  Agency selected `opt-in beta tests and market research`.
  *
  *  Value: "AGENCY_SELECTED_OPT_IN_BETA_TESTS_AND_MKT_RESEARCH"
@@ -1728,6 +1734,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_Agenc
  *  Value: "AGENCY_SELECTED_OPT_IN_SELECT_ALL_EMAIL_NOTIFICATIONS"
  */
 GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptInSelectAllEmailNotifications;
+/**
+ *  Agency opted out for migrating their exams to Academy for Ads.
+ *
+ *  Value: "AGENCY_SELECTED_OPT_OUT_AFA_MIGRATION"
+ */
+GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptOutAfaMigration;
 /**
  *  Agency selected `opt-out unselect all email notifications`.
  *
@@ -4186,6 +4198,9 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedMobileFromAddChannel
  *        Agency selected `mobile` from add channel drop-down. (Value:
  *        "AGENCY_SELECTED_MOBILE_FROM_ADD_CHANNEL")
+ *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptInAfaMigration
+ *        Agency opted in for migrating their exams to Academy for Ads. (Value:
+ *        "AGENCY_SELECTED_OPT_IN_AFA_MIGRATION")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptInBetaTestsAndMktResearch
  *        Agency selected `opt-in beta tests and market research`. (Value:
  *        "AGENCY_SELECTED_OPT_IN_BETA_TESTS_AND_MKT_RESEARCH")
@@ -4207,6 +4222,9 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptInSelectAllEmailNotifications
  *        Agency selected `opt-in select all email notifications`. (Value:
  *        "AGENCY_SELECTED_OPT_IN_SELECT_ALL_EMAIL_NOTIFICATIONS")
+ *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptOutAfaMigration
+ *        Agency opted out for migrating their exams to Academy for Ads. (Value:
+ *        "AGENCY_SELECTED_OPT_OUT_AFA_MIGRATION")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_AgencySelectedOptOutUnselectAllEmailNotifications
  *        Agency selected `opt-out unselect all email notifications`. (Value:
  *        "AGENCY_SELECTED_OPT_OUT_UNSELECT_ALL_EMAIL_NOTIFICATIONS")
@@ -4940,6 +4958,13 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
 
 /** A list of ids representing which markets the user was interested in. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *markets;
+
+/**
+ *  Whether or not to migrate the user's exam data to Academy for Ads.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *migrateToAfa;
 
 /** The user's phone number. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;

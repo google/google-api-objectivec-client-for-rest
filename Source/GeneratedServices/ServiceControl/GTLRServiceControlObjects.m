@@ -152,8 +152,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"authorizationInfo" : [GTLRServiceControl_AuthorizationInfo class],
-    @"metadata" : [GTLRServiceControl_AuditLog_Metadata_Item class]
+    @"authorizationInfo" : [GTLRServiceControl_AuthorizationInfo class]
   };
   return map;
 }
@@ -163,10 +162,10 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_AuditLog_Metadata_Item
+//   GTLRServiceControl_AuditLog_Metadata
 //
 
-@implementation GTLRServiceControl_AuditLog_Metadata_Item
+@implementation GTLRServiceControl_AuditLog_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -646,21 +645,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_QuotaProperties
-@dynamic limitByIds, quotaMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaProperties_LimitByIds
-//
-
-@implementation GTLRServiceControl_QuotaProperties_LimitByIds
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
+@dynamic quotaMode;
 @end
 
 
@@ -756,7 +741,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_RequestMetadata
-@dynamic callerIp, callerSuppliedUserAgent;
+@dynamic callerIp, callerNetwork, callerSuppliedUserAgent;
 @end
 
 

@@ -105,7 +105,8 @@ NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_VisibilityUnsp
 //
 
 @implementation GTLRProximityBeacon_BeaconAttachment
-@dynamic attachmentName, creationTimeMs, data, namespacedType;
+@dynamic attachmentName, creationTimeMs, data, maxDistanceMeters,
+         namespacedType;
 @end
 
 

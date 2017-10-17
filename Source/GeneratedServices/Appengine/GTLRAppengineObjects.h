@@ -36,6 +36,7 @@
 @class GTLRAppengine_ErrorHandler;
 @class GTLRAppengine_FeatureSettings;
 @class GTLRAppengine_FileInfo;
+@class GTLRAppengine_FirewallRule;
 @class GTLRAppengine_HealthCheck;
 @class GTLRAppengine_IdentityAwareProxy;
 @class GTLRAppengine_Instance;
@@ -239,6 +240,24 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeTime
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_FirewallRule.action
+
+/**
+ *  Matching requests are allowed.
+ *
+ *  Value: "ALLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Allow;
+/**
+ *  Matching requests are denied.
+ *
+ *  Value: "DENY"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Deny;
+/** Value: "UNSPECIFIED_ACTION" */
+GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_UnspecifiedAction;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Instance.availability
@@ -867,6 +886,28 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  Request message for Firewall.BatchUpdateIngressRules.
+ */
+@interface GTLRAppengine_BatchUpdateIngressRulesRequest : GTLRObject
+
+/** A list of FirewallRules to replace the existing set. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_FirewallRule *> *ingressRules;
+
+@end
+
+
+/**
+ *  Response message for Firewall.UpdateAllIngressRules.
+ */
+@interface GTLRAppengine_BatchUpdateIngressRulesResponse : GTLRObject
+
+/** The full list of ingress FirewallRules for this application. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_FirewallRule *> *ingressRules;
+
+@end
+
+
+/**
  *  An SSL certificate obtained from a certificate authority.
  */
 @interface GTLRAppengine_CertificateRawData : GTLRObject
@@ -1169,6 +1210,59 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  A single firewall rule that is evaluated against incoming traffic and
+ *  provides an action to take on matched requests.
+ */
+@interface GTLRAppengine_FirewallRule : GTLRObject
+
+/**
+ *  The action to take on matched requests.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_FirewallRule_Action_Allow Matching requests are
+ *        allowed. (Value: "ALLOW")
+ *    @arg @c kGTLRAppengine_FirewallRule_Action_Deny Matching requests are
+ *        denied. (Value: "DENY")
+ *    @arg @c kGTLRAppengine_FirewallRule_Action_UnspecifiedAction Value
+ *        "UNSPECIFIED_ACTION"
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  An optional string description of this rule. This field has a maximum length
+ *  of 100 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  A positive integer between 1, Int32.MaxValue-1 that defines the order of
+ *  rule evaluation. Rules with the lowest priority are evaluated first.A
+ *  default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic
+ *  when no previous rule matches. Only the action of this rule can be modified
+ *  by the user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  IP address or range, defined using CIDR notation, of requests that this rule
+ *  applies to. You can use the wildcard character "*" to match all IPs
+ *  equivalent to "0/0" and "::/0" together. Examples: 192.168.1.1 or
+ *  192.168.0.0/16 or 2001:db8::/32 or
+ *  2001:0db8:0000:0042:0000:8a2e:0370:7334.<p>Truncation will be silently
+ *  performed on addresses which are not properly truncated. For example,
+ *  1.2.3.4/24 is accepted as the same address as 1.2.3.0/24. Similarly, for
+ *  IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRange;
+
+@end
+
+
+/**
  *  Health checking configuration for VM instances. Unhealthy instances are
  *  killed and replaced with new instances. Only applicable for instances in App
  *  Engine flexible environment.
@@ -1443,6 +1537,30 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_DomainMapping *> *domainMappings;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for Firewall.ListIngressRules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "ingressRules" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAppengine_ListIngressRulesResponse : GTLRCollectionObject
+
+/**
+ *  The ingress FirewallRules for this application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_FirewallRule *> *ingressRules;
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;

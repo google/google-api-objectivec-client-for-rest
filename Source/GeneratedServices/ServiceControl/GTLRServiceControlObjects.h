@@ -20,7 +20,7 @@
 #endif
 
 @class GTLRServiceControl_AllocateInfo;
-@class GTLRServiceControl_AuditLog_Metadata_Item;
+@class GTLRServiceControl_AuditLog_Metadata;
 @class GTLRServiceControl_AuditLog_Request;
 @class GTLRServiceControl_AuditLog_Response;
 @class GTLRServiceControl_AuditLog_ServiceData;
@@ -51,7 +51,6 @@
 @class GTLRServiceControl_QuotaOperation;
 @class GTLRServiceControl_QuotaOperation_Labels;
 @class GTLRServiceControl_QuotaProperties;
-@class GTLRServiceControl_QuotaProperties_LimitByIds;
 @class GTLRServiceControl_ReportError;
 @class GTLRServiceControl_ReportInfo;
 @class GTLRServiceControl_RequestMetadata;
@@ -460,18 +459,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
 // GTLRServiceControl_QuotaOperation.quotaMode
 
 /**
- *  For AllocateQuota request, this mode is supported only for imprecise
- *  quota limits. In this case, the operation allocates quota for the amount
- *  specified in the service configuration or specified using the quota
- *  metrics. If the amount is higher than the available quota, request does
- *  not fail but all available quota will be allocated.
- *  For ReleaseQuota request, this mode is supported for both precise quota
- *  limits and imprecise quota limits. In this case, this operation releases
- *  quota for the amount specified in the service configuration or specified
- *  using the quota metrics. If the release can make used quota
- *  negative, request does not fail but only the used quota will be
- *  released. After the ReleaseQuota request completes, the used quota
- *  will be 0, and never goes to negative.
+ *  The operation allocates quota for the amount specified in the service
+ *  configuration or specified using the quota metrics. If the amount is
+ *  higher than the available quota, request does not fail but all available
+ *  quota will be allocated.
  *
  *  Value: "BEST_EFFORT"
  */
@@ -479,7 +470,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEf
 /**
  *  For AllocateQuota request, only checks if there is enough quota
  *  available and does not change the available quota. No lock is placed on
- *  the available quota either. Not supported for ReleaseQuota request.
+ *  the available quota either.
  *
  *  Value: "CHECK_ONLY"
  */
@@ -489,11 +480,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckO
  *  the service configuration or specified using the quota metrics. If the
  *  amount is higher than the available quota, allocation error will be
  *  returned and no quota will be allocated.
- *  For ReleaseQuota request, this mode is supported only for precise quota
- *  limits. In this case, this operation releases quota for the amount
- *  specified in the service configuration or specified using the quota
- *  metrics. If the release can make used quota negative, release error
- *  will be returned and no quota will be released.
  *
  *  Value: "NORMAL"
  */
@@ -594,18 +580,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /**
  *  Quota metrics to indicate the result of allocation. Depending on the
  *  request, one or more of the following metrics will be included:
- *  1. For rate quota, per quota group or per quota metric incremental usage
- *  will be specified using the following delta metric:
+ *  1. Per quota group or per quota metric incremental usage will be specified
+ *  using the following delta metric :
  *  "serviceruntime.googleapis.com/api/consumer/quota_used_count"
- *  2. For allocation quota, per quota metric total usage will be specified
- *  using the following gauge metric:
- *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
- *  3. For both rate quota and allocation quota, the quota limit reached
- *  condition will be specified using the following boolean metric:
+ *  2. The quota limit reached condition will be specified using the following
+ *  boolean metric :
  *  "serviceruntime.googleapis.com/quota/exceeded"
- *  4. For allocation quota, value for each quota limit associated with
- *  the metrics will be specified using the following gauge metric:
- *  "serviceruntime.googleapis.com/quota/limit"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -634,7 +614,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Other service-specific data about the request, response, and other
  *  information associated with the current audited event.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_AuditLog_Metadata_Item *> *metadata;
+@property(nonatomic, strong, nullable) GTLRServiceControl_AuditLog_Metadata *metadata;
 
 /**
  *  The name of the service method or operation.
@@ -705,14 +685,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
- *  GTLRServiceControl_AuditLog_Metadata_Item
+ *  Other service-specific data about the request, response, and other
+ *  information associated with the current audited event.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRServiceControl_AuditLog_Metadata_Item : GTLRObject
+@interface GTLRServiceControl_AuditLog_Metadata : GTLRObject
 @end
 
 
@@ -1610,11 +1591,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  Represents the properties needed for quota check. Applicable only if this
- *  operation is for a quota check request.
+ *  operation is for a quota check request. If this is not specified, no quota
+ *  check will be performed.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_QuotaProperties *quotaProperties;
 
 /**
+ *  DO NOT USE. This field is deprecated, use "resources" field instead.
  *  The resource name of the parent of a resource in the resource hierarchy.
  *  This can be in one of the following formats:
  *  - “projects/<project-id or project-number>”
@@ -1833,8 +1816,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /**
  *  Fully qualified name of the API method for which this quota operation is
  *  requested. This name is used for matching quota rules or metric rules and
- *  billing status rules defined in service configuration. This field is not
- *  required if the quota operation is performed on non-API resources.
+ *  billing status rules defined in service configuration.
+ *  This field should not be set if any of the following is true:
+ *  (1) the quota operation is performed on non-API resources.
+ *  (2) quota_metrics is set because the caller is doing quota override.
  *  Example of an RPC method name:
  *  google.example.library.v1.LibraryService.CreateShelf
  */
@@ -1861,6 +1846,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  label value combinations. If a request has such duplicated MetricValue
  *  instances, the entire request is rejected with
  *  an invalid argument error.
+ *  This field is mutually exclusive with method_name.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -1868,41 +1854,22 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Quota mode for this operation.
  *
  *  Likely values:
- *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort For
- *        AllocateQuota request, this mode is supported only for imprecise
- *        quota limits. In this case, the operation allocates quota for the
- *        amount
- *        specified in the service configuration or specified using the quota
- *        metrics. If the amount is higher than the available quota, request
- *        does
- *        not fail but all available quota will be allocated.
- *        For ReleaseQuota request, this mode is supported for both precise
- *        quota
- *        limits and imprecise quota limits. In this case, this operation
- *        releases
- *        quota for the amount specified in the service configuration or
- *        specified
- *        using the quota metrics. If the release can make used quota
- *        negative, request does not fail but only the used quota will be
- *        released. After the ReleaseQuota request completes, the used quota
- *        will be 0, and never goes to negative. (Value: "BEST_EFFORT")
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort The
+ *        operation allocates quota for the amount specified in the service
+ *        configuration or specified using the quota metrics. If the amount is
+ *        higher than the available quota, request does not fail but all
+ *        available
+ *        quota will be allocated. (Value: "BEST_EFFORT")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly For
  *        AllocateQuota request, only checks if there is enough quota
  *        available and does not change the available quota. No lock is placed
  *        on
- *        the available quota either. Not supported for ReleaseQuota request.
- *        (Value: "CHECK_ONLY")
+ *        the available quota either. (Value: "CHECK_ONLY")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Normal For
  *        AllocateQuota request, allocates quota for the amount specified in
  *        the service configuration or specified using the quota metrics. If the
  *        amount is higher than the available quota, allocation error will be
- *        returned and no quota will be allocated.
- *        For ReleaseQuota request, this mode is supported only for precise
- *        quota
- *        limits. In this case, this operation releases quota for the amount
- *        specified in the service configuration or specified using the quota
- *        metrics. If the release can make used quota negative, release error
- *        will be returned and no quota will be released. (Value: "NORMAL")
+ *        returned and no quota will be allocated. (Value: "NORMAL")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified Guard
  *        against implicit default. Must not be used. (Value: "UNSPECIFIED")
  */
@@ -1929,21 +1896,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @interface GTLRServiceControl_QuotaProperties : GTLRObject
 
 /**
- *  LimitType IDs that should be used for checking quota. Key in this map
- *  should be a valid LimitType string, and the value is the ID to be used. For
- *  example, an entry <USER, 123> will cause all user quota limits to use 123
- *  as the user ID. See google/api/quota.proto for the definition of LimitType.
- *  CLIENT_PROJECT: Not supported.
- *  USER: Value of this entry will be used for enforcing user-level quota
- *  limits. If none specified, caller IP passed in the
- *  servicecontrol.googleapis.com/caller_ip label will be used instead.
- *  If the server cannot resolve a value for this LimitType, an error
- *  will be thrown. No validation will be performed on this ID.
- *  Deprecated: use servicecontrol.googleapis.com/user label to send user ID.
- */
-@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaProperties_LimitByIds *limitByIds;
-
-/**
  *  Quota mode for this operation.
  *
  *  Likely values:
@@ -1966,28 +1918,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *quotaMode;
 
-@end
-
-
-/**
- *  LimitType IDs that should be used for checking quota. Key in this map
- *  should be a valid LimitType string, and the value is the ID to be used. For
- *  example, an entry <USER, 123> will cause all user quota limits to use 123
- *  as the user ID. See google/api/quota.proto for the definition of LimitType.
- *  CLIENT_PROJECT: Not supported.
- *  USER: Value of this entry will be used for enforcing user-level quota
- *  limits. If none specified, caller IP passed in the
- *  servicecontrol.googleapis.com/caller_ip label will be used instead.
- *  If the server cannot resolve a value for this LimitType, an error
- *  will be thrown. No validation will be performed on this ID.
- *  Deprecated: use servicecontrol.googleapis.com/user label to send user ID.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRServiceControl_QuotaProperties_LimitByIds : GTLRObject
 @end
 
 
@@ -2146,14 +2076,25 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /**
  *  The IP address of the caller.
  *  For caller from internet, this will be public IPv4 or IPv6 address.
- *  For caller from GCE VM with external IP address, this will be the VM's
- *  external IP address. For caller from GCE VM without external IP address, if
- *  the VM is in the same GCP organization (or project) as the accessed
- *  resource, `caller_ip` will be the GCE VM's internal IPv4 address, otherwise
- *  it will be redacted to "gce-internal-ip".
+ *  For caller from a Compute Engine VM with external IP address, this
+ *  will be the VM's external IP address. For caller from a Compute
+ *  Engine VM without external IP address, if the VM is in the same
+ *  organization (or project) as the accessed resource, `caller_ip` will
+ *  be the VM's internal IPv4 address, otherwise the `caller_ip` will be
+ *  redacted to "gce-internal-ip".
  *  See https://cloud.google.com/compute/docs/vpc/ for more information.
  */
 @property(nonatomic, copy, nullable) NSString *callerIp;
+
+/**
+ *  The network of the caller.
+ *  Set only if the network host project is part of the same GCP organization
+ *  (or project) as the accessed resource.
+ *  See https://cloud.google.com/compute/docs/vpc/ for more information.
+ *  This is a scheme-less URI full resource name. For example:
+ *  "//compute.googleapis.com/projects/PROJECT_ID/global/networks/NETWORK_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *callerNetwork;
 
 /**
  *  The user agent of the caller.
@@ -2174,8 +2115,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
- *  DO NOT USE.
- *  This definition is not ready for use yet.
+ *  Describes a resource associated with this operation.
  */
 @interface GTLRServiceControl_ResourceInfo : GTLRObject
 

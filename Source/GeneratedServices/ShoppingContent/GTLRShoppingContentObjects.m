@@ -1011,9 +1011,10 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItem
-@dynamic cancellations, identifier, price, product, quantityCanceled,
-         quantityDelivered, quantityOrdered, quantityPending, quantityReturned,
-         quantityShipped, returnInfo, returns, shippingDetails, tax;
+@dynamic cancellations, channelType, identifier, price, product,
+         quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
+         quantityReturned, quantityShipped, returnInfo, returns,
+         shippingDetails, tax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

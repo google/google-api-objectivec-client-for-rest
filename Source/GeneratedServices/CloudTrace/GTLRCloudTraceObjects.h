@@ -27,8 +27,8 @@
 @class GTLRCloudTrace_AttributeValue;
 @class GTLRCloudTrace_Link;
 @class GTLRCloudTrace_Links;
+@class GTLRCloudTrace_MessageEvent;
 @class GTLRCloudTrace_Module;
-@class GTLRCloudTrace_NetworkEvent;
 @class GTLRCloudTrace_Span;
 @class GTLRCloudTrace_StackFrame;
 @class GTLRCloudTrace_StackFrames;
@@ -72,26 +72,26 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan;
 GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudTrace_NetworkEvent.type
+// GTLRCloudTrace_MessageEvent.type
 
 /**
- *  Indicates a received RPC message.
+ *  Indicates a received message.
  *
- *  Value: "RECV"
+ *  Value: "RECEIVED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_Recv;
+GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Received;
 /**
- *  Indicates a sent RPC message.
+ *  Indicates a sent message.
  *
  *  Value: "SENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_Sent;
+GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent;
 /**
  *  Unknown event type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
+GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
 /**
  *  Text annotation with a set of attributes.
@@ -267,6 +267,54 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
+ *  An event describing a message sent/received between Spans.
+ */
+@interface GTLRCloudTrace_MessageEvent : GTLRObject
+
+/**
+ *  The number of compressed bytes sent or received. If missing assumed to
+ *  be the same size as uncompressed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *compressedSizeBytes;
+
+/**
+ *  An identifier for the MessageEvent's message that can be used to match
+ *  SENT and RECEIVED MessageEvents. It is recommended to be unique within
+ *  a Span.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Type of MessageEvent. Indicates whether the message was sent or
+ *  received.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTrace_MessageEvent_Type_Received Indicates a received
+ *        message. (Value: "RECEIVED")
+ *    @arg @c kGTLRCloudTrace_MessageEvent_Type_Sent Indicates a sent message.
+ *        (Value: "SENT")
+ *    @arg @c kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified Unknown event
+ *        type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The number of uncompressed bytes sent or received.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncompressedSizeBytes;
+
+@end
+
+
+/**
  *  Binary module.
  */
 @interface GTLRCloudTrace_Module : GTLRObject
@@ -282,56 +330,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  *  such as libc.so, sharedlib.so (up to 256 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *module;
-
-@end
-
-
-/**
- *  An event describing an RPC message sent or received on the network.
- */
-@interface GTLRCloudTrace_NetworkEvent : GTLRObject
-
-/**
- *  The number of compressed bytes sent or received.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *compressedMessageSize;
-
-/**
- *  An identifier for the message, which must be unique in this span.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *messageId;
-
-/**
- *  For sent messages, this is the time at which the first bit was sent.
- *  For received messages, this is the time at which the last bit was
- *  received.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *time;
-
-/**
- *  Type of NetworkEvent. Indicates whether the RPC message was sent or
- *  received.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTrace_NetworkEvent_Type_Recv Indicates a received RPC
- *        message. (Value: "RECV")
- *    @arg @c kGTLRCloudTrace_NetworkEvent_Type_Sent Indicates a sent RPC
- *        message. (Value: "SENT")
- *    @arg @c kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified Unknown event
- *        type. (Value: "TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  The number of uncompressed bytes sent or received.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *uncompressedMessageSize;
 
 @end
 
@@ -356,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  *  An optional number of child spans that were generated while this span
  *  was active. If set, allows implementation to detect missing child spans.
  *
- *  Uses NSNumber of unsignedIntValue.
+ *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *childSpanCount;
 
@@ -383,7 +381,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 
 /**
  *  The resource name of the span in the following format:
- *  projects/[PROJECT_ID]traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
+ *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
  *  for a trace within a project.
  *  [SPAN_ID] is a unique identifier for a span within a trace,
  *  assigned when the span is created.
@@ -422,7 +420,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Status *status;
 
 /**
- *  The included time events. There can be up to 32 annotations and 128 network
+ *  The included time events. There can be up to 32 annotations and 128 message
  *  events per span.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TimeEvents *timeEvents;
@@ -515,7 +513,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  *  Subsequent spans within the same request can refer
  *  to that stack trace by only setting `stackTraceHashId`.
  *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *stackTraceHashId;
 
@@ -605,15 +603,15 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  A time-stamped annotation or network event in the Span.
+ *  A time-stamped annotation or message event in the Span.
  */
 @interface GTLRCloudTrace_TimeEvent : GTLRObject
 
 /** Text annotation with a set of attributes. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Annotation *annotation;
 
-/** An event describing an RPC message sent/received on the network. */
-@property(nonatomic, strong, nullable) GTLRCloudTrace_NetworkEvent *networkEvent;
+/** An event describing a message sent/received between Spans. */
+@property(nonatomic, strong, nullable) GTLRCloudTrace_MessageEvent *messageEvent;
 
 /** The timestamp indicating the time the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
@@ -624,7 +622,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 /**
  *  A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation
  *  on the span, consisting of either user-supplied key:value pairs, or
- *  details of an RPC message sent/received on the network.
+ *  details of a message sent/received between Spans.
  */
 @interface GTLRCloudTrace_TimeEvents : GTLRObject
 
@@ -637,12 +635,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *droppedAnnotationsCount;
 
 /**
- *  The number of dropped network events in all the included time events.
- *  If the value is 0, then no network events were dropped.
+ *  The number of dropped message events in all the included time events.
+ *  If the value is 0, then no message events were dropped.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *droppedNetworkEventsCount;
+@property(nonatomic, strong, nullable) NSNumber *droppedMessageEventsCount;
 
 /** A collection of `TimeEvent`s. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_TimeEvent *> *timeEvent;

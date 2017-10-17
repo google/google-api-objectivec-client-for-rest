@@ -54,6 +54,7 @@
 @class GTLRCompute_InstancesSetLabelsRequest;
 @class GTLRCompute_InstancesSetMachineResourcesRequest;
 @class GTLRCompute_InstancesSetMachineTypeRequest;
+@class GTLRCompute_InstancesSetMinCpuPlatformRequest;
 @class GTLRCompute_InstancesSetServiceAccountRequest;
 @class GTLRCompute_InstancesStartWithEncryptionKeyRequest;
 @class GTLRCompute_InstanceTemplate;
@@ -8019,6 +8020,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Changes the minimum CPU platform that this instance should use. This method
+ *  can only be called on a stopped instance. For more information, read
+ *  Specifying a Minimum CPU Platform.
+ *
+ *  Method: compute.instances.setMinCpuPlatform
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetMinCpuPlatform : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetMinCpuPlatformWithObject:project:zoneProperty:instance:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the minimum CPU platform that this instance should use. This method
+ *  can only be called on a stopped instance. For more information, read
+ *  Specifying a Minimum CPU Platform.
+ *
+ *  @param object The @c GTLRCompute_InstancesSetMinCpuPlatformRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @returns GTLRComputeQuery_InstancesSetMinCpuPlatform
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetMinCpuPlatformRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Sets an instance's scheduling options.
  *
  *  Method: compute.instances.setScheduling
@@ -9140,6 +9205,56 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified network with the data included in the request.
+ *
+ *  Method: compute.networks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworksPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworksPatchWithObject:project:network:]
+
+/** Name of the network to update. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified network with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_Network to include in the query.
+ *  @param project Project ID for this request.
+ *  @param network Name of the network to update.
+ *
+ *  @returns GTLRComputeQuery_NetworksPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Network *)object
+                        project:(NSString *)project
+                        network:(NSString *)network;
 
 @end
 

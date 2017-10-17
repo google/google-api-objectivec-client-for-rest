@@ -76,6 +76,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
+/** All sign-in methods this user has used. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signinMethods;
+
 @end
 
 
@@ -116,6 +119,43 @@ NS_ASSUME_NONNULL_BEGIN
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
+
+@end
+
+
+/**
+ *  Response of email signIn.
+ */
+@interface GTLRIdentityToolkit_EmailLinkSigninResponse : GTLRObject
+
+/** The user's email. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Expiration time of STS id token in seconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/** The STS id token to login the newly signed in user. */
+@property(nonatomic, copy, nullable) NSString *idToken;
+
+/**
+ *  Whether the user is new.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNewUser;
+
+/** The fixed string "identitytoolkit#EmailLinkSigninResponse". */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The RP local ID of the user. */
+@property(nonatomic, copy, nullable) NSString *localId;
+
+/** The refresh token for the signed in user. */
+@property(nonatomic, copy, nullable) NSString *refreshToken;
 
 @end
 
@@ -451,6 +491,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  used when provided credential.
  */
 @property(nonatomic, copy, nullable) NSString *targetProjectId;
+
+@end
+
+
+/**
+ *  Request to sign in with email.
+ */
+@interface GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest : GTLRObject
+
+/** The email address of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Token for linking flow. */
+@property(nonatomic, copy, nullable) NSString *idToken;
+
+/** The confirmation code. */
+@property(nonatomic, copy, nullable) NSString *oobCode;
 
 @end
 

@@ -43,6 +43,7 @@
 @class GTLRDirectory_SchemaFieldSpec;
 @class GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec;
 @class GTLRDirectory_Token;
+@class GTLRDirectory_TrustedAppId;
 @class GTLRDirectory_User;
 @class GTLRDirectory_User_CustomSchemas;
 @class GTLRDirectory_UserCustomProperties;
@@ -100,6 +101,60 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for App Access Collections Resource object in Directory API.
+ */
+@interface GTLRDirectory_AppAccessCollections : GTLRObject
+
+/** List of blocked api access buckets. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockedApiAccessBuckets;
+
+/**
+ *  Boolean to indicate whether to enforce app access settings on Android Drive
+ *  or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforceSettingsForAndroidDrive;
+
+/**
+ *  Error message provided by the Admin that will be shown to the user when an
+ *  app is blocked.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifies the resource as an app access collection. Value:
+ *  admin#directory#appaccesscollection
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Unique ID of app access collection. (Readonly)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceId;
+
+/**
+ *  Resource name given by the customer while creating/updating. Should be
+ *  unique under given customer.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Boolean that indicates whether to trust domain owned apps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trustDomainOwnedApps;
 
 @end
 
@@ -1642,6 +1697,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of the API resource. This is always admin#directory#tokenList. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for Trusted App Ids Resource object in Directory API.
+ */
+@interface GTLRDirectory_TrustedAppId : GTLRObject
+
+/** Android package name. */
+@property(nonatomic, copy, nullable) NSString *androidPackageName;
+
+/** SHA1 signature of the app certificate. */
+@property(nonatomic, copy, nullable) NSString *certificateHashSHA1;
+
+/** SHA256 signature of the app certificate. */
+@property(nonatomic, copy, nullable) NSString *certificateHashSHA256;
+
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Identifies the resource as a trusted AppId. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for Trusted Apps response object of a user in Directory API.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "trustedApps" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDirectory_TrustedApps : GTLRCollectionObject
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Identifies the resource as trusted apps response. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Trusted Apps list.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_TrustedAppId *> *trustedApps;
 
 @end
 

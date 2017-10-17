@@ -3445,6 +3445,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSetMinCpuPlatform
+
+@dynamic instance, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetMinCpuPlatformRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform";
+  GTLRComputeQuery_InstancesSetMinCpuPlatform *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.setMinCpuPlatform";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesSetScheduling
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -3945,6 +3980,35 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_NetworkList class];
   query.loggingName = @"compute.networks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworksPatch
+
+@dynamic network, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_Network *)object
+                        project:(NSString *)project
+                        network:(NSString *)network {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"network", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/networks/{network}";
+  GTLRComputeQuery_NetworksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networks.patch";
   return query;
 }
 

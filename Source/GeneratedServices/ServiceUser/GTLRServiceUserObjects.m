@@ -155,16 +155,6 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUser_AuthorizationRule
-//
-
-@implementation GTLRServiceUser_AuthorizationRule
-@dynamic permissions, selector;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUser_AuthProvider
 //
 
@@ -213,6 +203,42 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_BackendRule
 @dynamic address, deadline, minDeadline, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_Billing
+//
+
+@implementation GTLRServiceUser_Billing
+@dynamic consumerDestinations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumerDestinations" : [GTLRServiceUser_BillingDestination class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_BillingDestination
+//
+
+@implementation GTLRServiceUser_BillingDestination
+@dynamic metrics, monitoredResource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -487,9 +513,8 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_HttpRule
-@dynamic additionalBindings, authorizations, body, custom, deleteProperty, get,
-         mediaDownload, mediaUpload, patch, post, put, responseBody,
-         restCollection, restMethodName, selector;
+@dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
+         mediaUpload, patch, post, put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -497,8 +522,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalBindings" : [GTLRServiceUser_HttpRule class],
-    @"authorizations" : [GTLRServiceUser_AuthorizationRule class]
+    @"additionalBindings" : [GTLRServiceUser_HttpRule class]
   };
   return map;
 }
@@ -963,11 +987,11 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_Service
-@dynamic apis, authentication, backend, configVersion, context, control,
-         customError, documentation, endpoints, enums, experimental, http,
-         identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage, visibility;
+@dynamic apis, authentication, backend, billing, configVersion, context,
+         control, customError, documentation, endpoints, enums, experimental,
+         http, identifier, logging, logs, metrics, monitoredResources,
+         monitoring, name, producerProjectId, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

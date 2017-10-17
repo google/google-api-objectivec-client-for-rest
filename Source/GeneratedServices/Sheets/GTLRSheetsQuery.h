@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns the developer metadata with the specified id.
+ *  Returns the developer metadata with the specified ID.
  *  The caller must specify the spreadsheet ID and the developer metadata's
  *  unique metadataId.
  *
@@ -234,7 +234,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_DeveloperMetadata.
  *
- *  Returns the developer metadata with the specified id.
+ *  Returns the developer metadata with the specified ID.
  *  The caller must specify the spreadsheet ID and the developer metadata's
  *  unique metadataId.
  *
@@ -744,10 +744,10 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns one or more ranges of values from a spreadsheet that match the
- *  specified data filters. The caller must specify the spreadsheet ID and
- *  one or more DataFilters. Ranges that match any of the data
- *  filters in the request will be returned.
+ *  Returns one or more ranges of values that match the specified data filters.
+ *  The caller must specify the spreadsheet ID and one or more
+ *  DataFilters. Ranges that match any of the data filters in
+ *  the request will be returned.
  *
  *  Method: sheets.spreadsheets.values.batchGetByDataFilter
  *
@@ -766,10 +766,10 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchGetValuesByDataFilterResponse.
  *
- *  Returns one or more ranges of values from a spreadsheet that match the
- *  specified data filters. The caller must specify the spreadsheet ID and
- *  one or more DataFilters. Ranges that match any of the data
- *  filters in the request will be returned.
+ *  Returns one or more ranges of values that match the specified data filters.
+ *  The caller must specify the spreadsheet ID and one or more
+ *  DataFilters. Ranges that match any of the data filters in
+ *  the request will be returned.
  *
  *  @param object The @c GTLRSheets_BatchGetValuesByDataFilterRequest to include
  *    in the query.

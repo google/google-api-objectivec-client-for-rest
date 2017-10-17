@@ -17,6 +17,8 @@
 NSString * const kGTLRManufacturerCenter_Image_Status_CrawlError = @"CRAWL_ERROR";
 NSString * const kGTLRManufacturerCenter_Image_Status_CrawlSkipped = @"CRAWL_SKIPPED";
 NSString * const kGTLRManufacturerCenter_Image_Status_DecodingError = @"DECODING_ERROR";
+NSString * const kGTLRManufacturerCenter_Image_Status_Hostloaded = @"HOSTLOADED";
+NSString * const kGTLRManufacturerCenter_Image_Status_Http404  = @"HTTP_404";
 NSString * const kGTLRManufacturerCenter_Image_Status_Ok       = @"OK";
 NSString * const kGTLRManufacturerCenter_Image_Status_PendingCrawl = @"PENDING_CRAWL";
 NSString * const kGTLRManufacturerCenter_Image_Status_PendingProcessing = @"PENDING_PROCESSING";
@@ -48,7 +50,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
          format, gender, gtin, imageLink, itemGroupId, material, mpn, pattern,
          productDetail, productLine, productName, productPageUrl, productType,
          releaseDate, scent, size, sizeSystem, sizeType, suggestedRetailPrice,
-         targetAccountId, theme, title, videoLink;
+         targetClientId, theme, title, videoLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

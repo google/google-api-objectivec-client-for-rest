@@ -446,7 +446,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_DistributionUpdate
-@dynamic count, max, min, sum, sumOfSquares;
+@dynamic count, histogram, max, min, sum, sumOfSquares;
 @end
 
 
@@ -662,6 +662,24 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_GetTemplateResponse
 @dynamic metadata, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_Histogram
+//
+
+@implementation GTLRDataflow_Histogram
+@dynamic bucketCounts, firstBucketOffset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bucketCounts" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

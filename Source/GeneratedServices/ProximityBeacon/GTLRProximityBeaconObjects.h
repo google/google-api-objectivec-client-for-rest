@@ -415,6 +415,24 @@ GTLR_EXTERN NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_Vi
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
+ *  The distance away from the beacon at which this attachment should be
+ *  delivered to a mobile app.
+ *  Setting this to a value greater than zero indicates that the app should
+ *  behave as if the beacon is "seen" when the mobile device is less than this
+ *  distance away from the beacon.
+ *  Different attachments on the same beacon can have different max distances.
+ *  Note that even though this value is expressed with fractional meter
+ *  precision, real-world behavior is likley to be much less precise than one
+ *  meter, due to the nature of current Bluetooth radio technology.
+ *  Optional. When not set or zero, the attachment should be delivered at the
+ *  beacon's outer limit of detection.
+ *  Negative values are invalid and return an error.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDistanceMeters;
+
+/**
  *  Specifies what kind of attachment this is. Tells a client how to
  *  interpret the `data` field. Format is <var>namespace/type</var>. Namespace
  *  provides type separation between clients. Type describes the type of

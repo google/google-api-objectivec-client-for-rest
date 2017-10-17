@@ -2067,7 +2067,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_SafeSearchAnnotation : GTLRObject
 
 /**
- *  Represents the adult content likelihood for the image.
+ *  Represents the adult content likelihood for the image. Adult content may
+ *  contain elements such as nudity, pornographic images or cartoons, or
+ *  sexual activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Adult_Likely It is likely that
@@ -2132,7 +2134,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Violence likelihood.
+ *  Likelihood that this image contains violent content.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Violence_Likely It is likely that

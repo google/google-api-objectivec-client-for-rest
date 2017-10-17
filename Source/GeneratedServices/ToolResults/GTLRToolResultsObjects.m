@@ -80,6 +80,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
 NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
 NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
+NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";
 
 // ----------------------------------------------------------------------------
 //
@@ -245,6 +246,36 @@ NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecified
 
 @implementation GTLRToolResults_FileReference
 @dynamic fileUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_GraphicsStats
+//
+
+@implementation GTLRToolResults_GraphicsStats
+@dynamic buckets, highInputLatencyCount, jankyFrames, missedVsyncCount,
+         p50Millis, p90Millis, p95Millis, p99Millis, slowBitmapUploadCount,
+         slowDrawCount, slowUiThreadCount, totalFrames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buckets" : [GTLRToolResults_GraphicsStatsBucket class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_GraphicsStatsBucket
+//
+
+@implementation GTLRToolResults_GraphicsStatsBucket
+@dynamic frameCount, renderMillis;
 @end
 
 
@@ -461,8 +492,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecified
 //
 
 @implementation GTLRToolResults_PerfMetricsSummary
-@dynamic appStartTime, executionId, historyId, perfEnvironment, perfMetrics,
-         projectId, stepId;
+@dynamic appStartTime, executionId, graphicsStats, historyId, perfEnvironment,
+         perfMetrics, projectId, stepId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

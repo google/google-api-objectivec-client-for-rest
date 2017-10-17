@@ -30,6 +30,8 @@
 @class GTLRToolResults_Execution;
 @class GTLRToolResults_FailureDetail;
 @class GTLRToolResults_FileReference;
+@class GTLRToolResults_GraphicsStats;
+@class GTLRToolResults_GraphicsStatsBucket;
 @class GTLRToolResults_History;
 @class GTLRToolResults_Image;
 @class GTLRToolResults_InconclusiveDetail;
@@ -205,6 +207,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
 /** Value: "unspecifiedType" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
+/** Value: "unusedRoboDirective" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective;
 
 /**
  *  Android app information.
@@ -729,6 +733,122 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 
 
 /**
+ *  Graphics statistics for the App. The information is collected from 'adb
+ *  shell dumpsys graphicsstats'. For more info see:
+ *  https://developer.android.com/training/testing/performance.html Statistics
+ *  will only be present for API 23+.
+ */
+@interface GTLRToolResults_GraphicsStats : GTLRObject
+
+/**
+ *  Histogram of frame render times. There should be 154 buckets ranging from
+ *  [5ms, 6ms) to [4950ms, infinity)
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_GraphicsStatsBucket *> *buckets;
+
+/**
+ *  Total "high input latency" events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *highInputLatencyCount;
+
+/**
+ *  Total frames with slow render time. Should be <= total_frames.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jankyFrames;
+
+/**
+ *  Total "missed vsync" events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *missedVsyncCount;
+
+/**
+ *  50th percentile frame render time in milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p50Millis;
+
+/**
+ *  90th percentile frame render time in milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p90Millis;
+
+/**
+ *  95th percentile frame render time in milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p95Millis;
+
+/**
+ *  99th percentile frame render time in milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p99Millis;
+
+/**
+ *  Total "slow bitmap upload" events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slowBitmapUploadCount;
+
+/**
+ *  Total "slow draw" events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slowDrawCount;
+
+/**
+ *  Total "slow UI thread" events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slowUiThreadCount;
+
+/**
+ *  Total frames rendered by package.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalFrames;
+
+@end
+
+
+/**
+ *  GTLRToolResults_GraphicsStatsBucket
+ */
+@interface GTLRToolResults_GraphicsStatsBucket : GTLRObject
+
+/**
+ *  Number of frames in the bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frameCount;
+
+/**
+ *  Lower bound of render time in milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *renderMillis;
+
+@end
+
+
+/**
  *  A History represents a sorted list of Executions ordered by the
  *  start_timestamp_millis field (descending). It can be used to group all the
  *  Executions of a continuous build.
@@ -1085,6 +1205,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  Graphics statistics for the entire run. Statistics are reset at the
+ *  beginning of the run and collected at the end of the run.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_GraphicsStats *graphicsStats;
 
 /** A tool results history ID. */
 @property(nonatomic, copy, nullable) NSString *historyId;
@@ -1670,6 +1796,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value
  *        "unspecifiedType"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_UnusedRoboDirective Value
+ *        "unusedRoboDirective"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

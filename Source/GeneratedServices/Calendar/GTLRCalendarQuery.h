@@ -194,6 +194,12 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
+ *  Whether to send notifications about the calendar sharing change. Optional.
+ *  The default is True.
+ */
+@property(nonatomic, assign) BOOL sendNotifications;
+
+/**
  *  Fetches a @c GTLRCalendar_AclRule.
  *
  *  Creates an access control rule.
@@ -302,6 +308,12 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
 /**
+ *  Whether to send notifications about the calendar sharing change. Note that
+ *  there are no notifications on access removal. Optional. The default is True.
+ */
+@property(nonatomic, assign) BOOL sendNotifications;
+
+/**
  *  Fetches a @c GTLRCalendar_AclRule.
  *
  *  Updates an access control rule. This method supports patch semantics.
@@ -341,6 +353,12 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 
 /** ACL rule identifier. */
 @property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Whether to send notifications about the calendar sharing change. Note that
+ *  there are no notifications on access removal. Optional. The default is True.
+ */
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Fetches a @c GTLRCalendar_AclRule.

@@ -786,6 +786,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  or the batching documentation for your client library, for example
  *  https://developers.google.com/api-client-library/python/guide/batch.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
+ *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
+ *  the maximum task size is 100KB.
+ *  * For [pull queues](google.cloud.tasks.v2beta2.PullTarget), this
+ *  the maximum task size is 1MB.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.create
  *
@@ -813,6 +817,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  or the batching documentation for your client library, for example
  *  https://developers.google.com/api-client-library/python/guide/batch.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
+ *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
+ *  the maximum task size is 100KB.
+ *  * For [pull queues](google.cloud.tasks.v2beta2.PullTarget), this
+ *  the maximum task size is 1MB.
  *
  *  @param object The @c GTLRCloudTasks_CreateTaskRequest to include in the
  *    query.
@@ -1030,6 +1038,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  to perform the work associated with the task. To return the
  *  payloads in the PullTasksResponse, set
  *  PullTasksRequest.response_view to Task.View.FULL.
+ *  A maximum of 10 qps of CloudTasks.PullTasks requests are allowed per
+ *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
+ *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
+ *  RateLimits.max_tasks_dispatched_per_second is exceeded.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.pull
  *
@@ -1060,6 +1072,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  to perform the work associated with the task. To return the
  *  payloads in the PullTasksResponse, set
  *  PullTasksRequest.response_view to Task.View.FULL.
+ *  A maximum of 10 qps of CloudTasks.PullTasks requests are allowed per
+ *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
+ *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
+ *  RateLimits.max_tasks_dispatched_per_second is exceeded.
  *
  *  @param object The @c GTLRCloudTasks_PullTasksRequest to include in the
  *    query.

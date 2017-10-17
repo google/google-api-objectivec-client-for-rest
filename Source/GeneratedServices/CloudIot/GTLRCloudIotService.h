@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   QPX Express API (qpxExpress/v1)
+//   Google Cloud IoT API (cloudiot/v1)
 // Description:
-//   Finds the least expensive flights between an origin and a destination.
+//   Registers and manages IoT (Internet of Things) devices that connect to the
+//   Google Cloud Platform.
 // Documentation:
-//   http://developers.google.com/qpx-express
+//   https://cloud.google.com/iot
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -25,17 +26,40 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
 /**
- *  Service for executing QPX Express API queries.
+ *  Authorization scope: Register and manage devices in the Google Cloud IoT
+ *  service
  *
- *  Finds the least expensive flights between an origin and a destination.
+ *  Value "https://www.googleapis.com/auth/cloudiot"
  */
-@interface GTLRQPXExpressService : GTLRService
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIot;
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIotCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudIotService
+//
+
+/**
+ *  Service for executing Google Cloud IoT API queries.
+ *
+ *  Registers and manages IoT (Internet of Things) devices that connect to the
+ *  Google Cloud Platform.
+ */
+@interface GTLRCloudIotService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRQPXExpressQuery.h. The query can the be sent with GTLRService's execute
+// GTLRCloudIotQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

@@ -235,10 +235,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  Flag to delete sub-accounts with products. The default value of false will
- *  become active on September 28, 2017.
+ *  Flag to delete sub-accounts with products. The default value is false.
  *
- *  @note If not set, the documented server-side default will be true.
+ *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL force;
 

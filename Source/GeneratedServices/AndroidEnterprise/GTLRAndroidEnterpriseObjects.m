@@ -155,7 +155,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_AppVersion
-@dynamic versionCode, versionString;
+@dynamic track, versionCode, versionString;
 @end
 
 
@@ -573,13 +573,15 @@
 //
 
 @implementation GTLRAndroidEnterprise_Product
-@dynamic appVersion, authorName, detailsUrl, distributionChannel, iconUrl, kind,
-         productId, productPricing, requiresContainerApp, signingCertificate,
-         smallIconUrl, title, workDetailsUrl;
+@dynamic appVersion, authorName, availableTracks, detailsUrl,
+         distributionChannel, iconUrl, kind, productId, productPricing,
+         requiresContainerApp, signingCertificate, smallIconUrl, title,
+         workDetailsUrl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"appVersion" : [GTLRAndroidEnterprise_AppVersion class]
+    @"appVersion" : [GTLRAndroidEnterprise_AppVersion class],
+    @"availableTracks" : [NSString class]
   };
   return map;
 }
@@ -651,11 +653,12 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductSet
-@dynamic kind, productId, productSetBehavior;
+@dynamic kind, productId, productSetBehavior, productVisibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"productId" : [NSString class]
+    @"productId" : [NSString class],
+    @"productVisibility" : [GTLRAndroidEnterprise_ProductVisibility class]
   };
   return map;
 }
@@ -694,6 +697,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"product" : [GTLRAndroidEnterprise_Product class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ProductVisibility
+//
+
+@implementation GTLRAndroidEnterprise_ProductVisibility
+@dynamic productId, tracks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [NSString class]
   };
   return map;
 }

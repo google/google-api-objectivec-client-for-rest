@@ -410,3 +410,127 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 }
 
 @end
+
+@implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/uptimeCheckConfigs";
+  GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_UptimeCheckConfig class];
+  query.loggingName = @"monitoring.projects.uptimeCheckConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.uptimeCheckConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_UptimeCheckConfig class];
+  query.loggingName = @"monitoring.projects.uptimeCheckConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/uptimeCheckConfigs";
+  GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ListUptimeCheckConfigsResponse class];
+  query.loggingName = @"monitoring.projects.uptimeCheckConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
+
+@dynamic name, name1, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_UptimeCheckConfig class];
+  query.loggingName = @"monitoring.projects.uptimeCheckConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_UptimeCheckIpsList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/uptimeCheckIps";
+  GTLRMonitoringQuery_UptimeCheckIpsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRMonitoring_ListUptimeCheckIpsResponse class];
+  query.loggingName = @"monitoring.uptimeCheckIps.list";
+  return query;
+}
+
+@end

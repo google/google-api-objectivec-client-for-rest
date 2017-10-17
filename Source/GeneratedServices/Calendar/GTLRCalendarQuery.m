@@ -82,7 +82,7 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_AclInsert
 
-@dynamic calendarId;
+@dynamic calendarId, sendNotifications;
 
 + (instancetype)queryWithObject:(GTLRCalendar_AclRule *)object
                      calendarId:(NSString *)calendarId {
@@ -126,7 +126,7 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_AclPatch
 
-@dynamic calendarId, ruleId;
+@dynamic calendarId, ruleId, sendNotifications;
 
 + (instancetype)queryWithObject:(GTLRCalendar_AclRule *)object
                      calendarId:(NSString *)calendarId
@@ -155,7 +155,7 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_AclUpdate
 
-@dynamic calendarId, ruleId;
+@dynamic calendarId, ruleId, sendNotifications;
 
 + (instancetype)queryWithObject:(GTLRCalendar_AclRule *)object
                      calendarId:(NSString *)calendarId

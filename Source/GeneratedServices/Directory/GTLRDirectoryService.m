@@ -65,6 +65,7 @@ NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity  = @"https://www.g
   return @{
     @"admin#directory#alias" : [GTLRDirectory_Alias class],
     @"admin#directory#aliases" : [GTLRDirectory_Aliases class],
+    @"admin#directory#appaccesscollection" : [GTLRDirectory_AppAccessCollections class],
     @"admin#directory#asp" : [GTLRDirectory_Asp class],
     @"admin#directory#aspList" : [GTLRDirectory_Asps class],
     @"admin#directory#chromeosdevice" : [GTLRDirectory_ChromeOsDevice class],
@@ -97,6 +98,8 @@ NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity  = @"https://www.g
     @"admin#directory#schemas" : [GTLRDirectory_Schemas class],
     @"admin#directory#token" : [GTLRDirectory_Token class],
     @"admin#directory#tokenList" : [GTLRDirectory_Tokens class],
+    @"admin#directory#trustedappid" : [GTLRDirectory_TrustedAppId class],
+    @"admin#directory#trustedapplist" : [GTLRDirectory_TrustedApps class],
     @"admin#directory#user" : [GTLRDirectory_User class],
     @"admin#directory#user#photo" : [GTLRDirectory_UserPhoto class],
     @"admin#directory#users" : [GTLRDirectory_Users class],

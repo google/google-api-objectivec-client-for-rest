@@ -538,6 +538,63 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a specific model resource.
+ *  Currently the only supported fields to update are `description` and
+ *  `default_version.name`.
+ *
+ *  Method: ml.projects.models.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsPatch : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsPatchWithObject:name:]
+
+/** Required. The project name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specifies the path, relative to `Model`, of the field to update.
+ *  For example, to change the description of a model to "foo" and set its
+ *  default version to "version_1", the `update_mask` parameter would be
+ *  specified as `description`, `default_version.name`, and the `PATCH`
+ *  request body would specify the new value, as follows:
+ *  {
+ *  "description": "foo",
+ *  "defaultVersion": {
+ *  "name":"version_1"
+ *  }
+ *  }
+ *  In this example, the model is blindly overwritten since no etag is given.
+ *  To adopt etag mechanism, include `etag` field in the mask, and include the
+ *  `etag` value in your model resource.
+ *  Currently the supported update masks are `description`,
+ *  `default_version.name`, `labels`, and `etag`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
+ *
+ *  Updates a specific model resource.
+ *  Currently the only supported fields to update are `description` and
+ *  `default_version.name`.
+ *
+ *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model to
+ *    include in the query.
+ *  @param name Required. The project name.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
@@ -797,6 +854,58 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified Version resource.
+ *  Currently the only supported field to update is `description`.
+ *
+ *  Method: ml.projects.models.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsPatch : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsPatchWithObject:name:]
+
+/** Required. The name of the model. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specifies the path, relative to `Version`, of the field to
+ *  update. Must be present and non-empty.
+ *  For example, to change the description of a version to "foo", the
+ *  `update_mask` parameter would be specified as `description`, and the
+ *  `PATCH` request body would specify the new value, as follows:
+ *  {
+ *  "description": "foo"
+ *  }
+ *  In this example, the version is blindly overwritten since no etag is given.
+ *  To adopt etag mechanism, include `etag` field in the mask, and include the
+ *  `etag` value in your version resource.
+ *  Currently the only supported update masks are `description`, `labels`, and
+ *  `etag`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
+ *
+ *  Updates the specified Version resource.
+ *  Currently the only supported field to update is `description`.
+ *
+ *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
+ *    to include in the query.
+ *  @param name Required. The name of the model.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -21,10 +21,10 @@ NSString * const kGTLRCloudTrace_Link_Type_ChildLinkedSpan  = @"CHILD_LINKED_SPA
 NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan = @"PARENT_LINKED_SPAN";
 NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudTrace_NetworkEvent.type
-NSString * const kGTLRCloudTrace_NetworkEvent_Type_Recv        = @"RECV";
-NSString * const kGTLRCloudTrace_NetworkEvent_Type_Sent        = @"SENT";
-NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+// GTLRCloudTrace_MessageEvent.type
+NSString * const kGTLRCloudTrace_MessageEvent_Type_Received    = @"RECEIVED";
+NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent        = @"SENT";
+NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -132,21 +132,26 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTrace_Module
+//   GTLRCloudTrace_MessageEvent
 //
 
-@implementation GTLRCloudTrace_Module
-@dynamic buildId, module;
+@implementation GTLRCloudTrace_MessageEvent
+@dynamic compressedSizeBytes, identifier, type, uncompressedSizeBytes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTrace_NetworkEvent
+//   GTLRCloudTrace_Module
 //
 
-@implementation GTLRCloudTrace_NetworkEvent
-@dynamic compressedMessageSize, messageId, time, type, uncompressedMessageSize;
+@implementation GTLRCloudTrace_Module
+@dynamic buildId, module;
 @end
 
 
@@ -239,7 +244,7 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRCloudTrace_TimeEvent
-@dynamic annotation, networkEvent, time;
+@dynamic annotation, messageEvent, time;
 @end
 
 
@@ -249,7 +254,7 @@ NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRCloudTrace_TimeEvents
-@dynamic droppedAnnotationsCount, droppedNetworkEventsCount, timeEvent;
+@dynamic droppedAnnotationsCount, droppedMessageEventsCount, timeEvent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

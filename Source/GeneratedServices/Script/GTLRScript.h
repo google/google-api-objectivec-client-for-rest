@@ -4,7 +4,7 @@
 // API:
 //   Google Apps Script Execution API (script/v1)
 // Description:
-//   Executes functions in Google Apps Script projects.
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
 

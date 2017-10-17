@@ -131,6 +131,16 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDynamicLinks_DesktopInfo
+//
+
+@implementation GTLRFirebaseDynamicLinks_DesktopInfo
+@dynamic desktopFallbackLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDynamicLinks_DeviceInfo
 //
 
@@ -156,8 +166,8 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkInfo
-@dynamic analyticsInfo, androidInfo, dynamicLinkDomain, iosInfo, link,
-         navigationInfo, socialMetaTagInfo;
+@dynamic analyticsInfo, androidInfo, desktopInfo, dynamicLinkDomain, iosInfo,
+         link, navigationInfo, socialMetaTagInfo;
 @end
 
 

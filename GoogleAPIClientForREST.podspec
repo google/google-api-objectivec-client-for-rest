@@ -136,6 +136,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudFunctions/*.{h,m}'
   end
+  s.subspec 'CloudIot' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudIot/*.{h,m}'
+  end
   s.subspec 'CloudKMS' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudKMS/*.{h,m}'
@@ -272,6 +276,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseRules/*.{h,m}'
   end
+  s.subspec 'Firestore' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Firestore/*.{h,m}'
+  end
   s.subspec 'Fitness' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
@@ -383,10 +391,6 @@ Pod::Spec.new do |s|
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pubsub/*.{h,m}'
-  end
-  s.subspec 'QPXExpress' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/QPXExpress/*.{h,m}'
   end
   s.subspec 'Replicapool' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
