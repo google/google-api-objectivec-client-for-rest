@@ -603,11 +603,10 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_DataSource *> *dataSources;
 
 /**
- *  The next-pagination token. For multiple-page list results,
+ *  Output only. The next-pagination token. For multiple-page list results,
  *  this token can be used as the
  *  `ListDataSourcesRequest.page_token`
  *  to request the next page of list results.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -649,17 +648,15 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @interface GTLRBigQueryDataTransfer_ListTransferConfigsResponse : GTLRCollectionObject
 
 /**
- *  The next-pagination token. For multiple-page list results,
+ *  Output only. The next-pagination token. For multiple-page list results,
  *  this token can be used as the
  *  `ListTransferConfigsRequest.page_token`
  *  to request the next page of list results.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The stored pipeline transfer configurations.
- *  Output only.
+ *  Output only. The stored pipeline transfer configurations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -680,17 +677,15 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @interface GTLRBigQueryDataTransfer_ListTransferLogsResponse : GTLRCollectionObject
 
 /**
- *  The next-pagination token. For multiple-page list results,
+ *  Output only. The next-pagination token. For multiple-page list results,
  *  this token can be used as the
  *  `GetTransferRunLogRequest.page_token`
  *  to request the next page of list results.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The stored pipeline transfer messages.
- *  Output only.
+ *  Output only. The stored pipeline transfer messages.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -711,17 +706,15 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @interface GTLRBigQueryDataTransfer_ListTransferRunsResponse : GTLRCollectionObject
 
 /**
- *  The next-pagination token. For multiple-page list results,
+ *  Output only. The next-pagination token. For multiple-page list results,
  *  this token can be used as the
  *  `ListTransferRunsRequest.page_token`
  *  to request the next page of list results.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The stored pipeline transfer runs.
- *  Output only.
+ *  Output only. The stored pipeline transfer runs.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -839,11 +832,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, strong, nullable) NSNumber *dataRefreshWindowDays;
 
-/**
- *  Region in which BigQuery dataset is located. Currently possible values are:
- *  "US" and "EU".
- *  Output only.
- */
+/** Output only. Region in which BigQuery dataset is located. */
 @property(nonatomic, copy, nullable) NSString *datasetRegion;
 
 /** Data source id. Cannot be changed once data transfer is created. */
@@ -873,10 +862,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Next time when data transfer will run.
- *  Output only.
- */
+/** Output only. Next time when data transfer will run. */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextRunTime;
 
 /** Data transfer specific parameters. */
@@ -899,8 +885,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, copy, nullable) NSString *schedule;
 
 /**
- *  State of the most recently updated transfer run.
- *  Output only.
+ *  Output only. State of the most recently updated transfer run.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled Data
@@ -922,16 +907,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Data transfer modification time. Ignored by server on input.
- *  Output only.
+ *  Output only. Data transfer modification time. Ignored by server on input.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Unique ID of the user on whose behalf transfer is done. Applicable only
- *  to data sources that do not support service accounts. When set to 0,
- *  the data source service account credentials are used.
- *  Output only.
+ *  Output only. Unique ID of the user on whose behalf transfer is done.
+ *  Applicable only to data sources that do not support service accounts.
+ *  When set to 0, the data source service account credentials are used.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -986,26 +969,18 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
 
-/**
- *  Region in which BigQuery dataset is located. Currently possible values are:
- *  "US" and "EU".
- *  Output only.
- */
+/** Output only. Region in which BigQuery dataset is located. */
 @property(nonatomic, copy, nullable) NSString *datasetRegion;
 
-/**
- *  Data source id.
- *  Output only.
- */
+/** Output only. Data source id. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /** The BigQuery target dataset id. */
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
- *  Time when transfer run ended. Parameter ignored by server for input
- *  requests.
- *  Output only.
+ *  Output only. Time when transfer run ended.
+ *  Parameter ignored by server for input requests.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1027,12 +1002,11 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) GTLRDateTime *runTime;
 
 /**
- *  Describes the schedule of this transfer run if it was created as part of
- *  a regular schedule. For batch transfer runs that are directly created,
- *  this is empty.
+ *  Output only. Describes the schedule of this transfer run if it was
+ *  created as part of a regular schedule. For batch transfer runs that are
+ *  scheduled manually, this is empty.
  *  NOTE: the system might choose to delay the schedule depending on the
  *  current load, so `schedule_time` doesn't always matches this.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -1040,15 +1014,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
 
 /**
- *  Time when transfer run was started. Parameter ignored by server for input
- *  requests.
- *  Output only.
+ *  Output only. Time when transfer run was started.
+ *  Parameter ignored by server for input requests.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Data transfer run state. Ignored for input requests.
- *  Output only.
+ *  Output only. Data transfer run state. Ignored for input requests.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled Data
@@ -1069,17 +1041,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  Last time the data transfer run state was updated.
- *  Output only.
- */
+/** Output only. Last time the data transfer run state was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Unique ID of the user on whose behalf transfer is done. Applicable only
- *  to data sources that do not support service accounts. When set to 0,
- *  the data source service account credentials are used.
- *  Output only.
+ *  Output only. Unique ID of the user on whose behalf transfer is done.
+ *  Applicable only to data sources that do not support service accounts.
+ *  When set to 0, the data source service account credentials are used.
  *
  *  Uses NSNumber of longLongValue.
  */

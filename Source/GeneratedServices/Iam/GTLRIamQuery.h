@@ -699,9 +699,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -713,9 +713,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsDelete
@@ -738,9 +738,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -752,9 +752,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsGet
@@ -813,9 +813,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -830,9 +830,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *    the query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsKeysCreate
@@ -856,9 +856,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account key in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -870,9 +870,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param name The resource name of the service account key in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsKeysDelete
@@ -896,9 +896,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account key in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -922,9 +922,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param name The resource name of the service account key in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsKeysGet
@@ -959,9 +959,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project, will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID`, will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -973,9 +973,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project, will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID`, will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsKeysList
@@ -1086,9 +1086,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1101,9 +1101,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  @param object The @c GTLRIam_SignBlobRequest to include in the query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsSignBlob
@@ -1130,9 +1130,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1148,9 +1148,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  @param object The @c GTLRIam_SignJwtRequest to include in the query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account. The `account` value can be the `email` address or the
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
  *    `unique_id` of the service account.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsSignJwt
@@ -1215,12 +1215,12 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Requests using `-` as a wildcard for the project will infer the project
- *  from the `account` and the `account` value can be the `email` address or
- *  the `unique_id` of the service account.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *  project from the `account` and the `ACCOUNT` value can be the `email`
+ *  address or the `unique_id` of the service account.
  *  In responses the resource name will always be in the format
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1235,12 +1235,12 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  @param object The @c GTLRIam_ServiceAccount to include in the query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *    Requests using `-` as a wildcard for the project will infer the project
- *    from the `account` and the `account` value can be the `email` address or
- *    the `unique_id` of the service account.
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *    project from the `account` and the `ACCOUNT` value can be the `email`
+ *    address or the `unique_id` of the service account.
  *    In responses the resource name will always be in the format
- *    `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  *
  *  @returns GTLRIamQuery_ProjectsServiceAccountsUpdate
  */

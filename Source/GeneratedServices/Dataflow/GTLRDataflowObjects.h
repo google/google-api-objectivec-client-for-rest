@@ -51,6 +51,7 @@
 @class GTLRDataflow_FlattenInstruction;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
+@class GTLRDataflow_Histogram;
 @class GTLRDataflow_InstructionInput;
 @class GTLRDataflow_InstructionOutput;
 @class GTLRDataflow_InstructionOutput_Codec;
@@ -1878,6 +1879,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The count of the number of elements present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *count;
 
+/** (Optional) Histogram of value counts for the distribution. */
+@property(nonatomic, strong, nullable) GTLRDataflow_Histogram *histogram;
+
 /** The maximum value present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *max;
 
@@ -2299,6 +2303,38 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  request will be indicated in the error_details.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Status *status;
+
+@end
+
+
+/**
+ *  Histogram of value counts for a distribution.
+ *  Buckets have an inclusive lower bound and exclusive upper bound and use
+ *  "1,2,5 bucketing": The first bucket range is from [0,1) and all subsequent
+ *  bucket boundaries are powers of ten multiplied by 1, 2, or 5. Thus, bucket
+ *  boundaries are 0, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, ...
+ *  Negative values are not supported.
+ */
+@interface GTLRDataflow_Histogram : GTLRObject
+
+/**
+ *  Counts of values in each bucket. For efficiency, prefix and trailing
+ *  buckets with count = 0 are elided. Buckets can store the full range of
+ *  values of an unsigned long, with ULLONG_MAX falling into the 59th bucket
+ *  with range [1e19, 2e19).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketCounts;
+
+/**
+ *  Starting index of first stored bucket. The non-inclusive upper-bound of
+ *  the ith bucket is given by:
+ *  pow(10,(i-first_bucket_offset)/3) * (1,2,5)[(i-first_bucket_offset)%3]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstBucketOffset;
 
 @end
 
@@ -5444,9 +5480,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_WorkerShutdownNotice : GTLRObject
 
 /**
- *  Optional reason to be attached for the shutdown notice.
- *  For example: "PREEMPTION" would indicate the VM is being shut down because
- *  of preemption. Other possible reasons may be added in the future.
+ *  The reason for the worker shutdown.
+ *  Current possible values are:
+ *  "UNKNOWN": shutdown reason is unknown.
+ *  "PREEMPTION": shutdown reason is preemption.
+ *  Other possible reasons may be added in the future.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 

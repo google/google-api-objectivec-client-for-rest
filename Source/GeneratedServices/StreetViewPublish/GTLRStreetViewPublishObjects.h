@@ -23,6 +23,8 @@
 @class GTLRStreetViewPublish_Connection;
 @class GTLRStreetViewPublish_LatLng;
 @class GTLRStreetViewPublish_Level;
+@class GTLRStreetViewPublish_Operation_Metadata;
+@class GTLRStreetViewPublish_Operation_Response;
 @class GTLRStreetViewPublish_Photo;
 @class GTLRStreetViewPublish_PhotoId;
 @class GTLRStreetViewPublish_PhotoResponse;
@@ -251,6 +253,88 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Photo *> *photos;
 
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRStreetViewPublish_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress.
+ *  If `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time.
+ *  Some services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the
+ *  `name` should have the format of `operations/some/unique/name`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time.
+ *  Some services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStreetViewPublish_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStreetViewPublish_Operation_Response : GTLRObject
 @end
 
 

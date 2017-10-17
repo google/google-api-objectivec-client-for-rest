@@ -45,6 +45,11 @@ NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeOverQuota = @"ER
 NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeTimeout = @"ERROR_CODE_TIMEOUT";
 NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
 
+// GTLRAppengine_FirewallRule.action
+NSString * const kGTLRAppengine_FirewallRule_Action_Allow      = @"ALLOW";
+NSString * const kGTLRAppengine_FirewallRule_Action_Deny       = @"DENY";
+NSString * const kGTLRAppengine_FirewallRule_Action_UnspecifiedAction = @"UNSPECIFIED_ACTION";
+
 // GTLRAppengine_Instance.availability
 NSString * const kGTLRAppengine_Instance_Availability_Dynamic  = @"DYNAMIC";
 NSString * const kGTLRAppengine_Instance_Availability_Resident = @"RESIDENT";
@@ -211,6 +216,42 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_BatchUpdateIngressRulesRequest
+//
+
+@implementation GTLRAppengine_BatchUpdateIngressRulesRequest
+@dynamic ingressRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingressRules" : [GTLRAppengine_FirewallRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_BatchUpdateIngressRulesResponse
+//
+
+@implementation GTLRAppengine_BatchUpdateIngressRulesResponse
+@dynamic ingressRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingressRules" : [GTLRAppengine_FirewallRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_CertificateRawData
 //
 
@@ -357,6 +398,21 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_FirewallRule
+//
+
+@implementation GTLRAppengine_FirewallRule
+@dynamic action, descriptionProperty, priority, sourceRange;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_HealthCheck
 //
 
@@ -464,6 +520,28 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 + (NSString *)collectionItemsKey {
   return @"domainMappings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_ListIngressRulesResponse
+//
+
+@implementation GTLRAppengine_ListIngressRulesResponse
+@dynamic ingressRules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingressRules" : [GTLRAppengine_FirewallRule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ingressRules";
 }
 
 @end

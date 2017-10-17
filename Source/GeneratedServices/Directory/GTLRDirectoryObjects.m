@@ -55,6 +55,29 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_AppAccessCollections
+//
+
+@implementation GTLRDirectory_AppAccessCollections
+@dynamic blockedApiAccessBuckets, enforceSettingsForAndroidDrive, errorMessage,
+         ETag, kind, resourceId, resourceName, trustDomainOwnedApps;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockedApiAccessBuckets" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Asp
 //
 
@@ -881,6 +904,48 @@
     @"items" : [GTLRDirectory_Token class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_TrustedAppId
+//
+
+@implementation GTLRDirectory_TrustedAppId
+@dynamic androidPackageName, certificateHashSHA1, certificateHashSHA256, ETag,
+         kind;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_TrustedApps
+//
+
+@implementation GTLRDirectory_TrustedApps
+@dynamic ETag, kind, nextPageToken, trustedApps;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trustedApps" : [GTLRDirectory_TrustedAppId class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"trustedApps";
 }
 
 @end

@@ -44,6 +44,7 @@ NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster = @"DELETE
 NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool = @"DELETE_NODE_POOL";
 NSString * const kGTLRContainer_Operation_OperationType_RepairCluster = @"REPAIR_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_SetLabels = @"SET_LABELS";
+NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy = @"SET_MAINTENANCE_POLICY";
 NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth = @"SET_MASTER_AUTH";
 NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy = @"SET_NETWORK_POLICY";
 NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement = @"SET_NODE_POOL_MANAGEMENT";
@@ -63,6 +64,7 @@ NSString * const kGTLRContainer_Operation_Status_StatusUnspecified = @"STATUS_UN
 // GTLRContainer_SetMasterAuthRequest.action
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword = @"GENERATE_PASSWORD";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword = @"SET_PASSWORD";
+NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername = @"SET_USERNAME";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
@@ -81,7 +83,8 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_AddonsConfig
-@dynamic horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard;
+@dynamic horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
+         networkPolicyConfig;
 @end
 
 
@@ -413,6 +416,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_NetworkPolicy
 @dynamic enabled, provider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NetworkPolicyConfig
+//
+
+@implementation GTLRContainer_NetworkPolicyConfig
+@dynamic disabled;
 @end
 
 

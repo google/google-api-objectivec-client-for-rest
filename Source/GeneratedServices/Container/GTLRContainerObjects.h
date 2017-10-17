@@ -38,6 +38,7 @@
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_NetworkPolicy;
+@class GTLRContainer_NetworkPolicyConfig;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
@@ -222,6 +223,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluste
  */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
 /**
+ *  Set the maintenance policy.
+ *
+ *  Value: "SET_MAINTENANCE_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy;
+/**
  *  Set/generate master auth materials
  *
  *  Value: "SET_MASTER_AUTH"
@@ -320,7 +327,16 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Generate
  */
 GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword;
 /**
- *  Operation is unknown and will error out
+ *  Set the username. If an empty username is provided, basic authentication
+ *  is disabled for the cluster. If a non-empty username is provided, basic
+ *  authentication is enabled, with either a provided password or a generated
+ *  one.
+ *
+ *  Value: "SET_USERNAME"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername;
+/**
+ *  Operation is unknown and will error out.
  *
  *  Value: "UNKNOWN"
  */
@@ -368,6 +384,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** Configuration for the Kubernetes Dashboard. */
 @property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard;
+
+/**
+ *  Configuration for NetworkPolicy. This only tracks whether the addon
+ *  is enabled or not on the Master, it does not track whether network policy
+ *  is enabled for the nodes.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
 
 @end
 
@@ -1196,6 +1219,23 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  Configuration for NetworkPolicy. This only tracks whether the addon
+ *  is enabled or not on the Master, it does not track whether network policy
+ *  is enabled for the nodes.
+ */
+@interface GTLRContainer_NetworkPolicyConfig : GTLRObject
+
+/**
+ *  Whether NetworkPolicy is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
  *  Parameters that describe the nodes in a cluster.
  */
 @interface GTLRContainer_NodeConfig : GTLRObject
@@ -1269,14 +1309,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
 
 /**
- *  Minimum cpu/platform to be used by this instance. The instance may be
- *  scheduled on the specified or newer cpu/platform. Applicable values are the
+ *  Minimum CPU platform to be used by this instance. The instance may be
+ *  scheduled on the specified or newer CPU platform. Applicable values are the
  *  friendly names of CPU platforms, such as
  *  <code>minCpuPlatform: &quot;Intel Haswell&quot;</code> or
  *  <code>minCpuPlatform: &quot;Intel Sandy Bridge&quot;</code>. For more
- *  information, read
- *  <a href="/compute/docs/instances/specify-min-cpu-platform">Specifying a
- *  Minimum CPU Platform</a>.
+ *  information, read [how to specify min CPU
+ *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -1547,6 +1586,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *        repair. (Value: "REPAIR_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Set labels.
  *        (Value: "SET_LABELS")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetMaintenancePolicy Set
+ *        the maintenance policy. (Value: "SET_MAINTENANCE_POLICY")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetMasterAuth Set/generate
  *        master auth materials (Value: "SET_MASTER_AUTH")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetNetworkPolicy Updates
@@ -1762,7 +1803,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetMasterAuthRequest : GTLRObject
 
 /**
- *  The exact form of action to be taken on the master auth
+ *  The exact form of action to be taken on the master auth.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword
@@ -1770,8 +1811,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *        "GENERATE_PASSWORD")
  *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_SetPassword Set the
  *        password to a user generated value. (Value: "SET_PASSWORD")
+ *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_SetUsername Set the
+ *        username. If an empty username is provided, basic authentication
+ *        is disabled for the cluster. If a non-empty username is provided,
+ *        basic
+ *        authentication is enabled, with either a provided password or a
+ *        generated
+ *        one. (Value: "SET_USERNAME")
  *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_Unknown Operation is
- *        unknown and will error out (Value: "UNKNOWN")
+ *        unknown and will error out. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 

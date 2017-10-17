@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  results ordered by descending end_time
+ *  Queries for user's data point changes for a particular data source.
  *
  *  Method: fitness.users.dataSources.dataPointChanges.list
  *
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  If specified, no more than this many data point changes will be included in
- *  the response. The default is 500 data point changes.
+ *  the response.
  */
 @property(nonatomic, assign) NSInteger limit;
 
@@ -198,18 +198,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  List data points for the person identified. Use "me" to indicate the
- *  authenticated user. Only "me" is supported at this time.
+ *  List data points for the person identified. Use me to indicate the
+ *  authenticated user. Only me is supported at this time.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_ListDataPointChangesResponse.
  *
- *  results ordered by descending end_time
+ *  Queries for user's data point changes for a particular data source.
  *
- *  @param userId List data points for the person identified. Use "me" to
- *    indicate the authenticated user. Only "me" is supported at this time.
+ *  @param userId List data points for the person identified. Use me to indicate
+ *    the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source that created the
  *    dataset.
  *

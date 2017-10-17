@@ -50,6 +50,11 @@ NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line     = @"LINE";
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter  = @"SCATTER";
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea = @"STEPPED_AREA";
 
+// GTLRSheets_BasicChartSpec.compareMode
+NSString * const kGTLRSheets_BasicChartSpec_CompareMode_BasicChartCompareModeUnspecified = @"BASIC_CHART_COMPARE_MODE_UNSPECIFIED";
+NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Category = @"CATEGORY";
+NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Datum  = @"DATUM";
+
 // GTLRSheets_BasicChartSpec.legendPosition
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BasicChartLegendPositionUnspecified = @"BASIC_CHART_LEGEND_POSITION_UNSPECIFIED";
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BottomLegend = @"BOTTOM_LEGEND";
@@ -388,6 +393,12 @@ NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Minute = @"MINUTE"
 NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_OnChange = @"ON_CHANGE";
 NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_RecalculationIntervalUnspecified = @"RECALCULATION_INTERVAL_UNSPECIFIED";
 
+// GTLRSheets_TextPosition.horizontalAlignment
+NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_HorizontalAlignUnspecified = @"HORIZONTAL_ALIGN_UNSPECIFIED";
+NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Left = @"LEFT";
+NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right = @"RIGHT";
+
 // GTLRSheets_TextToColumnsRequest.delimiterType
 NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Comma = @"COMMA";
 NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Custom = @"CUSTOM";
@@ -615,7 +626,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_BasicChartAxis
-@dynamic format, position, title;
+@dynamic format, position, title, titleTextPosition;
 @end
 
 
@@ -645,7 +656,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_BasicChartSpec
-@dynamic axis, chartType, domains, headerCount, interpolateNulls,
+@dynamic axis, chartType, compareMode, domains, headerCount, interpolateNulls,
          legendPosition, lineSmoothing, series, stackedType, threeDimensional;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1108,7 +1119,8 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 @implementation GTLRSheets_ChartSpec
 @dynamic altText, backgroundColor, basicChart, bubbleChart, candlestickChart,
          fontName, hiddenDimensionStrategy, histogramChart, maximized, orgChart,
-         pieChart, title, titleTextFormat;
+         pieChart, subtitle, subtitleTextFormat, subtitleTextPosition, title,
+         titleTextFormat, titleTextPosition;
 @end
 
 
@@ -2287,6 +2299,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 @implementation GTLRSheets_TextFormatRun
 @dynamic format, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TextPosition
+//
+
+@implementation GTLRSheets_TextPosition
+@dynamic horizontalAlignment;
 @end
 
 

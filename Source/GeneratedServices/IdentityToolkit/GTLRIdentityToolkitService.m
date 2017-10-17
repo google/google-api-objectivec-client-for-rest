@@ -39,6 +39,7 @@ NSString * const kGTLRAuthScopeIdentityToolkitFirebase      = @"https://www.goog
     @"identitytoolkit#CreateAuthUriResponse" : [GTLRIdentityToolkit_CreateAuthUriResponse class],
     @"identitytoolkit#DeleteAccountResponse" : [GTLRIdentityToolkit_DeleteAccountResponse class],
     @"identitytoolkit#DownloadAccountResponse" : [GTLRIdentityToolkit_DownloadAccountResponse class],
+    @"identitytoolkit#EmailLinkSigninResponse" : [GTLRIdentityToolkit_EmailLinkSigninResponse class],
     @"identitytoolkit#GetAccountInfoResponse" : [GTLRIdentityToolkit_GetAccountInfoResponse class],
     @"identitytoolkit#GetOobConfirmationCodeResponse" : [GTLRIdentityToolkit_GetOobConfirmationCodeResponse class],
     @"identitytoolkit#GetRecaptchaParamResponse" : [GTLRIdentityToolkit_GetRecaptchaParamResponse class],

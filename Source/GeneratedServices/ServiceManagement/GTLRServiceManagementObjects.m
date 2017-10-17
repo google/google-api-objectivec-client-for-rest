@@ -79,6 +79,12 @@ NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Cancel
 NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Running = @"RUNNING";
 NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Uncancellable = @"UNCANCELLABLE";
 
+// GTLRServiceManagement_FlowOperationMetadata.surface
+NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement = @"SERVICE_CONSUMER_MANAGEMENT";
+NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement = @"SERVICE_MANAGEMENT";
+NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage = @"SERVICE_USAGE";
+NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService = @"UNSPECIFIED_OP_SERVICE";
+
 // GTLRServiceManagement_LabelDescriptor.valueType
 NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_Int64 = @"INT64";
@@ -293,6 +299,42 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_BackendRule
 @dynamic address, deadline, minDeadline, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_Billing
+//
+
+@implementation GTLRServiceManagement_Billing
+@dynamic consumerDestinations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumerDestinations" : [GTLRServiceManagement_BillingDestination class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_BillingDestination
+//
+
+@implementation GTLRServiceManagement_BillingDestination
+@dynamic metrics, monitoredResource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -688,7 +730,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_FlowOperationMetadata
-@dynamic cancelState, deadline, flowName, resourceNames, startTime;
+@dynamic cancelState, deadline, flowName, operationType, resourceNames,
+         startTime, surface;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1346,11 +1389,11 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Service
-@dynamic apis, authentication, backend, configVersion, context, control,
-         customError, documentation, endpoints, enums, experimental, http,
-         identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage, visibility;
+@dynamic apis, authentication, backend, billing, configVersion, context,
+         control, customError, documentation, endpoints, enums, experimental,
+         http, identifier, logging, logs, metrics, monitoredResources,
+         monitoring, name, producerProjectId, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

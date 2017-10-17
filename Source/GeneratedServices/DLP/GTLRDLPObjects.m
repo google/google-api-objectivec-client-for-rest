@@ -419,6 +419,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType
+@dynamic dictionary, infoType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey
 //
 
@@ -507,6 +517,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Dictionary
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Dictionary
+@dynamic wordList;
 @end
 
 
@@ -698,11 +718,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig
-@dynamic excludeTypes, includeQuote, infoTypeLimits, infoTypes, maxFindings,
-         minLikelihood;
+@dynamic customInfoTypes, excludeTypes, includeQuote, infoTypeLimits, infoTypes,
+         maxFindings, minLikelihood;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType class],
     @"infoTypeLimits" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit class],
     @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoType class]
   };
@@ -1459,6 +1480,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency
 @dynamic count, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1WordList
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1WordList
+@dynamic words;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"words" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

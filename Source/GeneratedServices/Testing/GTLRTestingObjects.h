@@ -1833,9 +1833,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_Account *account;
 
 /**
- *  The directories on the device to upload to GCS at the end of the test;
- *  they must be absolute, whitelisted paths.
- *  Refer to RegularFile for whitelisted paths.
+ *  List of directories on the device to upload to GCS at the end of the test;
+ *  they must be absolute paths under /sdcard or /data/local/tmp.
+ *  Path names are restricted to characters a-z A-Z 0-9 _ - . + and /
+ *  Note: The paths /sdcard and /data will be made available and treated as
+ *  implicit path substitutions. E.g. if /sdcard on a particular device does
+ *  not map to external storage, the system will replace it with the external
+ *  storage path prefix for that device.
  *  Optional
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directoriesToPull;
@@ -1846,7 +1850,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_EnvironmentVariable *> *environmentVariables;
 
-/** Optional */
+/**
+ *  List of files to push to the device before starting the test.
+ *  Optional
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceFile *> *filesToPush;
 
 /**

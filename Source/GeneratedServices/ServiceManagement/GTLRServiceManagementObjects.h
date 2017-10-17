@@ -31,6 +31,8 @@
 @class GTLRServiceManagement_AuthRequirement;
 @class GTLRServiceManagement_Backend;
 @class GTLRServiceManagement_BackendRule;
+@class GTLRServiceManagement_Billing;
+@class GTLRServiceManagement_BillingDestination;
 @class GTLRServiceManagement_Binding;
 @class GTLRServiceManagement_ChangeReport;
 @class GTLRServiceManagement_ConfigChange;
@@ -436,6 +438,22 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Cancel
  *  Value: "UNCANCELLABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Uncancellable;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceManagement_FlowOperationMetadata.surface
+
+/**
+ *  TenancyUnit, ServiceNetworking fall under this
+ *
+ *  Value: "SERVICE_CONSUMER_MANAGEMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement;
+/** Value: "SERVICE_MANAGEMENT" */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement;
+/** Value: "SERVICE_USAGE" */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage;
+/** Value: "UNSPECIFIED_OP_SERVICE" */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_LabelDescriptor.valueType
@@ -1092,6 +1110,61 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Refer to selector for syntax details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Billing related configuration of the service.
+ *  The following example shows how to configure monitored resources and metrics
+ *  for billing:
+ *  monitored_resources:
+ *  - type: library.googleapis.com/branch
+ *  labels:
+ *  - key: /city
+ *  description: The city where the library branch is located in.
+ *  - key: /name
+ *  description: The name of the branch.
+ *  metrics:
+ *  - name: library.googleapis.com/book/borrowed_count
+ *  metric_kind: DELTA
+ *  value_type: INT64
+ *  billing:
+ *  consumer_destinations:
+ *  - monitored_resource: library.googleapis.com/branch
+ *  metrics:
+ *  - library.googleapis.com/book/borrowed_count
+ */
+@interface GTLRServiceManagement_Billing : GTLRObject
+
+/**
+ *  Billing configurations for sending metrics to the consumer project.
+ *  There can be multiple consumer destinations per service, each one must have
+ *  a different monitored resource type. A metric can be used in at most
+ *  one consumer destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_BillingDestination *> *consumerDestinations;
+
+@end
+
+
+/**
+ *  Configuration of a specific billing destination (Currently only support
+ *  bill against consumer project).
+ */
+@interface GTLRServiceManagement_BillingDestination : GTLRObject
+
+/**
+ *  Names of the metrics to report to this billing destination.
+ *  Each name must be defined in Service.metrics section.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  The monitored resource type. The type must be defined in
+ *  Service.monitored_resources section.
+ */
+@property(nonatomic, copy, nullable) NSString *monitoredResource;
 
 @end
 
@@ -1958,12 +2031,37 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *flowName;
 
 /**
+ *  Operation type which is a flow type and subtype info as that is missing in
+ *  our datastore otherwise. This maps to the ordinal value of the enum:
+ *  jcg/api/tenant/operations/OperationNamespace.java
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationType;
+
+/**
  *  The full name of the resources that this flow is directly associated with.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /** The start time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  surface
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement
+ *        TenancyUnit, ServiceNetworking fall under this (Value:
+ *        "SERVICE_CONSUMER_MANAGEMENT")
+ *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement
+ *        Value "SERVICE_MANAGEMENT"
+ *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage
+ *        Value "SERVICE_USAGE"
+ *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService
+ *        Value "UNSPECIFIED_OP_SERVICE"
+ */
+@property(nonatomic, copy, nullable) NSString *surface;
 
 @end
 
@@ -2790,6 +2888,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  A concise name for the metric, which can be displayed in user interfaces.
  *  Use sentence case without an ending period, for example "Request count".
+ *  This field is optional but it is recommended to be set for any metrics
+ *  associated with user-visible concepts, such as Quota.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2823,15 +2923,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
-/**
- *  The resource name of the metric descriptor. Depending on the
- *  implementation, the name typically includes: (1) the parent resource name
- *  that defines the scope of the metric type or of its data; and (2) the
- *  metric's URL-encoded type, which also appears in the `type` field of this
- *  descriptor. For example, following is the resource name of a custom
- *  metric within the GCP project `my-project-id`:
- *  "projects/my-project-id/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount"
- */
+/** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3605,22 +3697,14 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  The name of the metric this quota limit applies to. The quota limits with
  *  the same metric will be checked together during runtime. The metric must be
  *  defined within the service config.
- *  Used by metric-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *metric;
 
 /**
- *  Name of the quota limit. The name is used to refer to the limit when
- *  overriding the default limit on per-consumer basis.
- *  For metric-based quota limits, the name must be provided, and it must be
- *  unique within the service. The name can only include alphanumeric
- *  characters as well as '-'.
+ *  Name of the quota limit.
+ *  The name must be provided, and it must be unique within the service. The
+ *  name can only include alphanumeric characters as well as '-'.
  *  The maximum length of the limit name is 64 characters.
- *  The name of a limit is used as a unique identifier for this limit.
- *  Therefore, once a limit has been put into use, its name should be
- *  immutable. You can use the display_name field to provide a user-friendly
- *  name for the limit. The display name can be evolved over time without
- *  affecting the identity of the limit.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3628,30 +3712,27 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Specify the unit of the quota limit. It uses the same syntax as
  *  Metric.unit. The supported unit kinds are determined by the quota
  *  backend system.
- *  The [Google Service Control](https://cloud.google.com/service-control)
- *  supports the following unit components:
- *  * One of the time intevals:
- *  * "/min" for quota every minute.
- *  * "/d" for quota every 24 hours, starting 00:00 US Pacific Time.
- *  * Otherwise the quota won't be reset by time, such as storage limit.
- *  * One and only one of the granted containers:
- *  * "/{project}" quota for a project
  *  Here are some examples:
  *  * "1/min/{project}" for quota per minute per project.
  *  Note: the order of unit components is insignificant.
  *  The "1" at the beginning is required to follow the metric unit syntax.
- *  Used by metric-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
-/** Tiered limit values, currently only STANDARD is supported. */
+/**
+ *  Tiered limit values. You must specify this as a key:value pair, with an
+ *  integer value that is the maximum number of requests allowed for the
+ *  specified unit. Currently only STANDARD is supported.
+ */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_QuotaLimit_Values *values;
 
 @end
 
 
 /**
- *  Tiered limit values, currently only STANDARD is supported.
+ *  Tiered limit values. You must specify this as a key:value pair, with an
+ *  integer value that is the maximum number of requests allowed for the
+ *  specified unit. Currently only STANDARD is supported.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
@@ -3771,6 +3852,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /** API backend configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Backend *backend;
+
+/** Billing configuration. */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_Billing *billing;
 
 /**
  *  The semantic version of the service configuration. The config version
@@ -4402,6 +4486,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  True, if the method should skip service control. If so, no control plane
  *  feature (like quota and billing) will be enabled.
+ *  This flag is used by ESP to allow some Endpoints customers to bypass
+ *  Google internal checks.
  *
  *  Uses NSNumber of boolValue.
  */

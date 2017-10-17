@@ -535,8 +535,9 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
 @dynamic absoluteDateRange, buyerAccountId, creativeId, dealId, environment,
-         filterSetId, format, ownerAccountId, platforms, realtimeTimeRange,
-         relativeDateRange, sellerNetworkIds, timeSeriesGranularity;
+         filterSetId, format, name, ownerAccountId, platforms,
+         realtimeTimeRange, relativeDateRange, sellerNetworkIds,
+         timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

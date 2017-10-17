@@ -145,6 +145,7 @@
 @class GTLRSheets_SpreadsheetProperties;
 @class GTLRSheets_TextFormat;
 @class GTLRSheets_TextFormatRun;
+@class GTLRSheets_TextPosition;
 @class GTLRSheets_TextRotation;
 @class GTLRSheets_TextToColumnsRequest;
 @class GTLRSheets_UnmergeCellsRequest;
@@ -373,6 +374,29 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter;
  *  Value: "STEPPED_AREA"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BasicChartSpec.compareMode
+
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "BASIC_CHART_COMPARE_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_BasicChartCompareModeUnspecified;
+/**
+ *  All data elements with the same category (e.g., domain value) are
+ *  highlighted and shown in the tooltip.
+ *
+ *  Value: "CATEGORY"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Category;
+/**
+ *  Only the focused data element is highlighted and shown in the tooltip.
+ *
+ *  Value: "DATUM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Datum;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.legendPosition
@@ -2199,6 +2223,34 @@ GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_OnChan
 GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_RecalculationIntervalUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_TextPosition.horizontalAlignment
+
+/**
+ *  The text is explicitly aligned to the center of the cell.
+ *
+ *  Value: "CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Center;
+/**
+ *  The horizontal alignment is not specified. Do not use this.
+ *
+ *  Value: "HORIZONTAL_ALIGN_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_HorizontalAlignUnspecified;
+/**
+ *  The text is explicitly aligned to the left of the cell.
+ *
+ *  Value: "LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Left;
+/**
+ *  The text is explicitly aligned to the right of the cell.
+ *
+ *  Value: "RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_TextToColumnsRequest.delimiterType
 
 /**
@@ -2686,6 +2738,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+/** The axis title text position. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextPosition *titleTextPosition;
+
 @end
 
 
@@ -2825,6 +2880,22 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        area chart</a>. (Value: "STEPPED_AREA")
  */
 @property(nonatomic, copy, nullable) NSString *chartType;
+
+/**
+ *  The behavior of tooltips and data highlighting when hovering on data and
+ *  chart area.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BasicChartSpec_CompareMode_BasicChartCompareModeUnspecified
+ *        Default value, do not use. (Value:
+ *        "BASIC_CHART_COMPARE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BasicChartSpec_CompareMode_Category All data elements
+ *        with the same category (e.g., domain value) are
+ *        highlighted and shown in the tooltip. (Value: "CATEGORY")
+ *    @arg @c kGTLRSheets_BasicChartSpec_CompareMode_Datum Only the focused data
+ *        element is highlighted and shown in the tooltip. (Value: "DATUM")
+ */
+@property(nonatomic, copy, nullable) NSString *compareMode;
 
 /**
  *  The domain of data this is charting.
@@ -3199,7 +3270,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  The new values to apply to the spreadsheet. If more than one range is
  *  matched by the specified DataFilter the specified values will be
- *  applied to all of of those ranges.
+ *  applied to all of those ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilterValueRange *> *data;
 
@@ -4209,6 +4280,21 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** A pie chart specification. */
 @property(nonatomic, strong, nullable) GTLRSheets_PieChartSpec *pieChart;
 
+/** The subtitle of the chart. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/**
+ *  The subtitle text format.
+ *  Strikethrough and underline are not supported.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *subtitleTextFormat;
+
+/**
+ *  The subtitle text position.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextPosition *subtitleTextPosition;
+
 /** The title of the chart. */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -4217,6 +4303,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Strikethrough and underline are not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *titleTextFormat;
+
+/**
+ *  The title text position.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextPosition *titleTextPosition;
 
 @end
 
@@ -4964,12 +5056,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  Selects DeveloperMetadata that matches all of the specified fields. For
- *  example, if only a metadata ID is specified this will consider the
+ *  example, if only a metadata ID is specified this considers the
  *  DeveloperMetadata with that particular unique ID. If a metadata key is
- *  specified, all developer metadata with that key will be considered. If a
- *  key, visibility, and location type are all specified, then all
- *  developer metadata with that key, visibility, and associated with a
- *  location of that type will be considered. In general, this
+ *  specified, this considers all developer metadata with that key. If a
+ *  key, visibility, and location type are all specified, this considers all
+ *  developer metadata with that key and visibility that are associated with a
+ *  location of that type. In general, this
  *  selects all DeveloperMetadata that matches the intersection of all the
  *  specified fields; any field or combination of fields may be specified.
  */
@@ -4978,10 +5070,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  Determines how this lookup matches the location. If this field is
  *  specified as EXACT, only developer metadata associated on the exact
- *  location specified will be matched. If this field is specified to
- *  INTERSECTING,
- *  developer metadata associated on intersecting locations will also be
- *  matched. If left unspecified, this field will assume a default value of
+ *  location specified is matched. If this field is specified to INTERSECTING,
+ *  developer metadata associated on intersecting locations is also
+ *  matched. If left unspecified, this field assumes a default value of
  *  INTERSECTING.
  *  If this field is specified, a metadataLocation
  *  must also be specified.
@@ -5015,19 +5106,18 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  Limits the selected developer metadata to those entries which are
- *  associated with locations of the specified type. For example, specifying
- *  this as ROW will only consider
- *  developer metadata associated on rows. If left unspecified, all location
- *  types will be considered. This field cannot be specified as
- *  SPREADSHEET when the
- *  locationMatchingStrategy is
- *  specified as INTERSECTING or when the
+ *  associated with locations of the specified type. For example, when this
+ *  field is specified as ROW this lookup
+ *  only considers developer metadata associated on rows. If the field is left
+ *  unspecified, all location types are considered. This field cannot be
+ *  specified as SPREADSHEET when
+ *  the locationMatchingStrategy
+ *  is specified as INTERSECTING or when the
  *  metadataLocation is specified as a
  *  non-spreadsheet location: spreadsheet metadata cannot intersect any other
  *  developer metadata location. This field also must be left unspecified when
- *  the
- *  locationMatchingStrategy is
- *  specified as EXACT.
+ *  the locationMatchingStrategy
+ *  is specified as EXACT.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_DeveloperMetadataLookup_LocationType_Column Developer
@@ -5075,7 +5165,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  Limits the selected developer metadata to that which has a matching
  *  DeveloperMetadata.visibility. If left unspecified, all developer
- *  metadata visibile to the requesting project will be considered.
+ *  metadata visibile to the requesting project is considered.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified
@@ -6589,10 +6679,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, copy, nullable) NSString *formula;
 
-/**
- *  A name to use for the value. This is only used if formula was set.
- *  Otherwise, the column name is used.
- */
+/** A name to use for the value. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -7419,6 +7506,30 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  Position settings for text.
+ */
+@interface GTLRSheets_TextPosition : GTLRObject
+
+/**
+ *  Horizontal alignment setting for the piece of text.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_TextPosition_HorizontalAlignment_Center The text is
+ *        explicitly aligned to the center of the cell. (Value: "CENTER")
+ *    @arg @c kGTLRSheets_TextPosition_HorizontalAlignment_HorizontalAlignUnspecified
+ *        The horizontal alignment is not specified. Do not use this. (Value:
+ *        "HORIZONTAL_ALIGN_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_TextPosition_HorizontalAlignment_Left The text is
+ *        explicitly aligned to the left of the cell. (Value: "LEFT")
+ *    @arg @c kGTLRSheets_TextPosition_HorizontalAlignment_Right The text is
+ *        explicitly aligned to the right of the cell. (Value: "RIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
 
 @end
 

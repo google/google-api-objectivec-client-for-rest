@@ -973,7 +973,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *attributeLanguage;
 
 /**
- *  [DEPRECATED] Please use target.language instead. The two-letter ISO 639-1
+ *  [DEPRECATED] Please use targets[].language instead. The two-letter ISO 639-1
  *  language of the items in the feed. Must be a valid language for
  *  targetCountry.
  */
@@ -1004,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  [DEPRECATED] Please use target.includedDestination instead. The list of
+ *  [DEPRECATED] Please use targets[].includedDestinations instead. The list of
  *  intended destinations (corresponds to checked check boxes in Merchant
  *  Center).
  */
@@ -1020,9 +1020,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [DEPRECATED] Please use target.country instead. The country where the items
- *  in the feed will be included in the search index, represented as a CLDR
- *  territory code.
+ *  [DEPRECATED] Please use targets[].country instead. The country where the
+ *  items in the feed will be included in the search index, represented as a
+ *  CLDR territory code.
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
@@ -1591,7 +1591,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *postalCodeGroupNames;
 
 /**
- *  be "infinity". For example [{"value": "10", "currency": "USD"}, {"value":
+ *  A list of inclusive order price upper bounds. The last price's value can be
+ *  "infinity". For example [{"value": "10", "currency": "USD"}, {"value":
  *  "500", "currency": "USD"}, {"value": "infinity", "currency": "USD"}]
  *  represents the headers "<= $10", " $500". All prices within a service must
  *  have the same currency. Must be non-empty. Can only be set if all other
@@ -1600,6 +1601,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Price *> *prices;
 
 /**
+ *  A list of inclusive order weight upper bounds. The last weight's value can
  *  be "infinity". For example [{"value": "10", "unit": "kg"}, {"value": "50",
  *  "unit": "kg"}, {"value": "infinity", "unit": "kg"}] represents the headers
  *  "<= 10kg", " 50kg". All weights within a service must have the same unit.
@@ -2128,6 +2130,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Cancellations of the line item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderCancellation *> *cancellations;
+
+/** The channel type of the order: "purchaseOnGoogle" or "googleExpress". */
+@property(nonatomic, copy, nullable) NSString *channelType;
 
 /**
  *  The id of the line item.

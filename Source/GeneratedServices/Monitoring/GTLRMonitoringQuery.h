@@ -24,6 +24,7 @@
 @class GTLRMonitoring_CreateTimeSeriesRequest;
 @class GTLRMonitoring_Group;
 @class GTLRMonitoring_MetricDescriptor;
+@class GTLRMonitoring_UptimeCheckConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -967,6 +968,275 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new uptime check configuration.
+ *
+ *  Method: monitoring.projects.uptimeCheckConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsCreateWithObject:parent:]
+
+/**
+ *  The project in which to create the uptime check. The format
+ *  is:projects/[PROJECT_ID].
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
+ *
+ *  Creates a new uptime check configuration.
+ *
+ *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
+ *    query.
+ *  @param parent The project in which to create the uptime check. The format
+ *    is:projects/[PROJECT_ID].
+ *
+ *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an uptime check configuration. Note that this method will fail if
+ *  the uptime check configuration is referenced by an alert policy or other
+ *  dependent configs that would be rendered invalid by the deletion.
+ *
+ *  Method: monitoring.projects.uptimeCheckConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsDeleteWithname:]
+
+/**
+ *  The uptime check configuration to delete. The format
+ *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Empty.
+ *
+ *  Deletes an uptime check configuration. Note that this method will fail if
+ *  the uptime check configuration is referenced by an alert policy or other
+ *  dependent configs that would be rendered invalid by the deletion.
+ *
+ *  @param name The uptime check configuration to delete. The format
+ *    isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *
+ *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a single uptime check configuration.
+ *
+ *  Method: monitoring.projects.uptimeCheckConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsGetWithname:]
+
+/**
+ *  The uptime check configuration to retrieve. The format
+ *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
+ *
+ *  Gets a single uptime check configuration.
+ *
+ *  @param name The uptime check configuration to retrieve. The format
+ *    isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *
+ *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the existing valid uptime check configurations for the project,
+ *  leaving out any invalid configurations.
+ *
+ *  Method: monitoring.projects.uptimeCheckConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsListWithparent:]
+
+/**
+ *  The maximum number of results to return in a single response. The server may
+ *  further constrain the maximum number of results returned in a single page.
+ *  If the page_size is <=0, the server will decide the number of results to be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return more results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The project whose uptime check configurations are listed. The format
+ *  isprojects/[PROJECT_ID].
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListUptimeCheckConfigsResponse.
+ *
+ *  Lists the existing valid uptime check configurations for the project,
+ *  leaving out any invalid configurations.
+ *
+ *  @param parent The project whose uptime check configurations are listed. The
+ *    format isprojects/[PROJECT_ID].
+ *
+ *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an uptime check configuration. You can either replace the entire
+ *  configuration with a new one or replace only certain fields in the current
+ *  configuration by specifying the fields to be updated via "updateMask".
+ *  Returns the updated configuration.
+ *
+ *  Method: monitoring.projects.uptimeCheckConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsPatchWithObject:name:]
+
+/**
+ *  A unique resource name for this UptimeCheckConfig. The format
+ *  is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
+ *  should be omitted when creating the uptime check configuration; on create,
+ *  the resource name is assigned by the server and included in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The uptime check configuration to update. The format
+ *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ */
+@property(nonatomic, copy, nullable) NSString *name1;
+
+/**
+ *  Optional. If present, only the listed fields in the current uptime check
+ *  configuration are updated with values from the new configuration. If this
+ *  field is empty, then the current configuration is completely replaced with
+ *  the new configuration.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
+ *
+ *  Updates an uptime check configuration. You can either replace the entire
+ *  configuration with a new one or replace only certain fields in the current
+ *  configuration by specifying the fields to be updated via "updateMask".
+ *  Returns the updated configuration.
+ *
+ *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
+ *    query.
+ *  @param name A unique resource name for this UptimeCheckConfig. The format
+ *    is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
+ *    should be omitted when creating the uptime check configuration; on create,
+ *    the resource name is assigned by the server and included in the response.
+ *
+ *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of IPs that checkers run from
+ *
+ *  Method: monitoring.uptimeCheckIps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_UptimeCheckIpsList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForUptimeCheckIpsList]
+
+/**
+ *  The maximum number of results to return in a single response. The server may
+ *  further constrain the maximum number of results returned in a single page.
+ *  If the page_size is <=0, the server will decide the number of results to be
+ *  returned. NOTE: this field is not yet implemented
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return more results from the previous method call. NOTE: this
+ *  field is not yet implemented
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListUptimeCheckIpsResponse.
+ *
+ *  Returns the list of IPs that checkers run from
+ *
+ *  @returns GTLRMonitoringQuery_UptimeCheckIpsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

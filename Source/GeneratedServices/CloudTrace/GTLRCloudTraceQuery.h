@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the span in the following format:
- *  projects/[PROJECT_ID]traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
+ *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
  *  for a trace within a project.
  *  [SPAN_ID] is a unique identifier for a span within a trace,
  *  assigned when the span is created.
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
  *  @param name The resource name of the span in the following format:
- *    projects/[PROJECT_ID]traces/[TRACE_ID]/spans/SPAN_ID is a unique
+ *    projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique
  *    identifier for a trace within a project.
  *    [SPAN_ID] is a unique identifier for a span within a trace,
  *    assigned when the span is created.

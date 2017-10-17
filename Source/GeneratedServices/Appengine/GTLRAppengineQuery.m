@@ -309,6 +309,150 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @end
 
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate
+
+@dynamic appsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_BatchUpdateIngressRulesRequest *)object
+                         appsId:(NSString *)appsId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"appsId" ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules:batchUpdate";
+  GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appsId = appsId;
+  query.expectedObjectClass = [GTLRAppengine_BatchUpdateIngressRulesResponse class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesCreate
+
+@dynamic appsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
+                         appsId:(NSString *)appsId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"appsId" ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules";
+  GTLRAppengineQuery_AppsFirewallIngressRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appsId = appsId;
+  query.expectedObjectClass = [GTLRAppengine_FirewallRule class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesDelete
+
+@dynamic appsId, ingressRulesId;
+
++ (instancetype)queryWithAppsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId {
+  NSArray *pathParams = @[
+    @"appsId", @"ingressRulesId"
+  ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}";
+  GTLRAppengineQuery_AppsFirewallIngressRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.appsId = appsId;
+  query.ingressRulesId = ingressRulesId;
+  query.expectedObjectClass = [GTLRAppengine_Empty class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesGet
+
+@dynamic appsId, ingressRulesId;
+
++ (instancetype)queryWithAppsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId {
+  NSArray *pathParams = @[
+    @"appsId", @"ingressRulesId"
+  ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}";
+  GTLRAppengineQuery_AppsFirewallIngressRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appsId = appsId;
+  query.ingressRulesId = ingressRulesId;
+  query.expectedObjectClass = [GTLRAppengine_FirewallRule class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesList
+
+@dynamic appsId, matchingAddress, pageSize, pageToken;
+
++ (instancetype)queryWithAppsId:(NSString *)appsId {
+  NSArray *pathParams = @[ @"appsId" ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules";
+  GTLRAppengineQuery_AppsFirewallIngressRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appsId = appsId;
+  query.expectedObjectClass = [GTLRAppengine_ListIngressRulesResponse class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsFirewallIngressRulesPatch
+
+@dynamic appsId, ingressRulesId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
+                         appsId:(NSString *)appsId
+                 ingressRulesId:(NSString *)ingressRulesId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appsId", @"ingressRulesId"
+  ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}";
+  GTLRAppengineQuery_AppsFirewallIngressRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appsId = appsId;
+  query.ingressRulesId = ingressRulesId;
+  query.expectedObjectClass = [GTLRAppengine_FirewallRule class];
+  query.loggingName = @"appengine.apps.firewall.ingressRules.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAppengineQuery_AppsGet
 
 @dynamic appsId;

@@ -44,6 +44,7 @@
 @class GTLRAndroidEnterprise_ProductAvailabilityChangeEvent;
 @class GTLRAndroidEnterprise_ProductPermission;
 @class GTLRAndroidEnterprise_ProductSigningCertificate;
+@class GTLRAndroidEnterprise_ProductVisibility;
 @class GTLRAndroidEnterprise_ServiceAccountKey;
 @class GTLRAndroidEnterprise_StoreCluster;
 @class GTLRAndroidEnterprise_StorePage;
@@ -306,6 +307,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  This represents a single version of the app.
  */
 @interface GTLRAndroidEnterprise_AppVersion : GTLRObject
+
+/**
+ *  The track that this app was published in. For example if track is "alpha",
+ *  this is an alpha version of the app.
+ */
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Unique increasing identifier for the app version.
@@ -598,7 +605,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  enterprise admin purchases the product in Google Play for the first time.
  *  Use the API to query group licenses. A Grouplicenses resource includes the
  *  total number of licenses purchased (paid apps only) and the total number of
- *  licenses currently in use. Iyn other words, the total number of Entitlements
+ *  licenses currently in use. In other words, the total number of Entitlements
  *  that exist for the product.
  *  Only one group license object is created per product and group license
  *  objects are never deleted. If a product is unapproved, its group license
@@ -1146,6 +1153,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the author of the product (for example, the app developer). */
 @property(nonatomic, copy, nullable) NSString *authorName;
 
+/** The tracks that are visible to the enterprise. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableTracks;
+
 /** A link to the (consumer) Google Play details page for the product. */
 @property(nonatomic, copy, nullable) NSString *detailsUrl;
 
@@ -1347,6 +1357,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *productSetBehavior;
 
+/**
+ *  Additional list of product IDs making up the product set. Unlike the
+ *  productID array, in this list It's possible to specify which tracks (alpha,
+ *  beta, production) of a product are visible to the user. See
+ *  ProductVisibility and its fields for more information. Specifying the same
+ *  product ID both here and in the productId array is not allowed and it will
+ *  result in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductVisibility *> *productVisibility;
+
 @end
 
 
@@ -1410,6 +1430,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Pagination information for token pagination. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_TokenPagination *tokenPagination;
+
+@end
+
+
+/**
+ *  A product to be made visible to a user.
+ */
+@interface GTLRAndroidEnterprise_ProductVisibility : GTLRObject
+
+/**
+ *  The product ID to make visible to the user. Required for each item in the
+ *  productVisibility list.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Grants visibility to the specified track(s) of the product to the user. The
+ *  track available to the user is based on the following order of preference:
+ *  alpha, beta, production. For example, if an app has a prod version, a beta
+ *  version and an alpha version and the enterprise has been granted visibility
+ *  to both the alpha and beta tracks, if tracks is {"beta", "production"} the
+ *  user will be able to install the app and they will get the beta version of
+ *  the app. If there are no app versions in the specified track adding the
+ *  "alpha" and "beta" values to the list of tracks will have no effect. Note
+ *  that the enterprise requires access to alpha and/or beta tracks before users
+ *  can be granted visibility to apps in those tracks.
+ *  The allowed sets are: {} (considered equivalent to {"production"})
+ *  {"production"} {"beta", "production"} {"alpha", "beta", "production"} The
+ *  order of elements is not relevant. Any other set of tracks will be rejected
+ *  with an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tracks;
 
 @end
 

@@ -43,10 +43,12 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1CryptoHashConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DeidentificationSummary;
 @class GTLRDLP_GooglePrivacyDlpV2beta1DeidentifyConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Dictionary;
 @class GTLRDLP_GooglePrivacyDlpV2beta1EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1FieldId;
@@ -106,6 +108,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1UnwrappedCryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Value;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency;
+@class GTLRDLP_GooglePrivacyDlpV2beta1WordList;
 @class GTLRDLP_GoogleRpcStatus;
 @class GTLRDLP_GoogleRpcStatus_Details_Item;
 @class GTLRDLP_GoogleTypeDate;
@@ -888,38 +891,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 /** Additional configuration settings for long running operations. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig *operationConfig;
 
-/**
- *  Optional location to store findings. The bucket must already exist and
- *  the Google APIs service account for DLP must have write permission to
- *  write to the given bucket.
- *  Results are split over multiple csv files with each file name matching
- *  the pattern "[operation_id]_[count].csv", for example
- *  `3094877188788974909_1.csv`. The `operation_id` matches the
- *  identifier for the Operation, and the `count` is a counter used for
- *  tracking the number of files written.
- *  The CSV file(s) contain the following columns regardless of storage type
- *  scanned:
- *  - id
- *  - info_type
- *  - likelihood
- *  - byte size of finding
- *  - quote
- *  - timestamp
- *  For Cloud Storage the next columns are:
- *  - file_path
- *  - start_offset
- *  For Cloud Datastore the next columns are:
- *  - project_id
- *  - namespace_id
- *  - path
- *  - column_name
- *  - offset
- *  For BigQuery the next columns are:
- *  - row_number
- *  - project_id
- *  - dataset_id
- *  - table_id
- */
+/** Optional location to store findings. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig *outputConfig;
 
 /** Specification of the data set to process. */
@@ -962,7 +934,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 /**
  *  Replaces an identifier with an surrogate using FPE with the FFX
  *  mode of operation.
- *  The identifier must be encoded as ASCII.
+ *  The identifier must be representable by the US-ASCII character set.
  *  For a given crypto key and context, the same identifier will be
  *  replaced with the same surrogate.
  *  Note that a given identifier must be either the empty string or be at
@@ -1030,6 +1002,24 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *radix;
+
+@end
+
+
+/**
+ *  Custom information type provided by the user. Used to find domain-specific
+ *  sensitive information configurable to the data in question.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType : GTLRObject
+
+/** Dictionary-based custom info type. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Dictionary *dictionary;
+
+/**
+ *  Info type configuration. All custom info types must have configurations
+ *  that do not conflict with built-in info types or other custom info types.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
 
 @end
 
@@ -1151,6 +1141,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 /** A review of the transformations that took place for each item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1DeidentificationSummary *> *summaries;
+
+@end
+
+
+/**
+ *  Custom information type based on a dictionary of words or phrases. This can
+ *  be used to match sensitive information specific to the data, such as a list
+ *  of employee IDs or job titles.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Dictionary : GTLRObject
+
+/** List of words or phrases to search for. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1WordList *wordList;
 
 @end
 
@@ -1509,6 +1512,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  used.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig : GTLRObject
+
+/** Custom info types provided by the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType *> *customInfoTypes;
 
 /**
  *  When true, excludes type information of the findings.
@@ -2054,7 +2060,39 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig : GTLRObject
 
-/** The path to a Google Cloud Storage location to store output. */
+/**
+ *  The path to a Google Cloud Storage location to store output.
+ *  The bucket must already exist and
+ *  the Google APIs service account for DLP must have write permission to
+ *  write to the given bucket.
+ *  Results are split over multiple csv files with each file name matching
+ *  the pattern "[operation_id]_[count].csv", for example
+ *  `3094877188788974909_1.csv`. The `operation_id` matches the
+ *  identifier for the Operation, and the `count` is a counter used for
+ *  tracking the number of files written.
+ *  The CSV file(s) contain the following columns regardless of storage type
+ *  scanned:
+ *  - id
+ *  - info_type
+ *  - likelihood
+ *  - byte size of finding
+ *  - quote
+ *  - timestamp
+ *  For Cloud Storage the next columns are:
+ *  - file_path
+ *  - start_offset
+ *  For Cloud Datastore the next columns are:
+ *  - project_id
+ *  - namespace_id
+ *  - path
+ *  - column_name
+ *  - offset
+ *  For BigQuery the next columns are:
+ *  - row_number
+ *  - project_id
+ *  - dataset_id
+ *  - table_id
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath *storagePath;
 
 /** Store findings in a new table in the dataset. */
@@ -2609,6 +2647,21 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 /** A value contained in the field in question. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *value;
+
+@end
+
+
+/**
+ *  Message defining a list of words or phrases to search for in the data.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1WordList : GTLRObject
+
+/**
+ *  Words or phrases defining the dictionary. No word can be shorter than 3
+ *  characters in length. To match, there must be whitespace or punctuation
+ *  around the targeted string. [required]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *words;
 
 @end
 

@@ -887,13 +887,12 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  `unique_id`.
  *  If the account already exists, the account's resource name is returned
  *  in util::Status's ResourceInfo.resource_name in the format of
- *  projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}. The caller
- *  can
+ *  projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}. The caller can
  *  use the name in other methods to access the account.
  *  All other methods can identify the service account using the format
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account. The `account` value can be the `email` address or the
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
  *  `unique_id` of the service account.
  */
 @interface GTLRIam_ServiceAccount : GTLRObject
@@ -917,12 +916,12 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
- *  Requests using `-` as a wildcard for the project will infer the project
- *  from the `account` and the `account` value can be the `email` address or
- *  the `unique_id` of the service account.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *  project from the `account` and the `ACCOUNT` value can be the `email`
+ *  address or the `unique_id` of the service account.
  *  In responses the resource name will always be in the format
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -973,7 +972,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  The resource name of the service account key in the following format
- *  `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

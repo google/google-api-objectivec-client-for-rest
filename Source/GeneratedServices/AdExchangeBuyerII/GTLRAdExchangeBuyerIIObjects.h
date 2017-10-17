@@ -2357,6 +2357,16 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
+ *  A user-defined name of the filter set. Filter set names must be unique
+ *  globally and match one of the patterns:
+ *  - `bidders/ * /filterSets/ *` (for accessing bidder-level troubleshooting
+ *  data)
+ *  - `bidders/ * /accounts/ * /filterSets/ *` (for accessing buyer-level
+ *  troubleshooting data)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  The account ID of the buyer who owns this filter set.
  *  The value of this field is ignored in create operations.
  *

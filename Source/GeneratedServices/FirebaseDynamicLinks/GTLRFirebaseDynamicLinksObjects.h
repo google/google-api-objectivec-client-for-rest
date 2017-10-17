@@ -20,6 +20,7 @@
 
 @class GTLRFirebaseDynamicLinks_AnalyticsInfo;
 @class GTLRFirebaseDynamicLinks_AndroidInfo;
+@class GTLRFirebaseDynamicLinks_DesktopInfo;
 @class GTLRFirebaseDynamicLinks_DeviceInfo;
 @class GTLRFirebaseDynamicLinks_DynamicLinkEventStat;
 @class GTLRFirebaseDynamicLinks_DynamicLinkInfo;
@@ -479,6 +480,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 
 /**
+ *  Desktop related attributes to the Dynamic Link.
+ */
+@interface GTLRFirebaseDynamicLinks_DesktopInfo : GTLRObject
+
+/** Link to open on desktop. */
+@property(nonatomic, copy, nullable) NSString *desktopFallbackLink;
+
+@end
+
+
+/**
  *  Signals associated with the device making the request.
  */
 @interface GTLRFirebaseDynamicLinks_DeviceInfo : GTLRObject
@@ -585,6 +597,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_AndroidInfo *androidInfo;
+
+/**
+ *  Desktop related information. See desktop related parameters in the
+ *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DesktopInfo *desktopInfo;
 
 /**
  *  Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl

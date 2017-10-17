@@ -437,7 +437,17 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudTasks_Queue
 @dynamic appEngineHttpTarget, appEngineQueueConfig, name, pullQueueConfig,
-         pullTarget, purgeTime, queueState, retryConfig, throttleConfig;
+         pullTarget, purgeTime, queueState, rateLimits, retryConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_RateLimits
+//
+
+@implementation GTLRCloudTasks_RateLimits
+@dynamic maxBurstSize, maxConcurrentTasks, maxTasksDispatchedPerSecond;
 @end
 
 
@@ -466,7 +476,7 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_RetryConfig
-@dynamic maxAttempts, maxBackoff, maxDoublings, minBackoff, taskAgeLimit,
+@dynamic maxAttempts, maxBackoff, maxDoublings, maxRetryDuration, minBackoff,
          unlimitedAttempts;
 @end
 
@@ -578,14 +588,4 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_ThrottleConfig
-//
-
-@implementation GTLRCloudTasks_ThrottleConfig
-@dynamic maxBurstSize, maxOutstandingTasks, maxTasksDispatchedPerSecond;
 @end

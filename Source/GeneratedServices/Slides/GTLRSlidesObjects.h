@@ -49,6 +49,8 @@
 @class GTLRSlides_DuplicateObjectRequest_ObjectIds;
 @class GTLRSlides_DuplicateObjectResponse;
 @class GTLRSlides_Group;
+@class GTLRSlides_GroupObjectsRequest;
+@class GTLRSlides_GroupObjectsResponse;
 @class GTLRSlides_Image;
 @class GTLRSlides_ImageProperties;
 @class GTLRSlides_InsertTableColumnsRequest;
@@ -64,6 +66,7 @@
 @class GTLRSlides_List;
 @class GTLRSlides_List_NestingLevel;
 @class GTLRSlides_MasterProperties;
+@class GTLRSlides_MergeTableCellsRequest;
 @class GTLRSlides_NestingLevel;
 @class GTLRSlides_NotesProperties;
 @class GTLRSlides_OpaqueColor;
@@ -102,6 +105,10 @@
 @class GTLRSlides_StretchedPictureFill;
 @class GTLRSlides_SubstringMatchCriteria;
 @class GTLRSlides_Table;
+@class GTLRSlides_TableBorderCell;
+@class GTLRSlides_TableBorderFill;
+@class GTLRSlides_TableBorderProperties;
+@class GTLRSlides_TableBorderRow;
 @class GTLRSlides_TableCell;
 @class GTLRSlides_TableCellBackgroundFill;
 @class GTLRSlides_TableCellLocation;
@@ -109,12 +116,15 @@
 @class GTLRSlides_TableColumnProperties;
 @class GTLRSlides_TableRange;
 @class GTLRSlides_TableRow;
+@class GTLRSlides_TableRowProperties;
 @class GTLRSlides_TextContent;
 @class GTLRSlides_TextContent_Lists;
 @class GTLRSlides_TextElement;
 @class GTLRSlides_TextRun;
 @class GTLRSlides_TextStyle;
 @class GTLRSlides_ThemeColorPair;
+@class GTLRSlides_UngroupObjectsRequest;
+@class GTLRSlides_UnmergeTableCellsRequest;
 @class GTLRSlides_UpdateImagePropertiesRequest;
 @class GTLRSlides_UpdateLinePropertiesRequest;
 @class GTLRSlides_UpdatePageElementTransformRequest;
@@ -122,7 +132,10 @@
 @class GTLRSlides_UpdateParagraphStyleRequest;
 @class GTLRSlides_UpdateShapePropertiesRequest;
 @class GTLRSlides_UpdateSlidesPositionRequest;
+@class GTLRSlides_UpdateTableBorderPropertiesRequest;
 @class GTLRSlides_UpdateTableCellPropertiesRequest;
+@class GTLRSlides_UpdateTableColumnPropertiesRequest;
+@class GTLRSlides_UpdateTableRowPropertiesRequest;
 @class GTLRSlides_UpdateTextStyleRequest;
 @class GTLRSlides_UpdateVideoPropertiesRequest;
 @class GTLRSlides_Video;
@@ -3421,6 +3434,56 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRe
 GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
+// GTLRSlides_TableBorderProperties.dashStyle
+
+/**
+ *  Dashed line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dash'.
+ *
+ *  Value: "DASH"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dash;
+/**
+ *  Alternating dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
+ *  value 'dashDot'.
+ *
+ *  Value: "DASH_DOT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashDot;
+/**
+ *  Unspecified dash style.
+ *
+ *  Value: "DASH_STYLE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashStyleUnspecified;
+/**
+ *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
+ *
+ *  Value: "DOT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dot;
+/**
+ *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
+ *  value 'lgDash'.
+ *
+ *  Value: "LONG_DASH"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDash;
+/**
+ *  Alternating large dashes and dots. Corresponds to ECMA-376
+ *  ST_PresetLineDashVal value 'lgDashDot'.
+ *
+ *  Value: "LONG_DASH_DOT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot;
+/**
+ *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
+ *  This is the default dash style.
+ *
+ *  Value: "SOLID"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Solid;
+
+// ----------------------------------------------------------------------------
 // GTLRSlides_TableCellBackgroundFill.propertyState
 
 /**
@@ -3609,6 +3672,64 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_Apply
  *  Value: "RELATIVE"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Relative;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_UpdateTableBorderPropertiesRequest.borderPosition
+
+/**
+ *  All borders in the range.
+ *
+ *  Value: "ALL"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_All;
+/**
+ *  Borders at the bottom of the range.
+ *
+ *  Value: "BOTTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Bottom;
+/**
+ *  Borders on the inside of the range.
+ *
+ *  Value: "INNER"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Inner;
+/**
+ *  Horizontal borders on the inside of the range.
+ *
+ *  Value: "INNER_HORIZONTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerHorizontal;
+/**
+ *  Vertical borders on the inside of the range.
+ *
+ *  Value: "INNER_VERTICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerVertical;
+/**
+ *  Borders at the left of the range.
+ *
+ *  Value: "LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Left;
+/**
+ *  Borders along the outside of the range.
+ *
+ *  Value: "OUTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Outer;
+/**
+ *  Borders at the right of the range.
+ *
+ *  Value: "RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Right;
+/**
+ *  Borders at the top of the range.
+ *
+ *  Value: "TOP"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Video.source
@@ -4987,6 +5108,46 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Groups objects to create an object group. For example, groups PageElements
+ *  to create a Group on the same page as all the children.
+ */
+@interface GTLRSlides_GroupObjectsRequest : GTLRObject
+
+/**
+ *  The object IDs of the objects to group.
+ *  Only page elements can be grouped. There should be at least two page
+ *  elements on the same page that are not already in another group. Some page
+ *  elements, such as videos, tables and placeholder shapes cannot be grouped.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *childrenObjectIds;
+
+/**
+ *  A user-supplied object ID for the group to be created.
+ *  If you specify an ID, it must be unique among all pages and page elements
+ *  in the presentation. The ID must start with an alphanumeric character or an
+ *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
+ *  may include those as well as a hyphen or colon (matches regex
+ *  `[a-zA-Z0-9_-:]`).
+ *  The length of the ID must not be less than 5 or greater than 50.
+ *  If you don't specify an ID, a unique one is generated.
+ */
+@property(nonatomic, copy, nullable) NSString *groupObjectId;
+
+@end
+
+
+/**
+ *  The result of grouping objects.
+ */
+@interface GTLRSlides_GroupObjectsResponse : GTLRObject
+
+/** The object ID of the created group. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
  *  A PageElement kind representing an
  *  image.
  */
@@ -5036,7 +5197,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** The hyperlink destination of the image. If unset, there is no link. */
 @property(nonatomic, strong, nullable) GTLRSlides_Link *link;
 
-/** The outline of the image. If not set, the the image has no outline. */
+/** The outline of the image. If not set, the image has no outline. */
 @property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
 
 /**
@@ -5536,6 +5697,26 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The human-readable name of the master. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Merges cells in a Table.
+ */
+@interface GTLRSlides_MergeTableCellsRequest : GTLRObject
+
+/** The object ID of the table. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The table range specifying which cells of the table to merge.
+ *  Any text in the cells being merged will be concatenated and stored in the
+ *  upper-left ("head") cell of the range. If the range is non-rectangular
+ *  (which can occur in some cases where the range covers cells that are
+ *  already merged), a 400 bad request error is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
 
 @end
 
@@ -6590,6 +6771,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Duplicates a slide or page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_DuplicateObjectRequest *duplicateObject;
 
+/** Groups objects, such as page elements. */
+@property(nonatomic, strong, nullable) GTLRSlides_GroupObjectsRequest *groupObjects;
+
 /** Inserts columns into a table. */
 @property(nonatomic, strong, nullable) GTLRSlides_InsertTableColumnsRequest *insertTableColumns;
 
@@ -6598,6 +6782,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Inserts text into a shape or table cell. */
 @property(nonatomic, strong, nullable) GTLRSlides_InsertTextRequest *insertText;
+
+/** Merges cells in a Table. */
+@property(nonatomic, strong, nullable) GTLRSlides_MergeTableCellsRequest *mergeTableCells;
 
 /** Refreshes a Google Sheets chart. */
 @property(nonatomic, strong, nullable) GTLRSlides_RefreshSheetsChartRequest *refreshSheetsChart;
@@ -6610,6 +6797,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Replaces all instances of specified text. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllTextRequest *replaceAllText;
+
+/** Ungroups objects, such as groups. */
+@property(nonatomic, strong, nullable) GTLRSlides_UngroupObjectsRequest *ungroupObjects;
+
+/** Unmerges cells in a Table. */
+@property(nonatomic, strong, nullable) GTLRSlides_UnmergeTableCellsRequest *unmergeTableCells;
 
 /** Updates the properties of an Image. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateImagePropertiesRequest *updateImageProperties;
@@ -6632,8 +6825,20 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the position of a set of slides in the presentation. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateSlidesPositionRequest *updateSlidesPosition;
 
+/** Updates the properties of the table borders in a Table. */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateTableBorderPropertiesRequest *updateTableBorderProperties;
+
 /** Updates the properties of a TableCell. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateTableCellPropertiesRequest *updateTableCellProperties;
+
+/**
+ *  Updates the properties of a Table
+ *  column.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateTableColumnPropertiesRequest *updateTableColumnProperties;
+
+/** Updates the properties of a Table row. */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateTableRowPropertiesRequest *updateTableRowProperties;
 
 /** Updates the styling of text within a Shape or Table. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateTextStyleRequest *updateTextStyle;
@@ -6672,6 +6877,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The result of duplicating an object. */
 @property(nonatomic, strong, nullable) GTLRSlides_DuplicateObjectResponse *duplicateObject;
+
+/** The result of grouping objects. */
+@property(nonatomic, strong, nullable) GTLRSlides_GroupObjectsResponse *groupObjects;
 
 /**
  *  The result of replacing all shapes matching some criteria with an
@@ -7236,7 +7444,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The background fill property state.
- *  Updating the the fill on a shape will implicitly update this field to
+ *  Updating the fill on a shape will implicitly update this field to
  *  `RENDERED`, unless another value is specified in the same request. To
  *  have no fill on a shape, set this field to `NOT_RENDERED`. In this case,
  *  any other fill fields set in the same request will be ignored.
@@ -7489,6 +7697,15 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *columns;
 
 /**
+ *  Properties of horizontal cell borders.
+ *  A table's horizontal cell borders are represented as a grid. The grid has
+ *  one more row than the number of rows in the table and the same number of
+ *  columns as the table. For example, if the table is 3 x 3, its horizontal
+ *  borders will be represented as a grid with 4 rows and 3 columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableBorderRow *> *horizontalBorderRows;
+
+/**
  *  Number of rows in the table.
  *
  *  Uses NSNumber of intValue.
@@ -7505,6 +7722,96 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  than 1.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableRow *> *tableRows;
+
+/**
+ *  Properties of vertical cell borders.
+ *  A table's vertical cell borders are represented as a grid. The grid has the
+ *  same number of rows as the table and one more column than the number of
+ *  columns in the table. For example, if the table is 3 x 3, its vertical
+ *  borders will be represented as a grid with 3 rows and 4 columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableBorderRow *> *verticalBorderRows;
+
+@end
+
+
+/**
+ *  The properties of each border cell.
+ */
+@interface GTLRSlides_TableBorderCell : GTLRObject
+
+/** The location of the border within the border table. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *location;
+
+/** The border properties. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableBorderProperties *tableBorderProperties;
+
+@end
+
+
+/**
+ *  The fill of the border.
+ */
+@interface GTLRSlides_TableBorderFill : GTLRObject
+
+/** Solid fill. */
+@property(nonatomic, strong, nullable) GTLRSlides_SolidFill *solidFill;
+
+@end
+
+
+/**
+ *  The border styling properties of the
+ *  TableBorderCell.
+ */
+@interface GTLRSlides_TableBorderProperties : GTLRObject
+
+/**
+ *  The dash style of the border.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_Dash Dashed line.
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'dash'. (Value:
+ *        "DASH")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_DashDot Alternating
+ *        dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
+ *        value 'dashDot'. (Value: "DASH_DOT")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_DashStyleUnspecified
+ *        Unspecified dash style. (Value: "DASH_STYLE_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_Dot Dotted line.
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'. (Value:
+ *        "DOT")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_LongDash Line with
+ *        large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
+ *        value 'lgDash'. (Value: "LONG_DASH")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot
+ *        Alternating large dashes and dots. Corresponds to ECMA-376
+ *        ST_PresetLineDashVal value 'lgDashDot'. (Value: "LONG_DASH_DOT")
+ *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_Solid Solid line.
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
+ *        This is the default dash style. (Value: "SOLID")
+ */
+@property(nonatomic, copy, nullable) NSString *dashStyle;
+
+/** The fill of the table border. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableBorderFill *tableBorderFill;
+
+/** The thickness of the border. */
+@property(nonatomic, strong, nullable) GTLRSlides_Dimension *weight;
+
+@end
+
+
+/**
+ *  Contents of each border row in a table.
+ */
+@interface GTLRSlides_TableBorderRow : GTLRObject
+
+/**
+ *  Properties of each border cell. When a border's adjacent table cells are
+ *  merged, it is not included in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableBorderCell *> *tableBorderCells;
 
 @end
 
@@ -7547,7 +7854,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The background fill property state.
- *  Updating the the fill on a table cell will implicitly update this field
+ *  Updating the fill on a table cell will implicitly update this field
  *  to `RENDERED`, unless another value is specified in the same request. To
  *  have no fill on a table cell, set this field to `NOT_RENDERED`. In this
  *  case, any other fill fields set in the same request will be ignored.
@@ -7684,6 +7991,24 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  the number of columns of the entire table.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableCell *> *tableCells;
+
+/** Properties of the row. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableRowProperties *tableRowProperties;
+
+@end
+
+
+/**
+ *  Properties of each row in a table.
+ */
+@interface GTLRSlides_TableRowProperties : GTLRObject
+
+/**
+ *  Minimum height of the row. The row will be rendered in the Slides editor at
+ *  a height equal to or greater than this value in order to show all the text
+ *  in the row's cell(s).
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Dimension *minRowHeight;
 
 @end
 
@@ -8026,6 +8351,44 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Ungroups objects, such as groups.
+ */
+@interface GTLRSlides_UngroupObjectsRequest : GTLRObject
+
+/**
+ *  The object IDs of the objects to ungroup.
+ *  Only groups that are not inside other
+ *  groups can be ungrouped. All the groups
+ *  should be on the same page. The group itself is deleted. The visual sizes
+ *  and positions of all the children are preserved.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *objectIds;
+
+@end
+
+
+/**
+ *  Unmerges cells in a Table.
+ */
+@interface GTLRSlides_UnmergeTableCellsRequest : GTLRObject
+
+/** The object ID of the table. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The table range specifying which cells of the table to unmerge.
+ *  All merged cells in this range will be unmerged, and cells that are already
+ *  unmerged will not be affected. If the range has no merged cells, the
+ *  request will do nothing. If there is text in any of the merged cells, the
+ *  text will remain in the upper-left ("head") cell of the resulting block of
+ *  unmerged cells.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
+
+@end
+
+
+/**
  *  Update the properties of an Image.
  */
 @interface GTLRSlides_UpdateImagePropertiesRequest : GTLRObject
@@ -8234,6 +8597,69 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Updates the properties of the table borders in a Table.
+ */
+@interface GTLRSlides_UpdateTableBorderPropertiesRequest : GTLRObject
+
+/**
+ *  The border position in the table range the updates should apply to. If a
+ *  border position is not specified, the updates will apply to all borders in
+ *  the table range.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_All
+ *        All borders in the range. (Value: "ALL")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Bottom
+ *        Borders at the bottom of the range. (Value: "BOTTOM")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Inner
+ *        Borders on the inside of the range. (Value: "INNER")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerHorizontal
+ *        Horizontal borders on the inside of the range. (Value:
+ *        "INNER_HORIZONTAL")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerVertical
+ *        Vertical borders on the inside of the range. (Value: "INNER_VERTICAL")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Left
+ *        Borders at the left of the range. (Value: "LEFT")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Outer
+ *        Borders along the outside of the range. (Value: "OUTER")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Right
+ *        Borders at the right of the range. (Value: "RIGHT")
+ *    @arg @c kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Top
+ *        Borders at the top of the range. (Value: "TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *borderPosition;
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableBorderProperties` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the table border solid fill color, set
+ *  `fields` to `"tableBorderFill.solidFill.color"`.
+ *  To reset a property to its default value, include its field name in the
+ *  field mask but leave the field itself unset.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The object ID of the table. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/** The table border properties to update. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableBorderProperties *tableBorderProperties;
+
+/**
+ *  The table range representing the subset of the table to which the updates
+ *  are applied. If a table range is not specified, the updates will apply to
+ *  the entire table.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
+
+@end
+
+
+/**
  *  Update the properties of a TableCell.
  */
 @interface GTLRSlides_UpdateTableCellPropertiesRequest : GTLRObject
@@ -8264,6 +8690,81 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  the entire table.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
+
+@end
+
+
+/**
+ *  Updates the properties of a Table column.
+ */
+@interface GTLRSlides_UpdateTableColumnPropertiesRequest : GTLRObject
+
+/**
+ *  The list of zero-based indices specifying which columns to update. If no
+ *  indices are provided, all columns in the table will be updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *columnIndices;
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableColumnProperties` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the column width, set `fields` to `"column_width"`.
+ *  If '"column_width"' is included in the field mask but the property is left
+ *  unset, the column width will default to 406,400 EMU (32 points).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The object ID of the table. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The table column properties to update.
+ *  If the value of `table_column_properties#column_width` in the request is
+ *  less than 406,400 EMU (32 points), a 400 bad request error is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_TableColumnProperties *tableColumnProperties;
+
+@end
+
+
+/**
+ *  Updates the properties of a Table row.
+ */
+@interface GTLRSlides_UpdateTableRowPropertiesRequest : GTLRObject
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableRowProperties` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the minimum row height, set `fields` to
+ *  `"min_row_height"`.
+ *  If '"min_row_height"' is included in the field mask but the property is
+ *  left unset, the minimum row height will default to 0.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The object ID of the table. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The list of zero-based indices specifying which rows to update. If no
+ *  indices are provided, all rows in the table will be updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *rowIndices;
+
+/** The table row properties to update. */
+@property(nonatomic, strong, nullable) GTLRSlides_TableRowProperties *tableRowProperties;
 
 @end
 
