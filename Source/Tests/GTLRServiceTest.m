@@ -3256,7 +3256,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     @"arg" : @"mumble",
   } mutableCopy];
 
-  NSDictionary *baseHTTPHeaders = @{ @"User-Agent" : service.requestUserAgent };
+  NSString *userAgent = service.requestUserAgent;
+  NSDictionary *baseHTTPHeaders = @{ @"User-Agent" : userAgent };
   NSMutableDictionary *expectedHTTPHeaders = [baseHTTPHeaders mutableCopy];
 
   NSString *expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble";
