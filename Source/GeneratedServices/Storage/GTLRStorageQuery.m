@@ -852,19 +852,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   return query;
 }
 
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_ComposeRequest *)object
-                      destinationBucket:(NSString *)destinationBucket
-                      destinationObject:(NSString *)destinationObject {
-  GTLRStorageQuery_ObjectsCompose *query =
-    [self queryWithObject:object
-        destinationBucket:destinationBucket
-        destinationObject:destinationObject];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download storage.objects.compose";
-  return query;
-}
-
 @end
 
 @implementation GTLRStorageQuery_ObjectsCopy
@@ -901,23 +888,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.destinationObject = destinationObject;
   query.expectedObjectClass = [GTLRStorage_Object class];
   query.loggingName = @"storage.objects.copy";
-  return query;
-}
-
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
-                           sourceBucket:(NSString *)sourceBucket
-                           sourceObject:(NSString *)sourceObject
-                      destinationBucket:(NSString *)destinationBucket
-                      destinationObject:(NSString *)destinationObject {
-  GTLRStorageQuery_ObjectsCopy *query =
-    [self queryWithObject:object
-             sourceBucket:sourceBucket
-             sourceObject:sourceObject
-        destinationBucket:destinationBucket
-        destinationObject:destinationObject];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download storage.objects.copy";
   return query;
 }
 
@@ -1029,19 +999,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRStorage_Object class];
   query.loggingName = @"storage.objects.insert";
-  return query;
-}
-
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
-                                 bucket:(NSString *)bucket
-                       uploadParameters:(GTLRUploadParameters *)uploadParameters {
-  GTLRStorageQuery_ObjectsInsert *query =
-    [self queryWithObject:object
-                   bucket:bucket
-         uploadParameters:uploadParameters];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download storage.objects.insert";
   return query;
 }
 
@@ -1225,19 +1182,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.object = object_param;
   query.expectedObjectClass = [GTLRStorage_Object class];
   query.loggingName = @"storage.objects.update";
-  return query;
-}
-
-+ (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
-                                 bucket:(NSString *)bucket
-                                 object:(NSString *)object_param {
-  GTLRStorageQuery_ObjectsUpdate *query =
-    [self queryWithObject:object
-                   bucket:bucket
-                   object:object_param];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download storage.objects.update";
   return query;
 }
 

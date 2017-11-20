@@ -1462,6 +1462,18 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
+ *  Optional arbitrary unique identifier of this client buyer from the
+ *  standpoint of its Ad Exchange sponsor buyer.
+ *  This field can be used to associate a client buyer with the identifier
+ *  in the namespace of its sponsor buyer, lookup client buyers by that
+ *  identifier and verify whether an Ad Exchange counterpart of a given client
+ *  buyer already exists.
+ *  If present, must be unique among all the client buyers for its
+ *  Ad Exchange sponsor buyer.
+ */
+@property(nonatomic, copy, nullable) NSString *partnerClientId;
+
+/**
  *  The role which is assigned to the client buyer. Each role implies a set of
  *  permissions granted to the client. Must be one of `CLIENT_DEAL_VIEWER`,
  *  `CLIENT_DEAL_NEGOTIATOR` or `CLIENT_DEAL_APPROVER`.
@@ -2302,17 +2314,16 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_AbsoluteDateRange *absoluteDateRange;
 
 /**
- *  The ID of the buyer account on which to filter; optional.
- *
- *  Uses NSNumber of longLongValue.
+ *  The ID of the creative on which to filter; optional. This field may be set
+ *  only for a filter set that accesses buyer-level troubleshooting data, i.e.
+ *  one whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
  */
-@property(nonatomic, strong, nullable) NSNumber *buyerAccountId;
-
-/** The ID of the creative on which to filter; optional. */
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
- *  The ID of the deal on which to filter; optional.
+ *  The ID of the deal on which to filter; optional. This field may be set
+ *  only for a filter set that accesses buyer-level troubleshooting data, i.e.
+ *  one whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2332,15 +2343,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        appears on the web. (Value: "WEB")
  */
 @property(nonatomic, copy, nullable) NSString *environment;
-
-/**
- *  The ID of the filter set; unique within the account of the filter set
- *  owner.
- *  The value of this field is ignored in create operations.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *filterSetId;
 
 /**
  *  The format on which to filter; optional.
@@ -2363,16 +2365,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  data)
  *  - `bidders/ * /accounts/ * /filterSets/ *` (for accessing buyer-level
  *  troubleshooting data)
+ *  This field is required in create operations.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The account ID of the buyer who owns this filter set.
- *  The value of this field is ignored in create operations.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ownerAccountId;
 
 /**
  *  The list of platforms on which to filter; may be empty. The filters
@@ -2541,8 +2536,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListBidMetricsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.bidMetrics.list
+ *  field in the subsequent call to the bidMetrics.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2573,8 +2567,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListBidResponseErrorsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.bidResponseErrors.list
+ *  field in the subsequent call to the bidResponseErrors.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2606,8 +2599,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListBidResponsesWithoutBidsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.bidResponsesWithoutBids.list
+ *  field in the subsequent call to the bidResponsesWithoutBids.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2764,8 +2756,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListCreativeStatusBreakdownByCreativeRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredBids.creatives.list
+ *  field in the subsequent call to the filteredBids.creatives.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2830,8 +2821,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListCreativeStatusBreakdownByDetailRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredBids.details.list
+ *  field in the subsequent call to the filteredBids.details.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2893,8 +2883,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListFilteredBidRequestsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredBidRequests.list
+ *  field in the subsequent call to the filteredBidRequests.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2926,8 +2915,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListFilteredBidsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredBids.list
+ *  field in the subsequent call to the filteredBids.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2989,8 +2977,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListImpressionMetricsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.impressionMetrics.list
+ *  field in the subsequent call to the impressionMetrics.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -3021,8 +3008,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListLosingBidsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.losingBids.list
+ *  field in the subsequent call to the losingBids.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -3046,8 +3032,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A token to retrieve the next page of results.
  *  Pass this value in the
  *  ListNonBillableWinningBidsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.nonBillableWinningBids.list
+ *  field in the subsequent call to the nonBillableWinningBids.list
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;

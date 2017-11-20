@@ -41,7 +41,6 @@ NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecif
 // GTLRBigQueryDataTransfer_TransferConfig.state
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed = @"FAILED";
-NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Inactive = @"INACTIVE";
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running = @"RUNNING";
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded = @"SUCCEEDED";
@@ -56,7 +55,6 @@ NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning = @"
 // GTLRBigQueryDataTransfer_TransferRun.state
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed = @"FAILED";
-NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Inactive = @"INACTIVE";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running = @"RUNNING";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded = @"SUCCEEDED";
@@ -320,6 +318,38 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_Status
+//
+
+@implementation GTLRBigQueryDataTransfer_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRBigQueryDataTransfer_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_Status_Details_Item
+//
+
+@implementation GTLRBigQueryDataTransfer_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_TransferConfig
 //
 
@@ -360,9 +390,8 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
-@dynamic datasetRegion, dataSourceId, destinationDatasetId, endTime, name,
-         params, runTime, schedule, scheduleTime, startTime, state, updateTime,
-         userId;
+@dynamic dataSourceId, destinationDatasetId, endTime, errorStatus, name, params,
+         runTime, schedule, scheduleTime, startTime, state, updateTime, userId;
 @end
 
 

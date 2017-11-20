@@ -362,6 +362,35 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesDemoteMaster
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteMasterRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/instances/{instance}/demoteMaster";
+  GTLRSQLAdminQuery_InstancesDemoteMaster *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.demoteMaster";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesExport
 
 @dynamic instance, project;

@@ -1828,8 +1828,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Adds or updates a per-user managed configuration for an app for the
- *  specified user. This method supports patch semantics.
+ *  Adds or updates the managed configuration settings for an app for the
+ *  specified user. If you support the Managed configurations iframe, you can
+ *  apply managed configurations to a user by specifying an mcmId and its
+ *  associated configuration variables (if any) in the request. Alternatively,
+ *  all EMMs can apply managed configurations by passing a list of managed
+ *  properties. This method supports patch semantics.
  *
  *  Method: androidenterprise.managedconfigurationsforuser.patch
  *
@@ -1855,8 +1859,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
  *
- *  Adds or updates a per-user managed configuration for an app for the
- *  specified user. This method supports patch semantics.
+ *  Adds or updates the managed configuration settings for an app for the
+ *  specified user. If you support the Managed configurations iframe, you can
+ *  apply managed configurations to a user by specifying an mcmId and its
+ *  associated configuration variables (if any) in the request. Alternatively,
+ *  all EMMs can apply managed configurations by passing a list of managed
+ *  properties. This method supports patch semantics.
  *
  *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
  *    in the query.
@@ -1875,8 +1883,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Adds or updates a per-user managed configuration for an app for the
- *  specified user.
+ *  Adds or updates the managed configuration settings for an app for the
+ *  specified user. If you support the Managed configurations iframe, you can
+ *  apply managed configurations to a user by specifying an mcmId and its
+ *  associated configuration variables (if any) in the request. Alternatively,
+ *  all EMMs can apply managed configurations by passing a list of managed
+ *  properties.
  *
  *  Method: androidenterprise.managedconfigurationsforuser.update
  *
@@ -1902,8 +1914,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
  *
- *  Adds or updates a per-user managed configuration for an app for the
- *  specified user.
+ *  Adds or updates the managed configuration settings for an app for the
+ *  specified user. If you support the Managed configurations iframe, you can
+ *  apply managed configurations to a user by specifying an mcmId and its
+ *  associated configuration variables (if any) in the request. Alternatively,
+ *  all EMMs can apply managed configurations by passing a list of managed
+ *  properties.
  *
  *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
  *    in the query.
@@ -1918,6 +1934,46 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId
   managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
+
+@end
+
+/**
+ *  Lists all the managed configurations settings for the specified app. Only
+ *  the ID and the name is set.
+ *
+ *  Method: androidenterprise.managedconfigurationssettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationssettingsListWithenterpriseId:productId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the product for which the managed configurations settings applies
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse.
+ *
+ *  Lists all the managed configurations settings for the specified app. Only
+ *  the ID and the name is set.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param productId The ID of the product for which the managed configurations
+ *    settings applies to.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                            productId:(NSString *)productId;
 
 @end
 
@@ -3104,6 +3160,46 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Revokes access to all devices currently provisioned to the user. The user
+ *  will no longer be able to use the managed Play store on any of their managed
+ *  devices.
+ *  This call only works with EMM-managed accounts.
+ *
+ *  Method: androidenterprise.users.revokeDeviceAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersRevokeDeviceAccessWithenterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Revokes access to all devices currently provisioned to the user. The user
+ *  will no longer be able to use the managed Play store on any of their managed
+ *  devices.
+ *  This call only works with EMM-managed accounts.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId;
 
 @end
 

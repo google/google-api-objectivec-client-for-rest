@@ -351,7 +351,7 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 
 @implementation GTLRAdExchangeBuyerII_Client
 @dynamic clientAccountId, clientName, entityId, entityNameProperty, entityType,
-         role, status, visibleToSeller;
+         partnerClientId, role, status, visibleToSeller;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"entityNameProperty" : @"entityName" };
@@ -534,9 +534,8 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 //
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
-@dynamic absoluteDateRange, buyerAccountId, creativeId, dealId, environment,
-         filterSetId, format, name, ownerAccountId, platforms,
-         realtimeTimeRange, relativeDateRange, sellerNetworkIds,
+@dynamic absoluteDateRange, creativeId, dealId, environment, format, name,
+         platforms, realtimeTimeRange, relativeDateRange, sellerNetworkIds,
          timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

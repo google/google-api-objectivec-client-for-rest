@@ -57,6 +57,10 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerId = @"containerI
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerVersion = @"containerVersion";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_DebugMode = @"debugMode";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_DeviceName = @"deviceName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ElementVisibilityFirstTime = @"elementVisibilityFirstTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ElementVisibilityRatio = @"elementVisibilityRatio";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ElementVisibilityRecentTime = @"elementVisibilityRecentTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ElementVisibilityTime = @"elementVisibilityTime";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_EnvironmentName = @"environmentName";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorLine = @"errorLine";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorMessage = @"errorMessage";
@@ -107,10 +111,12 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_Platform = @"platform";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_RandomNumber = @"randomNumber";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Referrer = @"referrer";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Resolution = @"resolution";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthDirection = @"scrollDepthDirection";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthThreshold = @"scrollDepthThreshold";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits = @"scrollDepthUnits";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion = @"sdkVersion";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime = @"videoCurrentTime";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoDuration = @"videoDuration";
-NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoElapsedTime = @"videoElapsedTime";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoPercent = @"videoPercent";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoProvider = @"videoProvider";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoStatus = @"videoStatus";
@@ -185,6 +191,7 @@ NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility    = @"ampVisibility
 NSString * const kGTLRTagManager_Trigger_Type_Click            = @"click";
 NSString * const kGTLRTagManager_Trigger_Type_CustomEvent      = @"customEvent";
 NSString * const kGTLRTagManager_Trigger_Type_DomReady         = @"domReady";
+NSString * const kGTLRTagManager_Trigger_Type_ElementVisibility = @"elementVisibility";
 NSString * const kGTLRTagManager_Trigger_Type_EventTypeUnspecified = @"eventTypeUnspecified";
 NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppException = @"firebaseAppException";
 NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppUpdate = @"firebaseAppUpdate";
@@ -203,6 +210,7 @@ NSString * const kGTLRTagManager_Trigger_Type_HistoryChange    = @"historyChange
 NSString * const kGTLRTagManager_Trigger_Type_JsError          = @"jsError";
 NSString * const kGTLRTagManager_Trigger_Type_LinkClick        = @"linkClick";
 NSString * const kGTLRTagManager_Trigger_Type_Pageview         = @"pageview";
+NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth      = @"scrollDepth";
 NSString * const kGTLRTagManager_Trigger_Type_Timer            = @"timer";
 NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded     = @"windowLoaded";
 NSString * const kGTLRTagManager_Trigger_Type_YouTubeVideo     = @"youTubeVideo";
@@ -890,7 +898,7 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 @implementation GTLRTagManager_Tag
 @dynamic accountId, blockingRuleId, blockingTriggerId, containerId, fingerprint,
          firingRuleId, firingTriggerId, liveOnly, name, notes, parameter,
-         parentFolderId, path, priority, scheduleEndMs, scheduleStartMs,
+         parentFolderId, path, paused, priority, scheduleEndMs, scheduleStartMs,
          setupTag, tagFiringOption, tagId, tagManagerUrl, teardownTag, type,
          workspaceId;
 

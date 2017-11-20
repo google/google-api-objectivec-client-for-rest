@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Script Execution API (script/v1)
+//   Google Apps Script API (script/v1)
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
@@ -103,7 +103,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeScriptUserinfoEmail;
 //
 
 /**
- *  Service for executing Google Apps Script Execution API queries.
+ *  Service for executing Google Apps Script API queries.
  *
  *  An API for managing and executing Google Apps Script projects.
  */

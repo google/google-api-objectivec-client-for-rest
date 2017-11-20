@@ -1028,8 +1028,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Bytes found in the data source that are scheduled to be transferred,
- *  which will be copied, excluded based on conditions, or skipped due to
- *  failures.
+ *  excluding any that are filtered based on object conditions or skipped due
+ *  to sync.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1087,8 +1087,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Objects found in the data source that are scheduled to be transferred,
- *  which will be copied, excluded based on conditions, or skipped due to
- *  failures.
+ *  excluding any that are filtered based on object conditions or skipped due
+ *  to sync.
  *
  *  Uses NSNumber of longLongValue.
  */

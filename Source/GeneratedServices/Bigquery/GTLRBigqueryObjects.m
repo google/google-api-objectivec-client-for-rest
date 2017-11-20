@@ -557,9 +557,10 @@
 //
 
 @implementation GTLRBigquery_JobStatistics2
-@dynamic billingTier, cacheHit, numDmlAffectedRows, queryPlan, referencedTables,
-         schema, statementType, totalBytesBilled, totalBytesProcessed,
-         totalSlotMs, undeclaredQueryParameters;
+@dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
+         numDmlAffectedRows, queryPlan, referencedTables, schema, statementType,
+         totalBytesBilled, totalBytesProcessed, totalSlotMs,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -996,8 +997,8 @@
 //
 
 @implementation GTLRBigquery_TableList_Tables_Item
-@dynamic friendlyName, identifier, kind, labels, tableReference,
-         timePartitioning, type, view;
+@dynamic creationTime, expirationTime, friendlyName, identifier, kind, labels,
+         tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

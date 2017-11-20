@@ -664,6 +664,7 @@ NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR16 = @"oflcR16";
 NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR18 = @"oflcR18";
 NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp13 = @"oflcRp13";
 NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp16 = @"oflcRp16";
+NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp18 = @"oflcRp18";
 NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcUnrated = @"oflcUnrated";
 
 // GTLRYouTube_ContentRating.pefilmRating
@@ -865,6 +866,7 @@ NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_ResolutionMismat
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoBitrateMismatch = @"videoBitrateMismatch";
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodec = @"videoCodec";
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodecMismatch = @"videoCodecMismatch";
+NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionFasterThanRealtime = @"videoIngestionFasterThanRealtime";
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionStarved = @"videoIngestionStarved";
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoInterlaceMismatch = @"videoInterlaceMismatch";
 NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoProfileMismatch = @"videoProfileMismatch";

@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Monitoring API (cloudmonitoring/v2beta2)
+//   Service Consumer Management API (serviceconsumermanagement/v1)
 // Description:
-//   Accesses Google Cloud Monitoring data.
+//   Provides management methods for configuring service producer resources on
+//   Google Cloud.
 // Documentation:
-//   https://cloud.google.com/monitoring/v2beta2/
+//   https://cloud.google.com/service-consumer-management/docs/overview
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -34,31 +35,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMonitoringCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceConsumerManagementCloudPlatform;
 /**
- *  Authorization scope: View and write monitoring data for all of your Google
- *  and third-party Cloud and API projects
+ *  Authorization scope: Manage your Google API service configuration
  *
- *  Value "https://www.googleapis.com/auth/monitoring"
+ *  Value "https://www.googleapis.com/auth/service.management"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMonitoringMonitoring;
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceConsumerManagementServiceManagement;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudMonitoringService
+//   GTLRServiceConsumerManagementService
 //
 
 /**
- *  Service for executing Cloud Monitoring API queries.
+ *  Service for executing Service Consumer Management API queries.
  *
- *  Accesses Google Cloud Monitoring data.
+ *  Provides management methods for configuring service producer resources on
+ *  Google Cloud.
  */
-@interface GTLRCloudMonitoringService : GTLRService
+@interface GTLRServiceConsumerManagementService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudMonitoringQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRServiceConsumerManagementQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

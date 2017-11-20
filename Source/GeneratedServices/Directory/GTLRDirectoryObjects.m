@@ -492,6 +492,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_MembersHasMember
+//
+
+@implementation GTLRDirectory_MembersHasMember
+@dynamic isMember;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_MobileDevice
 //
 
@@ -1178,7 +1188,8 @@
 //
 
 @implementation GTLRDirectory_UserPosixAccount
-@dynamic gecos, gid, homeDirectory, primary, shell, systemId, uid, username;
+@dynamic accountId, gecos, gid, homeDirectory, primary, shell, systemId, uid,
+         username;
 @end
 
 

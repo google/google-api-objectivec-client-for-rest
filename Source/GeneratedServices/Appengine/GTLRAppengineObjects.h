@@ -58,6 +58,7 @@
 @class GTLRAppengine_ScriptHandler;
 @class GTLRAppengine_Service;
 @class GTLRAppengine_SslSettings;
+@class GTLRAppengine_StandardSchedulerSettings;
 @class GTLRAppengine_StaticFilesHandler;
 @class GTLRAppengine_StaticFilesHandler_HttpHeaders;
 @class GTLRAppengine_Status;
@@ -597,7 +598,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  An Application resource contains the top-level configuration of an App
- *  Engine application. Next tag: 20
+ *  Engine application.
  */
 @interface GTLRAppengine_Application : GTLRObject
 
@@ -857,6 +858,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /** Target scaling by request utilization. */
 @property(nonatomic, strong, nullable) GTLRAppengine_RequestUtilization *requestUtilization;
+
+/** Scheduler settings for standard environment. */
+@property(nonatomic, strong, nullable) GTLRAppengine_StandardSchedulerSettings *standardSchedulerSettings;
 
 @end
 
@@ -2029,35 +2033,6 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Metadata for the given google.longrunning.Operation.
  */
-@interface GTLRAppengine_OperationMetadataExperimental : GTLRObject
-
-/** Time that this operation completed.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Time that this operation was created.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
-
-/**
- *  API method that initiated this operation. Example:
- *  google.appengine.experimental.CustomDomains.CreateCustomDomain.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *method;
-
-/**
- *  Name of the resource that this operation is acting on. Example:
- *  apps/myapp/customDomains/example.com.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** User who requested this operation.\@OutputOnly */
-@property(nonatomic, copy, nullable) NSString *user;
-
-@end
-
-
-/**
- *  Metadata for the given google.longrunning.Operation.
- */
 @interface GTLRAppengine_OperationMetadataV1 : GTLRObject
 
 /** Time that this operation completed.\@OutputOnly */
@@ -2393,6 +2368,44 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  application. Clearing this field will remove SSL support. Example: 12345.
  */
 @property(nonatomic, copy, nullable) NSString *certificateId;
+
+@end
+
+
+/**
+ *  Scheduler settings for standard environment.
+ */
+@interface GTLRAppengine_StandardSchedulerSettings : GTLRObject
+
+/**
+ *  Maximum number of instances for an app version. Set to a non-positive value
+ *  (0 by convention) to disable max_instances configuration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstances;
+
+/**
+ *  Minimum number of instances for an app version. Set to a non-positive value
+ *  (0 by convention) to disable min_instances configuration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstances;
+
+/**
+ *  Target CPU utilization ratio to maintain when scaling.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetCpuUtilization;
+
+/**
+ *  Target throughput utilization ratio to maintain when scaling
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetThroughputUtilization;
 
 @end
 

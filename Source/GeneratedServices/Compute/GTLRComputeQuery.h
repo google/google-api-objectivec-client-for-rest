@@ -58,6 +58,8 @@
 @class GTLRCompute_InstancesSetServiceAccountRequest;
 @class GTLRCompute_InstancesStartWithEncryptionKeyRequest;
 @class GTLRCompute_InstanceTemplate;
+@class GTLRCompute_Interconnect;
+@class GTLRCompute_InterconnectAttachment;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
 @class GTLRCompute_NetworksAddPeeringRequest;
@@ -5306,9 +5308,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of private images available to the specified project.
- *  Private images are images you create that belong to your project. This
- *  method does not get any images that belong to other projects, including
+ *  Retrieves the list of custom images available to the specified project.
+ *  Custom images are images you create that belong to your project. This method
+ *  does not get any images that belong to other projects, including
  *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
  *  respective image project, such as debian-cloud or windows-cloud.
@@ -5382,9 +5384,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ImageList.
  *
- *  Retrieves the list of private images available to the specified project.
- *  Private images are images you create that belong to your project. This
- *  method does not get any images that belong to other projects, including
+ *  Retrieves the list of custom images available to the specified project.
+ *  Custom images are images you create that belong to your project. This method
+ *  does not get any images that belong to other projects, including
  *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
  *  respective image project, such as debian-cloud or windows-cloud.
@@ -7705,6 +7707,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets deletion protection on the instance.
+ *
+ *  Method: compute.instances.setDeletionProtection
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetDeletionProtection : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetDeletionProtectionWithproject:zoneProperty:resource:]
+
+/**
+ *  Whether the resource should be protected against deletion.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL deletionProtection;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets deletion protection on the instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_InstancesSetDeletionProtection
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the auto-delete flag for a disk attached to an instance.
  *
  *  Method: compute.instances.setDiskAutoDelete
@@ -8386,11 +8452,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Stops a running instance, shutting it down cleanly, and allows you to
- *  restart the instance at a later time. Stopped instances do not incur
- *  per-minute, virtual machine usage charges while they are stopped, but any
- *  resources that the virtual machine is using, such as persistent disks and
- *  static IP addresses, will continue to be charged until they are deleted. For
- *  more information, see Stopping an instance.
+ *  restart the instance at a later time. Stopped instances do not incur VM
+ *  usage charges while they are stopped. However, resources that the VM is
+ *  using, such as persistent disks and static IP addresses, will continue to be
+ *  charged until they are deleted. For more information, see Stopping an
+ *  instance.
  *
  *  Method: compute.instances.stop
  *
@@ -8433,11 +8499,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Stops a running instance, shutting it down cleanly, and allows you to
- *  restart the instance at a later time. Stopped instances do not incur
- *  per-minute, virtual machine usage charges while they are stopped, but any
- *  resources that the virtual machine is using, such as persistent disks and
- *  static IP addresses, will continue to be charged until they are deleted. For
- *  more information, see Stopping an instance.
+ *  restart the instance at a later time. Stopped instances do not incur VM
+ *  usage charges while they are stopped. However, resources that the VM is
+ *  using, such as persistent disks and static IP addresses, will continue to be
+ *  charged until they are deleted. For more information, see Stopping an
+ *  instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8678,6 +8744,724 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of interconnect attachments.
+ *
+ *  Method: compute.interconnectAttachments.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentsAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectAttachmentsAggregatedListWithproject:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentAggregatedList.
+ *
+ *  Retrieves an aggregated list of interconnect attachments.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectAttachmentsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified interconnect attachment.
+ *
+ *  Method: compute.interconnectAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectAttachmentsDeleteWithproject:region:interconnectAttachment:]
+
+/** Name of the interconnect attachment to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachment;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified interconnect attachment.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param interconnectAttachment Name of the interconnect attachment to delete.
+ *
+ *  @returns GTLRComputeQuery_InterconnectAttachmentsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+          interconnectAttachment:(NSString *)interconnectAttachment;
+
+@end
+
+/**
+ *  Returns the specified interconnect attachment.
+ *
+ *  Method: compute.interconnectAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectAttachmentsGetWithproject:region:interconnectAttachment:]
+
+/** Name of the interconnect attachment to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachment;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachment.
+ *
+ *  Returns the specified interconnect attachment.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param interconnectAttachment Name of the interconnect attachment to return.
+ *
+ *  @returns GTLRComputeQuery_InterconnectAttachmentsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+          interconnectAttachment:(NSString *)interconnectAttachment;
+
+@end
+
+/**
+ *  Creates an InterconnectAttachment in the specified project using the data
+ *  included in the request.
+ *
+ *  Method: compute.interconnectAttachments.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectAttachmentsInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an InterconnectAttachment in the specified project using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_InterconnectAttachment to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectAttachmentsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves the list of interconnect attachments contained within the
+ *  specified region.
+ *
+ *  Method: compute.interconnectAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectAttachmentsListWithproject:region:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentList.
+ *
+ *  Retrieves the list of interconnect attachments contained within the
+ *  specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Returns the details for the specified interconnect location. Get a list of
+ *  available interconnect locations by making a list() request.
+ *
+ *  Method: compute.interconnectLocations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectLocationsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectLocationsGetWithproject:interconnectLocation:]
+
+/** Name of the interconnect location to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectLocation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectLocation.
+ *
+ *  Returns the details for the specified interconnect location. Get a list of
+ *  available interconnect locations by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectLocation Name of the interconnect location to return.
+ *
+ *  @returns GTLRComputeQuery_InterconnectLocationsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+            interconnectLocation:(NSString *)interconnectLocation;
+
+@end
+
+/**
+ *  Retrieves the list of interconnect locations available to the specified
+ *  project.
+ *
+ *  Method: compute.interconnectLocations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectLocationsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectLocationsListWithproject:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectLocationList.
+ *
+ *  Retrieves the list of interconnect locations available to the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified interconnect.
+ *
+ *  Method: compute.interconnects.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsDeleteWithproject:interconnect:]
+
+/** Name of the interconnect to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified interconnect.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect to delete.
+ *
+ *  @returns GTLRComputeQuery_InterconnectsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect;
+
+@end
+
+/**
+ *  Returns the specified interconnect. Get a list of available interconnects by
+ *  making a list() request.
+ *
+ *  Method: compute.interconnects.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsGetWithproject:interconnect:]
+
+/** Name of the interconnect to return. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Interconnect.
+ *
+ *  Returns the specified interconnect. Get a list of available interconnects by
+ *  making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect to return.
+ *
+ *  @returns GTLRComputeQuery_InterconnectsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect;
+
+@end
+
+/**
+ *  Creates a Interconnect in the specified project using the data included in
+ *  the request.
+ *
+ *  Method: compute.interconnects.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a Interconnect in the specified project using the data included in
+ *  the request.
+ *
+ *  @param object The @c GTLRCompute_Interconnect to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of interconnect available to the specified project.
+ *
+ *  Method: compute.interconnects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsListWithproject:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectList.
+ *
+ *  Retrieves the list of interconnect available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_InterconnectsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates the specified interconnect with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
+ *
+ *  Method: compute.interconnects.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectsPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsPatchWithObject:project:interconnect:]
+
+/** Name of the interconnect to update. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified interconnect with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
+ *
+ *  @param object The @c GTLRCompute_Interconnect to include in the query.
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect to update.
+ *
+ *  @returns GTLRComputeQuery_InterconnectsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
+                        project:(NSString *)project
+                   interconnect:(NSString *)interconnect;
 
 @end
 

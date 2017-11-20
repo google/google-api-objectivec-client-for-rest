@@ -119,3 +119,23 @@
 }
 
 @end
+
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsClassifyText
+
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ClassifyTextRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/documents:classifyText";
+  GTLRCloudNaturalLanguageQuery_DocumentsClassifyText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_ClassifyTextResponse class];
+  query.loggingName = @"language.documents.classifyText";
+  return query;
+}
+
+@end

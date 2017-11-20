@@ -2885,6 +2885,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Method: classroom.registrations.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomPushNotifications
  *    @c kGTLRAuthScopeClassroomRosters
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
@@ -2937,6 +2938,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Method: classroom.registrations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomPushNotifications
  *    @c kGTLRAuthScopeClassroomRosters
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */

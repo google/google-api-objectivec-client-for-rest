@@ -28,6 +28,9 @@
 @class GTLRSQLAdmin_DatabaseFlags;
 @class GTLRSQLAdmin_DatabaseInstance;
 @class GTLRSQLAdmin_DatabaseInstance_FailoverReplica;
+@class GTLRSQLAdmin_DemoteMasterConfiguration;
+@class GTLRSQLAdmin_DemoteMasterContext;
+@class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
 @class GTLRSQLAdmin_ExportContext;
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
@@ -517,6 +520,80 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Read-replica configuration for connecting to the on-premises master.
+ */
+@interface GTLRSQLAdmin_DemoteMasterConfiguration : GTLRObject
+
+/** This is always sql#demoteMasterConfiguration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  MySQL specific configuration when replicating from a MySQL on-premises
+ *  master. Replication configuration information such as the username,
+ *  password, certificates, and keys are not stored in the instance metadata.
+ *  The configuration information is used only to set up the replication
+ *  connection and is stored by MySQL in a file named master.info in the data
+ *  directory.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration *mysqlReplicaConfiguration;
+
+@end
+
+
+/**
+ *  Database instance demote master context.
+ */
+@interface GTLRSQLAdmin_DemoteMasterContext : GTLRObject
+
+/** This is always sql#demoteMasterContext. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The name of the instance which will act as on-premises master in the
+ *  replication setup.
+ */
+@property(nonatomic, copy, nullable) NSString *masterInstanceName;
+
+/**
+ *  Configuration specific to read-replicas replicating from the on-premises
+ *  master.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterConfiguration *replicaConfiguration;
+
+@end
+
+
+/**
+ *  Read-replica configuration specific to MySQL databases.
+ */
+@interface GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration : GTLRObject
+
+/** PEM representation of the trusted CA's x509 certificate. */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/** PEM representation of the slave's x509 certificate. */
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
+
+/**
+ *  PEM representation of the slave's private key. The corresponsing public key
+ *  is encoded in the client's certificate. The format of the slave's private
+ *  key can be either PKCS #1 or PKCS #8.
+ */
+@property(nonatomic, copy, nullable) NSString *clientKey;
+
+/** This is always sql#demoteMasterMysqlReplicaConfiguration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The password for the replication connection. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/** The username for the replication connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Database instance export context.
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
@@ -751,6 +828,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Contains details about the clone operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_CloneContext *cloneContext;
+
+@end
+
+
+/**
+ *  Database demote master request.
+ */
+@interface GTLRSQLAdmin_InstancesDemoteMasterRequest : GTLRObject
+
+/** Contains details about the demoteMaster operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterContext *demoteMasterContext;
 
 @end
 

@@ -201,6 +201,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
 
 /** Value: "anr" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
+/** Value: "compatibleWithOrchestrator" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "fatalException" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 /** Value: "nativeCrash" */
@@ -253,11 +255,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
 
 /**
  *  The flag indicates whether Android Test Orchestrator will be used to run
- *  test or not. Test orchestrator is used if either: - orchestrator_option
- *  field is USE_ORCHESTRATOR, and test runner is compatible with orchestrator.
- *  Or - orchestrator_option field is unspecified or
- *  ORCHESTRATOR_OPTION_UNSPECIFIED, and test runner is compatible with
- *  orchestrator.
+ *  test or not.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -357,19 +355,24 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
 @interface GTLRToolResults_Any : GTLRObject
 
 /**
- *  A URL/resource name whose content describes the type of the serialized
- *  protocol buffer message.
- *  For URLs which use the scheme `http`, `https`, or no scheme, the following
- *  restrictions and interpretations apply:
- *  * If no scheme is provided, `https` is assumed. * The last segment of the
- *  URL's path must represent the fully qualified name of the type (as in
+ *  A URL/resource name that uniquely identifies the type of the serialized
+ *  protocol buffer message. The last segment of the URL's path must represent
+ *  the fully qualified name of the type (as in
  *  `path/google.protobuf.Duration`). The name should be in a canonical form
- *  (e.g., leading "." is not accepted). * An HTTP GET on the URL must yield a
- *  [google.protobuf.Type][] value in binary format, or produce an error. *
- *  Applications are allowed to cache lookup results based on the URL, or have
- *  them precompiled into a binary to avoid any lookup. Therefore, binary
- *  compatibility needs to be preserved on changes to types. (Use versioned type
- *  names to manage breaking changes.)
+ *  (e.g., leading "." is not accepted).
+ *  In practice, teams usually precompile into the binary all types that they
+ *  expect it to use in the context of Any. However, for URLs which use the
+ *  scheme `http`, `https`, or no scheme, one can optionally set up a type
+ *  server that maps type URLs to message definitions as follows:
+ *  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL
+ *  must yield a [google.protobuf.Type][] value in binary format, or produce an
+ *  error. * Applications are allowed to cache lookup results based on the URL,
+ *  or have them precompiled into a binary to avoid any lookup. Therefore,
+ *  binary compatibility needs to be preserved on changes to types. (Use
+ *  versioned type names to manage breaking changes.)
+ *  Note: this functionality is not currently available in the official protobuf
+ *  release, and it is not used for type URLs beginning with
+ *  type.googleapis.com.
  *  Schemes other than `http`, `https` (or the empty scheme) might be used with
  *  implementation specific semantics.
  */
@@ -1791,6 +1794,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Value "anr"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator Value
+ *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value
  *        "fatalException"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
@@ -1803,7 +1808,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
 
 /**
  *  Warning message with additional details of the issue. Should always be a
- *  message from com.google.devtools.toolresults.v1.warnings Required.
+ *  message from com.google.devtools.toolresults.v1.warnings
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Any *warning;
 
@@ -1981,8 +1986,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
  *  the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
  *  the Joda Time's [`ISODateTimeFormat.dateTime()`](
- *  http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
- *  to obtain a formatter capable of generating timestamps in this format.
+ *  http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime--
+ *  ) to obtain a formatter capable of generating timestamps in this format.
  */
 @interface GTLRToolResults_Timestamp : GTLRObject
 

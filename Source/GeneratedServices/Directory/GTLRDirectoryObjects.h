@@ -927,6 +927,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for Has Member response in Directory API.
+ */
+@interface GTLRDirectory_MembersHasMember : GTLRObject
+
+/**
+ *  Identifies whether given user is a member or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isMember;
+
+@end
+
+
+/**
  *  JSON template for Mobile Device resource in Directory API.
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
@@ -2468,6 +2483,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  go/fbs-posix.
  */
 @interface GTLRDirectory_UserPosixAccount : GTLRObject
+
+/** A POSIX account field identifier. (Read-only) */
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GECOS (user information) for this account. */
 @property(nonatomic, copy, nullable) NSString *gecos;

@@ -245,6 +245,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesGetWithname:]
 
 /**
+ *  The fields of the `Device` resource to be returned in the response. If the
+ *  field mask is unset or empty, all fields are returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
+
+/**
  *  The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -631,8 +639,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only updates the `device_registry` fields indicated by this mask.
  *  The field mask must not be empty, and it must not contain fields that
  *  are immutable or only set by the server.
- *  Mutable top-level fields: `event_notification_config`, `mqtt_config`, and
- *  `state_notification_config`.
+ *  Mutable top-level fields: `event_notification_config`, `http_config`,
+ *  `mqtt_config`, and `state_notification_config`.
  *
  *  String format is a comma-separated list of fields.
  */

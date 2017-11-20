@@ -148,10 +148,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudMachineLearningEngine/*.{h,m}'
   end
-  s.subspec 'CloudMonitoring' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudMonitoring/*.{h,m}'
-  end
   s.subspec 'CloudNaturalLanguage' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudNaturalLanguage/*.{h,m}'
@@ -239,6 +235,10 @@ Pod::Spec.new do |s|
   s.subspec 'Dfareporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dfareporting/*.{h,m}'
+  end
+  s.subspec 'Dialogflow' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Dialogflow/*.{h,m}'
   end
   s.subspec 'Directory' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -364,10 +364,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PeopleService/*.{h,m}'
   end
-  s.subspec 'PlayMovies' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/PlayMovies/*.{h,m}'
-  end
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
@@ -428,6 +424,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SearchConsole/*.{h,m}'
   end
+  s.subspec 'ServiceConsumerManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceConsumerManagement/*.{h,m}'
+  end
   s.subspec 'ServiceControl' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceControl/*.{h,m}'
@@ -483,6 +483,10 @@ Pod::Spec.new do |s|
   s.subspec 'Surveys' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Surveys/*.{h,m}'
+  end
+  s.subspec 'TPU' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/TPU/*.{h,m}'
   end
   s.subspec 'TagManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

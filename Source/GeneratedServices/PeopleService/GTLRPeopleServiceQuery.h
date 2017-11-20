@@ -335,7 +335,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * events
  *  * genders
  *  * imClients
- *  * interests
  *  * locales
  *  * memberships
  *  * metadata
@@ -508,7 +507,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * events
  *  * genders
  *  * imClients
- *  * interests
  *  * locales
  *  * memberships
  *  * metadata
@@ -610,7 +608,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * events
  *  * genders
  *  * imClients
- *  * interests
  *  * locales
  *  * memberships
  *  * metadata
@@ -708,7 +705,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * events
  *  * genders
  *  * imClients
- *  * interests
  *  * locales
  *  * names
  *  * nicknames

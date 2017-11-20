@@ -77,6 +77,7 @@ NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
 
 // GTLRToolResults_TestIssue.type
 NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
+NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
 NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
 NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";

@@ -303,7 +303,7 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
 @implementation GTLRLogging_LogEntry
 @dynamic httpRequest, insertId, jsonPayload, labels, logName, operation,
          protoPayload, receiveTimestamp, resource, severity, sourceLocation,
-         textPayload, timestamp, trace;
+         spanId, textPayload, timestamp, trace;
 @end
 
 

@@ -296,7 +296,10 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 /** Output only. The time at which this CryptoKey was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Labels with user defined metadata. */
+/**
+ *  Labels with user-defined metadata. For more information, see
+ *  [Labeling CryptoKeys](/kms/docs/labeling-keys).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_CryptoKey_Labels *labels;
 
 /**
@@ -350,7 +353,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 
 
 /**
- *  Labels with user defined metadata.
+ *  Labels with user-defined metadata. For more information, see
+ *  [Labeling CryptoKeys](/kms/docs/labeling-keys).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

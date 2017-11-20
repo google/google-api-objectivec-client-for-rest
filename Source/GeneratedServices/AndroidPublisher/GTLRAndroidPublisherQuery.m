@@ -1125,26 +1125,6 @@ NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
 
 @end
 
-@implementation GTLRAndroidPublisherQuery_InappproductsBatch
-
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchRequest *)object {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSString *pathURITemplate = @"inappproducts/batch";
-  GTLRAndroidPublisherQuery_InappproductsBatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAndroidPublisher_InappproductsBatchResponse class];
-  query.loggingName = @"androidpublisher.inappproducts.batch";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidPublisherQuery_InappproductsDelete
 
 @dynamic packageName, sku;

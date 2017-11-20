@@ -1108,8 +1108,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 
 /**
  *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intented
- *  alias.
+ *  please specify multiple google.api.Endpoint for each of the intended
+ *  aliases.
  *  Additional names that this endpoint will be hosted on.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
@@ -1125,13 +1125,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowCors;
-
-/**
- *  The list of APIs served by this endpoint.
- *  If no APIs are specified this translates to "all APIs" exported by the
- *  service, as defined in the top-level service configuration.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *apis;
 
 /** The list of features enabled on this endpoint. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;

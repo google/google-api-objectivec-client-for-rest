@@ -1304,9 +1304,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *schemaInlineFormat;
 
 /**
- *  [Experimental] Allows the schema of the desitination table to be updated as
- *  a side effect of the load job if a schema is autodetected or supplied in the
- *  job configuration. Schema update options are supported in two cases: when
+ *  Allows the schema of the destination table to be updated as a side effect of
+ *  the load job if a schema is autodetected or supplied in the job
+ *  configuration. Schema update options are supported in two cases: when
  *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
  *  and the destination table is a partition of a table, specified by partition
  *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
@@ -1347,8 +1347,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
 
 /**
- *  [Experimental] If specified, configures time-based partitioning for the
- *  destination table.
+ *  If specified, configures time-based partitioning for the destination table.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
@@ -1467,15 +1466,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
- *  [Experimental] Allows the schema of the destination table to be updated as a
- *  side effect of the query job. Schema update options are supported in two
- *  cases: when writeDisposition is WRITE_APPEND; when writeDisposition is
- *  WRITE_TRUNCATE and the destination table is a partition of a table,
- *  specified by partition decorators. For normal tables, WRITE_TRUNCATE will
- *  always overwrite the schema. One or more of the following values are
- *  specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the
- *  schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the
- *  original schema to nullable.
+ *  Allows the schema of the destination table to be updated as a side effect of
+ *  the query job. Schema update options are supported in two cases: when
+ *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
+ *  and the destination table is a partition of a table, specified by partition
+ *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
+ *  schema. One or more of the following values are specified:
+ *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema.
+ *  ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original
+ *  schema to nullable.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *schemaUpdateOptions;
 
@@ -1488,8 +1487,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery_TableDefinitions *tableDefinitions;
 
 /**
- *  [Experimental] If specified, configures time-based partitioning for the
- *  destination table.
+ *  If specified, configures time-based partitioning for the destination table.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
@@ -1752,6 +1750,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
+
+/**
+ *  [Output-only, Experimental] The DDL operation performed, possibly dependent
+ *  on the pre-existence of the DDL target. Possible values (new values might be
+ *  added in the future): "CREATE": The query created the DDL target. "SKIP":
+ *  No-op. Example cases: the query is CREATE TABLE IF NOT EXISTS while the
+ *  table already exists, or the query is DROP TABLE IF EXISTS while the table
+ *  does not exist. "REPLACE": The query replaced the DDL target. Example case:
+ *  the query is CREATE OR REPLACE TABLE, and the table already exists. "DROP":
+ *  The query deleted the DDL target.
+ */
+@property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
+
+/**
+ *  [Output-only, Experimental] The DDL target table. Present only for
+ *  CREATE/DROP TABLE/VIEW queries.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
  *  [Output-only] The number of rows affected by a DML statement. Present only
@@ -2418,10 +2434,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Required] Reference describing the ID of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/**
- *  [Experimental] If specified, configures time-based partitioning for this
- *  table.
- */
+/** If specified, configures time-based partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
@@ -2680,6 +2693,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBigquery_TableList_Tables_Item : GTLRObject
 
+/**
+ *  The time when this table was created, in milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creationTime;
+
+/**
+ *  [Optional] The time when this table expires, in milliseconds since the
+ *  epoch. If not present, the table will persist indefinitely. Expired tables
+ *  will be deleted and their storage reclaimed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expirationTime;
+
 /** The user-friendly name for this table. */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
@@ -2702,7 +2731,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A reference uniquely identifying the table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/** [Experimental] The time-based partitioning for this table. */
+/** The time-based partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /** The type of table. Possible values are: TABLE, VIEW. */

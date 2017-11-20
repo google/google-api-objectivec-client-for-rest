@@ -25,6 +25,7 @@
 @class GTLRAndroidEnterprise_ApprovalUrlInfo;
 @class GTLRAndroidEnterprise_AppUpdateEvent;
 @class GTLRAndroidEnterprise_AppVersion;
+@class GTLRAndroidEnterprise_ConfigurationVariables;
 @class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_Entitlement;
@@ -33,6 +34,7 @@
 @class GTLRAndroidEnterprise_InstallFailureEvent;
 @class GTLRAndroidEnterprise_LocalizedText;
 @class GTLRAndroidEnterprise_ManagedConfiguration;
+@class GTLRAndroidEnterprise_ManagedConfigurationsSettings;
 @class GTLRAndroidEnterprise_ManagedProperty;
 @class GTLRAndroidEnterprise_ManagedPropertyBundle;
 @class GTLRAndroidEnterprise_NewDeviceEvent;
@@ -50,6 +52,7 @@
 @class GTLRAndroidEnterprise_StorePage;
 @class GTLRAndroidEnterprise_TokenPagination;
 @class GTLRAndroidEnterprise_User;
+@class GTLRAndroidEnterprise_VariableSet;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -349,6 +352,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  was generated.
  */
 @property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  A configuration variables resource contains the managed configuration
+ *  settings ID to be applied to a single user, as well as the variable set that
+ *  is attributed to the user. The variable set will be used to replace
+ *  placeholders in the managed configuration settings.
+ */
+@interface GTLRAndroidEnterprise_ConfigurationVariables : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#configurationVariables".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The ID of the managed configurations settings. */
+@property(nonatomic, copy, nullable) NSString *mcmId;
+
+/** The variable set that is attributed to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_VariableSet *> *variableSet;
 
 @end
 
@@ -828,11 +854,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A managed configuration resource contains the set of managed properties that
- *  have been configured for an Android app. The app's developer would have
- *  defined configurable properties in the managed configurations schema.
+ *  A managed configuration resource contains the set of managed properties
+ *  defined by the app developer in the app's managed configurations schema, as
+ *  well as any configuration variables defined for the user.
  */
 @interface GTLRAndroidEnterprise_ManagedConfiguration : GTLRObject
+
+/**
+ *  Contains the ID of the managed configuration profile and the set of
+ *  configuration variables (if any) defined for the user.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ConfigurationVariables *configurationVariables;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -882,6 +914,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A managed configuration for an app for a specific user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfiguration *> *managedConfigurationForUser;
+
+@end
+
+
+/**
+ *  A managed configurations settings resource contains the set of managed
+ *  properties that have been configured for an Android app to be applied to a
+ *  set of users. The app's developer would have defined configurable properties
+ *  in the managed configurations schema.
+ */
+@interface GTLRAndroidEnterprise_ManagedConfigurationsSettings : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#managedConfigurationsSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The set of managed properties for this configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedProperty *> *managedProperty;
+
+/** The ID of the managed configurations settings. */
+@property(nonatomic, copy, nullable) NSString *mcmId;
+
+/** The name of the managed configurations settings. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The managed configurations settings for a product.
+ */
+@interface GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#managedConfigurationsSettingsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A managed configurations settings for an app that may be assigned to a group
+ *  of users in an enterprise.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfigurationsSettings *> *managedConfigurationsSettings;
 
 @end
 
@@ -1835,6 +1913,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The unique ID for the user. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  A variable set is a key-value pair of EMM-provided placeholders and its
+ *  corresponding value, which is attributed to a user. For example, $FIRSTNAME
+ *  could be a placeholder, and its value could be Alice. Placeholders should
+ *  start with a '$' sign and should be alphanumeric only.
+ */
+@interface GTLRAndroidEnterprise_VariableSet : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#variableSet".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The placeholder string; defined by EMM. */
+@property(nonatomic, copy, nullable) NSString *placeholder;
+
+/** The value of the placeholder, specific to the user. */
+@property(nonatomic, copy, nullable) NSString *userValue;
 
 @end
 

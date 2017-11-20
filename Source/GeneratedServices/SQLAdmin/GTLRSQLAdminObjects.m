@@ -173,6 +173,36 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_DemoteMasterConfiguration
+//
+
+@implementation GTLRSQLAdmin_DemoteMasterConfiguration
+@dynamic kind, mysqlReplicaConfiguration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DemoteMasterContext
+//
+
+@implementation GTLRSQLAdmin_DemoteMasterContext
+@dynamic kind, masterInstanceName, replicaConfiguration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration
+//
+
+@implementation GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration
+@dynamic caCertificate, clientCertificate, clientKey, kind, password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_ExportContext
 //
 
@@ -300,6 +330,16 @@
 
 @implementation GTLRSQLAdmin_InstancesCloneRequest
 @dynamic cloneContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstancesDemoteMasterRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesDemoteMasterRequest
+@dynamic demoteMasterContext;
 @end
 
 

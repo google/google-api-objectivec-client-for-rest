@@ -29,7 +29,6 @@ NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified = @"RU
 // states
 NSString * const kGTLRBigQueryDataTransferStatesCancelled      = @"CANCELLED";
 NSString * const kGTLRBigQueryDataTransferStatesFailed         = @"FAILED";
-NSString * const kGTLRBigQueryDataTransferStatesInactive       = @"INACTIVE";
 NSString * const kGTLRBigQueryDataTransferStatesPending        = @"PENDING";
 NSString * const kGTLRBigQueryDataTransferStatesRunning        = @"RUNNING";
 NSString * const kGTLRBigQueryDataTransferStatesSucceeded      = @"SUCCEEDED";

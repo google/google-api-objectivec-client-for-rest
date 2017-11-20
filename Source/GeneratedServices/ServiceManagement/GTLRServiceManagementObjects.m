@@ -623,12 +623,11 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Endpoint
-@dynamic aliases, allowCors, apis, features, name, target;
+@dynamic aliases, allowCors, features, name, target;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aliases" : [NSString class],
-    @"apis" : [NSString class],
     @"features" : [NSString class]
   };
   return map;

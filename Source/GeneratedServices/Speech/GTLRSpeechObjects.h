@@ -463,6 +463,15 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
 
+/**
+ *  For multi-channel audio, this is the channel number corresponding to the
+ *  recognized result for the audio from that channel.
+ *  For audio_channel_count = N, its output values can range from '0' to 'N-1'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channelTag;
+
 @end
 
 

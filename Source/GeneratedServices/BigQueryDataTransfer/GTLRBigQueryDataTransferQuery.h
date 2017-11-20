@@ -60,8 +60,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspec
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesCancelled;
 /** Value: "FAILED" */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesFailed;
-/** Value: "INACTIVE" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesInactive;
 /** Value: "PENDING" */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesPending;
 /** Value: "RUNNING" */
@@ -639,7 +637,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  If it is provided, the transfer configuration will be associated with the
- *  gaia id of the authorizing user.
+ *  authorizing user.
  *  In order to obtain authorization_code, please make a
  *  request to
  *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
@@ -812,7 +810,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified Value
  *        "TRANSFER_STATE_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferStatesInactive Value "INACTIVE"
  *    @arg @c kGTLRBigQueryDataTransferStatesPending Value "PENDING"
  *    @arg @c kGTLRBigQueryDataTransferStatesRunning Value "RUNNING"
  *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Value "SUCCEEDED"
@@ -905,7 +902,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @end
 
 /**
- *  Creates transfer runs for a time range [range_start_time, range_end_time].
+ *  Creates transfer runs for a time range [start_time, end_time].
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
@@ -929,7 +926,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse.
  *
- *  Creates transfer runs for a time range [range_start_time, range_end_time].
+ *  Creates transfer runs for a time range [start_time, end_time].
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
@@ -1153,7 +1150,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  If it is provided, the transfer configuration will be associated with the
- *  gaia id of the authorizing user.
+ *  authorizing user.
  *  In order to obtain authorization_code, please make a
  *  request to
  *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
@@ -1326,7 +1323,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified Value
  *        "TRANSFER_STATE_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferStatesInactive Value "INACTIVE"
  *    @arg @c kGTLRBigQueryDataTransferStatesPending Value "PENDING"
  *    @arg @c kGTLRBigQueryDataTransferStatesRunning Value "RUNNING"
  *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Value "SUCCEEDED"
@@ -1419,7 +1415,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @end
 
 /**
- *  Creates transfer runs for a time range [range_start_time, range_end_time].
+ *  Creates transfer runs for a time range [start_time, end_time].
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
@@ -1443,7 +1439,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse.
  *
- *  Creates transfer runs for a time range [range_start_time, range_end_time].
+ *  Creates transfer runs for a time range [start_time, end_time].
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.

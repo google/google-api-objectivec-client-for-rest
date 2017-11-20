@@ -2131,9 +2131,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** Cancellations of the line item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderCancellation *> *cancellations;
 
-/** The channel type of the order: "purchaseOnGoogle" or "googleExpress". */
-@property(nonatomic, copy, nullable) NSString *channelType;
-
 /**
  *  The id of the line item.
  *
@@ -2587,7 +2584,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
-/** The ID of the line item to cancel. */
+/**
+ *  The ID of the line item to cancel. Either lineItemId or productId is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
@@ -2796,7 +2796,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
-/** The ID of the line item to cancel. */
+/**
+ *  The ID of the line item to cancel. Either lineItemId or productId is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
@@ -2837,7 +2840,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem : GTLRObject
 
-/** The ID of the line item to return. */
+/**
+ *  The ID of the line item to return. Either lineItemId or productId is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
@@ -3090,7 +3096,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderShipmentLineItemShipment : GTLRObject
 
-/** The id of the line item that is shipped. */
+/**
+ *  The id of the line item that is shipped. Either lineItemId or productId is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
@@ -3177,7 +3186,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersReturnLineItemRequest : GTLRObject
 
-/** The ID of the line item to return. */
+/**
+ *  The ID of the line item to return. Either lineItemId or productId is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
@@ -3559,7 +3571,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *gtin;
 
 /**
- *  The REST id of the product.
+ *  The REST id of the product. Content API methods that operate on products
+ *  take this as their productId parameter.
+ *  The REST id for a product is of the form
+ *  channel:contentLanguage:targetCountry:offerId.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3636,10 +3651,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *multipack;
 
 /**
- *  An identifier of the item. Leading and trailing whitespaces are stripped and
- *  multiple whitespaces are replaced by a single whitespace upon submission.
- *  Only valid unicode characters are accepted. See the products feed
- *  specification for details.
+ *  A unique identifier for the item. Leading and trailing whitespaces are
+ *  stripped and multiple whitespaces are replaced by a single whitespace upon
+ *  submission. Only valid unicode characters are accepted. See the products
+ *  feed specification for details.
+ *  Note: Content API methods that operate on products take the REST id of the
+ *  product, not this identifier.
  */
 @property(nonatomic, copy, nullable) NSString *offerId;
 

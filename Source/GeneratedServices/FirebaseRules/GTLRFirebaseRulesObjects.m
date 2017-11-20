@@ -314,3 +314,18 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_UpdateReleaseRequest
+//
+
+@implementation GTLRFirebaseRules_UpdateReleaseRequest
+@dynamic releaseProperty, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
+@end

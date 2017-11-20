@@ -145,7 +145,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_DeviceInfo
-@dynamic deviceModelName, languageCode, screenResolutionHeight,
+@dynamic deviceModelName, languageCode, languageCodeRaw, screenResolutionHeight,
          screenResolutionWidth, timezone;
 @end
 

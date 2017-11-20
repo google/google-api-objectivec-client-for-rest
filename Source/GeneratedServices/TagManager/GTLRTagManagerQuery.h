@@ -120,6 +120,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerVersion;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeDebugMode;
 /** Value: "deviceName" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeDeviceName;
+/** Value: "elementVisibilityFirstTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityFirstTime;
+/** Value: "elementVisibilityRatio" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRatio;
+/** Value: "elementVisibilityRecentTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRecentTime;
+/** Value: "elementVisibilityTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityTime;
 /** Value: "environmentName" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeEnvironmentName;
 /** Value: "errorLine" */
@@ -220,14 +228,18 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
 /** Value: "resolution" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeResolution;
+/** Value: "scrollDepthDirection" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthDirection;
+/** Value: "scrollDepthThreshold" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthThreshold;
+/** Value: "scrollDepthUnits" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthUnits;
 /** Value: "sdkVersion" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
 /** Value: "videoCurrentTime" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoCurrentTime;
 /** Value: "videoDuration" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoDuration;
-/** Value: "videoElapsedTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoElapsedTime;
 /** Value: "videoPercent" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoPercent;
 /** Value: "videoProvider" */
@@ -1074,6 +1086,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
  *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
  *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
@@ -1147,10 +1167,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
+ *        "scrollDepthThreshold"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
  *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
  *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
  *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
@@ -1237,6 +1261,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
  *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
  *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
@@ -1310,10 +1342,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
+ *        "scrollDepthThreshold"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
  *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
  *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
  *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
@@ -1441,6 +1477,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
  *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
  *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
@@ -1514,10 +1558,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
  *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
+ *        "scrollDepthThreshold"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
  *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoElapsedTime Value "videoElapsedTime"
  *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
  *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
  *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"

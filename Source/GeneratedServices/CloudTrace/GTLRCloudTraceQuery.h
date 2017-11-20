@@ -4,10 +4,9 @@
 // API:
 //   Stackdriver Trace API (cloudtrace/v2)
 // Description:
-//   Send and retrieve trace data from Stackdriver Trace. Data is generated and
-//   available by default for all App Engine applications. Data from other
-//   applications can be written to Stackdriver Trace for display, reporting,
-//   and analysis.
+//   Sends application trace data to Stackdriver Trace for viewing. Trace data
+//   is collected for all App Engine applications by default. Trace data from
+//   other applications can be provided using this API.
 // Documentation:
 //   https://cloud.google.com/trace
 
@@ -42,11 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sends new spans to Stackdriver Trace or updates existing traces. If the
- *  name of a trace that you send matches that of an existing trace, new spans
- *  are added to the existing trace. Attempt to update existing spans results
- *  undefined behavior. If the name does not match, a new trace is created
- *  with given set of spans.
+ *  Sends new spans to new or existing traces. You cannot update
+ *  existing spans.
  *
  *  Method: cloudtrace.projects.traces.batchWrite
  *
@@ -59,25 +55,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudTrace queryForProjectsTracesBatchWriteWithObject:name:]
 
 /**
- *  Required. Name of the project where the spans belong. The format is
- *  `projects/PROJECT_ID`.
+ *  Required. The name of the project where the spans belong. The format is
+ *  `projects/[PROJECT_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudTrace_Empty.
  *
- *  Sends new spans to Stackdriver Trace or updates existing traces. If the
- *  name of a trace that you send matches that of an existing trace, new spans
- *  are added to the existing trace. Attempt to update existing spans results
- *  undefined behavior. If the name does not match, a new trace is created
- *  with given set of spans.
+ *  Sends new spans to new or existing traces. You cannot update
+ *  existing spans.
  *
  *  @param object The @c GTLRCloudTrace_BatchWriteSpansRequest to include in the
  *    query.
- *  @param name Required. Name of the project where the spans belong. The format
- *    is
- *    `projects/PROJECT_ID`.
+ *  @param name Required. The name of the project where the spans belong. The
+ *    format is
+ *    `projects/[PROJECT_ID]`.
  *
  *  @returns GTLRCloudTraceQuery_ProjectsTracesBatchWrite
  */
@@ -87,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Span.
+ *  Creates a new span.
  *
  *  Method: cloudtrace.projects.traces.spans.create
  *
@@ -102,23 +95,25 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the span in the following format:
  *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
- *  for a trace within a project.
- *  [SPAN_ID] is a unique identifier for a span within a trace,
- *  assigned when the span is created.
+ *  for a trace within a project;
+ *  it is a 32-character hexadecimal encoding of a 16-byte array.
+ *  [SPAN_ID] is a unique identifier for a span within a trace; it
+ *  is a 16-character hexadecimal encoding of an 8-byte array.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudTrace_Span.
  *
- *  Creates a new Span.
+ *  Creates a new span.
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
  *  @param name The resource name of the span in the following format:
  *    projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique
- *    identifier for a trace within a project.
- *    [SPAN_ID] is a unique identifier for a span within a trace,
- *    assigned when the span is created.
+ *    identifier for a trace within a project;
+ *    it is a 32-character hexadecimal encoding of a 16-byte array.
+ *    [SPAN_ID] is a unique identifier for a span within a trace; it
+ *    is a 16-character hexadecimal encoding of an 8-byte array.
  *
  *  @returns GTLRCloudTraceQuery_ProjectsTracesSpansCreate
  */

@@ -158,7 +158,7 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsClientsList
 
-@dynamic accountId, pageSize, pageToken;
+@dynamic accountId, pageSize, pageToken, partnerClientId;
 
 + (instancetype)queryWithAccountId:(long long)accountId {
   NSArray *pathParams = @[ @"accountId" ];
@@ -518,325 +518,561 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/bidMetrics";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidMetrics";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidMetricsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.bidMetrics.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.bidMetrics.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/bidResponseErrors";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidResponseErrors";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidResponseErrorsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.bidResponseErrors.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.bidResponseErrors.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/bidResponsesWithoutBids";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidResponsesWithoutBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidResponsesWithoutBidsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.bidResponsesWithoutBids.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.bidResponsesWithoutBids.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate
 
-@dynamic accountId, isTransient;
+@dynamic isTransient, ownerName;
 
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
-                      accountId:(long long)accountId {
+                      ownerName:(NSString *)ownerName {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSArray *pathParams = @[ @"accountId" ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate *query =
+  NSArray *pathParams = @[ @"ownerName" ];
+  NSString *pathURITemplate = @"v2beta1/{+ownerName}/filterSets";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.accountId = accountId;
+  query.ownerName = ownerName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_FilterSet class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.create";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.create";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete
 
-@dynamic accountId, filterSetId;
+@dynamic name;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.name = name;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_Empty class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.delete";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredBidRequests";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBidRequests";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilteredBidRequestsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredBidRequests.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.filteredBidRequests.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList
 
-@dynamic accountId, creativeStatusId, filterSetId, pageSize, pageToken;
+@dynamic creativeStatusId, filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId {
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId {
   NSArray *pathParams = @[
-    @"accountId", @"creativeStatusId", @"filterSetId"
+    @"creativeStatusId", @"filterSetName"
   ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredBids/{creativeStatusId}/creatives";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList *query =
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/creatives";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.creativeStatusId = creativeStatusId;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredBids.creatives.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.filteredBids.creatives.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList
 
-@dynamic accountId, creativeStatusId, filterSetId, pageSize, pageToken;
+@dynamic creativeStatusId, filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId {
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId {
   NSArray *pathParams = @[
-    @"accountId", @"creativeStatusId", @"filterSetId"
+    @"creativeStatusId", @"filterSetName"
   ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredBids/{creativeStatusId}/details";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList *query =
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/details";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.creativeStatusId = creativeStatusId;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredBids.details.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.filteredBids.details.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredBids";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilteredBidsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredBids.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.filteredBids.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet
 
-@dynamic accountId, filterSetId;
+@dynamic name;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.name = name;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_FilterSet class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.get";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.get";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/impressionMetrics";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/impressionMetrics";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListImpressionMetricsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.impressionMetrics.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.impressionMetrics.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList
 
-@dynamic accountId, pageSize, pageToken;
+@dynamic ownerName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId {
-  NSArray *pathParams = @[ @"accountId" ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList *query =
++ (instancetype)queryWithOwnerName:(NSString *)ownerName {
+  NSArray *pathParams = @[ @"ownerName" ];
+  NSString *pathURITemplate = @"v2beta1/{+ownerName}/filterSets";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
+  query.ownerName = ownerName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilterSetsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/losingBids";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/losingBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListLosingBidsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.losingBids.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.losingBids.list";
   return query;
 }
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList
 
-@dynamic accountId, filterSetId, pageSize, pageToken;
+@dynamic filterSetName, pageSize, pageToken;
 
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/nonBillableWinningBids";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList *query =
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/nonBillableWinningBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
+  query.filterSetName = filterSetName;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.nonBillableWinningBids.list";
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.filterSets.nonBillableWinningBids.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidMetrics";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidMetricsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.bidMetrics.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidResponseErrors";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidResponseErrorsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.bidResponseErrors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/bidResponsesWithoutBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListBidResponsesWithoutBidsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.bidResponsesWithoutBids.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate
+
+@dynamic isTransient, ownerName;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
+                      ownerName:(NSString *)ownerName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"ownerName" ];
+  NSString *pathURITemplate = @"v2beta1/{+ownerName}/filterSets";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.ownerName = ownerName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_FilterSet class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Empty class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBidRequests";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilteredBidRequestsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.filteredBidRequests.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList
+
+@dynamic creativeStatusId, filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId {
+  NSArray *pathParams = @[
+    @"creativeStatusId", @"filterSetName"
+  ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/creatives";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.creativeStatusId = creativeStatusId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.filteredBids.creatives.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList
+
+@dynamic creativeStatusId, filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId {
+  NSArray *pathParams = @[
+    @"creativeStatusId", @"filterSetName"
+  ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/details";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.creativeStatusId = creativeStatusId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.filteredBids.details.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/filteredBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilteredBidsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.filteredBids.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_FilterSet class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/impressionMetrics";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListImpressionMetricsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.impressionMetrics.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList
+
+@dynamic ownerName, pageSize, pageToken;
+
++ (instancetype)queryWithOwnerName:(NSString *)ownerName {
+  NSArray *pathParams = @[ @"ownerName" ];
+  NSString *pathURITemplate = @"v2beta1/{+ownerName}/filterSets";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.ownerName = ownerName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilterSetsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/losingBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListLosingBidsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.losingBids.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList
+
+@dynamic filterSetName, pageSize, pageToken;
+
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName {
+  NSArray *pathParams = @[ @"filterSetName" ];
+  NSString *pathURITemplate = @"v2beta1/{+filterSetName}/nonBillableWinningBids";
+  GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.filterSetName = filterSetName;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse class];
+  query.loggingName = @"adexchangebuyer2.bidders.filterSets.nonBillableWinningBids.list";
   return query;
 }
 

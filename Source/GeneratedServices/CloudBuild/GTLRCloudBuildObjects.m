@@ -23,6 +23,16 @@ NSString * const kGTLRCloudBuild_Build_Status_Success       = @"SUCCESS";
 NSString * const kGTLRCloudBuild_Build_Status_Timeout       = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
 
+// GTLRCloudBuild_BuildOptions.logStreamingOption
+NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault = @"STREAM_DEFAULT";
+NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff = @"STREAM_OFF";
+NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn = @"STREAM_ON";
+
+// GTLRCloudBuild_BuildOptions.machineType
+NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
+NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
+NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
+
 // GTLRCloudBuild_BuildOptions.requestedVerifyOption
 NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified = @"NOT_VERIFIED";
 NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
@@ -96,7 +106,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic requestedVerifyOption, sourceProvenanceHash, substitutionOption;
+@dynamic diskSizeGb, logStreamingOption, machineType, requestedVerifyOption,
+         sourceProvenanceHash, substitutionOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -340,7 +351,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_RepoSource
-@dynamic branchName, commitSha, projectId, repoName, tagName;
+@dynamic branchName, commitSha, dir, projectId, repoName, tagName;
 @end
 
 
@@ -360,6 +371,15 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_RetryBuildRequest
+//
+
+@implementation GTLRCloudBuild_RetryBuildRequest
 @end
 
 

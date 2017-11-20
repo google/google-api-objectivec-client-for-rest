@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v2.8)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -51,6 +51,7 @@
 @class GTLRDfareporting_CreativeAssetId;
 @class GTLRDfareporting_CreativeAssetSelection;
 @class GTLRDfareporting_CreativeAssignment;
+@class GTLRDfareporting_CreativeClickThroughUrl;
 @class GTLRDfareporting_CreativeCustomEvent;
 @class GTLRDfareporting_CreativeField;
 @class GTLRDfareporting_CreativeFieldAssignment;
@@ -773,6 +774,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetD
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom;
 /** Value: "ASSET_DURATION_TYPE_NONE" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_CreativeAsset.orientation
+
+/** Value: "LANDSCAPE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Landscape;
+/** Value: "PORTRAIT" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Portrait;
+/** Value: "SQUARE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Square;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.positionLeftUnit
@@ -1587,6 +1598,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod
 GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Counter;
 /** Value: "SALE" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Sale;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FloodlightActivity.floodlightTagType
+
+/** Value: "GLOBAL_SITE_TAG" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSiteTag;
+/** Value: "IFRAME" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe;
+/** Value: "IMAGE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.tagFormat
@@ -2608,6 +2629,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp;
 /** Value: "WEBM" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_VideoSettings.orientation
+
+/** Value: "ANY" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Any;
+/** Value: "LANDSCAPE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landscape;
+/** Value: "PORTRAIT" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait;
+
 /**
  *  Contains properties of a DCM account.
  */
@@ -2734,6 +2765,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  - "47" for BGN
  *  - "48" for HRK
  *  - "49" for MXN
+ *  - "50" for NGN
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3848,6 +3880,36 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 
 /**
+ *  Landing Page List Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "landingPages" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDfareporting_AdvertiserLandingPagesListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#advertiserLandingPagesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Landing page collection
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_LandingPage *> *landingPages;
+
+/** Pagination token to be used for the next list operation. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Advertiser List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4096,6 +4158,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /** Click-through event tag ID override properties for this campaign. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DefaultClickThroughEventTagProperties *defaultClickThroughEventTagProperties;
+
+/**
+ *  The default landing page ID for this campaign.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultLandingPageId;
 
 /**
  *  Date on which the campaign will stop running. On insert, the end date must
@@ -4454,6 +4523,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @interface GTLRDfareporting_ClickTag : GTLRObject
 
 /**
+ *  Parameter value for the specified click tag. This field contains a
+ *  click-through url.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CreativeClickThroughUrl *clickThroughUrl;
+
+/**
  *  Advertiser event name associated with the click tag. This field is used by
  *  DISPLAY_IMAGE_GALLERY and HTML5_BANNER creatives. Applicable to DISPLAY when
  *  the primary asset type is not HTML_IMAGE.
@@ -4466,12 +4541,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  creativeAssetId.name field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Parameter value for the specified click tag. This field contains a
- *  click-through url.
- */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -5176,11 +5245,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, copy, nullable) NSString *backgroundColor;
 
 /**
- *  Click-through URL for backup image. Applicable to the following creative
- *  types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary
- *  asset type is not HTML_IMAGE.
+ *  Click-through URL for backup image. Applicable to ENHANCED_BANNER when the
+ *  primary asset type is not HTML_IMAGE.
  */
-@property(nonatomic, copy, nullable) NSString *backupImageClickThroughUrl;
+@property(nonatomic, strong, nullable) GTLRDfareporting_CreativeClickThroughUrl *backupImageClickThroughUrl;
 
 /**
  *  List of feature dependencies that will cause a backup image to be served if
@@ -5397,6 +5465,14 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  creative types: all RICH_MEDIA.
  */
 @property(nonatomic, copy, nullable) NSString *overrideCss;
+
+/**
+ *  The asset ID of the polite load image asset. Applicable to the creative
+ *  type: DISPLAY.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *politeLoadAssetId;
 
 /**
  *  Amount of time to play the video before counting a view. Applicable to the
@@ -5909,6 +5985,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, strong, nullable) GTLRDfareporting_OffsetPosition *offset;
 
 /**
+ *  Orientation of video asset. This is a read-only, auto-generated field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Orientation_Landscape Value
+ *        "LANDSCAPE"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Orientation_Portrait Value
+ *        "PORTRAIT"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Orientation_Square Value "SQUARE"
+ */
+@property(nonatomic, copy, nullable) NSString *orientation;
+
+/**
  *  Whether the backup asset is original or changed by the user in DCM.
  *  Applicable to the following creative types: all RICH_MEDIA.
  *
@@ -6361,6 +6449,36 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 
 /**
+ *  Click-through URL
+ */
+@interface GTLRDfareporting_CreativeClickThroughUrl : GTLRObject
+
+/**
+ *  Read-only convenience field representing the actual URL that will be used
+ *  for this click-through. The URL is computed as follows:
+ *  - If landingPageId is specified then that landing page's URL is assigned to
+ *  this field.
+ *  - Otherwise, the customClickThroughUrl is assigned to this field.
+ */
+@property(nonatomic, copy, nullable) NSString *computedClickThroughUrl;
+
+/**
+ *  Custom click-through URL. Applicable if the landingPageId field is left
+ *  unset.
+ */
+@property(nonatomic, copy, nullable) NSString *customClickThroughUrl;
+
+/**
+ *  ID of the landing page for the click-through URL.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *landingPageId;
+
+@end
+
+
+/**
  *  Creative Custom Event.
  */
 @interface GTLRDfareporting_CreativeCustomEvent : GTLRObject
@@ -6410,8 +6528,11 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  */
 @property(nonatomic, copy, nullable) NSString *artworkType;
 
-/** Exit URL of the event. This field is used only for exit events. */
-@property(nonatomic, copy, nullable) NSString *exitUrl;
+/**
+ *  Exit click-through URL for the event. This field is used only for exit
+ *  events.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CreativeClickThroughUrl *exitClickThroughUrl;
 
 /**
  *  ID of this event. This is a required field and should not be modified after
@@ -7540,6 +7661,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  - "47" for BGN
  *  - "48" for HRK
  *  - "49" for MXN
+ *  - "50" for NGN
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8303,8 +8425,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  */
 @interface GTLRDfareporting_FloodlightActivitiesGenerateTagResponse : GTLRObject
 
-/** Generated tag for this floodlight activity. */
+/**
+ *  Generated tag for this Floodlight activity. For global site tags, this is
+ *  the event snippet.
+ */
 @property(nonatomic, copy, nullable) NSString *floodlightActivityTag;
+
+/**
+ *  The global snippet section of a global site tag. The global site tag sets
+ *  new cookies on your domain, which will store a unique identifier for a user
+ *  or the ad click that brought the user to your site. Learn more.
+ */
+@property(nonatomic, copy, nullable) NSString *globalSiteTagGlobalSnippet;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -8466,6 +8598,20 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *floodlightConfigurationIdDimensionValue;
 
 /**
+ *  The type of Floodlight tag this activity will generate. This is a required
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSiteTag
+ *        Value "GLOBAL_SITE_TAG"
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe
+ *        Value "IFRAME"
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image Value
+ *        "IMAGE"
+ */
+@property(nonatomic, copy, nullable) NSString *floodlightTagType;
+
+/**
  *  Whether this activity is archived.
  *
  *  Uses NSNumber of boolValue.
@@ -8486,13 +8632,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  auto-generated field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *idDimensionValue;
-
-/**
- *  Whether the image tag is enabled for this activity.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *imageTagEnabled;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -8553,7 +8692,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, copy, nullable) NSString *tagFormat;
 
 /**
- *  Value of the cat= paramter in the floodlight tag, which the ad servers use
+ *  Value of the cat= parameter in the floodlight tag, which the ad servers use
  *  to identify the activity. This is optional: if empty, a new tag string will
  *  be generated for you. This string must be 1 to 8 characters long, with valid
  *  characters being [a-z][A-Z][0-9][-][ _ ]. This tag string must also be
@@ -9272,15 +9411,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @interface GTLRDfareporting_LandingPage : GTLRObject
 
 /**
- *  Whether or not this landing page will be assigned to any ads or creatives
- *  that do not have a landing page assigned explicitly. Only one default
- *  landing page is allowed per campaign.
+ *  Advertiser ID of this landing page. This is a required field.
  *
- *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/**
+ *  Whether this landing page has been archived.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *defaultProperty;
+@property(nonatomic, strong, nullable) NSNumber *archived;
 
 /**
  *  ID of this landing page. This is a read-only, auto-generated field.
@@ -9299,30 +9441,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /**
  *  Name of this landing page. This is a required field. It must be less than
- *  256 characters long, and must be unique among landing pages of the same
- *  campaign.
+ *  256 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** URL of this landing page. This is a required field. */
 @property(nonatomic, copy, nullable) NSString *url;
-
-@end
-
-
-/**
- *  Landing Page List Response
- */
-@interface GTLRDfareporting_LandingPagesListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#landingPagesListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Landing page collection */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_LandingPage *> *landingPages;
 
 @end
 
@@ -12237,7 +12361,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 /**
  *  Whether to enable all reach dimension combinations in the report. Defaults
  *  to false. If enabled, the date range of the report should be within the last
- *  three months.
+ *  42 days.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -14259,6 +14383,19 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  "dfareporting#videoSettings".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Orientation of a video placement. If this value is set, placement will
+ *  return assets matching the specified orientation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_VideoSettings_Orientation_Any Value "ANY"
+ *    @arg @c kGTLRDfareporting_VideoSettings_Orientation_Landscape Value
+ *        "LANDSCAPE"
+ *    @arg @c kGTLRDfareporting_VideoSettings_Orientation_Portrait Value
+ *        "PORTRAIT"
+ */
+@property(nonatomic, copy, nullable) NSString *orientation;
 
 /**
  *  Settings for the skippability of video creatives served to this placement.

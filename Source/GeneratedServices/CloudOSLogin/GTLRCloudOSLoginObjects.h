@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud OS Login API (oslogin/v1alpha)
 // Description:
-//   Manages OS login configuration for Directory API users.
+//   Manages OS login configuration for Google account users.
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/rest/
 
@@ -55,8 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The Directory API profile information used for logging in to a virtual
- *  machine on Google Compute Engine.
+ *  The user profile information used for logging in to a virtual machine on
+ *  Google Compute Engine.
  */
 @interface GTLRCloudOSLogin_LoginProfile : GTLRObject
 
@@ -92,9 +92,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The POSIX account information associated with a Directory API User.
+ *  The POSIX account information associated with a Google account.
  */
 @interface GTLRCloudOSLogin_PosixAccount : GTLRObject
+
+/** Output only. A POSIX account identifier. */
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GECOS (user information) entry for this account. */
 @property(nonatomic, copy, nullable) NSString *gecos;
@@ -139,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The SSH public key information associated with a Directory API User.
+ *  The SSH public key information associated with a Google account.
  */
 @interface GTLRCloudOSLogin_SshPublicKey : GTLRObject
 
@@ -150,10 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *expirationTimeUsec;
 
-/**
- *  The SHA-256 fingerprint of the SSH public key.
- *  Output only.
- */
+/** Output only. The SHA-256 fingerprint of the SSH public key. */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
