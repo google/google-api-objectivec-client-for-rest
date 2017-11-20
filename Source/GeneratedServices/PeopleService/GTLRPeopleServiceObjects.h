@@ -857,6 +857,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  One of the person's interests.
+ *  **DEPRECATED** (Message will not be returned.)
  */
 @interface GTLRPeopleService_Interest : GTLRObject
 
@@ -1245,7 +1246,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's instant messaging clients. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ImClient *> *imClients;
 
-/** The person's interests. */
+/**
+ *  The person's interests.
+ *  **DEPRECATED** (No values will be returned.)
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Interest *> *interests;
 
 /** The person's locale preferences. */

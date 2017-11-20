@@ -138,11 +138,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Creates a queue.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.create
  *
@@ -167,11 +167,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Queue.
  *
  *  Creates a queue.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
  *  @param parent Required.
@@ -193,11 +193,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  This command will delete the queue even if it has tasks in it.
  *  Note: If you delete a queue, a queue with the same name can't be created
  *  for 7 days.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.delete
  *
@@ -222,11 +222,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  This command will delete the queue even if it has tasks in it.
  *  Note: If you delete a queue, a queue with the same name can't be created
  *  for 7 days.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  @param name Required.
  *    The queue name. For example:
@@ -361,9 +361,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  call to CloudTasks.ListQueues method. It is an error to
  *  switch the value of ListQueuesRequest.filter while iterating
  *  through pages.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -398,11 +395,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Updates a queue.
  *  This method creates the queue if it does not exist and updates
  *  the queue if it does exist.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.patch
  *
@@ -417,13 +414,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  The queue name.
  *  The queue name must have the following format:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
- *  * `PROJECT_ID` can contain uppercase and lowercase letters,
- *  numbers, hyphens, colons, and periods; that is, it must match
- *  the regular expression: `[a-zA-Z\\\\d-:\\\\.]+`.
- *  * `QUEUE_ID` can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
- *  characters.
+ *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
+ *  hyphens (-), colons (:), or periods (.).
+ *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
+ *  hyphens (-). The maximum length is 100 characters.
  *  Caller-specified and required in CreateQueueRequest, after which
  *  it becomes output only.
  */
@@ -443,23 +437,20 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Updates a queue.
  *  This method creates the queue if it does not exist and updates
  *  the queue if it does exist.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
+ *  WARNING: Using this method may have unintended side effects if you are
+ *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+ *  Read
  *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
+ *  carefully before using this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
  *  @param name The queue name.
  *    The queue name must have the following format:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
- *    * `PROJECT_ID` can contain uppercase and lowercase letters,
- *    numbers, hyphens, colons, and periods; that is, it must match
- *    the regular expression: `[a-zA-Z\\\\d-:\\\\.]+`.
- *    * `QUEUE_ID` can contain uppercase and lowercase letters,
- *    numbers, and hyphens; that is, it must match the regular
- *    expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
- *    characters.
+ *    * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
+ *    hyphens (-), colons (:), or periods (.).
+ *    * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
+ *    hyphens (-). The maximum length is 100 characters.
  *    Caller-specified and required in CreateQueueRequest, after which
  *    it becomes output only.
  *
@@ -478,11 +469,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  queue is paused. The state of the queue is stored in
  *  Queue.queue_state; if paused it will be set to
  *  Queue.QueueState.PAUSED.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
  *
  *  Method: cloudtasks.projects.locations.queues.pause
  *
@@ -510,11 +496,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  queue is paused. The state of the queue is stored in
  *  Queue.queue_state; if paused it will be set to
  *  Queue.QueueState.PAUSED.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
  *
  *  @param object The @c GTLRCloudTasks_PauseQueueRequest to include in the
  *    query.
@@ -578,11 +559,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Queue.QueueState.PAUSED or Queue.QueueState.DISABLED. The state of
  *  a queue is stored in Queue.queue_state; after calling this method it
  *  will be set to Queue.QueueState.RUNNING.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
  *  WARNING: Resuming many high-QPS queues at the same time can
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
@@ -613,11 +589,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Queue.QueueState.PAUSED or Queue.QueueState.DISABLED. The state of
  *  a queue is stored in Queue.queue_state; after calling this method it
  *  will be set to Queue.QueueState.RUNNING.
- *  WARNING: This method is only available to whitelisted
- *  users. Using this method carries some risk. Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
- *  carefully and then sign up for
- *  [whitelist access to this method](https://goo.gl/Fe5mUy).
  *  WARNING: Resuming many high-QPS queues at the same time can
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
@@ -640,6 +611,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Sets the access control policy for a Queue. Replaces any existing
  *  policy.
+ *  Note: The Cloud Console does not check queue-level IAM permissions yet.
+ *  Project-level permissions are required to use the Cloud Console.
  *  Authorization requires the following [Google IAM](/iam) permission on the
  *  specified resource parent:
  *  * `cloudtasks.queues.setIamPolicy`
@@ -664,6 +637,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  Sets the access control policy for a Queue. Replaces any existing
  *  policy.
+ *  Note: The Cloud Console does not check queue-level IAM permissions yet.
+ *  Project-level permissions are required to use the Cloud Console.
  *  Authorization requires the following [Google IAM](/iam) permission on the
  *  specified resource parent:
  *  * `cloudtasks.queues.setIamPolicy`
@@ -692,6 +667,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  PullTasksResponse. After the task is acknowledged, it will
  *  not be returned by a later CloudTasks.PullTasks,
  *  CloudTasks.GetTask, or CloudTasks.ListTasks.
+ *  To acknowledge multiple tasks at the same time, use
+ *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
+ *  or the batching documentation for your client library, for example
+ *  https://developers.google.com/api-client-library/python/guide/batch.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.acknowledge
  *
@@ -722,6 +701,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  PullTasksResponse. After the task is acknowledged, it will
  *  not be returned by a later CloudTasks.PullTasks,
  *  CloudTasks.GetTask, or CloudTasks.ListTasks.
+ *  To acknowledge multiple tasks at the same time, use
+ *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
+ *  or the batching documentation for your client library, for example
+ *  https://developers.google.com/api-client-library/python/guide/batch.
  *
  *  @param object The @c GTLRCloudTasks_AcknowledgeTaskRequest to include in the
  *    query.
@@ -947,10 +930,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksListWithparent:]
 
 /**
- *  Sort order used for the query. The fields supported for sorting
- *  are Task.schedule_time and PullMessage.tag. All results will be
- *  returned in ascending order. The default ordering is by
- *  Task.schedule_time.
+ *  Sort order used for the query. The only fields supported for sorting
+ *  are `schedule_time` and `pull_message.tag`. All results will be
+ *  returned in approximately ascending order. The default ordering is by
+ *  `schedule_time`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -971,9 +954,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  ListTasksResponse.next_page_token returned from the previous
  *  call to CloudTasks.ListTasks method.
  *  The page token is valid for only 2 hours.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

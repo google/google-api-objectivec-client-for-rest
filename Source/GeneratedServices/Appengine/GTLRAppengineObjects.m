@@ -200,7 +200,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 @dynamic coolDownPeriod, cpuUtilization, diskUtilization, maxConcurrentRequests,
          maxIdleInstances, maxPendingLatency, maxTotalInstances,
          minIdleInstances, minPendingLatency, minTotalInstances,
-         networkUtilization, requestUtilization;
+         networkUtilization, requestUtilization, standardSchedulerSettings;
 @end
 
 
@@ -805,16 +805,6 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppengine_OperationMetadataExperimental
-//
-
-@implementation GTLRAppengine_OperationMetadataExperimental
-@dynamic endTime, insertTime, method, target, user;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppengine_OperationMetadataV1
 //
 
@@ -967,6 +957,17 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_SslSettings
 @dynamic certificateId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_StandardSchedulerSettings
+//
+
+@implementation GTLRAppengine_StandardSchedulerSettings
+@dynamic maxInstances, minInstances, targetCpuUtilization,
+         targetThroughputUtilization;
 @end
 
 

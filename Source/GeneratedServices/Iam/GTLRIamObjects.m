@@ -21,6 +21,7 @@ NSString * const kGTLRIam_BindingDelta_Action_Add              = @"ADD";
 NSString * const kGTLRIam_BindingDelta_Action_Remove           = @"REMOVE";
 
 // GTLRIam_CreateServiceAccountKeyRequest.keyAlgorithm
+NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgGcsSymmetricHmac = @"KEY_ALG_GCS_SYMMETRIC_HMAC";
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_ALG_RSA_1024";
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgUnspecified = @"KEY_ALG_UNSPECIFIED";
@@ -54,6 +55,7 @@ NSString * const kGTLRIam_Role_Stage_Eap        = @"EAP";
 NSString * const kGTLRIam_Role_Stage_Ga         = @"GA";
 
 // GTLRIam_ServiceAccountKey.keyAlgorithm
+NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgGcsSymmetricHmac = @"KEY_ALG_GCS_SYMMETRIC_HMAC";
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_ALG_RSA_1024";
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified = @"KEY_ALG_UNSPECIFIED";

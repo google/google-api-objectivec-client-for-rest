@@ -4,10 +4,9 @@
 // API:
 //   Stackdriver Trace API (cloudtrace/v2)
 // Description:
-//   Send and retrieve trace data from Stackdriver Trace. Data is generated and
-//   available by default for all App Engine applications. Data from other
-//   applications can be written to Stackdriver Trace for display, reporting,
-//   and analysis.
+//   Sends application trace data to Stackdriver Trace for viewing. Trace data
+//   is collected for all App Engine applications by default. Trace data from
+//   other applications can be provided using this API.
 // Documentation:
 //   https://cloud.google.com/trace
 
@@ -57,10 +56,10 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}/spans";
   GTLRCloudTraceQuery_ProjectsTracesSpansCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;

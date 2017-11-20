@@ -132,6 +132,31 @@ NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnsp
 
 @end
 
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseRules_UpdateReleaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseRulesQuery_ProjectsReleasesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseRules_Release class];
+  query.loggingName = @"firebaserules.projects.releases.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseRulesQuery_ProjectsReleasesUpdate
 
 @dynamic name;

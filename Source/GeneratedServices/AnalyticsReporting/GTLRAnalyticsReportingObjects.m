@@ -270,7 +270,7 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 //
 
 @implementation GTLRAnalyticsReporting_GetReportsRequest
-@dynamic reportRequests;
+@dynamic reportRequests, useResourceQuotas;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -288,7 +288,7 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 //
 
 @implementation GTLRAnalyticsReporting_GetReportsResponse
-@dynamic reports;
+@dynamic queryCost, reports, resourceQuotasRemaining;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -561,6 +561,16 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_ResourceQuotasRemaining
+//
+
+@implementation GTLRAnalyticsReporting_ResourceQuotasRemaining
+@dynamic dailyQuotaTokensRemaining, hourlyQuotaTokensRemaining;
 @end
 
 

@@ -194,7 +194,7 @@ GTLR_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
 // type
 
 /**
- *  All sub-organization units.
+ *  All sub-organizational units.
  *
  *  Value: "all"
  */
@@ -494,7 +494,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Full path of the organization unit or its Id */
+/** Full path of the organizational unit or its ID */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /** Token to specify next page in the list */
@@ -548,7 +548,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Move or insert multiple Chrome OS Devices to Organization Unit
+ *  Move or insert multiple Chrome OS Devices to organizational unit
  *
  *  Method: directory.chromeosdevices.moveDevicesToOu
  *
@@ -562,19 +562,19 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the target organization unit or its Id */
+/** Full path of the target organizational unit or its ID */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Move or insert multiple Chrome OS Devices to Organization Unit
+ *  Move or insert multiple Chrome OS Devices to organizational unit
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
  *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the target organization unit or its Id
+ *  @param orgUnitPath Full path of the target organizational unit or its ID
  *
  *  @returns GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu
  */
@@ -1039,7 +1039,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** The alias to be removed */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1048,7 +1048,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Remove a alias for the group
  *
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *  @param alias The alias to be removed
  *
  *  @returns GTLRDirectoryQuery_GroupsAliasesDelete
@@ -1070,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsAliasesInsertWithObject:groupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1079,7 +1079,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Add a alias for the group
  *
  *  @param object The @c GTLRDirectory_Alias to include in the query.
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_GroupsAliasesInsert
  */
@@ -1101,7 +1101,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsAliasesListWithgroupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1109,7 +1109,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  List all aliases for a group
  *
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_GroupsAliasesList
  */
@@ -1129,7 +1129,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsDeleteWithgroupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1138,7 +1138,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Delete Group
  *
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_GroupsDelete
  */
@@ -1159,7 +1159,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsGetWithgroupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1167,7 +1167,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieve Group
  *
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_GroupsGet
  */
@@ -1232,8 +1232,8 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Email or immutable Id of the user if only those groups are to be listed, the
- *  given user is a member of. If Id, it should match with id of user object
+ *  Email or immutable ID of the user if only those groups are to be listed, the
+ *  given user is a member of. If ID, it should match with id of user object
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -1265,7 +1265,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsPatchWithObject:groupKey:]
 
 /**
- *  Email or immutable Id of the group. If Id, it should match with id of group
+ *  Email or immutable ID of the group. If ID, it should match with id of group
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
@@ -1276,7 +1276,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Update Group. This method supports patch semantics.
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
- *  @param groupKey Email or immutable Id of the group. If Id, it should match
+ *  @param groupKey Email or immutable ID of the group. If ID, it should match
  *    with id of group object
  *
  *  @returns GTLRDirectoryQuery_GroupsPatch
@@ -1299,7 +1299,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsUpdateWithObject:groupKey:]
 
 /**
- *  Email or immutable Id of the group. If Id, it should match with id of group
+ *  Email or immutable ID of the group. If ID, it should match with id of group
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
@@ -1310,7 +1310,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Update Group
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
- *  @param groupKey Email or immutable Id of the group. If Id, it should match
+ *  @param groupKey Email or immutable ID of the group. If ID, it should match
  *    with id of group object
  *
  *  @returns GTLRDirectoryQuery_GroupsUpdate
@@ -1333,10 +1333,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersDeleteWithgroupKey:memberKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
-/** Email or immutable Id of the member */
+/** Email or immutable ID of the member */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
@@ -1345,8 +1345,8 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Remove membership.
  *
- *  @param groupKey Email or immutable Id of the group
- *  @param memberKey Email or immutable Id of the member
+ *  @param groupKey Email or immutable ID of the group
+ *  @param memberKey Email or immutable ID of the member
  *
  *  @returns GTLRDirectoryQuery_MembersDelete
  */
@@ -1370,10 +1370,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersGetWithgroupKey:memberKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
-/** Email or immutable Id of the member */
+/** Email or immutable ID of the member */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
@@ -1381,10 +1381,46 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieve Group Member
  *
+ *  @param groupKey Email or immutable ID of the group
+ *  @param memberKey Email or immutable ID of the member
+ *
+ *  @returns GTLRDirectoryQuery_MembersGet
+ */
++ (instancetype)queryWithGroupKey:(NSString *)groupKey
+                        memberKey:(NSString *)memberKey;
+
+@end
+
+/**
+ *  Checks Membership of an user within a Group
+ *
+ *  Method: directory.members.hasMember
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryGroup
+ *    @c kGTLRAuthScopeDirectoryDirectoryGroupMember
+ *    @c kGTLRAuthScopeDirectoryDirectoryGroupMemberReadonly
+ *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
+ */
+@interface GTLRDirectoryQuery_MembersHasMember : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForMembersHasMemberWithgroupKey:memberKey:]
+
+/** Email or immutable Id of the group */
+@property(nonatomic, copy, nullable) NSString *groupKey;
+
+/** Email or immutable Id of the member */
+@property(nonatomic, copy, nullable) NSString *memberKey;
+
+/**
+ *  Fetches a @c GTLRDirectory_MembersHasMember.
+ *
+ *  Checks Membership of an user within a Group
+ *
  *  @param groupKey Email or immutable Id of the group
  *  @param memberKey Email or immutable Id of the member
  *
- *  @returns GTLRDirectoryQuery_MembersGet
+ *  @returns GTLRDirectoryQuery_MembersHasMember
  */
 + (instancetype)queryWithGroupKey:(NSString *)groupKey
                         memberKey:(NSString *)memberKey;
@@ -1404,7 +1440,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersInsertWithObject:groupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
@@ -1413,7 +1449,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Add user to the specified group.
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_MembersInsert
  */
@@ -1437,7 +1473,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersListWithgroupKey:]
 
-/** Email or immutable Id of the group */
+/** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /** Maximum number of results to return. Default is 200 */
@@ -1454,7 +1490,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieve all members in a group (paginated)
  *
- *  @param groupKey Email or immutable Id of the group
+ *  @param groupKey Email or immutable ID of the group
  *
  *  @returns GTLRDirectoryQuery_MembersList
  *
@@ -1481,13 +1517,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersPatchWithObject:groupKey:memberKey:]
 
 /**
- *  Email or immutable Id of the group. If Id, it should match with id of group
+ *  Email or immutable ID of the group. If ID, it should match with id of group
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
- *  Email or immutable Id of the user. If Id, it should match with id of member
+ *  Email or immutable ID of the user. If ID, it should match with id of member
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *memberKey;
@@ -1499,9 +1535,9 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  patch semantics.
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable Id of the group. If Id, it should match
+ *  @param groupKey Email or immutable ID of the group. If ID, it should match
  *    with id of group object
- *  @param memberKey Email or immutable Id of the user. If Id, it should match
+ *  @param memberKey Email or immutable ID of the user. If ID, it should match
  *    with id of member object
  *
  *  @returns GTLRDirectoryQuery_MembersPatch
@@ -1526,13 +1562,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersUpdateWithObject:groupKey:memberKey:]
 
 /**
- *  Email or immutable Id of the group. If Id, it should match with id of group
+ *  Email or immutable ID of the group. If ID, it should match with id of group
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
- *  Email or immutable Id of the user. If Id, it should match with id of member
+ *  Email or immutable ID of the user. If ID, it should match with id of member
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *memberKey;
@@ -1543,9 +1579,9 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Update membership of a user in the specified group.
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable Id of the group. If Id, it should match
+ *  @param groupKey Email or immutable ID of the group. If ID, it should match
  *    with id of group object
- *  @param memberKey Email or immutable Id of the user. If Id, it should match
+ *  @param memberKey Email or immutable ID of the user. If ID, it should match
  *    with id of member object
  *
  *  @returns GTLRDirectoryQuery_MembersUpdate
@@ -1953,7 +1989,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Remove Organization Unit
+ *  Remove organizational unit
  *
  *  Method: directory.orgunits.delete
  *
@@ -1967,17 +2003,17 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organization unit or its Id */
+/** Full path of the organizational unit or its ID */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove Organization Unit
+ *  Remove organizational unit
  *
  *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organization unit or its Id
+ *  @param orgUnitPath Full path of the organizational unit or its ID
  *
  *  @returns GTLRDirectoryQuery_OrgunitsDelete
  */
@@ -1987,7 +2023,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve Organization Unit
+ *  Retrieve organizational unit
  *
  *  Method: directory.orgunits.get
  *
@@ -2002,16 +2038,16 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organization unit or its Id */
+/** Full path of the organizational unit or its ID */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Retrieve Organization Unit
+ *  Retrieve organizational unit
  *
  *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organization unit or its Id
+ *  @param orgUnitPath Full path of the organizational unit or its ID
  *
  *  @returns GTLRDirectoryQuery_OrgunitsGet
  */
@@ -2021,7 +2057,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Add Organization Unit
+ *  Add organizational unit
  *
  *  Method: directory.orgunits.insert
  *
@@ -2038,7 +2074,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Add Organization Unit
+ *  Add organizational unit
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
  *  @param customerId Immutable ID of the G Suite account
@@ -2051,7 +2087,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve all Organization Units
+ *  Retrieve all organizational units
  *
  *  Method: directory.orgunits.list
  *
@@ -2066,14 +2102,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** the URL-encoded organization unit's path or its Id */
+/** the URL-encoded organizational unit's path or its ID */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Whether to return all sub-organizations or just immediate children
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryTypeAll All sub-organization units. (Value: "all")
+ *    @arg @c kGTLRDirectoryTypeAll All sub-organizational units. (Value: "all")
  *    @arg @c kGTLRDirectoryTypeChildren Immediate children only (default).
  *        (Value: "children")
  */
@@ -2082,7 +2118,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_OrgUnits.
  *
- *  Retrieve all Organization Units
+ *  Retrieve all organizational units
  *
  *  @param customerId Immutable ID of the G Suite account
  *
@@ -2093,7 +2129,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update Organization Unit. This method supports patch semantics.
+ *  Update organizational unit. This method supports patch semantics.
  *
  *  Method: directory.orgunits.patch
  *
@@ -2107,17 +2143,17 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organization unit or its Id */
+/** Full path of the organizational unit or its ID */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Update Organization Unit. This method supports patch semantics.
+ *  Update organizational unit. This method supports patch semantics.
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
  *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organization unit or its Id
+ *  @param orgUnitPath Full path of the organizational unit or its ID
  *
  *  @returns GTLRDirectoryQuery_OrgunitsPatch
  */
@@ -2128,7 +2164,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update Organization Unit
+ *  Update organizational unit
  *
  *  Method: directory.orgunits.update
  *
@@ -2142,17 +2178,17 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organization unit or its Id */
+/** Full path of the organizational unit or its ID */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Update Organization Unit
+ *  Update organizational unit
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
  *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organization unit or its Id
+ *  @param orgUnitPath Full path of the organizational unit or its ID
  *
  *  @returns GTLRDirectoryQuery_OrgunitsUpdate
  */
@@ -2870,7 +2906,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable Id of the schema */
+/** Name or immutable ID of the schema */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -2880,7 +2916,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Delete schema
  *
  *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable Id of the schema
+ *  @param schemaKey Name or immutable ID of the schema
  *
  *  @returns GTLRDirectoryQuery_SchemasDelete
  */
@@ -2905,7 +2941,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable Id of the schema */
+/** Name or immutable ID of the schema */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -2914,7 +2950,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Retrieve schema
  *
  *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable Id of the schema
+ *  @param schemaKey Name or immutable ID of the schema
  *
  *  @returns GTLRDirectoryQuery_SchemasGet
  */
@@ -2997,7 +3033,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable Id of the schema. */
+/** Name or immutable ID of the schema. */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -3007,7 +3043,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable Id of the schema.
+ *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @returns GTLRDirectoryQuery_SchemasPatch
  */
@@ -3032,7 +3068,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable Id of the schema. */
+/** Name or immutable ID of the schema. */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -3042,7 +3078,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable Id of the schema.
+ *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @returns GTLRDirectoryQuery_SchemasUpdate
  */
@@ -3177,7 +3213,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** The alias to be removed */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3186,7 +3222,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Remove a alias for the user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *  @param alias The alias to be removed
  *
  *  @returns GTLRDirectoryQuery_UsersAliasesDelete
@@ -3209,7 +3245,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersAliasesInsertWithObject:userKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3218,7 +3254,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Add a alias for the user
  *
  *  @param object The @c GTLRDirectory_Alias to include in the query.
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersAliasesInsert
  */
@@ -3251,7 +3287,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *event;
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3259,7 +3295,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  List all aliases for a user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersAliasesList
  */
@@ -3291,7 +3327,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *event;
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3300,7 +3336,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Watch for changes in user aliases list
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersAliasesWatch
  */
@@ -3321,7 +3357,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersDeleteWithuserKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3330,7 +3366,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Delete user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersDelete
  */
@@ -3373,7 +3409,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3395,7 +3431,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  retrieve user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersGet
  */
@@ -3573,7 +3609,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersMakeAdminWithObject:userKey:]
 
-/** Email or immutable Id of the user as admin */
+/** Email or immutable ID of the user as admin */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3583,7 +3619,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  change admin status of a user
  *
  *  @param object The @c GTLRDirectory_UserMakeAdmin to include in the query.
- *  @param userKey Email or immutable Id of the user as admin
+ *  @param userKey Email or immutable ID of the user as admin
  *
  *  @returns GTLRDirectoryQuery_UsersMakeAdmin
  */
@@ -3605,7 +3641,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersPatchWithObject:userKey:]
 
 /**
- *  Email or immutable Id of the user. If Id, it should match with id of user
+ *  Email or immutable ID of the user. If ID, it should match with id of user
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
@@ -3616,7 +3652,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  update user. This method supports patch semantics.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
- *  @param userKey Email or immutable Id of the user. If Id, it should match
+ *  @param userKey Email or immutable ID of the user. If ID, it should match
  *    with id of user object
  *
  *  @returns GTLRDirectoryQuery_UsersPatch
@@ -3638,7 +3674,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosDeleteWithuserKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3647,7 +3683,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Remove photos for the user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersPhotosDelete
  */
@@ -3668,7 +3704,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosGetWithuserKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3676,7 +3712,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieve photo of a user
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersPhotosGet
  */
@@ -3696,7 +3732,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosPatchWithObject:userKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3705,7 +3741,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Add a photo for the user. This method supports patch semantics.
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersPhotosPatch
  */
@@ -3726,7 +3762,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosUpdateWithObject:userKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3735,7 +3771,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Add a photo for the user
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_UsersPhotosUpdate
  */
@@ -3788,7 +3824,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersUpdateWithObject:userKey:]
 
 /**
- *  Email or immutable Id of the user. If Id, it should match with id of user
+ *  Email or immutable ID of the user. If ID, it should match with id of user
  *  object
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
@@ -3799,7 +3835,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  update user
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
- *  @param userKey Email or immutable Id of the user. If Id, it should match
+ *  @param userKey Email or immutable ID of the user. If ID, it should match
  *    with id of user object
  *
  *  @returns GTLRDirectoryQuery_UsersUpdate
@@ -3952,7 +3988,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForVerificationCodesGenerateWithuserKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3961,7 +3997,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Generate new backup verification codes for the user.
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_VerificationCodesGenerate
  */
@@ -3981,7 +4017,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForVerificationCodesInvalidateWithuserKey:]
 
-/** Email or immutable Id of the user */
+/** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
@@ -3990,7 +4026,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Invalidate the current backup verification codes for the user.
  *
- *  @param userKey Email or immutable Id of the user
+ *  @param userKey Email or immutable ID of the user
  *
  *  @returns GTLRDirectoryQuery_VerificationCodesInvalidate
  */

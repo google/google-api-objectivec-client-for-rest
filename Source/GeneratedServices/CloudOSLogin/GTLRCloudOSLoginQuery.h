@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud OS Login API (oslogin/v1alpha)
 // Description:
-//   Manages OS login configuration for Directory API users.
+//   Manages OS login configuration for Google account users.
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/rest/
 
@@ -88,6 +88,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** The project ID of the Google Cloud Platform project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /**
  *  Fetches a @c GTLRCloudOSLogin_ImportSshPublicKeyResponse.
  *
@@ -102,6 +105,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudOSLogin_SshPublicKey *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a POSIX account.
+ *
+ *  Method: oslogin.users.projects.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
+ */
+@interface GTLRCloudOSLoginQuery_UsersProjectsDelete : GTLRCloudOSLoginQuery
+// Previous library name was
+//   +[GTLQueryCloudOSLogin queryForUsersProjectsDeleteWithname:]
+
+/**
+ *  A reference to the POSIX account to update. POSIX accounts are identified
+ *  by the project ID they are associated with. A reference to the POSIX
+ *  account is in format `users/{user}/projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudOSLogin_Empty.
+ *
+ *  Deletes a POSIX account.
+ *
+ *  @param name A reference to the POSIX account to update. POSIX accounts are
+ *    identified
+ *    by the project ID they are associated with. A reference to the POSIX
+ *    account is in format `users/{user}/projects/{project}`.
+ *
+ *  @returns GTLRCloudOSLoginQuery_UsersProjectsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -17,6 +17,7 @@
 
 // alertFilter
 NSString * const kGTLRProximityBeaconAlertFilterAlertUnspecified = @"ALERT_UNSPECIFIED";
+NSString * const kGTLRProximityBeaconAlertFilterLowActivity    = @"LOW_ACTIVITY";
 NSString * const kGTLRProximityBeaconAlertFilterLowBattery     = @"LOW_BATTERY";
 NSString * const kGTLRProximityBeaconAlertFilterWrongLocation  = @"WRONG_LOCATION";
 

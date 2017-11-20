@@ -495,7 +495,7 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 
 @implementation GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
 
-@dynamic name, name1, updateMask;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
                            name:(NSString *)name {

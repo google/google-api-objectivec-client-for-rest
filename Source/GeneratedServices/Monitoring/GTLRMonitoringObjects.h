@@ -35,6 +35,7 @@
 @class GTLRMonitoring_Group;
 @class GTLRMonitoring_HttpCheck;
 @class GTLRMonitoring_HttpCheck_Headers;
+@class GTLRMonitoring_InternalChecker;
 @class GTLRMonitoring_LabelDescriptor;
 @class GTLRMonitoring_Linear;
 @class GTLRMonitoring_Metric;
@@ -1157,6 +1158,35 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Nimbus InternalCheckers.
+ */
+@interface GTLRMonitoring_InternalChecker : GTLRObject
+
+/** The checker ID. */
+@property(nonatomic, copy, nullable) NSString *checkerId;
+
+/** The checker's human-readable name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The GCP zone the uptime check should egress from. Only respected for
+ *  internal uptime checks, where internal_network is specified.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpZone;
+
+/** The internal network to perform this uptime check on. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The GCP project ID. Not necessarily the same as the project_id for the
+ *  config.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
  *  A description of a label.
  */
 @interface GTLRMonitoring_LabelDescriptor : GTLRObject
@@ -1529,52 +1559,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The unit in which the metric value is reported. It is only applicable if the
- *  value_type is INT64, DOUBLE, or DISTRIBUTION. The supported units are a
- *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
- *  bit bit
- *  By byte
- *  s second
- *  min minute
- *  h hour
- *  d dayPrefixes (PREFIX)
- *  k kilo (10**3)
- *  M mega (10**6)
- *  G giga (10**9)
- *  T tera (10**12)
- *  P peta (10**15)
- *  E exa (10**18)
- *  Z zetta (10**21)
- *  Y yotta (10**24)
- *  m milli (10**-3)
- *  u micro (10**-6)
- *  n nano (10**-9)
- *  p pico (10**-12)
- *  f femto (10**-15)
- *  a atto (10**-18)
- *  z zepto (10**-21)
- *  y yocto (10**-24)
- *  Ki kibi (2**10)
- *  Mi mebi (2**20)
- *  Gi gibi (2**30)
- *  Ti tebi (2**40)GrammarThe grammar includes the dimensionless unit 1, such as
- *  1/s.The grammar also includes these connectors:
- *  / division (as an infix operator, e.g. 1/s).
- *  . multiplication (as an infix operator, e.g. GBy.d)The grammar for a unit is
- *  as follows:
- *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = [ PREFIX ] UNIT [ Annotation ]
- *  | Annotation
- *  | "1"
- *  ;
- *  Annotation = "{" NAME "}" ;
- *  Notes:
- *  Annotation is just a comment if it follows a UNIT and is equivalent to 1 if
- *  it is used alone. For examples, {requests}/s == 1/s, By{transmitted}/s ==
- *  By/s.
- *  NAME is a sequence of non-blank printable ASCII characters not containing
- *  '{' or '}'.
+ *  Optional. The unit in which the metric value is reported. For example, kBy/s
+ *  means kilobytes/sec, and 1 is the dimensionless unit. The supported units
+ *  are a subset of The Unified Code for Units of Measure standard
+ *  (http://unitsofmeasure.org/ucum.html).<br><br> This field is part of the
+ *  metric's documentation, but it is ignored by Stackdriver.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -2125,6 +2114,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /** Contains information needed to make an HTTP or HTTPS check. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_HttpCheck *httpCheck;
+
+/** The internal checkers that this check will egress from. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
 
 /** The monitored resource associated with the configuration. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;

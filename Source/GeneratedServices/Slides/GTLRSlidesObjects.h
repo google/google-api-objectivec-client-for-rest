@@ -3434,6 +3434,44 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRe
 GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
+// GTLRSlides_ShapeProperties.contentAlignment
+
+/**
+ *  An alignment that aligns the content to the bottom of the content
+ *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
+ *
+ *  Value: "BOTTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Bottom;
+/**
+ *  An unspecified content alignment. The content alignment is inherited from
+ *  the parent if it exists.
+ *
+ *  Value: "CONTENT_ALIGNMENT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified;
+/**
+ *  An unsupported content alignment.
+ *
+ *  Value: "CONTENT_ALIGNMENT_UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported;
+/**
+ *  An alignment that aligns the content to the middle of the content
+ *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
+ *
+ *  Value: "MIDDLE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Middle;
+/**
+ *  An alignment that aligns the content to the top of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 't'.
+ *
+ *  Value: "TOP"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Top;
+
+// ----------------------------------------------------------------------------
 // GTLRSlides_TableBorderProperties.dashStyle
 
 /**
@@ -3515,6 +3553,44 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_N
  *  Value: "RENDERED"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Rendered;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_TableCellProperties.contentAlignment
+
+/**
+ *  An alignment that aligns the content to the bottom of the content
+ *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
+ *
+ *  Value: "BOTTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Bottom;
+/**
+ *  An unspecified content alignment. The content alignment is inherited from
+ *  the parent if it exists.
+ *
+ *  Value: "CONTENT_ALIGNMENT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified;
+/**
+ *  An unsupported content alignment.
+ *
+ *  Value: "CONTENT_ALIGNMENT_UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported;
+/**
+ *  An alignment that aligns the content to the middle of the content
+ *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
+ *
+ *  Value: "MIDDLE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Middle;
+/**
+ *  An alignment that aligns the content to the top of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 't'.
+ *
+ *  Value: "TOP"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_TextStyle.baselineOffset
@@ -3970,7 +4046,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at maximum 2K bytes large.
+ *  The provided URL can be at most 2 kB in length.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -5858,9 +5934,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The outline property state.
- *  Updating the the outline on a page element will implicitly update this
- *  field to`RENDERED`, unless another value is specified in the same request.
- *  To have no outline on a page element, set this field to `NOT_RENDERED`. In
+ *  Updating the outline on a page element will implicitly update this field
+ *  to `RENDERED`, unless another value is specified in the same request. To
+ *  have no outline on a page element, set this field to `NOT_RENDERED`. In
  *  this case, any other outline fields set in the same request will be
  *  ignored.
  *
@@ -6570,7 +6646,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at maximum 2K bytes large.
+ *  The provided URL can be at most 2 kB in length.
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
@@ -6981,9 +7057,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The shadow property state.
- *  Updating the the shadow on a page element will implicitly update this field
- *  to `RENDERED`, unless another value is specified in the same request. To
- *  have no shadow on a page element, set this field to `NOT_RENDERED`. In this
+ *  Updating the shadow on a page element will implicitly update this field to
+ *  `RENDERED`, unless another value is specified in the same request. To have
+ *  no shadow on a page element, set this field to `NOT_RENDERED`. In this
  *  case, any other shadow fields set in the same request will be ignored.
  *
  *  Likely values:
@@ -7495,6 +7571,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ShapeProperties : GTLRObject
 
 /**
+ *  The alignment of the content in the shape. If unspecified,
+ *  the alignment is inherited from a parent placeholder if it exists. If the
+ *  shape has no parent, the default alignment matches the alignment for new
+ *  shapes created in the Slides editor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Bottom An alignment
+ *        that aligns the content to the bottom of the content
+ *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value:
+ *        "BOTTOM")
+ *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified
+ *        An unspecified content alignment. The content alignment is inherited
+ *        from
+ *        the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported
+ *        An unsupported content alignment. (Value:
+ *        "CONTENT_ALIGNMENT_UNSUPPORTED")
+ *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Middle An alignment
+ *        that aligns the content to the middle of the content
+ *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value:
+ *        "MIDDLE")
+ *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Top An alignment that
+ *        aligns the content to the top of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *contentAlignment;
+
+/**
  *  The hyperlink destination of the shape. If unset, there is no link. Links
  *  are not inherited from parent placeholders.
  */
@@ -7653,7 +7757,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Pictures must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at maximum 2K bytes large.
+ *  The provided URL can be at most 2 kB in length.
  */
 @property(nonatomic, copy, nullable) NSString *contentUrl;
 
@@ -7920,6 +8024,32 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The properties of the TableCell.
  */
 @interface GTLRSlides_TableCellProperties : GTLRObject
+
+/**
+ *  The alignment of the content in the table cell. The default alignment
+ *  matches the alignment for newly created table cells in the Slides editor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Bottom An
+ *        alignment that aligns the content to the bottom of the content
+ *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value:
+ *        "BOTTOM")
+ *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified
+ *        An unspecified content alignment. The content alignment is inherited
+ *        from
+ *        the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported
+ *        An unsupported content alignment. (Value:
+ *        "CONTENT_ALIGNMENT_UNSUPPORTED")
+ *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Middle An
+ *        alignment that aligns the content to the middle of the content
+ *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value:
+ *        "MIDDLE")
+ *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Top An alignment
+ *        that aligns the content to the top of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *contentAlignment;
 
 /**
  *  The background fill of the table cell. The default fill matches the fill

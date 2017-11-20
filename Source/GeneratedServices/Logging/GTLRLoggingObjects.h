@@ -924,6 +924,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntrySourceLocation *sourceLocation;
 
+/**
+ *  Optional. The span ID within the trace associated with the log entry. For
+ *  Stackdriver Trace spans, this is the same format that the Stackdriver Trace
+ *  API v2 uses: a 16-character hexadecimal encoding of an 8-byte array, such as
+ *  <code>"000000000000004a"</code>.
+ */
+@property(nonatomic, copy, nullable) NSString *spanId;
+
 /** The log entry payload, represented as a Unicode string (UTF-8). */
 @property(nonatomic, copy, nullable) NSString *textPayload;
 

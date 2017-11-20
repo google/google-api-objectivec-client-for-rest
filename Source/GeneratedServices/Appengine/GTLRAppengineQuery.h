@@ -40,6 +40,16 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// overrideStrategy
+
+/** Value: "OVERRIDE" */
+GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyOverride;
+/** Value: "STRICT" */
+GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyStrict;
+/** Value: "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY" */
+GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy;
+
+// ----------------------------------------------------------------------------
 // view
 
 /** Value: "BASIC" */
@@ -395,6 +405,18 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  Whether the domain creation should override any existing mappings for this
+ *  domain. By default, overrides are rejected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy
+ *        Value "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY"
+ *    @arg @c kGTLRAppengineOverrideStrategyStrict Value "STRICT"
+ *    @arg @c kGTLRAppengineOverrideStrategyOverride Value "OVERRIDE"
+ */
+@property(nonatomic, copy, nullable) NSString *overrideStrategy;
 
 /**
  *  Fetches a @c GTLRAppengine_Operation.

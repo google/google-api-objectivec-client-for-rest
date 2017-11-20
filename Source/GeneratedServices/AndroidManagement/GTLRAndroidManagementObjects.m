@@ -125,6 +125,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplian
 // GTLRAndroidManagement_PasswordRequirements.passwordQuality
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic = @"ALPHABETIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric = @"ALPHANUMERIC";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak = @"BIOMETRIC_WEAK";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex = @"COMPLEX";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric = @"NUMERIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex = @"NUMERIC_COMPLEX";

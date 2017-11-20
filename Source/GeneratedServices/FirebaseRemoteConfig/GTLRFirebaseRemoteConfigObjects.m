@@ -66,7 +66,12 @@ NSString * const kGTLRFirebaseRemoteConfig_RemoteConfigCondition_TagColor_Teal =
 //
 
 @implementation GTLRFirebaseRemoteConfig_RemoteConfigCondition
-@dynamic expression, name, tagColor;
+@dynamic descriptionProperty, expression, name, tagColor;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -76,7 +81,12 @@ NSString * const kGTLRFirebaseRemoteConfig_RemoteConfigCondition_TagColor_Teal =
 //
 
 @implementation GTLRFirebaseRemoteConfig_RemoteConfigParameter
-@dynamic conditionalValues, defaultValue;
+@dynamic conditionalValues, defaultValue, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

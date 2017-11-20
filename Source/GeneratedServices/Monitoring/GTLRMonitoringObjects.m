@@ -378,6 +378,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_InternalChecker
+//
+
+@implementation GTLRMonitoring_InternalChecker
+@dynamic checkerId, displayName, gcpZone, network, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_LabelDescriptor
 //
 
@@ -818,12 +828,14 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_UptimeCheckConfig
-@dynamic contentMatchers, displayName, httpCheck, monitoredResource, name,
-         period, resourceGroup, selectedRegions, tcpCheck, timeout;
+@dynamic contentMatchers, displayName, httpCheck, internalCheckers,
+         monitoredResource, name, period, resourceGroup, selectedRegions,
+         tcpCheck, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"contentMatchers" : [GTLRMonitoring_ContentMatcher class],
+    @"internalCheckers" : [GTLRMonitoring_InternalChecker class],
     @"selectedRegions" : [NSString class]
   };
   return map;

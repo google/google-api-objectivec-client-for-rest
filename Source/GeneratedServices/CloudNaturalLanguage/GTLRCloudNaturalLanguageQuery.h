@@ -25,6 +25,7 @@
 @class GTLRCloudNaturalLanguage_AnalyzeSentimentRequest;
 @class GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest;
 @class GTLRCloudNaturalLanguage_AnnotateTextRequest;
+@class GTLRCloudNaturalLanguage_ClassifyTextRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -187,6 +188,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnnotateTextRequest *)object;
+
+@end
+
+/**
+ *  Classifies a document into categories.
+ *
+ *  Method: language.documents.classifyText
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
+ */
+@interface GTLRCloudNaturalLanguageQuery_DocumentsClassifyText : GTLRCloudNaturalLanguageQuery
+// Previous library name was
+//   +[GTLQueryCloudNaturalLanguage queryForDocumentsClassifyTextWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudNaturalLanguage_ClassifyTextResponse.
+ *
+ *  Classifies a document into categories.
+ *
+ *  @param object The @c GTLRCloudNaturalLanguage_ClassifyTextRequest to include
+ *    in the query.
+ *
+ *  @returns GTLRCloudNaturalLanguageQuery_DocumentsClassifyText
+ */
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ClassifyTextRequest *)object;
 
 @end
 

@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud OS Login API (oslogin/v1alpha)
 // Description:
-//   Manages OS login configuration for Directory API users.
+//   Manages OS login configuration for Google account users.
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/rest/
 
@@ -67,7 +67,8 @@
 //
 
 @implementation GTLRCloudOSLogin_PosixAccount
-@dynamic gecos, gid, homeDirectory, primary, shell, systemId, uid, username;
+@dynamic accountId, gecos, gid, homeDirectory, primary, shell, systemId, uid,
+         username;
 @end
 
 

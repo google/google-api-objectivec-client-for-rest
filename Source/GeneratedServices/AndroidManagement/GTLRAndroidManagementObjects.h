@@ -617,6 +617,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric;
 /**
+ *  There must be at least low-security biometric recognition technology to
+ *  secure the device. This includes technologies that can recognize the
+ *  identity of an individual to about a 3 digit PIN (false detection is less
+ *  than 1 in 1,000).
+ *
+ *  Value: "BIOMETRIC_WEAK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak;
+/**
  *  The password must contain at least a letter, a numerical digit and a special
  *  symbol. Other password constraints, for example, password_minimum_letters
  *  are enforced.
@@ -795,10 +804,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone;
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified;
 /**
- *  Install automatically within a daily maintenance window. If the device has a
- *  device account, this also configures Play apps to be updated within the
- *  window. This is strongly recommended for kiosk devices because this is the
- *  only way apps persistently pinned to the foreground can be updated by Play.
+ *  Install automatically within a daily maintenance window. This also
+ *  configures Play apps to be updated within the window. This is strongly
+ *  recommended for kiosk devices because this is the only way apps persistently
+ *  pinned to the foreground can be updated by Play.
  *
  *  Value: "WINDOWED"
  */
@@ -1187,12 +1196,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The name of the policy that is intended to be applied to the device. If
- *  empty, the policy with id default is applied. This field may be modified by
- *  an update request. The name of the policy is in the form
- *  enterprises/{enterpriseId}/policies/{policyId}. It is also permissible to
- *  only specify the policyId when updating this field as long as the policyId
- *  contains no slashes since the rest of the policy name can be inferred from
- *  context.
+ *  empty, the policy_name for the user that owns this device is applied. This
+ *  field may be modified by an update request. The name of the policy is in the
+ *  form enterprises/{enterpriseId}/policies/{policyId}. It is also permissible
+ *  to only specify the policyId when updating this field as long as the
+ *  policyId contains no slashes since the rest of the policy name can be
+ *  inferred from context.
  */
 @property(nonatomic, copy, nullable) NSString *policyName;
 
@@ -1241,9 +1250,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The resource name of the user of the device in the form
- *  enterprises/{enterpriseId}/users/{userId}. This is the name of the device
- *  account automatically created for this device.
+ *  The resource name of the user that owns this device in the form
+ *  enterprises/{enterpriseId}/users/{userId}.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
 
@@ -1362,7 +1370,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  The name of the policy that will be initially applied to the enrolled device
  *  in the form enterprises/{enterpriseId}/policies/{policyId}. If not
- *  specified, the policy with id default is applied. It is permissible to only
+ *  specified, the policy_name for the user that owns the device is applied. If
+ *  user_name also isn't specified, the policy defaults to
+ *  enterprises/{enterpriseId}/policies/default. It is permissible to only
  *  specify the policyId when updating this field as long as the policyId
  *  contains no slashes since the rest of the policy name can be inferred from
  *  context.
@@ -2204,6 +2214,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric
  *        The password must contain at both numeric and alphabetic (or symbol)
  *        characters. (Value: "ALPHANUMERIC")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak
+ *        There must be at least low-security biometric recognition technology
+ *        to secure the device. This includes technologies that can recognize
+ *        the identity of an individual to about a 3 digit PIN (false detection
+ *        is less than 1 in 1,000). (Value: "BIOMETRIC_WEAK")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex
  *        The password must contain at least a letter, a numerical digit and a
  *        special symbol. Other password constraints, for example,
@@ -2490,8 +2505,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The system update policy, which controls how OS updates are applied. If the
- *  update type is WINDOWED and the device has a device account, the update
- *  window will automatically apply to Play app updates as well.
+ *  update type is WINDOWED, the update window will automatically apply to Play
+ *  app updates as well.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
@@ -2795,11 +2810,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        requires the user to accept system updates. (Value:
  *        "SYSTEM_UPDATE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_SystemUpdate_Type_Windowed Install
- *        automatically within a daily maintenance window. If the device has a
- *        device account, this also configures Play apps to be updated within
- *        the window. This is strongly recommended for kiosk devices because
- *        this is the only way apps persistently pinned to the foreground can be
- *        updated by Play. (Value: "WINDOWED")
+ *        automatically within a daily maintenance window. This also configures
+ *        Play apps to be updated within the window. This is strongly
+ *        recommended for kiosk devices because this is the only way apps
+ *        persistently pinned to the foreground can be updated by Play. (Value:
+ *        "WINDOWED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

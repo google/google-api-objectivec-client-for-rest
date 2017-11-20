@@ -80,20 +80,13 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation.level
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation_Level_FrameLevel = @"FRAME_LEVEL";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation_Level_LabelLevelUnspecified = @"LABEL_LEVEL_UNSPECIFIED";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation_Level_SegmentLevel = @"SEGMENT_LEVEL";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation_Level_ShotLevel = @"SHOT_LEVEL";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation_Level_VideoLevel = @"VIDEO_LEVEL";
-
-// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation.adult
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_Likely = @"LIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_Possible = @"POSSIBLE";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_Unknown = @"UNKNOWN";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_Unlikely = @"UNLIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation_Adult_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame.pornographyLikelihood
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
 // ----------------------------------------------------------------------------
 //
@@ -450,19 +443,30 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
 //
 
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation
-@dynamic descriptionProperty, languageCode, locations;
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
+@dynamic descriptionProperty, entityId, languageCode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation
+@dynamic frames;
+
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation class]
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame class]
   };
   return map;
 }
@@ -472,21 +476,51 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame
 //
 
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation
-@dynamic confidence, level, segment;
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame
+@dynamic pornographyLikelihood, timeOffset;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation
 //
 
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation
-@dynamic adult, time;
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation
+@dynamic categoryEntities, entity, frames, segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categoryEntities" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity class],
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame class],
+    @"segments" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame
+@dynamic confidence, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment
+@dynamic confidence, segment;
 @end
 
 
@@ -506,14 +540,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationResults
-@dynamic error, inputUri, labelAnnotations, safeSearchAnnotations,
-         shotAnnotations;
+@dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
+         segmentLabelAnnotations, shotAnnotations, shotLabelAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
-    @"safeSearchAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeSearchAnnotation class],
-    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment class]
+    @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
+    @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
+    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment class],
+    @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class]
   };
   return map;
 }
@@ -527,7 +562,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment
-@dynamic endTime, startTime;
+@dynamic endTimeOffset, startTimeOffset;
 @end
 
 

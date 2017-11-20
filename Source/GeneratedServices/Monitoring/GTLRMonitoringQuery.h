@@ -1158,12 +1158,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The uptime check configuration to update. The format
- *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
- */
-@property(nonatomic, copy, nullable) NSString *name1;
-
-/**
  *  Optional. If present, only the listed fields in the current uptime check
  *  configuration are updated with values from the new configuration. If this
  *  field is empty, then the current configuration is completely replaced with

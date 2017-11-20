@@ -323,6 +323,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  Optional unique identifier (from the standpoint of an Ad Exchange sponsor
+ *  buyer partner) of the client to return.
+ *  If specified, at most one client will be returned in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *partnerClientId;
+
+/**
  *  Fetches a @c GTLRAdExchangeBuyerII_ListClientsResponse.
  *
  *  Lists all the clients for the current sponsor buyer.
@@ -990,20 +997,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 /**
  *  Lists all metrics that are measured in terms of number of bids.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.bidMetrics.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.bidMetrics.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidMetricsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidMetricsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1015,8 +1028,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListBidMetricsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.bidMetrics.list
+ *  returned from the previous call to the bidMetrics.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1026,17 +1038,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *
  *  Lists all metrics that are measured in terms of number of bids.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
@@ -1044,20 +1063,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all errors that occurred in bid responses, with the number of bid
  *  responses affected for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.bidResponseErrors.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.bidResponseErrors.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidResponseErrorsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidResponseErrorsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1069,8 +1094,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListBidResponseErrorsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.bidResponseErrors.list
+ *  returned from the previous call to the bidResponseErrors.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1081,17 +1105,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all errors that occurred in bid responses, with the number of bid
  *  responses affected for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
@@ -1099,20 +1130,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bid responses were considered to have no
  *  applicable bids, with the number of bid responses affected for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.bidResponsesWithoutBids.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.bidResponsesWithoutBids.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidResponsesWithoutBidsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidResponsesWithoutBidsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1124,8 +1161,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListBidResponsesWithoutBidsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.bidResponsesWithoutBids.list
+ *  returned from the previous call to the bidResponsesWithoutBids.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1136,34 +1172,38 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bid responses were considered to have no
  *  applicable bids, with the number of bid responses affected for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
 /**
  *  Creates the specified filter set for the account with the given account ID.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.create
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsCreateWithObject:accountId:]
-
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsCreateWithObject:ownerName:]
 
 /**
  *  Whether the filter set is transient, or should be persisted indefinitely.
@@ -1173,18 +1213,37 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) BOOL isTransient;
 
 /**
+ *  Name of the owner (bidder or account) of the filter set to be created.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123: `bidders/123`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456`
+ */
+@property(nonatomic, copy, nullable) NSString *ownerName;
+
+/**
  *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
  *
  *  Creates the specified filter set for the account with the given account ID.
  *
  *  @param object The @c GTLRAdExchangeBuyerII_FilterSet to include in the
  *    query.
- *  @param accountId Account ID of the buyer.
+ *  @param ownerName Name of the owner (bidder or account) of the filter set to
+ *    be created.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123: `bidders/123`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
-                      accountId:(long long)accountId;
+                      ownerName:(NSString *)ownerName;
 
 @end
 
@@ -1192,20 +1251,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  Deletes the requested filter set from the account with the given account
  *  ID.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.delete
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsDeleteWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsDeleteWithname:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to delete. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Full name of the resource to delete.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_Empty.
@@ -1213,13 +1278,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  Deletes the requested filter set from the account with the given account
  *  ID.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to delete.
+ *  @param name Full name of the resource to delete.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1227,20 +1298,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons that caused a bid request not to be sent for an
  *  impression, with the number of bid requests not sent for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBidRequests.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.filteredBidRequests.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidRequestsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidRequestsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1252,8 +1329,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListFilteredBidRequestsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBidRequests.list
+ *  returned from the previous call to the filteredBidRequests.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1264,17 +1340,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons that caused a bid request not to be sent for an
  *  impression, with the number of bid requests not sent for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
@@ -1282,17 +1365,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all creatives associated with a specific reason for which bids were
  *  filtered, with the number of bids filtered for each creative.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.filteredBids.creatives.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesListWithaccountId:filterSetId:creativeStatusId:]
-
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsCreativesListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by
@@ -1302,8 +1382,17 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  */
 @property(nonatomic, assign) NSInteger creativeStatusId;
 
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1315,8 +1404,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListCreativeStatusBreakdownByCreativeResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBids.creatives.list
+ *  returned from the previous call to the filteredBids.creatives.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1328,23 +1416,30 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all creatives associated with a specific reason for which bids were
  *  filtered, with the number of bids filtered for each creative.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *  @param creativeStatusId The ID of the creative status for which to retrieve
  *    a breakdown by
  *    creative.
  *    See
  *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId;
 
 @end
 
@@ -1352,17 +1447,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all details associated with a specific reason for which bids were
  *  filtered, with the number of bids filtered for each detail.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.details.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.filteredBids.details.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsDetailsListWithaccountId:filterSetId:creativeStatusId:]
-
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsDetailsListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by detail.
@@ -1372,8 +1464,17 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  */
 @property(nonatomic, assign) NSInteger creativeStatusId;
 
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1385,8 +1486,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListCreativeStatusBreakdownByDetailResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBids.details.list
+ *  returned from the previous call to the filteredBids.details.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1398,8 +1498,16 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all details associated with a specific reason for which bids were
  *  filtered, with the number of bids filtered for each detail.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *  @param creativeStatusId The ID of the creative status for which to retrieve
  *    a breakdown by detail.
  *    See
@@ -1407,15 +1515,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and
  *    87.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId;
 
 @end
 
@@ -1423,20 +1530,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bids were filtered, with the number of bids
  *  filtered for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.filteredBids.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1448,8 +1561,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListFilteredBidsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBids.list
+ *  returned from the previous call to the filteredBids.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1460,17 +1572,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bids were filtered, with the number of bids
  *  filtered for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
@@ -1478,20 +1597,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  Retrieves the requested filter set for the account with the given account
  *  ID.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.get
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsGetWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsGetWithname:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to get. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Full name of the resource being requested.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
@@ -1499,33 +1624,45 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  Retrieves the requested filter set for the account with the given account
  *  ID.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to get.
+ *  @param name Full name of the resource being requested.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
  *  Lists all metrics that are measured in terms of number of impressions.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.impressionMetrics.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.impressionMetrics.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsImpressionMetricsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsImpressionMetricsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1537,8 +1674,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListImpressionMetricsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.impressionMetrics.list
+ *  returned from the previous call to the impressionMetrics.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1548,34 +1684,49 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *
  *  Lists all metrics that are measured in terms of number of impressions.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
 /**
  *  Lists all filter sets for the account with the given account ID.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsListWithaccountId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsListWithownerName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
+/**
+ *  Name of the owner (bidder or account) of the filter sets to be listed.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123: `bidders/123`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456`
+ */
+@property(nonatomic, copy, nullable) NSString *ownerName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1598,15 +1749,23 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *
  *  Lists all filter sets for the account with the given account ID.
  *
- *  @param accountId Account ID of the buyer.
+ *  @param ownerName Name of the owner (bidder or account) of the filter sets to
+ *    be listed.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123: `bidders/123`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId;
++ (instancetype)queryWithOwnerName:(NSString *)ownerName;
 
 @end
 
@@ -1614,20 +1773,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bids lost in the auction, with the number of
  *  bids that lost for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.losingBids.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.losingBids.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsLosingBidsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsLosingBidsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1639,8 +1804,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListLosingBidsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.losingBids.list
+ *  returned from the previous call to the losingBids.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1651,17 +1815,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which bids lost in the auction, with the number of
  *  bids that lost for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 
@@ -1669,20 +1840,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which winning bids were not billable, with the number
  *  of bids not billed for each reason.
  *
- *  Method: adexchangebuyer2.accounts.filterSets.nonBillableWinningBids.list
+ *  Method: adexchangebuyer2.bidders.accounts.filterSets.nonBillableWinningBids.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
+@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
 // Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsNonBillableWinningBidsListWithaccountId:filterSetId:]
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsNonBillableWinningBidsListWithfilterSetName:]
 
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
 
 /**
  *  Requested page size. The server may return fewer results than requested.
@@ -1694,8 +1871,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  A token identifying a page of results the server should return.
  *  Typically, this is the value of
  *  ListNonBillableWinningBidsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.nonBillableWinningBids.list
+ *  returned from the previous call to the nonBillableWinningBids.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1706,17 +1882,933 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  List all reasons for which winning bids were not billable, with the number
  *  of bids not billed for each reason.
  *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  Lists all metrics that are measured in terms of number of bids.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.bidMetrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidMetricsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidMetricsResponse.nextPageToken
+ *  returned from the previous call to the bidMetrics.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidMetricsResponse.
+ *
+ *  Lists all metrics that are measured in terms of number of bids.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  List all errors that occurred in bid responses, with the number of bid
+ *  responses affected for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.bidResponseErrors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidResponseErrorsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidResponseErrorsResponse.nextPageToken
+ *  returned from the previous call to the bidResponseErrors.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidResponseErrorsResponse.
+ *
+ *  List all errors that occurred in bid responses, with the number of bid
+ *  responses affected for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  List all reasons for which bid responses were considered to have no
+ *  applicable bids, with the number of bid responses affected for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.bidResponsesWithoutBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidResponsesWithoutBidsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidResponsesWithoutBidsResponse.nextPageToken
+ *  returned from the previous call to the bidResponsesWithoutBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidResponsesWithoutBidsResponse.
+ *
+ *  List all reasons for which bid responses were considered to have no
+ *  applicable bids, with the number of bid responses affected for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  Creates the specified filter set for the account with the given account ID.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsCreateWithObject:ownerName:]
+
+/**
+ *  Whether the filter set is transient, or should be persisted indefinitely.
+ *  By default, filter sets are not transient.
+ *  If transient, it will be available for at least 1 hour after creation.
+ */
+@property(nonatomic, assign) BOOL isTransient;
+
+/**
+ *  Name of the owner (bidder or account) of the filter set to be created.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123: `bidders/123`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456`
+ */
+@property(nonatomic, copy, nullable) NSString *ownerName;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
+ *
+ *  Creates the specified filter set for the account with the given account ID.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_FilterSet to include in the
+ *    query.
+ *  @param ownerName Name of the owner (bidder or account) of the filter set to
+ *    be created.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123: `bidders/123`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
+                      ownerName:(NSString *)ownerName;
+
+@end
+
+/**
+ *  Deletes the requested filter set from the account with the given account
+ *  ID.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsDeleteWithname:]
+
+/**
+ *  Full name of the resource to delete.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Empty.
+ *
+ *  Deletes the requested filter set from the account with the given account
+ *  ID.
+ *
+ *  @param name Full name of the resource to delete.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all reasons that caused a bid request not to be sent for an
+ *  impression, with the number of bid requests not sent for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.filteredBidRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidRequestsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilteredBidRequestsResponse.nextPageToken
+ *  returned from the previous call to the filteredBidRequests.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredBidRequestsResponse.
+ *
+ *  List all reasons that caused a bid request not to be sent for an
+ *  impression, with the number of bid requests not sent for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  List all creatives associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each creative.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.filteredBids.creatives.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsCreativesListWithfilterSetName:creativeStatusId:]
+
+/**
+ *  The ID of the creative status for which to retrieve a breakdown by
+ *  creative.
+ *  See
+ *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ */
+@property(nonatomic, assign) NSInteger creativeStatusId;
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListCreativeStatusBreakdownByCreativeResponse.nextPageToken
+ *  returned from the previous call to the filteredBids.creatives.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse.
+ *
+ *  List all creatives associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each creative.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *  @param creativeStatusId The ID of the creative status for which to retrieve
+ *    a breakdown by
+ *    creative.
+ *    See
+ *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId;
+
+@end
+
+/**
+ *  List all details associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each detail.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.filteredBids.details.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsDetailsListWithfilterSetName:creativeStatusId:]
+
+/**
+ *  The ID of the creative status for which to retrieve a breakdown by detail.
+ *  See
+ *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *  Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and 87.
+ */
+@property(nonatomic, assign) NSInteger creativeStatusId;
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListCreativeStatusBreakdownByDetailResponse.nextPageToken
+ *  returned from the previous call to the filteredBids.details.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.
+ *
+ *  List all details associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each detail.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *  @param creativeStatusId The ID of the creative status for which to retrieve
+ *    a breakdown by detail.
+ *    See
+ *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *    Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and
+ *    87.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName
+                      creativeStatusId:(NSInteger)creativeStatusId;
+
+@end
+
+/**
+ *  List all reasons for which bids were filtered, with the number of bids
+ *  filtered for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.filteredBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilteredBidsResponse.nextPageToken
+ *  returned from the previous call to the filteredBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredBidsResponse.
+ *
+ *  List all reasons for which bids were filtered, with the number of bids
+ *  filtered for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  Retrieves the requested filter set for the account with the given account
+ *  ID.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsGetWithname:]
+
+/**
+ *  Full name of the resource being requested.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
+ *
+ *  Retrieves the requested filter set for the account with the given account
+ *  ID.
+ *
+ *  @param name Full name of the resource being requested.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all metrics that are measured in terms of number of impressions.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.impressionMetrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsImpressionMetricsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListImpressionMetricsResponse.nextPageToken
+ *  returned from the previous call to the impressionMetrics.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListImpressionMetricsResponse.
+ *
+ *  Lists all metrics that are measured in terms of number of impressions.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  Lists all filter sets for the account with the given account ID.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsListWithownerName:]
+
+/**
+ *  Name of the owner (bidder or account) of the filter sets to be listed.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123: `bidders/123`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456`
+ */
+@property(nonatomic, copy, nullable) NSString *ownerName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilterSetsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilterSetsResponse.
+ *
+ *  Lists all filter sets for the account with the given account ID.
+ *
+ *  @param ownerName Name of the owner (bidder or account) of the filter sets to
+ *    be listed.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123: `bidders/123`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithOwnerName:(NSString *)ownerName;
+
+@end
+
+/**
+ *  List all reasons for which bids lost in the auction, with the number of
+ *  bids that lost for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.losingBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsLosingBidsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListLosingBidsResponse.nextPageToken
+ *  returned from the previous call to the losingBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListLosingBidsResponse.
+ *
+ *  List all reasons for which bids lost in the auction, with the number of
+ *  bids that lost for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
+
+@end
+
+/**
+ *  List all reasons for which winning bids were not billable, with the number
+ *  of bids not billed for each reason.
+ *
+ *  Method: adexchangebuyer2.bidders.filterSets.nonBillableWinningBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsNonBillableWinningBidsListWithfilterSetName:]
+
+/**
+ *  Name of the filter set that should be applied to the requested metrics.
+ *  For example:
+ *  - For a bidder-level filter set for bidder 123:
+ *  `bidders/123/filterSets/abc`
+ *  - For an account-level filter set for the buyer account representing bidder
+ *  123: `bidders/123/accounts/123/filterSets/abc`
+ *  - For an account-level filter set for the child seat buyer account 456
+ *  whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ */
+@property(nonatomic, copy, nullable) NSString *filterSetName;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListNonBillableWinningBidsResponse.nextPageToken
+ *  returned from the previous call to the nonBillableWinningBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse.
+ *
+ *  List all reasons for which winning bids were not billable, with the number
+ *  of bids not billed for each reason.
+ *
+ *  @param filterSetName Name of the filter set that should be applied to the
+ *    requested metrics.
+ *    For example:
+ *    - For a bidder-level filter set for bidder 123:
+ *    `bidders/123/filterSets/abc`
+ *    - For an account-level filter set for the buyer account representing
+ *    bidder
+ *    123: `bidders/123/accounts/123/filterSets/abc`
+ *    - For an account-level filter set for the child seat buyer account 456
+ *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFilterSetName:(NSString *)filterSetName;
 
 @end
 

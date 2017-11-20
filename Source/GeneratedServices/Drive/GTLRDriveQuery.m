@@ -486,7 +486,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_PermissionsCreate
 
 @dynamic emailMessage, fileId, sendNotificationEmail, supportsTeamDrives,
-         transferOwnership;
+         transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId {
@@ -511,7 +511,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsDelete
 
-@dynamic fileId, permissionId, supportsTeamDrives;
+@dynamic fileId, permissionId, supportsTeamDrives, useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -533,7 +533,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsGet
 
-@dynamic fileId, permissionId, supportsTeamDrives;
+@dynamic fileId, permissionId, supportsTeamDrives, useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -556,7 +556,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsList
 
-@dynamic fileId, pageSize, pageToken, supportsTeamDrives;
+@dynamic fileId, pageSize, pageToken, supportsTeamDrives, useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
@@ -576,7 +576,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_PermissionsUpdate
 
 @dynamic fileId, permissionId, removeExpiration, supportsTeamDrives,
-         transferOwnership;
+         transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId
@@ -883,7 +883,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_TeamdrivesGet
 
-@dynamic teamDriveId;
+@dynamic teamDriveId, useDomainAdminAccess;
 
 + (instancetype)queryWithTeamDriveId:(NSString *)teamDriveId {
   NSArray *pathParams = @[ @"teamDriveId" ];
@@ -902,7 +902,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_TeamdrivesList
 
-@dynamic pageSize, pageToken;
+@dynamic pageSize, pageToken, q, useDomainAdminAccess;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"teamdrives";

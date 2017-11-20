@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource ID in format `partners/[PARTNER_ID]` that
+ *  Required. The parent resource ID in the format `partners/[PARTNER_ID]` that
  *  identifies the reseller.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_CreateCustomerRequest to
  *    include in the query.
- *  @param parent Required. The parent resource ID in format
+ *  @param parent Required. The parent resource ID in the format
  *    `partners/[PARTNER_ID]` that
  *    identifies the reseller.
  *

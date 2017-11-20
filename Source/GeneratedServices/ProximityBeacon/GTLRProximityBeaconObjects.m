@@ -35,6 +35,7 @@ NSString * const kGTLRProximityBeacon_Beacon_Status_StatusUnspecified = @"STATUS
 
 // GTLRProximityBeacon_Diagnostics.alerts
 NSString * const kGTLRProximityBeacon_Diagnostics_Alerts_AlertUnspecified = @"ALERT_UNSPECIFIED";
+NSString * const kGTLRProximityBeacon_Diagnostics_Alerts_LowActivity = @"LOW_ACTIVITY";
 NSString * const kGTLRProximityBeacon_Diagnostics_Alerts_LowBattery = @"LOW_BATTERY";
 NSString * const kGTLRProximityBeacon_Diagnostics_Alerts_WrongLocation = @"WRONG_LOCATION";
 
@@ -64,7 +65,7 @@ NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_VisibilityUnsp
 //
 
 @implementation GTLRProximityBeacon_AttachmentInfo
-@dynamic data, namespacedType;
+@dynamic data, maxDistanceMeters, namespacedType;
 @end
 
 

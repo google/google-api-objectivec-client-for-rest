@@ -502,6 +502,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Device language code raw setting.
+ *  iOS does returns language code in different format than iOS WebView.
+ *  For example WebView returns en_US, but iOS returns en-US.
+ *  Field below will return raw value returned by iOS.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCodeRaw;
+
+/**
  *  Device display resolution height.
  *
  *  Uses NSNumber of longLongValue.

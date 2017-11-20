@@ -932,13 +932,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  Replaces an identifier with an surrogate using FPE with the FFX
+ *  Replaces an identifier with a surrogate using FPE with the FFX
  *  mode of operation.
  *  The identifier must be representable by the US-ASCII character set.
  *  For a given crypto key and context, the same identifier will be
  *  replaced with the same surrogate.
- *  Note that a given identifier must be either the empty string or be at
- *  least two characters long.
+ *  Identifiers must be at least two characters long.
+ *  In the case that the identifier is the empty string, it will be skipped.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1CryptoReplaceFfxFpeConfig : GTLRObject
 
@@ -1149,6 +1149,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  Custom information type based on a dictionary of words or phrases. This can
  *  be used to match sensitive information specific to the data, such as a list
  *  of employee IDs or job titles.
+ *  Dictionary words are case-insensitive and all characters other than letters
+ *  and digits in the unicode [Basic Multilingual
+ *  Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane)
+ *  will be replaced with whitespace when scanning for matches, so the
+ *  dictionary phrase "Sam Johnson" will match all three phrases "sam johnson",
+ *  "Sam, Johnson", and "Sam (Johnson)". Additionally, the characters
+ *  surrounding any match must be of a different type than the adjacent
+ *  characters within the word, so letters must be next to non-letters and
+ *  digits next to non-digits. For example, the dictionary word "jen" will
+ *  match the first three letters of the text "jen123" but will return no
+ *  matches for "jennifer".
+ *  Dictionary words containing a large number of characters that are not
+ *  letters or digits may result in unexpected findings because such characters
+ *  are treated as whitespace.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1Dictionary : GTLRObject
 
@@ -1371,7 +1385,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  Configuration for determing how redaction of images should occur.
+ *  Configuration for determining how redaction of images should occur.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig : GTLRObject
 
@@ -1691,6 +1705,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 /**
  *  Optional message indicating that each distinct `EntityId` should not
  *  contribute to the k-anonymity count more than once per equivalence class.
+ *  If an entity_id appears on several rows with different quasi-identifier
+ *  tuples, it will contribute to each count exactly once. This can lead to
+ *  unexpected results, consider for example the following table:
+ *  entity_id | quasi_id
+ *  --------------------
+ *  1 | "foo"
+ *  2 | "bar"
+ *  3 | "foo"
+ *  3 | "bar"
+ *  The anonymity value associated to entity_id 3 will be 2, even if it is
+ *  the only entity_id to be associated to both values "foo" and "bar".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1EntityId *entityId;
 
@@ -2235,7 +2260,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 
 /**
- *  A condition for determing whether a transformation should be applied to
+ *  A condition for determining whether a transformation should be applied to
  *  a field.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition : GTLRObject
@@ -2657,9 +2682,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 @interface GTLRDLP_GooglePrivacyDlpV2beta1WordList : GTLRObject
 
 /**
- *  Words or phrases defining the dictionary. No word can be shorter than 3
- *  characters in length. To match, there must be whitespace or punctuation
- *  around the targeted string. [required]
+ *  Words or phrases defining the dictionary. The dictionary must contain
+ *  at least one phrase and every phrase must contain at least 2 characters
+ *  that are letters or digits. [required]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *words;
 

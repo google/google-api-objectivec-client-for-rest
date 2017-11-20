@@ -177,6 +177,25 @@
 @class GTLRCompute_InstanceTemplateList_Warning;
 @class GTLRCompute_InstanceTemplateList_Warning_Data_Item;
 @class GTLRCompute_InstanceWithNamedPorts;
+@class GTLRCompute_Interconnect;
+@class GTLRCompute_InterconnectAttachment;
+@class GTLRCompute_InterconnectAttachmentAggregatedList_Items;
+@class GTLRCompute_InterconnectAttachmentAggregatedList_Warning;
+@class GTLRCompute_InterconnectAttachmentAggregatedList_Warning_Data_Item;
+@class GTLRCompute_InterconnectAttachmentList_Warning;
+@class GTLRCompute_InterconnectAttachmentList_Warning_Data_Item;
+@class GTLRCompute_InterconnectAttachmentPrivateInfo;
+@class GTLRCompute_InterconnectAttachmentsScopedList;
+@class GTLRCompute_InterconnectAttachmentsScopedList_Warning;
+@class GTLRCompute_InterconnectAttachmentsScopedList_Warning_Data_Item;
+@class GTLRCompute_InterconnectCircuitInfo;
+@class GTLRCompute_InterconnectList_Warning;
+@class GTLRCompute_InterconnectList_Warning_Data_Item;
+@class GTLRCompute_InterconnectLocation;
+@class GTLRCompute_InterconnectLocationList_Warning;
+@class GTLRCompute_InterconnectLocationList_Warning_Data_Item;
+@class GTLRCompute_InterconnectLocationRegionInfo;
+@class GTLRCompute_InterconnectOutageNotification;
 @class GTLRCompute_MachineType;
 @class GTLRCompute_MachineType_ScratchDisks_Item;
 @class GTLRCompute_MachineTypeAggregatedList_Items;
@@ -350,8 +369,12 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -396,8 +419,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -442,8 +469,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_Unrea
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -522,8 +553,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_Reserved;
 GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -568,8 +603,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_Unr
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -614,8 +653,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_Unrea
 GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -696,8 +739,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Pending;
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -742,8 +789,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -788,8 +839,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Unreachabl
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -888,8 +943,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
 GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -972,8 +1031,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_None;
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1018,8 +1081,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_C
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1064,8 +1131,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreac
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1132,8 +1203,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_NotYetActive;
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1178,8 +1253,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1224,8 +1303,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Unreachabl
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1292,8 +1375,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Restoring;
 GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1338,8 +1425,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_Unreac
 GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1384,8 +1475,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1430,8 +1525,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Unreachab
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1476,8 +1575,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_Un
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1522,8 +1625,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1576,8 +1683,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Ingress;
 GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1658,8 +1769,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Inv
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1704,8 +1819,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_C
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1750,8 +1869,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_Unreac
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1820,8 +1943,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Tcp;
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1882,8 +2009,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -1936,8 +2067,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2004,8 +2139,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Image_RawDisk_ContainerType_Tar;
 GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2070,8 +2209,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Terminated;
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2116,8 +2259,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_Un
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2162,8 +2309,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Co
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2208,8 +2359,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_Unreach
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2254,8 +2409,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_War
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2300,8 +2459,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2346,8 +2509,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warnin
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2400,8 +2567,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_Ins
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2446,8 +2617,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2492,8 +2667,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2538,8 +2717,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_Unrea
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2598,14 +2781,366 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspendi
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Interconnect.interconnectType
+
+/** Value: "DEDICATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Dedicated;
+/** Value: "IT_PRIVATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_ItPrivate;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Interconnect.linkType
+
+/** Value: "LINK_TYPE_ETHERNET_10G_LR" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Interconnect.operationalStatus
+
+/** Value: "OS_ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive;
+/** Value: "OS_UNPROVISIONED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsUnprovisioned;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachment.operationalStatus
+
+/** Value: "OS_ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsActive;
+/** Value: "OS_UNPROVISIONED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsUnprovisioned;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachmentAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachmentList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachmentsScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectLocation.continent
+
+/** Value: "AFRICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa;
+/** Value: "ASIA_PAC" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_AsiaPac;
+/** Value: "C_AFRICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAfrica;
+/** Value: "C_ASIA_PAC" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAsiaPac;
+/** Value: "C_EUROPE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CEurope;
+/** Value: "C_NORTH_AMERICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CNorthAmerica;
+/** Value: "C_SOUTH_AMERICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CSouthAmerica;
+/** Value: "EUROPE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Europe;
+/** Value: "NORTH_AMERICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_NorthAmerica;
+/** Value: "SOUTH_AMERICA" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_SouthAmerica;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectLocationList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectLocationRegionInfo.locationPresence
+
+/** Value: "GLOBAL" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_Global;
+/** Value: "LOCAL_REGION" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LocalRegion;
+/** Value: "LP_GLOBAL" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpGlobal;
+/** Value: "LP_LOCAL_REGION" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpLocalRegion;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectOutageNotification.issueType
+
+/** Value: "IT_OUTAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItOutage;
+/** Value: "IT_PARTIAL_OUTAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItPartialOutage;
+/** Value: "OUTAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_Outage;
+/** Value: "PARTIAL_OUTAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_PartialOutage;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectOutageNotification.source
+
+/** Value: "GOOGLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_Google;
+/** Value: "NSRC_GOOGLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_NsrcGoogle;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectOutageNotification.state
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Active;
+/** Value: "CANCELLED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Cancelled;
+/** Value: "NS_ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsActive;
+/** Value: "NS_CANCELED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2650,8 +3185,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2696,8 +3235,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Unreachab
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2782,8 +3325,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Termina
 GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2854,8 +3401,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Running;
 GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2900,8 +3451,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Unreachab
 GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2946,8 +3501,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_U
 GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -2992,8 +3551,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Unreachable
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3072,6 +3635,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroups;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Instances;
 /** Value: "INSTANCE_TEMPLATES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates;
+/** Value: "INTERCONNECTS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Interconnects;
+/** Value: "INTERNAL_ADDRESSES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalAddresses;
 /** Value: "IN_USE_ADDRESSES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
 /** Value: "LOCAL_SSD_TOTAL_GB" */
@@ -3086,6 +3653,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
 /** Value: "PREEMPTIBLE_LOCAL_SSD_GB" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb;
+/** Value: "PREEMPTIBLE_NVIDIA_K80_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus;
+/** Value: "PREEMPTIBLE_NVIDIA_P100_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus;
 /** Value: "REGIONAL_AUTOSCALERS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
 /** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
@@ -3142,8 +3713,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Up;
 GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3188,8 +3763,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_Unre
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3234,8 +3813,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_U
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3280,8 +3863,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3334,8 +3921,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesReque
 GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3390,8 +3981,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu;
 GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3436,8 +4031,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3482,8 +4081,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3528,8 +4131,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unre
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3574,8 +4181,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3660,8 +4271,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate;
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3706,8 +4321,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3760,8 +4379,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3806,8 +4429,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3852,8 +4479,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Unreachabl
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3898,8 +4529,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unr
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3944,8 +4579,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_Unrea
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -3996,8 +4635,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetInstance_NatPolicy_NoNat;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4042,8 +4685,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_C
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4088,8 +4735,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_Unreac
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4148,8 +4799,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_None;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4194,8 +4849,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4240,8 +4899,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Unreachabl
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4302,8 +4965,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4364,8 +5031,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4422,8 +5093,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Ready;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4468,8 +5143,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4514,8 +5193,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_Unre
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4568,8 +5251,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1;
 GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4642,8 +5329,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig;
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4688,8 +5379,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_U
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4734,8 +5429,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Unreachable
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4780,8 +5479,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unre
 GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -4842,8 +5545,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
@@ -5028,8 +5735,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_FieldValueOverriden
@@ -5166,8 +5877,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_FieldValueOverriden
@@ -5273,8 +5988,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_FieldValueOverriden
@@ -5396,7 +6115,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  The type of address to reserve. If unspecified, defaults to EXTERNAL.
+ *  The type of address to reserve, either INTERNAL or EXTERNAL. If unspecified,
+ *  defaults to EXTERNAL.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_AddressType_External Value "EXTERNAL"
@@ -5555,8 +6275,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_FieldValueOverriden
@@ -5662,8 +6386,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden
@@ -5800,8 +6528,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_FieldValueOverriden Value
@@ -6002,7 +6734,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Specifies a valid partial or full URL to an existing Persistent Disk
  *  resource. When creating a new instance, one of initializeParams.sourceImage
- *  or disks.source is required.
+ *  or disks.source is required except for local SSD.
  *  If desired, you can also attach existing non-root persistent disks using
  *  this property. This field is only applicable for persistent disks.
  *  Note that for InstanceTemplate, specify the disk name, not the URL for the
@@ -6062,20 +6794,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The source image to create this disk. When creating a new instance, one of
- *  initializeParams.sourceImage or disks.source is required.
+ *  initializeParams.sourceImage or disks.source is required except for local
+ *  SSD.
  *  To create a disk with one of the public operating system images, specify the
  *  image by its family name. For example, specify family/debian-8 to use the
  *  latest Debian 8 image:
  *  projects/debian-cloud/global/images/family/debian-8
  *  Alternatively, use a specific version of a public operating system image:
  *  projects/debian-cloud/global/images/debian-8-jessie-vYYYYMMDD
- *  To create a disk with a private image that you created, specify the image
+ *  To create a disk with a custom image that you created, specify the image
  *  name in the following format:
- *  global/images/my-private-image
- *  You can also specify a private image by its image family, which returns the
+ *  global/images/my-custom-image
+ *  You can also specify a custom image by its image family, which returns the
  *  latest version of the image in that family. Replace the image name with
  *  family/family-name:
- *  global/images/family/my-private-family
+ *  global/images/family/my-image-family
  *  If the source image is deleted later, this field will not be set.
  */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
@@ -6253,8 +6986,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_FieldValueOverriden
@@ -6391,8 +7128,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_FieldValueOverriden Value
@@ -6498,8 +7239,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden
@@ -6702,16 +7447,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The identifier (type) of the Stackdriver Monitoring metric. The metric
- *  cannot have negative values and should be a utilization metric, which means
- *  that the number of virtual machines handling requests should increase or
- *  decrease proportionally to the metric.
+ *  cannot have negative values.
  *  The metric must have a value type of INT64 or DOUBLE.
  */
 @property(nonatomic, copy, nullable) NSString *metric;
 
 /**
  *  The target value of the metric that autoscaler should maintain. This must be
- *  a positive value.
+ *  a positive value. A utilization metric scales number of virtual machines
+ *  handling requests to increase or decrease proportionally to the metric.
  *  For example, a good metric to use as a utilization_target is
  *  compute.googleapis.com/instance/network/received_bytes_count. The autoscaler
  *  will work to keep this value constant for each of the instances.
@@ -6977,8 +7721,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_FieldValueOverriden
@@ -7297,8 +8045,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_FieldValueOverriden
@@ -7485,8 +8237,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_FieldValueOverriden
@@ -7592,8 +8348,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden
@@ -7898,8 +8658,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_FieldValueOverriden
@@ -8036,8 +8800,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_FieldValueOverriden Value
@@ -8143,8 +8911,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden
@@ -8432,13 +9204,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  projects/debian-cloud/global/images/family/debian-8
  *  Alternatively, use a specific version of a public operating system image:
  *  projects/debian-cloud/global/images/debian-8-jessie-vYYYYMMDD
- *  To create a disk with a private image that you created, specify the image
+ *  To create a disk with a custom image that you created, specify the image
  *  name in the following format:
- *  global/images/my-private-image
- *  You can also specify a private image by its image family, which returns the
+ *  global/images/my-custom-image
+ *  You can also specify a custom image by its image family, which returns the
  *  latest version of the image in that family. Replace the image name with
  *  family/family-name:
- *  global/images/family/my-private-family
+ *  global/images/family/my-image-family
  */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
 
@@ -8594,8 +9366,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_FieldValueOverriden
@@ -8731,8 +9507,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_FieldValueOverriden Value
@@ -8879,8 +9659,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden
@@ -9078,8 +9862,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_FieldValueOverriden
@@ -9215,8 +10003,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_FieldValueOverriden Value
@@ -9322,8 +10114,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden
@@ -9511,6 +10307,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceRanges;
 
 /**
+ *  If source service accounts are specified, the firewall will apply only to
+ *  traffic originating from an instance with a service account in this list.
+ *  Source service accounts cannot be used to control traffic to an instance's
+ *  external IP address because service accounts are associated with an
+ *  instance, not an IP address. sourceRanges can be set at the same time as
+ *  sourceServiceAccounts. If both are set, the firewall will apply to traffic
+ *  that has source IP address within sourceRanges OR the source IP belongs to
+ *  an instance with service account listed in sourceServiceAccount. The
+ *  connection does not need to match both properties for the firewall to apply.
+ *  sourceServiceAccounts cannot be used at the same time as sourceTags or
+ *  targetTags.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceServiceAccounts;
+
+/**
  *  If source tags are specified, the firewall rule applies only to traffic with
  *  source IPs that match the primary network interfaces of VM instances that
  *  have the tag and are in the same VPC network. Source tags cannot be used to
@@ -9525,10 +10336,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceTags;
 
 /**
- *  A list of instance tags indicating sets of instances located in the network
- *  that may make network connections as specified in allowed[]. If no
- *  targetTags are specified, the firewall rule applies to all instances on the
- *  specified network.
+ *  A list of service accounts indicating sets of instances located in the
+ *  network that may make network connections as specified in allowed[].
+ *  targetServiceAccounts cannot be used at the same time as targetTags or
+ *  sourceTags. If neither targetServiceAccounts nor targetTags are specified,
+ *  the firewall rule applies to all instances on the specified network.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetServiceAccounts;
+
+/**
+ *  A list of tags that controls which instances the firewall rule applies to.
+ *  If targetTags are specified, then the firewall rule applies only to
+ *  instances in the VPC network that have one of those tags. If no targetTags
+ *  are specified, the firewall rule applies to all instances on the specified
+ *  network.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTags;
 
@@ -9648,8 +10469,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_FieldValueOverriden Value
@@ -9760,16 +10585,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The IP address that this forwarding rule is serving on behalf of.
- *  For global forwarding rules, the address must be a global IP. For regional
- *  forwarding rules, the address must live in the same region as the forwarding
- *  rule. By default, this field is empty and an ephemeral IPv4 address from the
- *  same scope (global or regional) will be assigned. A regional forwarding rule
- *  supports IPv4 only. A global forwarding rule supports either IPv4 or IPv6.
+ *  Addresses are restricted based on the forwarding rule's load balancing
+ *  scheme (EXTERNAL or INTERNAL) and scope (global or regional).
+ *  When the load balancing scheme is EXTERNAL, for global forwarding rules, the
+ *  address must be a global IP, and for regional forwarding rules, the address
+ *  must live in the same region as the forwarding rule. If this field is empty,
+ *  an ephemeral IPv4 address from the same scope (global or regional) will be
+ *  assigned. A regional forwarding rule supports IPv4 only. A global forwarding
+ *  rule supports either IPv4 or IPv6.
  *  When the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP
- *  address belonging to the network/subnetwork configured for the forwarding
- *  rule. A reserved address cannot be used. If the field is empty, the IP
- *  address will be automatically allocated from the internal IP range of the
- *  subnetwork or network configured for this forwarding rule.
+ *  address belonging to the network/subnet configured for the forwarding rule.
+ *  By default, if this field is empty, an ephemeral internal IP address will be
+ *  automatically allocated from the IP range of the subnet or network
+ *  configured for this forwarding rule.
+ *  An address can be specified either by a literal IP address or a URL
+ *  reference to an existing Address resource. The following examples are all
+ *  valid:
+ *  - 100.1.2.3
+ *  -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region/addresses/address
+ *  - projects/project/regions/region/addresses/address
+ *  - regions/region/addresses/address
+ *  - global/addresses/address
+ *  - address
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -9970,8 +10808,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_FieldValueOverriden
@@ -10105,8 +10947,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_FieldValueOverriden
@@ -10212,8 +11058,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden
@@ -10519,8 +11369,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_FieldValueOverriden
@@ -10670,50 +11524,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  GTLRCompute_HTTPHealthCheck
- */
-@interface GTLRCompute_HTTPHealthCheck : GTLRObject
-
-/**
- *  The value of the host header in the HTTP health check request. If left empty
- *  (default value), the IP on behalf of which this health check is performed
- *  will be used.
- */
-@property(nonatomic, copy, nullable) NSString *host;
-
-/**
- *  The TCP port number for the health check request. The default value is 80.
- *  Valid values are 1 through 65535.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *port;
-
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
-@property(nonatomic, copy, nullable) NSString *portName;
-
-/**
- *  Specifies the type of proxy header to append before sending data to the
- *  backend, either NONE or PROXY_V1. The default is NONE.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_None Value "NONE"
- *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
- */
-@property(nonatomic, copy, nullable) NSString *proxyHeader;
-
-/**
- *  The request path of the HTTP health check request. The default value is /.
- */
-@property(nonatomic, copy, nullable) NSString *requestPath;
-
-@end
-
-
-/**
  *  An HttpHealthCheck resource. This resource defines a template for how
  *  individual instances should be checked for health, via HTTP.
  */
@@ -10817,6 +11627,50 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_HTTPHealthCheck
+ */
+@interface GTLRCompute_HTTPHealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTP health check request. If left empty
+ *  (default value), the IP on behalf of which this health check is performed
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 80.
+ *  Valid values are 1 through 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTP health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
+
+@end
+
+
+/**
  *  Contains a list of HttpHealthCheck resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -10876,8 +11730,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_FieldValueOverriden
@@ -10947,6 +11805,50 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_HTTPSHealthCheck
+ */
+@interface GTLRCompute_HTTPSHealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTPS health check request. If left
+ *  empty (default value), the IP on behalf of which this health check is
+ *  performed will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 443.
+ *  Valid values are 1 through 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTPS health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
 
 @end
 
@@ -11053,50 +11955,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  GTLRCompute_HTTPSHealthCheck
- */
-@interface GTLRCompute_HTTPSHealthCheck : GTLRObject
-
-/**
- *  The value of the host header in the HTTPS health check request. If left
- *  empty (default value), the IP on behalf of which this health check is
- *  performed will be used.
- */
-@property(nonatomic, copy, nullable) NSString *host;
-
-/**
- *  The TCP port number for the health check request. The default value is 443.
- *  Valid values are 1 through 65535.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *port;
-
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
-@property(nonatomic, copy, nullable) NSString *portName;
-
-/**
- *  Specifies the type of proxy header to append before sending data to the
- *  backend, either NONE or PROXY_V1. The default is NONE.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None Value "NONE"
- *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
- */
-@property(nonatomic, copy, nullable) NSString *proxyHeader;
-
-/**
- *  The request path of the HTTPS health check request. The default value is /.
- */
-@property(nonatomic, copy, nullable) NSString *requestPath;
-
-@end
-
-
-/**
  *  Contains a list of HttpsHealthCheck resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11156,8 +12014,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_FieldValueOverriden
@@ -11524,8 +12386,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_FieldValueOverriden Value
@@ -11618,6 +12484,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  Whether the resource should be protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
 
 /**
  *  An optional description of this resource. Provide this property when you
@@ -11860,8 +12733,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_FieldValueOverriden
@@ -12101,8 +12978,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_FieldValueOverriden
@@ -12239,8 +13120,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_FieldValueOverriden
@@ -12583,8 +13468,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_FieldValueOverriden
@@ -12721,8 +13610,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_FieldValueOverriden
@@ -12884,8 +13777,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden
@@ -13077,8 +13974,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_FieldValueOverriden
@@ -13218,8 +14119,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden
@@ -13380,8 +14285,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_FieldValueOverriden Value
@@ -13626,8 +14535,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden
@@ -13925,8 +14838,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_FieldValueOverriden
@@ -14030,6 +14947,1231 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "TERMINATED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Represents an Interconnects resource. The Interconnects resource is a
+ *  dedicated connection between Google's network and your on-premises network.
+ *  For more information, see the Dedicated overview page.
+ */
+@interface GTLRCompute_Interconnect : GTLRObject
+
+/**
+ *  Administrative status of the interconnect. When this is set to true, the
+ *  Interconnect is functional and can carry traffic. When set to false, no
+ *  packets can be carried over the interconnect and no BGP routes are exchanged
+ *  over it. By default, the status is set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminEnabled;
+
+/**
+ *  [Output Only] List of CircuitInfo objects, that describe the individual
+ *  circuits in this LAG.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectCircuitInfo *> *circuitInfos;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  Customer name, to put in the Letter of Authorization as the party authorized
+ *  to request a crossconnect.
+ */
+@property(nonatomic, copy, nullable) NSString *customerName;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** [Output Only] List of outages expected for this Interconnect. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectOutageNotification *> *expectedOutages;
+
+/**
+ *  [Output Only] IP address configured on the Google side of the Interconnect
+ *  link. This can be used only for ping tests.
+ */
+@property(nonatomic, copy, nullable) NSString *googleIpAddress;
+
+/**
+ *  [Output Only] Google reference ID; to be used when raising support tickets
+ *  with Google or otherwise to debug backend connectivity issues.
+ */
+@property(nonatomic, copy, nullable) NSString *googleReferenceId;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] A list of the URLs of all InterconnectAttachments configured
+ *  to use this Interconnect.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *interconnectAttachments;
+
+/**
+ *  Type of interconnect. Note that "IT_PRIVATE" has been deprecated in favor of
+ *  "DEDICATED"
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Interconnect_InterconnectType_Dedicated Value
+ *        "DEDICATED"
+ *    @arg @c kGTLRCompute_Interconnect_InterconnectType_ItPrivate Value
+ *        "IT_PRIVATE"
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectType;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#interconnect for
+ *  interconnects.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Type of link requested. This field indicates speed of each of the links in
+ *  the bundle, not the entire bundle. Only 10G per link is allowed for a
+ *  dedicated interconnect. Options: Ethernet_10G_LR
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr Value
+ *        "LINK_TYPE_ETHERNET_10G_LR"
+ */
+@property(nonatomic, copy, nullable) NSString *linkType;
+
+/**
+ *  URL of the InterconnectLocation object that represents where this connection
+ *  is to be provisioned.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Email address to contact the customer NOC for operations and maintenance
+ *  notifications regarding this Interconnect. If specified, this will be used
+ *  for notifications in addition to all other forms described, such as
+ *  Stackdriver logs alerting and Cloud Notifications.
+ */
+@property(nonatomic, copy, nullable) NSString *nocContactEmail;
+
+/**
+ *  [Output Only] The current status of whether or not this Interconnect is
+ *  functional.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Interconnect_OperationalStatus_OsActive Value
+ *        "OS_ACTIVE"
+ *    @arg @c kGTLRCompute_Interconnect_OperationalStatus_OsUnprovisioned Value
+ *        "OS_UNPROVISIONED"
+ */
+@property(nonatomic, copy, nullable) NSString *operationalStatus;
+
+/**
+ *  [Output Only] IP address configured on the customer side of the Interconnect
+ *  link. The customer should configure this IP address during turnup when
+ *  prompted by Google NOC. This can be used only for ping tests.
+ */
+@property(nonatomic, copy, nullable) NSString *peerIpAddress;
+
+/**
+ *  [Output Only] Number of links actually provisioned in this interconnect.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedLinkCount;
+
+/**
+ *  Target number of physical links in the link bundle, as requested by the
+ *  customer.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedLinkCount;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Represents an InterconnectAttachment (VLAN attachment) resource. For more
+ *  information, see Creating VLAN Attachments.
+ */
+@interface GTLRCompute_InterconnectAttachment : GTLRObject
+
+/**
+ *  [Output Only] IPv4 address + prefix length to be configured on Cloud Router
+ *  Interface for this interconnect attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRouterIpAddress;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  [Output Only] IPv4 address + prefix length to be configured on the customer
+ *  router subinterface for this interconnect attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *customerRouterIpAddress;
+
+/**
+ *  An optional description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] Google reference ID, to be used when raising support tickets
+ *  with Google or otherwise to debug backend connectivity issues.
+ */
+@property(nonatomic, copy, nullable) NSString *googleReferenceId;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  URL of the underlying Interconnect object that this attachment's traffic
+ *  will traverse through.
+ */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#interconnectAttachment
+ *  for interconnect attachments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output Only] The current status of whether or not this interconnect
+ *  attachment is functional.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachment_OperationalStatus_OsActive
+ *        Value "OS_ACTIVE"
+ *    @arg @c kGTLRCompute_InterconnectAttachment_OperationalStatus_OsUnprovisioned
+ *        Value "OS_UNPROVISIONED"
+ */
+@property(nonatomic, copy, nullable) NSString *operationalStatus;
+
+/**
+ *  [Output Only] Information specific to an InterconnectAttachment. This
+ *  property is populated if the interconnect that this is attached to is of
+ *  type DEDICATED.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentPrivateInfo *privateInterconnectInfo;
+
+/**
+ *  [Output Only] URL of the region where the regional interconnect attachment
+ *  resides.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  URL of the cloud router to be used for dynamic routing. This router must be
+ *  in the same region as this InterconnectAttachment. The
+ *  InterconnectAttachment will automatically connect the Interconnect to the
+ *  network & region within which the Cloud Router is configured.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentAggregatedList
+ */
+@interface GTLRCompute_InterconnectAttachmentAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of InterconnectAttachmentsScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always
+ *  compute#interconnectAttachmentAggregatedList for aggregated lists of
+ *  interconnect attachments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of InterconnectAttachmentsScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_InterconnectAttachmentsScopedList. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InterconnectAttachmentAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InterconnectAttachmentAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachmentAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectAttachmentAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Response to the list request, and contains a list of interconnect
+ *  attachments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_InterconnectAttachmentList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of InterconnectAttachment resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachment *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#interconnectAttachmentList
+ *  for lists of interconnect attachments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InterconnectAttachmentList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachmentList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectAttachmentList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Information for an interconnect attachment when this belongs to an
+ *  interconnect of type DEDICATED.
+ */
+@interface GTLRCompute_InterconnectAttachmentPrivateInfo : GTLRObject
+
+/**
+ *  [Output Only] 802.1q encapsulation tag to be used for traffic between Google
+ *  and the customer, going to and from this network and region.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tag8021q;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentsScopedList
+ */
+@interface GTLRCompute_InterconnectAttachmentsScopedList : GTLRObject
+
+/** List of interconnect attachments contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachment *> *interconnectAttachments;
+
+/**
+ *  Informational warning which replaces the list of addresses when the list is
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentsScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of addresses when the list is
+ *  empty.
+ */
+@interface GTLRCompute_InterconnectAttachmentsScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachmentsScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentsScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectAttachmentsScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Describes a single physical circuit between the Customer and Google.
+ *  CircuitInfo objects are created by Google, so all fields are output only.
+ *  Next id: 4
+ */
+@interface GTLRCompute_InterconnectCircuitInfo : GTLRObject
+
+/** Customer-side demarc ID for this circuit. */
+@property(nonatomic, copy, nullable) NSString *customerDemarcId;
+
+/**
+ *  Google-assigned unique ID for this circuit. Assigned at circuit turn-up.
+ */
+@property(nonatomic, copy, nullable) NSString *googleCircuitId;
+
+/**
+ *  Google-side demarc ID for this circuit. Assigned at circuit turn-up and
+ *  provided by Google to the customer in the LOA.
+ */
+@property(nonatomic, copy, nullable) NSString *googleDemarcId;
+
+@end
+
+
+/**
+ *  Response to the list request, and contains a list of interconnects.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_InterconnectList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of Interconnect resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Interconnect *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#interconnectList for lists of
+ *  interconnects.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InterconnectList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopNotRunning Value
+ *        "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Represents an InterconnectLocations resource. The InterconnectLocations
+ *  resource describes the locations where you can connect to Google's networks.
+ *  For more information, see Colocation Facilities.
+ */
+@interface GTLRCompute_InterconnectLocation : GTLRObject
+
+/**
+ *  [Output Only] The postal address of the Point of Presence, each line in the
+ *  address is separated by a newline character.
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  [Output Only] Availability zone for this location. Within a metropolitan
+ *  area (metro), maintenance will not be simultaneously scheduled in more than
+ *  one availability zone. Example: "zone1" or "zone2".
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityZone;
+
+/**
+ *  [Output Only] Metropolitan area designator that indicates which city an
+ *  interconnect is located. For example: "Chicago, IL", "Amsterdam,
+ *  Netherlands".
+ */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/**
+ *  [Output Only] Continent for this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_Africa Value "AFRICA"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_AsiaPac Value
+ *        "ASIA_PAC"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_CAfrica Value
+ *        "C_AFRICA"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_CAsiaPac Value
+ *        "C_ASIA_PAC"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_CEurope Value
+ *        "C_EUROPE"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_CNorthAmerica Value
+ *        "C_NORTH_AMERICA"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_CSouthAmerica Value
+ *        "C_SOUTH_AMERICA"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_Europe Value "EUROPE"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_NorthAmerica Value
+ *        "NORTH_AMERICA"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Continent_SouthAmerica Value
+ *        "SOUTH_AMERICA"
+ */
+@property(nonatomic, copy, nullable) NSString *continent;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  [Output Only] An optional description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The name of the provider for this facility (e.g., EQUINIX).
+ */
+@property(nonatomic, copy, nullable) NSString *facilityProvider;
+
+/**
+ *  [Output Only] A provider-assigned Identifier for this facility (e.g.,
+ *  Ashburn-DC1).
+ */
+@property(nonatomic, copy, nullable) NSString *facilityProviderFacilityId;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#interconnectLocation for
+ *  interconnect locations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** [Output Only] Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output Only] The peeringdb identifier for this facility (corresponding with
+ *  a netfac type in peeringdb).
+ */
+@property(nonatomic, copy, nullable) NSString *peeringdbFacilityId;
+
+/**
+ *  [Output Only] A list of InterconnectLocation.RegionInfo objects, that
+ *  describe parameters pertaining to the relation between this
+ *  InterconnectLocation and various Google Cloud regions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectLocationRegionInfo *> *regionInfos;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Response to the list request, and contains a list of interconnect locations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_InterconnectLocationList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of InterconnectLocation resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectLocation *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#interconnectLocationList for
+ *  lists of interconnect locations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectLocationList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InterconnectLocationList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectLocationList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectLocationList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectLocationList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Information about any potential InterconnectAttachments between an
+ *  Interconnect at a specific InterconnectLocation, and a specific Cloud
+ *  Region.
+ */
+@interface GTLRCompute_InterconnectLocationRegionInfo : GTLRObject
+
+/**
+ *  Expected round-trip time in milliseconds, from this InterconnectLocation to
+ *  a VM in this region.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expectedRttMs;
+
+/**
+ *  Identifies the network presence of this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_Global
+ *        Value "GLOBAL"
+ *    @arg @c kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LocalRegion
+ *        Value "LOCAL_REGION"
+ *    @arg @c kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpGlobal
+ *        Value "LP_GLOBAL"
+ *    @arg @c kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpLocalRegion
+ *        Value "LP_LOCAL_REGION"
+ */
+@property(nonatomic, copy, nullable) NSString *locationPresence;
+
+/** URL for the region of this location. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Description of a planned outage on this Interconnect. Next id: 9
+ */
+@interface GTLRCompute_InterconnectOutageNotification : GTLRObject
+
+/**
+ *  Iff issue_type is IT_PARTIAL_OUTAGE, a list of the Google-side circuit IDs
+ *  that will be affected.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *affectedCircuits;
+
+/**
+ *  A description about the purpose of the outage.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Scheduled end time for the outage (milliseconds since Unix epoch).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTime;
+
+/**
+ *  Form this outage is expected to take. Note that the "IT_" versions of this
+ *  enum have been deprecated in favor of the unprefixed values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_IssueType_ItOutage
+ *        Value "IT_OUTAGE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_IssueType_ItPartialOutage
+ *        Value "IT_PARTIAL_OUTAGE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_IssueType_Outage Value
+ *        "OUTAGE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_IssueType_PartialOutage
+ *        Value "PARTIAL_OUTAGE"
+ */
+@property(nonatomic, copy, nullable) NSString *issueType;
+
+/** Unique identifier for this outage notification. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The party that generated this notification. Note that "NSRC_GOOGLE" has been
+ *  deprecated in favor of "GOOGLE"
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_Source_Google Value
+ *        "GOOGLE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_Source_NsrcGoogle
+ *        Value "NSRC_GOOGLE"
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Scheduled start time for the outage (milliseconds since Unix epoch).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTime;
+
+/**
+ *  State of this notification. Note that the "NS_" versions of this enum have
+ *  been deprecated in favor of the unprefixed values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_State_Active Value
+ *        "ACTIVE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_State_Cancelled Value
+ *        "CANCELLED"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_State_NsActive Value
+ *        "NS_ACTIVE"
+ *    @arg @c kGTLRCompute_InterconnectOutageNotification_State_NsCanceled Value
+ *        "NS_CANCELED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -14241,8 +16383,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_FieldValueOverriden
@@ -14379,8 +16525,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_FieldValueOverriden
@@ -14486,8 +16636,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden
@@ -15007,8 +17161,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_FieldValueOverriden Value
@@ -15381,8 +17539,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden
@@ -15542,8 +17704,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_FieldValueOverriden
@@ -15681,8 +17847,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_FieldValueOverriden Value
@@ -15788,8 +17958,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden
@@ -16105,6 +18279,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_Instances Value "INSTANCES"
  *    @arg @c kGTLRCompute_Quota_Metric_InstanceTemplates Value
  *        "INSTANCE_TEMPLATES"
+ *    @arg @c kGTLRCompute_Quota_Metric_Interconnects Value "INTERCONNECTS"
+ *    @arg @c kGTLRCompute_Quota_Metric_InternalAddresses Value
+ *        "INTERNAL_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_InUseAddresses Value "IN_USE_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_LocalSsdTotalGb Value
  *        "LOCAL_SSD_TOTAL_GB"
@@ -16114,6 +18291,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb Value
  *        "PREEMPTIBLE_LOCAL_SSD_GB"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus Value
+ *        "PREEMPTIBLE_NVIDIA_K80_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus Value
+ *        "PREEMPTIBLE_NVIDIA_P100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
  *        "REGIONAL_AUTOSCALERS"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers Value
@@ -16274,8 +18455,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_FieldValueOverriden
@@ -16409,8 +18594,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_FieldValueOverriden
@@ -16548,8 +18737,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_FieldValueOverriden
@@ -16775,8 +18968,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_FieldValueOverriden
@@ -16964,8 +19161,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_FieldValueOverriden Value
@@ -17219,8 +19420,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden Value
@@ -17354,8 +19559,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_FieldValueOverriden Value
@@ -17560,8 +19769,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_FieldValueOverriden
@@ -17712,6 +19925,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *ipRange;
 
 /**
+ *  URI of the linked interconnect attachment. It must be in the same region as
+ *  the router. Each interface can have at most one linked resource and it could
+ *  either be a VPN Tunnel or an interconnect attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *linkedInterconnectAttachment;
+
+/**
  *  URI of the linked VPN tunnel. It must be in the same region as the router.
  *  Each interface can have at most one linked resource and it could either be a
  *  VPN Tunnel or an interconnect attachment.
@@ -17787,8 +20007,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_FieldValueOverriden Value
@@ -17905,8 +20129,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden
@@ -18378,8 +20606,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_FieldValueOverriden Value
@@ -18577,8 +20809,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_FieldValueOverriden
@@ -18860,8 +21096,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_FieldValueOverriden
@@ -18998,8 +21238,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_FieldValueOverriden Value
@@ -19142,8 +21386,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden
@@ -19377,8 +21625,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_FieldValueOverriden
@@ -19595,8 +21847,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_FieldValueOverriden
@@ -19810,8 +22066,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_FieldValueOverriden
@@ -19945,8 +22205,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_FieldValueOverriden
@@ -20052,8 +22316,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden
@@ -20314,8 +22582,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_FieldValueOverriden
@@ -20468,8 +22740,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_FieldValueOverriden Value
@@ -20633,8 +22909,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden
@@ -20891,8 +23171,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_FieldValueOverriden
@@ -21119,8 +23403,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_FieldValueOverriden
@@ -21342,8 +23630,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_FieldValueOverriden
@@ -21480,8 +23772,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_FieldValueOverriden
@@ -21587,8 +23883,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden
@@ -21858,8 +24158,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_FieldValueOverriden Value
@@ -22230,8 +24534,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_FieldValueOverriden
@@ -22367,8 +24675,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_FieldValueOverriden Value
@@ -22474,8 +24786,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExternalApiWarning
  *        Value "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden
@@ -22612,8 +24928,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_FieldValueOverriden Value
@@ -22828,8 +25148,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLEANUP_FAILED"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_ExperimentalTypeUsed Value
+ *        "EXPERIMENTAL_TYPE_USED"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_ExternalApiWarning Value
  *        "EXTERNAL_API_WARNING"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_FieldValueOverriden Value

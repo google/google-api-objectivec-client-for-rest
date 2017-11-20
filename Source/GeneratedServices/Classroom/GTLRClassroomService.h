@@ -113,6 +113,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomProfileEmails;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomProfilePhotos;
 /**
+ *  Authorization scope: Receive notifications about your Google Classroom data
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.push-notifications"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomPushNotifications;
+/**
  *  Authorization scope: Manage your Google Classroom class rosters
  *
  *  Value "https://www.googleapis.com/auth/classroom.rosters"

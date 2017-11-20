@@ -705,6 +705,28 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 @end
 
+
+/**
+ *  The request for FirebaseRulesService.UpdateReleasePatch.
+ */
+@interface GTLRFirebaseRules_UpdateReleaseRequest : GTLRObject
+
+/**
+ *  `Release` to update.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseRules_Release *releaseProperty;
+
+/**
+ *  Specifies which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

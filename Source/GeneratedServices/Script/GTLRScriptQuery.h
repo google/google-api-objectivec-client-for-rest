@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Script Execution API (script/v1)
+//   Google Apps Script API (script/v1)
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Runs a function in an Apps Script project. The project must be deployed
- *  for use with the Apps Script Execution API.
+ *  for use with the Apps Script API.
  *  This method requires authorization with an OAuth 2.0 token that includes at
  *  least one of the scopes listed in the [Authorization](#authorization)
  *  section; script projects that do not require authorization cannot be
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRScript_Operation.
  *
  *  Runs a function in an Apps Script project. The project must be deployed
- *  for use with the Apps Script Execution API.
+ *  for use with the Apps Script API.
  *  This method requires authorization with an OAuth 2.0 token that includes at
  *  least one of the scopes listed in the [Authorization](#authorization)
  *  section; script projects that do not require authorization cannot be
