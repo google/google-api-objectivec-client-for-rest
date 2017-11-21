@@ -23,6 +23,7 @@
 @class GTLRDatastore_BeginTransactionRequest;
 @class GTLRDatastore_CommitRequest;
 @class GTLRDatastore_LookupRequest;
+@class GTLRDatastore_ReserveIdsRequest;
 @class GTLRDatastore_RollbackRequest;
 @class GTLRDatastore_RunQueryRequest;
 
@@ -343,6 +344,40 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Prevents the supplied keys' IDs from being auto-allocated by Cloud
+ *  Datastore.
+ *
+ *  Method: datastore.projects.reserveIds
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastore
+ *    @c kGTLRAuthScopeDatastoreCloudPlatform
+ */
+@interface GTLRDatastoreQuery_ProjectsReserveIds : GTLRDatastoreQuery
+// Previous library name was
+//   +[GTLQueryDatastore queryForProjectsReserveIdsWithObject:projectId:]
+
+/** The ID of the project against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDatastore_ReserveIdsResponse.
+ *
+ *  Prevents the supplied keys' IDs from being auto-allocated by Cloud
+ *  Datastore.
+ *
+ *  @param object The @c GTLRDatastore_ReserveIdsRequest to include in the
+ *    query.
+ *  @param projectId The ID of the project against which to make the request.
+ *
+ *  @returns GTLRDatastoreQuery_ProjectsReserveIds
+ */
++ (instancetype)queryWithObject:(GTLRDatastore_ReserveIdsRequest *)object
+                      projectId:(NSString *)projectId;
 
 @end
 

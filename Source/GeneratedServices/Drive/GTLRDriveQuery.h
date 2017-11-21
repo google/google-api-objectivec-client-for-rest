@@ -1217,6 +1217,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL transferOwnership;
 
 /**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the item belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
+
+/**
  *  Fetches a @c GTLRDrive_Permission.
  *
  *  Creates a permission for a file or Team Drive.
@@ -1256,6 +1265,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the item belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1302,6 +1320,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the item belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
 
 /**
  *  Fetches a @c GTLRDrive_Permission.
@@ -1361,6 +1388,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the item belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
+
+/**
  *  Fetches a @c GTLRDrive_PermissionList.
  *
  *  Lists a file's or Team Drive's permissions.
@@ -1418,6 +1454,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL transferOwnership;
+
+/**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the item belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
 
 /**
  *  Fetches a @c GTLRDrive_Permission.
@@ -1937,6 +1982,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *teamDriveId;
 
 /**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then the requester will be granted access if
+ *  they are an administrator of the domain to which the Team Drive belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
+
+/**
  *  Fetches a @c GTLRDrive_TeamDrive.
  *
  *  Gets a Team Drive's metadata by ID.
@@ -1972,6 +2026,18 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** Page token for Team Drives. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Query string for searching Team Drives. */
+@property(nonatomic, copy, nullable) NSString *q;
+
+/**
+ *  Whether the request should be treated as if it was issued by a domain
+ *  administrator; if set to true, then all Team Drives of the domain in which
+ *  the requester is an administrator are returned.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
 
 /**
  *  Fetches a @c GTLRDrive_TeamDriveList.

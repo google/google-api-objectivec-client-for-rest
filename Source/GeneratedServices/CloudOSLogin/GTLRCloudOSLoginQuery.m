@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud OS Login API (oslogin/v1alpha)
 // Description:
-//   Manages OS login configuration for Directory API users.
+//   Manages OS login configuration for Google account users.
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/rest/
 
@@ -39,7 +39,7 @@
 
 @implementation GTLRCloudOSLoginQuery_UsersImportSshPublicKey
 
-@dynamic parent;
+@dynamic parent, projectId;
 
 + (instancetype)queryWithObject:(GTLRCloudOSLogin_SshPublicKey *)object
                          parent:(NSString *)parent {
@@ -57,6 +57,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudOSLogin_ImportSshPublicKeyResponse class];
   query.loggingName = @"oslogin.users.importSshPublicKey";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudOSLoginQuery_UsersProjectsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRCloudOSLoginQuery_UsersProjectsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudOSLogin_Empty class];
+  query.loggingName = @"oslogin.users.projects.delete";
   return query;
 }
 

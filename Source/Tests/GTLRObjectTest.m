@@ -393,13 +393,15 @@ static Class gAdditionalPropsClass = Nil;
 
   // date
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  obj.arrayDate = @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  obj.arrayDate = @[ dateTime ];
   expected[@"arrayDate"] = @[ dateStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
   // google-duration
   NSString * const durationStr = @"456.789s";
-  obj.arrayDuration = @[ [GTLRDuration durationWithJSONString:durationStr] ];
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  obj.arrayDuration = @[ duration ];
   expected[@"arrayDuration"] = @[ durationStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
 }
@@ -429,13 +431,13 @@ static Class gAdditionalPropsClass = Nil;
 
   // date
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  XCTAssertEqualObjects(obj.arrayDate,
-                        @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  XCTAssertEqualObjects(obj.arrayDate, @[ dateTime ]);
 
   // google-duration
   NSString * const durationStr = @"234.678s";
-  XCTAssertEqualObjects(obj.arrayDuration,
-                        @[ [GTLRDuration durationWithJSONString:durationStr] ]);
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  XCTAssertEqualObjects(obj.arrayDuration, @[ duration ]);
 }
 
 - (void)testSetAnyTypeProperty {
@@ -559,11 +561,11 @@ static Class gAdditionalPropsClass = Nil;
   NSArray *arrayAnythingStr = @[ @"as string" ];
   NSArray *arrayAnythingNumber = @[ @9876 ];
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  NSArray *arrayAnythingDate =
-      @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  NSArray *arrayAnythingDate = @[ dateTime ];
   NSString * const durationStr = @"369.963s";
-  NSArray *arrayAnythingDuration =
-      @[ [GTLRDuration durationWithJSONString:durationStr] ];
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  NSArray *arrayAnythingDuration = @[ duration ];
 
   // string
 
@@ -816,14 +818,14 @@ static Class gAdditionalPropsClass = Nil;
   XCTAssertEqualObjects(obj.JSON, expected);
 
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  obj.arrayDate = @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ];
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  obj.arrayDate = @[ @[ dateTime ] ];
   expected[@"arrayDate"] = @[ @[ dateStr ] ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
   NSString * const durationStr = @"123.456s";
-  obj.arrayDuration = @[
-      @[ [GTLRDuration durationWithJSONString:durationStr] ]
-  ];
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  obj.arrayDuration = @[ @[ duration ] ];
   expected[@"arrayDuration"] = @[ @[ durationStr ] ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
@@ -832,7 +834,8 @@ static Class gAdditionalPropsClass = Nil;
   child.aStr = @"I'm a kid";
 
   obj.arrayKids = @[ @[ child ] ];
-  expected[@"arrayKids"] = @[ @[ child.JSON ] ];
+  NSMutableDictionary *childJSON = child.JSON;
+  expected[@"arrayKids"] = @[ @[ childJSON ] ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
   // Array of anything as a string.
@@ -846,7 +849,8 @@ static Class gAdditionalPropsClass = Nil;
 
   // Array of anything as an object.
   obj.arrayAnything = @[ @[ child2 ] ];
-  expected[@"arrayAnything"] = @[ @[ child2.JSON ] ];
+  NSMutableDictionary *child2JSON = child2.JSON;
+  expected[@"arrayAnything"] = @[ @[ child2JSON ] ];
   XCTAssertEqualObjects(obj.JSON, expected);
 }
 
@@ -881,13 +885,15 @@ static Class gAdditionalPropsClass = Nil;
                         @"array of array of array of number(bool)");
 
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
   XCTAssertEqualObjects(obj.arrayDate,
-                        @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ],
+                        @[ @[ dateTime ] ],
                         @"array of array of datetime");
 
   NSString *const durationStr = @"987.654s";
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
   XCTAssertEqualObjects(obj.arrayDuration,
-                        @[ @[ [GTLRDuration durationWithJSONString:durationStr] ] ],
+                        @[ @[ duration ] ],
                         @"array of array of duration");
 
   // Kid in array of array.
@@ -1051,7 +1057,8 @@ static Class gAdditionalPropsClass = Nil;
 
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
   [obj setAdditionalProperty:child forName:@"aKid"];
-  expected = [@{ @"aKid" : child.JSON } mutableCopy];
+  NSMutableDictionary *childJSON = child.JSON;
+  expected = [@{ @"aKid" : childJSON } mutableCopy];
   XCTAssertEqualObjects(obj.JSON, expected);
 }
 
@@ -1183,15 +1190,16 @@ static Class gAdditionalPropsClass = Nil;
   // date
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  [obj setAdditionalProperty:@[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]
-                     forName:@"apArray3"];
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  [obj setAdditionalProperty:@[ dateTime ] forName:@"apArray3"];
   expected[@"apArray3"] = @[ dateStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
   // google-duration
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
   NSString * const durationStr = @"246.800s";
-  [obj setAdditionalProperty:@[ [GTLRDuration durationWithJSONString:durationStr] ]
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  [obj setAdditionalProperty:@[ duration ]
                      forName:@"apArray4"];
   expected[@"apArray4"] = @[ durationStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
@@ -1225,14 +1233,14 @@ static Class gAdditionalPropsClass = Nil;
   // date
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray3"],
-                       @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray3"], @[ dateTime ]);
 
   // google-duration
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
   NSString * const durationStr = @"135.975s";
-  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray4"],
-                        @[ [GTLRDuration durationWithJSONString:durationStr] ]);
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray4"], @[ duration ]);
 }
 
 - (void)testSetAdditionalPropertiesArraysOfObject {
@@ -1249,7 +1257,8 @@ static Class gAdditionalPropsClass = Nil;
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
   [obj setAdditionalProperty:@[ child ]
                      forName:@"aKidArray"];
-  expected = [@{ @"aKidArray": @[ child.JSON ] } mutableCopy];
+  NSMutableDictionary *childJSON = child.JSON;
+  expected = [@{ @"aKidArray": @[ childJSON ] } mutableCopy];
   XCTAssertEqualObjects(obj.JSON, expected);
 }
 

@@ -22,6 +22,7 @@
 @class GTLRFirebaseRules_Release;
 @class GTLRFirebaseRules_Ruleset;
 @class GTLRFirebaseRules_TestRulesetRequest;
+@class GTLRFirebaseRules_UpdateReleaseRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -315,6 +316,48 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update a `Release` via PATCH.
+ *  Only updates to the `ruleset_name` and `test_suite_name` fields will be
+ *  honored. `Release` rename is not supported. To create a `Release` use the
+ *  CreateRelease method.
+ *
+ *  Method: firebaserules.projects.releases.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseRulesCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesFirebase
+ */
+@interface GTLRFirebaseRulesQuery_ProjectsReleasesPatch : GTLRFirebaseRulesQuery
+// Previous library name was
+//   +[GTLQueryFirebaseRules queryForProjectsReleasesPatchWithObject:name:]
+
+/**
+ *  Resource name for the project which owns this `Release`.
+ *  Format: `projects/{project_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseRules_Release.
+ *
+ *  Update a `Release` via PATCH.
+ *  Only updates to the `ruleset_name` and `test_suite_name` fields will be
+ *  honored. `Release` rename is not supported. To create a `Release` use the
+ *  CreateRelease method.
+ *
+ *  @param object The @c GTLRFirebaseRules_UpdateReleaseRequest to include in
+ *    the query.
+ *  @param name Resource name for the project which owns this `Release`.
+ *    Format: `projects/{project_id}`
+ *
+ *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseRules_UpdateReleaseRequest *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -320,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
 
 /**
  *  ID of the webhook listening to updates to trigger mirroring.
- *  Removing this webook from the other hosting service will stop
+ *  Removing this webhook from the other hosting service will stop
  *  Google Cloud Source Repositories from receiving notifications,
  *  and thereby disabling mirroring.
  */
@@ -408,7 +408,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
  */
 @interface GTLRCloudSourceRepositories_Repo : GTLRObject
 
-/** How this repository mirrors a repository managed by another service. */
+/**
+ *  How this repository mirrors a repository managed by another service.
+ *  Read-only field.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudSourceRepositories_MirrorConfig *mirrorConfig;
 
 /**
@@ -419,14 +422,17 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The disk usage of the repo, in bytes.
- *  Only returned by GetRepo.
+ *  The disk usage of the repo, in bytes. Read-only field. Size is only
+ *  returned by GetRepo.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** URL to clone the repository from Google Cloud Source Repositories. */
+/**
+ *  URL to clone the repository from Google Cloud Source Repositories.
+ *  Read-only field.
+ */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end

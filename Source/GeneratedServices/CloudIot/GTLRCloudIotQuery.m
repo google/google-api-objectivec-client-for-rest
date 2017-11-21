@@ -128,7 +128,7 @@
 
 @implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesGet
 
-@dynamic name;
+@dynamic fieldMask, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

@@ -541,7 +541,7 @@
 
 @implementation GTLRDrive_TeamDrive
 @dynamic backgroundImageFile, backgroundImageLink, capabilities, colorRgb,
-         identifier, kind, name, themeId;
+         createdTime, identifier, kind, name, themeId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

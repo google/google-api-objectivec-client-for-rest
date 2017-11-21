@@ -34,12 +34,6 @@
 @class GTLRAndroidPublisher_InAppProduct_Listings;
 @class GTLRAndroidPublisher_InAppProduct_Prices;
 @class GTLRAndroidPublisher_InAppProductListing;
-@class GTLRAndroidPublisher_InappproductsBatchRequestEntry;
-@class GTLRAndroidPublisher_InappproductsBatchResponseEntry;
-@class GTLRAndroidPublisher_InappproductsInsertRequest;
-@class GTLRAndroidPublisher_InappproductsInsertResponse;
-@class GTLRAndroidPublisher_InappproductsUpdateRequest;
-@class GTLRAndroidPublisher_InappproductsUpdateResponse;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_MonthDay;
 @class GTLRAndroidPublisher_PageInfo;
@@ -648,89 +642,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_InappproductsBatchRequest
- */
-@interface GTLRAndroidPublisher_InappproductsBatchRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InappproductsBatchRequestEntry *> *entrys;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsBatchRequestEntry
- */
-@interface GTLRAndroidPublisher_InappproductsBatchRequestEntry : GTLRObject
-
-/**
- *  batchId
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *batchId;
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InappproductsInsertRequest *inappproductsinsertrequest;
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InappproductsUpdateRequest *inappproductsupdaterequest;
-@property(nonatomic, copy, nullable) NSString *methodName;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsBatchResponse
- */
-@interface GTLRAndroidPublisher_InappproductsBatchResponse : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InappproductsBatchResponseEntry *> *entrys;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#inappproductsBatchResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsBatchResponseEntry
- */
-@interface GTLRAndroidPublisher_InappproductsBatchResponseEntry : GTLRObject
-
-/**
- *  batchId
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *batchId;
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InappproductsInsertResponse *inappproductsinsertresponse;
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InappproductsUpdateResponse *inappproductsupdateresponse;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsInsertRequest
- */
-@interface GTLRAndroidPublisher_InappproductsInsertRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct *inappproduct;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsInsertResponse
- */
-@interface GTLRAndroidPublisher_InappproductsInsertResponse : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct *inappproduct;
-
-@end
-
-
-/**
  *  GTLRAndroidPublisher_InappproductsListResponse
  */
 @interface GTLRAndroidPublisher_InappproductsListResponse : GTLRObject
@@ -745,26 +656,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsUpdateRequest
- */
-@interface GTLRAndroidPublisher_InappproductsUpdateRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct *inappproduct;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_InappproductsUpdateResponse
- */
-@interface GTLRAndroidPublisher_InappproductsUpdateResponse : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct *inappproduct;
 
 @end
 

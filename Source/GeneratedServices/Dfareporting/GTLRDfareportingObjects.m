@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v2.8)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -308,6 +308,11 @@ NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpa
 NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeAuto = @"ASSET_DURATION_TYPE_AUTO";
 NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom = @"ASSET_DURATION_TYPE_CUSTOM";
 NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone = @"ASSET_DURATION_TYPE_NONE";
+
+// GTLRDfareporting_CreativeAsset.orientation
+NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Landscape = @"LANDSCAPE";
+NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Portrait = @"PORTRAIT";
+NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Square = @"SQUARE";
 
 // GTLRDfareporting_CreativeAsset.positionLeftUnit
 NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPercent = @"OFFSET_UNIT_PERCENT";
@@ -715,6 +720,11 @@ NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_UniqueCount
 // GTLRDfareporting_FloodlightActivity.floodlightActivityGroupType
 NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Counter = @"COUNTER";
 NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Sale = @"SALE";
+
+// GTLRDfareporting_FloodlightActivity.floodlightTagType
+NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSiteTag = @"GLOBAL_SITE_TAG";
+NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe = @"IFRAME";
+NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image = @"IMAGE";
 
 // GTLRDfareporting_FloodlightActivity.tagFormat
 NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Html = @"HTML";
@@ -1226,6 +1236,11 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Mp4    = @"MP4";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp = @"THREEGPP";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 
+// GTLRDfareporting_VideoSettings.orientation
+NSString * const kGTLRDfareporting_VideoSettings_Orientation_Any = @"ANY";
+NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landscape = @"LANDSCAPE";
+NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRAIT";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDfareporting_Account
@@ -1555,6 +1570,28 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_AdvertiserLandingPagesListResponse
+//
+
+@implementation GTLRDfareporting_AdvertiserLandingPagesListResponse
+@dynamic kind, landingPages, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"landingPages" : [GTLRDfareporting_LandingPage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"landingPages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_AdvertisersListResponse
 //
 
@@ -1652,10 +1689,10 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
          audienceSegmentGroups, billingInvoiceCode,
          clickThroughUrlSuffixProperties, comment, createInfo, creativeGroupIds,
          creativeOptimizationConfiguration,
-         defaultClickThroughEventTagProperties, endDate, eventTagOverrides,
-         externalId, identifier, idDimensionValue, kind, lastModifiedInfo,
-         lookbackConfiguration, name, nielsenOcrEnabled, startDate,
-         subaccountId, traffickerEmails;
+         defaultClickThroughEventTagProperties, defaultLandingPageId, endDate,
+         eventTagOverrides, externalId, identifier, idDimensionValue, kind,
+         lastModifiedInfo, lookbackConfiguration, name, nielsenOcrEnabled,
+         startDate, subaccountId, traffickerEmails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1803,7 +1840,7 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 //
 
 @implementation GTLRDfareporting_ClickTag
-@dynamic eventName, name, value;
+@dynamic clickThroughUrl, eventName, name;
 @end
 
 
@@ -2105,8 +2142,8 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
          creativeFieldAssignments, customKeyValues, dynamicAssetSelection,
          exitCustomEvents, fsCommand, htmlCode, htmlCodeLocked, identifier,
          idDimensionValue, kind, lastModifiedInfo, latestTraffickedCreativeId,
-         name, overrideCss, progressOffset, redirectUrl, renderingId,
-         renderingIdDimensionValue, requiredFlashPluginVersion,
+         name, overrideCss, politeLoadAssetId, progressOffset, redirectUrl,
+         renderingId, renderingIdDimensionValue, requiredFlashPluginVersion,
          requiredFlashVersion, size, skipOffset, skippable, sslCompliant,
          sslOverride, studioAdvertiserId, studioCreativeId,
          studioTraffickedCreativeId, subaccountId,
@@ -2150,11 +2187,12 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
          companionCreativeIds, customStartTimeValue, detectedFeatures,
          displayType, duration, durationType, expandedDimension, fileSize,
          flashVersion, hideFlashObjects, hideSelectionBoxes, horizontallyLocked,
-         identifier, idDimensionValue, mimeType, offset, originalBackup,
-         position, positionLeftUnit, positionTopUnit, progressiveServingUrl,
-         pushdown, pushdownDuration, role, size, sslCompliant, startTimeType,
-         streamingServingUrl, transparency, verticallyLocked, videoDuration,
-         windowMode, zIndex, zipFilename, zipFilesize;
+         identifier, idDimensionValue, mimeType, offset, orientation,
+         originalBackup, position, positionLeftUnit, positionTopUnit,
+         progressiveServingUrl, pushdown, pushdownDuration, role, size,
+         sslCompliant, startTimeType, streamingServingUrl, transparency,
+         verticallyLocked, videoDuration, windowMode, zIndex, zipFilename,
+         zipFilesize;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2249,13 +2287,24 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_CreativeClickThroughUrl
+//
+
+@implementation GTLRDfareporting_CreativeClickThroughUrl
+@dynamic computedClickThroughUrl, customClickThroughUrl, landingPageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_CreativeCustomEvent
 //
 
 @implementation GTLRDfareporting_CreativeCustomEvent
 @dynamic advertiserCustomEventId, advertiserCustomEventName,
-         advertiserCustomEventType, artworkLabel, artworkType, exitUrl,
-         identifier, popupWindowProperties, targetType, videoReportingId;
+         advertiserCustomEventType, artworkLabel, artworkType,
+         exitClickThroughUrl, identifier, popupWindowProperties, targetType,
+         videoReportingId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2934,7 +2983,7 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 //
 
 @implementation GTLRDfareporting_FloodlightActivitiesGenerateTagResponse
-@dynamic floodlightActivityTag, kind;
+@dynamic floodlightActivityTag, globalSiteTagGlobalSnippet, kind;
 @end
 
 
@@ -2970,9 +3019,9 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
          countingMethod, defaultTags, expectedUrl, floodlightActivityGroupId,
          floodlightActivityGroupName, floodlightActivityGroupTagString,
          floodlightActivityGroupType, floodlightConfigurationId,
-         floodlightConfigurationIdDimensionValue, hidden, identifier,
-         idDimensionValue, imageTagEnabled, kind, name, notes, publisherTags,
-         secure, sslCompliant, sslRequired, subaccountId, tagFormat, tagString,
+         floodlightConfigurationIdDimensionValue, floodlightTagType, hidden,
+         identifier, idDimensionValue, kind, name, notes, publisherTags, secure,
+         sslCompliant, sslRequired, subaccountId, tagFormat, tagString,
          userDefinedVariableTypes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3230,32 +3279,10 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 //
 
 @implementation GTLRDfareporting_LandingPage
-@dynamic defaultProperty, identifier, kind, name, url;
+@dynamic advertiserId, archived, identifier, kind, name, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"defaultProperty" : @"default",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_LandingPagesListResponse
-//
-
-@implementation GTLRDfareporting_LandingPagesListResponse
-@dynamic kind, landingPages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"landingPages" : [GTLRDfareporting_LandingPage class]
-  };
-  return map;
+  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -5033,5 +5060,6 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 //
 
 @implementation GTLRDfareporting_VideoSettings
-@dynamic companionSettings, kind, skippableSettings, transcodeSettings;
+@dynamic companionSettings, kind, orientation, skippableSettings,
+         transcodeSettings;
 @end

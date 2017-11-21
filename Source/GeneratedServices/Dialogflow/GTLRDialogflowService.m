@@ -2,30 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Movies Partner API (playmoviespartner/v1)
+//   Dialogflow API (dialogflow/v2beta1)
 // Description:
-//   Gets the delivery status of titles for Google Play Movies Partners.
+//   An end-to-end development suite for conversational interfaces (e.g.,
+//   chatbots, voice-powered apps and devices).
 // Documentation:
-//   https://developers.google.com/playmoviespartner/
+//   https://cloud.google.com/dialogflow-enterprise/
 
-#import "GTLRPlayMovies.h"
+#import "GTLRDialogflow.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopePlayMoviesPlaymoviesPartnerReadonly = @"https://www.googleapis.com/auth/playmovies_partner.readonly";
+NSString * const kGTLRAuthScopeDialogflowCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRPlayMoviesService
+//   GTLRDialogflowService
 //
 
-@implementation GTLRPlayMoviesService
+@implementation GTLRDialogflowService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://playmoviespartner.googleapis.com/";
+    self.rootURLString = @"https://dialogflow.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

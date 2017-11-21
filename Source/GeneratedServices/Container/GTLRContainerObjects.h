@@ -550,11 +550,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *initialNodeCount;
 
-/**
- *  [Output only] The resource URLs of [instance
- *  groups](/compute/docs/instance-groups/) associated with this
- *  cluster.
- */
+/** Deprecated. Use node_pools.instance_group_urls. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
 /** Configuration for cluster IP allocation. */
@@ -1461,9 +1457,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *initialNodeCount;
 
 /**
- *  [Output only] The resource URLs of [instance
- *  groups](/compute/docs/instance-groups/) associated with this
- *  node pool.
+ *  [Output only] The resource URLs of the [managed instance
+ *  groups](/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  associated with this node pool.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
@@ -1510,7 +1506,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
-/** [Output only] The version of the Kubernetes of this node. */
+/** The version of the Kubernetes of this node. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

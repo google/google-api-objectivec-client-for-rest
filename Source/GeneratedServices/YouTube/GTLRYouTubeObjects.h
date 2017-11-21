@@ -1481,6 +1481,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR18;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp13;
 /** Value: "oflcRp16" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp16;
+/** Value: "oflcRp18" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp18;
 /** Value: "oflcUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcUnrated;
 
@@ -1883,6 +1885,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_Vide
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodec;
 /** Value: "videoCodecMismatch" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodecMismatch;
+/** Value: "videoIngestionFasterThanRealtime" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionFasterThanRealtime;
 /** Value: "videoIngestionStarved" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionStarved;
 /** Value: "videoInterlaceMismatch" */
@@ -5069,6 +5073,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcR18 Value "oflcR18"
  *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcRp13 Value "oflcRp13"
  *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcRp16 Value "oflcRp16"
+ *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcRp18 Value "oflcRp18"
  *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcUnrated Value
  *        "oflcUnrated"
  */
@@ -7097,6 +7102,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "videoCodec"
  *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodecMismatch
  *        Value "videoCodecMismatch"
+ *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionFasterThanRealtime
+ *        Value "videoIngestionFasterThanRealtime"
  *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionStarved
  *        Value "videoIngestionStarved"
  *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoInterlaceMismatch

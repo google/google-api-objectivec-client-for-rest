@@ -96,7 +96,6 @@
 @class GTLRDataflow_SeqMapTask_UserFn;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
 @class GTLRDataflow_ShellTask;
-@class GTLRDataflow_SideInputId;
 @class GTLRDataflow_SideInputInfo;
 @class GTLRDataflow_SideInputInfo_Kind;
 @class GTLRDataflow_Sink;
@@ -1477,6 +1476,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *executionStepName;
 
 /**
+ *  Index of an input collection that's being read from/written to as a side
+ *  input.
+ *  The index identifies a step's side inputs starting by 1 (e.g. the first
+ *  side input has input_index 1, the third has input_index 3).
+ *  Side inputs are identified by a pair of (original_step_name, input_index).
+ *  This field helps uniquely identify them.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputIndex;
+
+/**
  *  Counter name. Not necessarily globally-unique, but unique within the
  *  context of the other fields.
  *  Required.
@@ -1494,8 +1505,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
-/** The GroupByKey step name from the original graph. */
-@property(nonatomic, copy, nullable) NSString *originalShuffleStepName;
+/**
+ *  The step name requesting an operation, such as GBK.
+ *  I.e. the ParDo causing a read/write from shuffle to occur, or a
+ *  read from side inputs.
+ */
+@property(nonatomic, copy, nullable) NSString *originalRequestingStepName;
 
 /**
  *  System generated name of the original step in the user's graph, before
@@ -1518,14 +1533,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        a value. (Value: "VALUE")
  */
 @property(nonatomic, copy, nullable) NSString *portion;
-
-/**
- *  ID of a side input being read from/written to. Side inputs are identified
- *  by a pair of (reader, input_index). The reader is usually equal to the
- *  original name, but it may be different, if a ParDo emits it's Iterator /
- *  Map side input object.
- */
-@property(nonatomic, strong, nullable) GTLRDataflow_SideInputId *sideInput;
 
 /** ID of a particular worker. */
 @property(nonatomic, copy, nullable) NSString *workerId;
@@ -3934,24 +3941,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Uniquely identifies a side input.
- */
-@interface GTLRDataflow_SideInputId : GTLRObject
-
-/** The step that receives and usually consumes this side input. */
-@property(nonatomic, copy, nullable) NSString *declaringStepName;
-
-/**
- *  The index of the side input, from the list of non_parallel_inputs.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inputIndex;
-
-@end
-
-
-/**
  *  Information about a side input of a DoFn or an input of a SeqDoFn.
  */
 @interface GTLRDataflow_SideInputInfo : GTLRObject
@@ -4203,8 +4192,29 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Information about a request to get metadata about a source. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceGetMetadataRequest *getMetadata;
 
+/** User-provided name of the Read instruction for this source. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  System-defined name for the Read instruction for this source
+ *  in the original workflow graph.
+ */
+@property(nonatomic, copy, nullable) NSString *originalName;
+
 /** Information about a request to split a source. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceSplitRequest *split;
+
+/**
+ *  System-defined name of the stage containing the source operation.
+ *  Unique across the workflow.
+ */
+@property(nonatomic, copy, nullable) NSString *stageName;
+
+/**
+ *  System-defined name of the Read instruction for this source.
+ *  Unique across the workflow.
+ */
+@property(nonatomic, copy, nullable) NSString *systemName;
 
 @end
 

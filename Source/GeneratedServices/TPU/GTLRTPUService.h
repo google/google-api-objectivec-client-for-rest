@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Movies Partner API (playmoviespartner/v1)
+//   Cloud TPU API (tpu/v1alpha1)
 // Description:
-//   Gets the delivery status of titles for Google Play Movies Partners.
+//   TPU API provides customers with access to Google TPU technology.
 // Documentation:
-//   https://developers.google.com/playmoviespartner/
+//   https://cloud.google.com/tpu/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -29,29 +29,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View the digital assets you publish on Google Play
- *  Movies and TV
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/playmovies_partner.readonly"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlayMoviesPlaymoviesPartnerReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeTPUCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRPlayMoviesService
+//   GTLRTPUService
 //
 
 /**
- *  Service for executing Google Play Movies Partner API queries.
+ *  Service for executing Cloud TPU API queries.
  *
- *  Gets the delivery status of titles for Google Play Movies Partners.
+ *  TPU API provides customers with access to Google TPU technology.
  */
-@interface GTLRPlayMoviesService : GTLRService
+@interface GTLRTPUService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRPlayMoviesQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRTPUQuery.h. The query can the be sent with GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

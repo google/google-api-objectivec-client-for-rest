@@ -112,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRemoteConfig_RemoteConfigCondition_Tag
  *  *
  *  The RemoteConfig consists of a list of conditions (which can be
  *  thought of as named "if" statements) and a map of parameters (parameter key
- *  to a stucture containing an optional default value, as well as a optional
+ *  to a structure containing an optional default value, as well as a optional
  *  submap of (condition name to value when that condition is true).
  */
 @interface GTLRFirebaseRemoteConfig_RemoteConfig : GTLRObject
@@ -168,6 +168,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRemoteConfig_RemoteConfigCondition_Tag
  *  part of a single RemoteConfig template.
  */
 @interface GTLRFirebaseRemoteConfig_RemoteConfigCondition : GTLRObject
+
+/**
+ *  Optional.
+ *  A description for this Condition. Length must be less than or equal to
+ *  100 characters (or more precisely, unicode code points, which is defined in
+ *  java/com/google/wireless/android/config/ConstsExporter.java).
+ *  A description may contain any Unicode characters
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Required. */
 @property(nonatomic, copy, nullable) NSString *expression;
@@ -242,6 +253,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRemoteConfig_RemoteConfigCondition_Tag
  *  evaluate to <code>true</code>.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRemoteConfig_RemoteConfigParameterValue *defaultValue;
+
+/**
+ *  Optional.
+ *  A description for this Parameter. Length must be less than or equal to
+ *  100 characters (or more precisely, unicode code points, which is defined in
+ *  java/com/google/wireless/android/config/ConstsExporter.java).
+ *  A description may contain any Unicode characters
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @end
 

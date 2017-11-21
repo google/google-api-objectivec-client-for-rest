@@ -105,6 +105,51 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Timeout;
 GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildOptions.logStreamingOption
+
+/**
+ *  Service may automatically determine build log streaming behavior.
+ *
+ *  Value: "STREAM_DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault;
+/**
+ *  Build logs should not be streamed to Google Cloud Storage; they will be
+ *  written when the build is completed.
+ *
+ *  Value: "STREAM_OFF"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff;
+/**
+ *  Build logs should be streamed to Google Cloud Storage.
+ *
+ *  Value: "STREAM_ON"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildOptions.machineType
+
+/**
+ *  Large size.
+ *
+ *  Value: "N1_HIGHCPU_32"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32;
+/**
+ *  Medium size.
+ *
+ *  Value: "N1_HIGHCPU_8"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8;
+/**
+ *  Standard machine type.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.requestedVerifyOption
 
 /**
@@ -342,6 +387,47 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Optional arguments to enable specific features of builds.
  */
 @interface GTLRCloudBuild_BuildOptions : GTLRObject
+
+/**
+ *  Requested disk size for the VM that runs the build. Note that this is *NOT*
+ *  "disk free"; some of the space will be used by the operating system and
+ *  build utilities. Also note that this is the minimum disk size that will be
+ *  allocated for the build -- the build may run with a larger disk than
+ *  requested. At present, the maximum disk size is 1000GB; builds that request
+ *  more than the maximum are rejected with an error.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  LogStreamingOption to define build log streaming behavior to Google Cloud
+ *  Storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault
+ *        Service may automatically determine build log streaming behavior.
+ *        (Value: "STREAM_DEFAULT")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff Build
+ *        logs should not be streamed to Google Cloud Storage; they will be
+ *        written when the build is completed. (Value: "STREAM_OFF")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn Build
+ *        logs should be streamed to Google Cloud Storage. (Value: "STREAM_ON")
+ */
+@property(nonatomic, copy, nullable) NSString *logStreamingOption;
+
+/**
+ *  GCE VM size to run the build on.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Large size.
+ *        (Value: "N1_HIGHCPU_32")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 Medium size.
+ *        (Value: "N1_HIGHCPU_8")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_Unspecified Standard
+ *        machine type. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
  *  Requested verifiability options.
@@ -763,6 +849,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** Explicit commit SHA to build. */
 @property(nonatomic, copy, nullable) NSString *commitSha;
 
+/** Directory, relative to the source root, in which to run the build. */
+@property(nonatomic, copy, nullable) NSString *dir;
+
 /**
  *  ID of the project that owns the repo. If omitted, the project ID requesting
  *  the build is assumed.
@@ -791,6 +880,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** Images that were built as a part of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuiltImage *> *images;
 
+@end
+
+
+/**
+ *  RetryBuildRequest specifies a build to retry.
+ */
+@interface GTLRCloudBuild_RetryBuildRequest : GTLRObject
 @end
 
 

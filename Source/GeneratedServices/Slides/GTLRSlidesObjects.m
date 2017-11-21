@@ -563,6 +563,13 @@ NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Inherit = @"INHER
 NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRendered = @"NOT_RENDERED";
 NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered = @"RENDERED";
 
+// GTLRSlides_ShapeProperties.contentAlignment
+NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Bottom = @"BOTTOM";
+NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified = @"CONTENT_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported = @"CONTENT_ALIGNMENT_UNSUPPORTED";
+NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Middle = @"MIDDLE";
+NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Top = @"TOP";
+
 // GTLRSlides_TableBorderProperties.dashStyle
 NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dash = @"DASH";
 NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashDot = @"DASH_DOT";
@@ -576,6 +583,13 @@ NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Solid = @"SOLID";
 NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Inherit = @"INHERIT";
 NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_NotRendered = @"NOT_RENDERED";
 NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Rendered = @"RENDERED";
+
+// GTLRSlides_TableCellProperties.contentAlignment
+NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Bottom = @"BOTTOM";
+NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified = @"CONTENT_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported = @"CONTENT_ALIGNMENT_UNSUPPORTED";
+NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Middle = @"MIDDLE";
+NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Top = @"TOP";
 
 // GTLRSlides_TextStyle.baselineOffset
 NSString * const kGTLRSlides_TextStyle_BaselineOffset_BaselineOffsetUnspecified = @"BASELINE_OFFSET_UNSPECIFIED";
@@ -1575,7 +1589,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ShapeProperties
-@dynamic link, outline, shadow, shapeBackgroundFill;
+@dynamic contentAlignment, link, outline, shadow, shapeBackgroundFill;
 @end
 
 
@@ -1755,7 +1769,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_TableCellProperties
-@dynamic tableCellBackgroundFill;
+@dynamic contentAlignment, tableCellBackgroundFill;
 @end
 
 

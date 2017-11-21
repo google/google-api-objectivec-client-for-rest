@@ -195,6 +195,31 @@
 
 @end
 
+@implementation GTLRDatastoreQuery_ProjectsReserveIds
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDatastore_ReserveIdsRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}:reserveIds";
+  GTLRDatastoreQuery_ProjectsReserveIds *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_ReserveIdsResponse class];
+  query.loggingName = @"datastore.projects.reserveIds";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatastoreQuery_ProjectsRollback
 
 @dynamic projectId;

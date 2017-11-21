@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Script Execution API (script/v1)
+//   Google Apps Script API (script/v1)
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
@@ -62,21 +62,7 @@
 //
 
 @implementation GTLRScript_Operation
-@dynamic done, error, metadata, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_Operation_Metadata
-//
-
-@implementation GTLRScript_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@dynamic done, error, response;
 @end
 
 

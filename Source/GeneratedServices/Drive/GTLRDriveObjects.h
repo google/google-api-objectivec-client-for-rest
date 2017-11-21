@@ -1696,6 +1696,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
+/** The time at which the Team Drive was created (RFC 3339 date-time). */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
+
 /**
  *  The ID of this Team Drive which is also the ID of the top level folder for
  *  this Team Drive.

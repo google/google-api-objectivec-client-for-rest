@@ -457,7 +457,7 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_RenewLeaseRequest
-@dynamic newLeaseDuration, responseView, scheduleTime;
+@dynamic leaseDuration, responseView, scheduleTime;
 @end
 
 

@@ -3272,6 +3272,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSetDeletionProtection
+
+@dynamic deletionProtection, project, requestId, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/setDeletionProtection";
+  GTLRComputeQuery_InstancesSetDeletionProtection *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.setDeletionProtection";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesSetDiskAutoDelete
 
 @dynamic autoDelete, deviceName, instance, project, requestId, zoneProperty;
@@ -3763,6 +3792,288 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_InstanceTemplateList class];
   query.loggingName = @"compute.instanceTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectAttachmentsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/interconnectAttachments";
+  GTLRComputeQuery_InterconnectAttachmentsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_InterconnectAttachmentAggregatedList class];
+  query.loggingName = @"compute.interconnectAttachments.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectAttachmentsDelete
+
+@dynamic interconnectAttachment, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+          interconnectAttachment:(NSString *)interconnectAttachment {
+  NSArray *pathParams = @[
+    @"interconnectAttachment", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
+  GTLRComputeQuery_InterconnectAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.interconnectAttachment = interconnectAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnectAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectAttachmentsGet
+
+@dynamic interconnectAttachment, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+          interconnectAttachment:(NSString *)interconnectAttachment {
+  NSArray *pathParams = @[
+    @"interconnectAttachment", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
+  GTLRComputeQuery_InterconnectAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.interconnectAttachment = interconnectAttachment;
+  query.expectedObjectClass = [GTLRCompute_InterconnectAttachment class];
+  query.loggingName = @"compute.interconnectAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectAttachmentsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments";
+  GTLRComputeQuery_InterconnectAttachmentsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnectAttachments.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectAttachmentsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments";
+  GTLRComputeQuery_InterconnectAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_InterconnectAttachmentList class];
+  query.loggingName = @"compute.interconnectAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectLocationsGet
+
+@dynamic interconnectLocation, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+            interconnectLocation:(NSString *)interconnectLocation {
+  NSArray *pathParams = @[
+    @"interconnectLocation", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/interconnectLocations/{interconnectLocation}";
+  GTLRComputeQuery_InterconnectLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.interconnectLocation = interconnectLocation;
+  query.expectedObjectClass = [GTLRCompute_InterconnectLocation class];
+  query.loggingName = @"compute.interconnectLocations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectLocationsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/interconnectLocations";
+  GTLRComputeQuery_InterconnectLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_InterconnectLocationList class];
+  query.loggingName = @"compute.interconnectLocations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsDelete
+
+@dynamic interconnect, project, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect {
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  GTLRComputeQuery_InterconnectsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnects.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsGet
+
+@dynamic interconnect, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect {
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  GTLRComputeQuery_InterconnectsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_Interconnect class];
+  query.loggingName = @"compute.interconnects.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/interconnects";
+  GTLRComputeQuery_InterconnectsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnects.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/interconnects";
+  GTLRComputeQuery_InterconnectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_InterconnectList class];
+  query.loggingName = @"compute.interconnects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsPatch
+
+@dynamic interconnect, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
+                        project:(NSString *)project
+                   interconnect:(NSString *)interconnect {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  GTLRComputeQuery_InterconnectsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnects.patch";
   return query;
 }
 

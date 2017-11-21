@@ -788,6 +788,29 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_MembersHasMember
+
+@dynamic groupKey, memberKey;
+
++ (instancetype)queryWithGroupKey:(NSString *)groupKey
+                        memberKey:(NSString *)memberKey {
+  NSArray *pathParams = @[
+    @"groupKey", @"memberKey"
+  ];
+  NSString *pathURITemplate = @"groups/{groupKey}/hasMember/{memberKey}";
+  GTLRDirectoryQuery_MembersHasMember *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.groupKey = groupKey;
+  query.memberKey = memberKey;
+  query.expectedObjectClass = [GTLRDirectory_MembersHasMember class];
+  query.loggingName = @"directory.members.hasMember";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_MembersInsert
 
 @dynamic groupKey;

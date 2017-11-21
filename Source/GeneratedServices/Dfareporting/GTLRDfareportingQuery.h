@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v2.8)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -1630,6 +1630,243 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Gets one landing page by ID.
+ *
+ *  Method: dfareporting.advertiserLandingPages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserLandingPagesGet : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesGetWithprofileId:identifier:]
+
+/**
+ *  Landing page ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, assign) long long identifier;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_LandingPage.
+ *
+ *  Gets one landing page by ID.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param identifier Landing page ID.
+ *
+ *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesGet
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(long long)identifier;
+
+@end
+
+/**
+ *  Inserts a new landing page.
+ *
+ *  Method: dfareporting.advertiserLandingPages.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserLandingPagesInsert : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesInsertWithObject:profileId:]
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_LandingPage.
+ *
+ *  Inserts a new landing page.
+ *
+ *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
+                      profileId:(long long)profileId;
+
+@end
+
+/**
+ *  Retrieves a list of landing pages.
+ *
+ *  Method: dfareporting.advertiserLandingPages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserLandingPagesList : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesListWithprofileId:]
+
+/**
+ *  Select only landing pages that belong to these advertisers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserIds;
+
+/**
+ *  Select only archived landing pages. Don't set this field to select both
+ *  archived and non-archived landing pages.
+ */
+@property(nonatomic, assign) BOOL archived;
+
+/**
+ *  Select only landing pages with these IDs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ids;
+
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 0..1000).
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/** Value of the nextPageToken from the previous result page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Allows searching for landing pages by name or ID. Wildcards (*) are allowed.
+ *  For example, "landingpage*2017" will return landing pages with names like
+ *  "landingpage July 2017", "landingpage March 2017", or simply "landingpage
+ *  2017". Most of the searches also add wildcards implicitly at the start and
+ *  the end of the search string. For example, a search string of "landingpage"
+ *  will match campaigns with name "my landingpage", "landingpage 2015", or
+ *  simply "landingpage".
+ */
+@property(nonatomic, copy, nullable) NSString *searchString;
+
+/**
+ *  Field by which to sort the list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingSortFieldId Value "ID"
+ *    @arg @c kGTLRDfareportingSortFieldName Value "NAME"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDfareportingSortFieldId.
+ */
+@property(nonatomic, copy, nullable) NSString *sortField;
+
+/**
+ *  Order of sorted results.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDfareportingSortOrderAscending.
+ */
+@property(nonatomic, copy, nullable) NSString *sortOrder;
+
+/** Select only landing pages that belong to this subaccount. */
+@property(nonatomic, assign) long long subaccountId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_AdvertiserLandingPagesListResponse.
+ *
+ *  Retrieves a list of landing pages.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
+ *  Updates an existing landing page. This method supports patch semantics.
+ *
+ *  Method: dfareporting.advertiserLandingPages.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserLandingPagesPatch : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesPatchWithObject:profileId:identifier:]
+
+/**
+ *  Landing page ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, assign) long long identifier;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_LandingPage.
+ *
+ *  Updates an existing landing page. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
+ *  @param profileId User profile ID associated with this request.
+ *  @param identifier Landing page ID.
+ *
+ *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
+                      profileId:(long long)profileId
+                     identifier:(long long)identifier;
+
+@end
+
+/**
+ *  Updates an existing landing page.
+ *
+ *  Method: dfareporting.advertiserLandingPages.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserLandingPagesUpdate : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesUpdateWithObject:profileId:]
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_LandingPage.
+ *
+ *  Updates an existing landing page.
+ *
+ *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
+                      profileId:(long long)profileId;
+
+@end
+
+/**
  *  Gets one advertiser by ID.
  *
  *  Method: dfareporting.advertisers.get
@@ -2064,16 +2301,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @interface GTLRDfareportingQuery_CampaignsInsert : GTLRDfareportingQuery
 // Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsInsertWithObject:profileId:defaultLandingPageName:defaultLandingPageUrl:]
-
-/**
- *  Default landing page name for this new campaign. Must be less than 256
- *  characters long.
- */
-@property(nonatomic, copy, nullable) NSString *defaultLandingPageName;
-
-/** Default landing page URL for this new campaign. */
-@property(nonatomic, copy, nullable) NSString *defaultLandingPageUrl;
+//   +[GTLQueryDfareporting queryForCampaignsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2085,16 +2313,11 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param defaultLandingPageName Default landing page name for this new
- *    campaign. Must be less than 256 characters long.
- *  @param defaultLandingPageUrl Default landing page URL for this new campaign.
  *
  *  @returns GTLRDfareportingQuery_CampaignsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Campaign *)object
-                      profileId:(long long)profileId
-         defaultLandingPageName:(NSString *)defaultLandingPageName
-          defaultLandingPageUrl:(NSString *)defaultLandingPageUrl;
+                      profileId:(long long)profileId;
 
 @end
 
@@ -6015,240 +6238,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                          projectId:(long long)projectId;
-
-@end
-
-/**
- *  Deletes an existing campaign landing page.
- *
- *  Method: dfareporting.landingPages.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesDeleteWithprofileId:campaignId:identifier:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/**
- *  Landing page ID.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, assign) long long identifier;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes an existing campaign landing page.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *  @param identifier Landing page ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesDelete
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        campaignId:(long long)campaignId
-                        identifier:(long long)identifier;
-
-@end
-
-/**
- *  Gets one campaign landing page by ID.
- *
- *  Method: dfareporting.landingPages.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesGetWithprofileId:campaignId:identifier:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/**
- *  Landing page ID.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, assign) long long identifier;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_LandingPage.
- *
- *  Gets one campaign landing page by ID.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *  @param identifier Landing page ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesGet
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        campaignId:(long long)campaignId
-                        identifier:(long long)identifier;
-
-@end
-
-/**
- *  Inserts a new landing page for the specified campaign.
- *
- *  Method: dfareporting.landingPages.insert
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesInsertWithObject:profileId:campaignId:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_LandingPage.
- *
- *  Inserts a new landing page for the specified campaign.
- *
- *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesInsert
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
-                      profileId:(long long)profileId
-                     campaignId:(long long)campaignId;
-
-@end
-
-/**
- *  Retrieves the list of landing pages for the specified campaign.
- *
- *  Method: dfareporting.landingPages.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesListWithprofileId:campaignId:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_LandingPagesListResponse.
- *
- *  Retrieves the list of landing pages for the specified campaign.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesList
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        campaignId:(long long)campaignId;
-
-@end
-
-/**
- *  Updates an existing campaign landing page. This method supports patch
- *  semantics.
- *
- *  Method: dfareporting.landingPages.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesPatchWithObject:profileId:campaignId:identifier:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/**
- *  Landing page ID.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, assign) long long identifier;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_LandingPage.
- *
- *  Updates an existing campaign landing page. This method supports patch
- *  semantics.
- *
- *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *  @param identifier Landing page ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesPatch
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
-                      profileId:(long long)profileId
-                     campaignId:(long long)campaignId
-                     identifier:(long long)identifier;
-
-@end
-
-/**
- *  Updates an existing campaign landing page.
- *
- *  Method: dfareporting.landingPages.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_LandingPagesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLandingPagesUpdateWithObject:profileId:campaignId:]
-
-/** Landing page campaign ID. */
-@property(nonatomic, assign) long long campaignId;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_LandingPage.
- *
- *  Updates an existing campaign landing page.
- *
- *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
- *  @param profileId User profile ID associated with this request.
- *  @param campaignId Landing page campaign ID.
- *
- *  @returns GTLRDfareportingQuery_LandingPagesUpdate
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
-                      profileId:(long long)profileId
-                     campaignId:(long long)campaignId;
 
 @end
 

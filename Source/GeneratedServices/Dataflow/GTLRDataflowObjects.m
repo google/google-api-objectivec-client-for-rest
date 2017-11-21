@@ -314,9 +314,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_CounterStructuredName
-@dynamic componentStepName, executionStepName, name, origin,
-         originalShuffleStepName, originalStepName, originNamespace, portion,
-         sideInput, workerId;
+@dynamic componentStepName, executionStepName, inputIndex, name, origin,
+         originalRequestingStepName, originalStepName, originNamespace, portion,
+         workerId;
 @end
 
 
@@ -1501,16 +1501,6 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SideInputId
-//
-
-@implementation GTLRDataflow_SideInputId
-@dynamic declaringStepName, inputIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_SideInputInfo
 //
 
@@ -1685,7 +1675,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_SourceOperationRequest
-@dynamic getMetadata, split;
+@dynamic getMetadata, name, originalName, split, stageName, systemName;
 @end
 
 

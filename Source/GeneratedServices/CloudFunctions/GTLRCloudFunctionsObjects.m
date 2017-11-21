@@ -14,11 +14,168 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFunctions_CloudFunction.status
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_Active = @"ACTIVE";
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_CloudFunctionStatusUnspecified = @"CLOUD_FUNCTION_STATUS_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeleteInProgress = @"DELETE_IN_PROGRESS";
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeployInProgress = @"DEPLOY_IN_PROGRESS";
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_Offline = @"OFFLINE";
+NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown = @"UNKNOWN";
+
+// GTLRCloudFunctions_OperationMetadataV1.type
+NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction = @"CREATE_FUNCTION";
+NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction = @"DELETE_FUNCTION";
+NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @"UPDATE_FUNCTION";
+
 // GTLRCloudFunctions_OperationMetadataV1Beta2.type
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction = @"CREATE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction = @"DELETE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction = @"UPDATE_FUNCTION";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CallFunctionRequest
+//
+
+@implementation GTLRCloudFunctions_CallFunctionRequest
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CallFunctionResponse
+//
+
+@implementation GTLRCloudFunctions_CallFunctionResponse
+@dynamic error, executionId, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CloudFunction
+//
+
+@implementation GTLRCloudFunctions_CloudFunction
+@dynamic availableMemoryMb, descriptionProperty, entryPoint, eventTrigger,
+         httpsTrigger, labels, name, serviceAccountEmail, sourceArchiveUrl,
+         sourceRepository, sourceUploadUrl, status, timeout, updateTime,
+         versionId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CloudFunction_Labels
+//
+
+@implementation GTLRCloudFunctions_CloudFunction_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_EventTrigger
+//
+
+@implementation GTLRCloudFunctions_EventTrigger
+@dynamic eventType, failurePolicy, resource, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_FailurePolicy
+//
+
+@implementation GTLRCloudFunctions_FailurePolicy
+@dynamic retry;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_GenerateDownloadUrlRequest
+//
+
+@implementation GTLRCloudFunctions_GenerateDownloadUrlRequest
+@dynamic versionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_GenerateDownloadUrlResponse
+//
+
+@implementation GTLRCloudFunctions_GenerateDownloadUrlResponse
+@dynamic downloadUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_GenerateUploadUrlRequest
+//
+
+@implementation GTLRCloudFunctions_GenerateUploadUrlRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_GenerateUploadUrlResponse
+//
+
+@implementation GTLRCloudFunctions_GenerateUploadUrlResponse
+@dynamic uploadUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_HttpsTrigger
+//
+
+@implementation GTLRCloudFunctions_HttpsTrigger
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_ListFunctionsResponse
+//
+
+@implementation GTLRCloudFunctions_ListFunctionsResponse
+@dynamic functions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"functions" : [GTLRCloudFunctions_CloudFunction class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"functions";
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -142,11 +299,35 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_OperationMetadataV1
+//
+
+@implementation GTLRCloudFunctions_OperationMetadataV1
+@dynamic request, target, type, updateTime, versionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_OperationMetadataV1_Request
+//
+
+@implementation GTLRCloudFunctions_OperationMetadataV1_Request
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_OperationMetadataV1Beta2
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1Beta2
-@dynamic request, target, type, versionId;
+@dynamic request, target, type, updateTime, versionId;
 @end
 
 
@@ -161,6 +342,25 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_Retry
+//
+
+@implementation GTLRCloudFunctions_Retry
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_SourceRepository
+//
+
+@implementation GTLRCloudFunctions_SourceRepository
+@dynamic deployedUrl, url;
 @end
 
 

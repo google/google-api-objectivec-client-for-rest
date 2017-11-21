@@ -23,6 +23,7 @@
 @class GTLRSQLAdmin_Database;
 @class GTLRSQLAdmin_DatabaseInstance;
 @class GTLRSQLAdmin_InstancesCloneRequest;
+@class GTLRSQLAdmin_InstancesDemoteMasterRequest;
 @class GTLRSQLAdmin_InstancesExportRequest;
 @class GTLRSQLAdmin_InstancesFailoverRequest;
 @class GTLRSQLAdmin_InstancesImportRequest;
@@ -569,6 +570,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Demotes the standalone instance to be a read replica Cloud SQL instance of
+ *  an on-premises master.
+ *
+ *  Method: sql.instances.demoteMaster
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesDemoteMaster : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForInstancesDemoteMasterWithObject:project:instance:]
+
+/** Cloud SQL instance name. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Demotes the standalone instance to be a read replica Cloud SQL instance of
+ *  an on-premises master.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesDemoteMasterRequest to include in
+ *    the query.
+ *  @param project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance name.
+ *
+ *  @returns GTLRSQLAdminQuery_InstancesDemoteMaster
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteMasterRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
 
 @end
 

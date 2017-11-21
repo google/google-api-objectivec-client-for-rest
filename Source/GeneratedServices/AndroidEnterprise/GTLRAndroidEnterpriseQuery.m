@@ -1122,6 +1122,29 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList
+
+@dynamic enterpriseId, productId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                            productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"productId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/managedConfigurationsSettings";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse class];
+  query.loggingName = @"androidenterprise.managedconfigurationssettings.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_PermissionsGet
 
 @dynamic language, permissionId;
@@ -1862,6 +1885,28 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   query.userId = userId;
   query.expectedObjectClass = [GTLRAndroidEnterprise_User class];
   query.loggingName = @"androidenterprise.users.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess
+
+@dynamic enterpriseId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/deviceAccess";
+  GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.loggingName = @"androidenterprise.users.revokeDeviceAccess";
   return query;
 }
 

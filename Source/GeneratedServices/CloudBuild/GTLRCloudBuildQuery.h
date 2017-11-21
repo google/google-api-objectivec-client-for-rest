@@ -22,6 +22,8 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_CancelBuildRequest;
 @class GTLRCloudBuild_CancelOperationRequest;
+@class GTLRCloudBuild_RepoSource;
+@class GTLRCloudBuild_RetryBuildRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -341,6 +343,84 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new build based on the given build.
+ *  This API creates a new build using the original build request, which may
+ *  or may not result in an identical build.
+ *  For triggered builds:
+ *  * Triggered builds resolve to a precise revision, so a retry of a triggered
+ *  build will result in a build that uses the same revision.
+ *  For non-triggered builds that specify RepoSource:
+ *  * If the original build built from the tip of a branch, the retried build
+ *  will build from the tip of that branch, which may not be the same revision
+ *  as the original build.
+ *  * If the original build specified a commit sha or revision ID, the retried
+ *  build will use the identical source.
+ *  For builds that specify StorageSource:
+ *  * If the original build pulled source from Cloud Storage without specifying
+ *  the generation of the object, the new build will use the current object,
+ *  which may be different from the original build source.
+ *  * If the original build pulled source from Cloud Storage and specified the
+ *  generation of the object, the new build will attempt to use the same
+ *  object, which may or may not be available depending on the bucket's
+ *  lifecycle management settings.
+ *
+ *  Method: cloudbuild.projects.builds.retry
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsBuildsRetry : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsBuildsRetryWithObject:projectId:identifier:]
+
+/**
+ *  Build ID of the original build.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Creates a new build based on the given build.
+ *  This API creates a new build using the original build request, which may
+ *  or may not result in an identical build.
+ *  For triggered builds:
+ *  * Triggered builds resolve to a precise revision, so a retry of a triggered
+ *  build will result in a build that uses the same revision.
+ *  For non-triggered builds that specify RepoSource:
+ *  * If the original build built from the tip of a branch, the retried build
+ *  will build from the tip of that branch, which may not be the same revision
+ *  as the original build.
+ *  * If the original build specified a commit sha or revision ID, the retried
+ *  build will use the identical source.
+ *  For builds that specify StorageSource:
+ *  * If the original build pulled source from Cloud Storage without specifying
+ *  the generation of the object, the new build will use the current object,
+ *  which may be different from the original build source.
+ *  * If the original build pulled source from Cloud Storage and specified the
+ *  generation of the object, the new build will attempt to use the same
+ *  object, which may or may not be available depending on the bucket's
+ *  lifecycle management settings.
+ *
+ *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
+ *    query.
+ *  @param projectId ID of the project.
+ *  @param identifier Build ID of the original build.
+ *
+ *  @returns GTLRCloudBuildQuery_ProjectsBuildsRetry
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
+                      projectId:(NSString *)projectId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
  *  Creates a new BuildTrigger.
  *  This API is experimental.
  *
@@ -504,6 +584,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRCloudBuildQuery_ProjectsTriggersPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                      projectId:(NSString *)projectId
+                      triggerId:(NSString *)triggerId;
+
+@end
+
+/**
+ *  Runs a BuildTrigger at a particular source revision.
+ *
+ *  Method: cloudbuild.projects.triggers.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsTriggersRun : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsTriggersRunWithObject:projectId:triggerId:]
+
+/** ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** ID of the trigger. */
+@property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Runs a BuildTrigger at a particular source revision.
+ *
+ *  @param object The @c GTLRCloudBuild_RepoSource to include in the query.
+ *  @param projectId ID of the project.
+ *  @param triggerId ID of the trigger.
+ *
+ *  @returns GTLRCloudBuildQuery_ProjectsTriggersRun
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
                       projectId:(NSString *)projectId
                       triggerId:(NSString *)triggerId;
 

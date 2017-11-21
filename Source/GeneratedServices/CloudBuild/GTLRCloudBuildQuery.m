@@ -185,6 +185,39 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_ProjectsBuildsRetry
+
+@dynamic identifier, projectId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
+                      projectId:(NSString *)projectId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"id", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/builds/{id}:retry";
+  GTLRCloudBuildQuery_ProjectsBuildsRetry *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.builds.retry";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_ProjectsTriggersCreate
 
 @dynamic projectId;
@@ -299,6 +332,35 @@
   query.triggerId = triggerId;
   query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
   query.loggingName = @"cloudbuild.projects.triggers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersRun
+
+@dynamic projectId, triggerId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
+                      projectId:(NSString *)projectId
+                      triggerId:(NSString *)triggerId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"projectId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{triggerId}:run";
+  GTLRCloudBuildQuery_ProjectsTriggersRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.triggers.run";
   return query;
 }
 

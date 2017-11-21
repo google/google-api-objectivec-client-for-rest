@@ -683,6 +683,33 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_ReserveIdsRequest
+//
+
+@implementation GTLRDatastore_ReserveIdsRequest
+@dynamic databaseId, keys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [GTLRDatastore_Key class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_ReserveIdsResponse
+//
+
+@implementation GTLRDatastore_ReserveIdsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_RollbackRequest
 //
 

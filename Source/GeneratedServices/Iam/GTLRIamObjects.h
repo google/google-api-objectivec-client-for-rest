@@ -66,6 +66,12 @@ GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Remove;
 // GTLRIam_CreateServiceAccountKeyRequest.keyAlgorithm
 
 /**
+ *  HMAC.
+ *
+ *  Value: "KEY_ALG_GCS_SYMMETRIC_HMAC"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgGcsSymmetricHmac;
+/**
  *  1k RSA Key.
  *
  *  Value: "KEY_ALG_RSA_1024"
@@ -219,6 +225,12 @@ GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.keyAlgorithm
 
+/**
+ *  HMAC.
+ *
+ *  Value: "KEY_ALG_GCS_SYMMETRIC_HMAC"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgGcsSymmetricHmac;
 /**
  *  1k RSA Key.
  *
@@ -378,6 +390,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  future.
  *
  *  Likely values:
+ *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgGcsSymmetricHmac
+ *        HMAC. (Value: "KEY_ALG_GCS_SYMMETRIC_HMAC")
  *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024
  *        1k RSA Key. (Value: "KEY_ALG_RSA_1024")
  *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048
@@ -886,9 +900,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  to generate the service account email address and a stable
  *  `unique_id`.
  *  If the account already exists, the account's resource name is returned
- *  in util::Status's ResourceInfo.resource_name in the format of
- *  projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}. The caller can
- *  use the name in other methods to access the account.
+ *  in the format of projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}. The caller
+ *  can use the name in other methods to access the account.
  *  All other methods can identify the service account using the format
  *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
@@ -926,7 +939,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  \@OutputOnly. The OAuth2 client id for the service account.
+ *  \@OutputOnly The OAuth2 client id for the service account.
  *  This is used in conjunction with the OAuth2 clientconfig API to make
  *  three legged OAuth2 (3LO) flows to access the data of Google users.
  */
@@ -961,6 +974,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  Specifies the algorithm (and possibly key size) for the key.
  *
  *  Likely values:
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgGcsSymmetricHmac
+ *        HMAC. (Value: "KEY_ALG_GCS_SYMMETRIC_HMAC")
  *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 1k RSA Key.
  *        (Value: "KEY_ALG_RSA_1024")
  *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 2k RSA Key.

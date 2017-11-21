@@ -258,6 +258,62 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a specific job resource.
+ *  Currently the only supported fields to update are `labels`.
+ *
+ *  Method: ml.projects.jobs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsPatch : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsPatchWithObject:name:]
+
+/** Required. The job name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specifies the path, relative to `Job`, of the field to update.
+ *  To adopt etag mechanism, include `etag` field in the mask, and include the
+ *  `etag` value in your job resource.
+ *  For example, to change the labels of a job, the `update_mask` parameter
+ *  would be specified as `labels`, `etag`, and the
+ *  `PATCH` request body would specify the new value, as follows:
+ *  {
+ *  "labels": {
+ *  "owner": "Google",
+ *  "color": "Blue"
+ *  }
+ *  "etag": "33a64df551425fcc55e4d42a148795d9f25f89d4"
+ *  }
+ *  If `etag` matches the one on the server, the labels of the job will be
+ *  replaced with the given ones, and the server end `etag` will be
+ *  recalculated.
+ *  Currently the only supported update masks are `labels` and `etag`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job.
+ *
+ *  Updates a specific job resource.
+ *  Currently the only supported fields to update are `labels`.
+ *
+ *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job to
+ *    include in the query.
+ *  @param name Required. The job name.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
@@ -497,6 +553,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsListWithparent:]
+
+/** Optional. Specifies the subset of models to retrieve. */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The number of models to retrieve per "page" of results. If there
@@ -817,6 +876,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsListWithparent:]
+
+/** Optional. Specifies the subset of versions to retrieve. */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The number of versions to retrieve per "page" of results. If

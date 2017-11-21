@@ -171,6 +171,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_ConfigurationVariables
+//
+
+@implementation GTLRAndroidEnterprise_ConfigurationVariables
+@dynamic kind, mcmId, variableSet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"variableSet" : [GTLRAndroidEnterprise_VariableSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_Device
 //
 
@@ -396,7 +414,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfiguration
-@dynamic kind, managedProperty, productId;
+@dynamic configurationVariables, kind, managedProperty, productId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -437,6 +455,42 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"managedConfigurationForUser" : [GTLRAndroidEnterprise_ManagedConfiguration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedConfigurationsSettings
+//
+
+@implementation GTLRAndroidEnterprise_ManagedConfigurationsSettings
+@dynamic kind, managedProperty, mcmId, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedProperty" : [GTLRAndroidEnterprise_ManagedProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse
+//
+
+@implementation GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse
+@dynamic kind, managedConfigurationsSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedConfigurationsSettings" : [GTLRAndroidEnterprise_ManagedConfigurationsSettings class]
   };
   return map;
 }
@@ -918,4 +972,14 @@
 
 @implementation GTLRAndroidEnterprise_UserToken
 @dynamic kind, token, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_VariableSet
+//
+
+@implementation GTLRAndroidEnterprise_VariableSet
+@dynamic kind, placeholder, userValue;
 @end

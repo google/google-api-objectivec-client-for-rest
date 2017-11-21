@@ -385,13 +385,52 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 //
 
 @implementation GTLRCloudNaturalLanguage_AnnotateTextResponse
-@dynamic documentSentiment, entities, language, sentences, tokens;
+@dynamic categories, documentSentiment, entities, language, sentences, tokens;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRCloudNaturalLanguage_ClassificationCategory class],
     @"entities" : [GTLRCloudNaturalLanguage_Entity class],
     @"sentences" : [GTLRCloudNaturalLanguage_Sentence class],
     @"tokens" : [GTLRCloudNaturalLanguage_Token class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_ClassificationCategory
+//
+
+@implementation GTLRCloudNaturalLanguage_ClassificationCategory
+@dynamic confidence, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_ClassifyTextRequest
+//
+
+@implementation GTLRCloudNaturalLanguage_ClassifyTextRequest
+@dynamic document;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_ClassifyTextResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_ClassifyTextResponse
+@dynamic categories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRCloudNaturalLanguage_ClassificationCategory class]
   };
   return map;
 }
@@ -467,8 +506,8 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 //
 
 @implementation GTLRCloudNaturalLanguage_Features
-@dynamic extractDocumentSentiment, extractEntities, extractEntitySentiment,
-         extractSyntax;
+@dynamic classifyText, extractDocumentSentiment, extractEntities,
+         extractEntitySentiment, extractSyntax;
 @end
 
 

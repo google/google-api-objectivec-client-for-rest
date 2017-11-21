@@ -132,3 +132,25 @@ NSString * const kGTLRCustomsearchSiteSearchFilterI = @"i";
 }
 
 @end
+
+@implementation GTLRCustomsearchQuery_CseSiterestrictList
+
+@dynamic c2coff, cr, cx, dateRestrict, exactTerms, excludeTerms, fileType,
+         filter, gl, googlehost, highRange, hl, hq, imgColorType,
+         imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
+         orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
+         siteSearchFilter, sort, start;
+
++ (instancetype)queryWithQ:(NSString *)q {
+  NSString *pathURITemplate = @"v1/siterestrict";
+  GTLRCustomsearchQuery_CseSiterestrictList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.q = q;
+  query.expectedObjectClass = [GTLRCustomsearch_Search class];
+  query.loggingName = @"search.cse.siterestrict.list";
+  return query;
+}
+
+@end

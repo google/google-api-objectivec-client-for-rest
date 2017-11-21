@@ -16,6 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// overrideStrategy
+NSString * const kGTLRAppengineOverrideStrategyOverride        = @"OVERRIDE";
+NSString * const kGTLRAppengineOverrideStrategyStrict          = @"STRICT";
+NSString * const kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy = @"UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY";
+
 // view
 NSString * const kGTLRAppengineViewBasic            = @"BASIC";
 NSString * const kGTLRAppengineViewBasicCertificate = @"BASIC_CERTIFICATE";
@@ -192,7 +197,7 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @implementation GTLRAppengineQuery_AppsDomainMappingsCreate
 
-@dynamic appsId;
+@dynamic appsId, overrideStrategy;
 
 + (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
                          appsId:(NSString *)appsId {

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -71,7 +71,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -133,7 +133,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerR
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -149,7 +149,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_Sectio
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -220,7 +220,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
  */
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
- *  Zero touch section type.
+ *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
@@ -248,7 +248,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -345,58 +345,75 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  An Android device.
+ *  An Android device registered for zero-touch enrollment.
  */
 @interface GTLRAndroidProvisioningPartner_Device : GTLRObject
 
-/** Claims. */
+/**
+ *  Output only. The provisioning claims for a device. Devices claimed for
+ *  zero-touch enrollment have a claim with the type `SECTION_TYPE_ZERO_TOUCH`.
+ *  Call
+ *  `partners.devices.unclaim`
+ *  or
+ *  `partners.devices.unclaimAsync`
+ *  to remove the device from zero-touch enrollment.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_DeviceClaim *> *claims;
 
-/**
- *  The resource name of the configuration.
- *  Only set for customers.
- */
+/** Not available to resellers. */
 @property(nonatomic, copy, nullable) NSString *configuration;
 
 /**
- *  Device ID.
+ *  Output only. The ID of the device. Assigned by the server.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** Device identifier. */
+/**
+ *  The hardware IDs that identify a manufactured device. To learn more, read
+ *  [Identifiers](/zero-touch/guides/identifiers).
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
-/** Device metadata. */
+/**
+ *  The metadata attached to the device. Structured as key-value pairs. To
+ *  learn more, read [Device metadata](/zero-touch/guides/metadata).
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
-/** Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`. */
+/**
+ *  Output only. The API resource name in the format
+ *  `partners/[PARTNER_ID]/devices/[DEVICE_ID]`. Assigned by the server.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  Information about a device claimed for a partner.
+ *  A record of a device claimed by a reseller for a customer. Devices claimed
+ *  for zero-touch enrollment have a claim with the type
+ *  `SECTION_TYPE_ZERO_TOUCH`. To learn more, read
+ *  [Claim devices for customers](/zero-touch/guides/how-it-works#claim).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceClaim : GTLRObject
 
 /**
- *  Owner ID.
+ *  The ID of the Customer that purchased the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ownerCompanyId;
 
 /**
- *  Section type of the device claim.
+ *  Output only. The type of claim made on the device.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -404,42 +421,47 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Identifies a unique device.
+ *  Encapsulates hardware and product IDs to identify a manufactured device. To
+ *  learn more, read [Identifiers](/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
-/** IMEI number. */
+/** The device’s IMEI number. Validated on input. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
- *  Manufacturer name to match `android.os.Build.MANUFACTURER` (required).
- *  Allowed values listed in
- *  [manufacturer names](/zero-touch/resources/manufacturer-names).
+ *  Required. The device manufacturer’s name. Matches the device's built-in
+ *  value returned from `android.os.Build.MANUFACTURER`. Allowed values are
+ *  listed in [manufacturer names](/zero-touch/resources/manufacturer-names).
  */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
-/** MEID number. */
+/** The device’s MEID number. */
 @property(nonatomic, copy, nullable) NSString *meid;
 
-/** Serial number (optional). */
+/**
+ *  The manufacturer's serial number for the device. This value might not be
+ *  unique.
+ */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
 
 /**
- *  A key-value pair of the device metadata.
+ *  Metadata entries that can be attached to a `Device`. To learn more, read
+ *  [Device metadata](/zero-touch/guides/metadata).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceMetadata : GTLRObject
 
-/** Metadata entries */
+/** Metadata entries recorded as key-value pairs. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata_Entries *entries;
 
 @end
 
 
 /**
- *  Metadata entries
+ *  Metadata entries recorded as key-value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -599,7 +621,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -761,7 +783,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -790,7 +812,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
@@ -953,7 +975,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch
- *        Zero touch section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
+ *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 

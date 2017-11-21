@@ -24,7 +24,6 @@
 @class GTLRAndroidPublisher_AppEdit;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_InAppProduct;
-@class GTLRAndroidPublisher_InappproductsBatchRequest;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_ReviewsReplyRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
@@ -2240,30 +2239,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  @returns GTLRAndroidPublisherQuery_EntitlementsList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName;
-
-@end
-
-/**
- *  GTLRAndroidPublisherQuery_InappproductsBatch
- *
- *  Method: androidpublisher.inappproducts.batch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidPublisher
- */
-@interface GTLRAndroidPublisherQuery_InappproductsBatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsBatchWithObject:]
-
-/**
- *  Fetches a @c GTLRAndroidPublisher_InappproductsBatchResponse.
- *
- *  @param object The @c GTLRAndroidPublisher_InappproductsBatchRequest to
- *    include in the query.
- *
- *  @returns GTLRAndroidPublisherQuery_InappproductsBatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchRequest *)object;
 
 @end
 
