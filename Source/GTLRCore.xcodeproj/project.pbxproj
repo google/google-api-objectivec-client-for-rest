@@ -2462,6 +2462,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Resources/GTLROSXFramework-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
@@ -2482,6 +2483,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Resources/GTLROSXFramework-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
@@ -2524,6 +2526,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/GTLRiOSFramework-Info.plist";
 				INSTALL_PATH = "@loader_path/Frameworks";
@@ -2547,6 +2550,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/GTLRiOSFramework-Info.plist";
 				INSTALL_PATH = "@loader_path/Frameworks";
