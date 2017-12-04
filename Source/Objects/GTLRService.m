@@ -2476,7 +2476,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     _retryEnabled = ((params.retryEnabled != nil) ? params.retryEnabled.boolValue : service.retryEnabled);
     _maxRetryInterval = (params.maxRetryInterval ?
                          params.maxRetryInterval.doubleValue : service.maxRetryInterval);
-    _shouldFetchNextPages = (params.shouldFetchNextPages ?
+    _shouldFetchNextPages = ((params.shouldFetchNextPages != nil)?
                              params.shouldFetchNextPages.boolValue : service.shouldFetchNextPages);
 
     GTLRServiceUploadProgressBlock uploadProgressBlock =
