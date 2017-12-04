@@ -45,11 +45,11 @@ NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_Basic = @"BASIC";
 NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_Full = @"FULL";
 NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_ViewUnspecified = @"VIEW_UNSPECIFIED";
 
-// GTLRCloudTasks_Queue.queueState
-NSString * const kGTLRCloudTasks_Queue_QueueState_Disabled     = @"DISABLED";
-NSString * const kGTLRCloudTasks_Queue_QueueState_Paused       = @"PAUSED";
-NSString * const kGTLRCloudTasks_Queue_QueueState_QueueStateUnspecified = @"QUEUE_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudTasks_Queue_QueueState_Running      = @"RUNNING";
+// GTLRCloudTasks_Queue.state
+NSString * const kGTLRCloudTasks_Queue_State_Disabled         = @"DISABLED";
+NSString * const kGTLRCloudTasks_Queue_State_Paused           = @"PAUSED";
+NSString * const kGTLRCloudTasks_Queue_State_Running          = @"RUNNING";
+NSString * const kGTLRCloudTasks_Queue_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudTasks_RenewLeaseRequest.responseView
 NSString * const kGTLRCloudTasks_RenewLeaseRequest_ResponseView_Basic = @"BASIC";
@@ -437,7 +437,7 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudTasks_Queue
 @dynamic appEngineHttpTarget, appEngineQueueConfig, name, pullQueueConfig,
-         pullTarget, purgeTime, queueState, rateLimits, retryConfig;
+         pullTarget, purgeTime, rateLimits, retryConfig, state;
 @end
 
 

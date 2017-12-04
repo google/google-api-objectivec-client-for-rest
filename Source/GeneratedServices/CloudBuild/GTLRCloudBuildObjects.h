@@ -131,13 +131,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_Str
 // GTLRCloudBuild_BuildOptions.machineType
 
 /**
- *  Large size.
+ *  Highcpu machine with 32 CPUs.
  *
  *  Value: "N1_HIGHCPU_32"
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32;
 /**
- *  Medium size.
+ *  Highcpu machine with 8 CPUs.
  *
  *  Value: "N1_HIGHCPU_8"
  */
@@ -420,10 +420,10 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  GCE VM size to run the build on.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Large size.
- *        (Value: "N1_HIGHCPU_32")
- *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 Medium size.
- *        (Value: "N1_HIGHCPU_8")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Highcpu
+ *        machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 Highcpu
+ *        machine with 8 CPUs. (Value: "N1_HIGHCPU_8")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_Unspecified Standard
  *        machine type. (Value: "UNSPECIFIED")
  */

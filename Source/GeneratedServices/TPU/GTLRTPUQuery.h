@@ -19,6 +19,8 @@
 #endif
 
 @class GTLRTPU_Node;
+@class GTLRTPU_ReimageNodeRequest;
+@class GTLRTPU_ResetNodeRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -245,24 +247,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesReimage : GTLRTPUQuery
 // Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesReimageWithname:]
+//   +[GTLQueryTPU queryForProjectsLocationsNodesReimageWithObject:name:]
 
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** The version for reimage to create. */
-@property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
 /**
  *  Fetches a @c GTLRTPU_Operation.
  *
  *  Reimage a node's OS.
  *
+ *  @param object The @c GTLRTPU_ReimageNodeRequest to include in the query.
  *  @param name The resource name.
  *
  *  @returns GTLRTPUQuery_ProjectsLocationsNodesReimage
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRTPU_ReimageNodeRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -276,7 +277,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesReset : GTLRTPUQuery
 // Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesResetWithname:]
+//   +[GTLQueryTPU queryForProjectsLocationsNodesResetWithObject:name:]
 
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -286,11 +287,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Resets a node, which stops and starts the VM.
  *
+ *  @param object The @c GTLRTPU_ResetNodeRequest to include in the query.
  *  @param name The resource name.
  *
  *  @returns GTLRTPUQuery_ProjectsLocationsNodesReset
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRTPU_ResetNodeRequest *)object
+                           name:(NSString *)name;
 
 @end
 

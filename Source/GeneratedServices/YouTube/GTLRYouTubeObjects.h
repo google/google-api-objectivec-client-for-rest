@@ -283,6 +283,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Standard;
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.frameRate
 
+/** Value: "variable" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_Variable;
 /** Value: "30fps" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps;
 /** Value: "60fps" */
@@ -299,6 +301,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.resolution
 
+/** Value: "variable" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable;
 /** Value: "1080p" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p;
 /** Value: "1440p" */
@@ -2955,6 +2959,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The frame rate of the inbound video data.
  *
  *  Likely values:
+ *    @arg @c kGTLRYouTube_CdnSettings_FrameRate_Variable Value "variable"
  *    @arg @c kGTLRYouTube_CdnSettings_FrameRate_X30fps Value "30fps"
  *    @arg @c kGTLRYouTube_CdnSettings_FrameRate_X60fps Value "60fps"
  */
@@ -2979,6 +2984,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resolution of the inbound video data.
  *
  *  Likely values:
+ *    @arg @c kGTLRYouTube_CdnSettings_Resolution_Variable Value "variable"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X1080p Value "1080p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X1440p Value "1440p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X2160p Value "2160p"
@@ -5989,6 +5995,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *closedCaptionsType;
 
 /**
+ *  This setting indicates whether auto start is enabled for this broadcast.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutoStart;
+
+/**
  *  This setting indicates whether HTTP POST closed captioning is enabled for
  *  this broadcast. The ingestion URL of the closed captions is returned through
  *  the liveStreams API. This is mutually exclusive with using the
@@ -8638,6 +8651,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A video resource represents a YouTube video.
  */
 @interface GTLRYouTube_Video : GTLRObject
+
+/** The access token to uniquely identify a revocable unlisted video. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
 
 /**
  *  Age restriction details related to a video. This data can only be retrieved

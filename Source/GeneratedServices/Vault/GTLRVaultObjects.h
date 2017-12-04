@@ -233,13 +233,13 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 @interface GTLRVault_HeldGroupsQuery : GTLRObject
 
 /**
- *  The end date range for the search query. These timestamps are in GMT and
+ *  The end time range for the search query. These timestamps are in GMT and
  *  rounded down to the start of the given date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The start date range for the search query. These timestamps are in GMT and
+ *  The start time range for the search query. These timestamps are in GMT and
  *  rounded down to the start of the given date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -256,13 +256,13 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 @interface GTLRVault_HeldMailQuery : GTLRObject
 
 /**
- *  The end date range for the search query. These timestamps are in GMT and
+ *  The end time range for the search query. These timestamps are in GMT and
  *  rounded down to the start of the given date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The start date range for the search query. These timestamps are in GMT and
+ *  The start time range for the search query. These timestamps are in GMT and
  *  rounded down to the start of the given date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;

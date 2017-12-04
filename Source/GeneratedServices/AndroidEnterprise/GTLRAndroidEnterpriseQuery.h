@@ -20,6 +20,7 @@
 
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpec;
 @class GTLRAndroidEnterprise_AndroidDevicePolicyConfig;
+@class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_DeviceState;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAccount;
@@ -192,6 +193,54 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
+ *  Updates the device policy. This method supports patch semantics.
+ *
+ *  Method: androidenterprise.devices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_DevicesPatch : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForDevicesPatchWithObject:enterpriseId:userId:deviceId:]
+
+/** The ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Mask that identifies which fields to update. If not set, all modifiable
+ *  fields will be modified.
+ *  When set in a query parameter, this field should be specified as
+ *  updateMask=<field1>,<field2>,...
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_Device.
+ *
+ *  Updates the device policy. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_Device to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The ID of the device.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_DevicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Device *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId;
+
+@end
+
+/**
  *  Sets whether a device's access to Google services is enabled or disabled.
  *  The device state takes effect only if enforcing EMM policies on Android
  *  devices is enabled in the Google Admin Console. Otherwise, the device state
@@ -234,6 +283,54 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  @returns GTLRAndroidEnterpriseQuery_DevicesSetState
  */
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_DeviceState *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Updates the device policy
+ *
+ *  Method: androidenterprise.devices.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_DevicesUpdate : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForDevicesUpdateWithObject:enterpriseId:userId:deviceId:]
+
+/** The ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Mask that identifies which fields to update. If not set, all modifiable
+ *  fields will be modified.
+ *  When set in a query parameter, this field should be specified as
+ *  updateMask=<field1>,<field2>,...
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_Device.
+ *
+ *  Updates the device policy
+ *
+ *  @param object The @c GTLRAndroidEnterprise_Device to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The ID of the device.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_DevicesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Device *)object
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId
                        deviceId:(NSString *)deviceId;

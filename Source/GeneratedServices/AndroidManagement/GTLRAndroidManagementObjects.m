@@ -144,6 +144,16 @@ NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified = @"PERMISSION_POLICY_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt = @"PROMPT";
 
+// GTLRAndroidManagement_Policy.keyguardDisabledFeatures
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures = @"ALL_FEATURES";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera = @"CAMERA";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint = @"DISABLE_FINGERPRINT";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput = @"DISABLE_REMOTE_INPUT";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified = @"KEYGUARD_DISABLED_FEATURE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications = @"NOTIFICATIONS";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents = @"TRUST_AGENTS";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications = @"UNREDACTED_NOTIFICATIONS";
+
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac = @"AC";
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPluggedModeUnspecified = @"BATTERY_PLUGGED_MODE_UNSPECIFIED";
@@ -169,6 +179,16 @@ NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed = @"WINDOWED"
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified = @"WEB_TOKEN_PERMISSION_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_AlwaysOnVpnPackage
+//
+
+@implementation GTLRAndroidManagement_AlwaysOnVpnPackage
+@dynamic lockdownEnabled, packageName;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -608,6 +628,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_PackageNameList
+//
+
+@implementation GTLRAndroidManagement_PackageNameList
+@dynamic packageNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"packageNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_PasswordRequirements
 //
 
@@ -655,23 +693,37 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Policy
-@dynamic addUserDisabled, adjustVolumeDisabled, applications, autoTimeRequired,
-         blockApplicationsEnabled, cameraDisabled, complianceRules,
+@dynamic accountTypesWithManagementDisabled, addUserDisabled,
+         adjustVolumeDisabled, alwaysOnVpnPackage, applications,
+         autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
+         bluetoothContactSharingDisabled, bluetoothDisabled, cameraDisabled,
+         cellBroadcastsConfigDisabled, complianceRules, createWindowsDisabled,
+         credentialsConfigDisabled, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
-         factoryResetDisabled, frpAdminEmails, funDisabled,
-         installUnknownSourcesAllowed, keyguardDisabled, maximumTimeToLock,
-         modifyAccountsDisabled, name, networkEscapeHatchEnabled,
-         openNetworkConfiguration, passwordRequirements,
-         persistentPreferredActivities, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, statusBarDisabled, statusReportingSettings,
-         stayOnPluggedModes, systemUpdate, unmuteMicrophoneDisabled, version,
+         ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
+         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
+         keyguardDisabled, keyguardDisabledFeatures, longSupportMessage,
+         maximumTimeToLock, mobileNetworksConfigDisabled,
+         modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
+         networkEscapeHatchEnabled, networkResetDisabled,
+         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
+         passwordRequirements, permittedInputMethods,
+         persistentPreferredActivities, recommendedGlobalProxy,
+         removeUserDisabled, safeBootDisabled, screenCaptureDisabled,
+         setUserIconDisabled, setWallpaperDisabled, shortSupportMessage,
+         smsDisabled, statusBarDisabled, statusReportingSettings,
+         stayOnPluggedModes, systemUpdate, tetheringConfigDisabled,
+         uninstallAppsDisabled, unmuteMicrophoneDisabled,
+         usbFileTransferDisabled, version, vpnConfigDisabled,
          wifiConfigDisabled, wifiConfigsLockdownEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accountTypesWithManagementDisabled" : [NSString class],
     @"applications" : [GTLRAndroidManagement_ApplicationPolicy class],
     @"complianceRules" : [GTLRAndroidManagement_ComplianceRule class],
     @"frpAdminEmails" : [NSString class],
+    @"keyguardDisabledFeatures" : [NSString class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],
     @"stayOnPluggedModes" : [NSString class]
   };
@@ -702,6 +754,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_PowerManagementEvent
 @dynamic batteryLevel, createTime, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ProxyInfo
+//
+
+@implementation GTLRAndroidManagement_ProxyInfo
+@dynamic excludedHosts, host, pacUri, port;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedHosts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

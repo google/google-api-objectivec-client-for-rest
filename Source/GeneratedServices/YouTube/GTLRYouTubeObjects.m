@@ -65,21 +65,23 @@ NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Forced  = @"forced";
 NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Standard = @"standard";
 
 // GTLRYouTube_CdnSettings.frameRate
-NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps = @"30fps";
-NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps = @"60fps";
+NSString * const kGTLRYouTube_CdnSettings_FrameRate_Variable = @"variable";
+NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps   = @"30fps";
+NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps   = @"60fps";
 
 // GTLRYouTube_CdnSettings.ingestionType
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash = @"dash";
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp = @"rtmp";
 
 // GTLRYouTube_CdnSettings.resolution
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p = @"1080p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X1440p = @"1440p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X2160p = @"2160p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X240p  = @"240p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X360p  = @"360p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X480p  = @"480p";
-NSString * const kGTLRYouTube_CdnSettings_Resolution_X720p  = @"720p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable = @"variable";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p   = @"1080p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X1440p   = @"1440p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X2160p   = @"2160p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X240p    = @"240p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X360p    = @"360p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X480p    = @"480p";
+NSString * const kGTLRYouTube_CdnSettings_Resolution_X720p    = @"720p";
 
 // GTLRYouTube_ChannelConversionPing.context
 NSString * const kGTLRYouTube_ChannelConversionPing_Context_Cview = @"cview";
@@ -2180,9 +2182,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveBroadcastContentDetails
 @dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
-         enableClosedCaptions, enableContentEncryption, enableDvr, enableEmbed,
-         enableLowLatency, latencyPreference, mesh, monitorStream, projection,
-         recordFromStart, startWithSlate;
+         enableAutoStart, enableClosedCaptions, enableContentEncryption,
+         enableDvr, enableEmbed, enableLowLatency, latencyPreference, mesh,
+         monitorStream, projection, recordFromStart, startWithSlate;
 @end
 
 
@@ -3258,8 +3260,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_Video
-@dynamic ageGating, contentDetails, ETag, fileDetails, identifier, kind,
-         liveStreamingDetails, localizations, monetizationDetails, player,
+@dynamic accessToken, ageGating, contentDetails, ETag, fileDetails, identifier,
+         kind, liveStreamingDetails, localizations, monetizationDetails, player,
          processingDetails, projectDetails, recordingDetails, snippet,
          statistics, status, suggestions, topicDetails;
 

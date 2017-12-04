@@ -376,6 +376,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PlusDomains/*.{h,m}'
   end
+  s.subspec 'PolyService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PolyService/*.{h,m}'
+  end
   s.subspec 'Prediction' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Prediction/*.{h,m}'

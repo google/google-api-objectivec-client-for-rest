@@ -17,8 +17,8 @@
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic adultContent, adwordsLinks, identifier, kind, name, reviewsUrl,
-         sellerId, users, websiteUrl, youtubeChannelLinks;
+@dynamic adultContent, adwordsLinks, googleMyBusinessLink, identifier, kind,
+         name, reviewsUrl, sellerId, users, websiteUrl, youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -43,6 +43,16 @@
 
 @implementation GTLRShoppingContent_AccountAdwordsLink
 @dynamic adwordsId, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountGoogleMyBusinessLink
+//
+
+@implementation GTLRShoppingContent_AccountGoogleMyBusinessLink
+@dynamic gmbEmail, status;
 @end
 
 
@@ -1202,7 +1212,8 @@
 //
 
 @implementation GTLRShoppingContent_OrdersCancelLineItemRequest
-@dynamic amount, lineItemId, operationId, quantity, reason, reasonText;
+@dynamic amount, amountPretax, amountTax, lineItemId, operationId, productId,
+         quantity, reason, reasonText;
 @end
 
 
@@ -1302,7 +1313,8 @@
 //
 
 @implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem
-@dynamic amount, lineItemId, quantity, reason, reasonText;
+@dynamic amount, amountPretax, amountTax, lineItemId, productId, quantity,
+         reason, reasonText;
 @end
 
 
@@ -1312,7 +1324,7 @@
 //
 
 @implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryRefund
-@dynamic amount, reason, reasonText;
+@dynamic amount, amountPretax, amountTax, reason, reasonText;
 @end
 
 
@@ -1322,7 +1334,7 @@
 //
 
 @implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem
-@dynamic lineItemId, quantity, reason, reasonText;
+@dynamic lineItemId, productId, quantity, reason, reasonText;
 @end
 
 
@@ -1447,7 +1459,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderShipmentLineItemShipment
-@dynamic lineItemId, quantity;
+@dynamic lineItemId, productId, quantity;
 @end
 
 
@@ -1479,7 +1491,7 @@
 //
 
 @implementation GTLRShoppingContent_OrdersRefundRequest
-@dynamic amount, operationId, reason, reasonText;
+@dynamic amount, amountPretax, amountTax, operationId, reason, reasonText;
 @end
 
 
@@ -1499,7 +1511,7 @@
 //
 
 @implementation GTLRShoppingContent_OrdersReturnLineItemRequest
-@dynamic lineItemId, operationId, quantity, reason, reasonText;
+@dynamic lineItemId, operationId, productId, quantity, reason, reasonText;
 @end
 
 
@@ -2183,8 +2195,9 @@
 //
 
 @implementation GTLRShoppingContent_TestOrder
-@dynamic customer, kind, lineItems, paymentMethod, predefinedDeliveryAddress,
-         promotions, shippingCost, shippingCostTax, shippingOption;
+@dynamic customer, kind, lineItems, notificationMode, paymentMethod,
+         predefinedDeliveryAddress, promotions, shippingCost, shippingCostTax,
+         shippingOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -33,6 +33,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadat
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel = @"DELETE_MODEL";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion = @"DELETE_VERSION";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateConfig = @"UPDATE_CONFIG";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateModel = @"UPDATE_MODEL";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateVersion = @"UPDATE_VERSION";
 
@@ -352,7 +353,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata
 @dynamic createTime, endTime, isCancellationRequested, labels, modelName,
-         operationType, startTime, version;
+         operationType, projectNumber, startTime, version;
 @end
 
 
@@ -397,7 +398,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput
 @dynamic batchSize, dataFormat, inputPaths, maxWorkerCount, modelName,
-         outputPath, region, runtimeVersion, uri, versionName;
+         outputPath, region, runtimeVersion, signatureName, uri, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -445,8 +446,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
 @dynamic args, hyperparameters, jobDir, masterType, packageUris,
-         parameterServerCount, parameterServerType, pythonModule, region,
-         runtimeVersion, scaleTier, workerCount, workerType;
+         parameterServerCount, parameterServerType, pythonModule, pythonVersion,
+         region, runtimeVersion, scaleTier, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

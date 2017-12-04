@@ -525,6 +525,25 @@
 
 @end
 
+@implementation GTLRFusionTablesQuery_TableRefetchSheet
+
+@dynamic tableId;
+
++ (instancetype)queryWithTableId:(NSString *)tableId {
+  NSArray *pathParams = @[ @"tableId" ];
+  NSString *pathURITemplate = @"tables/{tableId}/refetch";
+  GTLRFusionTablesQuery_TableRefetchSheet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.tableId = tableId;
+  query.expectedObjectClass = [GTLRFusionTables_Task class];
+  query.loggingName = @"fusiontables.table.refetchSheet";
+  return query;
+}
+
+@end
+
 @implementation GTLRFusionTablesQuery_TableReplaceRows
 
 @dynamic delimiter, encoding, endLine, isStrict, startLine, tableId;

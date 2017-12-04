@@ -155,6 +155,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable
+@dynamic quasiIds, relativeFrequency, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions
 //
 
@@ -919,6 +937,79 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig
+@dynamic auxiliaryTables, quasiIds, regionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auxiliaryTables" : [GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable class],
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta1TaggedField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket
+@dynamic bucketSize, bucketValues, maxAnonymity, minAnonymity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues
+@dynamic estimatedAnonymity, quasiIdsValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2beta1Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult
+@dynamic kMapEstimationHistogram;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kMapEstimationHistogram" : [GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1KmsWrappedCryptoKey
 //
 
@@ -1164,8 +1255,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric
-@dynamic categoricalStatsConfig, kAnonymityConfig, lDiversityConfig,
-         numericalStatsConfig;
+@dynamic categoricalStatsConfig, kAnonymityConfig, kMapEstimationConfig,
+         lDiversityConfig, numericalStatsConfig;
 @end
 
 
@@ -1186,6 +1277,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField
+@dynamic customTag, field;
 @end
 
 
@@ -1340,8 +1441,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationResult
-@dynamic categoricalStatsResult, kAnonymityResult, lDiversityResult,
-         numericalStatsResult;
+@dynamic categoricalStatsResult, kAnonymityResult, kMapEstimationResult,
+         lDiversityResult, numericalStatsResult;
 @end
 
 
@@ -1409,6 +1510,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_PartToExtract_Ye
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1TableLocation
 @dynamic rowIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1TaggedField
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1TaggedField
+@dynamic customTag, field, inferred, infoType;
 @end
 
 

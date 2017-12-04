@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1alpha)
+//   Google Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
@@ -60,17 +60,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudOSLogin_LoginProfile : GTLRObject
 
-/** A unique user ID for identifying the user. */
+/** The primary email address that uniquely identifies the user. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list of POSIX accounts associated with the Directory API user. */
+/** The list of POSIX accounts associated with the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudOSLogin_PosixAccount *> *posixAccounts;
 
 /** A map from SSH public key fingerprint to the associated key object. */
 @property(nonatomic, strong, nullable) GTLRCloudOSLogin_LoginProfile_SshPublicKeys *sshPublicKeys;
 
 /**
- *  Indicates if the user is suspended.
+ *  Indicates if the user is suspended. A suspended user cannot log in but
+ *  their profile information is retained.
  *
  *  Uses NSNumber of boolValue.
  */

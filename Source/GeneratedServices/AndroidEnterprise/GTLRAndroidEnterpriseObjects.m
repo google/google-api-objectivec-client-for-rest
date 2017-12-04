@@ -193,7 +193,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Device
-@dynamic androidId, kind, managementType;
+@dynamic androidId, kind, managementType, policy;
 @end
 
 
@@ -623,6 +623,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_Policy
+//
+
+@implementation GTLRAndroidEnterprise_Policy
+@dynamic productAvailabilityPolicy, productPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productPolicy" : [GTLRAndroidEnterprise_ProductPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_Product
 //
 
@@ -684,6 +702,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permission" : [GTLRAndroidEnterprise_ProductPermission class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ProductPolicy
+//
+
+@implementation GTLRAndroidEnterprise_ProductPolicy
+@dynamic productId, tracks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [NSString class]
   };
   return map;
 }

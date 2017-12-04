@@ -914,6 +914,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Replaces rows of the table with the rows of the spreadsheet that is first
+ *  imported from. Current rows remain visible until all replacement rows are
+ *  ready.
+ *
+ *  Method: fusiontables.table.refetchSheet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFusionTables
+ */
+@interface GTLRFusionTablesQuery_TableRefetchSheet : GTLRFusionTablesQuery
+// Previous library name was
+//   +[GTLQueryFusionTables queryForTableRefetchSheetWithtableId:]
+
+/** Table whose rows will be replaced from the spreadsheet. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRFusionTables_Task.
+ *
+ *  Replaces rows of the table with the rows of the spreadsheet that is first
+ *  imported from. Current rows remain visible until all replacement rows are
+ *  ready.
+ *
+ *  @param tableId Table whose rows will be replaced from the spreadsheet.
+ *
+ *  @returns GTLRFusionTablesQuery_TableRefetchSheet
+ */
++ (instancetype)queryWithTableId:(NSString *)tableId;
+
+@end
+
+/**
  *  Replaces rows of an existing table. Current rows remain visible until all
  *  replacement rows are ready.
  *

@@ -49,10 +49,42 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_CreateSnapshotRequest
+//
+
+@implementation GTLRPubsub_CreateSnapshotRequest
+@dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Empty
 //
 
 @implementation GTLRPubsub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ListSnapshotsResponse
+//
+
+@implementation GTLRPubsub_ListSnapshotsResponse
+@dynamic nextPageToken, snapshots;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snapshots" : [GTLRPubsub_Snapshot class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"snapshots";
+}
+
 @end
 
 
@@ -73,6 +105,24 @@
 
 + (NSString *)collectionItemsKey {
   return @"subscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ListTopicSnapshotsResponse
+//
+
+@implementation GTLRPubsub_ListTopicSnapshotsResponse
+@dynamic nextPageToken, snapshots;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snapshots" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -292,6 +342,25 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_SeekRequest
+//
+
+@implementation GTLRPubsub_SeekRequest
+@dynamic snapshot, time;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_SeekResponse
+//
+
+@implementation GTLRPubsub_SeekResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_SetIamPolicyRequest
 //
 
@@ -302,11 +371,22 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_Snapshot
+//
+
+@implementation GTLRPubsub_Snapshot
+@dynamic expireTime, name, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Subscription
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, name, pushConfig, topic;
+@dynamic ackDeadlineSeconds, messageRetentionDuration, name, pushConfig,
+         retainAckedMessages, topic;
 @end
 
 
@@ -353,4 +433,24 @@
 
 @implementation GTLRPubsub_Topic
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_UpdateSnapshotRequest
+//
+
+@implementation GTLRPubsub_UpdateSnapshotRequest
+@dynamic snapshot, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_UpdateSubscriptionRequest
+//
+
+@implementation GTLRPubsub_UpdateSubscriptionRequest
+@dynamic subscription, updateMask;
 @end

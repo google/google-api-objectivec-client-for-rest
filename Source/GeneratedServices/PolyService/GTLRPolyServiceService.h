@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1)
+//   Poly API (poly/v1)
 // Description:
-//   Manages OS login configuration for Google account users.
+//   The Poly API provides read-only access to assets hosted on <a
+//   href="https://poly.google.com">poly.google.com</a>.
 // Documentation:
-//   https://cloud.google.com/compute/docs/oslogin/rest/
+//   https://devsite.googleplex.com/poly/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -25,38 +26,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Service for executing Poly API queries.
  *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
+ *  The Poly API provides read-only access to assets hosted on
+ *  <a href="https://poly.google.com">poly.google.com</a>.
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
-/**
- *  Authorization scope: View and manage your Google Compute Engine resources
- *
- *  Value "https://www.googleapis.com/auth/compute"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
-
-// ----------------------------------------------------------------------------
-//   GTLRCloudOSLoginService
-//
-
-/**
- *  Service for executing Google Cloud OS Login API queries.
- *
- *  Manages OS login configuration for Google account users.
- */
-@interface GTLRCloudOSLoginService : GTLRService
+@interface GTLRPolyServiceService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudOSLoginQuery.h. The query can the be sent with GTLRService's execute
+// GTLRPolyServiceQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

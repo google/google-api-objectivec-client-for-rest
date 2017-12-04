@@ -130,7 +130,8 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified;
 // GTLRFirestore_FieldTransform.setToServerValue
 
 /**
- *  The time at which the server processed the request.
+ *  The time at which the server processed the request, with millisecond
+ *  precision.
  *
  *  Value: "REQUEST_TIME"
  */
@@ -549,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The document's fields.
  *  The map keys represent field names.
  *  A simple field name contains only characters `a` to `z`, `A` to `Z`,
- *  `0` to `9`, or `_`, and must not start with `0` to `9` or `_`. For example,
+ *  `0` to `9`, or `_`, and must not start with `0` to `9`. For example,
  *  `foo_bar_17`.
  *  Field names matching the regular expression `__.*__` are reserved. Reserved
  *  field names are forbidden except in certain documented contexts. The map
@@ -589,7 +590,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The document's fields.
  *  The map keys represent field names.
  *  A simple field name contains only characters `a` to `z`, `A` to `Z`,
- *  `0` to `9`, or `_`, and must not start with `0` to `9` or `_`. For example,
+ *  `0` to `9`, or `_`, and must not start with `0` to `9`. For example,
  *  `foo_bar_17`.
  *  Field names matching the regular expression `__.*__` are reserved. Reserved
  *  field names are forbidden except in certain documented contexts. The map
@@ -853,8 +854,8 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime The
- *        time at which the server processed the request. (Value:
- *        "REQUEST_TIME")
+ *        time at which the server processed the request, with millisecond
+ *        precision. (Value: "REQUEST_TIME")
  *    @arg @c kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified
  *        Unspecified. This value must not be used. (Value:
  *        "SERVER_VALUE_UNSPECIFIED")

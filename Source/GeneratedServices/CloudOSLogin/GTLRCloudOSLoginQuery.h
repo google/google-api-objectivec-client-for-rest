@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1alpha)
+//   Google Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
@@ -45,9 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
- *    @c kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly
  *    @c kGTLRAuthScopeCloudOSLoginCompute
- *    @c kGTLRAuthScopeCloudOSLoginComputeReadonly
  */
 @interface GTLRCloudOSLoginQuery_UsersGetLoginProfile : GTLRCloudOSLoginQuery
 // Previous library name was

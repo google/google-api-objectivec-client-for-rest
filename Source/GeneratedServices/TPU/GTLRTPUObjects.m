@@ -220,6 +220,25 @@ NSString * const kGTLRTPU_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_ReimageNodeRequest
+//
+
+@implementation GTLRTPU_ReimageNodeRequest
+@dynamic tensorflowVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ResetNodeRequest
+//
+
+@implementation GTLRTPU_ResetNodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Status
 //
 
