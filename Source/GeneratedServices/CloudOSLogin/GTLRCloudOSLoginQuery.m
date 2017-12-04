@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1alpha)
+//   Google Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
@@ -24,7 +24,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}/loginProfile";
+  NSString *pathURITemplate = @"v1/{+name}/loginProfile";
   GTLRCloudOSLoginQuery_UsersGetLoginProfile *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -48,7 +48,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}:importSshPublicKey";
+  NSString *pathURITemplate = @"v1/{+parent}:importSshPublicKey";
   GTLRCloudOSLoginQuery_UsersImportSshPublicKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -68,7 +68,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudOSLoginQuery_UsersProjectsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -87,7 +87,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudOSLoginQuery_UsersSshPublicKeysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -106,7 +106,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudOSLoginQuery_UsersSshPublicKeysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -130,7 +130,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudOSLoginQuery_UsersSshPublicKeysPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"

@@ -19,6 +19,50 @@
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSnapshotsCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_CreateSnapshotRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsSnapshotsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Snapshot class];
+  query.loggingName = @"pubsub.projects.snapshots.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSnapshotsDelete
+
+@dynamic snapshot;
+
++ (instancetype)queryWithSnapshot:(NSString *)snapshot {
+  NSArray *pathParams = @[ @"snapshot" ];
+  NSString *pathURITemplate = @"v1/{+snapshot}";
+  GTLRPubsubQuery_ProjectsSnapshotsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.snapshot = snapshot;
+  query.expectedObjectClass = [GTLRPubsub_Empty class];
+  query.loggingName = @"pubsub.projects.snapshots.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
 
 @dynamic resource;
@@ -33,6 +77,50 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRPubsub_Policy class];
   query.loggingName = @"pubsub.projects.snapshots.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSnapshotsList
+
+@dynamic pageSize, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"v1/{+project}/snapshots";
+  GTLRPubsubQuery_ProjectsSnapshotsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRPubsub_ListSnapshotsResponse class];
+  query.loggingName = @"pubsub.projects.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSnapshotsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_UpdateSnapshotRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsSnapshotsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Snapshot class];
+  query.loggingName = @"pubsub.projects.snapshots.patch";
   return query;
 }
 
@@ -264,6 +352,31 @@
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSubscriptionsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_UpdateSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsSubscriptionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Subscription class];
+  query.loggingName = @"pubsub.projects.subscriptions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSubscriptionsPull
 
 @dynamic subscription;
@@ -284,6 +397,31 @@
   query.subscription = subscription;
   query.expectedObjectClass = [GTLRPubsub_PullResponse class];
   query.loggingName = @"pubsub.projects.subscriptions.pull";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSubscriptionsSeek
+
+@dynamic subscription;
+
++ (instancetype)queryWithObject:(GTLRPubsub_SeekRequest *)object
+                   subscription:(NSString *)subscription {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"subscription" ];
+  NSString *pathURITemplate = @"v1/{+subscription}:seek";
+  GTLRPubsubQuery_ProjectsSubscriptionsSeek *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.subscription = subscription;
+  query.expectedObjectClass = [GTLRPubsub_SeekResponse class];
+  query.loggingName = @"pubsub.projects.subscriptions.seek";
   return query;
 }
 
@@ -485,6 +623,25 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRPubsub_Policy class];
   query.loggingName = @"pubsub.projects.topics.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsTopicsSnapshotsList
+
+@dynamic pageSize, pageToken, topic;
+
++ (instancetype)queryWithTopic:(NSString *)topic {
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/{+topic}/snapshots";
+  GTLRPubsubQuery_ProjectsTopicsSnapshotsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsub_ListTopicSnapshotsResponse class];
+  query.loggingName = @"pubsub.projects.topics.snapshots.list";
   return query;
 }
 

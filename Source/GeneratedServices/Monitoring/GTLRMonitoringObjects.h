@@ -2115,8 +2115,19 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /** Contains information needed to make an HTTP or HTTPS check. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_HttpCheck *httpCheck;
 
-/** The internal checkers that this check will egress from. */
+/**
+ *  The internal checkers that this check will egress from. If is_internal is
+ *  true and this list is empty, the check will egress from all InternalCheckers
+ *  configured for the project that owns this CheckConfig.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
+
+/**
+ *  Denotes whether this check is a check that egresses from InternalCheckers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInternal;
 
 /** The monitored resource associated with the configuration. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;

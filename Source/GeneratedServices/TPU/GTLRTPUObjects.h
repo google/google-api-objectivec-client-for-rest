@@ -481,6 +481,24 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 
 
 /**
+ *  Request for ReimageNode.
+ */
+@interface GTLRTPU_ReimageNodeRequest : GTLRObject
+
+/** The version for reimage to create. */
+@property(nonatomic, copy, nullable) NSString *tensorflowVersion;
+
+@end
+
+
+/**
+ *  Request for ResetNode.
+ */
+@interface GTLRTPU_ResetNodeRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different
  *  programming environments, including REST APIs and RPC APIs. It is used by

@@ -21,6 +21,7 @@
 
 @class GTLRShoppingContent_Account;
 @class GTLRShoppingContent_AccountAdwordsLink;
+@class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountsCustomBatchResponseEntry;
@@ -152,6 +153,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountAdwordsLink *> *adwordsLinks;
 
 /**
+ *  The GMB account which is linked or in the process of being linked with the
+ *  Merchant Center accounnt.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountGoogleMyBusinessLink *googleMyBusinessLink;
+
+/**
  *  Merchant Center account ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -220,6 +227,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  remain unchanged. Re-uploading a link with deprecated status inactive is
  *  equivalent to not submitting the link at all and will delete the link if it
  *  was active or cancel the link request if it was pending.
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountGoogleMyBusinessLink
+ */
+@interface GTLRShoppingContent_AccountGoogleMyBusinessLink : GTLRObject
+
+/** The GMB email address. */
+@property(nonatomic, copy, nullable) NSString *gmbEmail;
+
+/**
+ *  Status of the link between this Merchant Center account and the GMB account.
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2585,6 +2608,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
+ *  Amount to refund for the cancelation. Optional. If not set, Google will
+ *  calculate the default based on the price and tax of the items involved. The
+ *  amount must not be larger than the net amount left on the order.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
+
+/** Tax amount that correspond to cancellation amount in amountPretax. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountTax;
+
+/**
  *  The ID of the line item to cancel. Either lineItemId or productId is
  *  required.
  */
@@ -2594,6 +2627,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID of the operation. Unique across all operations for a given order.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  The ID of the product to cancel. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity to cancel.
@@ -2797,10 +2836,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
+ *  Amount to refund for the cancelation. Optional. If not set, Google will
+ *  calculate the default based on the price and tax of the items involved. The
+ *  amount must not be larger than the net amount left on the order.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
+
+/** Tax amount that correspond to cancellation amount in amountPretax. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountTax;
+
+/**
  *  The ID of the line item to cancel. Either lineItemId or productId is
  *  required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to cancel. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity to cancel.
@@ -2826,6 +2881,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** The amount that is refunded. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
+/**
+ *  The amount that is refunded. Either amount or amountPretax and amountTax
+ *  should be filled.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
+
+/** Tax amount that correspond to refund amount in amountPretax. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountTax;
+
 /** The reason for the refund. */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -2845,6 +2909,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to return. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity to return.
@@ -3040,26 +3110,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Acceptable values are:
  *  - "gsx"
  *  - "ups"
- *  - "united parcel service"
  *  - "usps"
- *  - "united states postal service"
  *  - "fedex"
  *  - "dhl"
  *  - "ecourier"
  *  - "cxt"
  *  - "google"
- *  - "on trac"
  *  - "ontrac"
- *  - "on-trac"
- *  - "on_trac"
- *  - "delvic"
+ *  - "emsy"
+ *  - "ont"
+ *  - "deliv"
  *  - "dynamex"
  *  - "lasership"
- *  - "smartpost"
- *  - "fedex smartpost"
  *  - "mpx"
  *  - "uds"
- *  - "united delivery service"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -3101,6 +3165,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to ship. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity that is shipped.
@@ -3151,6 +3221,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
+ *  The amount that is refunded. Either amount or amountPretax and amountTax
+ *  should be filled.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
+
+/** Tax amount that correspond to refund amount in amountPretax. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountTax;
+
+/**
  *  The ID of the operation. Unique across all operations for a given order.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
@@ -3196,6 +3275,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID of the operation. Unique across all operations for a given order.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  The ID of the product to return. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity to return.
@@ -4643,6 +4728,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Line items that are ordered. At least one line item must be provided. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_TestOrderLineItem *> *lineItems;
+
+/**
+ *  Determines if test order must be pulled by merchant or pushed to merchant
+ *  via push integration.
+ */
+@property(nonatomic, copy, nullable) NSString *notificationMode;
 
 /** The details of the payment method. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TestOrderPaymentMethod *paymentMethod;

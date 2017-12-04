@@ -140,15 +140,21 @@
 
 @implementation GTLRTPUQuery_ProjectsLocationsNodesReimage
 
-@dynamic name, tensorflowVersion;
+@dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRTPU_ReimageNodeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1alpha1/{+name}:reimage";
   GTLRTPUQuery_ProjectsLocationsNodesReimage *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRTPU_Operation class];
   query.loggingName = @"tpu.projects.locations.nodes.reimage";
@@ -161,13 +167,19 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRTPU_ResetNodeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1alpha1/{+name}:reset";
   GTLRTPUQuery_ProjectsLocationsNodesReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRTPU_Operation class];
   query.loggingName = @"tpu.projects.locations.nodes.reset";

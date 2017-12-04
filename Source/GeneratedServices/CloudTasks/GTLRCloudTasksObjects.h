@@ -225,7 +225,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_Full;
 GTLR_EXTERN NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_ViewUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudTasks_Queue.queueState
+// GTLRCloudTasks_Queue.state
 
 /**
  *  The queue is disabled.
@@ -241,7 +241,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_ViewU
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_QueueState_Disabled;
+GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Disabled;
 /**
  *  Tasks are paused by the user. If the queue is paused then Cloud
  *  Tasks will stop delivering tasks from it, but more tasks can
@@ -251,19 +251,19 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_QueueState_Disabled;
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_QueueState_Paused;
-/**
- *  Unspecified state.
- *
- *  Value: "QUEUE_STATE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_QueueState_QueueStateUnspecified;
+GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Paused;
 /**
  *  The queue is running. Tasks can be dispatched.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_QueueState_Running;
+GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Running;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_RenewLeaseRequest.responseView
@@ -1359,6 +1359,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *  hyphens (-), colons (:), or periods (.).
+ *  * `LOCATION_ID` is the canonical ID for the queue's location.
+ *  The list of available locations can be obtained by calling
+ *  google.cloud.location.Locations.ListLocations.
+ *  For more information, see https://cloud.google.com/about/locations/.
  *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *  hyphens (-). The maximum length is 100 characters.
  *  Caller-specified and required in CreateQueueRequest, after which
@@ -1388,37 +1392,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *purgeTime;
 
 /**
- *  Output only. The state of the queue.
- *  `queue_state` can only be changed by called
- *  CloudTasks.PauseQueue, CloudTasks.ResumeQueue, or uploading
- *  [queue.yaml](/appengine/docs/python/config/queueref).
- *  CloudTasks.UpdateQueue cannot be used to change `queue_state`.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTasks_Queue_QueueState_Disabled The queue is disabled.
- *        A queue becomes `DISABLED` when
- *        [queue.yaml](/appengine/docs/python/config/queueref) or
- *        [queue.xml](appengine/docs/standard/java/config/queueref) is uploaded
- *        which does not contain the queue. You cannot directly disable a queue.
- *        When a queue is disabled, tasks can still be added to a queue
- *        but the tasks are not dispatched and CloudTasks.PullTasks calls
- *        return a `FAILED_PRECONDITION` error.
- *        To permanently delete this queue and all of its tasks, call
- *        CloudTasks.DeleteQueue. (Value: "DISABLED")
- *    @arg @c kGTLRCloudTasks_Queue_QueueState_Paused Tasks are paused by the
- *        user. If the queue is paused then Cloud
- *        Tasks will stop delivering tasks from it, but more tasks can
- *        still be added to it by the user. When a pull queue is paused,
- *        all CloudTasks.PullTasks calls will return a
- *        `FAILED_PRECONDITION` error. (Value: "PAUSED")
- *    @arg @c kGTLRCloudTasks_Queue_QueueState_QueueStateUnspecified Unspecified
- *        state. (Value: "QUEUE_STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTasks_Queue_QueueState_Running The queue is running.
- *        Tasks can be dispatched. (Value: "RUNNING")
- */
-@property(nonatomic, copy, nullable) NSString *queueState;
-
-/**
  *  Rate limits for task dispatches.
  *  Queue.rate_limits and Queue.retry_config are related because they
  *  both control task attempts however they control how tasks are attempted in
@@ -1444,6 +1417,37 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  documentation](/appengine/docs/standard/python/taskqueue/push/retrying-tasks).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_RetryConfig *retryConfig;
+
+/**
+ *  Output only. The state of the queue.
+ *  `state` can only be changed by called
+ *  CloudTasks.PauseQueue, CloudTasks.ResumeQueue, or uploading
+ *  [queue.yaml](/appengine/docs/python/config/queueref).
+ *  CloudTasks.UpdateQueue cannot be used to change `state`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTasks_Queue_State_Disabled The queue is disabled.
+ *        A queue becomes `DISABLED` when
+ *        [queue.yaml](/appengine/docs/python/config/queueref) or
+ *        [queue.xml](appengine/docs/standard/java/config/queueref) is uploaded
+ *        which does not contain the queue. You cannot directly disable a queue.
+ *        When a queue is disabled, tasks can still be added to a queue
+ *        but the tasks are not dispatched and CloudTasks.PullTasks calls
+ *        return a `FAILED_PRECONDITION` error.
+ *        To permanently delete this queue and all of its tasks, call
+ *        CloudTasks.DeleteQueue. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudTasks_Queue_State_Paused Tasks are paused by the user.
+ *        If the queue is paused then Cloud
+ *        Tasks will stop delivering tasks from it, but more tasks can
+ *        still be added to it by the user. When a pull queue is paused,
+ *        all CloudTasks.PullTasks calls will return a
+ *        `FAILED_PRECONDITION` error. (Value: "PAUSED")
+ *    @arg @c kGTLRCloudTasks_Queue_State_Running The queue is running. Tasks
+ *        can be dispatched. (Value: "RUNNING")
+ *    @arg @c kGTLRCloudTasks_Queue_State_StateUnspecified Unspecified state.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1503,6 +1507,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The maximum allowed value is 500.
  *  * For App Engine queues, this field is 1 by default.
  *  * For pull queues, this field is output only and always 10,000.
+ *  In addition to the `max_tasks_dispatched_per_second` limit, a maximum of
+ *  10 QPS of CloudTasks.PullTasks requests are allowed per queue.
  *  This field has the same meaning as
  *  [rate in queue.yaml](/appengine/docs/standard/python/config/queueref#rate).
  *
@@ -1841,6 +1847,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *  hyphens (-), colons (:), or periods (.).
+ *  * `LOCATION_ID` is the canonical ID for the task's location.
+ *  The list of available locations can be obtained by calling
+ *  google.cloud.location.Locations.ListLocations.
+ *  For more information, see https://cloud.google.com/about/locations/.
  *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *  hyphens (-). The maximum length is 100 characters.
  *  * `TASK_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),

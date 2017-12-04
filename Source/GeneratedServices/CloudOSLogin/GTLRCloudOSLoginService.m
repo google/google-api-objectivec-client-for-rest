@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1alpha)
+//   Google Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
@@ -13,10 +13,8 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform       = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
-NSString * const kGTLRAuthScopeCloudOSLoginCompute             = @"https://www.googleapis.com/auth/compute";
-NSString * const kGTLRAuthScopeCloudOSLoginComputeReadonly     = @"https://www.googleapis.com/auth/compute.readonly";
+NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudOSLoginCompute       = @"https://www.googleapis.com/auth/compute";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudOSLoginService

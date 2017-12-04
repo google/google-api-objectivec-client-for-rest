@@ -23,6 +23,7 @@
 @class GTLRDLP_GoogleLongrunningOperation;
 @class GTLRDLP_GoogleLongrunningOperation_Metadata;
 @class GTLRDLP_GoogleLongrunningOperation_Response;
+@class GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable;
 @class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions;
 @class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Bucket;
@@ -72,6 +73,10 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Key;
 @class GTLRDLP_GooglePrivacyDlpV2beta1KindExpression;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues;
+@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1KmsWrappedCryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass;
@@ -88,6 +93,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Projection;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference;
+@class GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Range;
 @class GTLRDLP_GooglePrivacyDlpV2beta1RecordCondition;
 @class GTLRDLP_GooglePrivacyDlpV2beta1RecordKey;
@@ -102,6 +108,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Table;
 @class GTLRDLP_GooglePrivacyDlpV2beta1TableLocation;
+@class GTLRDLP_GooglePrivacyDlpV2beta1TaggedField;
 @class GTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1TransformationSummary;
 @class GTLRDLP_GooglePrivacyDlpV2beta1TransientCryptoKey;
@@ -109,6 +116,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1Value;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency;
 @class GTLRDLP_GooglePrivacyDlpV2beta1WordList;
+@class GTLRDLP_GoogleProtobufEmpty;
 @class GTLRDLP_GoogleRpcStatus;
 @class GTLRDLP_GoogleRpcStatus_Details_Item;
 @class GTLRDLP_GoogleTypeDate;
@@ -472,6 +480,33 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 /** Input dataset to compute metrics over. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *sourceTable;
+
+@end
+
+
+/**
+ *  An auxiliary table contains statistical information on the relative
+ *  frequency of different quasi-identifiers values. It has one or several
+ *  quasi-identifiers columns, and one column that indicates the relative
+ *  frequency of each quasi-identifier tuple.
+ *  If a tuple is present in the data but not in the auxiliary table, the
+ *  corresponding relative frequency is assumed to be zero (and thus, the
+ *  tuple is highly reidentifiable).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable : GTLRObject
+
+/** Quasi-identifier columns. [required] */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField *> *quasiIds;
+
+/**
+ *  The relative frequency column must contain a floating-point number
+ *  between 0 and 1 (inclusive). Null values are assumed to be zero.
+ *  [required]
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *relativeFrequency;
+
+/** Auxiliary table location. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *table;
 
 @end
 
@@ -1703,19 +1738,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 @interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig : GTLRObject
 
 /**
- *  Optional message indicating that each distinct `EntityId` should not
+ *  Optional message indicating that each distinct entity_id should not
  *  contribute to the k-anonymity count more than once per equivalence class.
  *  If an entity_id appears on several rows with different quasi-identifier
- *  tuples, it will contribute to each count exactly once. This can lead to
- *  unexpected results, consider for example the following table:
- *  entity_id | quasi_id
- *  --------------------
- *  1 | "foo"
- *  2 | "bar"
- *  3 | "foo"
- *  3 | "bar"
- *  The anonymity value associated to entity_id 3 will be 2, even if it is
- *  the only entity_id to be associated to both values "foo" and "bar".
+ *  tuples, it will contribute to each count exactly once.
+ *  This can lead to unexpected results. Consider a table where ID 1 is
+ *  associated to quasi-identifier "foo", ID 2 to "bar", and ID 3 to *both*
+ *  quasi-identifiers "foo" and "bar" (on separate rows), and where this ID
+ *  is used as entity_id. Then, the anonymity value associated to ID 3 will
+ *  be 2, even if it is the only ID to be associated to both values "foo" and
+ *  "bar".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1EntityId *entityId;
 
@@ -1837,6 +1869,120 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 /** The name of the kind. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Reidentifiability metric. This corresponds to a risk model similar to what
+ *  is called "journalist risk" in the literature, except the attack dataset is
+ *  statistically modeled instead of being perfectly known. This can be done
+ *  using publicly available data (like the US Census), or using a custom
+ *  statistical model (indicated as one or several BigQuery tables), or by
+ *  extrapolating from the distribution of values in the input dataset.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig : GTLRObject
+
+/**
+ *  Several auxiliary tables can be used in the analysis. Each custom_tag
+ *  used to tag a quasi-identifiers column must appear in exactly one column
+ *  of one auxiliary table.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable *> *auxiliaryTables;
+
+/**
+ *  Fields considered to be quasi-identifiers. No two columns can have the
+ *  same tag. [required]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1TaggedField *> *quasiIds;
+
+/**
+ *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
+ *  Required if no column is tagged with a region-specific InfoType (like
+ *  US_ZIP_5) or a region code.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  A KMapEstimationHistogramBucket message with the following values:
+ *  min_anonymity: 3
+ *  max_anonymity: 5
+ *  frequency: 42
+ *  means that there are 42 records whose quasi-identifier values correspond
+ *  to 3, 4 or 5 people in the overlying population. An important particular
+ *  case is when min_anonymity = max_anonymity = 1: the frequency field then
+ *  corresponds to the number of uniquely identifiable records.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket : GTLRObject
+
+/**
+ *  Number of records within these anonymity bounds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Sample of quasi-identifier tuple values in this bucket. The total
+ *  number of classes returned per bucket is capped at 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues *> *bucketValues;
+
+/**
+ *  Always greater than or equal to min_anonymity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAnonymity;
+
+/**
+ *  Always positive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minAnonymity;
+
+@end
+
+
+/**
+ *  A tuple of values for the quasi-identifier columns.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues : GTLRObject
+
+/**
+ *  The estimated anonymity for these quasi-identifier values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedAnonymity;
+
+/** The quasi-identifier values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
+
+@end
+
+
+/**
+ *  Result of the reidentifiability analysis. Note that these results are an
+ *  estimation, not exact values.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult : GTLRObject
+
+/**
+ *  The intervals [min_anonymity, max_anonymity] do not overlap. If a value
+ *  doesn't correspond to any such interval, the associated frequency is
+ *  zero. For example, the following records:
+ *  {min_anonymity: 1, max_anonymity: 1, frequency: 17}
+ *  {min_anonymity: 2, max_anonymity: 3, frequency: 42}
+ *  {min_anonymity: 5, max_anonymity: 10, frequency: 99}
+ *  mean that there are no record with an estimated anonymity of 4, 5, or
+ *  larger than 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket *> *kMapEstimationHistogram;
 
 @end
 
@@ -2206,6 +2352,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig *categoricalStatsConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig *kAnonymityConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig *kMapEstimationConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig *lDiversityConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig *numericalStatsConfig;
 
@@ -2233,6 +2380,18 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  If name includes "."s, it may be interpreted as a property name path.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A quasi-identifier column has a custom_tag, used to know which column
+ *  in the data corresponds to which column in the statistical model.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *customTag;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
 
 @end
 
@@ -2435,6 +2594,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult *categoricalStatsResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult *kAnonymityResult;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult *kMapEstimationResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult *lDiversityResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult *numericalStatsResult;
 
@@ -2525,6 +2685,37 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1TimePartConfig_Part
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowIndex;
+
+@end
+
+
+/**
+ *  A column with a semantic tag attached.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1TaggedField : GTLRObject
+
+/**
+ *  A column can be tagged with a custom tag. In this case, the user must
+ *  indicate an auxiliary table that contains statistical information on
+ *  the possible values of this column (below).
+ */
+@property(nonatomic, copy, nullable) NSString *customTag;
+
+/** Identifies the column. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
+
+/**
+ *  If no semantic tag is indicated, we infer the statistical model from
+ *  the distribution of values in the input data
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *inferred;
+
+/**
+ *  A column can be tagged with a InfoType to use the relevant public
+ *  dataset as a statistical model of population, if available. We
+ *  currently support US ZIP codes, region codes, ages and genders.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
 
 @end
 

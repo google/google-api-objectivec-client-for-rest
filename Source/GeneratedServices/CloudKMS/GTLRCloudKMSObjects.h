@@ -298,7 +298,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 
 /**
  *  Labels with user-defined metadata. For more information, see
- *  [Labeling CryptoKeys](/kms/docs/labeling-keys).
+ *  [Labeling Keys](/kms/docs/labeling-keys).
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_CryptoKey_Labels *labels;
 
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 
 /**
  *  Labels with user-defined metadata. For more information, see
- *  [Labeling CryptoKeys](/kms/docs/labeling-keys).
+ *  [Labeling Keys](/kms/docs/labeling-keys).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

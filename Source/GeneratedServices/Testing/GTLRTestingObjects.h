@@ -1318,7 +1318,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A human-friendy string representing the region for this locale.
+ *  A human-friendly string representing the region for this locale.
  *  Example: "United States"
  *  Not present for every locale.
  *  \@OutputOnly

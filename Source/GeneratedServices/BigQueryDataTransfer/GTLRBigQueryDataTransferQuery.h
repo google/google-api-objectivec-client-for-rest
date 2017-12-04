@@ -465,10 +465,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  The BigQuery project id where the transfer configuration should be created.
  *  Must be in the format /projects/{project_id}/locations/{location_id}
- *  or
- *  /projects/{project_id}/locations/-
- *  In case when '-' is specified as location_id, location is infered from
- *  the destination dataset region.
+ *  If specified location and location of the destination bigquery dataset
+ *  do not match - the request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -482,10 +480,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
  *    Must be in the format /projects/{project_id}/locations/{location_id}
- *    or
- *    /projects/{project_id}/locations/-
- *    In case when '-' is specified as location_id, location is infered from
- *    the destination dataset region.
+ *    If specified location and location of the destination bigquery dataset
+ *    do not match - the request will fail.
  *
  *  @returns GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate
  */
@@ -978,10 +974,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  The BigQuery project id where the transfer configuration should be created.
  *  Must be in the format /projects/{project_id}/locations/{location_id}
- *  or
- *  /projects/{project_id}/locations/-
- *  In case when '-' is specified as location_id, location is infered from
- *  the destination dataset region.
+ *  If specified location and location of the destination bigquery dataset
+ *  do not match - the request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -995,10 +989,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
  *    Must be in the format /projects/{project_id}/locations/{location_id}
- *    or
- *    /projects/{project_id}/locations/-
- *    In case when '-' is specified as location_id, location is infered from
- *    the destination dataset region.
+ *    If specified location and location of the destination bigquery dataset
+ *    do not match - the request will fail.
  *
  *  @returns GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
  */

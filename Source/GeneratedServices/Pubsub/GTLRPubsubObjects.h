@@ -26,6 +26,7 @@
 @class GTLRPubsub_PushConfig;
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
+@class GTLRPubsub_Snapshot;
 @class GTLRPubsub_Subscription;
 @class GTLRPubsub_Topic;
 
@@ -84,6 +85,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request for the `CreateSnapshot` method.
+ */
+@interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
+
+/**
+ *  The subscription whose backlog the snapshot retains.
+ *  Specifically, the created snapshot is guaranteed to retain:
+ *  (a) The existing backlog on the subscription. More precisely, this is
+ *  defined as the messages in the subscription's backlog that are
+ *  unacknowledged upon the successful completion of the
+ *  `CreateSnapshot` request; as well as:
+ *  (b) Any messages published to the subscription's topic following the
+ *  successful completion of the CreateSnapshot request.
+ *  Format is `projects/{project}/subscriptions/{sub}`.
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -93,6 +115,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRPubsub_Empty : GTLRObject
+@end
+
+
+/**
+ *  Response for the `ListSnapshots` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "snapshots" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPubsub_ListSnapshotsResponse : GTLRCollectionObject
+
+/**
+ *  If not empty, indicates that there may be more snapshot that match the
+ *  request; this value should be passed in a new `ListSnapshotsRequest`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting snapshots.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Snapshot *> *snapshots;
+
 @end
 
 
@@ -120,6 +169,24 @@ NS_ASSUME_NONNULL_BEGIN
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  Response for the `ListTopicSnapshots` method.
+ */
+@interface GTLRPubsub_ListTopicSnapshotsResponse : GTLRObject
+
+/**
+ *  If not empty, indicates that there may be more snapshots that match
+ *  the request; this value should be passed in a new
+ *  `ListTopicSnapshotsRequest` to get more snapshots.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** The names of the snapshots that match the request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *snapshots;
 
 @end
 
@@ -467,6 +534,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request for the `Seek` method.
+ */
+@interface GTLRPubsub_SeekRequest : GTLRObject
+
+/**
+ *  The snapshot to seek to. The snapshot's topic must be the same as that of
+ *  the provided subscription.
+ *  Format is `projects/{project}/snapshots/{snap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshot;
+
+/**
+ *  The time to seek to.
+ *  Messages retained in the subscription that were published before this
+ *  time are marked as acknowledged, and messages retained in the
+ *  subscription that were published after this time are marked as
+ *  unacknowledged. Note that this operation affects only those messages
+ *  retained in the subscription (configured by the combination of
+ *  `message_retention_duration` and `retain_acked_messages`). For example,
+ *  if `time` corresponds to a point before the message retention
+ *  window (or to a point before the system's notion of the subscription
+ *  creation time), only retained messages will be marked as unacknowledged,
+ *  and already-expunged messages will not be restored.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
+
+@end
+
+
+/**
+ *  GTLRPubsub_SeekResponse
+ */
+@interface GTLRPubsub_SeekResponse : GTLRObject
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRPubsub_SetIamPolicyRequest : GTLRObject
@@ -478,6 +582,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Policy *policy;
+
+@end
+
+
+/**
+ *  A snapshot resource.
+ */
+@interface GTLRPubsub_Snapshot : GTLRObject
+
+/**
+ *  The snapshot is guaranteed to exist up until this time.
+ *  A newly-created snapshot expires no later than 7 days from the time of its
+ *  creation. Its exact lifetime is determined at creation by the existing
+ *  backlog in the source subscription. Specifically, the lifetime of the
+ *  snapshot is `7 days - (age of oldest unacked message in the subscription)`.
+ *  For example, consider a subscription whose oldest unacked message is 3 days
+ *  old. If a snapshot is created from this subscription, the snapshot -- which
+ *  will always capture this 3-day-old backlog as long as the snapshot
+ *  exists -- will expire in 4 days. The service will refuse to create a
+ *  snapshot that would expire in less than 1 hour after creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** The name of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The name of the topic from which this snapshot is retaining messages. */
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -511,6 +643,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
 /**
+ *  How long to retain unacknowledged messages in the subscription's backlog,
+ *  from the moment a message is published.
+ *  If `retain_acked_messages` is true, then this also configures the retention
+ *  of acknowledged messages, and thus configures how far back in time a `Seek`
+ *  can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10
+ *  minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
+
+/**
  *  The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
@@ -526,6 +668,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  will pull and ack messages using API methods.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
+
+/**
+ *  Indicates whether to retain acknowledged messages. If true, then
+ *  messages are not expunged from the subscription's backlog, even if they are
+ *  acknowledged, until they fall out of the `message_retention_duration`
+ *  window.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retainAckedMessages;
 
 /**
  *  The name of the topic from which this subscription is receiving messages.
@@ -582,6 +734,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  must not start with `"goog"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Request for the UpdateSnapshot method.
+ */
+@interface GTLRPubsub_UpdateSnapshotRequest : GTLRObject
+
+/** The updated snpashot object. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Snapshot *snapshot;
+
+/**
+ *  Indicates which fields in the provided snapshot to update.
+ *  Must be specified and non-empty.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request for the UpdateSubscription method.
+ */
+@interface GTLRPubsub_UpdateSubscriptionRequest : GTLRObject
+
+/** The updated subscription object. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Subscription *subscription;
+
+/**
+ *  Indicates which fields in the provided subscription to update.
+ *  Must be specified and non-empty.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

@@ -985,6 +985,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  Output only. Unique ID of the user on whose behalf transfer is done.
  *  Applicable only to data sources that do not support service accounts.
  *  When set to 0, the data source service account credentials are used.
+ *  May be negative. Note, that this identifier is not stable.
+ *  It may change over time even for the same user.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1036,7 +1038,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 /**
  *  Represents a data transfer run.
- *  Next id: 23
+ *  Next id: 24
  */
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
 
@@ -1117,7 +1119,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  Output only. Unique ID of the user on whose behalf transfer is done.
  *  Applicable only to data sources that do not support service accounts.
  *  When set to 0, the data source service account credentials are used.
- *  May be negative.
+ *  May be negative. Note, that this identifier is not stable.
+ *  It may change over time even for the same user.
  *
  *  Uses NSNumber of longLongValue.
  */

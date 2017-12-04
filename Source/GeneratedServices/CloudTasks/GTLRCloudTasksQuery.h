@@ -416,6 +416,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *  hyphens (-), colons (:), or periods (.).
+ *  * `LOCATION_ID` is the canonical ID for the queue's location.
+ *  The list of available locations can be obtained by calling
+ *  google.cloud.location.Locations.ListLocations.
+ *  For more information, see https://cloud.google.com/about/locations/.
  *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *  hyphens (-). The maximum length is 100 characters.
  *  Caller-specified and required in CreateQueueRequest, after which
@@ -449,6 +453,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *    * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *    hyphens (-), colons (:), or periods (.).
+ *    * `LOCATION_ID` is the canonical ID for the queue's location.
+ *    The list of available locations can be obtained by calling
+ *    google.cloud.location.Locations.ListLocations.
+ *    For more information, see https://cloud.google.com/about/locations/.
  *    * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *    hyphens (-). The maximum length is 100 characters.
  *    Caller-specified and required in CreateQueueRequest, after which
@@ -467,8 +475,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  tasks in the queue until it is resumed via
  *  CloudTasks.ResumeQueue. Tasks can still be added when the
  *  queue is paused. The state of the queue is stored in
- *  Queue.queue_state; if paused it will be set to
- *  Queue.QueueState.PAUSED.
+ *  Queue.state; if paused it will be set to
+ *  Queue.State.PAUSED.
  *
  *  Method: cloudtasks.projects.locations.queues.pause
  *
@@ -494,8 +502,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  tasks in the queue until it is resumed via
  *  CloudTasks.ResumeQueue. Tasks can still be added when the
  *  queue is paused. The state of the queue is stored in
- *  Queue.queue_state; if paused it will be set to
- *  Queue.QueueState.PAUSED.
+ *  Queue.state; if paused it will be set to
+ *  Queue.State.PAUSED.
  *
  *  @param object The @c GTLRCloudTasks_PauseQueueRequest to include in the
  *    query.
@@ -556,9 +564,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Resume a queue.
  *  This method resumes a queue after it has been
- *  Queue.QueueState.PAUSED or Queue.QueueState.DISABLED. The state of
- *  a queue is stored in Queue.queue_state; after calling this method it
- *  will be set to Queue.QueueState.RUNNING.
+ *  Queue.State.PAUSED or Queue.State.DISABLED. The state of
+ *  a queue is stored in Queue.state; after calling this method it
+ *  will be set to Queue.State.RUNNING.
  *  WARNING: Resuming many high-QPS queues at the same time can
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
@@ -586,9 +594,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  Resume a queue.
  *  This method resumes a queue after it has been
- *  Queue.QueueState.PAUSED or Queue.QueueState.DISABLED. The state of
- *  a queue is stored in Queue.queue_state; after calling this method it
- *  will be set to Queue.QueueState.RUNNING.
+ *  Queue.State.PAUSED or Queue.State.DISABLED. The state of
+ *  a queue is stored in Queue.state; after calling this method it
+ *  will be set to Queue.State.RUNNING.
  *  WARNING: Resuming many high-QPS queues at the same time can
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
@@ -1120,7 +1128,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  task after a fix has been made or to manually force a task to be
  *  dispatched now.
  *  When this method is called, Cloud Tasks will dispatch the task to its
- *  target, even if the queue is Queue.QueueState.PAUSED.
+ *  target, even if the queue is Queue.State.PAUSED.
  *  The dispatched task is returned. That is, the task that is returned
  *  contains the Task.task_status after the task is dispatched but
  *  before the task is received by its target.
@@ -1134,6 +1142,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  failed. google.rpc.Code.FAILED_PRECONDITION is returned when
  *  CloudTasks.RunTask is called on task that is dispatched or
  *  already running.
+ *  CloudTasks.RunTask cannot be called on pull tasks.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.run
  *
@@ -1160,7 +1169,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  task after a fix has been made or to manually force a task to be
  *  dispatched now.
  *  When this method is called, Cloud Tasks will dispatch the task to its
- *  target, even if the queue is Queue.QueueState.PAUSED.
+ *  target, even if the queue is Queue.State.PAUSED.
  *  The dispatched task is returned. That is, the task that is returned
  *  contains the Task.task_status after the task is dispatched but
  *  before the task is received by its target.
@@ -1174,6 +1183,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  failed. google.rpc.Code.FAILED_PRECONDITION is returned when
  *  CloudTasks.RunTask is called on task that is dispatched or
  *  already running.
+ *  CloudTasks.RunTask cannot be called on pull tasks.
  *
  *  @param object The @c GTLRCloudTasks_RunTaskRequest to include in the query.
  *  @param name Required.

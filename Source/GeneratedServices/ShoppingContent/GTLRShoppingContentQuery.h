@@ -154,8 +154,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -171,8 +172,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Claims the website of a Merchant Center sub-account.
  *
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account whose website is claimed.
  *
  *  @returns GTLRShoppingContentQuery_AccountsClaimwebsite
@@ -238,7 +240,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) BOOL force;
 
-/** The ID of the managing account. This must be a multi-client account. */
+/**
+ *  The ID of the managing account. This must be a multi-client account, and
+ *  accountId must be the ID of a sub-account of this account.
+ */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
@@ -248,7 +253,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Deletes a Merchant Center sub-account.
  *
  *  @param merchantId The ID of the managing account. This must be a
- *    multi-client account.
+ *    multi-client account, and accountId must be the ID of a sub-account of
+ *    this account.
  *  @param accountId The ID of the account.
  *
  *  @returns GTLRShoppingContentQuery_AccountsDelete
@@ -274,8 +280,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -284,8 +291,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves a Merchant Center account.
  *
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @returns GTLRShoppingContentQuery_AccountsGet
@@ -389,8 +397,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -400,8 +409,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Updates a Merchant Center account. This method supports patch semantics.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @returns GTLRShoppingContentQuery_AccountsPatch
@@ -452,8 +462,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -462,8 +473,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the status of a Merchant Center account.
  *
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @returns GTLRShoppingContentQuery_AccountstatusesGet
@@ -534,8 +546,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -545,8 +558,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Updates a Merchant Center account.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @returns GTLRShoppingContentQuery_AccountsUpdate
@@ -602,8 +616,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -612,8 +627,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the tax settings of the account.
  *
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update account tax
  *    settings.
  *
@@ -686,8 +702,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -698,8 +715,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  semantics.
  *
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update account tax
  *    settings.
  *
@@ -730,8 +748,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -741,8 +760,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Updates the tax settings of the account.
  *
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update account tax
  *    settings.
  *
@@ -2265,8 +2285,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -2275,8 +2296,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the shipping settings of the account.
  *
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update shipping
  *    settings.
  *
@@ -2381,8 +2403,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -2394,8 +2417,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
  *    query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update shipping
  *    settings.
  *
@@ -2426,8 +2450,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) BOOL dryRun;
 
 /**
- *  The ID of the managing account. If this account is not a multi-client
- *  account, then this parameter must be the same as accountId.
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
@@ -2438,8 +2463,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
  *    query.
- *  @param merchantId The ID of the managing account. If this account is not a
- *    multi-client account, then this parameter must be the same as accountId.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update shipping
  *    settings.
  *
