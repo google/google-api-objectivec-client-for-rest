@@ -2473,7 +2473,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
     _objectClassResolver = params.objectClassResolver ?: service.objectClassResolver;
 
-    _retryEnabled = (params.retryEnabled ? params.retryEnabled.boolValue : service.retryEnabled);
+    _retryEnabled = ((params.retryEnabled != nil) ? params.retryEnabled.boolValue : service.retryEnabled);
     _maxRetryInterval = (params.maxRetryInterval ?
                          params.maxRetryInterval.doubleValue : service.maxRetryInterval);
     _shouldFetchNextPages = (params.shouldFetchNextPages ?
