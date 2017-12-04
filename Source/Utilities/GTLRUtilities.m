@@ -109,7 +109,7 @@ NSNumber *GTLR_EnsureNSNumber(NSNumber *num) {
         newNum = @(ull);
       }
     }
-    if (newNum) {
+    if (newNum != nil) {
       num = newNum;
     }
   }

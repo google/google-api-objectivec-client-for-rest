@@ -193,7 +193,7 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
     // and adjust the time.
     NSString *offsetStr = @"Z";
     NSNumber *offsetMinutes = self.offsetMinutes;
-    if (offsetMinutes) {
+    if (offsetMinutes != nil) {
       BOOL isNegative = NO;
       NSInteger offsetVal = offsetMinutes.integerValue;
       if (offsetVal < 0) {

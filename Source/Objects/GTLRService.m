@@ -2473,10 +2473,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
     _objectClassResolver = params.objectClassResolver ?: service.objectClassResolver;
 
-    _retryEnabled = (params.retryEnabled ? params.retryEnabled.boolValue : service.retryEnabled);
+    _retryEnabled = ((params.retryEnabled != nil) ? params.retryEnabled.boolValue : service.retryEnabled);
     _maxRetryInterval = ((params.maxRetryInterval != nil) ?
                          params.maxRetryInterval.doubleValue : service.maxRetryInterval);
-    _shouldFetchNextPages = (params.shouldFetchNextPages ?
+    _shouldFetchNextPages = ((params.shouldFetchNextPages != nil)?
                              params.shouldFetchNextPages.boolValue : service.shouldFetchNextPages);
 
     GTLRServiceUploadProgressBlock uploadProgressBlock =
@@ -2795,10 +2795,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 }
 
 - (BOOL)hasParameters {
-  if (self.maxRetryInterval) return YES;
-  if (self.retryEnabled) return YES;
+  if (self.maxRetryInterval != nil) return YES;
+  if (self.retryEnabled != nil) return YES;
   if (self.retryBlock) return YES;
-  if (self.shouldFetchNextPages) return YES;
+  if (self.shouldFetchNextPages != nil) return YES;
   if (self.objectClassResolver) return YES;
   if (self.testBlock) return YES;
   if (self.ticketProperties) return YES;
