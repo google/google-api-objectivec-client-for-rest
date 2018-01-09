@@ -3689,6 +3689,10 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"objectSpecifier",
       @"observationInfo",
       @"retainWeakReference",
+      // New as of High Sierra
+      @"CAMLType",
+      @"CA_prepareRenderValue",
+      @"CA_copyRenderValue",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
