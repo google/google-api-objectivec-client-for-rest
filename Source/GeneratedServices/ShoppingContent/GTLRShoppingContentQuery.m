@@ -1033,6 +1033,35 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrdersSetlineitemmetadata
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersSetLineItemMetadataRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/setLineItemMetadata";
+  GTLRShoppingContentQuery_OrdersSetlineitemmetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrdersSetLineItemMetadataResponse class];
+  query.loggingName = @"content.orders.setlineitemmetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrdersShiplineitems
 
 @dynamic merchantId, orderId;
@@ -1057,6 +1086,35 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
   query.orderId = orderId;
   query.expectedObjectClass = [GTLRShoppingContent_OrdersShipLineItemsResponse class];
   query.loggingName = @"content.orders.shiplineitems";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/updateLineItemShippingDetails";
+  GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse class];
+  query.loggingName = @"content.orders.updatelineitemshippingdetails";
   return query;
 }
 

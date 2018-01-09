@@ -209,6 +209,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the jobs in the project.
+ *  If there are no jobs that match the request parameters, the list
+ *  request returns an empty response body: {}.
  *
  *  Method: ml.projects.jobs.list
  *
@@ -219,7 +221,17 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsListWithparent:]
 
-/** Optional. Specifies the subset of jobs to retrieve. */
+/**
+ *  Optional. Specifies the subset of jobs to retrieve.
+ *  You can filter on the value of one or more attributes of the job object.
+ *  For example, retrieve jobs with a job identifier that starts with 'census':
+ *  <p><code>gcloud ml-engine jobs list --filter='jobId:census*'</code>
+ *  <p>List all failed jobs with names that start with 'rnn':
+ *  <p><code>gcloud ml-engine jobs list --filter='jobId:rnn*
+ *  AND state:FAILED'</code>
+ *  <p>For more examples, see the guide to
+ *  <a href="/ml-engine/docs/monitor-training">monitoring jobs</a>.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -244,6 +256,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListJobsResponse.
  *
  *  Lists the jobs in the project.
+ *  If there are no jobs that match the request parameters, the list
+ *  request returns an empty response body: {}.
  *
  *  @param parent Required. The name of the project for which to list jobs.
  *
@@ -401,6 +415,90 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get the complete list of CMLE capabilities in a location, along with their
+ *  location-specific properties.
+ *
+ *  Method: ml.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsGetWithname:]
+
+/** Required. The name of the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location.
+ *
+ *  Get the complete list of CMLE capabilities in a location, along with their
+ *  location-specific properties.
+ *
+ *  @param name Required. The name of the location.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all locations that provides at least one type of CMLE capability.
+ *
+ *  Method: ml.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsListWithparent:]
+
+/**
+ *  Optional. The number of locations to retrieve per "page" of results. If
+ *  there
+ *  are more remaining results than this number, the response message will
+ *  contain a valid value in the `next_page_token` field.
+ *  The default value is 20, and the maximum page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token to request the next page of results.
+ *  You get the token from the `next_page_token` field of the response from
+ *  the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project for which available locations are to be
+ *  listed (since some locations might be whitelisted for specific projects).
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListLocationsResponse.
+ *
+ *  List all locations that provides at least one type of CMLE capability.
+ *
+ *  @param parent Required. The name of the project for which available
+ *    locations are to be
+ *    listed (since some locations might be whitelisted for specific projects).
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a model which will later contain one or more versions.
  *  You must add at least one version before you can request predictions from
  *  the model. Add versions by calling
@@ -544,6 +642,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the models in a project.
  *  Each project can contain multiple models, and each model can have multiple
  *  versions.
+ *  If there are no models that match the request parameters, the list request
+ *  returns an empty response body: {}.
  *
  *  Method: ml.projects.models.list
  *
@@ -582,6 +682,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the models in a project.
  *  Each project can contain multiple models, and each model can have multiple
  *  versions.
+ *  If there are no models that match the request parameters, the list request
+ *  returns an empty response body: {}.
  *
  *  @param parent Required. The name of the project whose models are to be
  *    listed.
@@ -864,9 +966,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets basic information about all the versions of a model.
- *  If you expect that a model has a lot of versions, or if you need to handle
+ *  If you expect that a model has many versions, or if you need to handle
  *  only a limited number of results at a time, you can request that the list
- *  be retrieved in batches (called pages):
+ *  be retrieved in batches (called pages).
+ *  If there are no versions that match the request parameters, the list
+ *  request returns an empty response body: {}.
  *
  *  Method: ml.projects.models.versions.list
  *
@@ -903,9 +1007,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListVersionsResponse.
  *
  *  Gets basic information about all the versions of a model.
- *  If you expect that a model has a lot of versions, or if you need to handle
+ *  If you expect that a model has many versions, or if you need to handle
  *  only a limited number of results at a time, you can request that the list
- *  be retrieved in batches (called pages):
+ *  be retrieved in batches (called pages).
+ *  If there are no versions that match the request parameters, the list
+ *  request returns an empty response body: {}.
  *
  *  @param parent Required. The name of the model for which to list the version.
  *
@@ -948,7 +1054,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  To adopt etag mechanism, include `etag` field in the mask, and include the
  *  `etag` value in your version resource.
  *  Currently the only supported update masks are `description`, `labels`, and
- *  `etag`.
+ *  `etag`, and `expire_time`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1193,8 +1299,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Performs prediction on the data in the request.
  *  Cloud ML Engine implements a custom `predict` verb on top of an HTTP POST
- *  method. For details of the format, see the **guide to the
- *  [predict request format](/ml-engine/docs/v1/predict-request)**.
+ *  method. <p>For details of the request and response format, see the **guide
+ *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
  *
  *  Method: ml.projects.predict
  *
@@ -1216,8 +1322,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Performs prediction on the data in the request.
  *  Cloud ML Engine implements a custom `predict` verb on top of an HTTP POST
- *  method. For details of the format, see the **guide to the
- *  [predict request format](/ml-engine/docs/v1/predict-request)**.
+ *  method. <p>For details of the request and response format, see the **guide
+ *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest to include in

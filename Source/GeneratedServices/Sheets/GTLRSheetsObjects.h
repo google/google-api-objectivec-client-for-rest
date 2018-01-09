@@ -110,6 +110,7 @@
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
 @class GTLRSheets_IterativeCalculationSettings;
+@class GTLRSheets_LineStyle;
 @class GTLRSheets_MatchedDeveloperMetadata;
 @class GTLRSheets_MatchedValueRange;
 @class GTLRSheets_MergeCellsRequest;
@@ -168,6 +169,11 @@
 @class GTLRSheets_UpdateValuesByDataFilterResponse;
 @class GTLRSheets_UpdateValuesResponse;
 @class GTLRSheets_ValueRange;
+@class GTLRSheets_WaterfallChartColumnStyle;
+@class GTLRSheets_WaterfallChartCustomSubtotal;
+@class GTLRSheets_WaterfallChartDomain;
+@class GTLRSheets_WaterfallChartSeries;
+@class GTLRSheets_WaterfallChartSpec;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1794,6 +1800,65 @@ GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
 GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percentile;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_LineStyle.type
+
+/**
+ *  A custom dash for a line. Modifying the exact custom dash style is
+ *  currently unsupported.
+ *
+ *  Value: "CUSTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Custom;
+/**
+ *  A dotted line.
+ *
+ *  Value: "DOTTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Dotted;
+/**
+ *  No dash type, which is equivalent to a non-visible line.
+ *
+ *  Value: "INVISIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Invisible;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "LINE_DASH_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LineDashTypeUnspecified;
+/**
+ *  A dashed line where the dashes have "long" length.
+ *
+ *  Value: "LONG_DASHED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashed;
+/**
+ *  A line that alternates between a "long" dash and a dot.
+ *
+ *  Value: "LONG_DASHED_DOTTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashedDotted;
+/**
+ *  A dashed line where the dashes have "medium" length.
+ *
+ *  Value: "MEDIUM_DASHED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashed;
+/**
+ *  A line that alternates between a "medium" dash and a dot.
+ *
+ *  Value: "MEDIUM_DASHED_DOTTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashedDotted;
+/**
+ *  A solid line.
+ *
+ *  Value: "SOLID"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Solid;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_MergeCellsRequest.mergeType
 
 /**
@@ -2312,6 +2377,29 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_DimensionUnsp
  */
 GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
+// ----------------------------------------------------------------------------
+// GTLRSheets_WaterfallChartSpec.stackedType
+
+/**
+ *  Series will spread out along the horizontal axis.
+ *
+ *  Value: "SEQUENTIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Sequential;
+/**
+ *  Values corresponding to the same domain (horizontal axis) value will be
+ *  stacked vertically.
+ *
+ *  Value: "STACKED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Stacked;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "WATERFALL_STACKED_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified;
+
 /**
  *  Adds a new banded range to the spreadsheet.
  */
@@ -2772,6 +2860,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  one for the "Open Price", "High Price", "Low Price" and "Close Price".
  */
 @interface GTLRSheets_BasicChartSeries : GTLRObject
+
+/**
+ *  The line style of this series. Valid only if the
+ *  chartType is AREA,
+ *  LINE, or SCATTER.
+ *  COMBO charts are also supported if the
+ *  series chart type is
+ *  AREA or LINE.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_LineStyle *lineStyle;
 
 /** The data being visualized in this chart series. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
@@ -4309,6 +4407,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  This field is optional.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextPosition *titleTextPosition;
+
+/** A waterfall chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartSpec *waterfallChart;
 
 @end
 
@@ -6119,6 +6220,46 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+@end
+
+
+/**
+ *  Properties that describe the style of a line.
+ */
+@interface GTLRSheets_LineStyle : GTLRObject
+
+/**
+ *  The dash type of the line.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_LineStyle_Type_Custom A custom dash for a line.
+ *        Modifying the exact custom dash style is
+ *        currently unsupported. (Value: "CUSTOM")
+ *    @arg @c kGTLRSheets_LineStyle_Type_Dotted A dotted line. (Value: "DOTTED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_Invisible No dash type, which is
+ *        equivalent to a non-visible line. (Value: "INVISIBLE")
+ *    @arg @c kGTLRSheets_LineStyle_Type_LineDashTypeUnspecified Default value,
+ *        do not use. (Value: "LINE_DASH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_LongDashed A dashed line where the
+ *        dashes have "long" length. (Value: "LONG_DASHED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_LongDashedDotted A line that alternates
+ *        between a "long" dash and a dot. (Value: "LONG_DASHED_DOTTED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_MediumDashed A dashed line where the
+ *        dashes have "medium" length. (Value: "MEDIUM_DASHED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_MediumDashedDotted A line that
+ *        alternates between a "medium" dash and a dot. (Value:
+ *        "MEDIUM_DASHED_DOTTED")
+ *    @arg @c kGTLRSheets_LineStyle_Type_Solid A solid line. (Value: "SOLID")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The thickness of the line, in px.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -8154,6 +8295,153 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray<NSArray *> *values;
+
+@end
+
+
+/**
+ *  Styles for a waterfall chart column.
+ */
+@interface GTLRSheets_WaterfallChartColumnStyle : GTLRObject
+
+/** The color of the column. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/** The label of the column's legend. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+@end
+
+
+/**
+ *  A custom subtotal column for a waterfall chart series.
+ */
+@interface GTLRSheets_WaterfallChartCustomSubtotal : GTLRObject
+
+/**
+ *  True if the data point at subtotal_index is the subtotal. If false,
+ *  the subtotal will be computed and appear after the data point.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataIsSubtotal;
+
+/** A label for the subtotal column. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The 0-based index of a data point within the series. If
+ *  data_is_subtotal is true, the data point at this index is the
+ *  subtotal. Otherwise, the subtotal appears after the data point with
+ *  this index. A series can have multiple subtotals at arbitrary indices,
+ *  but subtotals do not affect the indices of the data points. For
+ *  example, if a series has 3 data points, their indices will always be 0,
+ *  1, and 2, regardless of how many subtotals exist on the series or what
+ *  data points they are associated with.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subtotalIndex;
+
+@end
+
+
+/**
+ *  The domain of a waterfall chart.
+ */
+@interface GTLRSheets_WaterfallChartDomain : GTLRObject
+
+/** The data of the WaterfallChartDomain. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+/**
+ *  True to reverse the order of the domain values (horizontal axis).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reversed;
+
+@end
+
+
+/**
+ *  A single series of data for a waterfall chart.
+ */
+@interface GTLRSheets_WaterfallChartSeries : GTLRObject
+
+/**
+ *  Custom subtotal columns appearing in this series. The order in which
+ *  subtotals are defined is not significant. Only one subtotal may be
+ *  defined for each data point.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_WaterfallChartCustomSubtotal *> *customSubtotals;
+
+/** The data being visualized in this series. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+/**
+ *  True to hide the subtotal column from the end of the series. By default,
+ *  a subtotal column will appear at the end of each series. Setting this
+ *  field to true will hide that subtotal column for this series.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hideTrailingSubtotal;
+
+/** Styles for all columns in this series with negative values. */
+@property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartColumnStyle *negativeColumnsStyle;
+
+/** Styles for all columns in this series with positive values. */
+@property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartColumnStyle *positiveColumnsStyle;
+
+/** Styles for all subtotal columns in this series. */
+@property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartColumnStyle *subtotalColumnsStyle;
+
+@end
+
+
+/**
+ *  A waterfall chart.
+ */
+@interface GTLRSheets_WaterfallChartSpec : GTLRObject
+
+/** The line style for the connector lines. */
+@property(nonatomic, strong, nullable) GTLRSheets_LineStyle *connectorLineStyle;
+
+/** The domain data (horizontal axis) for the waterfall chart. */
+@property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartDomain *domain;
+
+/**
+ *  True to interpret the first value as a total.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueIsTotal;
+
+/**
+ *  True to hide connector lines between columns.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hideConnectorLines;
+
+/** The data this waterfall chart is visualizing. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_WaterfallChartSeries *> *series;
+
+/**
+ *  The stacked type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_WaterfallChartSpec_StackedType_Sequential Series will
+ *        spread out along the horizontal axis. (Value: "SEQUENTIAL")
+ *    @arg @c kGTLRSheets_WaterfallChartSpec_StackedType_Stacked Values
+ *        corresponding to the same domain (horizontal axis) value will be
+ *        stacked vertically. (Value: "STACKED")
+ *    @arg @c kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified
+ *        Default value, do not use. (Value:
+ *        "WATERFALL_STACKED_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stackedType;
 
 @end
 

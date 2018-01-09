@@ -56,7 +56,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Amr;
  */
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb;
 /**
- *  Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
+ *  Not specified.
  *
  *  Value: "ENCODING_UNSPECIFIED"
  */
@@ -362,8 +362,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_AmrWb Adaptive Multi-Rate
  *        Wideband codec. `sample_rate_hertz` must be 16000. (Value: "AMR_WB")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified Not
- *        specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
- *        (Value: "ENCODING_UNSPECIFIED")
+ *        specified. (Value: "ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Flac
  *        [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless
  *        Audio

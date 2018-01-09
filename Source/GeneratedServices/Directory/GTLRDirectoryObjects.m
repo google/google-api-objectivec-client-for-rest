@@ -115,12 +115,73 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_Building
+//
+
+@implementation GTLRDirectory_Building
+@dynamic buildingId, buildingName, coordinates, descriptionProperty, etags,
+         floorNames, kind;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"floorNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BuildingCoordinates
+//
+
+@implementation GTLRDirectory_BuildingCoordinates
+@dynamic latitude, longitude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_Buildings
+//
+
+@implementation GTLRDirectory_Buildings
+@dynamic buildings, ETag, kind, nextPageToken;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buildings" : [GTLRDirectory_Building class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"buildings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_CalendarResource
 //
 
 @implementation GTLRDirectory_CalendarResource
-@dynamic etags, generatedResourceName, kind, resourceDescription, resourceEmail,
-         resourceId, resourceName, resourceType;
+@dynamic buildingId, capacity, etags, featureInstances, floorName, floorSection,
+         generatedResourceName, kind, resourceCategory, resourceDescription,
+         resourceEmail, resourceId, resourceName, resourceType,
+         userVisibleDescription;
 @end
 
 
@@ -183,10 +244,11 @@
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         bootMode, deviceId, ETag, ethernetMacAddress, firmwareVersion, kind,
-         lastEnrollmentTime, lastSync, macAddress, meid, model, notes,
-         orderNumber, orgUnitPath, osVersion, platformVersion, recentUsers,
-         serialNumber, status, supportEndDate, willAutoRenew;
+         bootMode, deviceFiles, deviceId, ETag, ethernetMacAddress,
+         firmwareVersion, kind, lastEnrollmentTime, lastSync, macAddress, meid,
+         model, notes, orderNumber, orgUnitPath, osVersion, platformVersion,
+         recentUsers, serialNumber, status, supportEndDate, tpmVersionInfo,
+         willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -195,6 +257,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
+    @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class]
   };
   return map;
@@ -215,11 +278,32 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
+@dynamic createTime, downloadUrl, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_RecentUsers_Item
 //
 
 @implementation GTLRDirectory_ChromeOsDevice_RecentUsers_Item
 @dynamic email, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_TpmVersionInfo
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_TpmVersionInfo
+@dynamic family, firmwareVersion, manufacturer, specLevel, tpmModel,
+         vendorSpecific;
 @end
 
 
@@ -385,6 +469,62 @@
     @"domains" : [GTLRDirectory_Domains class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_Feature
+//
+
+@implementation GTLRDirectory_Feature
+@dynamic etags, kind, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_FeatureInstance
+//
+
+@implementation GTLRDirectory_FeatureInstance
+@dynamic feature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_FeatureRename
+//
+
+@implementation GTLRDirectory_FeatureRename
+@dynamic newName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_Features
+//
+
+@implementation GTLRDirectory_Features
+@dynamic ETag, features, kind, nextPageToken;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [GTLRDirectory_Feature class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"features";
 }
 
 @end

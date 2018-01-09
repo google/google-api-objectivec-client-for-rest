@@ -23,8 +23,8 @@
 @class GTLRCloudTasks_CancelLeaseRequest;
 @class GTLRCloudTasks_CreateTaskRequest;
 @class GTLRCloudTasks_GetIamPolicyRequest;
+@class GTLRCloudTasks_LeaseTasksRequest;
 @class GTLRCloudTasks_PauseQueueRequest;
-@class GTLRCloudTasks_PullTasksRequest;
 @class GTLRCloudTasks_PurgeQueueRequest;
 @class GTLRCloudTasks_Queue;
 @class GTLRCloudTasks_RenewLeaseRequest;
@@ -138,6 +138,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Creates a queue.
+ *  Queues created with this method allow tasks to live for a maximum of 31
+ *  days. After a task is 31 days old, the task will be deleted regardless of
+ *  whether
+ *  it was dispatched or not.
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
@@ -167,6 +171,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Queue.
  *
  *  Creates a queue.
+ *  Queues created with this method allow tasks to live for a maximum of 31
+ *  days. After a task is 31 days old, the task will be deleted regardless of
+ *  whether
+ *  it was dispatched or not.
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
@@ -395,6 +403,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Updates a queue.
  *  This method creates the queue if it does not exist and updates
  *  the queue if it does exist.
+ *  Queues created with this method allow tasks to live for a maximum of 31
+ *  days. After a task is 31 days old, the task will be deleted regardless of
+ *  whether
+ *  it was dispatched or not.
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
@@ -416,6 +428,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *  hyphens (-), colons (:), or periods (.).
+ *  For more information, see
+ *  [Identifying
+ *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the queue's location.
  *  The list of available locations can be obtained by calling
  *  google.cloud.location.Locations.ListLocations.
@@ -441,6 +456,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Updates a queue.
  *  This method creates the queue if it does not exist and updates
  *  the queue if it does exist.
+ *  Queues created with this method allow tasks to live for a maximum of 31
+ *  days. After a task is 31 days old, the task will be deleted regardless of
+ *  whether
+ *  it was dispatched or not.
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
@@ -453,6 +472,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *    * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *    hyphens (-), colons (:), or periods (.).
+ *    For more information, see
+ *    [Identifying
+ *    projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
  *    * `LOCATION_ID` is the canonical ID for the queue's location.
  *    The list of available locations can be obtained by calling
  *    google.cloud.location.Locations.ListLocations.
@@ -666,14 +688,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Acknowledges a pull task.
- *  The lease holder, that is, the entity that received this task in
- *  a PullTasksResponse, must call this method to indicate that
+ *  The worker, that is, the entity that received this task in
+ *  a LeaseTasksResponse, must call this method to indicate that
  *  the work associated with the task has finished.
- *  The lease holder must acknowledge a task within the
- *  PullTasksRequest.lease_duration or the lease will expire and
+ *  The worker must acknowledge a task within the
+ *  LeaseTasksRequest.lease_duration or the lease will expire and
  *  the task will become ready to be returned in a different
- *  PullTasksResponse. After the task is acknowledged, it will
- *  not be returned by a later CloudTasks.PullTasks,
+ *  LeaseTasksResponse. After the task is acknowledged, it will
+ *  not be returned by a later CloudTasks.LeaseTasks,
  *  CloudTasks.GetTask, or CloudTasks.ListTasks.
  *  To acknowledge multiple tasks at the same time, use
  *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
@@ -700,14 +722,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Empty.
  *
  *  Acknowledges a pull task.
- *  The lease holder, that is, the entity that received this task in
- *  a PullTasksResponse, must call this method to indicate that
+ *  The worker, that is, the entity that received this task in
+ *  a LeaseTasksResponse, must call this method to indicate that
  *  the work associated with the task has finished.
- *  The lease holder must acknowledge a task within the
- *  PullTasksRequest.lease_duration or the lease will expire and
+ *  The worker must acknowledge a task within the
+ *  LeaseTasksRequest.lease_duration or the lease will expire and
  *  the task will become ready to be returned in a different
- *  PullTasksResponse. After the task is acknowledged, it will
- *  not be returned by a later CloudTasks.PullTasks,
+ *  LeaseTasksResponse. After the task is acknowledged, it will
+ *  not be returned by a later CloudTasks.LeaseTasks,
  *  CloudTasks.GetTask, or CloudTasks.ListTasks.
  *  To acknowledge multiple tasks at the same time, use
  *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
@@ -729,9 +751,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Cancel a pull task's lease.
- *  The lease holder can use this method to cancel a task's lease
+ *  The worker can use this method to cancel a task's lease
  *  by setting Task.schedule_time to now. This will make the task
- *  available to be leased to the next caller of CloudTasks.PullTasks.
+ *  available to be leased to the next caller of CloudTasks.LeaseTasks.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.cancelLease
  *
@@ -753,9 +775,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Task.
  *
  *  Cancel a pull task's lease.
- *  The lease holder can use this method to cancel a task's lease
+ *  The worker can use this method to cancel a task's lease
  *  by setting Task.schedule_time to now. This will make the task
- *  available to be leased to the next caller of CloudTasks.PullTasks.
+ *  available to be leased to the next caller of CloudTasks.LeaseTasks.
  *
  *  @param object The @c GTLRCloudTasks_CancelLeaseRequest to include in the
  *    query.
@@ -922,6 +944,67 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
+ *  Leases tasks from a pull queue for LeaseTasksRequest.lease_duration.
+ *  This method is invoked by the worker to obtain a
+ *  lease. The worker must acknowledge the task via
+ *  CloudTasks.AcknowledgeTask after they have performed the work
+ *  associated with the task.
+ *  The payload is intended to store data that the worker needs
+ *  to perform the work associated with the task. To return the
+ *  payloads in the LeaseTasksResponse, set
+ *  LeaseTasksRequest.response_view to Task.View.FULL.
+ *  A maximum of 10 qps of CloudTasks.LeaseTasks requests are allowed per
+ *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
+ *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
+ *  RateLimits.max_tasks_dispatched_per_second is exceeded.
+ *
+ *  Method: cloudtasks.projects.locations.queues.tasks.lease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease : GTLRCloudTasksQuery
+// Previous library name was
+//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksLeaseWithObject:parent:]
+
+/**
+ *  Required.
+ *  The queue name. For example:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_LeaseTasksResponse.
+ *
+ *  Leases tasks from a pull queue for LeaseTasksRequest.lease_duration.
+ *  This method is invoked by the worker to obtain a
+ *  lease. The worker must acknowledge the task via
+ *  CloudTasks.AcknowledgeTask after they have performed the work
+ *  associated with the task.
+ *  The payload is intended to store data that the worker needs
+ *  to perform the work associated with the task. To return the
+ *  payloads in the LeaseTasksResponse, set
+ *  LeaseTasksRequest.response_view to Task.View.FULL.
+ *  A maximum of 10 qps of CloudTasks.LeaseTasks requests are allowed per
+ *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
+ *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
+ *  RateLimits.max_tasks_dispatched_per_second is exceeded.
+ *
+ *  @param object The @c GTLRCloudTasks_LeaseTasksRequest to include in the
+ *    query.
+ *  @param parent Required.
+ *    The queue name. For example:
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
+ *
+ *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease
+ */
++ (instancetype)queryWithObject:(GTLRCloudTasks_LeaseTasksRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists the tasks in a queue.
  *  By default response_view is Task.View.BASIC; not all
  *  information is retrieved by default due to performance
@@ -1016,71 +1099,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
- *  Pulls tasks from a pull queue and acquires a lease on them for a
- *  specified PullTasksRequest.lease_duration.
- *  This method is invoked by the lease holder to obtain the
- *  lease. The lease holder must acknowledge the task via
- *  CloudTasks.AcknowledgeTask after they have performed the work
- *  associated with the task.
- *  The payload is intended to store data that the lease holder needs
- *  to perform the work associated with the task. To return the
- *  payloads in the PullTasksResponse, set
- *  PullTasksRequest.response_view to Task.View.FULL.
- *  A maximum of 10 qps of CloudTasks.PullTasks requests are allowed per
- *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
- *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
- *  RateLimits.max_tasks_dispatched_per_second is exceeded.
- *
- *  Method: cloudtasks.projects.locations.queues.tasks.pull
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudTasksCloudPlatform
- */
-@interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksPull : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksPullWithObject:name:]
-
-/**
- *  Required.
- *  The queue name. For example:
- *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudTasks_PullTasksResponse.
- *
- *  Pulls tasks from a pull queue and acquires a lease on them for a
- *  specified PullTasksRequest.lease_duration.
- *  This method is invoked by the lease holder to obtain the
- *  lease. The lease holder must acknowledge the task via
- *  CloudTasks.AcknowledgeTask after they have performed the work
- *  associated with the task.
- *  The payload is intended to store data that the lease holder needs
- *  to perform the work associated with the task. To return the
- *  payloads in the PullTasksResponse, set
- *  PullTasksRequest.response_view to Task.View.FULL.
- *  A maximum of 10 qps of CloudTasks.PullTasks requests are allowed per
- *  queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
- *  is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
- *  RateLimits.max_tasks_dispatched_per_second is exceeded.
- *
- *  @param object The @c GTLRCloudTasks_PullTasksRequest to include in the
- *    query.
- *  @param name Required.
- *    The queue name. For example:
- *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
- *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksPull
- */
-+ (instancetype)queryWithObject:(GTLRCloudTasks_PullTasksRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Renew the current lease of a pull task.
- *  The lease holder can use this method to extend the lease by a new
+ *  The worker can use this method to extend the lease by a new
  *  duration, starting from now. The new task lease will be
  *  returned in Task.schedule_time.
  *
@@ -1104,7 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Task.
  *
  *  Renew the current lease of a pull task.
- *  The lease holder can use this method to extend the lease by a new
+ *  The worker can use this method to extend the lease by a new
  *  duration, starting from now. The new task lease will be
  *  returned in Task.schedule_time.
  *
@@ -1130,7 +1150,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  When this method is called, Cloud Tasks will dispatch the task to its
  *  target, even if the queue is Queue.State.PAUSED.
  *  The dispatched task is returned. That is, the task that is returned
- *  contains the Task.task_status after the task is dispatched but
+ *  contains the Task.status after the task is dispatched but
  *  before the task is received by its target.
  *  If Cloud Tasks receives a successful response from the task's
  *  handler, then the task will be deleted; otherwise the task's
@@ -1171,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  When this method is called, Cloud Tasks will dispatch the task to its
  *  target, even if the queue is Queue.State.PAUSED.
  *  The dispatched task is returned. That is, the task that is returned
- *  contains the Task.task_status after the task is dispatched but
+ *  contains the Task.status after the task is dispatched but
  *  before the task is received by its target.
  *  If Cloud Tasks receives a successful response from the task's
  *  handler, then the task will be deleted; otherwise the task's

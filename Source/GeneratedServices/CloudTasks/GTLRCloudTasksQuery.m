@@ -414,6 +414,31 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
 
 @end
 
+@implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTasks_LeaseTasksRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta2/{+parent}/tasks:lease";
+  GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTasks_LeaseTasksResponse class];
+  query.loggingName = @"cloudtasks.projects.locations.queues.tasks.lease";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList
 
 @dynamic orderBy, pageSize, pageToken, parent, responseView;
@@ -428,31 +453,6 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTasks_ListTasksResponse class];
   query.loggingName = @"cloudtasks.projects.locations.queues.tasks.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksPull
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudTasks_PullTasksRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta2/{+name}/tasks:pull";
-  GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksPull *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudTasks_PullTasksResponse class];
-  query.loggingName = @"cloudtasks.projects.locations.queues.tasks.pull";
   return query;
 }
 

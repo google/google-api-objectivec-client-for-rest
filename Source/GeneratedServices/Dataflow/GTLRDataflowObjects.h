@@ -3768,6 +3768,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
+/** Additional experiment flags for the job. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
+
 /**
  *  Whether to bypass the safety checks for the job's temporary directory.
  *  Use with caution.

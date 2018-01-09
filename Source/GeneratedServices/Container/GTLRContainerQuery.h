@@ -4,8 +4,9 @@
 // API:
 //   Google Container Engine API (container/v1)
 // Description:
-//   The Google Container Engine API is used for building and managing container
-//   based applications, powered by the open source Kubernetes technology.
+//   The Google Kubernetes Engine API is used for building and managing
+//   container based applications, powered by the open source Kubernetes
+//   technology.
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
@@ -1481,7 +1482,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns configuration info about the Container Engine service.
+ *  Returns configuration info about the Kubernetes Engine service.
  *
  *  Method: container.projects.zones.getServerconfig
  *
@@ -1509,7 +1510,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_ServerConfig.
  *
- *  Returns configuration info about the Container Engine service.
+ *  Returns configuration info about the Kubernetes Engine service.
  *
  *  @param projectId The Google Developers Console [project ID or project
  *    number](https://support.google.com/cloud/answer/6158840).

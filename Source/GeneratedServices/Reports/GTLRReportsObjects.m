@@ -174,7 +174,7 @@
 //
 
 @implementation GTLRReports_UsageReport_Entity
-@dynamic customerId, profileId, type, userEmail;
+@dynamic customerId, entityId, profileId, type, userEmail;
 @end
 
 

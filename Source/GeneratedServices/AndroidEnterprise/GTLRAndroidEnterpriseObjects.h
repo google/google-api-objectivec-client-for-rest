@@ -1258,8 +1258,24 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the author of the product (for example, the app developer). */
 @property(nonatomic, copy, nullable) NSString *authorName;
 
+/** The countries which this app is available in. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableCountries;
+
 /** The tracks that are visible to the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableTracks;
+
+/** The app category (e.g. RACING, SOCIAL, etc.) */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** The content rating for this app. */
+@property(nonatomic, copy, nullable) NSString *contentRating;
+
+/**
+ *  A localized promotional description, if available.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** A link to the (consumer) Google Play details page for the product. */
 @property(nonatomic, copy, nullable) NSString *detailsUrl;
@@ -1287,6 +1303,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The time (in milliseconds since epoch) when application was last published.
+ *  (Timestamp is approximate within 7 days of actual publish time.)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestampMillis;
+
+/**
+ *  The minimum Android SDK necessary to run the app.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minAndroidSdkVersion;
+
+/** The permissions required for this app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permissions;
+
+/**
  *  A string of the form app:<package name>. For example,
  *  app:com.google.android.gm represents the Gmail app.
  */
@@ -1299,12 +1333,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *productPricing;
 
+/** A description of the recent changes made to the app. */
+@property(nonatomic, copy, nullable) NSString *recentChanges;
+
 /**
  *  Deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requiresContainerApp;
+
+/** A list of screenshot links representing the app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *screenshotUrls;
 
 /** The certificate used to sign this product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductSigningCertificate *signingCertificate;

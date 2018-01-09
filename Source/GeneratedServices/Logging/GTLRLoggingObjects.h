@@ -941,8 +941,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  *  period. If this field is omitted in a new log entry, then Stackdriver
  *  Logging assigns it the current time.Incoming log entries should have
  *  timestamps that are no more than the logs retention period in the past, and
- *  no more than 24 hours in the future. See the entries.write API method for
- *  more information.
+ *  no more than 24 hours in the future. Log entries outside those time
+ *  boundaries will not be available when calling entries.list, but those log
+ *  entries can still be exported with LogSinks.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
@@ -1847,11 +1848,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  *  among the log entries that did not supply their own values, the entries
  *  earlier in the list will sort before the entries later in the list. See the
  *  entries.list method.Log entries with timestamps that are more than the logs
- *  retention period in the past or more than 24 hours in the future might be
- *  discarded. Discarding does not return an error.To improve throughput and to
- *  avoid exceeding the quota limit for calls to entries.write, you should try
- *  to include several log entries in this list, rather than calling this method
- *  for each individual log entry.
+ *  retention period in the past or more than 24 hours in the future will not be
+ *  available when calling entries.list. However, those log entries can still be
+ *  exported with LogSinks.To improve throughput and to avoid exceeding the
+ *  quota limit for calls to entries.write, you should try to include several
+ *  log entries in this list, rather than calling this method for each
+ *  individual log entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 

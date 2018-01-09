@@ -645,15 +645,24 @@
 //
 
 @implementation GTLRAndroidEnterprise_Product
-@dynamic appVersion, authorName, availableTracks, detailsUrl,
-         distributionChannel, iconUrl, kind, productId, productPricing,
-         requiresContainerApp, signingCertificate, smallIconUrl, title,
-         workDetailsUrl;
+@dynamic appVersion, authorName, availableCountries, availableTracks, category,
+         contentRating, descriptionProperty, detailsUrl, distributionChannel,
+         iconUrl, kind, lastUpdatedTimestampMillis, minAndroidSdkVersion,
+         permissions, productId, productPricing, recentChanges,
+         requiresContainerApp, screenshotUrls, signingCertificate, smallIconUrl,
+         title, workDetailsUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appVersion" : [GTLRAndroidEnterprise_AppVersion class],
-    @"availableTracks" : [NSString class]
+    @"availableCountries" : [NSString class],
+    @"availableTracks" : [NSString class],
+    @"permissions" : [GTLRAndroidEnterprise_ProductPermission class],
+    @"screenshotUrls" : [NSString class]
   };
   return map;
 }

@@ -1352,6 +1352,153 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_ResourcesBuildingsDelete
+
+@dynamic buildingId, customer;
+
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       buildingId:(NSString *)buildingId {
+  NSArray *pathParams = @[
+    @"buildingId", @"customer"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  GTLRDirectoryQuery_ResourcesBuildingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.buildingId = buildingId;
+  query.loggingName = @"directory.resources.buildings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesBuildingsGet
+
+@dynamic buildingId, customer;
+
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       buildingId:(NSString *)buildingId {
+  NSArray *pathParams = @[
+    @"buildingId", @"customer"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  GTLRDirectoryQuery_ResourcesBuildingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.buildingId = buildingId;
+  query.expectedObjectClass = [GTLRDirectory_Building class];
+  query.loggingName = @"directory.resources.buildings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesBuildingsInsert
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings";
+  GTLRDirectoryQuery_ResourcesBuildingsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRDirectory_Building class];
+  query.loggingName = @"directory.resources.buildings.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesBuildingsList
+
+@dynamic customer;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings";
+  GTLRDirectoryQuery_ResourcesBuildingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRDirectory_Buildings class];
+  query.loggingName = @"directory.resources.buildings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesBuildingsPatch
+
+@dynamic buildingId, customer;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer
+                     buildingId:(NSString *)buildingId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"buildingId", @"customer"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  GTLRDirectoryQuery_ResourcesBuildingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.buildingId = buildingId;
+  query.expectedObjectClass = [GTLRDirectory_Building class];
+  query.loggingName = @"directory.resources.buildings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesBuildingsUpdate
+
+@dynamic buildingId, customer;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer
+                     buildingId:(NSString *)buildingId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"buildingId", @"customer"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  GTLRDirectoryQuery_ResourcesBuildingsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.buildingId = buildingId;
+  query.expectedObjectClass = [GTLRDirectory_Building class];
+  query.loggingName = @"directory.resources.buildings.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_ResourcesCalendarsDelete
 
 @dynamic calendarResourceId, customer;
@@ -1424,7 +1571,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesCalendarsList
 
-@dynamic customer, maxResults, pageToken;
+@dynamic customer, maxResults, orderBy, pageToken, query;
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
@@ -1494,6 +1641,181 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   query.calendarResourceId = calendarResourceId;
   query.expectedObjectClass = [GTLRDirectory_CalendarResource class];
   query.loggingName = @"directory.resources.calendars.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesDelete
+
+@dynamic customer, featureKey;
+
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       featureKey:(NSString *)featureKey {
+  NSArray *pathParams = @[
+    @"customer", @"featureKey"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  GTLRDirectoryQuery_ResourcesFeaturesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.featureKey = featureKey;
+  query.loggingName = @"directory.resources.features.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesGet
+
+@dynamic customer, featureKey;
+
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       featureKey:(NSString *)featureKey {
+  NSArray *pathParams = @[
+    @"customer", @"featureKey"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  GTLRDirectoryQuery_ResourcesFeaturesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.featureKey = featureKey;
+  query.expectedObjectClass = [GTLRDirectory_Feature class];
+  query.loggingName = @"directory.resources.features.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesInsert
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features";
+  GTLRDirectoryQuery_ResourcesFeaturesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRDirectory_Feature class];
+  query.loggingName = @"directory.resources.features.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesList
+
+@dynamic customer, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features";
+  GTLRDirectoryQuery_ResourcesFeaturesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRDirectory_Features class];
+  query.loggingName = @"directory.resources.features.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesPatch
+
+@dynamic customer, featureKey;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer
+                     featureKey:(NSString *)featureKey {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"customer", @"featureKey"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  GTLRDirectoryQuery_ResourcesFeaturesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.featureKey = featureKey;
+  query.expectedObjectClass = [GTLRDirectory_Feature class];
+  query.loggingName = @"directory.resources.features.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesRename
+
+@dynamic customer, oldName;
+
++ (instancetype)queryWithObject:(GTLRDirectory_FeatureRename *)object
+                       customer:(NSString *)customer
+                        oldName:(NSString *)oldName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"customer", @"oldName"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features/{oldName}/rename";
+  GTLRDirectoryQuery_ResourcesFeaturesRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.oldName = oldName;
+  query.loggingName = @"directory.resources.features.rename";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_ResourcesFeaturesUpdate
+
+@dynamic customer, featureKey;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer
+                     featureKey:(NSString *)featureKey {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"customer", @"featureKey"
+  ];
+  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  GTLRDirectoryQuery_ResourcesFeaturesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.featureKey = featureKey;
+  query.expectedObjectClass = [GTLRDirectory_Feature class];
+  query.loggingName = @"directory.resources.features.update";
   return query;
 }
 

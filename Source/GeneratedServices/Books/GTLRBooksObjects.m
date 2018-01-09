@@ -548,6 +548,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBooks_FamilyInfo
+//
+
+@implementation GTLRBooks_FamilyInfo
+@dynamic kind, membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_FamilyInfo_Membership
+//
+
+@implementation GTLRBooks_FamilyInfo_Membership
+@dynamic acquirePermission, ageGroup, allowedMaturityRating, isInFamily, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBooks_Geolayerdata
 //
 
@@ -925,7 +945,23 @@
 //
 
 @implementation GTLRBooks_Usersettings_Notification
-@dynamic moreFromAuthors, moreFromSeries, rewardExpirations;
+@dynamic matchMyInterests, moreFromAuthors, moreFromSeries, priceDrop,
+         rewardExpirations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Usersettings_Notification_MatchMyInterests
+//
+
+@implementation GTLRBooks_Usersettings_Notification_MatchMyInterests
+@dynamic optedState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"optedState" : @"opted_state" };
+}
+
 @end
 
 
@@ -950,6 +986,21 @@
 //
 
 @implementation GTLRBooks_Usersettings_Notification_MoreFromSeries
+@dynamic optedState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"optedState" : @"opted_state" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Usersettings_Notification_PriceDrop
+//
+
+@implementation GTLRBooks_Usersettings_Notification_PriceDrop
 @dynamic optedState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

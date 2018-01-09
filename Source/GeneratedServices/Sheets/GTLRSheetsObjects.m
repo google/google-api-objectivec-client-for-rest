@@ -306,6 +306,17 @@ NSString * const kGTLRSheets_InterpolationPoint_Type_Number    = @"NUMBER";
 NSString * const kGTLRSheets_InterpolationPoint_Type_Percent   = @"PERCENT";
 NSString * const kGTLRSheets_InterpolationPoint_Type_Percentile = @"PERCENTILE";
 
+// GTLRSheets_LineStyle.type
+NSString * const kGTLRSheets_LineStyle_Type_Custom             = @"CUSTOM";
+NSString * const kGTLRSheets_LineStyle_Type_Dotted             = @"DOTTED";
+NSString * const kGTLRSheets_LineStyle_Type_Invisible          = @"INVISIBLE";
+NSString * const kGTLRSheets_LineStyle_Type_LineDashTypeUnspecified = @"LINE_DASH_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_LineStyle_Type_LongDashed         = @"LONG_DASHED";
+NSString * const kGTLRSheets_LineStyle_Type_LongDashedDotted   = @"LONG_DASHED_DOTTED";
+NSString * const kGTLRSheets_LineStyle_Type_MediumDashed       = @"MEDIUM_DASHED";
+NSString * const kGTLRSheets_LineStyle_Type_MediumDashedDotted = @"MEDIUM_DASHED_DOTTED";
+NSString * const kGTLRSheets_LineStyle_Type_Solid              = @"SOLID";
+
 // GTLRSheets_MergeCellsRequest.mergeType
 NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeAll = @"MERGE_ALL";
 NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeColumns = @"MERGE_COLUMNS";
@@ -411,6 +422,11 @@ NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Space = @"SPACE"
 NSString * const kGTLRSheets_ValueRange_MajorDimension_Columns = @"COLUMNS";
 NSString * const kGTLRSheets_ValueRange_MajorDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
+
+// GTLRSheets_WaterfallChartSpec.stackedType
+NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Sequential = @"SEQUENTIAL";
+NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Stacked = @"STACKED";
+NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified = @"WATERFALL_STACKED_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -646,7 +662,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_BasicChartSeries
-@dynamic series, targetAxis, type;
+@dynamic lineStyle, series, targetAxis, type;
 @end
 
 
@@ -1120,7 +1136,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 @dynamic altText, backgroundColor, basicChart, bubbleChart, candlestickChart,
          fontName, hiddenDimensionStrategy, histogramChart, maximized, orgChart,
          pieChart, subtitle, subtitleTextFormat, subtitleTextPosition, title,
-         titleTextFormat, titleTextPosition;
+         titleTextFormat, titleTextPosition, waterfallChart;
 @end
 
 
@@ -1782,6 +1798,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 @implementation GTLRSheets_IterativeCalculationSettings
 @dynamic convergenceThreshold, maxIterations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_LineStyle
+//
+
+@implementation GTLRSheets_LineStyle
+@dynamic type, width;
 @end
 
 
@@ -2559,6 +2585,74 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_WaterfallChartColumnStyle
+//
+
+@implementation GTLRSheets_WaterfallChartColumnStyle
+@dynamic color, label;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_WaterfallChartCustomSubtotal
+//
+
+@implementation GTLRSheets_WaterfallChartCustomSubtotal
+@dynamic dataIsSubtotal, label, subtotalIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_WaterfallChartDomain
+//
+
+@implementation GTLRSheets_WaterfallChartDomain
+@dynamic data, reversed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_WaterfallChartSeries
+//
+
+@implementation GTLRSheets_WaterfallChartSeries
+@dynamic customSubtotals, data, hideTrailingSubtotal, negativeColumnsStyle,
+         positiveColumnsStyle, subtotalColumnsStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customSubtotals" : [GTLRSheets_WaterfallChartCustomSubtotal class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_WaterfallChartSpec
+//
+
+@implementation GTLRSheets_WaterfallChartSpec
+@dynamic connectorLineStyle, domain, firstValueIsTotal, hideConnectorLines,
+         series, stackedType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"series" : [GTLRSheets_WaterfallChartSeries class]
   };
   return map;
 }

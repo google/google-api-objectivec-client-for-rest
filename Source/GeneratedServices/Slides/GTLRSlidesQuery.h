@@ -82,6 +82,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveFile
  *    @c kGTLRAuthScopeSlidesDriveReadonly
  *    @c kGTLRAuthScopeSlidesPresentations
  *    @c kGTLRAuthScopeSlidesSpreadsheets
@@ -135,6 +136,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveFile
  *    @c kGTLRAuthScopeSlidesPresentations
  */
 @interface GTLRSlidesQuery_PresentationsCreate : GTLRSlidesQuery
@@ -163,6 +165,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveFile
  *    @c kGTLRAuthScopeSlidesDriveReadonly
  *    @c kGTLRAuthScopeSlidesPresentations
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
@@ -194,6 +197,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveFile
  *    @c kGTLRAuthScopeSlidesDriveReadonly
  *    @c kGTLRAuthScopeSlidesPresentations
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
@@ -231,6 +235,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveFile
  *    @c kGTLRAuthScopeSlidesDriveReadonly
  *    @c kGTLRAuthScopeSlidesPresentations
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly

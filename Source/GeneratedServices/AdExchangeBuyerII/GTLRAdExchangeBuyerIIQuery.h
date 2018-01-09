@@ -570,6 +570,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
+/** The account the creative belongs to. */
+@property(nonatomic, copy, nullable) NSString *accountId1;
+
 /**
  *  Indicates if multiple creatives can share an ID or not. Default is
  *  NO_DUPLICATES (one ID per creative).
@@ -828,7 +831,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  not_checked}
  *  <li>attribute: {a numeric attribute from the list of attributes}
  *  <li>disapprovalReason: {a reason from
- *  DisapprovalReason
+ *  DisapprovalReason}
  *  </ul>
  *  Example: 'accountId=12345 AND (dealsStatus:disapproved AND
  *  disapprovalReason:unacceptable_content) OR attribute:47'
@@ -914,6 +917,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The account the creative belongs to. */
+@property(nonatomic, copy, nullable) NSString *accountId1;
 
 /**
  *  The buyer-defined creative ID of this creative.

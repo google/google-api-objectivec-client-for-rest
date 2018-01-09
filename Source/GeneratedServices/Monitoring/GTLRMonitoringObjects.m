@@ -660,6 +660,44 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_MonitoredResourceMetadata
+//
+
+@implementation GTLRMonitoring_MonitoredResourceMetadata
+@dynamic systemLabels, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_MonitoredResourceMetadata_SystemLabels
+//
+
+@implementation GTLRMonitoring_MonitoredResourceMetadata_SystemLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_MonitoredResourceMetadata_UserLabels
+//
+
+@implementation GTLRMonitoring_MonitoredResourceMetadata_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Option
 //
 
@@ -780,7 +818,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_TimeSeries
-@dynamic metric, metricKind, points, resource, valueType;
+@dynamic metadata, metric, metricKind, points, resource, valueType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -48,6 +48,7 @@
 @class GTLRBooks_Discoveryclusters_Clusters_Item;
 @class GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer;
 @class GTLRBooks_DownloadAccessRestriction;
+@class GTLRBooks_FamilyInfo_Membership;
 @class GTLRBooks_Geolayerdata_Common;
 @class GTLRBooks_Geolayerdata_Geo;
 @class GTLRBooks_Geolayerdata_Geo_Boundary_Item;
@@ -65,8 +66,10 @@
 @class GTLRBooks_Series_Series_Item;
 @class GTLRBooks_Usersettings_NotesExport;
 @class GTLRBooks_Usersettings_Notification;
+@class GTLRBooks_Usersettings_Notification_MatchMyInterests;
 @class GTLRBooks_Usersettings_Notification_MoreFromAuthors;
 @class GTLRBooks_Usersettings_Notification_MoreFromSeries;
+@class GTLRBooks_Usersettings_Notification_PriceDrop;
 @class GTLRBooks_Usersettings_Notification_RewardExpirations;
 @class GTLRBooks_Volume;
 @class GTLRBooks_Volume_AccessInfo;
@@ -993,6 +996,47 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBooks_FamilyInfo
+ */
+@interface GTLRBooks_FamilyInfo : GTLRObject
+
+/** Resource type. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Family membership info of the user that made the request. */
+@property(nonatomic, strong, nullable) GTLRBooks_FamilyInfo_Membership *membership;
+
+@end
+
+
+/**
+ *  Family membership info of the user that made the request.
+ */
+@interface GTLRBooks_FamilyInfo_Membership : GTLRObject
+
+/** Restrictions on user buying and acquiring content. */
+@property(nonatomic, copy, nullable) NSString *acquirePermission;
+
+/** The age group of the user. */
+@property(nonatomic, copy, nullable) NSString *ageGroup;
+
+/** The maximum allowed maturity rating for the user. */
+@property(nonatomic, copy, nullable) NSString *allowedMaturityRating;
+
+/**
+ *  isInFamily
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInFamily;
+
+/** The role of the user in the family. */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
  *  GTLRBooks_Geolayerdata
  */
 @interface GTLRBooks_Geolayerdata : GTLRObject
@@ -1649,9 +1693,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBooks_Usersettings_Notification : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MatchMyInterests *matchMyInterests;
 @property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromAuthors *moreFromAuthors;
 @property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromSeries *moreFromSeries;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_PriceDrop *priceDrop;
 @property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_RewardExpirations *rewardExpirations;
+
+@end
+
+
+/**
+ *  GTLRBooks_Usersettings_Notification_MatchMyInterests
+ */
+@interface GTLRBooks_Usersettings_Notification_MatchMyInterests : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *optedState;
 
 @end
 
@@ -1670,6 +1726,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRBooks_Usersettings_Notification_MoreFromSeries
  */
 @interface GTLRBooks_Usersettings_Notification_MoreFromSeries : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *optedState;
+
+@end
+
+
+/**
+ *  GTLRBooks_Usersettings_Notification_PriceDrop
+ */
+@interface GTLRBooks_Usersettings_Notification_PriceDrop : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *optedState;
 

@@ -57,7 +57,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 @implementation GTLRCloudBuild_Build
 @dynamic buildTriggerId, createTime, finishTime, identifier, images, logsBucket,
          logUrl, options, projectId, results, secrets, source, sourceProvenance,
-         startTime, status, statusDetail, steps, substitutions, tags, timeout;
+         startTime, status, statusDetail, steps, substitutions, tags, timeout,
+         timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -85,6 +86,20 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Build_Timing
+//
+
+@implementation GTLRCloudBuild_Build_Timing
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudBuild_TimeSpan class];
 }
 
 @end
@@ -125,8 +140,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, volumes,
-         waitFor;
+@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, timing,
+         volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -186,7 +201,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuiltImage
-@dynamic digest, name;
+@dynamic digest, name, pushTiming;
 @end
 
 
@@ -480,6 +495,16 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 @implementation GTLRCloudBuild_StorageSource
 @dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_TimeSpan
+//
+
+@implementation GTLRCloudBuild_TimeSpan
+@dynamic endTime, startTime;
 @end
 
 

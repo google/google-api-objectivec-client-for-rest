@@ -605,6 +605,102 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 @end
 
 /**
+ *  Gets information regarding the family that the user is part of.
+ *
+ *  Method: books.familysharing.getFamilyInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBooks
+ */
+@interface GTLRBooksQuery_FamilysharingGetFamilyInfo : GTLRBooksQuery
+// Previous library name was
+//   +[GTLQueryBooks queryForFamilysharingGetFamilyInfo]
+
+/** String to identify the originator of this request. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Fetches a @c GTLRBooks_FamilyInfo.
+ *
+ *  Gets information regarding the family that the user is part of.
+ *
+ *  @returns GTLRBooksQuery_FamilysharingGetFamilyInfo
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Initiates sharing of the content with the user's family. Empty response
+ *  indicates success.
+ *
+ *  Method: books.familysharing.share
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBooks
+ */
+@interface GTLRBooksQuery_FamilysharingShare : GTLRBooksQuery
+// Previous library name was
+//   +[GTLQueryBooks queryForFamilysharingShare]
+
+/** The docid to share. */
+@property(nonatomic, copy, nullable) NSString *docId;
+
+/** String to identify the originator of this request. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** The volume to share. */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Initiates sharing of the content with the user's family. Empty response
+ *  indicates success.
+ *
+ *  @returns GTLRBooksQuery_FamilysharingShare
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Initiates revoking content that has already been shared with the user's
+ *  family. Empty response indicates success.
+ *
+ *  Method: books.familysharing.unshare
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBooks
+ */
+@interface GTLRBooksQuery_FamilysharingUnshare : GTLRBooksQuery
+// Previous library name was
+//   +[GTLQueryBooks queryForFamilysharingUnshare]
+
+/** The docid to unshare. */
+@property(nonatomic, copy, nullable) NSString *docId;
+
+/** String to identify the originator of this request. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** The volume to unshare. */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Initiates revoking content that has already been shared with the user's
+ *  family. Empty response indicates success.
+ *
+ *  @returns GTLRBooksQuery_FamilysharingUnshare
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Gets the annotation data.
  *
  *  Method: books.layers.annotationData.get

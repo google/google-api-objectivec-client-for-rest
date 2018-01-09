@@ -151,7 +151,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.resourceName = resourceName;
-  query.expectedObjectClass = [GTLRYouTubeReporting_Media class];
+  query.expectedObjectClass = [GTLRYouTubeReporting_GdataMedia class];
   query.loggingName = @"youtubereporting.media.download";
   return query;
 }

@@ -251,6 +251,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPagespeedonline_Result : GTLRObject
 
+/** The captcha verify result */
+@property(nonatomic, copy, nullable) NSString *captchaResult;
+
 /**
  *  Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed
  *  rule instantiated and run by the server.

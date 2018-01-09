@@ -55,7 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_OperationsCancel : GTLRSpeechQuery
 // Previous library name was
@@ -99,7 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_OperationsDelete : GTLRSpeechQuery
 // Previous library name was
@@ -133,7 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_OperationsGet : GTLRSpeechQuery
 // Previous library name was
@@ -172,7 +169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_OperationsList : GTLRSpeechQuery
 // Previous library name was
@@ -223,7 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_SpeechLongrunningrecognize : GTLRSpeechQuery
 // Previous library name was
@@ -254,7 +249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSpeechCloudPlatform
- *    @c kGTLRAuthScopeSpeechCloudSpeech
  */
 @interface GTLRSpeechQuery_SpeechRecognize : GTLRSpeechQuery
 // Previous library name was

@@ -3512,7 +3512,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRServiceManagement_Policy : GTLRObject
 
@@ -3549,7 +3549,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4463,7 +4463,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_UsageRule : GTLRObject
 
 /**
- *  True, if the method allows unregistered calls; false otherwise.
+ *  If true, the selected method allows unregistered calls, e.g. calls
+ *  that don't identify any user or application.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4477,10 +4478,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *selector;
 
 /**
- *  True, if the method should skip service control. If so, no control plane
- *  feature (like quota and billing) will be enabled.
- *  This flag is used by ESP to allow some Endpoints customers to bypass
- *  Google internal checks.
+ *  If true, the selected method should skip service control and the control
+ *  plane features, such as quota and billing, will not be available.
+ *  This flag is used by Google Cloud Endpoints to bypass checks for internal
+ *  methods, such as service health check methods.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -51,6 +51,15 @@ NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified = @"
 NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
 NSString * const kGTLRAndroidManagement_Device_State_Provisioning = @"PROVISIONING";
 
+// GTLRAndroidManagement_DeviceSettings.encryptionStatus
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating = @"ACTIVATING";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active = @"ACTIVE";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActiveDefaultKey = @"ACTIVE_DEFAULT_KEY";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePerUser = @"ACTIVE_PER_USER";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified = @"ENCRYPTION_STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive = @"INACTIVE";
+NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported = @"UNSUPPORTED";
+
 // GTLRAndroidManagement_Display.state
 NSString * const kGTLRAndroidManagement_Display_State_DisplayStateUnspecified = @"DISPLAY_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Display_State_Doze     = @"DOZE";
@@ -302,11 +311,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_Device
 @dynamic apiLevel, appliedPolicyName, appliedPolicyVersion, appliedState,
-         disabledReason, displays, enrollmentTime, enrollmentTokenData,
-         enrollmentTokenName, hardwareInfo, hardwareStatusSamples,
-         lastPolicyComplianceReportTime, lastPolicySyncTime,
-         lastStatusReportTime, memoryEvents, memoryInfo, name, networkInfo,
-         nonComplianceDetails, policyCompliant, policyName,
+         deviceSettings, disabledReason, displays, enrollmentTime,
+         enrollmentTokenData, enrollmentTokenName, hardwareInfo,
+         hardwareStatusSamples, lastPolicyComplianceReportTime,
+         lastPolicySyncTime, lastStatusReportTime, memoryEvents, memoryInfo,
+         name, networkInfo, nonComplianceDetails, policyCompliant, policyName,
          powerManagementEvents, previousDeviceNames, softwareInfo, state,
          userName;
 
@@ -322,6 +331,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DeviceSettings
+//
+
+@implementation GTLRAndroidManagement_DeviceSettings
+@dynamic adbEnabled, developmentSettingsEnabled, encryptionStatus,
+         isDeviceSecure, isEncrypted, unknownSourcesEnabled;
 @end
 
 
@@ -702,8 +722,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
          funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
-         keyguardDisabled, keyguardDisabledFeatures, longSupportMessage,
-         maximumTimeToLock, mobileNetworksConfigDisabled,
+         keyguardDisabled, keyguardDisabledFeatures, kioskCustomLauncherEnabled,
+         longSupportMessage, maximumTimeToLock, mobileNetworksConfigDisabled,
          modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
          networkEscapeHatchEnabled, networkResetDisabled,
          openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
@@ -791,8 +811,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_SoftwareInfo
-@dynamic androidBuildNumber, androidBuildTime, androidVersion,
-         bootloaderVersion, deviceKernelVersion, securityPatchLevel;
+@dynamic androidBuildNumber, androidBuildTime, androidDevicePolicyVersionCode,
+         androidDevicePolicyVersionName, androidVersion, bootloaderVersion,
+         deviceKernelVersion, securityPatchLevel;
 @end
 
 
@@ -834,8 +855,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_StatusReportingSettings
-@dynamic displayInfoEnabled, hardwareStatusEnabled, memoryInfoEnabled,
-         networkInfoEnabled, powerManagementEventsEnabled, softwareInfoEnabled;
+@dynamic deviceSettingsEnabled, displayInfoEnabled, hardwareStatusEnabled,
+         memoryInfoEnabled, networkInfoEnabled, powerManagementEventsEnabled,
+         softwareInfoEnabled;
 @end
 
 

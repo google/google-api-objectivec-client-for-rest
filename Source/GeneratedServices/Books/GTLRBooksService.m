@@ -47,6 +47,7 @@ NSString * const kGTLRAuthScopeBooks = @"https://www.googleapis.com/auth/books";
     @"books#discovery#clusters" : [GTLRBooks_Discoveryclusters class],
     @"books#downloadAccesses" : [GTLRBooks_DownloadAccesses class],
     @"books#downloadAccessRestriction" : [GTLRBooks_DownloadAccessRestriction class],
+    @"books#familyInfo" : [GTLRBooks_FamilyInfo class],
     @"books#geolayerdata" : [GTLRBooks_Geolayerdata class],
     @"books#layersummaries" : [GTLRBooks_Layersummaries class],
     @"books#layersummary" : [GTLRBooks_Layersummary class],

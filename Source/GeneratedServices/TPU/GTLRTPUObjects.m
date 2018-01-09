@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRTPU_Node.health
+NSString * const kGTLRTPU_Node_Health_HealthUnspecified = @"HEALTH_UNSPECIFIED";
+NSString * const kGTLRTPU_Node_Health_Healthy           = @"HEALTHY";
+NSString * const kGTLRTPU_Node_Health_Timeout           = @"TIMEOUT";
+NSString * const kGTLRTPU_Node_Health_Unhealthy         = @"UNHEALTHY";
+
 // GTLRTPU_Node.state
 NSString * const kGTLRTPU_Node_State_Creating         = @"CREATING";
 NSString * const kGTLRTPU_Node_State_Deleting         = @"DELETING";
@@ -151,7 +157,7 @@ NSString * const kGTLRTPU_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 //
 
 @implementation GTLRTPU_Node
-@dynamic acceleratorType, cidrBlock, createTime, descriptionProperty,
+@dynamic acceleratorType, cidrBlock, createTime, descriptionProperty, health,
          healthDescription, ipAddress, name, network, networkEndpoints, port,
          serviceAccount, state, tensorflowVersion;
 

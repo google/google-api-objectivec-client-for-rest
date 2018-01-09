@@ -67,8 +67,8 @@
 //
 
 @implementation GTLRCalendar_Calendar
-@dynamic descriptionProperty, ETag, identifier, kind, location, summary,
-         timeZone;
+@dynamic conferenceProperties, descriptionProperty, ETag, identifier, kind,
+         location, summary, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -110,10 +110,10 @@
 //
 
 @implementation GTLRCalendar_CalendarListEntry
-@dynamic accessRole, backgroundColor, colorId, defaultReminders, deleted,
-         descriptionProperty, ETag, foregroundColor, hidden, identifier, kind,
-         location, notificationSettings, primary, selected, summary,
-         summaryOverride, timeZone;
+@dynamic accessRole, backgroundColor, colorId, conferenceProperties,
+         defaultReminders, deleted, descriptionProperty, ETag, foregroundColor,
+         hidden, identifier, kind, location, notificationSettings, primary,
+         selected, summary, summaryOverride, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -232,6 +232,94 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCalendar_ConferenceData
+//
+
+@implementation GTLRCalendar_ConferenceData
+@dynamic conferenceId, conferenceSolution, createRequest, entryPoints, notes,
+         signature;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entryPoints" : [GTLRCalendar_EntryPoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceProperties
+//
+
+@implementation GTLRCalendar_ConferenceProperties
+@dynamic allowedConferenceSolutionTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedConferenceSolutionTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceRequestStatus
+//
+
+@implementation GTLRCalendar_ConferenceRequestStatus
+@dynamic statusCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceSolution
+//
+
+@implementation GTLRCalendar_ConferenceSolution
+@dynamic iconUri, key, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceSolutionKey
+//
+
+@implementation GTLRCalendar_ConferenceSolutionKey
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_CreateConferenceRequest
+//
+
+@implementation GTLRCalendar_CreateConferenceRequest
+@dynamic conferenceSolutionKey, requestId, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EntryPoint
+//
+
+@implementation GTLRCalendar_EntryPoint
+@dynamic accessCode, entryPointType, label, meetingCode, passcode, password,
+         pin, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCalendar_Error
 //
 
@@ -247,12 +335,13 @@
 
 @implementation GTLRCalendar_Event
 @dynamic anyoneCanAddSelf, attachments, attendees, attendeesOmitted, colorId,
-         created, creator, descriptionProperty, end, endTimeUnspecified, ETag,
-         extendedProperties, gadget, guestsCanInviteOthers, guestsCanModify,
-         guestsCanSeeOtherGuests, hangoutLink, htmlLink, iCalUID, identifier,
-         kind, location, locked, organizer, originalStartTime, privateCopy,
-         recurrence, recurringEventId, reminders, sequence, source, start,
-         status, summary, transparency, updated, visibility;
+         conferenceData, created, creator, descriptionProperty, end,
+         endTimeUnspecified, ETag, extendedProperties, gadget,
+         guestsCanInviteOthers, guestsCanModify, guestsCanSeeOtherGuests,
+         hangoutLink, htmlLink, iCalUID, identifier, kind, location, locked,
+         organizer, originalStartTime, privateCopy, recurrence,
+         recurringEventId, reminders, sequence, source, start, status, summary,
+         transparency, updated, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -44,6 +44,9 @@
 @class GTLRMonitoring_MonitoredResource;
 @class GTLRMonitoring_MonitoredResource_Labels;
 @class GTLRMonitoring_MonitoredResourceDescriptor;
+@class GTLRMonitoring_MonitoredResourceMetadata;
+@class GTLRMonitoring_MonitoredResourceMetadata_SystemLabels;
+@class GTLRMonitoring_MonitoredResourceMetadata_UserLabels;
 @class GTLRMonitoring_Option;
 @class GTLRMonitoring_Option_Value;
 @class GTLRMonitoring_Point;
@@ -364,7 +367,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTyp
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer;
 /**
- *  A group of instances (could be either GCE or AWS_EC2).
+ *  A group of instances from Google Cloud Platform (GCP) or Amazon Web Services
+ *  (AWS).
  *
  *  Value: "INSTANCE"
  */
@@ -1696,6 +1700,67 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Auxiliary metadata for a MonitoredResource object. MonitoredResource objects
+ *  contain the minimum set of information to uniquely identify a monitored
+ *  resource instance. There is some other useful auxiliary metadata. Google
+ *  Stackdriver Monitoring & Logging uses an ingestion pipeline to extract
+ *  metadata for cloud resources of all types , and stores the metadata in this
+ *  message.
+ */
+@interface GTLRMonitoring_MonitoredResourceMetadata : GTLRObject
+
+/**
+ *  Output only. Values for predefined system metadata labels. System labels are
+ *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
+ *  what system labels are useful and how to obtain their values. Some examples:
+ *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
+ *  label values can be only strings, Boolean values, or a list of strings. For
+ *  example:
+ *  { "name": "my-test-instance",
+ *  "security_group": ["a", "b", "c"],
+ *  "spot_instance": false }
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceMetadata_SystemLabels *systemLabels;
+
+/** Output only. A map of user-defined metadata labels. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceMetadata_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Output only. Values for predefined system metadata labels. System labels are
+ *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
+ *  what system labels are useful and how to obtain their values. Some examples:
+ *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
+ *  label values can be only strings, Boolean values, or a list of strings. For
+ *  example:
+ *  { "name": "my-test-instance",
+ *  "security_group": ["a", "b", "c"],
+ *  "spot_instance": false }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRMonitoring_MonitoredResourceMetadata_SystemLabels : GTLRObject
+@end
+
+
+/**
+ *  Output only. A map of user-defined metadata labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_MonitoredResourceMetadata_UserLabels : GTLRObject
+@end
+
+
+/**
  *  A protocol buffer option, which can be attached to a message, field,
  *  enumeration, etc.
  */
@@ -1799,7 +1864,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *    @arg @c kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer A
  *        group of AWS load balancers. (Value: "AWS_ELB_LOAD_BALANCER")
  *    @arg @c kGTLRMonitoring_ResourceGroup_ResourceType_Instance A group of
- *        instances (could be either GCE or AWS_EC2). (Value: "INSTANCE")
+ *        instances from Google Cloud Platform (GCP) or Amazon Web Services
+ *        (AWS). (Value: "INSTANCE")
  *    @arg @c kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified
  *        Default value (not valid). (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
@@ -1941,6 +2007,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  listing and creating time series.
  */
 @interface GTLRMonitoring_TimeSeries : GTLRObject
+
+/**
+ *  Output only. The associated monitored resource metadata. When reading a a
+ *  timeseries, this field will include metadata labels that are explicitly
+ *  named in the reduction. When creating a timeseries, this field is ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceMetadata *metadata;
 
 /**
  *  The associated metric. A fully-specified metric used to identify the time
@@ -2123,7 +2196,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
 
 /**
- *  Denotes whether this check is a check that egresses from InternalCheckers.
+ *  Denotes whether this is a check that egresses from InternalCheckers.
  *
  *  Uses NSNumber of boolValue.
  */

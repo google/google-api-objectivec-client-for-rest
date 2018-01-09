@@ -1381,11 +1381,18 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_RuntimeEnvironment
-@dynamic bypassTempDirValidation, machineType, maxWorkers, serviceAccountEmail,
-         tempLocation, zoneProperty;
+@dynamic additionalExperiments, bypassTempDirValidation, machineType,
+         maxWorkers, serviceAccountEmail, tempLocation, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalExperiments" : [NSString class]
+  };
+  return map;
 }
 
 @end

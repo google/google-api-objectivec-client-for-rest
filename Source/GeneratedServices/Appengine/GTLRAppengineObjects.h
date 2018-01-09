@@ -28,6 +28,8 @@
 @class GTLRAppengine_CertificateRawData;
 @class GTLRAppengine_ContainerInfo;
 @class GTLRAppengine_CpuUtilization;
+@class GTLRAppengine_CreateVersionMetadataV1Alpha;
+@class GTLRAppengine_CreateVersionMetadataV1Beta;
 @class GTLRAppengine_Deployment;
 @class GTLRAppengine_Deployment_Files;
 @class GTLRAppengine_DiskUtilization;
@@ -793,7 +795,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Amount of time that the Autoscaler
  *  (https://cloud.google.com/compute/docs/autoscaler/) should wait between
- *  changes to the number of virtual machines. Only applicable for VM runtimes.
+ *  changes to the number of virtual machines. Only applicable in the App Engine
+ *  flexible environment.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *coolDownPeriod;
 
@@ -973,6 +976,36 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  Metadata for the given google.longrunning.Operation during a
+ *  google.appengine.v1alpha.CreateVersionRequest.
+ */
+@interface GTLRAppengine_CreateVersionMetadataV1Alpha : GTLRObject
+
+/**
+ *  The Cloud Build ID if one was created as part of the version create.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *cloudBuildId;
+
+@end
+
+
+/**
+ *  Metadata for the given google.longrunning.Operation during a
+ *  google.appengine.v1beta.CreateVersionRequest.
+ */
+@interface GTLRAppengine_CreateVersionMetadataV1Beta : GTLRObject
+
+/**
+ *  The Cloud Build ID if one was created as part of the version create.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *cloudBuildId;
+
+@end
+
+
+/**
  *  Request message for Instances.DebugInstance.
  */
 @interface GTLRAppengine_DebugInstanceRequest : GTLRObject
@@ -1029,7 +1062,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Target scaling by disk usage. Only applicable for VM runtimes.
+ *  Target scaling by disk usage. Only applicable in the App Engine flexible
+ *  environment.
  */
 @interface GTLRAppengine_DiskUtilization : GTLRObject
 
@@ -1834,21 +1868,21 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Extra network settings. Only applicable for App Engine flexible environment
- *  versions
+ *  Extra network settings. Only applicable in the App Engine flexible
+ *  environment.
  */
 @interface GTLRAppengine_Network : GTLRObject
 
 /**
  *  List of ports, or port pairs, to forward from the virtual machine to the
- *  application container. Only applicable for App Engine flexible environment
- *  versions.
+ *  application container. Only applicable in the App Engine flexible
+ *  environment.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardedPorts;
 
 /**
- *  Tag to apply to the VM instance during creation. Only applicable for for App
- *  Engine flexible environment versions.
+ *  Tag to apply to the VM instance during creation. for Only applicable in the
+ *  App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTag;
 
@@ -1881,7 +1915,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Target scaling by network usage. Only applicable for VM runtimes.
+ *  Target scaling by network usage. Only applicable in the App Engine flexible
+ *  environment.
  */
 @interface GTLRAppengine_NetworkUtilization : GTLRObject
 
@@ -2073,6 +2108,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @interface GTLRAppengine_OperationMetadataV1Alpha : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRAppengine_CreateVersionMetadataV1Alpha *createVersionMetadata;
+
 /** Time that this operation completed.\@OutputOnly */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -2110,6 +2147,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Metadata for the given google.longrunning.Operation.
  */
 @interface GTLRAppengine_OperationMetadataV1Beta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAppengine_CreateVersionMetadataV1Beta *createVersionMetadata;
 
 /** Time that this operation completed.\@OutputOnly */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -2226,7 +2265,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Target scaling by request utilization. Only applicable for VM runtimes.
+ *  Target scaling by request utilization. Only applicable in the App Engine
+ *  flexible environment.
  */
 @interface GTLRAppengine_RequestUtilization : GTLRObject
 
@@ -2378,16 +2418,16 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @interface GTLRAppengine_StandardSchedulerSettings : GTLRObject
 
 /**
- *  Maximum number of instances for an app version. Set to a non-positive value
- *  (0 by convention) to disable max_instances configuration.
+ *  Maximum number of instances for an app version. Set to zero to disable
+ *  max_instances configuration.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstances;
 
 /**
- *  Minimum number of instances for an app version. Set to a non-positive value
- *  (0 by convention) to disable min_instances configuration.
+ *  Minimum number of instances for an app version. Set to zero to disable
+ *  min_instances configuration.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2805,7 +2845,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  Total size in bytes of all the files that are included in this version and
- *  curerntly hosted on the App Engine disk.\@OutputOnly
+ *  currently hosted on the App Engine disk.\@OutputOnly
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2843,8 +2883,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  Configures health checking for VM instances. Unhealthy instances are stopped
- *  and replaced with new instances. Only applicable for VM runtimes.Only
- *  returned in GET requests if view=FULL is set.
+ *  and replaced with new instances. Only applicable in the App Engine flexible
+ *  environment.Only returned in GET requests if view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_HealthCheck *healthCheck;
 
@@ -2897,8 +2937,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Extra network settings. Only applicable for App Engine flexible environment
- *  versions.
+ *  Extra network settings. Only applicable in the App Engine flexible
+ *  environment.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_Network *network;
 
@@ -2966,6 +3006,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) NSNumber *vm;
 
+/** The choice of gce zones to use for this App Engine Flexible version. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *zones;
+
 @end
 
 
@@ -2996,7 +3039,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Volumes mounted within the app container. Only applicable for VM runtimes.
+ *  Volumes mounted within the app container. Only applicable in the App Engine
+ *  flexible environment.
  */
 @interface GTLRAppengine_Volume : GTLRObject
 

@@ -953,6 +953,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_SessionEntityType_EntityOverrideMod
 
 /**
  *  The exported agent.
+ *  Example for how to export an agent to a zip file via a command line:
+ *  curl \\
+ *  'https://dialogflow.googleapis.com/v2beta1/projects/<project_name>/agent:export'\\
+ *  -X POST \\
+ *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Accept: application/json' \\
+ *  -H 'Content-Type: application/json' \\
+ *  --compressed \\
+ *  --data-binary '{}' \\
+ *  | grep agentContent | sed -e 's/.*"agentContent": "\\([^"]*\\)".* /\\1/' \\
+ *  | base64 --decode > <agent zip file>
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -961,7 +972,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_SessionEntityType_EntityOverrideMod
 
 /**
  *  The URI to a file containing the exported agent. This field is populated
- *  only if `agent_uri`
+ *  only if `agent_uri` is specified in `ExportAgentRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -975,6 +986,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_SessionEntityType_EntityOverrideMod
 
 /**
  *  The agent to import.
+ *  Example for how to import an agent via the command line:
+ *  curl \\
+ *  'https://dialogflow.googleapis.com/v2beta1/projects/<project_name>/agent:import\\
+ *  -X POST \\
+ *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Accept: application/json' \\
+ *  -H 'Content-Type: application/json' \\
+ *  --compressed \\
+ *  --data-binary "{
+ *  'agentContent': '$(cat <agent zip file> | base64 -w 0)'
+ *  }"
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2031,10 +2053,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_SessionEntityType_EntityOverrideMod
 
 /**
  *  Represents the query input. It can contain either:
- *  1. an audio config which
- *  instructs the speech recognizer how to process the speech audio,
- *  2. a conversational query in the form of text, or
- *  3. an event that specifies which intent to trigger.
+ *  1. An audio config which
+ *  instructs the speech recognizer how to process the speech audio.
+ *  2. A conversational query in the form of text,.
+ *  3. An event that specifies which intent to trigger.
  */
 @interface GTLRDialogflow_QueryInput : GTLRObject
 
@@ -2255,6 +2277,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_SessionEntityType_EntityOverrideMod
 
 /**
  *  The agent to restore.
+ *  Example for how to restore an agent via the command line:
+ *  curl \\
+ *  'https://dialogflow.googleapis.com/v2beta1/projects/<project_name>/agent:restore\\
+ *  -X POST \\
+ *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Accept: application/json' \\
+ *  -H 'Content-Type: application/json' \\
+ *  --compressed \\
+ *  --data-binary "{
+ *  'agentContent': '$(cat <agent zip file> | base64 -w 0)'
+ *  }" \\
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

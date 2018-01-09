@@ -26,6 +26,7 @@
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_Device;
+@class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_HardwareInfo;
@@ -232,6 +233,52 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
  *  Value: "PROVISIONING"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceSettings.encryptionStatus
+
+/**
+ *  Encryption is not currently active, but is currently being activated.
+ *
+ *  Value: "ACTIVATING"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating;
+/**
+ *  Encryption is active
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active;
+/**
+ *  Encryption is active, but an encryption key is not set by the user
+ *
+ *  Value: "ACTIVE_DEFAULT_KEY"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActiveDefaultKey;
+/**
+ *  Encrpyiton is active, and the encryption key is tied to the user profile.
+ *
+ *  Value: "ACTIVE_PER_USER"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePerUser;
+/**
+ *  Unspecified. No device should have this type.
+ *
+ *  Value: "ENCRYPTION_STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified;
+/**
+ *  Encryption is supported by the device, but not currently active.
+ *
+ *  Value: "INACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive;
+/**
+ *  Encryption is not supported by the device.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Display.state
@@ -1153,6 +1200,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *appliedState;
 
 /**
+ *  Device settings information. This information is only available when
+ *  deviceSettingsEnabled is true in the device's policy.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceSettings *deviceSettings;
+
+/**
  *  If the device state is DISABLED, an optional message that is displayed on
  *  the device indicating the reason the device is disabled. This field may be
  *  modified by an update request.
@@ -1295,6 +1348,79 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  enterprises/{enterpriseId}/users/{userId}.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
+
+@end
+
+
+/**
+ *  Information about security related device settings on device.
+ */
+@interface GTLRAndroidManagement_DeviceSettings : GTLRObject
+
+/**
+ *  If the ADB is enabled Settings.Global.ADB_ENABLED.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adbEnabled;
+
+/**
+ *  If the developer mode is enabled
+ *  Settings.Global.DEVELOPMENT_SETTINGS_ENABLED.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *developmentSettingsEnabled;
+
+/**
+ *  Encryption status from DevicePolicyManager.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating
+ *        Encryption is not currently active, but is currently being activated.
+ *        (Value: "ACTIVATING")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active
+ *        Encryption is active (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActiveDefaultKey
+ *        Encryption is active, but an encryption key is not set by the user
+ *        (Value: "ACTIVE_DEFAULT_KEY")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePerUser
+ *        Encrpyiton is active, and the encryption key is tied to the user
+ *        profile. (Value: "ACTIVE_PER_USER")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified
+ *        Unspecified. No device should have this type. (Value:
+ *        "ENCRYPTION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive
+ *        Encryption is supported by the device, but not currently active.
+ *        (Value: "INACTIVE")
+ *    @arg @c kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported
+ *        Encryption is not supported by the device. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionStatus;
+
+/**
+ *  Device secured with PIN/password.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDeviceSecure;
+
+/**
+ *  Whether the storage encryption is enabled
+ *  DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE or
+ *  DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE_PER_USER in N+ devices.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isEncrypted;
+
+/**
+ *  If installing apps from unknown sources is enabled.
+ *  Settings.Secure.INSTALL_NON_MARKET_APPS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unknownSourcesEnabled;
 
 @end
 
@@ -2360,7 +2486,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Account types that cannot be managed by the user. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
@@ -2379,8 +2505,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *adjustVolumeDisabled;
 
 /**
- *  Configuration for an always-on VPN connection. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  Configuration for an always-on VPN connection. Use with vpn_config_disabled
+ *  to prevent modification of this setting. <i>Requires the beta version of the
+ *  Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AlwaysOnVpnPackage *alwaysOnVpnPackage;
 
@@ -2407,7 +2534,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether configuring bluetooth is disabled. <i>Requires the beta version of
- *  Android Cloud Policy.</i>
+ *  the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2415,7 +2542,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether bluetooth contact sharing is disabled. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2424,7 +2551,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  Whether bluetooth is disabled. Prefer this setting over
  *  bluetooth_config_disabled because bluetooth_config_disabled can be bypassed
- *  by the user. <i>Requires the beta version of Android Cloud Policy.</i>
+ *  by the user. <i>Requires the beta version of the Android Device Policy
+ *  app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2439,7 +2567,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether configuring cell broadcast is disabled. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2455,7 +2583,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether creating windows besides app windows is disabled. <i>Requires the
- *  beta version of Android Cloud Policy.</i>
+ *  beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2463,7 +2591,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether configuring user credentials is disabled. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2471,7 +2599,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether roaming data services are disabled. <i>Requires the beta version of
- *  Android Cloud Policy.</i>
+ *  the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2503,7 +2631,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether application verification is forced to be enabled. <i>Requires the
- *  beta version of Android Cloud Policy.</i>
+ *  beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2534,7 +2662,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether user installation of apps is disabled. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2557,13 +2685,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Disabled keyguard customizations, such as widgets. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *keyguardDisabledFeatures;
 
 /**
+ *  Flag to specify if kiosk custom launcher is enabled. If it is enabled the
+ *  value for receiver_activity in PersistentPreferredActivity related to home
+ *  intent will be ignored. When custom launcher is enabled, the kiosk will
+ *  start in launcher mode and not locked to a specific application.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kioskCustomLauncherEnabled;
+
+/**
  *  A message displayed to the user in the device administators settings screen.
- *  <i>Requires the beta version of Android Cloud Policy.</i>
+ *  <i>Requires the beta version of the Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *longSupportMessage;
 
@@ -2577,7 +2715,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether configuring mobile networks is disabled. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2592,7 +2730,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether the user mounting physical external media is disabled. <i>Requires
- *  the beta version of Android Cloud Policy.</i>
+ *  the beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2619,7 +2757,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether resetting network settings is disabled. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2633,15 +2771,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether using NFC to beam out data from apps is disabled. <i>Requires the
- *  beta version of Android Cloud Policy.</i>
+ *  beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *outgoingBeamDisabled;
 
 /**
- *  Whether outgoing calls are disabled. <i>Requires the beta version of Android
- *  Cloud Policy.</i>
+ *  Whether outgoing calls are disabled. <i>Requires the beta version of the
+ *  Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2653,8 +2791,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  If present, only input methods provided by packages in this list are
  *  permitted. If this field is present, but the list is empty, then only system
- *  input methods are permitted. <i>Requires the beta version of Android Cloud
- *  Policy.</i>
+ *  input methods are permitted. <i>Requires the beta version of the Android
+ *  Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *permittedInputMethods;
 
@@ -2667,7 +2805,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  configurations like general internal filtering a global HTTP proxy may be
  *  useful. If the proxy is not accessible, network access may break. The global
  *  proxy is only a recommendation and some apps may ignore it. <i>Requires the
- *  beta version of Android Cloud Policy.</i>
+ *  beta version of the Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ProxyInfo *recommendedGlobalProxy;
 
@@ -2694,7 +2832,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether changing the user icon is disabled. <i>Requires the beta version of
- *  Android Cloud Policy.</i>
+ *  the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2702,7 +2840,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether changing the wallpaper is disabled. <i>Requires the beta version of
- *  Android Cloud Policy.</i>
+ *  the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2711,13 +2849,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  A message displayed to the user in the settings screen wherever
  *  functionality has been disabled by the admin. <i>Requires the beta version
- *  of Android Cloud Policy.</i>
+ *  of the Android Device Policy app.</i>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *shortSupportMessage;
 
 /**
  *  Whether sending or receiving SMS messages is disabled. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2750,7 +2888,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether configuring tethering and portable hotspots is disabled. <i>Requires
- *  the beta version of Android Cloud Policy.</i>
+ *  the beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2758,7 +2896,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether user uninstallation of applications is disabled. <i>Requires the
- *  beta version of Android Cloud Policy.</i>
+ *  beta version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2773,7 +2911,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether transferring files over USB is disabled. <i>Requires the beta
- *  version of Android Cloud Policy.</i>
+ *  version of the Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2788,8 +2926,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *version;
 
 /**
- *  Whether configuring VPN is disabled. <i>Requires the beta version of Android
- *  Cloud Policy.</i>
+ *  Whether configuring VPN is disabled. <i>Requires the beta version of the
+ *  Android Device Policy app.</i>
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2931,6 +3069,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /** Build time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *androidBuildTime;
 
+/**
+ *  The Android Device Policy app version code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *androidDevicePolicyVersionCode;
+
+/** The Android Device Policy app version as displayed to the user. */
+@property(nonatomic, copy, nullable) NSString *androidDevicePolicyVersionName;
+
 /** The user visible Android version string, e.g. 6.0.1. */
 @property(nonatomic, copy, nullable) NSString *androidVersion;
 
@@ -3024,6 +3172,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Settings controlling the behavior of status reports.
  */
 @interface GTLRAndroidManagement_StatusReportingSettings : GTLRObject
+
+/**
+ *  Whether device settings reporting is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceSettingsEnabled;
 
 /**
  *  Whether displays reporting is enabled.

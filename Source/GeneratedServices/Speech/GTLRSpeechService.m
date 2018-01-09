@@ -11,10 +11,9 @@
 #import "GTLRSpeech.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 NSString * const kGTLRAuthScopeSpeechCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeSpeechCloudSpeech   = @"https://www.googleapis.com/auth/cloud-speech";
 
 // ----------------------------------------------------------------------------
 //   GTLRSpeechService

@@ -282,6 +282,26 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_CreateVersionMetadataV1Alpha
+//
+
+@implementation GTLRAppengine_CreateVersionMetadataV1Alpha
+@dynamic cloudBuildId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_CreateVersionMetadataV1Beta
+//
+
+@implementation GTLRAppengine_CreateVersionMetadataV1Beta
+@dynamic cloudBuildId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_DebugInstanceRequest
 //
 
@@ -827,7 +847,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_OperationMetadataV1Alpha
-@dynamic endTime, ephemeralMessage, insertTime, method, target, user, warning;
+@dynamic createVersionMetadata, endTime, ephemeralMessage, insertTime, method,
+         target, user, warning;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -845,7 +866,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_OperationMetadataV1Beta
-@dynamic endTime, ephemeralMessage, insertTime, method, target, user, warning;
+@dynamic createVersionMetadata, endTime, ephemeralMessage, insertTime, method,
+         target, user, warning;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1085,7 +1107,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
          healthCheck, identifier, inboundServices, instanceClass, libraries,
          livenessCheck, manualScaling, name, network, nobuildFilesRegex,
          readinessCheck, resources, runtime, runtimeApiVersion, servingStatus,
-         threadsafe, versionUrl, vm;
+         threadsafe, versionUrl, vm, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1096,7 +1118,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
     @"errorHandlers" : [GTLRAppengine_ErrorHandler class],
     @"handlers" : [GTLRAppengine_UrlMap class],
     @"inboundServices" : [NSString class],
-    @"libraries" : [GTLRAppengine_Library class]
+    @"libraries" : [GTLRAppengine_Library class],
+    @"zones" : [NSString class]
   };
   return map;
 }

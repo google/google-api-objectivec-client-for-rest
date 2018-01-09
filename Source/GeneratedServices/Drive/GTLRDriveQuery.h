@@ -1187,7 +1187,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForPermissionsCreateWithObject:fileId:]
 
-/** A custom message to include in the notification email. */
+/** A plain text custom message to include in the notification email. */
 @property(nonatomic, copy, nullable) NSString *emailMessage;
 
 /** The ID of the file or Team Drive. */

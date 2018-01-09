@@ -190,8 +190,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookup
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject;
 /**
- *  The consumer's project id was not found.
- *  Same as google.rpc.Code.NOT_FOUND.
+ *  The consumer's project id, network container, or resource container was
+ *  not found. Same as google.rpc.Code.NOT_FOUND.
  *
  *  Value: "NOT_FOUND"
  */
@@ -875,8 +875,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *    @arg @c kGTLRServiceControl_CheckError_Code_NoLoasProject The consumer's
  *        LOAS role has no associated project. (Value: "NO_LOAS_PROJECT")
  *    @arg @c kGTLRServiceControl_CheckError_Code_NotFound The consumer's
- *        project id was not found.
- *        Same as google.rpc.Code.NOT_FOUND. (Value: "NOT_FOUND")
+ *        project id, network container, or resource container was
+ *        not found. Same as google.rpc.Code.NOT_FOUND. (Value: "NOT_FOUND")
  *    @arg @c kGTLRServiceControl_CheckError_Code_PermissionDenied The consumer
  *        doesn't have access to the specified resource.
  *        Same as google.rpc.Code.PERMISSION_DENIED. (Value:
@@ -919,6 +919,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** Free-form text providing details on the error cause of the error. */
 @property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Subject to whom this error applies. See the specific code enum for more
+ *  details on this field. For example:
+ *  - “project:<project-id or project-number>”
+ *  - “folder:<folder-id>”
+ *  - “organization:<organization-id>”
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
 
 @end
 

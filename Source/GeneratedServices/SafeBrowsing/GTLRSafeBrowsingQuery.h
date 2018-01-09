@@ -22,6 +22,7 @@
 @class GTLRSafeBrowsing_FetchThreatListUpdatesRequest;
 @class GTLRSafeBrowsing_FindFullHashesRequest;
 @class GTLRSafeBrowsing_FindThreatMatchesRequest;
+@class GTLRSafeBrowsing_ThreatHit;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -134,6 +135,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRSafeBrowsingQuery_FullHashesFind
  */
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FindFullHashesRequest *)object;
+
+@end
+
+/**
+ *  Reports a Safe Browsing threat list hit to Google. Only projects with
+ *  TRUSTED_REPORTER visibility can use this method.
+ *
+ *  Method: safebrowsing.threatHits.create
+ */
+@interface GTLRSafeBrowsingQuery_ThreatHitsCreate : GTLRSafeBrowsingQuery
+// Previous library name was
+//   +[GTLQuerySafeBrowsing queryForThreatHitsCreateWithObject:]
+
+/**
+ *  Fetches a @c GTLRSafeBrowsing_Empty.
+ *
+ *  Reports a Safe Browsing threat list hit to Google. Only projects with
+ *  TRUSTED_REPORTER visibility can use this method.
+ *
+ *  @param object The @c GTLRSafeBrowsing_ThreatHit to include in the query.
+ *
+ *  @returns GTLRSafeBrowsingQuery_ThreatHitsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSafeBrowsing_ThreatHit *)object;
 
 @end
 

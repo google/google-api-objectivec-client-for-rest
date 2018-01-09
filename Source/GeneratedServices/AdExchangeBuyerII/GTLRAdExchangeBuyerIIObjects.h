@@ -1067,6 +1067,16 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspe
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Video;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_FilterSet.formats
+
+/** Value: "DISPLAY" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Display;
+/** Value: "FORMAT_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
+/** Value: "VIDEO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Video;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.platforms
 
 /** Value: "DESKTOP" */
@@ -2315,15 +2325,17 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  The ID of the creative on which to filter; optional. This field may be set
- *  only for a filter set that accesses buyer-level troubleshooting data, i.e.
- *  one whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
+ *  only for a filter set that accesses account-level troubleshooting data,
+ *  i.e. one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  pattern.
  */
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
  *  The ID of the deal on which to filter; optional. This field may be set
- *  only for a filter set that accesses buyer-level troubleshooting data, i.e.
- *  one whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
+ *  only for a filter set that accesses account-level troubleshooting data,
+ *  i.e. one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  pattern.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2345,6 +2357,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
+ *  DEPRECATED: use repeated formats field instead.
  *  The format on which to filter; optional.
  *
  *  Likely values:
@@ -2359,11 +2372,18 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
+ *  The list of formats on which to filter; may be empty. The filters
+ *  represented by multiple formats are ORed together (i.e. if non-empty,
+ *  results must match any one of the formats).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *formats;
+
+/**
  *  A user-defined name of the filter set. Filter set names must be unique
  *  globally and match one of the patterns:
  *  - `bidders/ * /filterSets/ *` (for accessing bidder-level troubleshooting
  *  data)
- *  - `bidders/ * /accounts/ * /filterSets/ *` (for accessing buyer-level
+ *  - `bidders/ * /accounts/ * /filterSets/ *` (for accessing account-level
  *  troubleshooting data)
  *  This field is required in create operations.
  */

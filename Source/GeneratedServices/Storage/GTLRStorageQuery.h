@@ -740,6 +740,51 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Locks retention policy on a bucket.
+ *
+ *  Method: storage.buckets.lockRetentionPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsLockRetentionPolicy : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForBucketsLockRetentionPolicyWithbucket:ifMetagenerationMatch:]
+
+/** Name of a bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Makes the operation conditional on whether bucket's current metageneration
+ *  matches the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Bucket.
+ *
+ *  Locks retention policy on a bucket.
+ *
+ *  @param bucket Name of a bucket.
+ *  @param ifMetagenerationMatch Makes the operation conditional on whether
+ *    bucket's current metageneration matches the given value.
+ *
+ *  @returns GTLRStorageQuery_BucketsLockRetentionPolicy
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+          ifMetagenerationMatch:(long long)ifMetagenerationMatch;
+
+@end
+
+/**
  *  Updates a bucket. Changes to the bucket will be readable immediately after
  *  writing, but configuration changes may take time to propagate. This method
  *  supports patch semantics.
@@ -2406,7 +2451,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Resource name of the Cloud KMS key, of the form
  *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
  *  will be used to encrypt the object. Overrides the object metadata's
- *  kms_key_name value, if any.
+ *  kms_key_name value, if any. Limited availability; usable only by enabled
+ *  projects.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 

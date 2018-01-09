@@ -210,9 +210,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForAchievementDefinitionsList]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -260,9 +257,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  A randomly generated numeric ID for each request specified by the caller.
  *  This number is used at the server to ensure that the request is handled
@@ -302,9 +296,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_AchievementsList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForAchievementsListWithplayerId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -379,9 +370,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Fetches a @c GTLRGames_AchievementRevealResponse.
  *
@@ -414,9 +402,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The minimum value to set the steps to. */
 @property(nonatomic, assign) NSInteger steps;
@@ -455,9 +440,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Fetches a @c GTLRGames_AchievementUnlockResponse.
  *
@@ -483,9 +465,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_AchievementsUpdateMultiple : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForAchievementsUpdateMultipleWithObject:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_AchievementUpdateMultipleResponse.
@@ -518,9 +497,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -568,9 +544,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForApplicationsPlayed]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
@@ -601,9 +574,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Fetches a @c GTLRGames_ApplicationVerifyResponse.
  *
@@ -632,9 +602,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_EventsListByPlayer : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForEventsListByPlayer]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -680,9 +647,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForEventsListDefinitions]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -727,9 +691,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForEventsRecordWithObject:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -759,9 +720,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_LeaderboardsGet : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForLeaderboardsGetWithleaderboardId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -794,9 +752,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_LeaderboardsList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForLeaderboardsList]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -841,9 +796,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForMetagameGetMetagameConfig]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Fetches a @c GTLRGames_MetagameConfig.
  *
@@ -877,9 +829,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        the default. (Value: "all")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -942,9 +891,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForPlayersGetWithplayerId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -999,9 +945,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        user's social graph that are visible to this game. (Value: "visible")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1062,9 +1005,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForPushtokensRemoveWithObject:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
@@ -1092,9 +1032,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_PushtokensUpdate : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForPushtokensUpdateWithObject:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1124,9 +1061,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_QuestMilestonesClaim : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForQuestMilestonesClaimWithquestId:milestoneId:requestId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The ID of the milestone. */
 @property(nonatomic, copy, nullable) NSString *milestoneId;
@@ -1175,9 +1109,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForQuestsAcceptWithquestId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1210,9 +1141,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_QuestsList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForQuestsListWithplayerId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1277,9 +1205,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  */
 @property(nonatomic, copy, nullable) NSString *clientRevision;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /**
  *  Fetches a @c GTLRGames_RevisionCheckResponse.
  *
@@ -1312,9 +1237,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsCreateWithObject:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1345,9 +1267,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_RoomsDecline : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsDeclineWithroomId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1383,9 +1302,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsDismissWithroomId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The ID of the room. */
 @property(nonatomic, copy, nullable) NSString *roomId;
 
@@ -1416,9 +1332,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_RoomsGet : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsGetWithroomId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1452,9 +1365,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_RoomsJoin : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsJoinWithObject:roomId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1492,9 +1402,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsLeaveWithObject:roomId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1529,9 +1436,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_RoomsList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsList]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1578,9 +1482,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForRoomsReportStatusWithObject:roomId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1620,9 +1521,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_ScoresGet : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForScoresGetWithplayerId:leaderboardId:timeSpan:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  The types of ranks to return. If the parameter is omitted, no ranks will be
@@ -1743,9 +1641,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1839,9 +1734,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        respecting the fACL. (Value: "SOCIAL_1P")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1938,9 +1830,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForScoresSubmitWithleaderboardId:score:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1997,9 +1886,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForScoresSubmitMultipleWithObject:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2030,9 +1916,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_SnapshotsGet : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForSnapshotsGetWithsnapshotId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2067,9 +1950,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_SnapshotsList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForSnapshotsListWithplayerId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2124,9 +2004,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesCancelWithmatchId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The ID of the match. */
 @property(nonatomic, copy, nullable) NSString *matchId;
 
@@ -2157,9 +2034,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesCreateWithObject:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2189,9 +2063,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesDecline : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesDeclineWithmatchId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2226,9 +2097,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesDismissWithmatchId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The ID of the match. */
 @property(nonatomic, copy, nullable) NSString *matchId;
 
@@ -2261,9 +2129,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesFinish : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesFinishWithObject:matchId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2302,9 +2167,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesGetWithmatchId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** Get match data along with metadata. */
 @property(nonatomic, assign) BOOL includeMatchData;
 
@@ -2340,9 +2202,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesJoinWithmatchId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2375,9 +2234,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesLeave : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesLeaveWithmatchId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2412,9 +2268,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesLeaveTurn : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesLeaveTurnWithmatchId:matchVersion:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -2461,9 +2314,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesList : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesList]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  True if match data should be returned in the response. Note that not all
@@ -2528,9 +2378,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesRematchWithmatchId:]
 
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
-
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2575,9 +2422,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesSync : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesSync]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  True if match data should be returned in the response. Note that not all
@@ -2641,9 +2485,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_TurnBasedMatchesTakeTurn : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForTurnBasedMatchesTakeTurnWithObject:matchId:]
-
-/** The last-seen mutation timestamp. */
-@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;

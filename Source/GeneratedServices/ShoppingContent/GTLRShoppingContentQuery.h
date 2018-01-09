@@ -36,7 +36,9 @@
 @class GTLRShoppingContent_OrdersCustomBatchRequest;
 @class GTLRShoppingContent_OrdersRefundRequest;
 @class GTLRShoppingContent_OrdersReturnLineItemRequest;
+@class GTLRShoppingContent_OrdersSetLineItemMetadataRequest;
 @class GTLRShoppingContent_OrdersShipLineItemsRequest;
+@class GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest;
 @class GTLRShoppingContent_OrdersUpdateMerchantOrderIdRequest;
 @class GTLRShoppingContent_OrdersUpdateShipmentRequest;
 @class GTLRShoppingContent_Product;
@@ -1787,6 +1789,46 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
+ *  Sets (overrides) merchant provided annotations on the line item.
+ *
+ *  Method: content.orders.setlineitemmetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersSetlineitemmetadata : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersSetlineitemmetadataWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the order. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrdersSetLineItemMetadataResponse.
+ *
+ *  Sets (overrides) merchant provided annotations on the line item.
+ *
+ *  @param object The @c GTLRShoppingContent_OrdersSetLineItemMetadataRequest to
+ *    include in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the order.
+ *
+ *  @returns GTLRShoppingContentQuery_OrdersSetlineitemmetadata
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersSetLineItemMetadataRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
  *  Marks line item(s) as shipped.
  *
  *  Method: content.orders.shiplineitems
@@ -1821,6 +1863,48 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  @returns GTLRShoppingContentQuery_OrdersShiplineitems
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrdersShipLineItemsRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
+ *  Updates ship by and delivery by dates for a line item.
+ *
+ *  Method: content.orders.updatelineitemshippingdetails
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersUpdatelineitemshippingdetailsWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the order. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse.
+ *
+ *  Updates ship by and delivery by dates for a line item.
+ *
+ *  @param object The @c
+ *    GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest to include
+ *    in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the order.
+ *
+ *  @returns GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest *)object
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId;
 

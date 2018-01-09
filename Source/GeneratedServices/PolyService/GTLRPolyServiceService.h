@@ -7,7 +7,7 @@
 //   The Poly API provides read-only access to assets hosted on <a
 //   href="https://poly.google.com">poly.google.com</a>.
 // Documentation:
-//   https://devsite.googleplex.com/poly/
+//   https://developers.google.com/poly/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

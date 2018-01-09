@@ -3289,7 +3289,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUser_UsageRule : GTLRObject
 
 /**
- *  True, if the method allows unregistered calls; false otherwise.
+ *  If true, the selected method allows unregistered calls, e.g. calls
+ *  that don't identify any user or application.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3303,10 +3304,10 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *selector;
 
 /**
- *  True, if the method should skip service control. If so, no control plane
- *  feature (like quota and billing) will be enabled.
- *  This flag is used by ESP to allow some Endpoints customers to bypass
- *  Google internal checks.
+ *  If true, the selected method should skip service control and the control
+ *  plane features, such as quota and billing, will not be available.
+ *  This flag is used by Google Cloud Endpoints to bypass checks for internal
+ *  methods, such as service health check methods.
  *
  *  Uses NSNumber of boolValue.
  */

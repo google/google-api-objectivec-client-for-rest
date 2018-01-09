@@ -1185,6 +1185,17 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
+ *  Version number of conference data supported by the API client. Version 0
+ *  assumes no conference data support and ignores conference data in the
+ *  event's body. Version 1 enables support for copying of ConferenceData as
+ *  well as for creating new conferences using the createRequest field of
+ *  conferenceData. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger conferenceDataVersion;
+
+/**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
@@ -1226,6 +1237,17 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  in user, use the "primary" keyword.
  */
 @property(nonatomic, copy, nullable) NSString *calendarId;
+
+/**
+ *  Version number of conference data supported by the API client. Version 0
+ *  assumes no conference data support and ignores conference data in the
+ *  event's body. Version 1 enables support for copying of ConferenceData as
+ *  well as for creating new conferences using the createRequest field of
+ *  conferenceData. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger conferenceDataVersion;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
@@ -1628,6 +1650,17 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  */
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
+/**
+ *  Version number of conference data supported by the API client. Version 0
+ *  assumes no conference data support and ignores conference data in the
+ *  event's body. Version 1 enables support for copying of ConferenceData as
+ *  well as for creating new conferences using the createRequest field of
+ *  conferenceData. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger conferenceDataVersion;
+
 /** Event identifier. */
 @property(nonatomic, copy, nullable) NSString *eventId;
 
@@ -1741,6 +1774,17 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  in user, use the "primary" keyword.
  */
 @property(nonatomic, copy, nullable) NSString *calendarId;
+
+/**
+ *  Version number of conference data supported by the API client. Version 0
+ *  assumes no conference data support and ignores conference data in the
+ *  event's body. Version 1 enables support for copying of ConferenceData as
+ *  well as for creating new conferences using the createRequest field of
+ *  conferenceData. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger conferenceDataVersion;
 
 /** Event identifier. */
 @property(nonatomic, copy, nullable) NSString *eventId;

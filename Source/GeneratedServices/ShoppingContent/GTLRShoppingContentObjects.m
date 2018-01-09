@@ -1021,9 +1021,10 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItem
-@dynamic cancellations, identifier, price, product, quantityCanceled,
-         quantityDelivered, quantityOrdered, quantityPending, quantityReturned,
-         quantityShipped, returnInfo, returns, shippingDetails, tax;
+@dynamic annotations, cancellations, identifier, price, product,
+         quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
+         quantityReturned, quantityShipped, returnInfo, returns,
+         shippingDetails, tax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1031,6 +1032,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class],
     @"cancellations" : [GTLRShoppingContent_OrderCancellation class],
     @"returns" : [GTLRShoppingContent_OrderReturn class]
   };
@@ -1101,6 +1103,16 @@
 
 @implementation GTLRShoppingContent_OrderLineItemShippingDetailsMethod
 @dynamic carrier, maxDaysInTransit, methodName, minDaysInTransit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderMerchantProvidedAnnotation
+//
+
+@implementation GTLRShoppingContent_OrderMerchantProvidedAnnotation
+@dynamic key, value;
 @end
 
 
@@ -1292,8 +1304,8 @@
 
 @implementation GTLRShoppingContent_OrdersCustomBatchRequestEntry
 @dynamic batchId, cancel, cancelLineItem, merchantId, merchantOrderId, method,
-         operationId, orderId, refund, returnLineItem, shipLineItems,
-         updateShipment;
+         operationId, orderId, refund, returnLineItem, setLineItemMetadata,
+         shipLineItems, updateLineItemShippingDetails, updateShipment;
 @end
 
 
@@ -1340,6 +1352,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata
+//
+
+@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata
+@dynamic annotations, lineItemId, productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems
 //
 
@@ -1364,6 +1394,16 @@
 
 @implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo
 @dynamic carrier, shipmentId, trackingId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails
+//
+
+@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails
+@dynamic deliverByDate, lineItemId, productId, shipByDate;
 @end
 
 
@@ -1527,6 +1567,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrdersSetLineItemMetadataRequest
+//
+
+@implementation GTLRShoppingContent_OrdersSetLineItemMetadataRequest
+@dynamic annotations, lineItemId, operationId, productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersSetLineItemMetadataResponse
+//
+
+@implementation GTLRShoppingContent_OrdersSetLineItemMetadataResponse
+@dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrdersShipLineItemsRequest
 //
 
@@ -1550,6 +1618,26 @@
 //
 
 @implementation GTLRShoppingContent_OrdersShipLineItemsResponse
+@dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest
+//
+
+@implementation GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest
+@dynamic deliverByDate, lineItemId, operationId, productId, shipByDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
+//
+
+@implementation GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
 @dynamic executionStatus, kind;
 @end
 

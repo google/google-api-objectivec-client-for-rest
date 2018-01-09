@@ -1332,7 +1332,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRCloudResourceManager_Policy : GTLRObject
 
@@ -1362,7 +1362,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1433,8 +1433,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  An optional reference to a parent Resource.
- *  The only supported parent type is "organization". Once set, the parent
- *  cannot be modified. The `parent` can be set on creation or using the
+ *  Supported parent types include "organization" and "folder". Once set, the
+ *  parent cannot be cleared. The `parent` can be set on creation or using the
  *  `UpdateProject` method; the end user must have the
  *  `resourcemanager.projects.create` permission on the parent.
  *  Read-write.

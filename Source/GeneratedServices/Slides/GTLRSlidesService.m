@@ -14,6 +14,7 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeSlidesDrive                 = @"https://www.googleapis.com/auth/drive";
+NSString * const kGTLRAuthScopeSlidesDriveFile             = @"https://www.googleapis.com/auth/drive.file";
 NSString * const kGTLRAuthScopeSlidesDriveReadonly         = @"https://www.googleapis.com/auth/drive.readonly";
 NSString * const kGTLRAuthScopeSlidesPresentations         = @"https://www.googleapis.com/auth/presentations";
 NSString * const kGTLRAuthScopeSlidesPresentationsReadonly = @"https://www.googleapis.com/auth/presentations.readonly";

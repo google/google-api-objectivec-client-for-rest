@@ -63,6 +63,7 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrc
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity = @"NO_LAUNCHER_ACTIVITY";
@@ -219,11 +220,12 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_AndroidRoboTest
 @dynamic appApk, appInitialActivity, appPackageId, maxDepth, maxSteps,
-         roboDirectives;
+         roboDirectives, startingIntents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"roboDirectives" : [GTLRTesting_RoboDirective class]
+    @"roboDirectives" : [GTLRTesting_RoboDirective class],
+    @"startingIntents" : [GTLRTesting_RoboStartingIntent class]
   };
   return map;
 }
@@ -421,6 +423,15 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_LauncherActivityIntent
+//
+
+@implementation GTLRTesting_LauncherActivityIntent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_Locale
 //
 
@@ -523,6 +534,34 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_RoboDirective
 @dynamic actionType, inputText, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_RoboStartingIntent
+//
+
+@implementation GTLRTesting_RoboStartingIntent
+@dynamic launcherActivity, startActivity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_StartActivityIntent
+//
+
+@implementation GTLRTesting_StartActivityIntent
+@dynamic action, categories, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

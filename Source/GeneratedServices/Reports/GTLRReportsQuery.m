@@ -111,6 +111,32 @@
 
 @end
 
+@implementation GTLRReportsQuery_EntityUsageReportsGet
+
+@dynamic customerId, date, entityKey, entityType, filters, maxResults,
+         pageToken, parameters;
+
++ (instancetype)queryWithEntityType:(NSString *)entityType
+                          entityKey:(NSString *)entityKey
+                               date:(NSString *)date {
+  NSArray *pathParams = @[
+    @"date", @"entityKey", @"entityType"
+  ];
+  NSString *pathURITemplate = @"usage/{entityType}/{entityKey}/dates/{date}";
+  GTLRReportsQuery_EntityUsageReportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.entityType = entityType;
+  query.entityKey = entityKey;
+  query.date = date;
+  query.expectedObjectClass = [GTLRReports_UsageReports class];
+  query.loggingName = @"reports.entityUsageReports.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRReportsQuery_UserUsageReportGet
 
 @dynamic customerId, date, filters, maxResults, pageToken, parameters, userKey;

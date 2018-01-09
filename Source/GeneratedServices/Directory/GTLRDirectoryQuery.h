@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRDirectory_Alias;
+@class GTLRDirectory_Building;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel;
 @class GTLRDirectory_ChromeOsDevice;
@@ -29,6 +30,8 @@
 @class GTLRDirectory_Customer;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
+@class GTLRDirectory_Feature;
+@class GTLRDirectory_FeatureRename;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDeviceAction;
@@ -2268,6 +2271,239 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
+ *  Deletes a building.
+ *
+ *  Method: directory.resources.buildings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsDelete : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsDeleteWithcustomer:buildingId:]
+
+/** The ID of the building to delete. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a building.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param buildingId The ID of the building to delete.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsDelete
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       buildingId:(NSString *)buildingId;
+
+@end
+
+/**
+ *  Retrieves a building.
+ *
+ *  Method: directory.resources.buildings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsGet : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsGetWithcustomer:buildingId:]
+
+/** The unique ID of the building to retrieve. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Building.
+ *
+ *  Retrieves a building.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param buildingId The unique ID of the building to retrieve.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsGet
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       buildingId:(NSString *)buildingId;
+
+@end
+
+/**
+ *  Inserts a building.
+ *
+ *  Method: directory.resources.buildings.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsInsert : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsInsertWithObject:customer:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Building.
+ *
+ *  Inserts a building.
+ *
+ *  @param object The @c GTLRDirectory_Building to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsInsert
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Retrieves a list of buildings for an account.
+ *
+ *  Method: directory.resources.buildings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsList : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsListWithcustomer:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Buildings.
+ *
+ *  Retrieves a list of buildings for an account.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsList
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Updates a building. This method supports patch semantics.
+ *
+ *  Method: directory.resources.buildings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsPatch : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsPatchWithObject:customer:buildingId:]
+
+/** The ID of the building to update. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Building.
+ *
+ *  Updates a building. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRDirectory_Building to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param buildingId The ID of the building to update.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer
+                     buildingId:(NSString *)buildingId;
+
+@end
+
+/**
+ *  Updates a building.
+ *
+ *  Method: directory.resources.buildings.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesBuildingsUpdate : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesBuildingsUpdateWithObject:customer:buildingId:]
+
+/** The ID of the building to update. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Building.
+ *
+ *  Updates a building.
+ *
+ *  @param object The @c GTLRDirectory_Building to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param buildingId The ID of the building to update.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesBuildingsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Building *)object
+                       customer:(NSString *)customer
+                     buildingId:(NSString *)buildingId;
+
+@end
+
+/**
  *  Deletes a calendar resource.
  *
  *  Method: directory.resources.calendars.delete
@@ -2411,8 +2647,27 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
+/**
+ *  Field(s) to sort results by in either ascending or descending order.
+ *  Supported fields include resourceId, resourceName, capacity, buildingId, and
+ *  floorName. If no order is specified, defaults to ascending. Should be of the
+ *  form "field [asc|desc], field [asc|desc], ...". For example buildingId,
+ *  capacity desc would return results sorted first by buildingId in ascending
+ *  order then by capacity in descending order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** Token to specify the next page in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  String query used to filter results. Should be of the form "field operator
+ *  value" where field can be any of supported fields and operators can be any
+ *  of supported operations. Operators include '=' for exact match and ':' for
+ *  prefix match where applicable. For prefix match, the value should always be
+ *  followed by a *.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResources.
@@ -2524,6 +2779,288 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 + (instancetype)queryWithObject:(GTLRDirectory_CalendarResource *)object
                        customer:(NSString *)customer
              calendarResourceId:(NSString *)calendarResourceId;
+
+@end
+
+/**
+ *  Deletes a feature.
+ *
+ *  Method: directory.resources.features.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesDelete : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesDeleteWithcustomer:featureKey:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** The unique ID of the feature to delete. */
+@property(nonatomic, copy, nullable) NSString *featureKey;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a feature.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param featureKey The unique ID of the feature to delete.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesDelete
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       featureKey:(NSString *)featureKey;
+
+@end
+
+/**
+ *  Retrieves a feature.
+ *
+ *  Method: directory.resources.features.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesGet : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesGetWithcustomer:featureKey:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** The unique ID of the feature to retrieve. */
+@property(nonatomic, copy, nullable) NSString *featureKey;
+
+/**
+ *  Fetches a @c GTLRDirectory_Feature.
+ *
+ *  Retrieves a feature.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param featureKey The unique ID of the feature to retrieve.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesGet
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer
+                       featureKey:(NSString *)featureKey;
+
+@end
+
+/**
+ *  Inserts a feature.
+ *
+ *  Method: directory.resources.features.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesInsert : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesInsertWithObject:customer:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRDirectory_Feature.
+ *
+ *  Inserts a feature.
+ *
+ *  @param object The @c GTLRDirectory_Feature to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesInsert
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Retrieves a list of features for an account.
+ *
+ *  Method: directory.resources.features.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesList : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesListWithcustomer:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Token to specify the next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDirectory_Features.
+ *
+ *  Retrieves a list of features for an account.
+ *
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Updates a feature. This method supports patch semantics.
+ *
+ *  Method: directory.resources.features.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesPatch : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesPatchWithObject:customer:featureKey:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** The unique ID of the feature to update. */
+@property(nonatomic, copy, nullable) NSString *featureKey;
+
+/**
+ *  Fetches a @c GTLRDirectory_Feature.
+ *
+ *  Updates a feature. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRDirectory_Feature to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param featureKey The unique ID of the feature to update.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer
+                     featureKey:(NSString *)featureKey;
+
+@end
+
+/**
+ *  Renames a feature.
+ *
+ *  Method: directory.resources.features.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesRename : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesRenameWithObject:customer:oldName:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** The unique ID of the feature to rename. */
+@property(nonatomic, copy, nullable) NSString *oldName;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Renames a feature.
+ *
+ *  @param object The @c GTLRDirectory_FeatureRename to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param oldName The unique ID of the feature to rename.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesRename
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_FeatureRename *)object
+                       customer:(NSString *)customer
+                        oldName:(NSString *)oldName;
+
+@end
+
+/**
+ *  Updates a feature.
+ *
+ *  Method: directory.resources.features.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
+ */
+@interface GTLRDirectoryQuery_ResourcesFeaturesUpdate : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForResourcesFeaturesUpdateWithObject:customer:featureKey:]
+
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the my_customer alias to represent your
+ *  account's customer ID.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** The unique ID of the feature to update. */
+@property(nonatomic, copy, nullable) NSString *featureKey;
+
+/**
+ *  Fetches a @c GTLRDirectory_Feature.
+ *
+ *  Updates a feature.
+ *
+ *  @param object The @c GTLRDirectory_Feature to include in the query.
+ *  @param customer The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the my_customer alias to represent
+ *    your account's customer ID.
+ *  @param featureKey The unique ID of the feature to update.
+ *
+ *  @returns GTLRDirectoryQuery_ResourcesFeaturesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
+                       customer:(NSString *)customer
+                     featureKey:(NSString *)featureKey;
 
 @end
 

@@ -77,6 +77,26 @@
 
 @end
 
+@implementation GTLRSafeBrowsingQuery_ThreatHitsCreate
+
++ (instancetype)queryWithObject:(GTLRSafeBrowsing_ThreatHit *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v4/threatHits";
+  GTLRSafeBrowsingQuery_ThreatHitsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRSafeBrowsing_Empty class];
+  query.loggingName = @"safebrowsing.threatHits.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRSafeBrowsingQuery_ThreatListsList
 
 + (instancetype)query {
