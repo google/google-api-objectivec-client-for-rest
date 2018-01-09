@@ -165,7 +165,8 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersPatch
 
-@dynamic clusterName, projectId, region, updateMask;
+@dynamic clusterName, gracefulDecommissionTimeout, projectId, region,
+         updateMask;
 
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
                       projectId:(NSString *)projectId

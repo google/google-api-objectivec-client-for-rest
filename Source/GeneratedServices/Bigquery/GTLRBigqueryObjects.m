@@ -212,12 +212,12 @@
 //
 
 @implementation GTLRBigquery_ExplainQueryStage
-@dynamic computeMsAvg, computeMsMax, computeRatioAvg, computeRatioMax,
-         identifier, name, readMsAvg, readMsMax, readRatioAvg, readRatioMax,
-         recordsRead, recordsWritten, shuffleOutputBytes,
-         shuffleOutputBytesSpilled, status, steps, waitMsAvg, waitMsMax,
-         waitRatioAvg, waitRatioMax, writeMsAvg, writeMsMax, writeRatioAvg,
-         writeRatioMax;
+@dynamic completedParallelInputs, computeMsAvg, computeMsMax, computeRatioAvg,
+         computeRatioMax, identifier, name, parallelInputs, readMsAvg,
+         readMsMax, readRatioAvg, readRatioMax, recordsRead, recordsWritten,
+         shuffleOutputBytes, shuffleOutputBytesSpilled, status, steps,
+         waitMsAvg, waitMsMax, waitRatioAvg, waitRatioMax, writeMsAvg,
+         writeMsMax, writeRatioAvg, writeRatioMax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -558,14 +558,15 @@
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
-         numDmlAffectedRows, queryPlan, referencedTables, schema, statementType,
-         totalBytesBilled, totalBytesProcessed, totalSlotMs,
-         undeclaredQueryParameters;
+         estimatedBytesProcessed, numDmlAffectedRows, queryPlan,
+         referencedTables, schema, statementType, timeline, totalBytesBilled,
+         totalBytesProcessed, totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
+    @"timeline" : [GTLRBigquery_QueryTimelineSample class],
     @"undeclaredQueryParameters" : [GTLRBigquery_QueryParameter class]
   };
   return map;
@@ -796,6 +797,17 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryTimelineSample
+//
+
+@implementation GTLRBigquery_QueryTimelineSample
+@dynamic activeInputs, completedInputs, completedInputsForActiveStages,
+         elapsedMs, pendingInputs, totalSlotMs;
 @end
 
 

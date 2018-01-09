@@ -113,11 +113,133 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidProvisioningPartner_Configuration
+//
+
+@implementation GTLRAndroidProvisioningPartner_Configuration
+@dynamic companyName, configurationId, configurationName, contactEmail,
+         contactPhone, customMessage, dpcExtras, dpcResourcePath, isDefault,
+         name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidProvisioningPartner_CreateCustomerRequest
 //
 
 @implementation GTLRAndroidProvisioningPartner_CreateCustomerRequest
 @dynamic customer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerApplyConfigurationRequest
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerApplyConfigurationRequest
+@dynamic configuration, device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerListConfigurationsResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerListConfigurationsResponse
+@dynamic configurations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configurations" : [GTLRAndroidProvisioningPartner_Configuration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerListCustomersResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerListCustomersResponse
+@dynamic customers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customers" : [GTLRAndroidProvisioningPartner_Company class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerListDevicesResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerListDevicesResponse
+@dynamic devices, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [GTLRAndroidProvisioningPartner_Device class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerListDpcsResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerListDpcsResponse
+@dynamic dpcs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dpcs" : [GTLRAndroidProvisioningPartner_Dpc class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerRemoveConfigurationRequest
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerRemoveConfigurationRequest
+@dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest
+//
+
+@implementation GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest
+@dynamic device;
 @end
 
 
@@ -186,6 +308,16 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidProvisioningPartner_DeviceReference
+//
+
+@implementation GTLRAndroidProvisioningPartner_DeviceReference
+@dynamic deviceId, deviceIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata
 //
 
@@ -209,6 +341,16 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_Dpc
+//
+
+@implementation GTLRAndroidProvisioningPartner_Dpc
+@dynamic dpcName, name, packageName;
 @end
 
 

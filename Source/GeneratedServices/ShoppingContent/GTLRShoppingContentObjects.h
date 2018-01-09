@@ -72,6 +72,7 @@
 @class GTLRShoppingContent_OrderLineItemReturnInfo;
 @class GTLRShoppingContent_OrderLineItemShippingDetails;
 @class GTLRShoppingContent_OrderLineItemShippingDetailsMethod;
+@class GTLRShoppingContent_OrderMerchantProvidedAnnotation;
 @class GTLRShoppingContent_OrderPaymentMethod;
 @class GTLRShoppingContent_OrderPromotion;
 @class GTLRShoppingContent_OrderPromotionBenefit;
@@ -82,8 +83,10 @@
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryRefund;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem;
+@class GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo;
+@class GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment;
 @class GTLRShoppingContent_OrdersCustomBatchResponseEntry;
 @class GTLRShoppingContent_OrderShipment;
@@ -2151,6 +2154,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderLineItem : GTLRObject
 
+/** Annotations that are attached to the line item. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderMerchantProvidedAnnotation *> *annotations;
+
 /** Cancellations of the line item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderCancellation *> *cancellations;
 
@@ -2374,6 +2380,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minDaysInTransit;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderMerchantProvidedAnnotation
+ */
+@interface GTLRShoppingContent_OrderMerchantProvidedAnnotation : GTLRObject
+
+/**
+ *  Key for additional merchant provided (as key-value pairs) annotation about
+ *  the line item.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Value for additional merchant provided (as key-value pairs) annotation about
+ *  the line item.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2800,8 +2826,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required for returnLineItem method. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem *returnLineItem;
 
+/** Required for setLineItemMetadata method. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata *setLineItemMetadata;
+
 /** Required for shipLineItems method. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems *shipLineItems;
+
+/** Required for updateLineItemShippingDate method. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails *updateLineItemShippingDetails;
 
 /** Required for updateShipment method. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment *updateShipment;
@@ -2933,6 +2965,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata
+ */
+@interface GTLRShoppingContent_OrdersCustomBatchRequestEntrySetLineItemMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderMerchantProvidedAnnotation *> *annotations;
+
+/**
+ *  The ID of the line item to set metadata. Either lineItemId or productId is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to set metadata. This is the REST ID used in the
+ *  products service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItems : GTLRObject
@@ -2981,6 +3035,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The tracking id for the shipment. */
 @property(nonatomic, copy, nullable) NSString *trackingId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails
+ */
+@interface GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails : GTLRObject
+
+/**
+ *  Updated delivery by date, in ISO 8601 format. If not specified only ship by
+ *  date is updated.
+ */
+@property(nonatomic, copy, nullable) NSString *deliverByDate;
+
+/**
+ *  The ID of the line item to set metadata. Either lineItemId or productId is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to set metadata. This is the REST ID used in the
+ *  products service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Updated ship by date, in ISO 8601 format. If not specified only deliver by
+ *  date is updated.
+ */
+@property(nonatomic, copy, nullable) NSString *shipByDate;
 
 @end
 
@@ -3316,6 +3402,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_OrdersSetLineItemMetadataRequest
+ */
+@interface GTLRShoppingContent_OrdersSetLineItemMetadataRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderMerchantProvidedAnnotation *> *annotations;
+
+/**
+ *  The ID of the line item to set metadata. Either lineItemId or productId is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the operation. Unique across all operations for a given order.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  The ID of the product to set metadata. This is the REST ID used in the
+ *  products service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersSetLineItemMetadataResponse
+ */
+@interface GTLRShoppingContent_OrdersSetLineItemMetadataResponse : GTLRObject
+
+/** The status of the execution. */
+@property(nonatomic, copy, nullable) NSString *executionStatus;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#ordersSetLineItemMetadataResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrdersShipLineItemsRequest
  */
 @interface GTLRShoppingContent_OrdersShipLineItemsRequest : GTLRObject
@@ -3364,6 +3494,60 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "content#ordersShipLineItemsResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest
+ */
+@interface GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest : GTLRObject
+
+/**
+ *  Updated delivery by date, in ISO 8601 format. If not specified only ship by
+ *  date is updated.
+ */
+@property(nonatomic, copy, nullable) NSString *deliverByDate;
+
+/**
+ *  The ID of the line item to set metadata. Either lineItemId or productId is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the operation. Unique across all operations for a given order.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  The ID of the product to set metadata. This is the REST ID used in the
+ *  products service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Updated ship by date, in ISO 8601 format. If not specified only deliver by
+ *  date is updated.
+ */
+@property(nonatomic, copy, nullable) NSString *shipByDate;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
+ */
+@interface GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse : GTLRObject
+
+/** The status of the execution. */
+@property(nonatomic, copy, nullable) NSString *executionStatus;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#ordersUpdateLineItemShippingDetailsResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

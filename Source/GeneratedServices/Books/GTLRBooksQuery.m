@@ -247,6 +247,55 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @end
 
+@implementation GTLRBooksQuery_FamilysharingGetFamilyInfo
+
+@dynamic source;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"familysharing/getFamilyInfo";
+  GTLRBooksQuery_FamilysharingGetFamilyInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRBooks_FamilyInfo class];
+  query.loggingName = @"books.familysharing.getFamilyInfo";
+  return query;
+}
+
+@end
+
+@implementation GTLRBooksQuery_FamilysharingShare
+
+@dynamic docId, source, volumeId;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"familysharing/share";
+  GTLRBooksQuery_FamilysharingShare *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.loggingName = @"books.familysharing.share";
+  return query;
+}
+
+@end
+
+@implementation GTLRBooksQuery_FamilysharingUnshare
+
+@dynamic docId, source, volumeId;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"familysharing/unshare";
+  GTLRBooksQuery_FamilysharingUnshare *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.loggingName = @"books.familysharing.unshare";
+  return query;
+}
+
+@end
+
 @implementation GTLRBooksQuery_LayersAnnotationDataGet
 
 @dynamic allowWebDefinitions, annotationDataId, contentVersion, h, layerId,

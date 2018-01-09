@@ -107,8 +107,8 @@
 //
 
 @implementation GTLRPagespeedonline_Result
-@dynamic formattedResults, identifier, invalidRules, kind, pageStats,
-         responseCode, ruleGroups, screenshot, title, version;
+@dynamic captchaResult, formattedResults, identifier, invalidRules, kind,
+         pageStats, responseCode, ruleGroups, screenshot, title, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

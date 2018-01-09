@@ -8652,9 +8652,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_Video : GTLRObject
 
-/** The access token to uniquely identify a revocable unlisted video. */
-@property(nonatomic, copy, nullable) NSString *accessToken;
-
 /**
  *  Age restriction details related to a video. This data can only be retrieved
  *  by the video owner.

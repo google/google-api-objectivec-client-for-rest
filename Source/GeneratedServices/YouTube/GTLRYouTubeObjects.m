@@ -3260,8 +3260,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_Video
-@dynamic accessToken, ageGating, contentDetails, ETag, fileDetails, identifier,
-         kind, liveStreamingDetails, localizations, monetizationDetails, player,
+@dynamic ageGating, contentDetails, ETag, fileDetails, identifier, kind,
+         liveStreamingDetails, localizations, monetizationDetails, player,
          processingDetails, projectDetails, recordingDetails, snippet,
          statistics, status, suggestions, topicDetails;
 

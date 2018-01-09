@@ -21,12 +21,14 @@
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels;
@@ -58,6 +60,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
+
+/** Value: "ACCELERATOR_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified;
+/** Value: "NVIDIA_TESLA_K80" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
+/** Value: "NVIDIA_TESLA_P100" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
+
+/** Value: "BATCH_PREDICTION" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction;
+/** Value: "ONLINE_PREDICTION" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_OnlinePrediction;
+/** Value: "TRAINING" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training;
+/** Value: "TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
@@ -262,20 +286,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified;
 /**
- *  The source file is a text file with instances separated by the
- *  new-line character.
+ *  Each line of the file is a JSON dictionary representing one record.
+ *
+ *  Value: "JSON"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json;
+/**
+ *  Deprecated. Use JSON instead.
  *
  *  Value: "TEXT"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
 /**
- *  The source file is a TFRecord file.
+ *  INPUT ONLY. The source file is a TFRecord file.
  *
  *  Value: "TF_RECORD"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
 /**
- *  The source file is a GZIP-compressed TFRecord file.
+ *  INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
  *
  *  Value: "TF_RECORD_GZIP"
  */
@@ -502,6 +531,32 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Request message for the CancelJob method.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability : GTLRObject
+
+/** Available accelerators for the capability. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableAccelerators;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction
+ *        Value "BATCH_PREDICTION"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_OnlinePrediction
+ *        Value "ONLINE_PREDICTION"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training
+ *        Value "TRAINING"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -773,6 +828,33 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListLocationsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  Locations where at least one type of CMLE capability is available.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location *> *locations;
+
+/**
+ *  Optional. Pass this token as the `page_token` field of the request for a
+ *  subsequent call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for the ListModels method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -822,6 +904,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *> *versions;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location : GTLRObject
+
+/** Capabilities available in the location. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability *> *capabilities;
+
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -908,6 +1003,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Optional. The list of regions where the model is going to be deployed.
  *  Currently only one region per model is supported.
  *  Defaults to 'us-central1' if nothing is set.
+ *  See the <a href="/ml-engine/docs/regions">available regions</a> for
+ *  ML Engine services.
  *  Note:
  *  * No matter where a model is deployed, it can always be accessed by
  *  users from anywhere, both for online and batch prediction.
@@ -1129,14 +1226,16 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json
+ *        Each line of the file is a JSON dictionary representing one record.
+ *        (Value: "JSON")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text
- *        The source file is a text file with instances separated by the
- *        new-line character. (Value: "TEXT")
+ *        Deprecated. Use JSON instead. (Value: "TEXT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord
- *        The source file is a TFRecord file. (Value: "TF_RECORD")
+ *        INPUT ONLY. The source file is a TFRecord file. (Value: "TF_RECORD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip
- *        The source file is a GZIP-compressed TFRecord file. (Value:
- *        "TF_RECORD_GZIP")
+ *        INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
+ *        (Value: "TF_RECORD_GZIP")
  */
 @property(nonatomic, copy, nullable) NSString *dataFormat;
 
@@ -1166,6 +1265,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Required. The Google Compute Engine region to run the prediction job in.
+ *  See the <a href="/ml-engine/docs/regions">available regions</a> for
+ *  ML Engine services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -1259,7 +1360,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents input parameters for a training job.
+ *  Represents input parameters for a training job. When using the
+ *  gcloud command to submit your training job, you can specify
+ *  the input parameters as command-line arguments and/or in a YAML
+ *  configuration
+ *  file referenced from the --config command-line argument. For
+ *  details, see the guide to
+ *  <a href="/ml-engine/docs/training-jobs">submitting a training job</a>.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
@@ -1332,14 +1439,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  <dd>
  *  A machine equivalent to <code suppresswarning="true">standard</code> that
  *  also includes a single NVIDIA Tesla P100 GPU. The availability of these
- *  GPUs is in the Alpha launch stage.
+ *  GPUs is in the Beta launch stage.
  *  </dd>
  *  <dt>complex_model_m_p100</dt>
  *  <dd>
  *  A machine equivalent to
  *  <code suppresswarning="true">complex_model_m</code> that also includes
  *  four NVIDIA Tesla P100 GPUs. The availability of these GPUs is in
- *  the Alpha launch stage.
+ *  the Beta launch stage.
  *  </dd>
  *  </dl>
  *  You must set this value when `scaleTier` is set to `CUSTOM`.
@@ -1379,11 +1486,16 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The version of Python used in training. If not set, the default
- *  version is '2.7'.
+ *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
+ *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
-/** Required. The Google Compute Engine region to run the training job in. */
+/**
+ *  Required. The Google Compute Engine region to run the training job in.
+ *  See the <a href="/ml-engine/docs/regions">available regions</a> for
+ *  ML Engine services.
+ */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1823,7 +1935,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Policy : GTLRObject
 
@@ -1860,7 +1972,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

@@ -216,6 +216,11 @@ NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Display = @"DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Video = @"VIDEO";
 
+// GTLRAdExchangeBuyerII_FilterSet.formats
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Display = @"DISPLAY";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Video = @"VIDEO";
+
 // GTLRAdExchangeBuyerII_FilterSet.platforms
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Desktop = @"DESKTOP";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Mobile = @"MOBILE";
@@ -534,12 +539,13 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 //
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
-@dynamic absoluteDateRange, creativeId, dealId, environment, format, name,
-         platforms, realtimeTimeRange, relativeDateRange, sellerNetworkIds,
-         timeSeriesGranularity;
+@dynamic absoluteDateRange, creativeId, dealId, environment, format, formats,
+         name, platforms, realtimeTimeRange, relativeDateRange,
+         sellerNetworkIds, timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"formats" : [NSString class],
     @"platforms" : [NSString class],
     @"sellerNetworkIds" : [NSNumber class]
   };

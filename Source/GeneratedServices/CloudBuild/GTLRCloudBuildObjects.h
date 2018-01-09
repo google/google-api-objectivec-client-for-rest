@@ -20,6 +20,7 @@
 
 @class GTLRCloudBuild_Build;
 @class GTLRCloudBuild_Build_Substitutions;
+@class GTLRCloudBuild_Build_Timing;
 @class GTLRCloudBuild_BuildOptions;
 @class GTLRCloudBuild_BuildStep;
 @class GTLRCloudBuild_BuildTrigger;
@@ -40,6 +41,7 @@
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_StorageSource;
+@class GTLRCloudBuild_TimeSpan;
 @class GTLRCloudBuild_Volume;
 
 // Generated comments include content from the discovery document; avoid them
@@ -357,6 +359,16 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
+/**
+ *  Stores timing information for phases of the build. Valid keys are:
+ *  * BUILD: time to execute all build steps
+ *  * PUSH: time to push all specified images.
+ *  * FETCHSOURCE: time to fetch source.
+ *  If the build does not specify source, or does not specify images,
+ *  these keys will not be included.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Build_Timing *timing;
+
 @end
 
 
@@ -369,6 +381,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        fetch them all at once.
  */
 @interface GTLRCloudBuild_Build_Substitutions : GTLRObject
+@end
+
+
+/**
+ *  Stores timing information for phases of the build. Valid keys are:
+ *  * BUILD: time to execute all build steps
+ *  * PUSH: time to push all specified images.
+ *  * FETCHSOURCE: time to fetch source.
+ *  If the build does not specify source, or does not specify images,
+ *  these keys will not be included.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudBuild_TimeSpan. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudBuild_Build_Timing : GTLRObject
 @end
 
 
@@ -417,7 +446,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *logStreamingOption;
 
 /**
- *  GCE VM size to run the build on.
+ *  Compute Engine machine type on which to run the build.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Highcpu
@@ -523,6 +552,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
 
+/** Stores timing information for executing this build step. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *timing;
+
 /**
  *  List of volumes to mount into the build step.
  *  Each volume will be created as an empty volume prior to execution of the
@@ -627,6 +659,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  presented to `docker push`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Stores timing information for pushing the specified image. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
 
 @end
 
@@ -1104,6 +1139,20 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Stores start and end times for a build execution phase.
+ */
+@interface GTLRCloudBuild_TimeSpan : GTLRObject
+
+/** End of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Start of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

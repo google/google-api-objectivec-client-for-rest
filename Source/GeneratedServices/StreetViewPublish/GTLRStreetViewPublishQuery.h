@@ -158,6 +158,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  create the requested Photo.
  *  * google.rpc.Code.NOT_FOUND if the requested
  *  Photo does not exist.
+ *  * google.rpc.Code.UNAVAILABLE if the requested
+ *  Photo is still being indexed.
  *
  *  Method: streetviewpublish.photo.get
  *
@@ -192,6 +194,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  create the requested Photo.
  *  * google.rpc.Code.NOT_FOUND if the requested
  *  Photo does not exist.
+ *  * google.rpc.Code.UNAVAILABLE if the requested
+ *  Photo is still being indexed.
  *
  *  @param photoId Required. ID of the Photo.
  *
@@ -399,6 +403,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Lists all the Photos that belong to
  *  the user.
+ *  <aside class="note"><b>Note:</b> Recently created photos that are still
+ *  being indexed are not returned in the response.</aside>
  *
  *  Method: streetviewpublish.photos.list
  *
@@ -449,6 +455,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *
  *  Lists all the Photos that belong to
  *  the user.
+ *  <aside class="note"><b>Note:</b> Recently created photos that are still
+ *  being indexed are not returned in the response.</aside>
  *
  *  @returns GTLRStreetViewPublishQuery_PhotosList
  *
@@ -532,6 +540,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  create the requested photo.
  *  * google.rpc.Code.INVALID_ARGUMENT if the request is malformed.
  *  * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
+ *  * google.rpc.Code.UNAVAILABLE if the requested
+ *  Photo is still being indexed.
  *
  *  Method: streetviewpublish.photo.update
  *
@@ -596,6 +606,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  create the requested photo.
  *  * google.rpc.Code.INVALID_ARGUMENT if the request is malformed.
  *  * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
+ *  * google.rpc.Code.UNAVAILABLE if the requested
+ *  Photo is still being indexed.
  *
  *  @param object The @c GTLRStreetViewPublish_Photo to include in the query.
  *  @param identifier Required. A unique identifier for a photo.

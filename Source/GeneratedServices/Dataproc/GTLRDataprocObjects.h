@@ -1198,8 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  Job scheduling options.Beta Feature: These options are available for testing
- *  purposes only. They may be changed before final release.
+ *  Job scheduling options.
  */
 @interface GTLRDataproc_JobScheduling : GTLRObject
 

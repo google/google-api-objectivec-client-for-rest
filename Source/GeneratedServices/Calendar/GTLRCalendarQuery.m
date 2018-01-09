@@ -563,7 +563,7 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_EventsImport
 
-@dynamic calendarId, supportsAttachments;
+@dynamic calendarId, conferenceDataVersion, supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
@@ -588,7 +588,8 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_EventsInsert
 
-@dynamic calendarId, maxAttendees, sendNotifications, supportsAttachments;
+@dynamic calendarId, conferenceDataVersion, maxAttendees, sendNotifications,
+         supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
@@ -692,8 +693,8 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_EventsPatch
 
-@dynamic alwaysIncludeEmail, calendarId, eventId, maxAttendees,
-         sendNotifications, supportsAttachments;
+@dynamic alwaysIncludeEmail, calendarId, conferenceDataVersion, eventId,
+         maxAttendees, sendNotifications, supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId
@@ -743,8 +744,8 @@ NSString * const kGTLRCalendarOrderByUpdated   = @"updated";
 
 @implementation GTLRCalendarQuery_EventsUpdate
 
-@dynamic alwaysIncludeEmail, calendarId, eventId, maxAttendees,
-         sendNotifications, supportsAttachments;
+@dynamic alwaysIncludeEmail, calendarId, conferenceDataVersion, eventId,
+         maxAttendees, sendNotifications, supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId

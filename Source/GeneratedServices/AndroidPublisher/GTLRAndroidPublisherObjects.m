@@ -453,7 +453,7 @@
 
 @implementation GTLRAndroidPublisher_ProductPurchase
 @dynamic consumptionState, developerPayload, kind, orderId, purchaseState,
-         purchaseTimeMillis;
+         purchaseTimeMillis, purchaseType;
 @end
 
 
@@ -568,8 +568,9 @@
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic autoRenewing, cancelReason, countryCode, developerPayload,
-         expiryTimeMillis, kind, orderId, paymentState, priceAmountMicros,
-         priceCurrencyCode, startTimeMillis, userCancellationTimeMillis;
+         expiryTimeMillis, kind, linkedPurchaseToken, orderId, paymentState,
+         priceAmountMicros, priceCurrencyCode, purchaseType, startTimeMillis,
+         userCancellationTimeMillis;
 @end
 
 

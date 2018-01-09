@@ -22,7 +22,6 @@
 
 @class GTLRIam_Binding;
 @class GTLRIam_BindingDelta;
-@class GTLRIam_Expr;
 @class GTLRIam_Permission;
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
@@ -65,12 +64,6 @@ GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Remove;
 // ----------------------------------------------------------------------------
 // GTLRIam_CreateServiceAccountKeyRequest.keyAlgorithm
 
-/**
- *  HMAC.
- *
- *  Value: "KEY_ALG_GCS_SYMMETRIC_HMAC"
- */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgGcsSymmetricHmac;
 /**
  *  1k RSA Key.
  *
@@ -226,12 +219,6 @@ GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
 // GTLRIam_ServiceAccountKey.keyAlgorithm
 
 /**
- *  HMAC.
- *
- *  Value: "KEY_ALG_GCS_SYMMETRIC_HMAC"
- */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgGcsSymmetricHmac;
-/**
  *  1k RSA Key.
  *
  *  Value: "KEY_ALG_RSA_1024"
@@ -341,14 +328,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  The condition that is associated with this binding.
- *  This field is GOOGLE_INTERNAL.
- *  This field is not logged in IAM side because it's only for audit logging.
- *  Optional
- */
-@property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
-
-/**
  *  A single identity requesting access for a Cloud Platform resource.
  *  Follows the same format of Binding.members.
  *  Required
@@ -390,8 +369,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  future.
  *
  *  Likely values:
- *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgGcsSymmetricHmac
- *        HMAC. (Value: "KEY_ALG_GCS_SYMMETRIC_HMAC")
  *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024
  *        1k RSA Key. (Value: "KEY_ALG_RSA_1024")
  *    @arg @c kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048
@@ -456,46 +433,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRIam_Empty : GTLRObject
-@end
-
-
-/**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
- */
-@interface GTLRIam_Expr : GTLRObject
-
-/**
- *  An optional description of the expression. This is a longer text which
- *  describes the expression, e.g. when hovered over it in a UI.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
- */
-@property(nonatomic, copy, nullable) NSString *expression;
-
-/**
- *  An optional string indicating the location of the expression for error
- *  reporting, e.g. a file name and a position in the file.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  An optional title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
 @end
 
 
@@ -650,7 +587,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRIam_Policy : GTLRObject
 
@@ -677,7 +614,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -974,8 +911,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  Specifies the algorithm (and possibly key size) for the key.
  *
  *  Likely values:
- *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgGcsSymmetricHmac
- *        HMAC. (Value: "KEY_ALG_GCS_SYMMETRIC_HMAC")
  *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 1k RSA Key.
  *        (Value: "KEY_ALG_RSA_1024")
  *    @arg @c kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 2k RSA Key.

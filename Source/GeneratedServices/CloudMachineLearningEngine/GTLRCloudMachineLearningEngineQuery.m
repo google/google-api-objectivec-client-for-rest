@@ -219,6 +219,44 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location class];
+  query.loggingName = @"ml.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/locations";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListLocationsResponse class];
+  query.loggingName = @"ml.projects.locations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
 
 @dynamic parent;

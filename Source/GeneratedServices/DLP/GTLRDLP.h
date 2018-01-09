@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DLP API (dlp/v2beta1)
+//   DLP API (dlp/v2beta2)
 // Description:
 //   The Google Data Loss Prevention API provides methods for detection of
 //   privacy-sensitive fragments in text, images, and Google Cloud Platform

@@ -301,6 +301,27 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_BucketsLockRetentionPolicy
+
+@dynamic bucket, ifMetagenerationMatch, userProject;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+          ifMetagenerationMatch:(long long)ifMetagenerationMatch {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/lockRetentionPolicy";
+  GTLRStorageQuery_BucketsLockRetentionPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.ifMetagenerationMatch = ifMetagenerationMatch;
+  query.expectedObjectClass = [GTLRStorage_Bucket class];
+  query.loggingName = @"storage.buckets.lockRetentionPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketsPatch
 
 @dynamic bucket, ifMetagenerationMatch, ifMetagenerationNotMatch, predefinedAcl,

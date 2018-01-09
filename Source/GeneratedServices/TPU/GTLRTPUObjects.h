@@ -40,6 +40,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRTPU_Node.health
+
+/**
+ *  Health status is unknown: not initialized or failed to retrieve.
+ *
+ *  Value: "HEALTH_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_HealthUnspecified;
+/**
+ *  The resource is healthy.
+ *
+ *  Value: "HEALTHY"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Healthy;
+/**
+ *  The resource is unresponsive.
+ *
+ *  Value: "TIMEOUT"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Timeout;
+/**
+ *  The resource is unhealthy.
+ *
+ *  Value: "UNHEALTHY"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Unhealthy;
+
+// ----------------------------------------------------------------------------
 // GTLRTPU_Node.state
 
 /**
@@ -268,8 +296,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *cidrBlock;
 
 /**
- *  The time when the node was created.
  *  Output only.
+ *  The time when the node was created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -281,9 +309,24 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  The health status of the TPU node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_Node_Health_HealthUnspecified Health status is unknown:
+ *        not initialized or failed to retrieve. (Value: "HEALTH_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_Node_Health_Healthy The resource is healthy. (Value:
+ *        "HEALTHY")
+ *    @arg @c kGTLRTPU_Node_Health_Timeout The resource is unresponsive. (Value:
+ *        "TIMEOUT")
+ *    @arg @c kGTLRTPU_Node_Health_Unhealthy The resource is unhealthy. (Value:
+ *        "UNHEALTHY")
+ */
+@property(nonatomic, copy, nullable) NSString *health;
+
+/**
+ *  Output only.
  *  If this field is populated, it contains a description of why the TPU Node
  *  is unhealthy.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *healthDescription;
 
@@ -294,7 +337,10 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** The immutable name of the TPU */
+/**
+ *  Output only.
+ *  The immutable name of the TPU
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -320,17 +366,17 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *port;
 
 /**
+ *  Output only.
  *  The service account used to run the tensor flow services within the node.
  *  To share resources, including Google Cloud Storage data, with the
  *  Tensorflow job running in the Node, this account must have permissions to
  *  that data.
- *  Output only.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  The current state for the TPU Node.
  *  Output only.
+ *  The current state for the TPU Node.
  *
  *  Likely values:
  *    @arg @c kGTLRTPU_Node_State_Creating TPU node is being created. (Value:

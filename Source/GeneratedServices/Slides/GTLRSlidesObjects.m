@@ -1520,7 +1520,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          insertText, mergeTableCells, refreshSheetsChart,
          replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
          replaceAllText, ungroupObjects, unmergeTableCells,
-         updateImageProperties, updateLineProperties,
+         updateImageProperties, updateLineProperties, updatePageElementAltText,
          updatePageElementTransform, updatePageProperties, updateParagraphStyle,
          updateShapeProperties, updateSlidesPosition,
          updateTableBorderProperties, updateTableCellProperties,
@@ -1950,6 +1950,21 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_UpdateLinePropertiesRequest
 @dynamic fields, lineProperties, objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdatePageElementAltTextRequest
+//
+
+@implementation GTLRSlides_UpdatePageElementAltTextRequest
+@dynamic descriptionProperty, objectId, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

@@ -20,11 +20,14 @@
 #endif
 
 @class GTLRAndroidProvisioningPartner_Company;
+@class GTLRAndroidProvisioningPartner_Configuration;
 @class GTLRAndroidProvisioningPartner_Device;
 @class GTLRAndroidProvisioningPartner_DeviceClaim;
 @class GTLRAndroidProvisioningPartner_DeviceIdentifier;
 @class GTLRAndroidProvisioningPartner_DeviceMetadata;
 @class GTLRAndroidProvisioningPartner_DeviceMetadata_Entries;
+@class GTLRAndroidProvisioningPartner_DeviceReference;
+@class GTLRAndroidProvisioningPartner_Dpc;
 @class GTLRAndroidProvisioningPartner_Operation_Metadata;
 @class GTLRAndroidProvisioningPartner_Operation_Response;
 @class GTLRAndroidProvisioningPartner_OperationPerDevice;
@@ -330,6 +333,92 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
+ *  A configuration collects the provisioning options for Android devices. Each
+ *  configuration combines the following:
+ *  * The EMM device policy controller (DPC) installed on the devices.
+ *  * EMM policies enforced on the devices.
+ *  * Metadata displayed on the device to help users during setup.
+ *  Customers can add as many configurations as they need. However, zero-touch
+ *  enrollment works best when a customer sets a default configuration that's
+ *  applied to any new devices the organization purchases.
+ */
+@interface GTLRAndroidProvisioningPartner_Configuration : GTLRObject
+
+/**
+ *  Required. The name of the organization. Zero-touch enrollment shows this
+ *  organization name to device users during device provisioning.
+ */
+@property(nonatomic, copy, nullable) NSString *companyName;
+
+/**
+ *  Output only. The ID of the configuration. Assigned by the server.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *configurationId;
+
+/**
+ *  Required. A short name that describes the configuration's purpose. For
+ *  example, _Sales team_ or _Temporary employees_. The zero-touch enrollment
+ *  portal displays this name to IT admins.
+ */
+@property(nonatomic, copy, nullable) NSString *configurationName;
+
+/**
+ *  Required. The email address that device users can contact to get help.
+ *  Zero-touch enrollment shows this email address to device users before
+ *  device provisioning. The value is validated on input.
+ */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/**
+ *  Required. The telephone number that device users can call, using another
+ *  device, to get help. Zero-touch enrollment shows this number to device
+ *  users before device provisioning. Accepts numerals, spaces, the plus sign,
+ *  hyphens, and parentheses.
+ */
+@property(nonatomic, copy, nullable) NSString *contactPhone;
+
+/**
+ *  A message, containing one or two sentences, to help device users get help
+ *  or give them more details about what’s happening to their device.
+ *  Zero-touch enrollment shows this message before the device is provisioned.
+ */
+@property(nonatomic, copy, nullable) NSString *customMessage;
+
+/** The JSON-formatted EMM provisioning extras that are passed to the DPC. */
+@property(nonatomic, copy, nullable) NSString *dpcExtras;
+
+/**
+ *  Required. The resource name of the selected DPC (device policy controller)
+ *  in the format `customers/[CUSTOMER_ID]/dpcs/ *`. To list the supported DPCs,
+ *  call
+ *  `customers.dpcs.list`.
+ */
+@property(nonatomic, copy, nullable) NSString *dpcResourcePath;
+
+/**
+ *  Required. Whether this is the default configuration that zero-touch
+ *  enrollment applies to any new devices the organization purchases in the
+ *  future. Only one customer configuration can be the default. Setting this
+ *  value to `true`, changes the previous default configuration's `isDefault`
+ *  value to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/**
+ *  Output only. The API resource name in the format
+ *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by
+ *  the server.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Request message to create a customer.
  */
 @interface GTLRAndroidProvisioningPartner_CreateCustomerRequest : GTLRObject
@@ -340,6 +429,124 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  with a Google Account. The values for `companyId` and `name` must be empty.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_Company *customer;
+
+@end
+
+
+/**
+ *  Request message for customer to assign a configuration to device.
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerApplyConfigurationRequest : GTLRObject
+
+/**
+ *  Required. The configuration applied to the device in the format
+ *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *configuration;
+
+/** Required. The device the configuration is applied to. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
+
+@end
+
+
+/**
+ *  Response message of customer's listing configuration.
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerListConfigurationsResponse : GTLRObject
+
+/** The configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Configuration *> *configurations;
+
+@end
+
+
+/**
+ *  Response message for listing my customers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerListCustomersResponse : GTLRCollectionObject
+
+/**
+ *  Customers the current user can act as.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no
+ *  more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message of customer's liting devices.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "devices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerListDevicesResponse : GTLRCollectionObject
+
+/**
+ *  The customer's devices.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
+
+/**
+ *  A token used to access the next page of results. Omitted if no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message of customer's listing DPCs.
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerListDpcsResponse : GTLRObject
+
+/**
+ *  The list of DPCs available to the customer that support zero-touch
+ *  enrollment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Dpc *> *dpcs;
+
+@end
+
+
+/**
+ *  Request message for customer to remove the configuration from device.
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerRemoveConfigurationRequest : GTLRObject
+
+/** Required. The device to remove the configuration from. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
+
+@end
+
+
+/**
+ *  Request message for customer to unclaim a device.
+ */
+@interface GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest : GTLRObject
+
+/** Required. The device to unclaim. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
 
 @end
 
@@ -473,6 +680,32 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
+ *  A `DeviceReference` is an API abstraction that lets you supply a _device_
+ *  argument to a method using one of the following identifier types:
+ *  * A numeric API resource ID.
+ *  * Real-world hardware IDs, such as IMEI number, belonging to the
+ *  manufactured
+ *  device.
+ *  Methods that operate on devices take a `DeviceReference` as a parameter type
+ *  because it's more flexible for the caller. To learn more about device
+ *  identifiers, read [Identifiers](/zero-touch/guides/identifiers).
+ */
+@interface GTLRAndroidProvisioningPartner_DeviceReference : GTLRObject
+
+/**
+ *  The ID of the device.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceId;
+
+/** The hardware IDs of the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
+
+@end
+
+
+/**
  *  Long running operation metadata.
  */
 @interface GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata : GTLRObject
@@ -530,6 +763,39 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *successCount;
+
+@end
+
+
+/**
+ *  An EMM's DPC ([device policy controller](/android/work/dpc/build-dpc)).
+ *  Zero-touch enrollment installs a DPC (listed in the `Configuration`) on a
+ *  device to maintain the customer's mobile policies. All the DPCs listed by
+ *  the
+ *  API support zero-touch enrollment and are available in Google Play.
+ */
+@interface GTLRAndroidProvisioningPartner_Dpc : GTLRObject
+
+/**
+ *  Output only. The title of the DPC app in Google Play. For example, _Google
+ *  Apps Device Policy_. Useful in an application's user interface.
+ */
+@property(nonatomic, copy, nullable) NSString *dpcName;
+
+/**
+ *  Output only. The API resource name in the format
+ *  `customers/[CUSTOMER_ID]/dpcs/[DPC_ID]`. Assigned by
+ *  the server. To maintain a reference to a DPC across customer accounts,
+ *  persist and match the last path component (`DPC_ID`).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The DPC's Android application ID that looks like a Java
+ *  package name. Zero-touch enrollment installs the DPC app onto a device
+ *  using this identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 @end
 

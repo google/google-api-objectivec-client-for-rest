@@ -819,6 +819,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *purchaseTimeMillis;
 
+/**
+ *  The type of purchase of the inapp product. This field is only set if this
+ *  purchase was not made using the standard in-app billing flow. Possible
+ *  values are:
+ *  - Test (i.e. purchased from a license testing account)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purchaseType;
+
 @end
 
 
@@ -978,6 +988,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - Subscription was cancelled by the system, for example because of a billing
  *  problem
  *  - Subscription was replaced with a new subscription
+ *  - Subscription was cancelled by the developer
  *
  *  Uses NSNumber of intValue.
  */
@@ -1007,6 +1018,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  service.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The purchase token of the originating purchase if this subscription is one
+ *  of the following:
+ *  - Re-signup of a canceled but non-lapsed subscription
+ *  - Upgrade/downgrade from a previous subscription For example, suppose a user
+ *  originally signs up and you receive purchase token X, then the user cancels
+ *  and goes through the resignup flow (before their subscription lapses) and
+ *  you receive purchase token Y, and finally the user upgrades their
+ *  subscription and you receive purchase token Z. If you call this API with
+ *  purchase token Z, this field will be set to Y. If you call this API with
+ *  purchase token Y, this field will be set to X. If you call this API with
+ *  purchase token X, this field will not be set.
+ */
+@property(nonatomic, copy, nullable) NSString *linkedPurchaseToken;
 
 /**
  *  The order id of the latest recurring order associated with the purchase of
@@ -1039,6 +1065,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  is specified in British pounds sterling, price_currency_code is "GBP".
  */
 @property(nonatomic, copy, nullable) NSString *priceCurrencyCode;
+
+/**
+ *  The type of purchase of the subscription. This field is only set if this
+ *  purchase was not made using the standard in-app billing flow. Possible
+ *  values are:
+ *  - Test (i.e. purchased from a license testing account)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purchaseType;
 
 /**
  *  Time at which the subscription was granted, in milliseconds since the Epoch.

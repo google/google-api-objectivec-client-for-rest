@@ -321,20 +321,16 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryYouTubeReporting queryForMediaDownloadWithresourceName:]
 
-/**
- *  Name of the media that is being downloaded. See
- *  ReadRequest.resource_name.
- */
+/** Name of the media that is being downloaded. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  Fetches a @c GTLRYouTubeReporting_Media.
+ *  Fetches a @c GTLRYouTubeReporting_GdataMedia.
  *
  *  Method for media download. Download is supported
  *  on the URI `/v1/media/{+name}?alt=media`.
  *
- *  @param resourceName Name of the media that is being downloaded. See
- *    ReadRequest.resource_name.
+ *  @param resourceName Name of the media that is being downloaded.
  *
  *  @returns GTLRYouTubeReportingQuery_MediaDownload
  */
@@ -346,8 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method for media download. Download is supported
  *  on the URI `/v1/media/{+name}?alt=media`.
  *
- *  @param resourceName Name of the media that is being downloaded. See
- *    ReadRequest.resource_name.
+ *  @param resourceName Name of the media that is being downloaded.
  *
  *  @returns GTLRYouTubeReportingQuery_MediaDownload
  */

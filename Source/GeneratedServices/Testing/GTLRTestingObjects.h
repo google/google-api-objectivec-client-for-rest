@@ -41,6 +41,7 @@
 @class GTLRTesting_FileReference;
 @class GTLRTesting_GoogleAuto;
 @class GTLRTesting_GoogleCloudStorage;
+@class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_NetworkConfiguration;
 @class GTLRTesting_NetworkConfigurationCatalog;
@@ -48,6 +49,8 @@
 @class GTLRTesting_Orientation;
 @class GTLRTesting_ResultStorage;
 @class GTLRTesting_RoboDirective;
+@class GTLRTesting_RoboStartingIntent;
+@class GTLRTesting_StartActivityIntent;
 @class GTLRTesting_TestDetails;
 @class GTLRTesting_TestExecution;
 @class GTLRTesting_TestSetup;
@@ -365,6 +368,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *  Value: "MALFORMED_APK"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
+/**
+ *  The input IPA could not be parsed.
+ *
+ *  Value: "MALFORMED_IPA"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa;
 /**
  *  The input test APK could not be parsed.
  *
@@ -912,6 +921,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_RoboDirective *> *roboDirectives;
 
+/**
+ *  The intents used to launch the app for the crawl.
+ *  If none are provided, then the main launcher activity is launched.
+ *  If some are provided, then only those provided are launched (the main
+ *  launcher activity must be provided explicitly).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_RoboStartingIntent *> *startingIntents;
+
 @end
 
 
@@ -1297,6 +1314,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Specifies an intent that starts the main launcher activity.
+ */
+@interface GTLRTesting_LauncherActivityIntent : GTLRObject
+@end
+
+
+/**
  *  A location/region designation for language.
  */
 @interface GTLRTesting_Locale : GTLRObject
@@ -1486,6 +1510,43 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Required
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Message for specifying the start activities to crawl
+ */
+@interface GTLRTesting_RoboStartingIntent : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRTesting_LauncherActivityIntent *launcherActivity;
+@property(nonatomic, strong, nullable) GTLRTesting_StartActivityIntent *startActivity;
+
+@end
+
+
+/**
+ *  A starting intent specified by an action, uri, and categories.
+ */
+@interface GTLRTesting_StartActivityIntent : GTLRObject
+
+/**
+ *  Action name.
+ *  Required for START_ACTIVITY.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Intent categories to set on the intent.
+ *  Optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+/**
+ *  URI for the action.
+ *  Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1688,6 +1749,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "INVALID_ROBO_DIRECTIVES")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk The
  *        input app APK could not be parsed. (Value: "MALFORMED_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa The
+ *        input IPA could not be parsed. (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation The

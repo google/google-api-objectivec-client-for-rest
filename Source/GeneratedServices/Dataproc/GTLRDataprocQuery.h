@@ -311,6 +311,16 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
 /**
+ *  Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning
+ *  allows removing nodes from the cluster without interrupting jobs in
+ *  progress. Timeout specifies how long to wait for jobs in progress to finish
+ *  before forcefully removing nodes (and potentially interrupting jobs).
+ *  Default timeout is 0 (for forceful decommission), and the maximum allowed
+ *  timeout is 1 day.Only supported on Dataproc image versions 1.2 and higher.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
  *  Required. The ID of the Google Cloud Platform project the cluster belongs
  *  to.
  */

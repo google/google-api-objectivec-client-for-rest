@@ -21,14 +21,19 @@
 #endif
 
 @class GTLRDirectory_Asp;
+@class GTLRDirectory_Building;
+@class GTLRDirectory_BuildingCoordinates;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
+@class GTLRDirectory_ChromeOsDevice_DeviceFiles_Item;
 @class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
+@class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
+@class GTLRDirectory_Feature;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDevice;
@@ -229,17 +234,141 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Calendar Resource object in Directory API.
+ *  JSON template for Building object in Directory API.
  */
-@interface GTLRDirectory_CalendarResource : GTLRObject
+@interface GTLRDirectory_Building : GTLRObject
+
+/**
+ *  Unique identifier for the building. The maximum length is 100 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  The building name as seen by users in Calendar. Must be unique for the
+ *  customer. For example, "NYC-CHEL". The maximum length is 100 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *buildingName;
+
+/**
+ *  The geographic coordinates of the center of the building, expressed as
+ *  latitude and longitude in decimal degrees.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_BuildingCoordinates *coordinates;
+
+/**
+ *  A brief description of the building. For example, "Chelsea Market".
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *etags;
 
 /**
- *  The auto-generated name of the calendar resource which includes metadata
- *  about the resource such as building name, floor, capacity, etc. For example,
- *  NYC-2-Training Room 1A (16)
+ *  The display names for all floors in this building. The floors are expected
+ *  to be sorted in ascending order, from lowest floor to highest floor. For
+ *  example, ["B2", "B1", "L", "1", "2", "2M", "3", "PH"] Must contain at least
+ *  one entry.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *floorNames;
+
+/** Kind of resource this is. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for coordinates of a building in Directory API.
+ */
+@interface GTLRDirectory_BuildingCoordinates : GTLRObject
+
+/**
+ *  Latitude in decimal degrees.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  Longitude in decimal degrees.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
+ *  JSON template for Building List Response object in Directory API.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "buildings" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDirectory_Buildings : GTLRCollectionObject
+
+/**
+ *  The Buildings in this page of results.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Building *> *buildings;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Kind of resource this is. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  JSON template for Calendar Resource object in Directory API.
+ */
+@interface GTLRDirectory_CalendarResource : GTLRObject
+
+/** Unique ID for the building a resource is located in. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  Capacity of a resource, number of seats in a room.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *capacity;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *etags;
+
+/**
+ *  featureInstances
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id featureInstances;
+
+/** Name of the floor a resource is located on. */
+@property(nonatomic, copy, nullable) NSString *floorName;
+
+/** Name of the section within a floor a resource is located in. */
+@property(nonatomic, copy, nullable) NSString *floorSection;
+
+/**
+ *  The read-only auto-generated name of the calendar resource which includes
+ *  metadata about the resource such as building name, floor, capacity, etc. For
+ *  example, "NYC-2-Training Room 1A (16)".
  */
 @property(nonatomic, copy, nullable) NSString *generatedResourceName;
 
@@ -249,26 +378,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The brief description of the calendar resource. */
+/**
+ *  The category of the calendar resource. Either CONFERENCE_ROOM or OTHER.
+ *  Legacy data is set to CATEGORY_UNKNOWN.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceCategory;
+
+/** Description of the resource, visible only to admins. */
 @property(nonatomic, copy, nullable) NSString *resourceDescription;
 
 /**
- *  The read-only email ID for the calendar resource. Generated as part of
- *  creating a new calendar resource.
+ *  The read-only email for the calendar resource. Generated as part of creating
+ *  a new calendar resource.
  */
 @property(nonatomic, copy, nullable) NSString *resourceEmail;
 
 /** The unique ID for the calendar resource. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
-/** The name of the calendar resource. For example, Training Room 1A */
+/** The name of the calendar resource. For example, "Training Room 1A". */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
-/**
- *  The type of the calendar resource. Used for grouping resources in the
- *  calendar user interface.
- */
+/** The type of the calendar resource, intended for non-room resources. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Description of the resource, visible to users and admins. */
+@property(nonatomic, copy, nullable) NSString *userVisibleDescription;
 
 @end
 
@@ -401,6 +536,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Chromebook boot mode (Read-only) */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
+/** List of device files to download (Read-only) */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DeviceFiles_Item *> *deviceFiles;
+
 /** Unique identifier of Chrome OS Device (Read-only) */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
@@ -467,6 +605,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Final date the device will be supported (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportEndDate;
 
+@property(nonatomic, strong, nullable) GTLRDirectory_ChromeOsDevice_TpmVersionInfo *tpmVersionInfo;
+
 /**
  *  Will Chromebook auto renew after support end date (Read-only)
  *
@@ -500,6 +640,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_DeviceFiles_Item : GTLRObject
+
+/** Date and time the file was created */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** File downlod URL */
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
+
+/** File name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** File type */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_RecentUsers_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
@@ -509,6 +669,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of the user */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_TpmVersionInfo
+ */
+@interface GTLRDirectory_ChromeOsDevice_TpmVersionInfo : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *family;
+@property(nonatomic, copy, nullable) NSString *firmwareVersion;
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+@property(nonatomic, copy, nullable) NSString *specLevel;
+@property(nonatomic, copy, nullable) NSString *tpmModel;
+@property(nonatomic, copy, nullable) NSString *vendorSpecific;
 
 @end
 
@@ -774,6 +949,77 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for Feature object in Directory API.
+ */
+@interface GTLRDirectory_Feature : GTLRObject
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *etags;
+
+/** Kind of resource this is. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The name of the feature. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  JSON template for a "feature instance".
+ */
+@interface GTLRDirectory_FeatureInstance : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDirectory_Feature *feature;
+
+@end
+
+
+/**
+ *  JSON request template for renaming a feature.
+ */
+@interface GTLRDirectory_FeatureRename : GTLRObject
+
+/** New name of the feature. */
+@property(nonatomic, copy, nullable) NSString *newName NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  JSON template for Feature List Response object in Directory API.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "features" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDirectory_Features : GTLRCollectionObject
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The Features in this page of results.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Feature *> *features;
+
+/** Kind of resource this is. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

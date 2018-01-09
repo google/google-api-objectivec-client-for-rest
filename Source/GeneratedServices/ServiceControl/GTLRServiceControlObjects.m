@@ -256,7 +256,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_CheckError
-@dynamic code, detail;
+@dynamic code, detail, subject;
 @end
 
 

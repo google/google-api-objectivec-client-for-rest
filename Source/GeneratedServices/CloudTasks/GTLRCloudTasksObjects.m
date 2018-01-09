@@ -22,14 +22,6 @@ NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspe
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post = @"POST";
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put = @"PUT";
 
-// GTLRCloudTasks_AppEngineTaskTarget.httpMethod
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Delete = @"DELETE";
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Get = @"GET";
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Head = @"HEAD";
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_HttpMethodUnspecified = @"HTTP_METHOD_UNSPECIFIED";
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Post = @"POST";
-NSString * const kGTLRCloudTasks_AppEngineTaskTarget_HttpMethod_Put = @"PUT";
-
 // GTLRCloudTasks_CancelLeaseRequest.responseView
 NSString * const kGTLRCloudTasks_CancelLeaseRequest_ResponseView_Basic = @"BASIC";
 NSString * const kGTLRCloudTasks_CancelLeaseRequest_ResponseView_Full = @"FULL";
@@ -40,10 +32,10 @@ NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basic = @"BASIC"
 NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Full = @"FULL";
 NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_ViewUnspecified = @"VIEW_UNSPECIFIED";
 
-// GTLRCloudTasks_PullTasksRequest.responseView
-NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_Basic = @"BASIC";
-NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_Full = @"FULL";
-NSString * const kGTLRCloudTasks_PullTasksRequest_ResponseView_ViewUnspecified = @"VIEW_UNSPECIFIED";
+// GTLRCloudTasks_LeaseTasksRequest.responseView
+NSString * const kGTLRCloudTasks_LeaseTasksRequest_ResponseView_Basic = @"BASIC";
+NSString * const kGTLRCloudTasks_LeaseTasksRequest_ResponseView_Full = @"FULL";
+NSString * const kGTLRCloudTasks_LeaseTasksRequest_ResponseView_ViewUnspecified = @"VIEW_UNSPECIFIED";
 
 // GTLRCloudTasks_Queue.state
 NSString * const kGTLRCloudTasks_Queue_State_Disabled         = @"DISABLED";
@@ -112,45 +104,11 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTasks_AppEngineQueueConfig
-//
-
-@implementation GTLRCloudTasks_AppEngineQueueConfig
-@dynamic appEngineRoutingOverride;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTasks_AppEngineRouting
 //
 
 @implementation GTLRCloudTasks_AppEngineRouting
 @dynamic host, instance, service, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_AppEngineTaskTarget
-//
-
-@implementation GTLRCloudTasks_AppEngineTaskTarget
-@dynamic appEngineRouting, headers, httpMethod, payload, relativeUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_AppEngineTaskTarget_Headers
-//
-
-@implementation GTLRCloudTasks_AppEngineTaskTarget_Headers
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
 @end
 
 
@@ -217,6 +175,34 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_GetIamPolicyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_LeaseTasksRequest
+//
+
+@implementation GTLRCloudTasks_LeaseTasksRequest
+@dynamic filter, leaseDuration, maxTasks, responseView;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_LeaseTasksResponse
+//
+
+@implementation GTLRCloudTasks_LeaseTasksResponse
+@dynamic tasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tasks" : [GTLRCloudTasks_Task class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -367,57 +353,10 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTasks_PullQueueConfig
-//
-
-@implementation GTLRCloudTasks_PullQueueConfig
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTasks_PullTarget
 //
 
 @implementation GTLRCloudTasks_PullTarget
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_PullTasksRequest
-//
-
-@implementation GTLRCloudTasks_PullTasksRequest
-@dynamic filter, leaseDuration, maxTasks, responseView;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_PullTasksResponse
-//
-
-@implementation GTLRCloudTasks_PullTasksResponse
-@dynamic tasks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tasks" : [GTLRCloudTasks_Task class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_PullTaskTarget
-//
-
-@implementation GTLRCloudTasks_PullTaskTarget
-@dynamic payload, tag;
 @end
 
 
@@ -436,8 +375,8 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_Queue
-@dynamic appEngineHttpTarget, appEngineQueueConfig, name, pullQueueConfig,
-         pullTarget, purgeTime, rateLimits, retryConfig, state;
+@dynamic appEngineHttpTarget, name, pullTarget, purgeTime, rateLimits,
+         retryConfig, state;
 @end
 
 
@@ -539,8 +478,8 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_Task
-@dynamic appEngineHttpRequest, appEngineTaskTarget, createTime, name,
-         pullMessage, pullTaskTarget, scheduleTime, taskStatus, view;
+@dynamic appEngineHttpRequest, createTime, name, pullMessage, scheduleTime,
+         status, view;
 @end
 
 

@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopePlusUserinfoProfile = @"https://www.googleapis.co
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
     self.servicePath = @"plus/v1/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/plus/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

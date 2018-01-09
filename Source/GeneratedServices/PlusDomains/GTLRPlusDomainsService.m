@@ -38,7 +38,7 @@ NSString * const kGTLRAuthScopePlusDomainsUserinfoProfile  = @"https://www.googl
     self.servicePath = @"plusDomains/v1/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/plusDomains/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -671,6 +671,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ListTopicResponse
+//
+
+@implementation GTLRClassroom_ListTopicResponse
+@dynamic nextPageToken, topic;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topic" : [GTLRClassroom_Topic class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"topic";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Material
 //
 
@@ -894,6 +916,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_TimeOfDay
 @dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Topic
+//
+
+@implementation GTLRClassroom_Topic
+@dynamic courseId, name, topicId, updateTime;
 @end
 
 

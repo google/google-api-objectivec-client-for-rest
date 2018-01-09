@@ -26,7 +26,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -35,13 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeSpeechCloudPlatform;
-/**
- *  Authorization scope: Convert speech to text using Google speech recognition
- *  technology
- *
- *  Value "https://www.googleapis.com/auth/cloud-speech"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSpeechCloudSpeech;
 
 // ----------------------------------------------------------------------------
 //   GTLRSpeechService

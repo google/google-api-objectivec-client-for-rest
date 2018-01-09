@@ -390,7 +390,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, strong, nullable) NSNumber *manualRunsDisabled;
 
-/** The minimum interval between two consecutive scheduled runs. */
+/** The minimum interval for scheduler to schedule runs. */
 @property(nonatomic, strong, nullable) GTLRDuration *minimumScheduleInterval;
 
 /** Data source resource name. */
@@ -1038,14 +1038,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 /**
  *  Represents a data transfer run.
- *  Next id: 24
+ *  Next id: 27
  */
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
 
 /** Output only. Data source id. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
-/** The BigQuery target dataset id. */
+/** Output only. The BigQuery target dataset id. */
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
@@ -1065,7 +1065,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Data transfer specific parameters. */
+/** Output only. Data transfer specific parameters. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRun_Params *params;
 
 /**
@@ -1130,7 +1130,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 
 /**
- *  Data transfer specific parameters.
+ *  Output only. Data transfer specific parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

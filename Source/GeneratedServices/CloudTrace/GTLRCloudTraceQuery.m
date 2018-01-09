@@ -45,7 +45,7 @@
 
 @end
 
-@implementation GTLRCloudTraceQuery_ProjectsTracesSpansCreate
+@implementation GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan
 
 @dynamic name;
 
@@ -56,15 +56,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}/spans";
-  GTLRCloudTraceQuery_ProjectsTracesSpansCreate *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTrace_Span class];
-  query.loggingName = @"cloudtrace.projects.traces.spans.create";
+  query.loggingName = @"cloudtrace.projects.traces.spans.createSpan";
   return query;
 }
 

@@ -915,7 +915,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRCloudIot_Policy : GTLRObject
 
@@ -952,7 +952,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
 @property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

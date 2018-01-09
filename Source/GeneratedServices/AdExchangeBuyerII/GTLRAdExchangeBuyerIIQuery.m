@@ -285,7 +285,7 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsCreativesCreate
 
-@dynamic accountId, duplicateIdMode;
+@dynamic accountId, accountId1, duplicateIdMode;
 
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Creative *)object
                       accountId:(NSString *)accountId {
@@ -462,7 +462,7 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsCreativesUpdate
 
-@dynamic accountId, creativeId;
+@dynamic accountId, accountId1, creativeId;
 
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Creative *)object
                       accountId:(NSString *)accountId

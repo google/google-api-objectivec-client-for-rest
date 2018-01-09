@@ -1003,6 +1003,52 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesTopicsGet
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics/{id}";
+  GTLRClassroomQuery_CoursesTopicsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Topic class];
+  query.loggingName = @"classroom.courses.topics.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesTopicsList
+
+@dynamic courseId, pageSize, pageToken;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId {
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics";
+  GTLRClassroomQuery_CoursesTopicsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_ListTopicResponse class];
+  query.loggingName = @"classroom.courses.topics.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesUpdate
 
 @dynamic identifier;

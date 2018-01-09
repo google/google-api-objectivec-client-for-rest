@@ -56,6 +56,7 @@
 @class GTLRBigquery_QueryParameterType_StructTypes_Item;
 @class GTLRBigquery_QueryParameterValue;
 @class GTLRBigquery_QueryParameterValue_StructValues;
+@class GTLRBigquery_QueryTimelineSample;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -605,6 +606,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_ExplainQueryStage : GTLRObject
 
 /**
+ *  Number of parallel input segments completed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedParallelInputs;
+
+/**
  *  Milliseconds the average shard spent on CPU-bound tasks.
  *
  *  Uses NSNumber of longLongValue.
@@ -643,6 +651,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Human-readable name for stage. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Number of parallel input segments to be processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallelInputs;
 
 /**
  *  Milliseconds the average shard spent reading input.
@@ -1770,6 +1785,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
+ *  [Output-only] The original estimate of bytes processed for the job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
+
+/**
  *  [Output-only] The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
@@ -1792,8 +1814,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
-/** [Output-only, Experimental] The type of query statement, if valid. */
+/**
+ *  [Output-only, Experimental] The type of query statement, if valid. Possible
+ *  values (new values might be added in the future): "SELECT": SELECT query.
+ *  "INSERT": INSERT query; see
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  "UPDATE": UPDATE query; see
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  "DELETE": DELETE query; see
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT.
+ *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ...
+ *  "DROP_TABLE": DROP TABLE query. "CREATE_VIEW": CREATE [OR REPLACE] VIEW ...
+ *  AS SELECT ... "DROP_VIEW": DROP VIEW query.
+ */
 @property(nonatomic, copy, nullable) NSString *statementType;
+
+/** [Output-only] Describes a timeline of job execution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryTimelineSample *> *timeline;
 
 /**
  *  [Output-only] Total bytes billed for the job.
@@ -2283,6 +2321,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_QueryTimelineSample
+ */
+@interface GTLRBigquery_QueryTimelineSample : GTLRObject
+
+/**
+ *  Total number of active workers. This does not correspond directly to slot
+ *  usage. This is the largest value observed since the last sample.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeInputs;
+
+/**
+ *  Total parallel units of work completed by this query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedInputs;
+
+/**
+ *  Total parallel units of work completed by the currently active stages.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedInputsForActiveStages;
+
+/**
+ *  Milliseconds elapsed since the start of query execution.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elapsedMs;
+
+/**
+ *  Total parallel units of work remaining for the active stages.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingInputs;
+
+/**
+ *  Cumulative slot-ms consumed by the query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
+
+@end
+
+
+/**
  *  GTLRBigquery_Streamingbuffer
  */
 @interface GTLRBigquery_Streamingbuffer : GTLRObject
@@ -2344,7 +2433,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Optional] The time when this table expires, in milliseconds since the
  *  epoch. If not present, the table will persist indefinitely. Expired tables
- *  will be deleted and their storage reclaimed.
+ *  will be deleted and their storage reclaimed. The defaultTableExpirationMs
+ *  property of the encapsulating dataset can be used to set a default
+ *  expirationTime on newly created tables.
  *
  *  Uses NSNumber of longLongValue.
  */

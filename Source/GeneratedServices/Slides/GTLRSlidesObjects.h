@@ -127,6 +127,7 @@
 @class GTLRSlides_UnmergeTableCellsRequest;
 @class GTLRSlides_UpdateImagePropertiesRequest;
 @class GTLRSlides_UpdateLinePropertiesRequest;
+@class GTLRSlides_UpdatePageElementAltTextRequest;
 @class GTLRSlides_UpdatePageElementTransformRequest;
 @class GTLRSlides_UpdatePagePropertiesRequest;
 @class GTLRSlides_UpdateParagraphStyleRequest;
@@ -4025,6 +4026,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  ratio, the image is scaled and centered with respect to the size in order
  *  to maintain aspect ratio. The provided transform is applied after this
  *  operation.
+ *  The PageElementProperties.size property is
+ *  optional. If you don't specify the size, the default size of the image is
+ *  used.
+ *  The PageElementProperties.transform property is
+ *  optional. If you don't specify a transform, the image will be placed at the
+ *  top left corner of the page.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
@@ -4831,7 +4838,16 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_CreateVideoRequest : GTLRObject
 
-/** The element properties for the video. */
+/**
+ *  The element properties for the video.
+ *  The PageElementProperties.size property is
+ *  optional. If you don't specify a size, a default size is chosen by the
+ *  server.
+ *  The PageElementProperties.transform property is
+ *  optional. The transform must not have shear components.
+ *  If you don't specify a transform, the video will be placed at the top left
+ *  corner of the page.
+ */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
@@ -6886,6 +6902,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of a Line. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateLinePropertiesRequest *updateLineProperties;
 
+/**
+ *  Updates the alt text title and/or description of a
+ *  page element.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementAltTextRequest *updatePageElementAltText;
+
 /** Updates the transform of a page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementTransformRequest *updatePageElementTransform;
 
@@ -8570,6 +8592,36 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The object ID of the line the update is applied to. */
 @property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
+ *  Updates the alt text title and/or description of a
+ *  page element.
+ */
+@interface GTLRSlides_UpdatePageElementAltTextRequest : GTLRObject
+
+/**
+ *  The updated alt text description of the page element. If unset the existing
+ *  value will be maintained. The description is exposed to screen readers
+ *  and other accessibility interfaces. Only use human readable values related
+ *  to the content of the page element.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The object ID of the page element the updates are applied to. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The updated alt text title of the page element. If unset the
+ *  existing value will be maintained. The title is exposed to screen readers
+ *  and other accessibility interfaces. Only use human readable values related
+ *  to the content of the page element.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

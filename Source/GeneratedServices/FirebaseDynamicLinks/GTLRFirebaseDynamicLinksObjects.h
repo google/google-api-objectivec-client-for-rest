@@ -502,6 +502,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Device language code setting obtained by executing JavaScript code in
+ *  WebView.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCodeFromWebview;
+
+/**
  *  Device language code raw setting.
  *  iOS does returns language code in different format than iOS WebView.
  *  For example WebView returns en_US, but iOS returns en-US.
