@@ -229,8 +229,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
               statusString = _statusString;
 #if DEBUG
 - (NSString *)description {
-  return [NSString stringWithFormat:@"%@ %p: %@\n%zd %@\nheaders:%@\nJSON:%@\nerror:%@",
-          [self class], self, self.contentID, self.statusCode, self.statusString,
+  return [NSString stringWithFormat:@"%@ %p: %@\n%ld %@\nheaders:%@\nJSON:%@\nerror:%@",
+          [self class], self, self.contentID, (long)self.statusCode, self.statusString,
           self.headers, self.JSON, self.parseError];
 }
 #endif
