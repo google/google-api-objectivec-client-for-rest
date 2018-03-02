@@ -63,8 +63,8 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrc
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
-NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk = @"NO_CODE_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity = @"NO_LAUNCHER_ACTIVITY";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoManifest = @"NO_MANIFEST";
@@ -296,6 +296,35 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_ApkDetail
+//
+
+@implementation GTLRTesting_ApkDetail
+@dynamic apkManifest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_ApkManifest
+//
+
+@implementation GTLRTesting_ApkManifest
+@dynamic applicationLabel, intentFilters, maxSdkVersion, minSdkVersion,
+         packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"intentFilters" : [GTLRTesting_IntentFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_CancelTestMatrixResponse
 //
 
@@ -404,6 +433,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_GetApkDetailsResponse
+//
+
+@implementation GTLRTesting_GetApkDetailsResponse
+@dynamic apkDetail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_GoogleAuto
 //
 
@@ -418,6 +457,25 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_GoogleCloudStorage
 @dynamic gcsPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IntentFilter
+//
+
+@implementation GTLRTesting_IntentFilter
+@dynamic actionNames, categoryNames, mimeType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actionNames" : [NSString class],
+    @"categoryNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -34,7 +34,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchDeleteEntityTypesRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchDeleteEntityTypesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -48,7 +48,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.batchDelete";
   return query;
 }
@@ -59,7 +59,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchUpdateEntityTypesRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateEntityTypesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -73,7 +73,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.batchUpdate";
   return query;
 }
@@ -84,7 +84,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic languageCode, parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_EntityType *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -98,7 +98,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_EntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.create";
   return query;
 }
@@ -117,7 +117,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Empty class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.delete";
   return query;
 }
@@ -128,7 +128,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchCreateEntitiesRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchCreateEntitiesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -142,7 +142,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.entities.batchCreate";
   return query;
 }
@@ -153,7 +153,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchDeleteEntitiesRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchDeleteEntitiesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -167,7 +167,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.entities.batchDelete";
   return query;
 }
@@ -178,7 +178,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchUpdateEntitiesRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateEntitiesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -192,7 +192,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.entities.batchUpdate";
   return query;
 }
@@ -211,7 +211,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_EntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.get";
   return query;
 }
@@ -230,7 +230,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_ListEntityTypesResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListEntityTypesResponse class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.list";
   return query;
 }
@@ -241,7 +241,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic languageCode, name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_EntityType *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -255,7 +255,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_EntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType class];
   query.loggingName = @"dialogflow.projects.agent.entityTypes.patch";
   return query;
 }
@@ -266,7 +266,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_ExportAgentRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportAgentRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -280,7 +280,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.export";
   return query;
 }
@@ -291,7 +291,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_ImportAgentRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1ImportAgentRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -305,7 +305,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.import";
   return query;
 }
@@ -316,7 +316,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchDeleteIntentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchDeleteIntentsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -330,7 +330,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.intents.batchDelete";
   return query;
 }
@@ -341,7 +341,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_BatchUpdateIntentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateIntentsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -355,7 +355,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.intents.batchUpdate";
   return query;
 }
@@ -366,7 +366,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic intentView, languageCode, parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_Intent *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -380,7 +380,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Intent class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent class];
   query.loggingName = @"dialogflow.projects.agent.intents.create";
   return query;
 }
@@ -399,7 +399,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Empty class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.agent.intents.delete";
   return query;
 }
@@ -418,7 +418,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Intent class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent class];
   query.loggingName = @"dialogflow.projects.agent.intents.get";
   return query;
 }
@@ -437,7 +437,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_ListIntentsResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListIntentsResponse class];
   query.loggingName = @"dialogflow.projects.agent.intents.list";
   return query;
 }
@@ -448,7 +448,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic intentView, languageCode, name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_Intent *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -462,7 +462,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Intent class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent class];
   query.loggingName = @"dialogflow.projects.agent.intents.patch";
   return query;
 }
@@ -473,7 +473,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_RestoreAgentRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1RestoreAgentRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -487,8 +487,266 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta1/{+parent}/contexts";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.contexts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.contexts.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.contexts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta1/{+parent}/contexts";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListContextsResponse class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.contexts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.contexts.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDeleteContexts
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta1/{+parent}/contexts";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDeleteContexts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.deleteContexts";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDetectIntent
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1DetectIntentRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v2beta1/{+session}:detectIntent";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDetectIntent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1DetectIntentResponse class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.detectIntent";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta1/{+parent}/entityTypes";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.entityTypes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.entityTypes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.entityTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta1/{+parent}/entityTypes";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.entityTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta1/{+name}";
+  GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
+  query.loggingName = @"dialogflow.projects.agent.runtimes.sessions.entityTypes.patch";
   return query;
 }
 
@@ -506,7 +764,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_SearchAgentsResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SearchAgentsResponse class];
   query.loggingName = @"dialogflow.projects.agent.search";
   return query;
 }
@@ -517,7 +775,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_Context *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -531,7 +789,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Context class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
   query.loggingName = @"dialogflow.projects.agent.sessions.contexts.create";
   return query;
 }
@@ -550,7 +808,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Empty class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.agent.sessions.contexts.delete";
   return query;
 }
@@ -569,7 +827,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Context class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
   query.loggingName = @"dialogflow.projects.agent.sessions.contexts.get";
   return query;
 }
@@ -588,7 +846,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_ListContextsResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListContextsResponse class];
   query.loggingName = @"dialogflow.projects.agent.sessions.contexts.list";
   return query;
 }
@@ -599,7 +857,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_Context *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -613,7 +871,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Context class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class];
   query.loggingName = @"dialogflow.projects.agent.sessions.contexts.patch";
   return query;
 }
@@ -632,7 +890,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Empty class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.agent.sessions.deleteContexts";
   return query;
 }
@@ -643,7 +901,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic session;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_DetectIntentRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1DetectIntentRequest *)object
                         session:(NSString *)session {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -657,7 +915,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.session = session;
-  query.expectedObjectClass = [GTLRDialogflow_DetectIntentResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1DetectIntentResponse class];
   query.loggingName = @"dialogflow.projects.agent.sessions.detectIntent";
   return query;
 }
@@ -668,7 +926,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_SessionEntityType *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -682,7 +940,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_SessionEntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
   query.loggingName = @"dialogflow.projects.agent.sessions.entityTypes.create";
   return query;
 }
@@ -701,7 +959,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Empty class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.agent.sessions.entityTypes.delete";
   return query;
 }
@@ -720,7 +978,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_SessionEntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
   query.loggingName = @"dialogflow.projects.agent.sessions.entityTypes.get";
   return query;
 }
@@ -739,7 +997,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_ListSessionEntityTypesResponse class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse class];
   query.loggingName = @"dialogflow.projects.agent.sessions.entityTypes.list";
   return query;
 }
@@ -750,7 +1008,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_SessionEntityType *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -764,7 +1022,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_SessionEntityType class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class];
   query.loggingName = @"dialogflow.projects.agent.sessions.entityTypes.patch";
   return query;
 }
@@ -775,7 +1033,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDialogflow_TrainAgentRequest *)object
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2beta1TrainAgentRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -789,7 +1047,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.agent.train";
   return query;
 }
@@ -808,7 +1066,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDialogflow_Agent class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2beta1Agent class];
   query.loggingName = @"dialogflow.projects.getAgent";
   return query;
 }
@@ -827,7 +1085,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDialogflow_Operation class];
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.operations.get";
   return query;
 }

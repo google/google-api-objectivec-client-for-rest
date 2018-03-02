@@ -559,7 +559,7 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
 //
 
 @implementation GTLRLogging_WriteLogEntriesRequest
-@dynamic entries, labels, logName, partialSuccess, resource;
+@dynamic dryRun, entries, labels, logName, partialSuccess, resource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

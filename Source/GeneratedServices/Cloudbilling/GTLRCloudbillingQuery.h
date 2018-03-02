@@ -120,8 +120,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the projects associated with a billing account. The current
- *  authenticated user must be an [owner of the billing
- *  account](https://support.google.com/cloud/answer/4430947).
+ *  authenticated user must have the "billing.resourceAssociations.list" IAM
+ *  permission, which is often given to billing account
+ *  [viewers](https://support.google.com/cloud/answer/4430947).
  *
  *  Method: cloudbilling.billingAccounts.projects.list
  *
@@ -155,8 +156,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudbilling_ListProjectBillingInfoResponse.
  *
  *  Lists the projects associated with a billing account. The current
- *  authenticated user must be an [owner of the billing
- *  account](https://support.google.com/cloud/answer/4430947).
+ *  authenticated user must have the "billing.resourceAssociations.list" IAM
+ *  permission, which is often given to billing account
+ *  [viewers](https://support.google.com/cloud/answer/4430947).
  *
  *  @param name The resource name of the billing account associated with the
  *    projects that
@@ -352,9 +354,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional exclusive end time of the time range for which the pricing
  *  versions will be returned. Timestamps in the future are not allowed.
- *  Maximum allowable time range is 1 month (31 days). Time range as a whole
- *  is optional. If not specified, the latest pricing will be returned (up to
- *  12 hours old at most).
+ *  The time range has to be within a single calendar month in
+ *  America/Los_Angeles timezone. Time range as a whole is optional. If not
+ *  specified, the latest pricing will be returned (up to 12 hours old at
+ *  most).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -377,9 +380,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional inclusive start time of the time range for which the pricing
  *  versions will be returned. Timestamps in the future are not allowed.
- *  Maximum allowable time range is 1 month (31 days). Time range as a whole
- *  is optional. If not specified, the latest pricing will be returned (up to
- *  12 hours old at most).
+ *  The time range has to be within a single calendar month in
+ *  America/Los_Angeles timezone. Time range as a whole is optional. If not
+ *  specified, the latest pricing will be returned (up to 12 hours old at
+ *  most).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 

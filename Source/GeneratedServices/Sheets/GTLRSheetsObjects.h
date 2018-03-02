@@ -105,12 +105,15 @@
 @class GTLRSheets_GridProperties;
 @class GTLRSheets_GridRange;
 @class GTLRSheets_HistogramChartSpec;
+@class GTLRSheets_HistogramRule;
 @class GTLRSheets_HistogramSeries;
 @class GTLRSheets_InsertDimensionRequest;
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
 @class GTLRSheets_IterativeCalculationSettings;
 @class GTLRSheets_LineStyle;
+@class GTLRSheets_ManualRule;
+@class GTLRSheets_ManualRuleGroup;
 @class GTLRSheets_MatchedDeveloperMetadata;
 @class GTLRSheets_MatchedValueRange;
 @class GTLRSheets_MergeCellsRequest;
@@ -124,6 +127,7 @@
 @class GTLRSheets_PieChartSpec;
 @class GTLRSheets_PivotFilterCriteria;
 @class GTLRSheets_PivotGroup;
+@class GTLRSheets_PivotGroupRule;
 @class GTLRSheets_PivotGroupSortValueBucket;
 @class GTLRSheets_PivotGroupValueMetadata;
 @class GTLRSheets_PivotTable;
@@ -2099,6 +2103,34 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Horizontal;
 GTLR_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Vertical;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_PivotValue.calculatedDisplayType
+
+/**
+ *  Shows the pivot values as percentage of the column total values.
+ *
+ *  Value: "PERCENT_OF_COLUMN_TOTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfColumnTotal;
+/**
+ *  Shows the pivot values as percentage of the grand total values.
+ *
+ *  Value: "PERCENT_OF_GRAND_TOTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfGrandTotal;
+/**
+ *  Shows the pivot values as percentage of the row total values.
+ *
+ *  Value: "PERCENT_OF_ROW_TOTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfRowTotal;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PivotValueCalculatedDisplayTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_PivotValue.summarizeFunction
 
 /**
@@ -2318,6 +2350,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right;
 // ----------------------------------------------------------------------------
 // GTLRSheets_TextToColumnsRequest.delimiterType
 
+/**
+ *  Automatically detect columns.
+ *
+ *  Value: "AUTODETECT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Autodetect;
 /**
  *  ","
  *
@@ -6073,6 +6111,68 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Allows you to organize the numeric values in a source data column into
+ *  buckets of a constant size. All values from HistogramRule.start to
+ *  HistogramRule.end will be placed into groups of size
+ *  HistogramRule.interval. In addition, all values below
+ *  HistogramRule.start will be placed in one group, and all values above
+ *  HistogramRule.end will be placed in another. Only
+ *  HistogramRule.interval is required, though if HistogramRule.start
+ *  and HistogramRule.end are both provided, HistogramRule.start must
+ *  be less than HistogramRule.end. For example, a pivot table showing
+ *  average purchase amount by age that has 50+ rows:
+ *  +-----+-------------------+
+ *  | Age | AVERAGE of Amount |
+ *  +-----+-------------------+
+ *  | 16 | $27.13 |
+ *  | 17 | $5.24 |
+ *  | 18 | $20.15 |
+ *  ...
+ *  +-----+-------------------+
+ *  could be turned into a pivot table that looks like the one below by
+ *  applying a histogram group rule with a HistogramRule.start of 25,
+ *  an HistogramRule.interval of 20, and an HistogramRule.end
+ *  of 65.
+ *  +-------------+-------------------+
+ *  | Grouped Age | AVERAGE of Amount |
+ *  +-------------+-------------------+
+ *  | < 25 | $19.34 |
+ *  | 25-45 | $31.43 |
+ *  | 45-65 | $35.87 |
+ *  | > 65 | $27.55 |
+ *  +-------------+-------------------+
+ *  | Grand Total | $29.12 |
+ *  +-------------+-------------------+
+ */
+@interface GTLRSheets_HistogramRule : GTLRObject
+
+/**
+ *  Optional. The maximum value at which items will be placed into buckets
+ *  of constant size. Values above end will be lumped into a single bucket.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  Required. The size of the buckets that will be created. Must be positive.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interval;
+
+/**
+ *  Optional. The minimum value at which items will be placed into buckets
+ *  of constant size. Values below start will be lumped into a single bucket.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
  *  A histogram series containing the series color and data.
  */
 @interface GTLRSheets_HistogramSeries : GTLRObject
@@ -6260,6 +6360,72 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Allows you to manually organize the values in a source data column into
+ *  buckets with names of your choosing. For example, a pivot table that
+ *  aggregates population by state:
+ *  +-------+-------------------+
+ *  | State | SUM of Population |
+ *  +-------+-------------------+
+ *  | AK | 0.7 |
+ *  | AL | 4.8 |
+ *  | AR | 2.9 |
+ *  ...
+ *  +-------+-------------------+
+ *  could be turned into a pivot table that aggregates population by time zone
+ *  by providing a list of groups (e.g. groupName = 'Central',
+ *  items = ['AL', 'AR', 'IA', ...]) to a manual group rule.
+ *  Note that a similar effect could be achieved by adding a time zone column
+ *  to the source data and adjusting the pivot table.
+ *  +-----------+-------------------+
+ *  | Time Zone | SUM of Population |
+ *  +-----------+-------------------+
+ *  | Central | 106.3 |
+ *  | Eastern | 151.9 |
+ *  | Mountain | 17.4 |
+ *  ...
+ *  +-----------+-------------------+
+ */
+@interface GTLRSheets_ManualRule : GTLRObject
+
+/**
+ *  The list of group names and the corresponding items from the source data
+ *  that map to each group name.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ManualRuleGroup *> *groups;
+
+@end
+
+
+/**
+ *  A group name and a list of items from the source data that should be placed
+ *  in the group with this name.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRSheets_ManualRuleGroup : GTLRCollectionObject
+
+/**
+ *  The group name, which must be a string. Each group in a given
+ *  ManualRule must have a unique group name.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ExtendedValue *groupName;
+
+/**
+ *  The items in the source data that should be placed into this group. Each
+ *  item may be a string, number, or boolean. Items may appear in at most one
+ *  group within a given ManualRule. Items that do not appear in any
+ *  group will appear on their own.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ExtendedValue *> *items;
 
 @end
 
@@ -6658,6 +6824,50 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @interface GTLRSheets_PivotGroup : GTLRObject
 
+/** The group rule to apply to this row/column group. */
+@property(nonatomic, strong, nullable) GTLRSheets_PivotGroupRule *groupRule;
+
+/**
+ *  The labels to use for the row/column groups which can be customized. For
+ *  example, in the following pivot table, the row label is `Region` (which
+ *  could be renamed to `State`) and the column label is `Product` (which
+ *  could be renamed `Item`). Pivot tables created before December 2017 do
+ *  not have header labels. If you'd like to add header labels to an existing
+ *  pivot table, please delete the existing pivot table and then create a new
+ *  pivot table with same parameters.
+ *  +--------------+---------+-------+
+ *  | SUM of Units | Product | |
+ *  | Region | Pen | Paper |
+ *  +--------------+---------+-------+
+ *  | New York | 345 | 98 |
+ *  | Oregon | 234 | 123 |
+ *  | Tennessee | 531 | 415 |
+ *  +--------------+---------+-------+
+ *  | Grand Total | 1110 | 636 |
+ *  +--------------+---------+-------+
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  True if the headings in this pivot group should be repeated.
+ *  This is only valid for row groupings and will be ignored by columns.
+ *  By default, we minimize repitition of headings by not showing higher
+ *  level headings where they are the same. For example, even though the
+ *  third row below corresponds to "Q1 Mar", "Q1" is not shown because
+ *  it is redundant with previous rows. Setting repeat_headings to true
+ *  would cause "Q1" to be repeated for "Feb" and "Mar".
+ *  +--------------+
+ *  | Q1 | Jan |
+ *  | | Feb |
+ *  | | Mar |
+ *  +--------+-----+
+ *  | Q1 Total |
+ *  +--------------+
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *repeatHeadings;
+
 /**
  *  True if the pivot table should include the totals for this grouping.
  *
@@ -6696,6 +6906,24 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** Metadata about values in the grouping. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotGroupValueMetadata *> *valueMetadata;
+
+@end
+
+
+/**
+ *  An optional setting on a PivotGroup that defines buckets for the values
+ *  in the source data column rather than breaking out each individual value.
+ *  Only one PivotGroup with a group rule may be added for each column in
+ *  the source data, though on any given column you may add both a
+ *  PivotGroup that has a rule and a PivotGroup that does not.
+ */
+@interface GTLRSheets_PivotGroupRule : GTLRObject
+
+/** A HistogramRule. */
+@property(nonatomic, strong, nullable) GTLRSheets_HistogramRule *histogramRule;
+
+/** A ManualRule. */
+@property(nonatomic, strong, nullable) GTLRSheets_ManualRule *manualRule;
 
 @end
 
@@ -6813,6 +7041,30 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  The definition of how a value in a pivot table should be calculated.
  */
 @interface GTLRSheets_PivotValue : GTLRObject
+
+/**
+ *  If specified, indicates that pivot values should be displayed as
+ *  the result of a calculation with another pivot value. For example, if
+ *  calculated_display_type is specified as PERCENT_OF_GRAND_TOTAL, all the
+ *  pivot values will be displayed as the percentage of the grand total. In
+ *  the Sheets UI, this is referred to as "Show As" in the value section of a
+ *  pivot table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfColumnTotal
+ *        Shows the pivot values as percentage of the column total values.
+ *        (Value: "PERCENT_OF_COLUMN_TOTAL")
+ *    @arg @c kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfGrandTotal
+ *        Shows the pivot values as percentage of the grand total values.
+ *        (Value: "PERCENT_OF_GRAND_TOTAL")
+ *    @arg @c kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfRowTotal
+ *        Shows the pivot values as percentage of the row total values. (Value:
+ *        "PERCENT_OF_ROW_TOTAL")
+ *    @arg @c kGTLRSheets_PivotValue_CalculatedDisplayType_PivotValueCalculatedDisplayTypeUnspecified
+ *        Default value, do not use. (Value:
+ *        "PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *calculatedDisplayType;
 
 /**
  *  A custom formula to calculate the value. The formula must start
@@ -7727,6 +7979,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  The delimiter type to use.
  *
  *  Likely values:
+ *    @arg @c kGTLRSheets_TextToColumnsRequest_DelimiterType_Autodetect
+ *        Automatically detect columns. (Value: "AUTODETECT")
  *    @arg @c kGTLRSheets_TextToColumnsRequest_DelimiterType_Comma "," (Value:
  *        "COMMA")
  *    @arg @c kGTLRSheets_TextToColumnsRequest_DelimiterType_Custom A custom

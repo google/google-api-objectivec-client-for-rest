@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud IoT API (cloudiot/v1)
+//   Cloud IoT API (cloudiot/v1)
 // Description:
 //   Registers and manages IoT (Internet of Things) devices that connect to the
 //   Google Cloud Platform.
@@ -13,12 +13,6 @@
 
 // ----------------------------------------------------------------------------
 // Constants
-
-// GTLRCloudIot_AuditLogConfig.logType
-NSString * const kGTLRCloudIot_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCloudIot_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRCloudIot_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCloudIot_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRCloudIot_HttpConfig.httpEnabledState
 NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpDisabled = @"HTTP_DISABLED";
@@ -43,48 +37,11 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIot_AuditConfig
-//
-
-@implementation GTLRCloudIot_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudIot_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIot_AuditLogConfig
-//
-
-@implementation GTLRCloudIot_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudIot_Binding
 //
 
 @implementation GTLRCloudIot_Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -203,22 +160,7 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_EventNotificationConfig
-@dynamic pubsubTopicName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIot_Expr
-//
-
-@implementation GTLRCloudIot_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
+@dynamic pubsubTopicName, subfolderMatches;
 @end
 
 
@@ -347,7 +289,7 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, version;
+@dynamic bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -355,7 +297,6 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRCloudIot_AuditConfig class],
     @"bindings" : [GTLRCloudIot_Binding class]
   };
   return map;
@@ -400,7 +341,7 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@dynamic policy;
 @end
 
 

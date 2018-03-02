@@ -30,6 +30,8 @@
 @class GTLRTesting_AndroidRuntimeConfiguration;
 @class GTLRTesting_AndroidTestLoop;
 @class GTLRTesting_AndroidVersion;
+@class GTLRTesting_ApkDetail;
+@class GTLRTesting_ApkManifest;
 @class GTLRTesting_ClientInfo;
 @class GTLRTesting_ClientInfoDetail;
 @class GTLRTesting_Date;
@@ -41,6 +43,7 @@
 @class GTLRTesting_FileReference;
 @class GTLRTesting_GoogleAuto;
 @class GTLRTesting_GoogleCloudStorage;
+@class GTLRTesting_IntentFilter;
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_NetworkConfiguration;
@@ -369,17 +372,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
 /**
- *  The input IPA could not be parsed.
- *
- *  Value: "MALFORMED_IPA"
- */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa;
-/**
  *  The input test APK could not be parsed.
  *
  *  Value: "MALFORMED_TEST_APK"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk;
+/**
+ *  APK contains no code.
+ *  See also
+ *  https://developer.android.com/guide/topics/manifest/application-element.html#code
+ *
+ *  Value: "NO_CODE_APK"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk;
 /**
  *  The test apk does not declare an instrumentation.
  *
@@ -450,6 +455,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Scenar
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound;
 /**
  *  The APK is marked as "testOnly".
+ *  NOT USED
  *
  *  Value: "TEST_ONLY_APK"
  */
@@ -1053,6 +1059,51 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Android application details based on application manifest and apk archive
+ *  contents
+ */
+@interface GTLRTesting_ApkDetail : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRTesting_ApkManifest *apkManifest;
+
+@end
+
+
+/**
+ *  An Android app manifest. See
+ *  http://developer.android.com/guide/topics/manifest/manifest-intro.html
+ */
+@interface GTLRTesting_ApkManifest : GTLRObject
+
+/** User-readable name for the application. */
+@property(nonatomic, copy, nullable) NSString *applicationLabel;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IntentFilter *> *intentFilters;
+
+/**
+ *  Maximum API level on which the application is designed to run.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
+
+/**
+ *  Minimum API level required for the application to run.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minSdkVersion;
+
+/**
+ *  Full Java-style package name for this application, e.g.
+ *  "com.example.foo".
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
  *  Response containing the current state of the specified test matrix.
  */
 @interface GTLRTesting_CancelTestMatrixResponse : GTLRObject
@@ -1282,6 +1333,17 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Response containing the details of the specified Android application APK.
+ */
+@interface GTLRTesting_GetApkDetailsResponse : GTLRObject
+
+/** Details of the Android APK. */
+@property(nonatomic, strong, nullable) GTLRTesting_ApkDetail *apkDetail;
+
+@end
+
+
+/**
  *  Enables automatic Google account login.
  *  If set, the service will automatically generate a Google test account and
  *  add
@@ -1309,6 +1371,24 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Required
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
+
+@end
+
+
+/**
+ *  The <intent-filter> section of an <activity> tag.
+ *  https://developer.android.com/guide/topics/manifest/intent-filter-element.html
+ */
+@interface GTLRTesting_IntentFilter : GTLRObject
+
+/** The android:name value of the <action> tag */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actionNames;
+
+/** The android:name value of the <category> tag */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryNames;
+
+/** The android:mimeType value of the <data> tag */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -1749,10 +1829,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "INVALID_ROBO_DIRECTIVES")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk The
  *        input app APK could not be parsed. (Value: "MALFORMED_APK")
- *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa The
- *        input IPA could not be parsed. (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk APK
+ *        contains no code.
+ *        See also
+ *        https://developer.android.com/guide/topics/manifest/application-element.html#code
+ *        (Value: "NO_CODE_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation The
  *        test apk does not declare an instrumentation. (Value:
  *        "NO_INSTRUMENTATION")
@@ -1787,7 +1870,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        There there is no test loop intent filter, or the one that is given is
  *        not formatted correctly. (Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk The APK
- *        is marked as "testOnly". (Value: "TEST_ONLY_APK")
+ *        is marked as "testOnly".
+ *        NOT USED (Value: "TEST_ONLY_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp The
  *        test package and app package are the same. (Value: "TEST_SAME_AS_APP")
  */
@@ -1885,7 +1969,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A description of how to set up the device prior to running the test
+ *  A description of how to set up the Android device prior to running the test.
  */
 @interface GTLRTesting_TestSetup : GTLRObject
 
@@ -1972,7 +2056,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSNumber *disableVideoRecording;
 
 /**
- *  Test setup requirements e.g. files to install, bootstrap scripts
+ *  Test setup requirements for Android e.g. files to install, bootstrap
+ *  scripts.
  *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_TestSetup *testSetup;

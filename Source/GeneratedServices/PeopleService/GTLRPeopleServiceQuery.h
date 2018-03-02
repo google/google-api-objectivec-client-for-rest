@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google People API (people/v1)
+//   People API (people/v1)
 // Description:
 //   Provides access to information about profiles and contacts.
 // Documentation:
@@ -324,7 +324,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  **Required.** A field mask to restrict which fields on each person are
- *  returned. Valid values are:
+ *  returned. Multiple fields can be specified by separating them with commas.
+ *  Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -368,7 +369,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  Whether the response should include a sync token, which can be used to get
- *  all changes since the last request.
+ *  all changes since the last request. For subsequent sync requests use the
+ *  `sync_token` param instead. Initial sync requests that specify
+ *  `request_sync_token` have an additional rate limit.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
@@ -390,8 +393,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  A sync token, returned by a previous call to `people.connections.list`.
+ *  A sync token returned by a previous call to `people.connections.list`.
  *  Only resources changed since the sync token was created will be returned.
+ *  Sync requests that specify `sync_token` have an additional rate limit.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
@@ -497,7 +501,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  **Required.** A field mask to restrict which fields on the person are
- *  returned. Valid values are:
+ *  returned. Multiple fields can be specified by separating them with commas.
+ *  Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -599,7 +604,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  **Required.** A field mask to restrict which fields on each person are
- *  returned. Valid values are:
+ *  returned. Multiple fields can be specified by separating them with commas.
+ *  Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -699,7 +705,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  **Required.** A field mask to restrict which fields on the person are
- *  updated. Valid values are:
+ *  updated. Multiple fields can be specified by separating them with commas.
+ *  All updated fields will be replaced. Valid values are:
  *  * addresses
  *  * biographies
  *  * birthdays

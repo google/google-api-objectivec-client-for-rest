@@ -15,6 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRIam_AuditLogConfig.logType
+NSString * const kGTLRIam_AuditLogConfig_LogType_AdminRead     = @"ADMIN_READ";
+NSString * const kGTLRIam_AuditLogConfig_LogType_DataRead      = @"DATA_READ";
+NSString * const kGTLRIam_AuditLogConfig_LogType_DataWrite     = @"DATA_WRITE";
+NSString * const kGTLRIam_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRIam_BindingDelta.action
 NSString * const kGTLRIam_BindingDelta_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRIam_BindingDelta_Action_Add              = @"ADD";
@@ -65,11 +71,57 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_AuditableService
+//
+
+@implementation GTLRIam_AuditableService
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_AuditConfig
+//
+
+@implementation GTLRIam_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRIam_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_AuditData
 //
 
 @implementation GTLRIam_AuditData
 @dynamic policyDelta;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_AuditLogConfig
+//
+
+@implementation GTLRIam_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -208,7 +260,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Permission
-@dynamic customRolesSupportLevel, descriptionProperty, name,
+@dynamic apiDisabled, customRolesSupportLevel, descriptionProperty, name,
          onlyInPredefinedRoles, stage, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -224,7 +276,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Policy
-@dynamic bindings, ETag, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -232,6 +284,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRIam_AuditConfig class],
     @"bindings" : [GTLRIam_Binding class]
   };
   return map;
@@ -251,6 +304,34 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bindingDeltas" : [GTLRIam_BindingDelta class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_QueryAuditableServicesRequest
+//
+
+@implementation GTLRIam_QueryAuditableServicesRequest
+@dynamic fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_QueryAuditableServicesResponse
+//
+
+@implementation GTLRIam_QueryAuditableServicesResponse
+@dynamic services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRIam_AuditableService class]
   };
   return map;
 }
@@ -381,7 +462,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_SetIamPolicyRequest
-@dynamic policy;
+@dynamic policy, updateMask;
 @end
 
 

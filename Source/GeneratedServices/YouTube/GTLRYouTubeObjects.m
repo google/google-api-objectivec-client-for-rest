@@ -2689,6 +2689,26 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_Nonprofit
+//
+
+@implementation GTLRYouTube_Nonprofit
+@dynamic nonprofitId, nonprofitLegalName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_NonprofitId
+//
+
+@implementation GTLRYouTube_NonprofitId
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_PageInfo
 //
 
@@ -3194,7 +3214,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_SuperChatEventSnippet
 @dynamic amountMicros, channelId, commentText, createdAt, currency,
-         displayString, messageType, supporterDetails;
+         displayString, isSuperChatForGood, messageType, nonprofit,
+         supporterDetails;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service User API (serviceuser/v1)
+//   Service User API (serviceuser/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -266,10 +266,13 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_ContextRule
-@dynamic provided, requested, selector;
+@dynamic allowedRequestExtensions, allowedResponseExtensions, provided,
+         requested, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowedRequestExtensions" : [NSString class],
+    @"allowedResponseExtensions" : [NSString class],
     @"provided" : [NSString class],
     @"requested" : [NSString class]
   };
@@ -513,7 +516,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_HttpRule
 @dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
-         mediaUpload, patch, post, put, responseBody, selector;
+         mediaUpload, patch, post, put, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };

@@ -304,7 +304,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
 
 /**
  *  Configuration to automatically mirror a repository from another
- *  hosting service, for example GitHub or BitBucket.
+ *  hosting service, for example GitHub or Bitbucket.
  */
 @interface GTLRCloudSourceRepositories_MirrorConfig : GTLRObject
 

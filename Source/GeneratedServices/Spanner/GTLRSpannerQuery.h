@@ -26,6 +26,8 @@
 @class GTLRSpanner_CreateSessionRequest;
 @class GTLRSpanner_ExecuteSqlRequest;
 @class GTLRSpanner_GetIamPolicyRequest;
+@class GTLRSpanner_PartitionQueryRequest;
+@class GTLRSpanner_PartitionReadRequest;
 @class GTLRSpanner_ReadRequest;
 @class GTLRSpanner_RollbackRequest;
 @class GTLRSpanner_SetIamPolicyRequest;
@@ -992,6 +994,98 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithDatabase:(NSString *)database;
+
+@end
+
+/**
+ *  Creates a set of partition tokens that can be used to execute a query
+ *  operation in parallel. Each of the returned partition tokens can be used
+ *  by ExecuteStreamingSql to specify a subset
+ *  of the query result to read. The same session and read-only transaction
+ *  must be used by the PartitionQueryRequest used to create the
+ *  partition tokens and the ExecuteSqlRequests that use the partition tokens.
+ *  Partition tokens become invalid when the session used to create them
+ *  is deleted or begins a new transaction.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.partitionQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionQueryWithObject:session:]
+
+/** Required. The session used to create the partitions. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRSpanner_PartitionResponse.
+ *
+ *  Creates a set of partition tokens that can be used to execute a query
+ *  operation in parallel. Each of the returned partition tokens can be used
+ *  by ExecuteStreamingSql to specify a subset
+ *  of the query result to read. The same session and read-only transaction
+ *  must be used by the PartitionQueryRequest used to create the
+ *  partition tokens and the ExecuteSqlRequests that use the partition tokens.
+ *  Partition tokens become invalid when the session used to create them
+ *  is deleted or begins a new transaction.
+ *
+ *  @param object The @c GTLRSpanner_PartitionQueryRequest to include in the
+ *    query.
+ *  @param session Required. The session used to create the partitions.
+ *
+ *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_PartitionQueryRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
+ *  Creates a set of partition tokens that can be used to execute a read
+ *  operation in parallel. Each of the returned partition tokens can be used
+ *  by StreamingRead to specify a subset of the read
+ *  result to read. The same session and read-only transaction must be used by
+ *  the PartitionReadRequest used to create the partition tokens and the
+ *  ReadRequests that use the partition tokens.
+ *  Partition tokens become invalid when the session used to create them
+ *  is deleted or begins a new transaction.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.partitionRead
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionReadWithObject:session:]
+
+/** Required. The session used to create the partitions. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRSpanner_PartitionResponse.
+ *
+ *  Creates a set of partition tokens that can be used to execute a read
+ *  operation in parallel. Each of the returned partition tokens can be used
+ *  by StreamingRead to specify a subset of the read
+ *  result to read. The same session and read-only transaction must be used by
+ *  the PartitionReadRequest used to create the partition tokens and the
+ *  ReadRequests that use the partition tokens.
+ *  Partition tokens become invalid when the session used to create them
+ *  is deleted or begins a new transaction.
+ *
+ *  @param object The @c GTLRSpanner_PartitionReadRequest to include in the
+ *    query.
+ *  @param session Required. The session used to create the partitions.
+ *
+ *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_PartitionReadRequest *)object
+                        session:(NSString *)session;
 
 @end
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Resource Manager API (cloudresourcemanager/v1)
+//   Cloud Resource Manager API (cloudresourcemanager/v1)
 // Description:
 //   The Google Cloud Resource Manager API provides methods for creating,
 //   reading, and updating project metadata.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudResourceManagerCloudPlatformRead
 //
 
 /**
- *  Service for executing Google Cloud Resource Manager API queries.
+ *  Service for executing Cloud Resource Manager API queries.
  *
  *  The Google Cloud Resource Manager API provides methods for creating,
  *  reading, and updating project metadata.

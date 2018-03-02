@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the application in the form
- *  enterprises/{enterpriseId}/applications/{package_name}
+ *  enterprises/{enterpriseId}/applications/{package_name}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets info about an application.
  *
  *  @param name The name of the application in the form
- *    enterprises/{enterpriseId}/applications/{package_name}
+ *    enterprises/{enterpriseId}/applications/{package_name}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesApplicationsGet
  */
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an enterprise by completing the enterprise signup flow.
+ *  Creates an enterprise. This is the last step in the enterprise signup flow.
  *
  *  Method: androidmanagement.enterprises.create
  *
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *enterpriseToken;
 
 /**
- *  The id of the Google Cloud Platform project which will own the enterprise.
+ *  The ID of the Google Cloud Platform project which will own the enterprise.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidManagement_Enterprise.
  *
- *  Creates an enterprise by completing the enterprise signup flow.
+ *  Creates an enterprise. This is the last step in the enterprise signup flow.
  *
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a device, which causes the device to be wiped.
+ *  Deletes a device. This operation wipes the device.
  *
  *  Method: androidmanagement.enterprises.devices.delete
  *
@@ -133,17 +133,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  enterprises/{enterpriseId}/devices/{deviceId}
+ *  enterprises/{enterpriseId}/devices/{deviceId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  Deletes a device, which causes the device to be wiped.
+ *  Deletes a device. This operation wipes the device.
  *
  *  @param name The name of the device in the form
- *    enterprises/{enterpriseId}/devices/{deviceId}
+ *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesDelete
  */
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  enterprises/{enterpriseId}/devices/{deviceId}
+ *  enterprises/{enterpriseId}/devices/{deviceId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -175,7 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a device.
  *
  *  @param name The name of the device in the form
- *    enterprises/{enterpriseId}/devices/{deviceId}
+ *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesGet
  */
@@ -199,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  enterprises/{enterpriseId}/devices/{deviceId}
+ *  enterprises/{enterpriseId}/devices/{deviceId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_Command to include in the query.
  *  @param name The name of the device in the form
- *    enterprises/{enterpriseId}/devices/{deviceId}
+ *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand
  */
@@ -239,10 +239,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/** A token identifying a page of results returned by the server. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists devices for a given enterprise.
  *
  *  @param parent The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesList
  *
@@ -444,7 +444,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  enterprises/{enterpriseId}/devices/{deviceId}
+ *  enterprises/{enterpriseId}/devices/{deviceId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -463,7 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_Device to include in the query.
  *  @param name The name of the device in the form
- *    enterprises/{enterpriseId}/devices/{deviceId}
+ *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesPatch
  */
@@ -484,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesEnrollmentTokensCreateWithObject:parent:]
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -495,7 +495,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidManagement_EnrollmentToken to include in the
  *    query.
  *  @param parent The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate
  */
@@ -505,7 +505,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an enrollment token, which prevents future use of the token.
+ *  Deletes an enrollment token. This operation invalidates the token,
+ *  preventing its future use.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.delete
  *
@@ -518,17 +519,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the enrollment token in the form
- *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}
+ *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  Deletes an enrollment token, which prevents future use of the token.
+ *  Deletes an enrollment token. This operation invalidates the token,
+ *  preventing its future use.
  *
  *  @param name The name of the enrollment token in the form
- *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}
+ *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete
  */
@@ -548,7 +550,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesGetWithname:]
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -557,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets an enterprise.
  *
  *  @param name The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesGet
  */
@@ -577,7 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesPatchWithObject:name:]
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -596,7 +598,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.
  *  @param name The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPatch
  */
@@ -620,7 +622,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  enterprises/{enterpriseId}/policies/{policyId}
+ *  enterprises/{enterpriseId}/policies/{policyId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -631,7 +633,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  currently referencing the policy.
  *
  *  @param name The name of the policy in the form
- *    enterprises/{enterpriseId}/policies/{policyId}
+ *    enterprises/{enterpriseId}/policies/{policyId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesDelete
  */
@@ -653,7 +655,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  enterprises/{enterpriseId}/policies/{policyId}
+ *  enterprises/{enterpriseId}/policies/{policyId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -663,7 +665,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a policy.
  *
  *  @param name The name of the policy in the form
- *    enterprises/{enterpriseId}/policies/{policyId}
+ *    enterprises/{enterpriseId}/policies/{policyId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesGet
  */
@@ -689,10 +691,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/** A token identifying a page of results returned by the server. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -701,7 +703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists policies for a given enterprise.
  *
  *  @param parent The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesList
  *
@@ -727,7 +729,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  enterprises/{enterpriseId}/policies/{policyId}
+ *  enterprises/{enterpriseId}/policies/{policyId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -746,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_Policy to include in the query.
  *  @param name The name of the policy in the form
- *    enterprises/{enterpriseId}/policies/{policyId}
+ *    enterprises/{enterpriseId}/policies/{policyId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
@@ -768,7 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesWebTokensCreateWithObject:parent:]
 
-/** The name of the enterprise in the form enterprises/{enterpriseId} */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -779,7 +781,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_WebToken to include in the query.
  *  @param parent The name of the enterprise in the form
- *    enterprises/{enterpriseId}
+ *    enterprises/{enterpriseId}.
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesWebTokensCreate
  */
@@ -801,7 +803,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidManagement queryForSignupUrlsCreate]
 
 /**
- *  The callback URL to which the admin will be redirected after successfully
+ *  The callback URL that the admin will be redirected to after successfully
  *  creating an enterprise. Before redirecting there the system will add a query
  *  parameter to this URL named enterpriseToken which will contain an opaque
  *  token to be used for the create enterprise request. The URL will be parsed
@@ -811,7 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *callbackUrl;
 
 /**
- *  The id of the Google Cloud Platform project which will own the enterprise.
+ *  The ID of the Google Cloud Platform project which will own the enterprise.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 

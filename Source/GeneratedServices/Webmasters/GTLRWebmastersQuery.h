@@ -329,7 +329,9 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
 
 /**
  *  The URI of the property as defined in Search Console. Examples:
- *  http://www.example.com/ or android-app://com.example/
+ *  http://www.example.com/ or android-app://com.example/ Note: for
+ *  property-sets, use the URI that starts with sc-set: which is used in Search
+ *  Console URLs.
  */
 @property(nonatomic, copy, nullable) NSString *siteUrl;
 
@@ -340,7 +342,9 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  Removes a site from the set of the user's Search Console sites.
  *
  *  @param siteUrl The URI of the property as defined in Search Console.
- *    Examples: http://www.example.com/ or android-app://com.example/
+ *    Examples: http://www.example.com/ or android-app://com.example/ Note: for
+ *    property-sets, use the URI that starts with sc-set: which is used in
+ *    Search Console URLs.
  *
  *  @returns GTLRWebmastersQuery_SitesDelete
  */
@@ -363,7 +367,9 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
 
 /**
  *  The URI of the property as defined in Search Console. Examples:
- *  http://www.example.com/ or android-app://com.example/
+ *  http://www.example.com/ or android-app://com.example/ Note: for
+ *  property-sets, use the URI that starts with sc-set: which is used in Search
+ *  Console URLs.
  */
 @property(nonatomic, copy, nullable) NSString *siteUrl;
 
@@ -373,7 +379,9 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  Retrieves information about specific site.
  *
  *  @param siteUrl The URI of the property as defined in Search Console.
- *    Examples: http://www.example.com/ or android-app://com.example/
+ *    Examples: http://www.example.com/ or android-app://com.example/ Note: for
+ *    property-sets, use the URI that starts with sc-set: which is used in
+ *    Search Console URLs.
  *
  *  @returns GTLRWebmastersQuery_SitesGet
  */

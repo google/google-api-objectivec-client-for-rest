@@ -4,8 +4,8 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Automates reseller integration into zero-touch enrollment by assigning
-//   devices to customers and creating device reports.
+//   Automates Android zero-touch enrollment for device resellers, customers,
+//   and EMMs.
 // Documentation:
 //   https://developers.google.com/zero-touch/
 

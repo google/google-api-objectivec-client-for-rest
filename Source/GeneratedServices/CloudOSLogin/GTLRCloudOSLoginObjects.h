@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudOSLogin_LoginProfile : GTLRObject
 
-/** The primary email address that uniquely identifies the user. */
+/** A unique user ID. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list of POSIX accounts associated with the user. */
@@ -68,14 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A map from SSH public key fingerprint to the associated key object. */
 @property(nonatomic, strong, nullable) GTLRCloudOSLogin_LoginProfile_SshPublicKeys *sshPublicKeys;
-
-/**
- *  Indicates if the user is suspended. A suspended user cannot log in but
- *  their profile information is retained.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *suspended;
 
 @end
 

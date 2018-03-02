@@ -303,10 +303,13 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_ContextRule
-@dynamic provided, requested, selector;
+@dynamic allowedRequestExtensions, allowedResponseExtensions, provided,
+         requested, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowedRequestExtensions" : [NSString class],
+    @"allowedResponseExtensions" : [NSString class],
     @"provided" : [NSString class],
     @"requested" : [NSString class]
   };
@@ -551,8 +554,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_HttpRule
 @dynamic additionalBindings, authorizations, body, custom, deleteProperty, get,
-         mediaDownload, mediaUpload, patch, post, put, responseBody,
-         restCollection, restMethodName, selector;
+         mediaDownload, mediaUpload, patch, post, put, restCollection,
+         restMethodName, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };

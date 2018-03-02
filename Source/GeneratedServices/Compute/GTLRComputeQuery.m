@@ -3243,6 +3243,36 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesListReferrers
+
+@dynamic filter, instance, maxResults, orderBy, pageToken, project,
+         zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/referrers";
+  GTLRComputeQuery_InstancesListReferrers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_InstanceListReferrers class];
+  query.loggingName = @"compute.instances.listReferrers";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesReset
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -3702,6 +3732,43 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instances.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesUpdateAccessConfig
+
+@dynamic instance, networkInterface, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_AccessConfig *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance
+               networkInterface:(NSString *)networkInterface {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateAccessConfig";
+  GTLRComputeQuery_InstancesUpdateAccessConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.networkInterface = networkInterface;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.updateAccessConfig";
   return query;
 }
 

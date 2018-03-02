@@ -384,6 +384,11 @@ NSString * const kGTLRSlides_Recolor_Name_Negative  = @"NEGATIVE";
 NSString * const kGTLRSlides_Recolor_Name_None      = @"NONE";
 NSString * const kGTLRSlides_Recolor_Name_Sepia     = @"SEPIA";
 
+// GTLRSlides_ReplaceAllShapesWithImageRequest.imageReplaceMethod
+NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop = @"CENTER_CROP";
+NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside = @"CENTER_INSIDE";
+NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified = @"IMAGE_REPLACE_METHOD_UNSPECIFIED";
+
 // GTLRSlides_ReplaceAllShapesWithImageRequest.replaceMethod
 NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop = @"CENTER_CROP";
 NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside = @"CENTER_INSIDE";
@@ -391,6 +396,11 @@ NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_Cent
 // GTLRSlides_ReplaceAllShapesWithSheetsChartRequest.linkingMode
 NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked = @"LINKED";
 NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage = @"NOT_LINKED_IMAGE";
+
+// GTLRSlides_ReplaceImageRequest.imageReplaceMethod
+NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop = @"CENTER_CROP";
+NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside = @"CENTER_INSIDE";
+NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified = @"IMAGE_REPLACE_METHOD_UNSPECIFIED";
 
 // GTLRSlides_Shadow.alignment
 NSString * const kGTLRSlides_Shadow_Alignment_BottomCenter     = @"BOTTOM_CENTER";
@@ -680,7 +690,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_BatchUpdatePresentationResponse
-@dynamic presentationId, replies;
+@dynamic presentationId, replies, writeControl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1049,7 +1059,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Image
-@dynamic contentUrl, imageProperties;
+@dynamic contentUrl, imageProperties, sourceUrl;
 @end
 
 
@@ -1429,7 +1439,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ReplaceAllShapesWithImageRequest
-@dynamic containsText, imageUrl, pageObjectIds, replaceMethod;
+@dynamic containsText, imageReplaceMethod, imageUrl, pageObjectIds,
+         replaceMethod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1509,6 +1520,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_ReplaceImageRequest
+//
+
+@implementation GTLRSlides_ReplaceImageRequest
+@dynamic imageObjectId, imageReplaceMethod, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_Request
 //
 
@@ -1519,7 +1540,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          duplicateObject, groupObjects, insertTableColumns, insertTableRows,
          insertText, mergeTableCells, refreshSheetsChart,
          replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
-         replaceAllText, ungroupObjects, unmergeTableCells,
+         replaceAllText, replaceImage, ungroupObjects, unmergeTableCells,
          updateImageProperties, updateLineProperties, updatePageElementAltText,
          updatePageElementTransform, updatePageProperties, updateParagraphStyle,
          updateShapeProperties, updateSlidesPosition,
@@ -2123,7 +2144,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_VideoProperties
-@dynamic outline;
+@dynamic autoPlay, end, mute, outline, start;
 @end
 
 

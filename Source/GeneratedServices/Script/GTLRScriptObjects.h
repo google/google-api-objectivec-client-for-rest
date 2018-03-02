@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
-//   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
+//   https://developers.google.com/apps-script/api/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -212,6 +212,12 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStat
  *  Value: "TIMED_OUT"
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_TimedOut;
+/**
+ *  Process status unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeProcess.processType
@@ -817,6 +823,8 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *        process is currently running. (Value: "RUNNING")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_TimedOut The
  *        process timed out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown
+ *        Process status unknown. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *processStatus;
 

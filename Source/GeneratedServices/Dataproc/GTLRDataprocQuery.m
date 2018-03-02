@@ -32,7 +32,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersCreate
 
-@dynamic projectId, region;
+@dynamic projectId, region, requestId;
 
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
                       projectId:(NSString *)projectId
@@ -61,7 +61,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersDelete
 
-@dynamic clusterName, projectId, region;
+@dynamic clusterName, clusterUuid, projectId, region, requestId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region
@@ -165,7 +165,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersPatch
 
-@dynamic clusterName, gracefulDecommissionTimeout, projectId, region,
+@dynamic clusterName, gracefulDecommissionTimeout, projectId, region, requestId,
          updateMask;
 
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object

@@ -24,6 +24,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta2CancelDlpJobRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2CreateDeidentifyTemplateRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2CreateInspectTemplateRequest;
+@class GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2InspectContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2InspectDataSourceRequest;
@@ -31,6 +32,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta2ReidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2UpdateDeidentifyTemplateRequest;
 @class GTLRDLP_GooglePrivacyDlpV2beta2UpdateInspectTemplateRequest;
+@class GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -155,7 +157,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and deidentify template to be deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -166,7 +169,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesDelete
  */
@@ -188,7 +192,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and deidentify template to be read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -199,7 +204,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesGet
  */
@@ -270,7 +276,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of organization and deidentify template to be updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -284,7 +291,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    in the query.
  *  @param name Resource name of organization and deidentify template to be
  *    updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesPatch
  */
@@ -346,7 +354,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and inspectTemplate to be deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -357,7 +366,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesDelete
  */
@@ -379,7 +389,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and inspectTemplate to be read, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -390,7 +401,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesGet
  */
@@ -461,7 +473,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of organization and inspectTemplate to be updated, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -475,7 +488,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    the query.
  *  @param name Resource name of organization and inspectTemplate to be updated,
  *    for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesPatch
  */
@@ -589,7 +603,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Schedules a job to compute risk analysis metrics over content in a Google
- *  Cloud Platform repository. [How-to guide}(/dlp/docs/compute-risk-analysis)
+ *  Cloud Platform repository. [How-to guide](/dlp/docs/compute-risk-analysis)
  *
  *  Method: dlp.projects.dataSource.analyze
  *
@@ -607,7 +621,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta2DlpJob.
  *
  *  Schedules a job to compute risk analysis metrics over content in a Google
- *  Cloud Platform repository. [How-to guide}(/dlp/docs/compute-risk-analysis)
+ *  Cloud Platform repository. [How-to guide](/dlp/docs/compute-risk-analysis)
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2beta2AnalyzeDataSourceRiskRequest to include in
@@ -707,7 +721,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and deidentify template to be deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -718,7 +733,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesDelete
  */
@@ -740,7 +756,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and deidentify template to be read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -751,7 +768,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesGet
  */
@@ -822,7 +840,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of organization and deidentify template to be updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342`.
+ *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -836,7 +855,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    in the query.
  *  @param name Resource name of organization and deidentify template to be
  *    updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342`.
+ *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesPatch
  */
@@ -962,6 +982,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  * Supported fields/values for inspect jobs:
  *  - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
  *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
+ *  - `trigger_name` - The resource name of the trigger that created job.
  *  * Supported fields for risk analysis jobs:
  *  - `state` - RUNNING|CANCELED|FINISHED|FAILED
  *  * The operator must be `=` or `!=`.
@@ -1097,7 +1118,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and inspectTemplate to be deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1108,7 +1130,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsInspectTemplatesDelete
  */
@@ -1130,7 +1153,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of the organization and inspectTemplate to be read, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1141,7 +1165,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsInspectTemplatesGet
  */
@@ -1212,7 +1237,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Resource name of organization and inspectTemplate to be updated, for
- *  example `organizations/433245324/inspectTemplates/432452342`.
+ *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1226,11 +1252,200 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    the query.
  *  @param name Resource name of organization and inspectTemplate to be updated,
  *    for
- *    example `organizations/433245324/inspectTemplates/432452342`.
+ *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    projects/project-id/inspectTemplates/432452342.
  *
  *  @returns GTLRDLPQuery_ProjectsInspectTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta2UpdateInspectTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a job to run DLP actions such as scanning storage for sensitive
+ *  information on a set schedule.
+ *
+ *  Method: dlp.projects.jobTriggers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsJobTriggersCreate : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsJobTriggersCreateWithObject:parent:]
+
+/** The parent resource name, for example projects/my-project-id. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger.
+ *
+ *  Creates a job to run DLP actions such as scanning storage for sensitive
+ *  information on a set schedule.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest
+ *    to include in the query.
+ *  @param parent The parent resource name, for example projects/my-project-id.
+ *
+ *  @returns GTLRDLPQuery_ProjectsJobTriggersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a job trigger.
+ *
+ *  Method: dlp.projects.jobTriggers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsJobTriggersDelete : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsJobTriggersDeleteWithname:]
+
+/**
+ *  Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a job trigger.
+ *
+ *  @param name Resource name of the project and the triggeredJob, for example
+ *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @returns GTLRDLPQuery_ProjectsJobTriggersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a job trigger.
+ *
+ *  Method: dlp.projects.jobTriggers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsJobTriggersGet : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsJobTriggersGetWithname:]
+
+/**
+ *  Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger.
+ *
+ *  Gets a job trigger.
+ *
+ *  @param name Resource name of the project and the triggeredJob, for example
+ *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @returns GTLRDLPQuery_ProjectsJobTriggersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists job triggers.
+ *
+ *  Method: dlp.projects.jobTriggers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsJobTriggersList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsJobTriggersListWithparent:]
+
+/**
+ *  Optional comma separated list of triggeredJob fields to order by,
+ *  followed by 'asc/desc' postfix, i.e.
+ *  `"create_time asc,name desc,schedule_mode asc"`. This list is
+ *  case-insensitive.
+ *  Example: `"name asc,schedule_mode desc, status desc"`
+ *  Supported filters keys and values are:
+ *  - `create_time`: corresponds to time the triggeredJob was created.
+ *  - `update_time`: corresponds to time the triggeredJob was last updated.
+ *  - `name`: corresponds to JobTrigger's display name.
+ *  - `status`: corresponds to the triggeredJob status.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional size of the page, can be limited by a server. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional page token to continue retrieval. Comes from previous call
+ *  to ListJobTriggers. `order_by` and `filter` should not change for
+ *  subsequent calls, but can be omitted if token is specified.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent resource name, for example projects/my-project-id. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta2ListJobTriggersResponse.
+ *
+ *  Lists job triggers.
+ *
+ *  @param parent The parent resource name, for example projects/my-project-id.
+ *
+ *  @returns GTLRDLPQuery_ProjectsJobTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a job trigger.
+ *
+ *  Method: dlp.projects.jobTriggers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsJobTriggersPatch : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsJobTriggersPatchWithObject:name:]
+
+/**
+ *  Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger.
+ *
+ *  Updates a job trigger.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest
+ *    to include in the query.
+ *  @param name Resource name of the project and the triggeredJob, for example
+ *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @returns GTLRDLPQuery_ProjectsJobTriggersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest *)object
                            name:(NSString *)name;
 
 @end

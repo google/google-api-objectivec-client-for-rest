@@ -11,13 +11,9 @@
 #import "GTLRAppsactivity.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-NSString * const kGTLRAuthScopeAppsactivityActivity            = @"https://www.googleapis.com/auth/activity";
-NSString * const kGTLRAuthScopeAppsactivityDrive               = @"https://www.googleapis.com/auth/drive";
-NSString * const kGTLRAuthScopeAppsactivityDriveMetadata       = @"https://www.googleapis.com/auth/drive.metadata";
-NSString * const kGTLRAuthScopeAppsactivityDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
-NSString * const kGTLRAuthScopeAppsactivityDriveReadonly       = @"https://www.googleapis.com/auth/drive.readonly";
+NSString * const kGTLRAuthScopeAppsactivityActivity = @"https://www.googleapis.com/auth/activity";
 
 // ----------------------------------------------------------------------------
 //   GTLRAppsactivityService

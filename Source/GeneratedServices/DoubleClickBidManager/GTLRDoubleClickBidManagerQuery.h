@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves line items in CSV format.
+ *  Retrieves line items in CSV format. TrueView line items are not supported.
  *
  *  Method: doubleclickbidmanager.lineitems.downloadlineitems
  *
@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_DownloadLineItemsResponse.
  *
- *  Retrieves line items in CSV format.
+ *  Retrieves line items in CSV format. TrueView line items are not supported.
  *
  *  @param object The @c GTLRDoubleClickBidManager_DownloadLineItemsRequest to
  *    include in the query.
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Uploads line items in CSV format.
+ *  Uploads line items in CSV format. TrueView line items are not supported.
  *
  *  Method: doubleclickbidmanager.lineitems.uploadlineitems
  *
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_UploadLineItemsResponse.
  *
- *  Uploads line items in CSV format.
+ *  Uploads line items in CSV format. TrueView line items are not supported.
  *
  *  @param object The @c GTLRDoubleClickBidManager_UploadLineItemsRequest to
  *    include in the query.

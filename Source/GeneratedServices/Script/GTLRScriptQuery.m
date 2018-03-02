@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
-//   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
+//   https://developers.google.com/apps-script/api/
 
 #import "GTLRScriptQuery.h"
 
@@ -28,6 +28,7 @@ NSString * const kGTLRScriptScriptProcessFilterStatusesPaused  = @"PAUSED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesRunning = @"RUNNING";
 NSString * const kGTLRScriptScriptProcessFilterStatusesTimedOut = @"TIMED_OUT";
+NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown = @"UNKNOWN";
 
 // scriptProcessFilterTypes
 NSString * const kGTLRScriptScriptProcessFilterTypesAddOn      = @"ADD_ON";
@@ -53,6 +54,7 @@ NSString * const kGTLRScriptUserProcessFilterStatusesPaused    = @"PAUSED";
 NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";
 NSString * const kGTLRScriptUserProcessFilterStatusesRunning   = @"RUNNING";
 NSString * const kGTLRScriptUserProcessFilterStatusesTimedOut  = @"TIMED_OUT";
+NSString * const kGTLRScriptUserProcessFilterStatusesUnknown   = @"UNKNOWN";
 
 // userProcessFilterTypes
 NSString * const kGTLRScriptUserProcessFilterTypesAddOn        = @"ADD_ON";

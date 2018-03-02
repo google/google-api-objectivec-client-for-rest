@@ -4,8 +4,8 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Automates reseller integration into zero-touch enrollment by assigning
-//   devices to customers and creating device reports.
+//   Automates Android zero-touch enrollment for device resellers, customers,
+//   and EMMs.
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
@@ -472,7 +472,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_CustomerListCustomersResponse : GTLRCollectionObject
 
 /**
- *  Customers the current user can act as.
+ *  The customer accounts the calling user is a member of.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -480,8 +480,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  A token used to access the next page of results. Omitted if no further
+ *  results are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

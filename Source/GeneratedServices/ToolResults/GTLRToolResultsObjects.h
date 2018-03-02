@@ -306,7 +306,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  */
 @interface GTLRToolResults_AndroidTest : GTLRObject
 
-/** Infomation about the application under test. */
+/** Information about the application under test. */
 @property(nonatomic, strong, nullable) GTLRToolResults_AndroidAppInfo *androidAppInfo;
 
 /** An Android instrumentation test. */
@@ -1046,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  */
 @interface GTLRToolResults_ListScreenshotClustersResponse : GTLRObject
 
-/** The set of clustres associated with an execution Always set */
+/** The set of clusters associated with an execution Always set */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ScreenshotCluster *> *clusters;
 
 @end

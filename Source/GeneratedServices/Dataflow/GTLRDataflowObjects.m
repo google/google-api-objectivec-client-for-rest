@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Dataflow API (dataflow/v1b3)
+//   Dataflow API (dataflow/v1b3)
 // Description:
 //   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:
@@ -161,6 +161,16 @@ NSString * const kGTLRDataflow_TransformSummary_Kind_ShuffleKind = @"SHUFFLE_KIN
 NSString * const kGTLRDataflow_TransformSummary_Kind_SingletonKind = @"SINGLETON_KIND";
 NSString * const kGTLRDataflow_TransformSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind = @"WRITE_KIND";
+
+// GTLRDataflow_WorkerLifecycleEvent.event
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_ContainerStart = @"CONTAINER_START";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_NetworkUp = @"NETWORK_UP";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_OsStart = @"OS_START";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallFinish = @"SDK_INSTALL_FINISH";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallStart = @"SDK_INSTALL_START";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadFinish = @"STAGING_FILES_DOWNLOAD_FINISH";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadStart = @"STAGING_FILES_DOWNLOAD_START";
+NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEvent = @"UNKNOWN_EVENT";
 
 // GTLRDataflow_WorkerPool.defaultPackageSet
 NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetJava = @"DEFAULT_PACKAGE_SET_JAVA";
@@ -1382,7 +1392,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_RuntimeEnvironment
 @dynamic additionalExperiments, bypassTempDirValidation, machineType,
-         maxWorkers, serviceAccountEmail, tempLocation, zoneProperty;
+         maxWorkers, network, serviceAccountEmail, subnetwork, tempLocation,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2157,12 +2168,36 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_WorkerLifecycleEvent
+//
+
+@implementation GTLRDataflow_WorkerLifecycleEvent
+@dynamic containerStartTime, event, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_WorkerLifecycleEvent_Metadata
+//
+
+@implementation GTLRDataflow_WorkerLifecycleEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_WorkerMessage
 //
 
 @implementation GTLRDataflow_WorkerMessage
-@dynamic labels, time, workerHealthReport, workerMessageCode, workerMetrics,
-         workerShutdownNotice;
+@dynamic labels, time, workerHealthReport, workerLifecycleEvent,
+         workerMessageCode, workerMetrics, workerShutdownNotice;
 @end
 
 

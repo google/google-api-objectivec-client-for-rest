@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
-//   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
+//   https://developers.google.com/apps-script/api/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

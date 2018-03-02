@@ -87,7 +87,7 @@
 
 @dynamic name, parent;
 
-+ (instancetype)queryWithObject:(GTLRManufacturerCenter_Product *)object
++ (instancetype)queryWithObject:(GTLRManufacturerCenter_Attributes *)object
                          parent:(NSString *)parent
                            name:(NSString *)name {
   if (object == nil) {
@@ -105,7 +105,7 @@
   query.bodyObject = object;
   query.parent = parent;
   query.name = name;
-  query.expectedObjectClass = [GTLRManufacturerCenter_Product class];
+  query.expectedObjectClass = [GTLRManufacturerCenter_Empty class];
   query.loggingName = @"manufacturers.accounts.products.update";
   return query;
 }

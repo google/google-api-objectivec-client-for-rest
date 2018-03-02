@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
-//   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
+//   https://developers.google.com/apps-script/api/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -62,6 +62,8 @@ GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatus
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesRunning;
 /** Value: "TIMED_OUT" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesTimedOut;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterTypes
@@ -112,6 +114,8 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUn
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesRunning;
 /** Value: "TIMED_OUT" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesTimedOut;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterTypes
@@ -230,6 +234,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptUserProcessFilterStatusesCanceled Value "CANCELED"
  *    @arg @c kGTLRScriptUserProcessFilterStatusesFailed Value "FAILED"
  *    @arg @c kGTLRScriptUserProcessFilterStatusesTimedOut Value "TIMED_OUT"
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesUnknown Value "UNKNOWN"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterStatuses;
 
@@ -342,6 +347,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesCanceled Value "CANCELED"
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesFailed Value "FAILED"
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesTimedOut Value "TIMED_OUT"
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesUnknown Value "UNKNOWN"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterStatuses;
 

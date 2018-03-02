@@ -290,6 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Add a new tenant project to the tenancy unit.
+ *  There can be at most 512 tenant projects in a tenancy units.
  *  If there are previously failed AddTenantProject calls, you might need to
  *  call RemoveTenantProject first to clean them before you can make another
  *  AddTenantProject with the same tag.
@@ -311,6 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Add a new tenant project to the tenancy unit.
+ *  There can be at most 512 tenant projects in a tenancy units.
  *  If there are previously failed AddTenantProject calls, you might need to
  *  call RemoveTenantProject first to clean them before you can make another
  *  AddTenantProject with the same tag.

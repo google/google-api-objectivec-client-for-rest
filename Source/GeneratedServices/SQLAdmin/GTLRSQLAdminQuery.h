@@ -574,8 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Demotes the standalone instance to be a read replica Cloud SQL instance of
- *  an on-premises master.
+ *  Reserved for future use.
  *
  *  Method: sql.instances.demoteMaster
  *
@@ -596,8 +595,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Demotes the standalone instance to be a read replica Cloud SQL instance of
- *  an on-premises master.
+ *  Reserved for future use.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesDemoteMasterRequest to include in
  *    the query.

@@ -98,6 +98,8 @@ GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Upload;
 GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Commenter;
 /** Value: "owner" */
 GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Owner;
+/** Value: "publishedReader" */
+GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_PublishedReader;
 /** Value: "reader" */
 GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Reader;
 /** Value: "writer" */
@@ -292,6 +294,8 @@ GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_User;
  *  Likely values:
  *    @arg @c kGTLRAppsactivity_Permission_Role_Commenter Value "commenter"
  *    @arg @c kGTLRAppsactivity_Permission_Role_Owner Value "owner"
+ *    @arg @c kGTLRAppsactivity_Permission_Role_PublishedReader Value
+ *        "publishedReader"
  *    @arg @c kGTLRAppsactivity_Permission_Role_Reader Value "reader"
  *    @arg @c kGTLRAppsactivity_Permission_Role_Writer Value "writer"
  */

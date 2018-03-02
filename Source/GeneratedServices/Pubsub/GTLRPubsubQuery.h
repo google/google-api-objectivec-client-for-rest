@@ -157,6 +157,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the configuration details of a snapshot.
+ *
+ *  Method: pubsub.projects.snapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSnapshotsGet : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSnapshotsGetWithsnapshot:]
+
+/**
+ *  The name of the snapshot to get.
+ *  Format is `projects/{project}/snapshots/{snap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshot;
+
+/**
+ *  Fetches a @c GTLRPubsub_Snapshot.
+ *
+ *  Gets the configuration details of a snapshot.
+ *
+ *  @param snapshot The name of the snapshot to get.
+ *    Format is `projects/{project}/snapshots/{snap}`.
+ *
+ *  @returns GTLRPubsubQuery_ProjectsSnapshotsGet
+ */
++ (instancetype)queryWithSnapshot:(NSString *)snapshot;
+
+@end
+
+/**
  *  Gets the access control policy for a resource.
  *  Returns an empty policy if the resource exists and does not have a policy
  *  set.

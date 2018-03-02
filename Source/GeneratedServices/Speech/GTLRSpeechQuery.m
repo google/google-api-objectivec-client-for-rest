@@ -18,50 +18,6 @@
 
 @end
 
-@implementation GTLRSpeechQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRSpeech_CancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/operations/{+name}:cancel";
-  GTLRSpeechQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRSpeech_Empty class];
-  query.loggingName = @"speech.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRSpeechQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/operations/{+name}";
-  GTLRSpeechQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSpeech_Empty class];
-  query.loggingName = @"speech.operations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRSpeechQuery_OperationsGet
 
 @dynamic name;
@@ -76,23 +32,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSpeech_Operation class];
   query.loggingName = @"speech.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRSpeechQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1/operations";
-  GTLRSpeechQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRSpeech_ListOperationsResponse class];
-  query.loggingName = @"speech.operations.list";
   return query;
 }
 

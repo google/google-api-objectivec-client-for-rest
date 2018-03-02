@@ -82,6 +82,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_De
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed = @"FAILED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready = @"READY";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Updating = @"UPDATING";
 
 // GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -160,11 +161,21 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config
+@dynamic tpuServiceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse
-@dynamic serviceAccount, serviceAccountProject;
+@dynamic config, serviceAccount, serviceAccountProject;
 @end
 
 
@@ -174,7 +185,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput
-@dynamic allMetrics, finalMetric, hyperparameters, trialId;
+@dynamic allMetrics, finalMetric, hyperparameters, isTrialStoppedEarly, trialId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -216,7 +227,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec
-@dynamic goal, hyperparameterMetricTag, maxParallelTrials, maxTrials, params;
+@dynamic enableTrialEarlyStopping, goal, hyperparameterMetricTag,
+         maxParallelTrials, maxTrials, params, resumePreviousJobId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -234,28 +246,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job
-@dynamic createTime, endTime, errorMessage, ETag, jobId, labels,
-         predictionInput, predictionOutput, startTime, state, trainingInput,
-         trainingOutput;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
+@dynamic createTime, endTime, errorMessage, jobId, predictionInput,
+         predictionOutput, startTime, state, trainingInput, trainingOutput;
 @end
 
 
@@ -381,15 +373,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model
-@dynamic defaultVersion, descriptionProperty, ETag, labels, name,
-         onlinePredictionLogging, regions;
+@dynamic defaultVersion, descriptionProperty, name, onlinePredictionLogging,
+         regions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"ETag" : @"etag"
-  };
-  return map;
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -404,40 +392,12 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata
-@dynamic createTime, endTime, isCancellationRequested, labels, modelName,
-         operationType, projectNumber, startTime, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
+@dynamic createTime, endTime, isCancellationRequested, modelName, operationType,
+         projectNumber, startTime, version;
 @end
 
 
@@ -556,29 +516,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
 @dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
-         errorMessage, ETag, isDefault, labels, lastUseTime, manualScaling,
-         name, runtimeVersion, state;
+         errorMessage, isDefault, lastUseTime, manualScaling, name,
+         runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"ETag" : @"etag"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -590,12 +532,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig class]
   };
   return map;
 }
@@ -627,7 +568,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -645,7 +586,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -804,21 +745,6 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleTypeExpr
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleTypeExpr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

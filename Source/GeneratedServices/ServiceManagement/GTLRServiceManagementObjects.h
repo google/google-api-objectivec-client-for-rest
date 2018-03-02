@@ -53,7 +53,6 @@
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
 @class GTLRServiceManagement_Experimental;
-@class GTLRServiceManagement_Expr;
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_GenerateConfigReportRequest_NewConfig;
 @class GTLRServiceManagement_GenerateConfigReportRequest_OldConfig;
@@ -416,46 +415,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Field_Kind_TypeUint64;
 GTLR_EXTERN NSString * const kGTLRServiceManagement_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
-// GTLRServiceManagement_FlowOperationMetadata.cancelState
-
-/**
- *  The operation has been cancelled, work should cease
- *  and any needed rollback steps executed.
- *
- *  Value: "CANCELLED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Cancelled;
-/**
- *  Default state, cancellable but not cancelled.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Running;
-/**
- *  The operation has proceeded past the point of no return and cannot
- *  be cancelled.
- *
- *  Value: "UNCANCELLABLE"
- */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Uncancellable;
-
-// ----------------------------------------------------------------------------
-// GTLRServiceManagement_FlowOperationMetadata.surface
-
-/**
- *  TenancyUnit, ServiceNetworking fall under this
- *
- *  Value: "SERVICE_CONSUMER_MANAGEMENT"
- */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement;
-/** Value: "SERVICE_MANAGEMENT" */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement;
-/** Value: "SERVICE_USAGE" */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage;
-/** Value: "UNSPECIFIED_OP_SERVICE" */
-GTLR_EXTERN NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService;
-
-// ----------------------------------------------------------------------------
 // GTLRServiceManagement_LabelDescriptor.valueType
 
 /**
@@ -773,7 +732,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditConfig are exempted.
+ *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  {
  *  "audit_configs": [
@@ -821,8 +780,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Next ID: 4
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_AuditLogConfig *> *auditLogConfigs;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
  *  Specifies a service that will be enabled for audit logging.
@@ -1175,15 +1132,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
- *  This field is GOOGLE_INTERNAL.
- */
-@property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
-
-/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -1392,6 +1340,22 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  `google.rpc.context.OriginContext`.
  *  Available context types are defined in package
  *  `google.rpc.context`.
+ *  This also provides mechanism to whitelist any protobuf message extension
+ *  that
+ *  can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+ *  “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+ *  specific protobuf types that can appear in grpc metadata as follows in your
+ *  yaml file:
+ *  Example:
+ *  context:
+ *  rules:
+ *  - selector: "google.example.library.v1.LibraryService.CreateBook"
+ *  allowed_request_extensions:
+ *  - google.foo.v1.NewExtension
+ *  allowed_response_extensions:
+ *  - google.foo.v1.NewExtension
+ *  You can also specify extension ID instead of fully qualified extension name
+ *  here.
  */
 @interface GTLRServiceManagement_Context : GTLRObject
 
@@ -1409,6 +1373,18 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  element.
  */
 @interface GTLRServiceManagement_ContextRule : GTLRObject
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from client to backend.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedRequestExtensions;
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from backend to client.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
 /** A list of full type names of provided contexts. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
@@ -1836,46 +1812,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
- */
-@interface GTLRServiceManagement_Expr : GTLRObject
-
-/**
- *  An optional description of the expression. This is a longer text which
- *  describes the expression, e.g. when hovered over it in a UI.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
- */
-@property(nonatomic, copy, nullable) NSString *expression;
-
-/**
- *  An optional string indicating the location of the expression for error
- *  reporting, e.g. a file name and a position in the file.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  An optional title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
  *  A single field of a message type.
  */
 @interface GTLRServiceManagement_Field : GTLRObject
@@ -1981,80 +1917,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
-
-@end
-
-
-/**
- *  The metadata associated with a long running operation resource.
- */
-@interface GTLRServiceManagement_FlowOperationMetadata : GTLRObject
-
-/**
- *  The state of the operation with respect to cancellation.
- *
- *  Likely values:
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_CancelState_Cancelled
- *        The operation has been cancelled, work should cease
- *        and any needed rollback steps executed. (Value: "CANCELLED")
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_CancelState_Running
- *        Default state, cancellable but not cancelled. (Value: "RUNNING")
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_CancelState_Uncancellable
- *        The operation has proceeded past the point of no return and cannot
- *        be cancelled. (Value: "UNCANCELLABLE")
- */
-@property(nonatomic, copy, nullable) NSString *cancelState;
-
-/**
- *  Deadline for the flow to complete, to prevent orphaned Operations.
- *  If the flow has not completed by this time, it may be terminated by
- *  the engine, or force-failed by Operation lookup.
- *  Note that this is not a hard deadline after which the Flow will
- *  definitely be failed, rather it is a deadline after which it is reasonable
- *  to suspect a problem and other parts of the system may kill operation
- *  to ensure we don't have orphans.
- *  see also: go/prevent-orphaned-operations
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *deadline;
-
-/**
- *  The name of the top-level flow corresponding to this operation.
- *  Must be equal to the "name" field for a FlowName enum.
- */
-@property(nonatomic, copy, nullable) NSString *flowName;
-
-/**
- *  Operation type which is a flow type and subtype info as that is missing in
- *  our datastore otherwise. This maps to the ordinal value of the enum:
- *  jcg/api/tenant/operations/OperationNamespace.java
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *operationType;
-
-/**
- *  The full name of the resources that this flow is directly associated with.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
-
-/** The start time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  surface
- *
- *  Likely values:
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement
- *        TenancyUnit, ServiceNetworking fall under this (Value:
- *        "SERVICE_CONSUMER_MANAGEMENT")
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement
- *        Value "SERVICE_MANAGEMENT"
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage
- *        Value "SERVICE_USAGE"
- *    @arg @c kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService
- *        Value "UNSPECIFIED_OP_SERVICE"
- */
-@property(nonatomic, copy, nullable) NSString *surface;
 
 @end
 
@@ -2424,15 +2286,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /** Used for updating a resource. */
 @property(nonatomic, copy, nullable) NSString *put;
-
-/**
- *  The name of the response field whose value is mapped to the HTTP body of
- *  response. Other response fields are ignored. This field is optional. When
- *  not set, the response message will be used as HTTP body of response.
- *  NOTE: the referred field must be not a repeated field and must be present
- *  at the top-level of response message type.
- */
-@property(nonatomic, copy, nullable) NSString *responseBody;
 
 /**
  *  Selects methods to which this rule applies.
@@ -2963,13 +2816,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  * `Gi` gibi (2**30)
  *  * `Ti` tebi (2**40)
  *  **Grammar**
- *  The grammar includes the dimensionless unit `1`, such as `1/s`.
  *  The grammar also includes these connectors:
  *  * `/` division (as an infix operator, e.g. `1/s`).
  *  * `.` multiplication (as an infix operator, e.g. `GBy.d`)
  *  The grammar for a unit is as follows:
  *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = [ PREFIX ] UNIT [ Annotation ]
+ *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
  *  | Annotation
  *  | "1"
  *  ;
@@ -2980,6 +2832,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.
  *  * `NAME` is a sequence of non-blank printable ASCII characters not
  *  containing '{' or '}'.
+ *  * `1` represents dimensionless value 1, such as in `1/s`.
+ *  * `%` represents dimensionless value 1/100, and annotates values giving
+ *  a percentage.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -3540,13 +3395,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  iamOwned
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
  *  Deprecated.

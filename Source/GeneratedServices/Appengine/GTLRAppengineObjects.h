@@ -660,10 +660,11 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Location from which this application will be run. Application instances will
- *  run out of data centers in the chosen location, which is also where all of
- *  the application's end user content is stored.Defaults to us-central.Options
- *  are:us-central - Central USeurope-west - Western Europeus-east1 - Eastern US
+ *  Location from which this application runs. Application instances run out of
+ *  the data centers in the specified location, which is also where all of the
+ *  application's end user content is stored.Defaults to us-central1.View the
+ *  list of supported locations
+ *  (https://cloud.google.com/appengine/docs/locations).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -829,7 +830,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) GTLRDuration *maxPendingLatency;
 
 /**
- *  Maximum number of instances that should be started to handle requests.
+ *  Maximum number of instances that should be started to handle requests for
+ *  this version.
  *
  *  Uses NSNumber of intValue.
  */
@@ -850,7 +852,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) GTLRDuration *minPendingLatency;
 
 /**
- *  Minimum number of instances that should be maintained for this version.
+ *  Minimum number of running instances that should be maintained for this
+ *  version.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1830,7 +1833,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @interface GTLRAppengine_LocationMetadata : GTLRObject
 
 /**
- *  App Engine Flexible Environment is available in the given
+ *  App Engine flexible environment is available in the given
  *  location.\@OutputOnly
  *
  *  Uses NSNumber of boolValue.
@@ -1838,7 +1841,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSNumber *flexibleEnvironmentAvailable;
 
 /**
- *  App Engine Standard Environment is available in the given
+ *  App Engine standard environment is available in the given
  *  location.\@OutputOnly
  *
  *  Uses NSNumber of boolValue.
@@ -1881,8 +1884,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardedPorts;
 
 /**
- *  Tag to apply to the VM instance during creation. for Only applicable in the
- *  App Engine flexible environment.
+ *  Tag to apply to the instance during creation. Only applicable in the App
+ *  Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTag;
 
@@ -1897,13 +1900,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Specify the short name, not the resource path.If a subnetwork name is
  *  specified, a network name will also be required unless it is for the default
  *  network.
- *  If the network the VM instance is being created in is a Legacy network, then
- *  the IP address is allocated from the IPv4Range.
- *  If the network the VM instance is being created in is an auto Subnet Mode
+ *  If the network that the instance is being created in is a Legacy network,
+ *  then the IP address is allocated from the IPv4Range.
+ *  If the network that the instance is being created in is an auto Subnet Mode
  *  Network, then only network name should be specified (not the
  *  subnetwork_name) and the IP address is created from the IPCidrRange of the
  *  subnetwork that exists in that zone for that network.
- *  If the network the VM instance is being created in is a custom Subnet Mode
+ *  If the network that the instance is being created in is a custom Subnet Mode
  *  Network, then the subnetwork_name must be specified and the IP address is
  *  created from the IPCidrRange of the subnetwork.If specified, the subnetwork
  *  must exist in the same region as the App Engine flexible environment
@@ -2418,7 +2421,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @interface GTLRAppengine_StandardSchedulerSettings : GTLRObject
 
 /**
- *  Maximum number of instances for an app version. Set to zero to disable
+ *  Maximum number of instances to run for this version. Set to zero to disable
  *  max_instances configuration.
  *
  *  Uses NSNumber of intValue.
@@ -2426,7 +2429,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSNumber *maxInstances;
 
 /**
- *  Minimum number of instances for an app version. Set to zero to disable
+ *  Minimum number of instances to run for this version. Set to zero to disable
  *  min_instances configuration.
  *
  *  Uses NSNumber of intValue.
@@ -2882,7 +2885,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_UrlMap *> *handlers;
 
 /**
- *  Configures health checking for VM instances. Unhealthy instances are stopped
+ *  Configures health checking for instances. Unhealthy instances are stopped
  *  and replaced with new instances. Only applicable in the App Engine flexible
  *  environment.Only returned in GET requests if view=FULL is set.
  */
@@ -2918,8 +2921,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_Library *> *libraries;
 
 /**
- *  Configures liveness health checking for VM instances. Unhealthy instances
- *  are stopped and replaced with new instancesOnly returned in GET requests if
+ *  Configures liveness health checking for instances. Unhealthy instances are
+ *  stopped and replaced with new instancesOnly returned in GET requests if
  *  view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_LivenessCheck *livenessCheck;
@@ -2950,13 +2953,16 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *nobuildFilesRegex;
 
 /**
- *  Configures readiness health checking for VM instances. Unhealthy instances
- *  are not put into the backend traffic rotation.Only returned in GET requests
- *  if view=FULL is set.
+ *  Configures readiness health checking for instances. Unhealthy instances are
+ *  not put into the backend traffic rotation.Only returned in GET requests if
+ *  view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ReadinessCheck *readinessCheck;
 
-/** Machine resources for this version. Only applicable for VM runtimes. */
+/**
+ *  Machine resources for this version. Only applicable in the App Engine
+ *  flexible environment.
+ */
 @property(nonatomic, strong, nullable) GTLRAppengine_Resources *resources;
 
 /** Desired runtime. Example: python27. */
@@ -2968,6 +2974,12 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  https://cloud.google.com/appengine/docs/standard/<language>/config/appref
  */
 @property(nonatomic, copy, nullable) NSString *runtimeApiVersion;
+
+/**
+ *  The channel of the runtime to use. Only available for some runtimes.
+ *  Defaults to the default channel.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeChannel;
 
 /**
  *  Current serving status of this version. Only the versions with a SERVING
@@ -3006,7 +3018,10 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) NSNumber *vm;
 
-/** The choice of gce zones to use for this App Engine Flexible version. */
+/**
+ *  The Google Compute Engine zones that are supported by this version in the
+ *  App Engine flexible environment.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *zones;
 
 @end

@@ -16,19 +16,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// examType
-NSString * const kGTLRPartnersExamTypeCertificationExamTypeUnspecified = @"CERTIFICATION_EXAM_TYPE_UNSPECIFIED";
-NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedDisplay = @"CET_ADWORDS_ADVANCED_DISPLAY";
-NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedSearch = @"CET_ADWORDS_ADVANCED_SEARCH";
-NSString * const kGTLRPartnersExamTypeCetAdwordsFundamentals   = @"CET_ADWORDS_FUNDAMENTALS";
-NSString * const kGTLRPartnersExamTypeCetAnalytics             = @"CET_ANALYTICS";
-NSString * const kGTLRPartnersExamTypeCetDigitalSales          = @"CET_DIGITAL_SALES";
-NSString * const kGTLRPartnersExamTypeCetDoubleclick           = @"CET_DOUBLECLICK";
-NSString * const kGTLRPartnersExamTypeCetMobile                = @"CET_MOBILE";
-NSString * const kGTLRPartnersExamTypeCetMobileSites           = @"CET_MOBILE_SITES";
-NSString * const kGTLRPartnersExamTypeCetShopping              = @"CET_SHOPPING";
-NSString * const kGTLRPartnersExamTypeCetVideoAds              = @"CET_VIDEO_ADS";
-
 // gpsMotivations
 NSString * const kGTLRPartnersGpsMotivationsGpsmHelpWithAdvertising = @"GPSM_HELP_WITH_ADVERTISING";
 NSString * const kGTLRPartnersGpsMotivationsGpsmHelpWithWebsite = @"GPSM_HELP_WITH_WEBSITE";
@@ -269,50 +256,6 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPartners_ListCompaniesResponse class];
   query.loggingName = @"partners.companies.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRPartnersQuery_ExamsGetToken
-
-@dynamic examType, requestMetadataExperimentIds, requestMetadataLocale,
-         requestMetadataPartnersSessionId,
-         requestMetadataTrafficSourceTrafficSourceId,
-         requestMetadataTrafficSourceTrafficSubId,
-         requestMetadataUserOverridesIpAddress,
-         requestMetadataUserOverridesUserId;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
-    @"requestMetadataLocale" : @"requestMetadata.locale",
-    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
-    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
-    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
-    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
-    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requestMetadata.experimentIds" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithExamType:(NSString *)examType {
-  NSArray *pathParams = @[ @"examType" ];
-  NSString *pathURITemplate = @"v2/exams/{examType}/token";
-  GTLRPartnersQuery_ExamsGetToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.examType = examType;
-  query.expectedObjectClass = [GTLRPartners_ExamToken class];
-  query.loggingName = @"partners.exams.getToken";
   return query;
 }
 

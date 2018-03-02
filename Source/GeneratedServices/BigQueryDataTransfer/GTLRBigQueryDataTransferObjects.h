@@ -889,6 +889,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  When a new transfer configuration is created, the specified
  *  `destination_dataset_id` is created when needed and shared with the
  *  appropriate data source service account.
+ *  Next id: 21
  */
 @interface GTLRBigQueryDataTransfer_TransferConfig : GTLRObject
 

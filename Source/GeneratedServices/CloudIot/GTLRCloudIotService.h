@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud IoT API (cloudiot/v1)
+//   Cloud IoT API (cloudiot/v1)
 // Description:
 //   Registers and manages IoT (Internet of Things) devices that connect to the
 //   Google Cloud Platform.
@@ -49,7 +49,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIotCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud IoT API queries.
+ *  Service for executing Cloud IoT API queries.
  *
  *  Registers and manages IoT (Internet of Things) devices that connect to the
  *  Google Cloud Platform.

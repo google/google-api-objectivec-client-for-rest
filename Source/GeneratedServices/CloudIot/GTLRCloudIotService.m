@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud IoT API (cloudiot/v1)
+//   Cloud IoT API (cloudiot/v1)
 // Description:
 //   Registers and manages IoT (Internet of Things) devices that connect to the
 //   Google Cloud Platform.

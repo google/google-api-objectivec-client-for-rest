@@ -466,6 +466,56 @@
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRSpanner_PartitionQueryRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:partitionQuery";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRSpanner_PartitionResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.partitionQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRSpanner_PartitionReadRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:partitionRead";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRSpanner_PartitionResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.partitionRead";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRead
 
 @dynamic session;

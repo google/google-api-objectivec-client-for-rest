@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Dataflow API (dataflow/v1b3)
+//   Dataflow API (dataflow/v1b3)
 // Description:
 //   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:
@@ -59,7 +59,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDataflowUserinfoEmail;
 //
 
 /**
- *  Service for executing Google Dataflow API queries.
+ *  Service for executing Dataflow API queries.
  *
  *  Manages Google Cloud Dataflow projects on Google Cloud Platform.
  */

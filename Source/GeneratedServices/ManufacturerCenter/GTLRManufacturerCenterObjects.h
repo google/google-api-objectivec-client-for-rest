@@ -530,7 +530,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @property(nonatomic, copy, nullable) NSString *attribute;
 
 /**
- *  Description of the issue.
+ *  Longer description of the issue focused on how to resolve it.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

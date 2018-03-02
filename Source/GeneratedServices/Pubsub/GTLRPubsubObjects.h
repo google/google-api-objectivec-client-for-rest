@@ -352,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRPubsub_Policy : GTLRObject
 
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

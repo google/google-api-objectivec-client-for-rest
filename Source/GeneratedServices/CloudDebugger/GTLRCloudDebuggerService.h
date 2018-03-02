@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Manage cloud debugger
+ *  Authorization scope: Use Stackdriver Debugger
  *
  *  Value "https://www.googleapis.com/auth/cloud_debugger"
  */

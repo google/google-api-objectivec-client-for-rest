@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google People API (people/v1)
+//   People API (people/v1)
 // Description:
 //   Provides access to information about profiles and contacts.
 // Documentation:

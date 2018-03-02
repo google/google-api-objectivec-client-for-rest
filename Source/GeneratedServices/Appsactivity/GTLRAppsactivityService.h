@@ -26,7 +26,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View the activity history of your Google apps
@@ -34,30 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/activity"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityActivity;
-/**
- *  Authorization scope: View and manage the files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityDrive;
-/**
- *  Authorization scope: View and manage metadata of files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.metadata"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityDriveMetadata;
-/**
- *  Authorization scope: View metadata for files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityDriveMetadataReadonly;
-/**
- *  Authorization scope: View the files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityDriveReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRAppsactivityService

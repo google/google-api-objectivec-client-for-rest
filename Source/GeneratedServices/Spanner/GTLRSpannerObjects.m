@@ -205,7 +205,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic params, paramTypes, queryMode, resumeToken, sql, transaction;
+@dynamic params, paramTypes, partitionToken, queryMode, resumeToken, sql,
+         transaction;
 @end
 
 
@@ -531,6 +532,100 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_Partition
+//
+
+@implementation GTLRSpanner_Partition
+@dynamic partitionToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionOptions
+//
+
+@implementation GTLRSpanner_PartitionOptions
+@dynamic maxPartitions, partitionSizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionQueryRequest
+//
+
+@implementation GTLRSpanner_PartitionQueryRequest
+@dynamic params, paramTypes, partitionOptions, sql, transaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionQueryRequest_Params
+//
+
+@implementation GTLRSpanner_PartitionQueryRequest_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionQueryRequest_ParamTypes
+//
+
+@implementation GTLRSpanner_PartitionQueryRequest_ParamTypes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSpanner_Type class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionReadRequest
+//
+
+@implementation GTLRSpanner_PartitionReadRequest
+@dynamic columns, index, keySet, partitionOptions, table, transaction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_PartitionResponse
+//
+
+@implementation GTLRSpanner_PartitionResponse
+@dynamic partitions, transaction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partitions" : [GTLRSpanner_Partition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_PlanNode
 //
 
@@ -639,7 +734,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ReadRequest
-@dynamic columns, index, keySet, limit, resumeToken, table, transaction;
+@dynamic columns, index, keySet, limit, partitionToken, resumeToken, table,
+         transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

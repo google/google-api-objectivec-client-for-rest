@@ -22,9 +22,12 @@ NSString * const kGTLRVaultStateOpen             = @"OPEN";
 NSString * const kGTLRVaultStateStateUnspecified = @"STATE_UNSPECIFIED";
 
 // view
-NSString * const kGTLRVaultViewBasic           = @"BASIC";
-NSString * const kGTLRVaultViewFull            = @"FULL";
-NSString * const kGTLRVaultViewViewUnspecified = @"VIEW_UNSPECIFIED";
+NSString * const kGTLRVaultViewBasic               = @"BASIC";
+NSString * const kGTLRVaultViewBasicHold           = @"BASIC_HOLD";
+NSString * const kGTLRVaultViewFull                = @"FULL";
+NSString * const kGTLRVaultViewFullHold            = @"FULL_HOLD";
+NSString * const kGTLRVaultViewHoldViewUnspecified = @"HOLD_VIEW_UNSPECIFIED";
+NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -271,7 +274,7 @@ NSString * const kGTLRVaultViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRVaultQuery_MattersHoldsGet
 
-@dynamic holdId, matterId;
+@dynamic holdId, matterId, view;
 
 + (instancetype)queryWithMatterId:(NSString *)matterId
                            holdId:(NSString *)holdId {
@@ -294,7 +297,7 @@ NSString * const kGTLRVaultViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRVaultQuery_MattersHoldsList
 
-@dynamic matterId, pageSize, pageToken;
+@dynamic matterId, pageSize, pageToken, view;
 
 + (instancetype)queryWithMatterId:(NSString *)matterId {
   NSArray *pathParams = @[ @"matterId" ];

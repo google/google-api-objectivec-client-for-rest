@@ -269,7 +269,8 @@ NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTypeUnspecified
 //
 
 @implementation GTLRSafeBrowsing_Constraints
-@dynamic maxDatabaseEntries, maxUpdateEntries, region, supportedCompressions;
+@dynamic deviceLocation, language, maxDatabaseEntries, maxUpdateEntries, region,
+         supportedCompressions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

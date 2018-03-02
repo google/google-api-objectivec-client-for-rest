@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Dataflow API (dataflow/v1b3)
+//   Dataflow API (dataflow/v1b3)
 // Description:
 //   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:

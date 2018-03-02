@@ -61,10 +61,6 @@ GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAppsactivityActivity
- *    @c kGTLRAuthScopeAppsactivityDrive
- *    @c kGTLRAuthScopeAppsactivityDriveMetadata
- *    @c kGTLRAuthScopeAppsactivityDriveMetadataReadonly
- *    @c kGTLRAuthScopeAppsactivityDriveReadonly
  */
 @interface GTLRAppsactivityQuery_ActivitiesList : GTLRAppsactivityQuery
 // Previous library name was

@@ -17,8 +17,9 @@
 //
 
 @implementation GTLRDrive_About
-@dynamic appInstalled, exportFormats, folderColorPalette, importFormats, kind,
-         maxImportSizes, maxUploadSize, storageQuota, teamDriveThemes, user;
+@dynamic appInstalled, canCreateTeamDrives, exportFormats, folderColorPalette,
+         importFormats, kind, maxImportSizes, maxUploadSize, storageQuota,
+         teamDriveThemes, user;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

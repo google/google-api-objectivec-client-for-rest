@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "REDUCE_COUNT" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount;
+/** Value: "REDUCE_COUNT_FALSE" */
+GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse;
 /** Value: "REDUCE_COUNT_TRUE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue;
 /** Value: "REDUCE_FRACTION_TRUE" */
@@ -71,6 +73,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceS
 
 /** Value: "ALIGN_COUNT" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCount;
+/** Value: "ALIGN_COUNT_FALSE" */
+GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse;
 /** Value: "ALIGN_COUNT_TRUE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue;
 /** Value: "ALIGN_DELTA" */
@@ -89,6 +93,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin;
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder;
 /** Value: "ALIGN_NONE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone;
+/** Value: "ALIGN_PERCENT_CHANGE" */
+GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange;
 /** Value: "ALIGN_PERCENTILE_05" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05;
 /** Value: "ALIGN_PERCENTILE_50" */
@@ -821,6 +827,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        "REDUCE_COUNT"
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue Value
  *        "REDUCE_COUNT_TRUE"
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse Value
+ *        "REDUCE_COUNT_FALSE"
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue
  *        Value "REDUCE_FRACTION_TRUE"
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99
@@ -883,6 +891,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        "ALIGN_STDDEV"
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue Value
  *        "ALIGN_COUNT_TRUE"
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse Value
+ *        "ALIGN_COUNT_FALSE"
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Value
  *        "ALIGN_FRACTION_TRUE"
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 Value
@@ -893,6 +903,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        "ALIGN_PERCENTILE_50"
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Value
  *        "ALIGN_PERCENTILE_05"
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange Value
+ *        "ALIGN_PERCENT_CHANGE"
  */
 @property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
 
@@ -922,9 +934,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the order in which the points of the time series should be
- *  returned. By default, results are not ordered. Currently, this field must be
- *  left blank.
+ *  Unsupported: must be left blank. The points in each time series are returned
+ *  in reverse time order.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -985,8 +996,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsCreateWithObject:parent:]
 
 /**
- *  The project in which to create the uptime check. The format
- *  is:projects/[PROJECT_ID].
+ *  The project in which to create the uptime check. The format is
+ *  projects/[PROJECT_ID].
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -997,8 +1008,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
- *  @param parent The project in which to create the uptime check. The format
- *    is:projects/[PROJECT_ID].
+ *  @param parent The project in which to create the uptime check. The format is
+ *    projects/[PROJECT_ID].
  *
  *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
  */
@@ -1023,8 +1034,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsDeleteWithname:]
 
 /**
- *  The uptime check configuration to delete. The format
- *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  The uptime check configuration to delete. The format is
+ *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1035,8 +1046,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  the uptime check configuration is referenced by an alert policy or other
  *  dependent configs that would be rendered invalid by the deletion.
  *
- *  @param name The uptime check configuration to delete. The format
- *    isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  @param name The uptime check configuration to delete. The format is
+ *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
  *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
  */
@@ -1059,8 +1070,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsGetWithname:]
 
 /**
- *  The uptime check configuration to retrieve. The format
- *  isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  The uptime check configuration to retrieve. The format is
+ *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1069,8 +1080,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *
  *  Gets a single uptime check configuration.
  *
- *  @param name The uptime check configuration to retrieve. The format
- *    isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  @param name The uptime check configuration to retrieve. The format is
+ *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
  *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
  */
@@ -1109,8 +1120,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project whose uptime check configurations are listed. The format
- *  isprojects/[PROJECT_ID].
+ *  The project whose uptime check configurations are listed. The format is
+ *  projects/[PROJECT_ID].
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1121,7 +1132,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  leaving out any invalid configurations.
  *
  *  @param parent The project whose uptime check configurations are listed. The
- *    format isprojects/[PROJECT_ID].
+ *    format is projects/[PROJECT_ID].
  *
  *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
  *

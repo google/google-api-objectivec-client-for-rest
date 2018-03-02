@@ -38,32 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
-// examType
-
-/** Value: "CERTIFICATION_EXAM_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCertificationExamTypeUnspecified;
-/** Value: "CET_ADWORDS_ADVANCED_DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedDisplay;
-/** Value: "CET_ADWORDS_ADVANCED_SEARCH" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedSearch;
-/** Value: "CET_ADWORDS_FUNDAMENTALS" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetAdwordsFundamentals;
-/** Value: "CET_ANALYTICS" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetAnalytics;
-/** Value: "CET_DIGITAL_SALES" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetDigitalSales;
-/** Value: "CET_DOUBLECLICK" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetDoubleclick;
-/** Value: "CET_MOBILE" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetMobile;
-/** Value: "CET_MOBILE_SITES" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetMobileSites;
-/** Value: "CET_SHOPPING" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetShopping;
-/** Value: "CET_VIDEO_ADS" */
-GTLR_EXTERN NSString * const kGTLRPartnersExamTypeCetVideoAds;
-
-// ----------------------------------------------------------------------------
 // gpsMotivations
 
 /** Value: "GPSM_HELP_WITH_ADVERTISING" */
@@ -609,96 +583,6 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *        information.
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Gets an Exam Token for a Partner's user to take an exam in the Exams System
- *
- *  Method: partners.exams.getToken
- */
-@interface GTLRPartnersQuery_ExamsGetToken : GTLRPartnersQuery
-// Previous library name was
-//   +[GTLQueryPartners queryForExamsGetTokenWithexamType:]
-
-/**
- *  The exam type we are requesting a token for.
- *
- *  Likely values:
- *    @arg @c kGTLRPartnersExamTypeCertificationExamTypeUnspecified Value
- *        "CERTIFICATION_EXAM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsFundamentals Value
- *        "CET_ADWORDS_FUNDAMENTALS"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsAdvancedSearch Value
- *        "CET_ADWORDS_ADVANCED_SEARCH"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsAdvancedDisplay Value
- *        "CET_ADWORDS_ADVANCED_DISPLAY"
- *    @arg @c kGTLRPartnersExamTypeCetVideoAds Value "CET_VIDEO_ADS"
- *    @arg @c kGTLRPartnersExamTypeCetDoubleclick Value "CET_DOUBLECLICK"
- *    @arg @c kGTLRPartnersExamTypeCetAnalytics Value "CET_ANALYTICS"
- *    @arg @c kGTLRPartnersExamTypeCetShopping Value "CET_SHOPPING"
- *    @arg @c kGTLRPartnersExamTypeCetMobile Value "CET_MOBILE"
- *    @arg @c kGTLRPartnersExamTypeCetDigitalSales Value "CET_DIGITAL_SALES"
- *    @arg @c kGTLRPartnersExamTypeCetMobileSites Value "CET_MOBILE_SITES"
- */
-@property(nonatomic, copy, nullable) NSString *examType;
-
-/** Experiment IDs the current request belongs to. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
-
-/** Locale to use for the current request. */
-@property(nonatomic, copy, nullable) NSString *requestMetadataLocale;
-
-/** Google Partners session ID. */
-@property(nonatomic, copy, nullable) NSString *requestMetadataPartnersSessionId;
-
-/**
- *  Identifier to indicate where the traffic comes from.
- *  An identifier has multiple letters created by a team which redirected the
- *  traffic to us.
- */
-@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
-
-/**
- *  Second level identifier to indicate where the traffic comes from.
- *  An identifier has multiple letters created by a team which redirected the
- *  traffic to us.
- */
-@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
-
-/** IP address to use instead of the user's geo-located IP address. */
-@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
-
-/** Logged-in user ID to impersonate instead of the user's ID. */
-@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesUserId;
-
-/**
- *  Fetches a @c GTLRPartners_ExamToken.
- *
- *  Gets an Exam Token for a Partner's user to take an exam in the Exams System
- *
- *  @param examType The exam type we are requesting a token for.
- *
- *  Likely values for @c examType:
- *    @arg @c kGTLRPartnersExamTypeCertificationExamTypeUnspecified Value
- *        "CERTIFICATION_EXAM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsFundamentals Value
- *        "CET_ADWORDS_FUNDAMENTALS"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsAdvancedSearch Value
- *        "CET_ADWORDS_ADVANCED_SEARCH"
- *    @arg @c kGTLRPartnersExamTypeCetAdwordsAdvancedDisplay Value
- *        "CET_ADWORDS_ADVANCED_DISPLAY"
- *    @arg @c kGTLRPartnersExamTypeCetVideoAds Value "CET_VIDEO_ADS"
- *    @arg @c kGTLRPartnersExamTypeCetDoubleclick Value "CET_DOUBLECLICK"
- *    @arg @c kGTLRPartnersExamTypeCetAnalytics Value "CET_ANALYTICS"
- *    @arg @c kGTLRPartnersExamTypeCetShopping Value "CET_SHOPPING"
- *    @arg @c kGTLRPartnersExamTypeCetMobile Value "CET_MOBILE"
- *    @arg @c kGTLRPartnersExamTypeCetDigitalSales Value "CET_DIGITAL_SALES"
- *    @arg @c kGTLRPartnersExamTypeCetMobileSites Value "CET_MOBILE_SITES"
- *
- *  @returns GTLRPartnersQuery_ExamsGetToken
- */
-+ (instancetype)queryWithExamType:(NSString *)examType;
 
 @end
 

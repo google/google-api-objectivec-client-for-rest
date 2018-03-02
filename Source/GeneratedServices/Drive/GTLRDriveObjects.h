@@ -66,6 +66,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *appInstalled;
 
 /**
+ *  Whether the user can create Team Drives.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canCreateTeamDrives;
+
+/**
  *  A map of source MIME type to possible targets for all supported exports.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_About_ExportFormats *exportFormats;
@@ -671,8 +678,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The IDs of the parent folders which contain the file.
  *  If not specified as part of a create request, the file will be placed
- *  directly in the My Drive folder. Update requests must use the addParents and
- *  removeParents parameters to modify the values.
+ *  directly in the user's My Drive folder. If not specified as part of a copy
+ *  request, the file will inherit any discoverable parents of the source file.
+ *  Update requests must use the addParents and removeParents parameters to
+ *  modify the parents list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
 

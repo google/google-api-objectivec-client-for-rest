@@ -4,8 +4,8 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Automates reseller integration into zero-touch enrollment by assigning
-//   devices to customers and creating device reports.
+//   Automates Android zero-touch enrollment for device resellers, customers,
+//   and EMMs.
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
@@ -301,8 +301,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesListWithparent:]
 
 /**
- *  The maximum number of devices to show in a page of results. The default
- *  value returns all the devices in a single page.
+ *  The maximum number of devices to show in a page of results.
+ *  Must be between 1 and 100 inclusive.
  */
 @property(nonatomic, assign) long long pageSize;
 
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the user's customer accounts.
+ *  Lists the user's customer accounts.
  *
  *  Method: androiddeviceprovisioning.customers.list
  */
@@ -448,18 +448,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForCustomersList]
 
-/** The maximum number of items to return. */
+/**
+ *  The maximum number of customers to show in a page of results.
+ *  A number between 1 and 100 (inclusive).
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  The next_page_token value returned from a previous List request, if any.
- */
+/** A token specifying which result page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_CustomerListCustomersResponse.
  *
- *  List the user's customer accounts.
+ *  Lists the user's customer accounts.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersList
  *
