@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Remote Config API (firebaseremoteconfig/v1)
+//   Service Usage API (serviceusage/v1)
 // Description:
-//   Firebase Remote Config API allows the 3P clients to manage Remote Config
-//   conditions and parameters for Firebase applications.
+//   Enables services that service consumers want to use on Google Cloud
+//   Platform, lists the available or enabled services, or disables services
+//   that service consumers no longer use.
 // Documentation:
-//   https://firebase.google.com/docs/remote-config/
+//   https://cloud.google.com/service-usage/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -26,19 +27,47 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
 /**
- *  Service for executing Firebase Remote Config API queries.
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Firebase Remote Config API allows the 3P clients to manage Remote Config
- *  conditions and parameters for Firebase applications.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-@interface GTLRFirebaseRemoteConfigService : GTLRService
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUsageCloudPlatform;
+/**
+ *  Authorization scope: View your data across Google Cloud Platform services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUsageCloudPlatformReadOnly;
+/**
+ *  Authorization scope: Manage your Google API service configuration
+ *
+ *  Value "https://www.googleapis.com/auth/service.management"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUsageServiceManagement;
+
+// ----------------------------------------------------------------------------
+//   GTLRServiceUsageService
+//
+
+/**
+ *  Service for executing Service Usage API queries.
+ *
+ *  Enables services that service consumers want to use on Google Cloud
+ *  Platform, lists the available or enabled services, or disables services that
+ *  service consumers no longer use.
+ */
+@interface GTLRServiceUsageService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRFirebaseRemoteConfigQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRServiceUsageQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

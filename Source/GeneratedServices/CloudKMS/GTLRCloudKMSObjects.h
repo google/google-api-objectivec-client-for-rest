@@ -25,7 +25,6 @@
 @class GTLRCloudKMS_CryptoKey;
 @class GTLRCloudKMS_CryptoKey_Labels;
 @class GTLRCloudKMS_CryptoKeyVersion;
-@class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_Location;
 @class GTLRCloudKMS_Location_Labels;
@@ -136,7 +135,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditConfig are exempted.
+ *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  {
  *  "audit_configs": [
@@ -184,8 +183,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  Next ID: 4
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_AuditLogConfig *> *auditLogConfigs;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
  *  Specifies a service that will be enabled for audit logging.
@@ -247,15 +244,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
-
-/**
- *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
- *  This field is GOOGLE_INTERNAL.
- */
-@property(nonatomic, strong, nullable) GTLRCloudKMS_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
@@ -524,46 +512,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
- */
-@interface GTLRCloudKMS_Expr : GTLRObject
-
-/**
- *  An optional description of the expression. This is a longer text which
- *  describes the expression, e.g. when hovered over it in a UI.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
- */
-@property(nonatomic, copy, nullable) NSString *expression;
-
-/**
- *  An optional string indicating the location of the expression for error
- *  reporting, e.g. a file name and a position in the file.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  An optional title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
  *  A KeyRing is a toplevel logical grouping of CryptoKeys.
  */
 @interface GTLRCloudKMS_KeyRing : GTLRObject
@@ -791,7 +739,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  ]
  *  }
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam).
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRCloudKMS_Policy : GTLRObject
 
@@ -821,14 +769,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  iamOwned
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iamOwned;
-
-/**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

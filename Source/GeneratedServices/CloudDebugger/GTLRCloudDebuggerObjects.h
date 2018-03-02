@@ -434,7 +434,6 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 /**
  *  References to the locations and revisions of the source code used in the
  *  deployed application.
- *  NOTE: this field is experimental and can be ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_ExtendedSourceContext *> *extSourceContexts;
 

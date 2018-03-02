@@ -19,7 +19,6 @@
 #endif
 
 @class GTLRSpeech_Context;
-@class GTLRSpeech_Operation;
 @class GTLRSpeech_Operation_Metadata;
 @class GTLRSpeech_Operation_Response;
 @class GTLRSpeech_RecognitionAlternative;
@@ -87,7 +86,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 /**
  *  Opus encoded audio frames in Ogg container
  *  ([OggOpus](https://wiki.xiph.org/OggOpus)).
- *  `sample_rate_hertz` must be 16000.
+ *  `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or 48000.
  *
  *  Value: "OGG_OPUS"
  */
@@ -112,13 +111,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
 
 /**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRSpeech_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
  *  Provides "hints" to the speech recognizer to favor specific words and
  *  phrases
  *  in the results.
@@ -134,43 +126,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  [usage limits](https://cloud.google.com/speech/limits#content).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
-
-@end
-
-
-/**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
- */
-@interface GTLRSpeech_Empty : GTLRObject
-@end
-
-
-/**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRSpeech_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Operation *> *operations;
 
 @end
 
@@ -283,10 +238,10 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 /**
  *  *Output-only* The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate, or even set, in
- *  any of the results.
+ *  correct. This field is set only for the top alternative of a non-streaming
+ *  result or, of a streaming result where `is_final=true`.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -344,6 +299,15 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
+ *  *Optional* If `true`, the top result includes a list of words and the
+ *  confidence for those words. If `false`, no word-level confidence
+ *  information is returned. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWordConfidence;
+
+/**
  *  *Optional* If `true`, the top result includes a list of words and
  *  the start and end time offsets (timestamps) for those words. If
  *  `false`, no word-level time offset information is returned. The default is
@@ -379,7 +343,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_OggOpus Opus encoded audio
  *        frames in Ogg container
  *        ([OggOpus](https://wiki.xiph.org/OggOpus)).
- *        `sample_rate_hertz` must be 16000. (Value: "OGG_OPUS")
+ *        `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or
+ *        48000. (Value: "OGG_OPUS")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte
  *        Although the use of lossy encodings is not recommended, if a very low
  *        bitrate encoding is required, `OGG_OPUS` is highly preferred over
@@ -461,15 +426,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  alternative being the most probable, as ranked by the recognizer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
-
-/**
- *  For multi-channel audio, this is the channel number corresponding to the
- *  recognized result for the audio from that channel.
- *  For audio_channel_count = N, its output values can range from '0' to 'N-1'.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *channelTag;
 
 @end
 
@@ -590,9 +546,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 
 
 /**
- *  Word-specific information for recognized words. Word information is only
- *  included in the response when certain request parameters are set, such
- *  as `enable_word_time_offsets`.
+ *  Word-specific information for recognized words.
  */
 @interface GTLRSpeech_WordInfo : GTLRObject
 

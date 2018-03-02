@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google People API (people/v1)
+//   People API (people/v1)
 // Description:
 //   Provides access to information about profiles and contacts.
 // Documentation:
@@ -89,7 +89,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserPhonenumbersRead;
 //
 
 /**
- *  Service for executing Google People API queries.
+ *  Service for executing People API queries.
  *
  *  Provides access to information about profiles and contacts.
  */

@@ -527,7 +527,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_ListUptimeCheckConfigsResponse
-@dynamic nextPageToken, uptimeCheckConfigs;
+@dynamic nextPageToken, totalSize, uptimeCheckConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

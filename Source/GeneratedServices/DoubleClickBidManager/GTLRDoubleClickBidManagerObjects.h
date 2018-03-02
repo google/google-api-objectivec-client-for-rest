@@ -70,6 +70,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_Ad;
 /** Value: "AD_GROUP" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_AdGroup;
+/** Value: "CAMPAIGN" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_Campaign;
 /** Value: "INSERTION_ORDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_InsertionOrder;
 /** Value: "LINE_ITEM" */
@@ -80,6 +82,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileType
 
 /** Value: "ADVERTISER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_AdvertiserId;
+/** Value: "CAMPAIGN_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_CampaignId;
 /** Value: "INSERTION_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId;
 /** Value: "LINE_ITEM_ID" */
@@ -646,6 +650,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricComscoreVceUniqueAudience;
 /** Value: "METRIC_CONVERSIONS_PER_MILLE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricConversionsPerMille;
+/** Value: "METRIC_COOKIE_REACH_AVERAGE_IMPRESSION_FREQUENCY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachAverageImpressionFrequency;
+/** Value: "METRIC_COOKIE_REACH_IMPRESSION_REACH" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachImpressionReach;
 /** Value: "METRIC_CPM_FEE1_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCpmFee1Advertiser;
 /** Value: "METRIC_CPM_FEE1_PARTNER" */
@@ -1176,6 +1184,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoCompanionImpressions;
 /** Value: "METRIC_VIDEO_COMPLETION_RATE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoCompletionRate;
+/** Value: "METRIC_VIEWABLE_BID_REQUESTS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableBidRequests;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.type
@@ -1206,6 +1216,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeGene
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeInventoryAvailability;
 /** Value: "TYPE_KEYWORD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeKeyword;
+/** Value: "TYPE_LINEAR_TV_SEARCH_LIFT" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeLinearTvSearchLift;
 /** Value: "TYPE_NIELSEN_AUDIENCE_PROFILE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeNielsenAudienceProfile;
 /** Value: "TYPE_NIELSEN_DAILY_REACH_BUILD" */
@@ -1506,6 +1518,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_AdvertiserId
  *        Value "ADVERTISER_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_CampaignId
+ *        Value "CAMPAIGN_ID"
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId
  *        Value "INSERTION_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_LineItemId
@@ -1532,6 +1546,9 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 
 /** Retrieved ads in SDF format. */
 @property(nonatomic, copy, nullable) NSString *ads;
+
+/** Retrieved campaigns in SDF format. */
+@property(nonatomic, copy, nullable) NSString *campaigns;
 
 /** Retrieved insertion orders in SDF format. */
 @property(nonatomic, copy, nullable) NSString *insertionOrders;
@@ -1881,6 +1898,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "TYPE_INVENTORY_AVAILABILITY"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeKeyword Value
  *        "TYPE_KEYWORD"
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeLinearTvSearchLift
+ *        Value "TYPE_LINEAR_TV_SEARCH_LIFT"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeNielsenAudienceProfile
  *        Value "TYPE_NIELSEN_AUDIENCE_PROFILE"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeNielsenDailyReachBuild

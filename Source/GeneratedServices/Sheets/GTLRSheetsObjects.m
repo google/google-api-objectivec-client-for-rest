@@ -366,6 +366,12 @@ NSString * const kGTLRSheets_PivotGroup_SortOrder_SortOrderUnspecified = @"SORT_
 NSString * const kGTLRSheets_PivotTable_ValueLayout_Horizontal = @"HORIZONTAL";
 NSString * const kGTLRSheets_PivotTable_ValueLayout_Vertical   = @"VERTICAL";
 
+// GTLRSheets_PivotValue.calculatedDisplayType
+NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfColumnTotal = @"PERCENT_OF_COLUMN_TOTAL";
+NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfGrandTotal = @"PERCENT_OF_GRAND_TOTAL";
+NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfRowTotal = @"PERCENT_OF_ROW_TOTAL";
+NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PivotValueCalculatedDisplayTypeUnspecified = @"PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED";
+
 // GTLRSheets_PivotValue.summarizeFunction
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Average = @"AVERAGE";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Count = @"COUNT";
@@ -411,6 +417,7 @@ NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Left = @"LEFT";
 NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right = @"RIGHT";
 
 // GTLRSheets_TextToColumnsRequest.delimiterType
+NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Autodetect = @"AUTODETECT";
 NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Comma = @"COMMA";
 NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Custom = @"CUSTOM";
 NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_DelimiterTypeUnspecified = @"DELIMITER_TYPE_UNSPECIFIED";
@@ -1753,6 +1760,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_HistogramRule
+//
+
+@implementation GTLRSheets_HistogramRule
+@dynamic end, interval, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_HistogramSeries
 //
 
@@ -1808,6 +1825,42 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_LineStyle
 @dynamic type, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_ManualRule
+//
+
+@implementation GTLRSheets_ManualRule
+@dynamic groups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groups" : [GTLRSheets_ManualRuleGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_ManualRuleGroup
+//
+
+@implementation GTLRSheets_ManualRuleGroup
+@dynamic groupName, items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRSheets_ExtendedValue class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1961,7 +2014,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_PivotGroup
-@dynamic showTotals, sortOrder, sourceColumnOffset, valueBucket, valueMetadata;
+@dynamic groupRule, label, repeatHeadings, showTotals, sortOrder,
+         sourceColumnOffset, valueBucket, valueMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1970,6 +2024,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_PivotGroupRule
+//
+
+@implementation GTLRSheets_PivotGroupRule
+@dynamic histogramRule, manualRule;
 @end
 
 
@@ -2041,7 +2105,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_PivotValue
-@dynamic formula, name, sourceColumnOffset, summarizeFunction;
+@dynamic calculatedDisplayType, formula, name, sourceColumnOffset,
+         summarizeFunction;
 @end
 
 

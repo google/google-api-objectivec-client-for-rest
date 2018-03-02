@@ -23,6 +23,8 @@
 @class GTLRAnalytics_Account_Permissions;
 @class GTLRAnalytics_AccountRef;
 @class GTLRAnalytics_AccountSummary;
+@class GTLRAnalytics_AccountTreeRequest_AccountSettings;
+@class GTLRAnalytics_AccountTreeResponse_AccountSettings;
 @class GTLRAnalytics_AdWordsAccount;
 @class GTLRAnalytics_Column;
 @class GTLRAnalytics_Column_Attributes;
@@ -389,6 +391,152 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Web property for the account. */
 @property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty *webproperty;
+
+@end
+
+
+/**
+ *  JSON template for an Analytics account tree requests. The account tree
+ *  request is used in the provisioning api to create an account, property, and
+ *  view (profile). It contains the basic information required to make these
+ *  fields.
+ */
+@interface GTLRAnalytics_AccountTreeRequest : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *accountName;
+@property(nonatomic, strong, nullable) GTLRAnalytics_AccountTreeRequest_AccountSettings *accountSettings;
+
+/** Resource type for account ticket. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@property(nonatomic, copy, nullable) NSString *profileName;
+@property(nonatomic, copy, nullable) NSString *timezone;
+@property(nonatomic, copy, nullable) NSString *webpropertyName;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
+
+@end
+
+
+/**
+ *  GTLRAnalytics_AccountTreeRequest_AccountSettings
+ */
+@interface GTLRAnalytics_AccountTreeRequest_AccountSettings : GTLRObject
+
+/**
+ *  admobReporting
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *admobReporting;
+
+/**
+ *  sharingWithGoogleAnySales
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySales;
+
+/**
+ *  sharingWithGoogleProducts
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProducts;
+
+/**
+ *  sharingWithGoogleSales
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSales;
+
+/**
+ *  sharingWithGoogleSupport
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupport;
+
+/**
+ *  sharingWithOthers
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithOthers;
+
+@end
+
+
+/**
+ *  JSON template for an Analytics account tree response. The account tree
+ *  response is used in the provisioning api to return the result of creating an
+ *  account, property, and view (profile).
+ */
+@interface GTLRAnalytics_AccountTreeResponse : GTLRObject
+
+/** The account created. */
+@property(nonatomic, strong, nullable) GTLRAnalytics_Account *account;
+
+@property(nonatomic, strong, nullable) GTLRAnalytics_AccountTreeResponse_AccountSettings *accountSettings;
+
+/** Resource type for account ticket. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** View (Profile) for the account. */
+@property(nonatomic, strong, nullable) GTLRAnalytics_Profile *profile;
+
+/** Web property for the account. */
+@property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty *webproperty;
+
+@end
+
+
+/**
+ *  GTLRAnalytics_AccountTreeResponse_AccountSettings
+ */
+@interface GTLRAnalytics_AccountTreeResponse_AccountSettings : GTLRObject
+
+/**
+ *  admobReporting
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *admobReporting;
+
+/**
+ *  sharingWithGoogleAnySales
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySales;
+
+/**
+ *  sharingWithGoogleProducts
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProducts;
+
+/**
+ *  sharingWithGoogleSales
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSales;
+
+/**
+ *  sharingWithGoogleSupport
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupport;
+
+/**
+ *  sharingWithOthers
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingWithOthers;
 
 @end
 

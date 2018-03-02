@@ -80,6 +80,17 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two CreateClusterRequest requests with the same id, then the second request
+ *  will be ignored and the first google.longrunning.Operation created and
+ *  stored in the backend is returned.It is recommended to always set this value
+ *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
+ *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
+ *  hyphens (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Creates a cluster in a project.
@@ -114,6 +125,12 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
 /**
+ *  Optional. Specifying the cluster_uuid means the RPC should fail (with error
+ *  NOT_FOUND) if cluster with specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
  *  Required. The ID of the Google Cloud Platform project that the cluster
  *  belongs to.
  */
@@ -121,6 +138,17 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /** Required. The Cloud Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two DeleteClusterRequest requests with the same id, then the second request
+ *  will be ignored and the first google.longrunning.Operation created and
+ *  stored in the backend is returned.It is recommended to always set this value
+ *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
+ *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
+ *  hyphens (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRDataproc_Operation.
@@ -328,6 +356,17 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /** Required. The Cloud Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two UpdateClusterRequest requests with the same id, then the second request
+ *  will be ignored and the first google.longrunning.Operation created and
+ *  stored in the backend is returned.It is recommended to always set this value
+ *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
+ *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
+ *  hyphens (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Required. Specifies the path, relative to Cluster, of the field to update.

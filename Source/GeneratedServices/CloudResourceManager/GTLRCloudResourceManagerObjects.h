@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Resource Manager API (cloudresourcemanager/v1)
+//   Cloud Resource Manager API (cloudresourcemanager/v1)
 // Description:
 //   The Google Cloud Resource Manager API provides methods for creating,
 //   reading, and updating project metadata.
@@ -289,7 +289,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditConfig are exempted.
+ *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  {
  *  "audit_configs": [
@@ -1187,9 +1187,10 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  A friendly string to be used to refer to the Organization in the UI.
- *  Assigned by the server, set to the primary domain of the G Suite
- *  customer that owns the organization.
+ *  A human-readable string that refers to the Organization in the
+ *  GCP Console UI. This string is set by the server and cannot be
+ *  changed. The string will be set to the primary domain (for example,
+ *  "google.com") of the G Suite customer that owns the organization.
  *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *displayName;

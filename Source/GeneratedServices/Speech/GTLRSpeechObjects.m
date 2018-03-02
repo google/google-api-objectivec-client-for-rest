@@ -25,15 +25,6 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_CancelOperationRequest
-//
-
-@implementation GTLRSpeech_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSpeech_Context
 //
 
@@ -45,37 +36,6 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
     @"phrases" : [NSString class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpeech_Empty
-//
-
-@implementation GTLRSpeech_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpeech_ListOperationsResponse
-//
-
-@implementation GTLRSpeech_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRSpeech_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
 }
 
 @end
@@ -163,8 +123,8 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic enableWordTimeOffsets, encoding, languageCode, maxAlternatives,
-         profanityFilter, sampleRateHertz, speechContexts;
+@dynamic enableWordConfidence, enableWordTimeOffsets, encoding, languageCode,
+         maxAlternatives, profanityFilter, sampleRateHertz, speechContexts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -182,7 +142,7 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionResult
-@dynamic alternatives, channelTag;
+@dynamic alternatives;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

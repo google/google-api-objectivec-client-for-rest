@@ -35,7 +35,7 @@
 //
 
 @implementation GTLRCloudOSLogin_LoginProfile
-@dynamic name, posixAccounts, sshPublicKeys, suspended;
+@dynamic name, posixAccounts, sshPublicKeys;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

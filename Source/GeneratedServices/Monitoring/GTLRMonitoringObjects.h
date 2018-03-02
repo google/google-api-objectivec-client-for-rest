@@ -361,7 +361,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTyp
 // GTLRMonitoring_ResourceGroup.resourceType
 
 /**
- *  A group of AWS load balancers.
+ *  A group of Amazon ELB load balancers.
  *
  *  Value: "AWS_ELB_LOAD_BALANCER"
  */
@@ -711,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @interface GTLRMonitoring_ContentMatcher : GTLRObject
 
-/** String content to match */
+/** String content to match (max 1024 bytes) */
 @property(nonatomic, copy, nullable) NSString *content;
 
 @end
@@ -1102,7 +1102,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  desired values as described at
  *  https://www.w3.org/Protocols/rfc2616/rfc2616.txt (page 31). Entering two
  *  separate headers with the same key in a Create call will cause the first to
- *  be overwritten by the second.
+ *  be overwritten by the second. The maximum number of headers allowed is 100.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_HttpCheck_Headers *headers;
 
@@ -1150,7 +1150,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  desired values as described at
  *  https://www.w3.org/Protocols/rfc2616/rfc2616.txt (page 31). Entering two
  *  separate headers with the same key in a Create call will cause the first to
- *  be overwritten by the second.
+ *  be overwritten by the second. The maximum number of headers allowed is 100.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1422,6 +1422,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  page_token field).
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total number of uptime check configurations for the project,
+ *  irrespective of any pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 /**
  *  The returned uptime check configurations.
@@ -1862,7 +1870,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer A
- *        group of AWS load balancers. (Value: "AWS_ELB_LOAD_BALANCER")
+ *        group of Amazon ELB load balancers. (Value: "AWS_ELB_LOAD_BALANCER")
  *    @arg @c kGTLRMonitoring_ResourceGroup_ResourceType_Instance A group of
  *        instances from Google Cloud Platform (GCP) or Amazon Web Services
  *        (AWS). (Value: "INSTANCE")
@@ -2046,13 +2054,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
 /**
- *  The data points of this time series. When listing time series, the order of
- *  the points is specified by the list method.When creating a time series, this
- *  field must contain exactly one point and the point's type must be the same
- *  as the value type of the associated metric. If the associated metric's
- *  descriptor must be auto-created, then the value type of the descriptor is
- *  determined by the point's type, which must be BOOL, INT64, DOUBLE, or
- *  DISTRIBUTION.
+ *  The data points of this time series. When listing time series, points are
+ *  returned in reverse time order.When creating a time series, this field must
+ *  contain exactly one point and the point's type must be the same as the value
+ *  type of the associated metric. If the associated metric's descriptor must be
+ *  auto-created, then the value type of the descriptor is determined by the
+ *  point's type, which must be BOOL, INT64, DOUBLE, or DISTRIBUTION.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Point *> *points;
 
@@ -2202,7 +2209,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, strong, nullable) NSNumber *isInternal;
 
-/** The monitored resource associated with the configuration. */
+/**
+ *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
+ *  associated with the configuration. The following monitored resource types
+ *  are supported for uptime checks: uptime_url gce_instance gae_app
+ *  aws_ec2_instance aws_elb_load_balancer
+ */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 
 /**
@@ -2214,8 +2226,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  How often the uptime check is performed. Currently, only 1, 5, 10, and 15
- *  minutes are supported. Required.
+ *  How often, in seconds, the uptime check is performed. Currently, the only
+ *  supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes),
+ *  and 900s (15 minutes). Required.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *period;
 

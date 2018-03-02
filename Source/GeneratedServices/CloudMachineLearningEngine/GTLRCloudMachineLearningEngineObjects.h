@@ -22,24 +22,21 @@
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1Binding;
@@ -49,7 +46,6 @@
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Response;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item;
-@class GTLRCloudMachineLearningEngine_GoogleTypeExpr;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -374,13 +370,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
 
 /**
- *  The version is in the process of creation.
+ *  The version is being created. New UpdateVersion and DeleteVersion
+ *  requests will fail if a version is in the CREATING state.
  *
  *  Value: "CREATING"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
 /**
- *  The version is in the process of deletion.
+ *  The version is being deleted. New UpdateVersion and DeleteVersion
+ *  requests will fail if a version is in the DELETING state.
  *
  *  Value: "DELETING"
  */
@@ -404,6 +402,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Vers
  *  Value: "UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown;
+/**
+ *  The version is being updated. New UpdateVersion and DeleteVersion
+ *  requests will fail if a version is in the UPDATING state.
+ *
+ *  Value: "UPDATING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig.logType
@@ -561,9 +566,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config : GTLRObject
+
+/** The service account Cloud ML uses to run on TPU node. */
+@property(nonatomic, copy, nullable) NSString *tpuServiceAccount;
+
+@end
+
+
+/**
  *  Returns service account information associated with a project.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config *config;
 
 /** The service account Cloud ML uses to access resources in the project. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
@@ -597,6 +615,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /** The hyperparameters given to this trial. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters *hyperparameters;
+
+/**
+ *  True if the trial is stopped early.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTrialStoppedEarly;
 
 /** The trial id for these results. */
 @property(nonatomic, copy, nullable) NSString *trialId;
@@ -642,6 +667,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Represents a set of hyperparameters to optimize.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec : GTLRObject
+
+/**
+ *  Optional. Indicates if the hyperparameter tuning job enables auto trial
+ *  early stopping.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTrialEarlyStopping;
 
 /**
  *  Required. The type of goal to use for tuning. Available types are
@@ -693,6 +726,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Required. The set of parameters to tune. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec *> *params;
 
+/**
+ *  Optional. The prior hyperparameter tuning job id that users hope to
+ *  continue with. The job id will be used to find the corresponding vizier
+ *  study guid and resume the study.
+ */
+@property(nonatomic, copy, nullable) NSString *resumePreviousJobId;
+
 @end
 
 
@@ -710,31 +750,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Output only. The details of a failure or a cancellation. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
-/**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a job from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform job updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetJob`, and
- *  systems are expected to put that etag in the request to `UpdateJob` to
- *  ensure that their change will be applied to the same version of the job.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
 /** Required. The user-specified id of the job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
-
-/**
- *  Optional. One or more labels that you can add, to organize your jobs.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels *labels;
 
 /** Input parameters to create a prediction job. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput *predictionInput;
@@ -781,22 +798,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** The current training job result. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput *trainingOutput;
 
-@end
-
-
-/**
- *  Optional. One or more labels that you can add, to organize your jobs.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels : GTLRObject
 @end
 
 
@@ -963,29 +964,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a model from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform model updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetModel`, and
- *  systems are expected to put that etag in the request to `UpdateModel` to
- *  ensure that their change will be applied to the model as intended.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Optional. One or more labels that you can add, to organize your models.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels *labels;
-
-/**
  *  Required. The name specified for the model when it was created.
  *  The model name must be unique within the project it is created in.
  */
@@ -1018,22 +996,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Optional. One or more labels that you can add, to organize your models.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels : GTLRObject
-@end
-
-
-/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata : GTLRObject
@@ -1050,12 +1012,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isCancellationRequested;
-
-/**
- *  The user labels, inherited from the model or the model version being
- *  operated on.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels *labels;
 
 /** Contains the name of the model associated with the operation. */
 @property(nonatomic, copy, nullable) NSString *modelName;
@@ -1094,19 +1050,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Contains the version associated with the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *version;
 
-@end
-
-
-/**
- *  The user labels, inherited from the model or the model version being
- *  operated on.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels : GTLRObject
 @end
 
 
@@ -1655,20 +1598,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a model from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform model updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetVersion`, and
- *  systems are expected to put that etag in the request to `UpdateVersion` to
- *  ensure that their change will be applied to the model as intended.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
  *  Output only. If true, this version will be used to handle prediction
  *  requests that do not specify a version.
  *  You can change the default version by calling
@@ -1677,15 +1606,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isDefault;
-
-/**
- *  Optional. One or more labels that you can add, to organize your model
- *  versions. Each label is a key-value pair, where both the key and the value
- *  are arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels *labels;
 
 /** Output only. The time the version was last used for prediction. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
@@ -1717,9 +1637,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating
- *        The version is in the process of creation. (Value: "CREATING")
+ *        The version is being created. New UpdateVersion and DeleteVersion
+ *        requests will fail if a version is in the CREATING state. (Value:
+ *        "CREATING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Deleting
- *        The version is in the process of deletion. (Value: "DELETING")
+ *        The version is being deleted. New UpdateVersion and DeleteVersion
+ *        requests will fail if a version is in the DELETING state. (Value:
+ *        "DELETING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed
  *        The version failed to be created, possibly cancelled.
  *        `error_message` should contain the details of the failure. (Value:
@@ -1728,25 +1652,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        The version is ready for prediction. (Value: "READY")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown
  *        The version state is unspecified. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Updating
+ *        The version is being updated. New UpdateVersion and DeleteVersion
+ *        requests will fail if a version is in the UPDATING state. (Value:
+ *        "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-@end
-
-
-/**
- *  Optional. One or more labels that you can add, to organize your model
- *  versions. Each label is a key-value pair, where both the key and the value
- *  are arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/how-tos/resource-labels">using labels</a>.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels : GTLRObject
 @end
 
 
@@ -1758,7 +1670,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditConfig are exempted.
+ *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  {
  *  "audit_configs": [
@@ -1806,8 +1718,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Next ID: 4
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig *> *auditLogConfigs;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
  *  Specifies a service that will be enabled for audit logging.
@@ -1869,15 +1779,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Binding : GTLRObject
-
-/**
- *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
- *  This field is GOOGLE_INTERNAL.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleTypeExpr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
@@ -1963,13 +1864,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  iamOwned
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
  *  Deprecated.
@@ -2236,46 +2130,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item : GTLRObject
-@end
-
-
-/**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
- */
-@interface GTLRCloudMachineLearningEngine_GoogleTypeExpr : GTLRObject
-
-/**
- *  An optional description of the expression. This is a longer text which
- *  describes the expression, e.g. when hovered over it in a UI.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
- */
-@property(nonatomic, copy, nullable) NSString *expression;
-
-/**
- *  An optional string indicating the location of the expression for error
- *  reporting, e.g. a file name and a position in the file.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  An optional title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
 @end
 
 NS_ASSUME_NONNULL_END

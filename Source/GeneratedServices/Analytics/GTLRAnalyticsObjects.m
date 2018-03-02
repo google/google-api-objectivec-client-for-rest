@@ -146,6 +146,49 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalytics_AccountTreeRequest
+//
+
+@implementation GTLRAnalytics_AccountTreeRequest
+@dynamic accountName, accountSettings, kind, profileName, timezone,
+         webpropertyName, websiteUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_AccountTreeRequest_AccountSettings
+//
+
+@implementation GTLRAnalytics_AccountTreeRequest_AccountSettings
+@dynamic admobReporting, sharingWithGoogleAnySales, sharingWithGoogleProducts,
+         sharingWithGoogleSales, sharingWithGoogleSupport, sharingWithOthers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_AccountTreeResponse
+//
+
+@implementation GTLRAnalytics_AccountTreeResponse
+@dynamic account, accountSettings, kind, profile, webproperty;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_AccountTreeResponse_AccountSettings
+//
+
+@implementation GTLRAnalytics_AccountTreeResponse_AccountSettings
+@dynamic admobReporting, sharingWithGoogleAnySales, sharingWithGoogleProducts,
+         sharingWithGoogleSales, sharingWithGoogleSupport, sharingWithOthers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalytics_AdWordsAccount
 //
 

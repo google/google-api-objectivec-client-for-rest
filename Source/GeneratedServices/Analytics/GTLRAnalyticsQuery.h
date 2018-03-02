@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAnalytics_AccountTicket;
+@class GTLRAnalytics_AccountTreeRequest;
 @class GTLRAnalytics_CustomDimension;
 @class GTLRAnalytics_CustomMetric;
 @class GTLRAnalytics_DataimportDeleteUploadDataRequest;
@@ -3820,6 +3821,32 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *  @returns GTLRAnalyticsQuery_ProvisioningCreateAccountTicket
  */
 + (instancetype)queryWithObject:(GTLRAnalytics_AccountTicket *)object;
+
+@end
+
+/**
+ *  Provision account.
+ *
+ *  Method: analytics.provisioning.createAccountTree
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsProvision
+ */
+@interface GTLRAnalyticsQuery_ProvisioningCreateAccountTree : GTLRAnalyticsQuery
+// Previous library name was
+//   +[GTLQueryAnalytics queryForProvisioningCreateAccountTreeWithObject:]
+
+/**
+ *  Fetches a @c GTLRAnalytics_AccountTreeResponse.
+ *
+ *  Provision account.
+ *
+ *  @param object The @c GTLRAnalytics_AccountTreeRequest to include in the
+ *    query.
+ *
+ *  @returns GTLRAnalyticsQuery_ProvisioningCreateAccountTree
+ */
++ (instancetype)queryWithObject:(GTLRAnalytics_AccountTreeRequest *)object;
 
 @end
 

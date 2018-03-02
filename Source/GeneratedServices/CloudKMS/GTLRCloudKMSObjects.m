@@ -37,12 +37,11 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
 //
 
 @implementation GTLRCloudKMS_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudKMS_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRCloudKMS_AuditLogConfig class]
   };
   return map;
 }
@@ -74,7 +73,7 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
 //
 
 @implementation GTLRCloudKMS_Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -167,21 +166,6 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
 
 @implementation GTLRCloudKMS_EncryptResponse
 @dynamic ciphertext, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudKMS_Expr
-//
-
-@implementation GTLRCloudKMS_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
 @end
 
 
@@ -327,7 +311,7 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
 //
 
 @implementation GTLRCloudKMS_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

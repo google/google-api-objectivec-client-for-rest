@@ -884,7 +884,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SubmitJobRequest
-@dynamic job;
+@dynamic job, requestId;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google People API (people/v1)
+//   People API (people/v1)
 // Description:
 //   Provides access to information about profiles and contacts.
 // Documentation:
@@ -981,7 +981,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A request to modify an existing contact group's members.
+ *  A request to modify an existing contact group's members. Contacts can be
+ *  removed from any group but they can only be added to a user group or
+ *  myContacts or starred system groups.
  */
 @interface GTLRPeopleService_ModifyContactGroupMembersRequest : GTLRObject
 
@@ -1778,7 +1780,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A request to update an existing contact group. Only the name can be updated.
+ *  A request to update an existing user contact group. All updated fields will
+ *  be replaced.
  */
 @interface GTLRPeopleService_UpdateContactGroupRequest : GTLRObject
 

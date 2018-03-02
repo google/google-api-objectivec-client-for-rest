@@ -111,6 +111,8 @@
 @class GTLRYouTube_LocalizedProperty;
 @class GTLRYouTube_LocalizedString;
 @class GTLRYouTube_MonitorStreamInfo;
+@class GTLRYouTube_Nonprofit;
+@class GTLRYouTube_NonprofitId;
 @class GTLRYouTube_PageInfo;
 @class GTLRYouTube_Playlist;
 @class GTLRYouTube_Playlist_Localizations;
@@ -3677,7 +3679,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /**
  *  Basic details about a channel, including title, description and thumbnails.
- *  Next available id: 15.
  */
 @interface GTLRYouTube_ChannelSnippet : GTLRObject
 
@@ -7375,6 +7376,30 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 
 /**
+ *  Nonprofit information.
+ */
+@interface GTLRYouTube_Nonprofit : GTLRObject
+
+/** Id of the nonprofit. */
+@property(nonatomic, strong, nullable) GTLRYouTube_NonprofitId *nonprofitId;
+
+/** Legal name of the nonprofit. */
+@property(nonatomic, copy, nullable) NSString *nonprofitLegalName;
+
+@end
+
+
+/**
+ *  GTLRYouTube_NonprofitId
+ */
+@interface GTLRYouTube_NonprofitId : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Paging details for lists of resources, including total number of items
  *  available and number of resources returned in a single page.
  */
@@ -8541,12 +8566,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *displayString;
 
 /**
+ *  True if this event is a Super Chat for Good purchase.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSuperChatForGood;
+
+/**
  *  The tier for the paid message, which is based on the amount of money spent
  *  to purchase the message.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *messageType;
+
+/**
+ *  If this event is a Super Chat for Good purchase, this field will contain
+ *  information about the charity the purchase is donated to.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_Nonprofit *nonprofit;
 
 /** Details about the supporter. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *supporterDetails;
@@ -8711,7 +8749,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoPlayer *player;
 
 /**
- *  The processingProgress object encapsulates information about YouTube's
+ *  The processingDetails object encapsulates information about YouTube's
  *  progress in processing the uploaded video file. The properties in the object
  *  identify the current processing status and an estimate of the time remaining
  *  until YouTube finishes processing the video. This part also indicates

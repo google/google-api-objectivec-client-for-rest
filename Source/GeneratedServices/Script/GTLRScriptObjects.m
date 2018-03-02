@@ -6,7 +6,7 @@
 // Description:
 //   An API for managing and executing Google Apps Script projects.
 // Documentation:
-//   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
+//   https://developers.google.com/apps-script/api/
 
 #import "GTLRScriptObjects.h"
 
@@ -45,6 +45,7 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused = 
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Running = @"RUNNING";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown = @"UNKNOWN";
 
 // GTLRScript_GoogleAppsScriptTypeProcess.processType
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn = @"ADD_ON";

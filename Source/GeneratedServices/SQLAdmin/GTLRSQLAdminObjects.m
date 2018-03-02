@@ -27,7 +27,8 @@
 //
 
 @implementation GTLRSQLAdmin_BackupConfiguration
-@dynamic binaryLogEnabled, enabled, kind, startTime;
+@dynamic binaryLogEnabled, enabled, kind, replicationLogArchivingEnabled,
+         startTime;
 @end
 
 
@@ -85,7 +86,7 @@
 //
 
 @implementation GTLRSQLAdmin_CloneContext
-@dynamic binLogCoordinates, destinationInstanceName, kind;
+@dynamic binLogCoordinates, destinationInstanceName, kind, pitrTimestampMs;
 @end
 
 
@@ -187,7 +188,7 @@
 //
 
 @implementation GTLRSQLAdmin_DemoteMasterContext
-@dynamic kind, masterInstanceName, replicaConfiguration;
+@dynamic kind, masterInstanceName, replicaConfiguration, verifyGtidConsistency;
 @end
 
 

@@ -2941,7 +2941,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified firewall rule with the data included in the request.
- *  Using PUT method, can only update following fields of firewall rule:
+ *  The PUT method can only update the following fields of firewall rule:
  *  allowed, description, sourceRanges, sourceTags, targetTags.
  *
  *  Method: compute.firewalls.update
@@ -2978,7 +2978,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified firewall rule with the data included in the request.
- *  Using PUT method, can only update following fields of firewall rule:
+ *  The PUT method can only update the following fields of firewall rule:
  *  allowed, description, sourceRanges, sourceTags, targetTags.
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
@@ -7650,6 +7650,112 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the list of referrers to instances contained within the specified
+ *  zone.
+ *
+ *  Method: compute.instances.listReferrers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesListReferrers : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesListReferrersWithproject:zoneProperty:instance:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Name of the target instance scoping this request, or '-' if the request
+ *  should span over all instances in the container.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceListReferrers.
+ *
+ *  Retrieves the list of referrers to instances contained within the specified
+ *  zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the target instance scoping this request, or '-' if
+ *    the request should span over all instances in the container.
+ *
+ *  @returns GTLRComputeQuery_InstancesListReferrers
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Performs a reset on the instance. For more information, see Resetting an
  *  instance.
  *
@@ -8520,10 +8626,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified instance template. If you delete an instance template
- *  that is being referenced from another instance group, the instance group
- *  will not be able to create or recreate virtual machine instances. Deleting
- *  an instance template is permanent and cannot be undone.
+ *  Updates the specified access config from an instance's network interface
+ *  with the data included in the request. This method supports PATCH semantics
+ *  and uses the JSON merge patch format and processing rules.
+ *
+ *  Method: compute.instances.updateAccessConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesUpdateAccessConfig : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesUpdateAccessConfigWithObject:project:zoneProperty:instance:networkInterface:]
+
+/** The instance name for this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** The name of the network interface where the access config is attached. */
+@property(nonatomic, copy, nullable) NSString *networkInterface;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified access config from an instance's network interface
+ *  with the data included in the request. This method supports PATCH semantics
+ *  and uses the JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_AccessConfig to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance The instance name for this request.
+ *  @param networkInterface The name of the network interface where the access
+ *    config is attached.
+ *
+ *  @returns GTLRComputeQuery_InstancesUpdateAccessConfig
+ */
++ (instancetype)queryWithObject:(GTLRCompute_AccessConfig *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance
+               networkInterface:(NSString *)networkInterface;
+
+@end
+
+/**
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone. It's not possible to delete templates which
+ *  are in use by an instance group.
  *
  *  Method: compute.instanceTemplates.delete
  *
@@ -8558,10 +8732,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified instance template. If you delete an instance template
- *  that is being referenced from another instance group, the instance group
- *  will not be able to create or recreate virtual machine instances. Deleting
- *  an instance template is permanent and cannot be undone.
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone. It's not possible to delete templates which
+ *  are in use by an instance group.
  *
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template to delete.
@@ -11133,9 +11306,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForRegionBackendServicesGetHealthWithObject:project:region:backendService:]
 
-/**
- *  Name of the BackendService resource to which the queried instance belongs.
- */
+/** Name of the BackendService resource for which to get health. */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
 @property(nonatomic, copy, nullable) NSString *project;
@@ -11152,8 +11323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project NSString
  *  @param region Name of the region scoping this request.
- *  @param backendService Name of the BackendService resource to which the
- *    queried instance belongs.
+ *  @param backendService Name of the BackendService resource for which to get
+ *    health.
  *
  *  @returns GTLRComputeQuery_RegionBackendServicesGetHealth
  */

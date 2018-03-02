@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Dataflow API (dataflow/v1b3)
+//   Dataflow API (dataflow/v1b3)
 // Description:
 //   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:
@@ -141,6 +141,8 @@
 @class GTLRDataflow_WorkerHealthReport;
 @class GTLRDataflow_WorkerHealthReport_Pods_Item;
 @class GTLRDataflow_WorkerHealthReportResponse;
+@class GTLRDataflow_WorkerLifecycleEvent;
+@class GTLRDataflow_WorkerLifecycleEvent_Metadata;
 @class GTLRDataflow_WorkerMessage;
 @class GTLRDataflow_WorkerMessage_Labels;
 @class GTLRDataflow_WorkerMessageCode;
@@ -1028,6 +1030,59 @@ GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_UnknownKind;
  *  Value: "WRITE_KIND"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_WorkerLifecycleEvent.event
+
+/**
+ *  Our container code starts running. Multiple containers could be
+ *  distinguished with WorkerMessage.labels if desired.
+ *
+ *  Value: "CONTAINER_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_ContainerStart;
+/**
+ *  The worker has a functional external network connection.
+ *
+ *  Value: "NETWORK_UP"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_NetworkUp;
+/**
+ *  The time the VM started.
+ *
+ *  Value: "OS_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_OsStart;
+/**
+ *  Finished installing SDK.
+ *
+ *  Value: "SDK_INSTALL_FINISH"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallFinish;
+/**
+ *  For applicable SDKs, started installation of SDK and worker packages.
+ *
+ *  Value: "SDK_INSTALL_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallStart;
+/**
+ *  Finished downloading all staging files.
+ *
+ *  Value: "STAGING_FILES_DOWNLOAD_FINISH"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadFinish;
+/**
+ *  Started downloading staging files.
+ *
+ *  Value: "STAGING_FILES_DOWNLOAD_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadStart;
+/**
+ *  Invalid event.
+ *
+ *  Value: "UNKNOWN_EVENT"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEvent;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.defaultPackageSet
@@ -3793,8 +3848,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) NSNumber *maxWorkers;
 
+/**
+ *  Network to which VMs will be assigned. If empty or unspecified,
+ *  the service will use the network "default".
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
 /** The email address of the service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Subnetwork to which VMs will be assigned, if desired. Expected to be of
+ *  the form "regions/REGION/subnetworks/SUBNETWORK".
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
  *  The Cloud Storage path to use for temporary files.
@@ -5081,6 +5148,73 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  A report of an event in a worker's lifecycle.
+ *  The proto contains one event, because the worker is expected to
+ *  asynchronously send each message immediately after the event.
+ *  Due to this asynchrony, messages may arrive out of order (or missing), and
+ *  it
+ *  is up to the consumer to interpret.
+ *  The timestamp of the event is in the enclosing WorkerMessage proto.
+ */
+@interface GTLRDataflow_WorkerLifecycleEvent : GTLRObject
+
+/**
+ *  The start time of this container. All events will report this so that
+ *  events can be grouped together across container/VM restarts.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *containerStartTime;
+
+/**
+ *  The event being reported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_ContainerStart Our
+ *        container code starts running. Multiple containers could be
+ *        distinguished with WorkerMessage.labels if desired. (Value:
+ *        "CONTAINER_START")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_NetworkUp The worker has
+ *        a functional external network connection. (Value: "NETWORK_UP")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_OsStart The time the VM
+ *        started. (Value: "OS_START")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallFinish Finished
+ *        installing SDK. (Value: "SDK_INSTALL_FINISH")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallStart For
+ *        applicable SDKs, started installation of SDK and worker packages.
+ *        (Value: "SDK_INSTALL_START")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadFinish
+ *        Finished downloading all staging files. (Value:
+ *        "STAGING_FILES_DOWNLOAD_FINISH")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadStart
+ *        Started downloading staging files. (Value:
+ *        "STAGING_FILES_DOWNLOAD_START")
+ *    @arg @c kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEvent Invalid
+ *        event. (Value: "UNKNOWN_EVENT")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
+ *  Other stats that can accompany an event. E.g.
+ *  { "downloaded_bytes" : "123456" }
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerLifecycleEvent_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Other stats that can accompany an event. E.g.
+ *  { "downloaded_bytes" : "123456" }
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_WorkerLifecycleEvent_Metadata : GTLRObject
+@end
+
+
+/**
  *  WorkerMessage provides information to the backend about a worker.
  */
 @interface GTLRDataflow_WorkerMessage : GTLRObject
@@ -5104,6 +5238,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The health of a worker. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerHealthReport *workerHealthReport;
+
+/** Record of worker lifecycle events. */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerLifecycleEvent *workerLifecycleEvent;
 
 /** A worker message code. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessageCode *workerMessageCode;

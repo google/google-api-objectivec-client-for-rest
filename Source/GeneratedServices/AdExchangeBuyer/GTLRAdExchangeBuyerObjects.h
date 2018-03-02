@@ -73,6 +73,8 @@
 @class GTLRAdExchangeBuyer_TargetingValueCreativeSize;
 @class GTLRAdExchangeBuyer_TargetingValueDayPartTargeting;
 @class GTLRAdExchangeBuyer_TargetingValueDayPartTargetingDayPart;
+@class GTLRAdExchangeBuyer_TargetingValueDemogAgeCriteria;
+@class GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria;
 @class GTLRAdExchangeBuyer_TargetingValueSize;
 
 // Generated comments include content from the discovery document; avoid them
@@ -86,6 +88,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Configuration data for an Ad Exchange buyer account.
  */
 @interface GTLRAdExchangeBuyer_Account : GTLRObject
+
+/**
+ *  When this is false, bid requests that include a deal ID for a private
+ *  auction or preferred deal are always sent to your bidder. When true, all
+ *  active pretargeting configs will be applied to private auctions and
+ *  preferred deals. Programmatic Guaranteed deals (when enabled) are always
+ *  sent to your bidder.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applyPretargetingToNonGuaranteedDeals;
 
 /** Your bidder locations that have distinct URLs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Account_BidderLocation_Item *> *bidderLocation;
@@ -507,7 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The HTML snippet that displays the ad when inserted in the web page. If set,
- *  videoURL should not be set.
+ *  videoURL, videoVastXML, and nativeAd should not be set.
  */
 @property(nonatomic, copy, nullable) NSString *HTMLSnippet;
 
@@ -524,8 +537,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /**
- *  If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should
- *  not be set. (The videoURL inside nativeAd can be set.)
+ *  If nativeAd is set, HTMLSnippet, videoVastXML, and the videoURL outside of
+ *  nativeAd should not be set. (The videoURL inside nativeAd can be set.)
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_NativeAd *nativeAd;
 
@@ -591,10 +604,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *version;
 
 /**
- *  The URL to fetch a video ad. If set, HTMLSnippet and the nativeAd should not
- *  be set. Note, this is different from resource.native_ad.video_url above.
+ *  The URL to fetch a video ad. If set, HTMLSnippet, videoVastXML, and nativeAd
+ *  should not be set. Note, this is different from resource.native_ad.video_url
+ *  above.
  */
 @property(nonatomic, copy, nullable) NSString *videoURL;
+
+/**
+ *  The contents of a VAST document for a video ad. This document should conform
+ *  to the VAST 2.0 or 3.0 standard. If set, HTMLSnippet, videoURL, and nativeAd
+ *  and should not be set.
+ */
+@property(nonatomic, copy, nullable) NSString *videoVastXML;
 
 /**
  *  Ad width.
@@ -642,8 +663,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should
- *  not be set. (The videoURL inside nativeAd can be set.)
+ *  If nativeAd is set, HTMLSnippet, videoVastXML, and the videoURL outside of
+ *  nativeAd should not be set. (The videoURL inside nativeAd can be set.)
  */
 @interface GTLRAdExchangeBuyer_Creative_NativeAd : GTLRObject
 
@@ -2679,6 +2700,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueDayPartTargeting *dayPartTargetingValue;
 
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueDemogAgeCriteria *demogAgeCriteriaValue;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria *demogGenderCriteriaValue;
+
 /**
  *  The long value to exclude/include.
  *
@@ -2693,9 +2717,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_TargetingValueCreativeSize
+ *  Next Id: 7
  */
 @interface GTLRAdExchangeBuyer_TargetingValueCreativeSize : GTLRObject
+
+/** The formats allowed by the publisher. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFormats;
 
 /** For video size type, the list of companion sizes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValueSize *> *companionSizes;
@@ -2762,6 +2789,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startMinute;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_TargetingValueDemogAgeCriteria
+ */
+@interface GTLRAdExchangeBuyer_TargetingValueDemogAgeCriteria : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *demogAgeCriteriaIds;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria
+ */
+@interface GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *demogGenderCriteriaIds;
 
 @end
 

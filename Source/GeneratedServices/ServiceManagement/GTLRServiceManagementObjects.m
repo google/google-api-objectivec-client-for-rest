@@ -74,17 +74,6 @@ NSString * const kGTLRServiceManagement_Field_Kind_TypeUint32  = @"TYPE_UINT32";
 NSString * const kGTLRServiceManagement_Field_Kind_TypeUint64  = @"TYPE_UINT64";
 NSString * const kGTLRServiceManagement_Field_Kind_TypeUnknown = @"TYPE_UNKNOWN";
 
-// GTLRServiceManagement_FlowOperationMetadata.cancelState
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Cancelled = @"CANCELLED";
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Running = @"RUNNING";
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_CancelState_Uncancellable = @"UNCANCELLABLE";
-
-// GTLRServiceManagement_FlowOperationMetadata.surface
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceConsumerManagement = @"SERVICE_CONSUMER_MANAGEMENT";
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceManagement = @"SERVICE_MANAGEMENT";
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_ServiceUsage = @"SERVICE_USAGE";
-NSString * const kGTLRServiceManagement_FlowOperationMetadata_Surface_UnspecifiedOpService = @"UNSPECIFIED_OP_SERVICE";
-
 // GTLRServiceManagement_LabelDescriptor.valueType
 NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_Int64 = @"INT64";
@@ -171,12 +160,11 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRServiceManagement_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRServiceManagement_AuditLogConfig class]
   };
   return map;
 }
@@ -344,7 +332,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -458,10 +446,13 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_ContextRule
-@dynamic provided, requested, selector;
+@dynamic allowedRequestExtensions, allowedResponseExtensions, provided,
+         requested, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowedRequestExtensions" : [NSString class],
+    @"allowedResponseExtensions" : [NSString class],
     @"provided" : [NSString class],
     @"requested" : [NSString class]
   };
@@ -685,21 +676,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceManagement_Expr
-//
-
-@implementation GTLRServiceManagement_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceManagement_Field
 //
 
@@ -718,25 +694,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceManagement_FlowOperationMetadata
-//
-
-@implementation GTLRServiceManagement_FlowOperationMetadata
-@dynamic cancelState, deadline, flowName, operationType, resourceNames,
-         startTime, surface;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resourceNames" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -837,7 +794,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_HttpRule
 @dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
-         mediaUpload, patch, post, put, responseBody, selector;
+         mediaUpload, patch, post, put, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -1305,7 +1262,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

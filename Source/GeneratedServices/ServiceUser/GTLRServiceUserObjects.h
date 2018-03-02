@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service User API (serviceuser/v1)
+//   Service User API (serviceuser/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -822,6 +822,22 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  `google.rpc.context.OriginContext`.
  *  Available context types are defined in package
  *  `google.rpc.context`.
+ *  This also provides mechanism to whitelist any protobuf message extension
+ *  that
+ *  can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+ *  “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+ *  specific protobuf types that can appear in grpc metadata as follows in your
+ *  yaml file:
+ *  Example:
+ *  context:
+ *  rules:
+ *  - selector: "google.example.library.v1.LibraryService.CreateBook"
+ *  allowed_request_extensions:
+ *  - google.foo.v1.NewExtension
+ *  allowed_response_extensions:
+ *  - google.foo.v1.NewExtension
+ *  You can also specify extension ID instead of fully qualified extension name
+ *  here.
  */
 @interface GTLRServiceUser_Context : GTLRObject
 
@@ -839,6 +855,18 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  element.
  */
 @interface GTLRServiceUser_ContextRule : GTLRObject
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from client to backend.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedRequestExtensions;
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from backend to client.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
 /** A list of full type names of provided contexts. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
@@ -1589,15 +1617,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *put;
 
 /**
- *  The name of the response field whose value is mapped to the HTTP body of
- *  response. Other response fields are ignored. This field is optional. When
- *  not set, the response message will be used as HTTP body of response.
- *  NOTE: the referred field must be not a repeated field and must be present
- *  at the top-level of response message type.
- */
-@property(nonatomic, copy, nullable) NSString *responseBody;
-
-/**
  *  Selects methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -2039,13 +2058,12 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  * `Gi` gibi (2**30)
  *  * `Ti` tebi (2**40)
  *  **Grammar**
- *  The grammar includes the dimensionless unit `1`, such as `1/s`.
  *  The grammar also includes these connectors:
  *  * `/` division (as an infix operator, e.g. `1/s`).
  *  * `.` multiplication (as an infix operator, e.g. `GBy.d`)
  *  The grammar for a unit is as follows:
  *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = [ PREFIX ] UNIT [ Annotation ]
+ *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
  *  | Annotation
  *  | "1"
  *  ;
@@ -2056,6 +2074,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.
  *  * `NAME` is a sequence of non-blank printable ASCII characters not
  *  containing '{' or '}'.
+ *  * `1` represents dimensionless value 1, such as in `1/s`.
+ *  * `%` represents dimensionless value 1/100, and annotates values giving
+ *  a percentage.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

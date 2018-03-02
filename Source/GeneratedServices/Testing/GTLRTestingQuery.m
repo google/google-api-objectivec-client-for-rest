@@ -31,6 +31,26 @@ NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration = @"NETWORK_CON
 
 @end
 
+@implementation GTLRTestingQuery_ApplicationDetailServiceGetApkDetails
+
++ (instancetype)queryWithObject:(GTLRTesting_FileReference *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/applicationDetailService/getApkDetails";
+  GTLRTestingQuery_ApplicationDetailServiceGetApkDetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRTesting_GetApkDetailsResponse class];
+  query.loggingName = @"testing.applicationDetailService.getApkDetails";
+  return query;
+}
+
+@end
+
 @implementation GTLRTestingQuery_ProjectsTestMatricesCancel
 
 @dynamic projectId, testMatrixId;

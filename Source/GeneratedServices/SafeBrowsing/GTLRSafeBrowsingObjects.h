@@ -1175,6 +1175,18 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
 @interface GTLRSafeBrowsing_Constraints : GTLRObject
 
 /**
+ *  A client's physical location, expressed as a ISO 31166-1 alpha-2
+ *  region code.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceLocation;
+
+/**
+ *  Requests the lists for a specific language. Expects ISO 639 alpha-2
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/**
  *  Sets the maximum number of entries that the client is willing to have
  *  in the local database. This should be a power of 2 between 2**10 and
  *  2**20. If zero, no database size limit is set.
@@ -1684,7 +1696,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
 
 /**
  *  The offset of the first entry in the encoded data, or, if only a single
- *  integer was encoded, that single integer's value.
+ *  integer was encoded, that single integer's value. If the field is empty or
+ *  missing, assume zero.
  *
  *  Uses NSNumber of longLongValue.
  */

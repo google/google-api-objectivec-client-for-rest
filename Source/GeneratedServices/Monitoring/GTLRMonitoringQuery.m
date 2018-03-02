@@ -19,6 +19,7 @@
 
 // aggregationCrossSeriesReducer
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount = @"REDUCE_COUNT";
+NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse = @"REDUCE_COUNT_FALSE";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue = @"REDUCE_COUNT_TRUE";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue = @"REDUCE_FRACTION_TRUE";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMax = @"REDUCE_MAX";
@@ -34,6 +35,7 @@ NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceSum = @"REDUC
 
 // aggregationPerSeriesAligner
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCount = @"ALIGN_COUNT";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse = @"ALIGN_COUNT_FALSE";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue = @"ALIGN_COUNT_TRUE";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta = @"ALIGN_DELTA";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue = @"ALIGN_FRACTION_TRUE";
@@ -43,6 +45,7 @@ NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean = @"ALIGN_M
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin = @"ALIGN_MIN";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder = @"ALIGN_NEXT_OLDER";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone = @"ALIGN_NONE";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange = @"ALIGN_PERCENT_CHANGE";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 = @"ALIGN_PERCENTILE_05";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 = @"ALIGN_PERCENTILE_50";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 = @"ALIGN_PERCENTILE_95";

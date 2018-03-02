@@ -841,7 +841,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Describes billing configuration for new a Tenant Project
+ *  Describes billing configuration for a new Tenant Project
  */
 @interface GTLRServiceConsumerManagement_BillingConfig : GTLRObject
 
@@ -896,6 +896,22 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  `google.rpc.context.OriginContext`.
  *  Available context types are defined in package
  *  `google.rpc.context`.
+ *  This also provides mechanism to whitelist any protobuf message extension
+ *  that
+ *  can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+ *  “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+ *  specific protobuf types that can appear in grpc metadata as follows in your
+ *  yaml file:
+ *  Example:
+ *  context:
+ *  rules:
+ *  - selector: "google.example.library.v1.LibraryService.CreateBook"
+ *  allowed_request_extensions:
+ *  - google.foo.v1.NewExtension
+ *  allowed_response_extensions:
+ *  - google.foo.v1.NewExtension
+ *  You can also specify extension ID instead of fully qualified extension name
+ *  here.
  */
 @interface GTLRServiceConsumerManagement_Context : GTLRObject
 
@@ -913,6 +929,18 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  element.
  */
 @interface GTLRServiceConsumerManagement_ContextRule : GTLRObject
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from client to backend.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedRequestExtensions;
+
+/**
+ *  A list of full type names or extension IDs of extensions allowed in grpc
+ *  side channel from backend to client.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
 /** A list of full type names of provided contexts. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
@@ -1690,15 +1718,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, copy, nullable) NSString *put;
 
 /**
- *  The name of the response field whose value is mapped to the HTTP body of
- *  response. Other response fields are ignored. This field is optional. When
- *  not set, the response message will be used as HTTP body of response.
- *  NOTE: the referred field must be not a repeated field and must be present
- *  at the top-level of response message type.
- */
-@property(nonatomic, copy, nullable) NSString *responseBody;
-
-/**
  *  DO NOT USE. This is an experimental field.
  *  Optional. The REST collection name is by default derived from the URL
  *  pattern. If specified, this field overrides the default collection name.
@@ -2199,13 +2218,12 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  * `Gi` gibi (2**30)
  *  * `Ti` tebi (2**40)
  *  **Grammar**
- *  The grammar includes the dimensionless unit `1`, such as `1/s`.
  *  The grammar also includes these connectors:
  *  * `/` division (as an infix operator, e.g. `1/s`).
  *  * `.` multiplication (as an infix operator, e.g. `GBy.d`)
  *  The grammar for a unit is as follows:
  *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = [ PREFIX ] UNIT [ Annotation ]
+ *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
  *  | Annotation
  *  | "1"
  *  ;
@@ -2216,6 +2234,9 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.
  *  * `NAME` is a sequence of non-blank printable ASCII characters not
  *  containing '{' or '}'.
+ *  * `1` represents dimensionless value 1, such as in `1/s`.
+ *  * `%` represents dimensionless value 1/100, and annotates values giving
+ *  a percentage.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -3353,7 +3374,10 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
-/** Resources constituting the tenancy unit. */
+/**
+ *  Resources constituting the tenancy unit.
+ *  There can be at most 512 tenant resources in a tenancy units.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_TenantResource *> *tenantResources;
 
 @end
@@ -3423,10 +3447,12 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @interface GTLRServiceConsumerManagement_TenantProjectPolicy : GTLRObject
 
 /**
- *  Additional policy bindings to be applied on the tenant
- *  project.
- *  At least one owner must be set in the bindings. Among the list of members
- *  as owners, at least one of them must be either `user` or `group` based.
+ *  Policy bindings to be applied to the tenant project, in addition to the
+ *  'roles/owner' role granted to the Service Consumer Management service
+ *  account.
+ *  At least one binding must have the role `roles/owner`. Among the list of
+ *  members for `roles/owner`, at least one of them must be either `user` or
+ *  `group` type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_PolicyBinding *> *policyBindings;
 

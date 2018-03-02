@@ -910,76 +910,6 @@ GTLR_EXTERN NSString * const kGTLRPartners_ExamStatus_ExamType_CetShopping;
 GTLR_EXTERN NSString * const kGTLRPartners_ExamStatus_ExamType_CetVideoAds;
 
 // ----------------------------------------------------------------------------
-// GTLRPartners_ExamToken.examType
-
-/**
- *  Unchosen.
- *
- *  Value: "CERTIFICATION_EXAM_TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CertificationExamTypeUnspecified;
-/**
- *  AdWords advanced display exam.
- *
- *  Value: "CET_ADWORDS_ADVANCED_DISPLAY"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedDisplay;
-/**
- *  AdWords advanced search exam.
- *
- *  Value: "CET_ADWORDS_ADVANCED_SEARCH"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedSearch;
-/**
- *  Adwords Fundamentals exam.
- *
- *  Value: "CET_ADWORDS_FUNDAMENTALS"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsFundamentals;
-/**
- *  Analytics exam.
- *
- *  Value: "CET_ANALYTICS"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetAnalytics;
-/**
- *  Digital Sales exam.
- *
- *  Value: "CET_DIGITAL_SALES"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetDigitalSales;
-/**
- *  DoubleClick exam.
- *
- *  Value: "CET_DOUBLECLICK"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetDoubleclick;
-/**
- *  Mobile exam.
- *
- *  Value: "CET_MOBILE"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetMobile;
-/**
- *  Mobile Sites exam.
- *
- *  Value: "CET_MOBILE_SITES"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetMobileSites;
-/**
- *  Shopping exam.
- *
- *  Value: "CET_SHOPPING"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetShopping;
-/**
- *  VideoAds exam.
- *
- *  Value: "CET_VIDEO_ADS"
- */
-GTLR_EXTERN NSString * const kGTLRPartners_ExamToken_ExamType_CetVideoAds;
-
-// ----------------------------------------------------------------------------
 // GTLRPartners_HistoricalOffer.offerType
 
 /**
@@ -3283,53 +3213,6 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *warning;
-
-@end
-
-
-/**
- *  A token that allows a user to take an exam.
- */
-@interface GTLRPartners_ExamToken : GTLRObject
-
-/**
- *  The id of the exam the token is for.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *examId;
-
-/**
- *  The type of the exam the token belongs to.
- *
- *  Likely values:
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CertificationExamTypeUnspecified
- *        Unchosen. (Value: "CERTIFICATION_EXAM_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedDisplay AdWords
- *        advanced display exam. (Value: "CET_ADWORDS_ADVANCED_DISPLAY")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedSearch AdWords
- *        advanced search exam. (Value: "CET_ADWORDS_ADVANCED_SEARCH")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetAdwordsFundamentals Adwords
- *        Fundamentals exam. (Value: "CET_ADWORDS_FUNDAMENTALS")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetAnalytics Analytics exam.
- *        (Value: "CET_ANALYTICS")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetDigitalSales Digital Sales
- *        exam. (Value: "CET_DIGITAL_SALES")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetDoubleclick DoubleClick exam.
- *        (Value: "CET_DOUBLECLICK")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetMobile Mobile exam. (Value:
- *        "CET_MOBILE")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetMobileSites Mobile Sites exam.
- *        (Value: "CET_MOBILE_SITES")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetShopping Shopping exam.
- *        (Value: "CET_SHOPPING")
- *    @arg @c kGTLRPartners_ExamToken_ExamType_CetVideoAds VideoAds exam.
- *        (Value: "CET_VIDEO_ADS")
- */
-@property(nonatomic, copy, nullable) NSString *examType;
-
-/** The token, only present if the user has access to the exam. */
-@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 

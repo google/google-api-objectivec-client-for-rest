@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Storage Transfer API (storagetransfer/v1)
+//   Storage Transfer API (storagetransfer/v1)
 // Description:
 //   Transfers data from external data sources to a Google Cloud Storage bucket
 //   or between Google Cloud Storage buckets.
@@ -240,7 +240,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown
 /**
  *  This is a soft delete state. After a transfer job is set to this
  *  state, the job and all the transfer executions are subject to
- *  garbage collection.
+ *  garbage collection. Transfer jobs become eligible for garbage collection
+ *  30 days after their status is set to `DELETED`.
  *
  *  Value: "DELETED"
  */
@@ -1043,7 +1044,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *bytesFoundOnlyFromSink;
 
 /**
- *  Bytes in the data source that failed during the transfer.
+ *  Bytes in the data source that failed to be transferred or that failed to
+ *  be deleted after being transferred.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1102,7 +1104,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *objectsFoundOnlyFromSink;
 
 /**
- *  Objects in the data source that failed during the transfer.
+ *  Objects in the data source that failed to be transferred or that failed
+ *  to be deleted after being transferred.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1168,7 +1171,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Deleted This is a soft
  *        delete state. After a transfer job is set to this
  *        state, the job and all the transfer executions are subject to
- *        garbage collection. (Value: "DELETED")
+ *        garbage collection. Transfer jobs become eligible for garbage
+ *        collection
+ *        30 days after their status is set to `DELETED`. (Value: "DELETED")
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled New transfers
  *        will not be scheduled. (Value: "DISABLED")
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled New transfers will

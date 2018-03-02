@@ -54,8 +54,14 @@ GTLR_EXTERN NSString * const kGTLRVaultStateStateUnspecified;
 
 /** Value: "BASIC" */
 GTLR_EXTERN NSString * const kGTLRVaultViewBasic;
+/** Value: "BASIC_HOLD" */
+GTLR_EXTERN NSString * const kGTLRVaultViewBasicHold;
 /** Value: "FULL" */
 GTLR_EXTERN NSString * const kGTLRVaultViewFull;
+/** Value: "FULL_HOLD" */
+GTLR_EXTERN NSString * const kGTLRVaultViewFullHold;
+/** Value: "HOLD_VIEW_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRVaultViewHoldViewUnspecified;
 /** Value: "VIEW_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 
@@ -432,6 +438,16 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /**
+ *  Specifies which parts of the Hold to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVaultViewHoldViewUnspecified Value "HOLD_VIEW_UNSPECIFIED"
+ *    @arg @c kGTLRVaultViewBasicHold Value "BASIC_HOLD"
+ *    @arg @c kGTLRVaultViewFullHold Value "FULL_HOLD"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRVault_Hold.
  *
  *  Gets a hold by ID.
@@ -474,6 +490,16 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  An empty token means start from the beginning.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Specifies which parts of the Hold to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVaultViewHoldViewUnspecified Value "HOLD_VIEW_UNSPECIFIED"
+ *    @arg @c kGTLRVaultViewBasicHold Value "BASIC_HOLD"
+ *    @arg @c kGTLRVaultViewFullHold Value "FULL_HOLD"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRVault_ListHoldsResponse.

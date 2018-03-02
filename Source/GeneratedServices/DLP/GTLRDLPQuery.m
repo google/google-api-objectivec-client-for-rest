@@ -708,3 +708,110 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 }
 
 @end
+
+@implementation GTLRDLPQuery_ProjectsJobTriggersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta2/{+parent}/jobTriggers";
+  GTLRDLPQuery_ProjectsJobTriggersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger class];
+  query.loggingName = @"dlp.projects.jobTriggers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsJobTriggersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta2/{+name}";
+  GTLRDLPQuery_ProjectsJobTriggersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.projects.jobTriggers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsJobTriggersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta2/{+name}";
+  GTLRDLPQuery_ProjectsJobTriggersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger class];
+  query.loggingName = @"dlp.projects.jobTriggers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsJobTriggersList
+
+@dynamic orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2beta2/{+parent}/jobTriggers";
+  GTLRDLPQuery_ProjectsJobTriggersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta2ListJobTriggersResponse class];
+  query.loggingName = @"dlp.projects.jobTriggers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsJobTriggersPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2beta2/{+name}";
+  GTLRDLPQuery_ProjectsJobTriggersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger class];
+  query.loggingName = @"dlp.projects.jobTriggers.patch";
+  return query;
+}
+
+@end

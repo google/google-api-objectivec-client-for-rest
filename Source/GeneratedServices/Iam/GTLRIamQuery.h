@@ -23,6 +23,7 @@
 @class GTLRIam_CreateRoleRequest;
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
+@class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
 @class GTLRIam_QueryTestablePermissionsRequest;
 @class GTLRIam_Role;
@@ -82,6 +83,34 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Returns a list of services that support service level audit logging
+ *  configuration for the given resource.
+ *
+ *  Method: iam.iamPolicies.queryAuditableServices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_IamPoliciesQueryAuditableServices : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForIamPoliciesQueryAuditableServicesWithObject:]
+
+/**
+ *  Fetches a @c GTLRIam_QueryAuditableServicesResponse.
+ *
+ *  Returns a list of services that support service level audit logging
+ *  configuration for the given resource.
+ *
+ *  @param object The @c GTLRIam_QueryAuditableServicesRequest to include in the
+ *    query.
+ *
+ *  @returns GTLRIamQuery_IamPoliciesQueryAuditableServices
+ */
++ (instancetype)queryWithObject:(GTLRIam_QueryAuditableServicesRequest *)object;
 
 @end
 

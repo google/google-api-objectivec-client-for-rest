@@ -276,10 +276,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseDynamicLinks/*.{h,m}'
   end
-  s.subspec 'FirebaseRemoteConfig' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/FirebaseRemoteConfig/*.{h,m}'
-  end
   s.subspec 'FirebaseRules' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseRules/*.{h,m}'
@@ -323,6 +319,10 @@ Pod::Spec.new do |s|
   s.subspec 'GroupsSettings' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/GroupsSettings/*.{h,m}'
+  end
+  s.subspec 'HangoutsChat' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/HangoutsChat/*.{h,m}'
   end
   s.subspec 'Iam' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -447,6 +447,10 @@ Pod::Spec.new do |s|
   s.subspec 'ServiceManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceManagement/*.{h,m}'
+  end
+  s.subspec 'ServiceUsage' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceUsage/*.{h,m}'
   end
   s.subspec 'ServiceUser' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -935,6 +935,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The last updated time of the managed configuration settings in milliseconds
+ *  since 1970-01-01T00:00:00Z.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestampMillis;
+
 /** The set of managed properties for this configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedProperty *> *managedProperty;
 
@@ -1039,6 +1047,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The Android ID of the device. This field will always be present. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** Policy app on the device. */
+@property(nonatomic, copy, nullable) NSString *dpcPackageName;
 
 /**
  *  Identifies the extent to which the device is controlled by an Android EMM in
@@ -1223,6 +1234,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Policy : GTLRObject
 
 /**
+ *  The auto-update policy for apps installed on the device. "choiceToTheUser"
+ *  allows the device's user to configure the app update policy. "always"
+ *  enables auto updates. "never" disables auto updates. "wifiOnly" enables auto
+ *  updates only when the device is connected to wifi.
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
+
+/**
  *  The availability granted to the device for the specified products. "all"
  *  gives the device access to all products, regardless of approval status.
  *  "allApproved" entitles the device to access all products that are approved
@@ -1271,7 +1290,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *contentRating;
 
 /**
- *  A localized promotional description, if available.
+ *  The localized promotional description, if available.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1303,8 +1322,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The time (in milliseconds since epoch) when application was last published.
- *  (Timestamp is approximate within 7 days of actual publish time.)
+ *  The approximate time (within 7 days) the app was last published, expressed
+ *  in milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1317,7 +1336,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *minAndroidSdkVersion;
 
-/** The permissions required for this app. */
+/** A list of permissions required by the app. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permissions;
 
 /**

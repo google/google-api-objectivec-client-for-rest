@@ -43,6 +43,25 @@ NSString * const kGTLRGenomics_CigarUnit_Operation_Skip        = @"SKIP";
 NSString * const kGTLRGenomics_ExportVariantSetRequest_Format_FormatBigquery = @"FORMAT_BIGQUERY";
 NSString * const kGTLRGenomics_ExportVariantSetRequest_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 
+// GTLRGenomics_FailedEvent.code
+NSString * const kGTLRGenomics_FailedEvent_Code_Aborted        = @"ABORTED";
+NSString * const kGTLRGenomics_FailedEvent_Code_AlreadyExists  = @"ALREADY_EXISTS";
+NSString * const kGTLRGenomics_FailedEvent_Code_Cancelled      = @"CANCELLED";
+NSString * const kGTLRGenomics_FailedEvent_Code_DataLoss       = @"DATA_LOSS";
+NSString * const kGTLRGenomics_FailedEvent_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRGenomics_FailedEvent_Code_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRGenomics_FailedEvent_Code_Internal       = @"INTERNAL";
+NSString * const kGTLRGenomics_FailedEvent_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRGenomics_FailedEvent_Code_NotFound       = @"NOT_FOUND";
+NSString * const kGTLRGenomics_FailedEvent_Code_Ok             = @"OK";
+NSString * const kGTLRGenomics_FailedEvent_Code_OutOfRange     = @"OUT_OF_RANGE";
+NSString * const kGTLRGenomics_FailedEvent_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRGenomics_FailedEvent_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRGenomics_FailedEvent_Code_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRGenomics_FailedEvent_Code_Unavailable    = @"UNAVAILABLE";
+NSString * const kGTLRGenomics_FailedEvent_Code_Unimplemented  = @"UNIMPLEMENTED";
+NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
+
 // GTLRGenomics_ImportReadGroupSetsRequest.partitionStrategy
 NSString * const kGTLRGenomics_ImportReadGroupSetsRequest_PartitionStrategy_MergeAll = @"MERGE_ALL";
 NSString * const kGTLRGenomics_ImportReadGroupSetsRequest_PartitionStrategy_PartitionStrategyUnspecified = @"PARTITION_STRATEGY_UNSPECIFIED";
@@ -336,6 +355,40 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_ContainerStartedEvent
+//
+
+@implementation GTLRGenomics_ContainerStartedEvent
+@dynamic actionId, ipAddress, portMappings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_ContainerStartedEvent_PortMappings
+//
+
+@implementation GTLRGenomics_ContainerStartedEvent_PortMappings
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_ContainerStoppedEvent
+//
+
+@implementation GTLRGenomics_ContainerStoppedEvent
+@dynamic actionId, exitStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_CoverageBucket
 //
 
@@ -361,6 +414,24 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_DelayedEvent
+//
+
+@implementation GTLRGenomics_DelayedEvent
+@dynamic cause, metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_Empty
 //
 
@@ -375,6 +446,35 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 @implementation GTLRGenomics_Entry
 @dynamic annotation, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Event
+//
+
+@implementation GTLRGenomics_Event
+@dynamic descriptionProperty, details, timestamp;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Event_Details
+//
+
+@implementation GTLRGenomics_Event_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -446,6 +546,16 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_FailedEvent
+//
+
+@implementation GTLRGenomics_FailedEvent
+@dynamic cause, code;
 @end
 
 
@@ -829,6 +939,26 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_PullStartedEvent
+//
+
+@implementation GTLRGenomics_PullStartedEvent
+@dynamic imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_PullStoppedEvent
+//
+
+@implementation GTLRGenomics_PullStoppedEvent
+@dynamic imageUri;
 @end
 
 
@@ -1505,6 +1635,16 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_UnexpectedExitStatusEvent
+//
+
+@implementation GTLRGenomics_UnexpectedExitStatusEvent
+@dynamic actionId, exitStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_Variant
 //
 
@@ -1652,6 +1792,36 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_WorkerAssignedEvent
+//
+
+@implementation GTLRGenomics_WorkerAssignedEvent
+@dynamic instance, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_WorkerReleasedEvent
+//
+
+@implementation GTLRGenomics_WorkerReleasedEvent
+@dynamic instance, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
 }
 
 @end

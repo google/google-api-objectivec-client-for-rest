@@ -213,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 
 
 /**
- *  Query options for drive holds.
+ *  Query options for Drive holds.
  */
 @interface GTLRVault_HeldDriveQuery : GTLRObject
 
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 /** When the org unit was put on hold. This property is immutable. */
 @property(nonatomic, strong, nullable) GTLRDateTime *holdTime;
 
-/** The org unit's immutable ID as provided by the admin SDK. */
+/** The org unit's immutable ID as provided by the Admin SDK. */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end

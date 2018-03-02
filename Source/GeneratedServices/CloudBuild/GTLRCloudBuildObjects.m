@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Container Builder API (cloudbuild/v1)
+//   Cloud Container Builder API (cloudbuild/v1)
 // Description:
 //   Builds container images in the cloud.
 // Documentation:
@@ -44,6 +44,16 @@ NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256 = @"SH
 // GTLRCloudBuild_BuildOptions.substitutionOption
 NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
 NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch = @"MUST_MATCH";
+
+// GTLRCloudBuild_BuildStep.status
+NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled    = @"CANCELLED";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Failure      = @"FAILURE";
+NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Queued       = @"QUEUED";
+NSString * const kGTLRCloudBuild_BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Success      = @"SUCCESS";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout      = @"TIMEOUT";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Working      = @"WORKING";
 
 // GTLRCloudBuild_Hash.type
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
@@ -140,8 +150,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, timing,
-         volumes, waitFor;
+@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, status,
+         timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -294,13 +294,23 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 //
 
 @implementation GTLRGmail_Label
-@dynamic identifier, labelListVisibility, messageListVisibility, messagesTotal,
-         messagesUnread, name, threadsTotal, threadsUnread, type;
+@dynamic color, identifier, labelListVisibility, messageListVisibility,
+         messagesTotal, messagesUnread, name, threadsTotal, threadsUnread, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_LabelColor
+//
+
+@implementation GTLRGmail_LabelColor
+@dynamic backgroundColor, textColor;
 @end
 
 

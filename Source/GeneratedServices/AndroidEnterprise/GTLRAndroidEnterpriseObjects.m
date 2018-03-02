@@ -468,7 +468,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsSettings
-@dynamic kind, managedProperty, mcmId, name;
+@dynamic kind, lastUpdatedTimestampMillis, managedProperty, mcmId, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -542,7 +542,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_NewDeviceEvent
-@dynamic deviceId, managementType, userId;
+@dynamic deviceId, dpcPackageName, managementType, userId;
 @end
 
 
@@ -627,7 +627,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Policy
-@dynamic productAvailabilityPolicy, productPolicy;
+@dynamic autoUpdatePolicy, productAvailabilityPolicy, productPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

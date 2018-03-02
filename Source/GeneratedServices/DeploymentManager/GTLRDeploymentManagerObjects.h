@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If there are AuditConfigs for both `allServices` and a specific service, the
  *  union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditConfig are exempted.
+ *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  { "audit_configs": [ { "service": "allServices" "audit_log_configs": [ {
  *  "log_type": "DATA_READ", "exempted_members": [ "user:foo\@gmail.com" ] }, {
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The condition that is associated with this binding. NOTE: an unsatisfied
  *  condition will not allow user access via current binding. Different
  *  bindings, including their conditions, are examined independently. This field
- *  is GOOGLE_INTERNAL.
+ *  is only visible as GOOGLE_INTERNAL or CONDITION_TRUSTED_TESTER.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Expr *condition;
 
@@ -721,7 +721,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Output Only] The URL of the region where the operation resides. Only
- *  available when performing regional operations.
+ *  available when performing regional operations. You must specify this field
+ *  as part of the HTTP request URL. It is not settable as a field in the
+ *  request body.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -775,7 +777,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
- *  available when performing per-zone operations.
+ *  available when performing per-zone operations. You must specify this field
+ *  as part of the HTTP request URL. It is not settable as a field in the
+ *  request body.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -902,7 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com", ] }, { "role":
  *  "roles/viewer", "members": ["user:sean\@example.com"] } ] }
  *  For a description of IAM and its features, see the [IAM developer's
- *  guide](https://cloud.google.com/iam).
+ *  guide](https://cloud.google.com/iam/docs).
  */
 @interface GTLRDeploymentManager_Policy : GTLRObject
 
@@ -950,7 +954,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Rule *> *rules;
 
 /**
- *  Version of the `Policy`. The default version is 0.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

@@ -237,13 +237,47 @@
 
 @implementation GTLRCalendar_ConferenceData
 @dynamic conferenceId, conferenceSolution, createRequest, entryPoints, notes,
-         signature;
+         parameters, signature;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"entryPoints" : [GTLRCalendar_EntryPoint class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceParameters
+//
+
+@implementation GTLRCalendar_ConferenceParameters
+@dynamic addOnParameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceParametersAddOnParameters
+//
+
+@implementation GTLRCalendar_ConferenceParametersAddOnParameters
+@dynamic parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_ConferenceParametersAddOnParameters_Parameters
+//
+
+@implementation GTLRCalendar_ConferenceParametersAddOnParameters_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

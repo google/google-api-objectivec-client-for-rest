@@ -2469,3 +2469,23 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 }
 
 @end
+
+@implementation GTLRAnalyticsQuery_ProvisioningCreateAccountTree
+
++ (instancetype)queryWithObject:(GTLRAnalytics_AccountTreeRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"provisioning/createAccount";
+  GTLRAnalyticsQuery_ProvisioningCreateAccountTree *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAnalytics_AccountTreeResponse class];
+  query.loggingName = @"analytics.provisioning.createAccountTree";
+  return query;
+}
+
+@end

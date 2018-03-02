@@ -90,6 +90,7 @@
 @class GTLRSlides_ReplaceAllShapesWithSheetsChartResponse;
 @class GTLRSlides_ReplaceAllTextRequest;
 @class GTLRSlides_ReplaceAllTextResponse;
+@class GTLRSlides_ReplaceImageRequest;
 @class GTLRSlides_Request;
 @class GTLRSlides_Response;
 @class GTLRSlides_RgbColor;
@@ -2329,6 +2330,33 @@ GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_None;
 GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Sepia;
 
 // ----------------------------------------------------------------------------
+// GTLRSlides_ReplaceAllShapesWithImageRequest.imageReplaceMethod
+
+/**
+ *  Scales and centers the image to fill the bounds of the original shape.
+ *  The image may be cropped in order to fill the shape. The rendered size of
+ *  the image will be the same as that of the original shape.
+ *
+ *  Value: "CENTER_CROP"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop;
+/**
+ *  Scales and centers the image to fit within the bounds of the original
+ *  shape and maintains the image's aspect ratio. The rendered size of the
+ *  image may be smaller than the size of the shape. This is the default
+ *  method when one is not specified.
+ *
+ *  Value: "CENTER_INSIDE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside;
+/**
+ *  Unspecified image replace method. This value must not be used.
+ *
+ *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSlides_ReplaceAllShapesWithImageRequest.replaceMethod
 
 /**
@@ -2366,6 +2394,33 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_
  *  Value: "NOT_LINKED_IMAGE"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_ReplaceImageRequest.imageReplaceMethod
+
+/**
+ *  Scales and centers the image to fill the bounds of the original shape.
+ *  The image may be cropped in order to fill the shape. The rendered size of
+ *  the image will be the same as that of the original shape.
+ *
+ *  Value: "CENTER_CROP"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
+/**
+ *  Scales and centers the image to fit within the bounds of the original
+ *  shape and maintains the image's aspect ratio. The rendered size of the
+ *  image may be smaller than the size of the shape. This is the default
+ *  method when one is not specified.
+ *
+ *  Value: "CENTER_INSIDE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside;
+/**
+ *  Unspecified image replace method. This value must not be used.
+ *
+ *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shadow.alignment
@@ -3950,6 +4005,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Response *> *replies;
 
+/** The updated write control after applying the request. */
+@property(nonatomic, strong, nullable) GTLRSlides_WriteControl *writeControl;
+
 @end
 
 
@@ -5255,6 +5313,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The properties of the image. */
 @property(nonatomic, strong, nullable) GTLRSlides_ImageProperties *imageProperties;
+
+/**
+ *  The source URL is the URL used to insert the image. The source URL can be
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceUrl;
 
 @end
 
@@ -6657,6 +6721,33 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_SubstringMatchCriteria *containsText;
 
 /**
+ *  The image replace method.
+ *  If you specify both a `replace_method` and an `image_replace_method`, the
+ *  `image_replace_method` takes precedence.
+ *  If you do not specify a value for `image_replace_method`, but specify a
+ *  value for `replace_method`, then the specified `replace_method` value is
+ *  used.
+ *  If you do not specify either, then CENTER_INSIDE is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop
+ *        Scales and centers the image to fill the bounds of the original shape.
+ *        The image may be cropped in order to fill the shape. The rendered size
+ *        of
+ *        the image will be the same as that of the original shape. (Value:
+ *        "CENTER_CROP")
+ *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside
+ *        Scales and centers the image to fit within the bounds of the original
+ *        shape and maintains the image's aspect ratio. The rendered size of the
+ *        image may be smaller than the size of the shape. This is the default
+ *        method when one is not specified. (Value: "CENTER_INSIDE")
+ *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified
+ *        Unspecified image replace method. This value must not be used. (Value:
+ *        "IMAGE_REPLACE_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
+
+/**
  *  The image URL.
  *  The image is fetched once at insertion time and a copy is stored for
  *  display inside the presentation. Images must be less than 50MB in size,
@@ -6677,6 +6768,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The replace method.
+ *  Deprecated: use `image_replace_method` instead.
+ *  If you specify both a `replace_method` and an `image_replace_method`, the
+ *  `image_replace_method` takes precedence.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop
@@ -6817,6 +6911,49 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Replaces an existing image with a new image.
+ *  Replacing an image removes some image effects from the existing image.
+ */
+@interface GTLRSlides_ReplaceImageRequest : GTLRObject
+
+/** The ID of the existing image that will be replaced. */
+@property(nonatomic, copy, nullable) NSString *imageObjectId;
+
+/**
+ *  The replacement method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop
+ *        Scales and centers the image to fill the bounds of the original shape.
+ *        The image may be cropped in order to fill the shape. The rendered size
+ *        of
+ *        the image will be the same as that of the original shape. (Value:
+ *        "CENTER_CROP")
+ *    @arg @c kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside
+ *        Scales and centers the image to fit within the bounds of the original
+ *        shape and maintains the image's aspect ratio. The rendered size of the
+ *        image may be smaller than the size of the shape. This is the default
+ *        method when one is not specified. (Value: "CENTER_INSIDE")
+ *    @arg @c kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified
+ *        Unspecified image replace method. This value must not be used. (Value:
+ *        "IMAGE_REPLACE_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
+
+/**
+ *  The URL of the new image.
+ *  The image is fetched once at insertion time and a copy is stored for
+ *  display inside the presentation. Images must be less than 50MB in size,
+ *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
+ *  format.
+ *  The provided URL can be at most 2 kB in length.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  A single kind of update to apply to a presentation.
  */
 @interface GTLRSlides_Request : GTLRObject
@@ -6889,6 +7026,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Replaces all instances of specified text. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllTextRequest *replaceAllText;
+
+/** Replaces an existing image with a new image. */
+@property(nonatomic, strong, nullable) GTLRSlides_ReplaceImageRequest *replaceImage;
 
 /** Ungroups objects, such as groups. */
 @property(nonatomic, strong, nullable) GTLRSlides_UngroupObjectsRequest *ungroupObjects;
@@ -9071,10 +9211,48 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_VideoProperties : GTLRObject
 
 /**
+ *  Whether to enable video autoplay when the page is displayed in present
+ *  mode. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoPlay;
+
+/**
+ *  The time at which to end playback, measured in seconds from the beginning
+ *  of the video.
+ *  If set, the end time should be after the start time.
+ *  If not set or if you set this to a value that exceeds the video duration,
+ *  the video will be played until its end.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  Whether to mute the audio during video playback. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mute;
+
+/**
  *  The outline of the video. The default outline matches the defaults for new
  *  videos created in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
+
+/**
+ *  The time at which to start playback, measured in seconds from the beginning
+ *  of the video.
+ *  If set, the start time should be before the end time.
+ *  If you set this to a value that exceeds the video's length in seconds, the
+ *  video will be played from the last second.
+ *  If not set, the video will be played from the beginning.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
 
 @end
 

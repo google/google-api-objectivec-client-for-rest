@@ -100,6 +100,13 @@ NSString * const kGTLRVision_Feature_Type_TextDetection        = @"TEXT_DETECTIO
 NSString * const kGTLRVision_Feature_Type_TypeUnspecified      = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRVision_Feature_Type_WebDetection         = @"WEB_DETECTION";
 
+// GTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata.state
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Created = @"CREATED";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Done = @"DONE";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRVision_Landmark.type
 NSString * const kGTLRVision_Landmark_Type_ChinGnathion        = @"CHIN_GNATHION";
 NSString * const kGTLRVision_Landmark_Type_ChinLeftGonion      = @"CHIN_LEFT_GONION";
@@ -152,6 +159,14 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unknown = @"UNKNOWN";
 NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unlikely = @"UNLIKELY";
 NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRVision_SafeSearchAnnotation.racy
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Likely  = @"LIKELY";
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Possible = @"POSSIBLE";
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unknown = @"UNKNOWN";
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unlikely = @"UNLIKELY";
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryUnlikely = @"VERY_UNLIKELY";
 
 // GTLRVision_SafeSearchAnnotation.spoof
 NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Likely = @"LIKELY";
@@ -253,7 +268,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Block
-@dynamic blockType, boundingBox, paragraphs, property;
+@dynamic blockType, boundingBox, confidence, paragraphs, property;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -280,6 +295,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_CancelOperationRequest
+//
+
+@implementation GTLRVision_CancelOperationRequest
 @end
 
 
@@ -389,6 +413,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Empty
+//
+
+@implementation GTLRVision_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_EntityAnnotation
 //
 
@@ -439,7 +472,65 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Feature
-@dynamic maxResults, type;
+@dynamic maxResults, model, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse
+@dynamic outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse
+@dynamic responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRVision_GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1GcsDestination
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata
+@dynamic createTime, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1OutputConfig
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1OutputConfig
+@dynamic batchSize, gcsDestination;
 @end
 
 
@@ -459,7 +550,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_ImageContext
-@dynamic cropHintsParams, languageHints, latLongRect;
+@dynamic cropHintsParams, languageHints, latLongRect, webDetectionParams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -523,6 +614,28 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_ListOperationsResponse
+//
+
+@implementation GTLRVision_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRVision_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_LocationInfo
 //
 
@@ -533,11 +646,49 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Operation
+//
+
+@implementation GTLRVision_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_Operation_Metadata
+//
+
+@implementation GTLRVision_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_Operation_Response
+//
+
+@implementation GTLRVision_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Page
 //
 
 @implementation GTLRVision_Page
-@dynamic blocks, height, property, width;
+@dynamic blocks, confidence, height, property, width;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -555,7 +706,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Paragraph
-@dynamic boundingBox, property, words;
+@dynamic boundingBox, confidence, property, words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -593,7 +744,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_SafeSearchAnnotation
-@dynamic adult, medical, spoof, violence;
+@dynamic adult, medical, racy, spoof, violence;
 @end
 
 
@@ -635,7 +786,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Symbol
-@dynamic boundingBox, property, text;
+@dynamic boundingBox, confidence, property, text;
 @end
 
 
@@ -691,11 +842,12 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_WebDetection
-@dynamic fullMatchingImages, pagesWithMatchingImages, partialMatchingImages,
-         visuallySimilarImages, webEntities;
+@dynamic bestGuessLabels, fullMatchingImages, pagesWithMatchingImages,
+         partialMatchingImages, visuallySimilarImages, webEntities;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"bestGuessLabels" : [GTLRVision_WebLabel class],
     @"fullMatchingImages" : [GTLRVision_WebImage class],
     @"pagesWithMatchingImages" : [GTLRVision_WebPage class],
     @"partialMatchingImages" : [GTLRVision_WebImage class],
@@ -705,6 +857,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_WebDetectionParams
+//
+
+@implementation GTLRVision_WebDetectionParams
+@dynamic includeGeoResults;
 @end
 
 
@@ -735,11 +897,30 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_WebLabel
+//
+
+@implementation GTLRVision_WebLabel
+@dynamic label, languageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_WebPage
 //
 
 @implementation GTLRVision_WebPage
-@dynamic score, url;
+@dynamic fullMatchingImages, pageTitle, partialMatchingImages, score, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fullMatchingImages" : [GTLRVision_WebImage class],
+    @"partialMatchingImages" : [GTLRVision_WebImage class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -749,7 +930,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Word
-@dynamic boundingBox, property, symbols;
+@dynamic boundingBox, confidence, property, symbols;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

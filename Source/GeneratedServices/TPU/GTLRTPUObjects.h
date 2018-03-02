@@ -23,11 +23,13 @@
 @class GTLRTPU_Location_Metadata;
 @class GTLRTPU_NetworkEndpoint;
 @class GTLRTPU_Node;
+@class GTLRTPU_Node_Labels;
 @class GTLRTPU_Operation;
 @class GTLRTPU_Operation_Metadata;
 @class GTLRTPU_Operation_Response;
 @class GTLRTPU_Status;
 @class GTLRTPU_Status_Details_Item;
+@class GTLRTPU_TensorFlowVersion;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -113,6 +115,13 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Restarting;
  *  Value: "STATE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
+/**
+ *  7 - Reserved. Was SUSPENDED.
+ *  TPU node is stopped.
+ *
+ *  Value: "STOPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -195,6 +204,30 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response for ListTensorFlowVersions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tensorflowVersions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRTPU_ListTensorFlowVersionsResponse : GTLRCollectionObject
+
+/** The next page token or empty if none. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The listed nodes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_TensorFlowVersion *> *tensorflowVersions;
 
 @end
 
@@ -284,13 +317,14 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  The CIDR block that the TPU node will use when selecting //an IP address.
- *  This CIDR block must be a /29 block; the GCE networks API forbids a smaller
- *  block, and using a larger block would be wasteful (a node can only consume
- *  one IP address). Errors will occur if the CIDR block has already been used
- *  for a currently existing TPU node, the CIDR block conflicts with any
- *  subnetworks in the user's provided network, or the provided network is
- *  peered with another network that is using that CIDR block.
+ *  The CIDR block that the TPU node will use when selecting an IP address.
+ *  This CIDR block must be a /29 block; the Compute Engine networks API
+ *  forbids a smaller block, and using a larger block would be wasteful (a
+ *  node can only consume one IP address). Errors will occur if the CIDR block
+ *  has already been used for a currently existing TPU node, the CIDR block
+ *  conflicts with any subnetworks in the user's provided network, or the
+ *  provided network is peered with another network that is using that CIDR
+ *  block.
  *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *cidrBlock;
@@ -333,9 +367,13 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 /**
  *  Output only.
  *  DEPRECATED! Use network_endpoints instead.
- *  The network address for the TPU Node as visible to GCE instances.
+ *  The network address for the TPU Node as visible to Compute Engine
+ *  instances.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Resource labels to represent user-provided metadata. */
+@property(nonatomic, strong, nullable) GTLRTPU_Node_Labels *labels;
 
 /**
  *  Output only.
@@ -345,8 +383,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 
 /**
  *  The name of a network they wish to peer the TPU node to. It must be a
- *  preexisting GCE network inside of the project on which this API has been
- *  activated. If none is provided, "default" will be used.
+ *  preexisting Compute Engine network inside of the project on which this API
+ *  has been activated. If none is provided, "default" will be used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -361,7 +399,7 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 /**
  *  Output only.
  *  DEPRECATED! Use network_endpoints instead.
- *  The network port for the TPU Node as visible to GCE instances.
+ *  The network port for the TPU Node as visible to Compute Engine instances.
  */
 @property(nonatomic, copy, nullable) NSString *port;
 
@@ -394,6 +432,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  *        "RESTARTING")
  *    @arg @c kGTLRTPU_Node_State_StateUnspecified TPU node state is not
  *        known/set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_Node_State_Stopped 7 - Reserved. Was SUSPENDED.
+ *        TPU node is stopped. (Value: "STOPPED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -403,6 +443,18 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
+@end
+
+
+/**
+ *  Resource labels to represent user-provided metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRTPU_Node_Labels : GTLRObject
 @end
 
 
@@ -545,6 +597,13 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 
 
 /**
+ *  Request for StartNode.
+ */
+@interface GTLRTPU_StartNodeRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different
  *  programming environments, including REST APIs and RPC APIs. It is used by
@@ -623,6 +682,27 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRTPU_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Request for StopNode.
+ */
+@interface GTLRTPU_StopNodeRequest : GTLRObject
+@end
+
+
+/**
+ *  A tensorflow version that a Node can be configured with.
+ */
+@interface GTLRTPU_TensorFlowVersion : GTLRObject
+
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** the tensorflow version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 NS_ASSUME_NONNULL_END

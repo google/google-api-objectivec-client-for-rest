@@ -805,7 +805,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The purchase state of the order. Possible values are:
  *  - Purchased
- *  - Cancelled
+ *  - Canceled
  *
  *  Uses NSNumber of intValue.
  */
@@ -824,6 +824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purchase was not made using the standard in-app billing flow. Possible
  *  values are:
  *  - Test (i.e. purchased from a license testing account)
+ *  - Promo (i.e. purchased using a promo code)
  *
  *  Uses NSNumber of intValue.
  */
@@ -982,13 +983,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *autoRenewing;
 
 /**
- *  The reason why a subscription was cancelled or is not auto-renewing.
- *  Possible values are:
- *  - User cancelled the subscription
- *  - Subscription was cancelled by the system, for example because of a billing
+ *  The reason why a subscription was canceled or is not auto-renewing. Possible
+ *  values are:
+ *  - User canceled the subscription
+ *  - Subscription was canceled by the system, for example because of a billing
  *  problem
  *  - Subscription was replaced with a new subscription
- *  - Subscription was cancelled by the developer
+ *  - Subscription was canceled by the developer
  *
  *  Uses NSNumber of intValue.
  */
@@ -1169,6 +1170,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidPublisher_Track : GTLRObject
 
+/**
+ *  Identifier for this track. One of "alpha", "beta", "production" or
+ *  "rollout".
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1286,7 +1291,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A VoidedPurchase resource indicates a purchase that was either
- *  cancelled/refunded/charged-back.
+ *  canceled/refunded/charged-back.
  */
 @interface GTLRAndroidPublisher_VoidedPurchase : GTLRObject
 
@@ -1311,7 +1316,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
 
 /**
- *  The time at which the purchase was cancelled/refunded/charged-back, in
+ *  The time at which the purchase was canceled/refunded/charged-back, in
  *  milliseconds since the epoch (Jan 1, 1970).
  *
  *  Uses NSNumber of longLongValue.

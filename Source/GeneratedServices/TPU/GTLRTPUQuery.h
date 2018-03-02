@@ -21,6 +21,8 @@
 @class GTLRTPU_Node;
 @class GTLRTPU_ReimageNodeRequest;
 @class GTLRTPU_ResetNodeRequest;
+@class GTLRTPU_StartNodeRequest;
+@class GTLRTPU_StopNodeRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -238,7 +240,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Reimage a node's OS.
+ *  Reimages a node's OS.
  *
  *  Method: tpu.projects.locations.nodes.reimage
  *
@@ -255,7 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTPU_Operation.
  *
- *  Reimage a node's OS.
+ *  Reimages a node's OS.
  *
  *  @param object The @c GTLRTPU_ReimageNodeRequest to include in the query.
  *  @param name The resource name.
@@ -293,6 +295,66 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRTPUQuery_ProjectsLocationsNodesReset
  */
 + (instancetype)queryWithObject:(GTLRTPU_ResetNodeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts a node.
+ *
+ *  Method: tpu.projects.locations.nodes.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsNodesStart : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsNodesStartWithObject:name:]
+
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_Operation.
+ *
+ *  Starts a node.
+ *
+ *  @param object The @c GTLRTPU_StartNodeRequest to include in the query.
+ *  @param name The resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsNodesStart
+ */
++ (instancetype)queryWithObject:(GTLRTPU_StartNodeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops a node.
+ *
+ *  Method: tpu.projects.locations.nodes.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsNodesStop : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsNodesStopWithObject:name:]
+
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_Operation.
+ *
+ *  Stops a node.
+ *
+ *  @param object The @c GTLRTPU_StopNodeRequest to include in the query.
+ *  @param name The resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsNodesStop
+ */
++ (instancetype)queryWithObject:(GTLRTPU_StopNodeRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -463,6 +525,80 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets TensorFlow Version.
+ *
+ *  Method: tpu.projects.locations.tensorflowVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsTensorflowVersionsGetWithname:]
+
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_TensorFlowVersion.
+ *
+ *  Gets TensorFlow Version.
+ *
+ *  @param name The resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TensorFlow versions supported by this API.
+ *
+ *  Method: tpu.projects.locations.tensorflowVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsTensorflowVersionsListWithparent:]
+
+/** List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTPU_ListTensorFlowVersionsResponse.
+ *
+ *  Lists TensorFlow versions supported by this API.
+ *
+ *  @param parent The parent resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -111,6 +111,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Whether replication log archiving is enabled. Replication log archiving is
+ *  required for the point-in-time recovery (PITR) feature. PostgreSQL instances
+ *  only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicationLogArchivingEnabled;
+
+/**
  *  Start time for the daily backup configuration in UTC timezone in the 24 hour
  *  format - HH:MM.
  */
@@ -258,6 +267,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always sql#cloneContext. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The epoch timestamp, in milliseconds, of the time to which a point-in-time
+ *  recovery (PITR) is performed. PostgreSQL instances only. For MySQL
+ *  instances, use the binLogCoordinates property.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pitrTimestampMs;
+
 @end
 
 
@@ -369,9 +387,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance_FailoverReplica *failoverReplica;
 
 /**
- *  The GCE zone that the instance is serving from. In case when the instance is
- *  failed over to standby zone, this value may be different with what user
- *  specified in the settings.
+ *  The Compute Engine zone that the instance is currently serving from. This
+ *  value could be different from the zone that was specified when the instance
+ *  was created if the instance has failed over to its secondary zone.
  */
 @property(nonatomic, copy, nullable) NSString *gceZone;
 
@@ -560,6 +578,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterConfiguration *replicaConfiguration;
 
+/**
+ *  Verify GTID consistency for demote operation. Default value: True. Second
+ *  Generation instances only. Setting this flag to false enables you to bypass
+ *  GTID consistency check between on-premises master and Cloud SQL instance
+ *  during the demotion operation but also exposes you to the risk of future
+ *  replication failures. Change the value only if you know the reason for the
+ *  GTID divergence and are confident that doing so will not cause any
+ *  replication issues.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifyGtidConsistency;
+
 @end
 
 
@@ -626,8 +657,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The path to the file in Google Cloud Storage where the export will be
  *  stored. The URI is in the form gs://bucketName/fileName. If the file already
- *  exists, the operation fails. If fileType is SQL and the filename ends with
- *  .gz, the contents are compressed.
+ *  exists, the requests succeeds, but the operation fails. If fileType is SQL
+ *  and the filename ends with .gz, the contents are compressed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1033,6 +1064,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always sql#maintenanceWindow. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Maintenance timing setting: canary (Earlier) or stable (Later).
+ *  Learn more.
+ */
 @property(nonatomic, copy, nullable) NSString *updateTrack;
 
 @end
@@ -1315,16 +1350,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The activation policy specifies when the instance is activated; it is
- *  applicable only when the instance state is RUNNABLE. The activation policy
- *  cannot be updated together with other settings for Second Generation
- *  instances. Valid values:
- *  ALWAYS: The instance is on; it is not deactivated by inactivity.
+ *  applicable only when the instance state is RUNNABLE. Valid values:
+ *  ALWAYS: The instance is on, and remains so even in the absence of connection
+ *  requests.
  *  NEVER: The instance is off; it is not activated, even if a connection
  *  request arrives.
- *  ON_DEMAND: The instance responds to incoming requests, and turns itself off
- *  when not in use. Instances with PER_USE pricing turn off after 15 minutes of
- *  inactivity. Instances with PER_PACKAGE pricing turn off after 12 hours of
- *  inactivity.
+ *  ON_DEMAND: First Generation instances only. The instance responds to
+ *  incoming requests, and turns itself off when not in use. Instances with
+ *  PER_USE pricing turn off after 15 minutes of inactivity. Instances with
+ *  PER_PACKAGE pricing turn off after 12 hours of inactivity.
  */
 @property(nonatomic, copy, nullable) NSString *activationPolicy;
 
@@ -1334,7 +1368,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
-/** Reserved for future use. */
+/**
+ *  Availability type (PostgreSQL instances only). Potential values:
+ *  ZONAL: The instance serves data from only one zone. Outages in that zone
+ *  affect data accessibility.
+ *  REGIONAL: The instance can serve data from more than one zone in a region
+ *  (it is highly available).
+ *  For more information, see Overview of the High Availability Configuration.
+ */
 @property(nonatomic, copy, nullable) NSString *availabilityType;
 
 /** The daily backup configuration for the instance. */
@@ -1386,9 +1427,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The location preference settings. This allows the instance to be located as
- *  near as possible to either an App Engine app or GCE zone for better
- *  performance. App Engine co-location is only applicable to First Generation
- *  instances.
+ *  near as possible to either an App Engine app or Compute Engine zone for
+ *  better performance. App Engine co-location is only applicable to First
+ *  Generation instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
 
@@ -1557,8 +1598,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_SslCertsInsertResponse : GTLRObject
 
 /**
- *  The new client certificate and private key. The new certificate will not
- *  work until the instance is restarted for First Generation instances.
+ *  The new client certificate and private key. For First Generation instances,
+ *  the new certificate does not take effect until the instance is restarted.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCertDetail *clientCert;
 

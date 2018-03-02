@@ -25,6 +25,52 @@ NSString * const kGTLRPolyService_Asset_Visibility_Public      = @"PUBLIC";
 NSString * const kGTLRPolyService_Asset_Visibility_Unlisted    = @"UNLISTED";
 NSString * const kGTLRPolyService_Asset_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
 
+// GTLRPolyService_AssetImportMessage.code
+NSString * const kGTLRPolyService_AssetImportMessage_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_DefaultMaterials = @"DEFAULT_MATERIALS";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_EmptyModel = @"EMPTY_MODEL";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_Expired = @"EXPIRED";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_ExtraFilesWithArchive = @"EXTRA_FILES_WITH_ARCHIVE";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_FatalError = @"FATAL_ERROR";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_ImageError = @"IMAGE_ERROR";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_InvalidElementType = @"INVALID_ELEMENT_TYPE";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_NoImportableFile = @"NO_IMPORTABLE_FILE";
+NSString * const kGTLRPolyService_AssetImportMessage_Code_ObjParseError = @"OBJ_PARSE_ERROR";
+
+// GTLRPolyService_ImageError.code
+NSString * const kGTLRPolyService_ImageError_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRPolyService_ImageError_Code_ImageTooBig  = @"IMAGE_TOO_BIG";
+NSString * const kGTLRPolyService_ImageError_Code_InvalidImage = @"INVALID_IMAGE";
+NSString * const kGTLRPolyService_ImageError_Code_WrongImageType = @"WRONG_IMAGE_TYPE";
+
+// GTLRPolyService_ObjParseError.code
+NSString * const kGTLRPolyService_ObjParseError_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRPolyService_ObjParseError_Code_FileNotFound = @"FILE_NOT_FOUND";
+NSString * const kGTLRPolyService_ObjParseError_Code_FileSubstitution = @"FILE_SUBSTITUTION";
+NSString * const kGTLRPolyService_ObjParseError_Code_InconsistentVertexRefs = @"INCONSISTENT_VERTEX_REFS";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidCommand = @"INVALID_COMMAND";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidFilePath = @"INVALID_FILE_PATH";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidNumber = @"INVALID_NUMBER";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidSmoothingGroup = @"INVALID_SMOOTHING_GROUP";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidTextureOption = @"INVALID_TEXTURE_OPTION";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidValue = @"INVALID_VALUE";
+NSString * const kGTLRPolyService_ObjParseError_Code_InvalidVertexRef = @"INVALID_VERTEX_REF";
+NSString * const kGTLRPolyService_ObjParseError_Code_LineTooLong = @"LINE_TOO_LONG";
+NSString * const kGTLRPolyService_ObjParseError_Code_MissingFileName = @"MISSING_FILE_NAME";
+NSString * const kGTLRPolyService_ObjParseError_Code_MissingGeometricVertex = @"MISSING_GEOMETRIC_VERTEX";
+NSString * const kGTLRPolyService_ObjParseError_Code_MissingToken = @"MISSING_TOKEN";
+NSString * const kGTLRPolyService_ObjParseError_Code_MissingVertexColors = @"MISSING_VERTEX_COLORS";
+NSString * const kGTLRPolyService_ObjParseError_Code_NoMaterialDefined = @"NO_MATERIAL_DEFINED";
+NSString * const kGTLRPolyService_ObjParseError_Code_NumberOutOfRange = @"NUMBER_OUT_OF_RANGE";
+NSString * const kGTLRPolyService_ObjParseError_Code_TooFewDimensions = @"TOO_FEW_DIMENSIONS";
+NSString * const kGTLRPolyService_ObjParseError_Code_TooFewVertices = @"TOO_FEW_VERTICES";
+NSString * const kGTLRPolyService_ObjParseError_Code_TooManyDimensions = @"TOO_MANY_DIMENSIONS";
+NSString * const kGTLRPolyService_ObjParseError_Code_TooManyProblems = @"TOO_MANY_PROBLEMS";
+NSString * const kGTLRPolyService_ObjParseError_Code_UnknownMaterial = @"UNKNOWN_MATERIAL";
+NSString * const kGTLRPolyService_ObjParseError_Code_UnsupportedCommand = @"UNSUPPORTED_COMMAND";
+NSString * const kGTLRPolyService_ObjParseError_Code_UnusedTokens = @"UNUSED_TOKENS";
+NSString * const kGTLRPolyService_ObjParseError_Code_VertexNotFound = @"VERTEX_NOT_FOUND";
+
 // GTLRPolyService_PresentationParams.colorSpace
 NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Gamma = @"GAMMA";
 NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Linear = @"LINEAR";
@@ -37,8 +83,8 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 @implementation GTLRPolyService_Asset
 @dynamic authorName, createTime, descriptionProperty, displayName, formats,
-         isCurated, license, name, presentationParams, thumbnail, updateTime,
-         visibility;
+         isCurated, license, metadata, name, presentationParams, thumbnail,
+         updateTime, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -51,6 +97,16 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolyService_AssetImportMessage
+//
+
+@implementation GTLRPolyService_AssetImportMessage
+@dynamic code, filePath, imageError, objParseError;
 @end
 
 
@@ -89,6 +145,16 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 @implementation GTLRPolyService_FormatComplexity
 @dynamic lodHint, triangleCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolyService_ImageError
+//
+
+@implementation GTLRPolyService_ImageError
+@dynamic code, filePath;
 @end
 
 
@@ -160,6 +226,16 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPolyService_ObjParseError
+//
+
+@implementation GTLRPolyService_ObjParseError
+@dynamic code, endIndex, filePath, line, lineNumber, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPolyService_PresentationParams
 //
 
@@ -175,6 +251,24 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 @implementation GTLRPolyService_Quaternion
 @dynamic w, x, y, z;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolyService_StartAssetImportResponse
+//
+
+@implementation GTLRPolyService_StartAssetImportResponse
+@dynamic assetId, assetImportId, assetImportMessages, publishUrl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetImportMessages" : [GTLRPolyService_AssetImportMessage class]
+  };
+  return map;
+}
+
 @end
 
 

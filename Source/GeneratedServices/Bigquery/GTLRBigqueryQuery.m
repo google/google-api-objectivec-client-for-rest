@@ -183,7 +183,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_JobsCancel
 
-@dynamic jobId, projectId;
+@dynamic jobId, location, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -206,7 +206,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_JobsGet
 
-@dynamic jobId, projectId;
+@dynamic jobId, location, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -229,7 +229,8 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_JobsGetQueryResults
 
-@dynamic jobId, maxResults, pageToken, projectId, startIndex, timeoutMs;
+@dynamic jobId, location, maxResults, pageToken, projectId, startIndex,
+         timeoutMs;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -279,7 +280,8 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_JobsList
 
-@dynamic allUsers, maxResults, pageToken, projectId, projection, stateFilter;
+@dynamic allUsers, maxCreationTime, maxResults, minCreationTime, pageToken,
+         projectId, projection, stateFilter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

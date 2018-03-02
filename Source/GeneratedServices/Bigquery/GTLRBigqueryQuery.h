@@ -354,6 +354,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 /** [Required] Job ID of the job to cancel */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
+/**
+ *  [Experimental] The geographic location of the job. Required except for US
+ *  and EU.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** [Required] Project ID of the job to cancel */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -393,6 +399,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 /** [Required] Job ID of the requested job */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
+/**
+ *  [Experimental] The geographic location of the job. Required except for US
+ *  and EU.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** [Required] Project ID of the requested job */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -429,6 +441,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /** [Required] Job ID of the query job */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  [Experimental] The geographic location where the job should run. Required
+ *  except for US and EU.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Maximum number of results to read */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -525,8 +543,20 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  */
 @property(nonatomic, assign) BOOL allUsers;
 
+/**
+ *  Max value for job creation time, in milliseconds since the POSIX epoch. If
+ *  set, only jobs created before or at this timestamp are returned
+ */
+@property(nonatomic, assign) unsigned long long maxCreationTime;
+
 /** Maximum number of results to return */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Min value for job creation time, in milliseconds since the POSIX epoch. If
+ *  set, only jobs created after or at this timestamp are returned
+ */
+@property(nonatomic, assign) unsigned long long minCreationTime;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results

@@ -41,6 +41,26 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_IamPoliciesQueryAuditableServices
+
++ (instancetype)queryWithObject:(GTLRIam_QueryAuditableServicesRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/iamPolicies:queryAuditableServices";
+  GTLRIamQuery_IamPoliciesQueryAuditableServices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRIam_QueryAuditableServicesResponse class];
+  query.loggingName = @"iam.iamPolicies.queryAuditableServices";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_OrganizationsRolesCreate
 
 @dynamic parent;

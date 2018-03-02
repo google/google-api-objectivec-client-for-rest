@@ -33,12 +33,6 @@ NSString * const kGTLRAndroidPublisherImageTypeTvBanner        = @"tvBanner";
 NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots   = @"tvScreenshots";
 NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreenshots";
 
-// track
-NSString * const kGTLRAndroidPublisherTrackAlpha      = @"alpha";
-NSString * const kGTLRAndroidPublisherTrackBeta       = @"beta";
-NSString * const kGTLRAndroidPublisherTrackProduction = @"production";
-NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
-
 // ----------------------------------------------------------------------------
 // Query Classes
 //
