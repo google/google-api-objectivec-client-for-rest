@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning Engine (ml/v1)
+//   Cloud Machine Learning Engine (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -75,6 +75,12 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_Sc
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom = @"CUSTOM";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1 = @"PREMIUM_1";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1 = @"STANDARD_1";
+
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified = @"FRAMEWORK_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn = @"SCIKIT_LEARN";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow = @"TENSORFLOW";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost = @"XGBOOST";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating = @"CREATING";
@@ -516,7 +522,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
 @dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
-         errorMessage, isDefault, lastUseTime, manualScaling, name,
+         errorMessage, framework, isDefault, lastUseTime, manualScaling, name,
          runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

@@ -40,6 +40,7 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Unkno
 // GTLRScript_GoogleAppsScriptTypeProcess.processStatus
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Canceled = @"CANCELED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Completed = @"COMPLETED";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed = @"DELAYED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Failed = @"FAILED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused = @"PAUSED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";

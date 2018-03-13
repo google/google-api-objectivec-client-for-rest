@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning Engine (ml/v1)
+//   Cloud Machine Learning Engine (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -365,6 +365,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Value: "STANDARD_1"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
+
+/** Value: "FRAMEWORK_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified;
+/** Value: "SCIKIT_LEARN" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn;
+/** Value: "TENSORFLOW" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow;
+/** Value: "XGBOOST" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
@@ -1322,7 +1334,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. A Google Cloud Storage path in which to store training outputs
  *  and other data needed for training. This path is passed to your TensorFlow
- *  program as the 'job_dir' command-line argument. The benefit of specifying
+ *  program as the '--job-dir' command-line argument. The benefit of specifying
  *  this field is that Cloud ML validates the path for use in training.
  */
 @property(nonatomic, copy, nullable) NSString *jobDir;
@@ -1557,7 +1569,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *  LINT.IfChange
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -1596,6 +1607,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /** Output only. The details of a failure or a cancellation. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The ML framework used to train this version of the model. If not specified,
+ *  defaults to `TENSORFLOW`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
+ *        Value "FRAMEWORK_UNSPECIFIED"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn
+ *        Value "SCIKIT_LEARN"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow
+ *        Value "TENSORFLOW"
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost
+ *        Value "XGBOOST"
+ */
+@property(nonatomic, copy, nullable) NSString *framework;
 
 /**
  *  Output only. If true, this version will be used to handle prediction

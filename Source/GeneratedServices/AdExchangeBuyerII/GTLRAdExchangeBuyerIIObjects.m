@@ -212,22 +212,18 @@ NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspeci
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web = @"WEB";
 
 // GTLRAdExchangeBuyerII_FilterSet.format
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Display = @"DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay = @"NATIVE_DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo = @"NATIVE_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay = @"NON_NATIVE_DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo = @"NON_NATIVE_VIDEO";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Video = @"VIDEO";
 
 // GTLRAdExchangeBuyerII_FilterSet.formats
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Display = @"DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay = @"NATIVE_DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVideo = @"NATIVE_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeDisplay = @"NON_NATIVE_DISPLAY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeVideo = @"NON_NATIVE_VIDEO";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Video = @"VIDEO";
 
 // GTLRAdExchangeBuyerII_FilterSet.platforms
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Desktop = @"DESKTOP";

@@ -63,6 +63,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRContainer_Cluster.status
 
 /**
+ *  The DEGRADED state indicates the cluster requires user action to restore
+ *  full functionality. Details can be found in the `statusMessage` field.
+ *
+ *  Value: "DEGRADED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Degraded;
+/**
  *  The ERROR state indicates the cluster may be unusable. Details
  *  can be found in the `statusMessage` field.
  *
@@ -671,6 +678,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  [Output only] The current status of this cluster.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_Cluster_Status_Degraded The DEGRADED state
+ *        indicates the cluster requires user action to restore
+ *        full functionality. Details can be found in the `statusMessage` field.
+ *        (Value: "DEGRADED")
  *    @arg @c kGTLRContainer_Cluster_Status_Error The ERROR state indicates the
  *        cluster may be unusable. Details
  *        can be found in the `statusMessage` field. (Value: "ERROR")

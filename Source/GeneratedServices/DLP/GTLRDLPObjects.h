@@ -2057,6 +2057,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValu
 @property(nonatomic, strong, nullable) NSNumber *bucketSize;
 
 /**
+ *  Total number of distinct values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
+
+/**
  *  Sample of value frequencies in this bucket. The total number of
  *  values returned per bucket is capped at 20.
  */
@@ -3684,6 +3691,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValu
 @property(nonatomic, strong, nullable) NSNumber *bucketSize;
 
 /**
+ *  Total number of distinct equivalence classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
+
+/**
  *  Sample of equivalence classes in this bucket. The total number of
  *  classes returned per bucket is capped at 20.
  */
@@ -3809,6 +3823,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValu
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Total number of distinct quasi-identifier tuple values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
  *  Sample of quasi-identifier tuple values in this bucket. The total
@@ -3956,6 +3977,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValu
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Total number of distinct equivalence classes in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
  *  Sample of equivalence classes in this bucket. The total number of

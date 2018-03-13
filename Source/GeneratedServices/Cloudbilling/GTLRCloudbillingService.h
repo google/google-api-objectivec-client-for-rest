@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Billing API (cloudbilling/v1)
+//   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudbillingCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Billing API queries.
+ *  Service for executing Cloud Billing API queries.
  *
  *  Allows developers to manage billing for their Google Cloud Platform projects
  *  programmatically.

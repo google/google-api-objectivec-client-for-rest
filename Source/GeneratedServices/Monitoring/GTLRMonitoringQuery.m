@@ -68,6 +68,113 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 
 @end
 
+@implementation GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_AlertPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/alertPolicies";
+  GTLRMonitoringQuery_ProjectsAlertPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_AlertPolicy class];
+  query.loggingName = @"monitoring.projects.alertPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsAlertPoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsAlertPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.alertPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsAlertPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsAlertPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_AlertPolicy class];
+  query.loggingName = @"monitoring.projects.alertPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsAlertPoliciesList
+
+@dynamic filter, name, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/alertPolicies";
+  GTLRMonitoringQuery_ProjectsAlertPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListAlertPoliciesResponse class];
+  query.loggingName = @"monitoring.projects.alertPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsAlertPoliciesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_AlertPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsAlertPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_AlertPolicy class];
+  query.loggingName = @"monitoring.projects.alertPolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
 
 @dynamic name;
@@ -343,6 +450,226 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
   query.name = name;
   query.expectedObjectClass = [GTLRMonitoring_ListMonitoredResourceDescriptorsResponse class];
   query.loggingName = @"monitoring.projects.monitoredResourceDescriptors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_NotificationChannelDescriptor class];
+  query.loggingName = @"monitoring.projects.notificationChannelDescriptors.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/notificationChannelDescriptors";
+  GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListNotificationChannelDescriptorsResponse class];
+  query.loggingName = @"monitoring.projects.notificationChannelDescriptors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_NotificationChannel *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/notificationChannels";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_NotificationChannel class];
+  query.loggingName = @"monitoring.projects.notificationChannels.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsDelete
+
+@dynamic force, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.notificationChannels.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_NotificationChannel class];
+  query.loggingName = @"monitoring.projects.notificationChannels.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsGetVerificationCode
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_GetNotificationChannelVerificationCodeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:getVerificationCode";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsGetVerificationCode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_GetNotificationChannelVerificationCodeResponse class];
+  query.loggingName = @"monitoring.projects.notificationChannels.getVerificationCode";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsList
+
+@dynamic filter, name, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/notificationChannels";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListNotificationChannelsResponse class];
+  query.loggingName = @"monitoring.projects.notificationChannels.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_NotificationChannel *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_NotificationChannel class];
+  query.loggingName = @"monitoring.projects.notificationChannels.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsSendVerificationCode
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_SendNotificationChannelVerificationCodeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:sendVerificationCode";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsSendVerificationCode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.notificationChannels.sendVerificationCode";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsNotificationChannelsVerify
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_VerifyNotificationChannelRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:verify";
+  GTLRMonitoringQuery_ProjectsNotificationChannelsVerify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_NotificationChannel class];
+  query.loggingName = @"monitoring.projects.notificationChannels.verify";
   return query;
 }
 

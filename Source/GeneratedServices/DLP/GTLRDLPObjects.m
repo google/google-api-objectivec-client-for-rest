@@ -961,7 +961,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsHistogramBucket
-@dynamic bucketSize, bucketValues, valueFrequencyLowerBound,
+@dynamic bucketSize, bucketValueCount, bucketValues, valueFrequencyLowerBound,
          valueFrequencyUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1705,8 +1705,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityHistogramBucket
-@dynamic bucketSize, bucketValues, equivalenceClassSizeLowerBound,
-         equivalenceClassSizeUpperBound;
+@dynamic bucketSize, bucketValueCount, bucketValues,
+         equivalenceClassSizeLowerBound, equivalenceClassSizeUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1789,7 +1789,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationHistogramBucket
-@dynamic bucketSize, bucketValues, maxAnonymity, minAnonymity;
+@dynamic bucketSize, bucketValueCount, bucketValues, maxAnonymity, minAnonymity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1891,8 +1891,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta2LDiversityHistogramBucket
-@dynamic bucketSize, bucketValues, sensitiveValueFrequencyLowerBound,
-         sensitiveValueFrequencyUpperBound;
+@dynamic bucketSize, bucketValueCount, bucketValues,
+         sensitiveValueFrequencyLowerBound, sensitiveValueFrequencyUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

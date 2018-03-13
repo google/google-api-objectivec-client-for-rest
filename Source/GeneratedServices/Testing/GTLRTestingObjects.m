@@ -220,7 +220,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_AndroidRoboTest
 @dynamic appApk, appInitialActivity, appPackageId, maxDepth, maxSteps,
-         roboDirectives, startingIntents;
+         roboDirectives, roboScript, startingIntents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -291,6 +291,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_Apk
+//
+
+@implementation GTLRTesting_Apk
+@dynamic location, packageName;
 @end
 
 
@@ -377,7 +387,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_DeviceFile
-@dynamic obbFile;
+@dynamic obbFile, regularFile;
 @end
 
 
@@ -577,6 +587,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_RegularFile
+//
+
+@implementation GTLRTesting_RegularFile
+@dynamic content, devicePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_ResultStorage
 //
 
@@ -693,11 +713,12 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestSetup
-@dynamic account, directoriesToPull, environmentVariables, filesToPush,
-         networkProfile;
+@dynamic account, additionalApks, directoriesToPull, environmentVariables,
+         filesToPush, networkProfile;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalApks" : [GTLRTesting_Apk class],
     @"directoriesToPull" : [NSString class],
     @"environmentVariables" : [GTLRTesting_EnvironmentVariable class],
     @"filesToPush" : [GTLRTesting_DeviceFile class]

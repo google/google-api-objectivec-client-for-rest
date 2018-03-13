@@ -99,16 +99,19 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks an operation with Google Service Control to decide whether
- *  the given operation should proceed. It should be called before the
- *  operation is executed.
+ *  Checks whether an operation on a service should be allowed to proceed
+ *  based on the configuration of the service and related policies. It must be
+ *  called before the operation is executed.
  *  If feasible, the client should cache the check results and reuse them for
- *  60 seconds. In case of server errors, the client can rely on the cached
- *  results for longer time.
+ *  60 seconds. In case of any server errors, the client should rely on the
+ *  cached results for much longer time to avoid outage.
+ *  WARNING: There is general 60s delay for the configuration and policy
+ *  propagation, therefore callers MUST NOT depend on the `Check` method having
+ *  the latest policy information.
  *  NOTE: the CheckRequest has the size limit of 64KB.
  *  This method requires the `servicemanagement.services.check` permission
  *  on the specified service. For more information, see
- *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  [Cloud IAM](https://cloud.google.com/iam).
  *
  *  Method: servicecontrol.services.check
  *
@@ -132,16 +135,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceControl_CheckResponse.
  *
- *  Checks an operation with Google Service Control to decide whether
- *  the given operation should proceed. It should be called before the
- *  operation is executed.
+ *  Checks whether an operation on a service should be allowed to proceed
+ *  based on the configuration of the service and related policies. It must be
+ *  called before the operation is executed.
  *  If feasible, the client should cache the check results and reuse them for
- *  60 seconds. In case of server errors, the client can rely on the cached
- *  results for longer time.
+ *  60 seconds. In case of any server errors, the client should rely on the
+ *  cached results for much longer time to avoid outage.
+ *  WARNING: There is general 60s delay for the configuration and policy
+ *  propagation, therefore callers MUST NOT depend on the `Check` method having
+ *  the latest policy information.
  *  NOTE: the CheckRequest has the size limit of 64KB.
  *  This method requires the `servicemanagement.services.check` permission
  *  on the specified service. For more information, see
- *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  [Cloud IAM](https://cloud.google.com/iam).
  *
  *  @param object The @c GTLRServiceControl_CheckRequest to include in the
  *    query.

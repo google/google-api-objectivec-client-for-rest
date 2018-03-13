@@ -16,6 +16,7 @@
 // Constants
 
 // GTLRContainer_Cluster.status
+NSString * const kGTLRContainer_Cluster_Status_Degraded        = @"DEGRADED";
 NSString * const kGTLRContainer_Cluster_Status_Error           = @"ERROR";
 NSString * const kGTLRContainer_Cluster_Status_Provisioning    = @"PROVISIONING";
 NSString * const kGTLRContainer_Cluster_Status_Reconciling     = @"RECONCILING";

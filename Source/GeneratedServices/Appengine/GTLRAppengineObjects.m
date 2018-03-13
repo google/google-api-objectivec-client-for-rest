@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google App Engine Admin API (appengine/v1)
+//   App Engine Admin API (appengine/v1)
 // Description:
 //   The App Engine Admin API enables developers to provision and manage their
 //   App Engine applications.
@@ -694,7 +694,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Location
-@dynamic labels, locationId, metadata, name;
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 

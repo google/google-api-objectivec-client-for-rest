@@ -42,6 +42,80 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets AcceleratorType.
+ *
+ *  Method: tpu.projects.locations.acceleratorTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsAcceleratorTypesGetWithname:]
+
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_AcceleratorType.
+ *
+ *  Gets AcceleratorType.
+ *
+ *  @param name The resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists accelerator types supported by this API.
+ *
+ *  Method: tpu.projects.locations.acceleratorTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList : GTLRTPUQuery
+// Previous library name was
+//   +[GTLQueryTPU queryForProjectsLocationsAcceleratorTypesListWithparent:]
+
+/** List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTPU_ListAcceleratorTypesResponse.
+ *
+ *  Lists accelerator types supported by this API.
+ *
+ *  @param parent The parent resource name.
+ *
+ *  @returns GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Get information about a location.
  *
  *  Method: tpu.projects.locations.get

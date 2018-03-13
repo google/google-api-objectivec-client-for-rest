@@ -52,6 +52,8 @@ GTLR_EXTERN NSString * const kGTLRScriptMetricsGranularityWeekly;
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCanceled;
 /** Value: "COMPLETED" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCompleted;
+/** Value: "DELAYED" */
+GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed;
 /** Value: "FAILED" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesFailed;
 /** Value: "PAUSED" */
@@ -104,6 +106,8 @@ GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsWrite
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCanceled;
 /** Value: "COMPLETED" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCompleted;
+/** Value: "DELAYED" */
+GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesDelayed;
 /** Value: "FAILED" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesFailed;
 /** Value: "PAUSED" */
@@ -235,6 +239,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptUserProcessFilterStatusesFailed Value "FAILED"
  *    @arg @c kGTLRScriptUserProcessFilterStatusesTimedOut Value "TIMED_OUT"
  *    @arg @c kGTLRScriptUserProcessFilterStatusesUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesDelayed Value "DELAYED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterStatuses;
 
@@ -348,6 +353,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesFailed Value "FAILED"
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesTimedOut Value "TIMED_OUT"
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesDelayed Value "DELAYED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterStatuses;
 

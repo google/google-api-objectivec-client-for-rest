@@ -1563,7 +1563,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  - `servicecontrol.googleapis.com/service_agent` describing the service
  *  used to handle the API request (e.g. ESP),
  *  - `servicecontrol.googleapis.com/platform` describing the platform
- *  where the API is served (e.g. GAE, GCE, GKE).
+ *  where the API is served, such as App Engine, Compute Engine, or
+ *  Kubernetes Engine.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Operation_Labels *labels;
 
@@ -1645,7 +1646,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  - `servicecontrol.googleapis.com/service_agent` describing the service
  *  used to handle the API request (e.g. ESP),
  *  - `servicecontrol.googleapis.com/platform` describing the platform
- *  where the API is served (e.g. GAE, GCE, GKE).
+ *  where the API is served, such as App Engine, Compute Engine, or
+ *  Kubernetes Engine.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

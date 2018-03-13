@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1)
+//   Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:

@@ -23,6 +23,7 @@ NSString * const kGTLRScriptMetricsGranularityWeekly           = @"WEEKLY";
 // scriptProcessFilterStatuses
 NSString * const kGTLRScriptScriptProcessFilterStatusesCanceled = @"CANCELED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesCompleted = @"COMPLETED";
+NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed = @"DELAYED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesFailed  = @"FAILED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesPaused  = @"PAUSED";
 NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";
@@ -49,6 +50,7 @@ NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsWrite = @"WRITE";
 // userProcessFilterStatuses
 NSString * const kGTLRScriptUserProcessFilterStatusesCanceled  = @"CANCELED";
 NSString * const kGTLRScriptUserProcessFilterStatusesCompleted = @"COMPLETED";
+NSString * const kGTLRScriptUserProcessFilterStatusesDelayed   = @"DELAYED";
 NSString * const kGTLRScriptUserProcessFilterStatusesFailed    = @"FAILED";
 NSString * const kGTLRScriptUserProcessFilterStatusesPaused    = @"PAUSED";
 NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified = @"PROCESS_STATUS_UNSPECIFIED";

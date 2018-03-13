@@ -25,12 +25,11 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnsp
 //
 
 @implementation GTLRCloudSourceRepositories_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudSourceRepositories_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRCloudSourceRepositories_AuditLogConfig class]
   };
   return map;
 }
@@ -62,7 +61,7 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnsp
 //
 
 @implementation GTLRCloudSourceRepositories_Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -80,21 +79,6 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnsp
 //
 
 @implementation GTLRCloudSourceRepositories_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSourceRepositories_Expr
-//
-
-@implementation GTLRCloudSourceRepositories_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
 @end
 
 
@@ -136,7 +120,7 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnsp
 //
 
 @implementation GTLRCloudSourceRepositories_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

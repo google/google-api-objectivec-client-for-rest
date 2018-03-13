@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud OS Login API (oslogin/v1)
+//   Cloud OS Login API (oslogin/v1)
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
@@ -47,7 +47,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
 //
 
 /**
- *  Service for executing Google Cloud OS Login API queries.
+ *  Service for executing Cloud OS Login API queries.
  *
  *  Manages OS login configuration for Google account users.
  */

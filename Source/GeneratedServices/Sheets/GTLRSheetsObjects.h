@@ -153,6 +153,8 @@
 @class GTLRSheets_TextPosition;
 @class GTLRSheets_TextRotation;
 @class GTLRSheets_TextToColumnsRequest;
+@class GTLRSheets_TreemapChartColorScale;
+@class GTLRSheets_TreemapChartSpec;
 @class GTLRSheets_UnmergeCellsRequest;
 @class GTLRSheets_UpdateBandingRequest;
 @class GTLRSheets_UpdateBordersRequest;
@@ -3093,7 +3095,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  The stacked type for charts that support vertical stacking.
- *  Applies to Area, Bar, Column, and Stepped Area charts.
+ *  Applies to Area, Bar, Column, Combo, and Stepped Area charts.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified
@@ -3359,7 +3361,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  True if grid data should be returned. Meaningful only if
- *  if include_spreadsheet_response is 'true'.
+ *  if include_spreadsheet_in_response is 'true'.
  *  This parameter is ignored if a field mask was set in the request.
  *
  *  Uses NSNumber of boolValue.
@@ -4445,6 +4447,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  This field is optional.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextPosition *titleTextPosition;
+
+/** A treemap chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_TreemapChartSpec *treemapChart;
 
 /** A waterfall chart specification. */
 @property(nonatomic, strong, nullable) GTLRSheets_WaterfallChartSpec *waterfallChart;
@@ -7798,9 +7803,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  The default format of all cells in the spreadsheet.
- *  CellData.effectiveFormat will not be set if the
- *  cell's format is equal to this default format.
- *  This field is read-only.
+ *  CellData.effectiveFormat will not be set if
+ *  the cell's format is equal to this default format. This field is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_CellFormat *defaultFormat;
 
@@ -7999,6 +8003,144 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The source data range. This must span exactly one column. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
+
+@end
+
+
+/**
+ *  A color scale for a treemap chart.
+ */
+@interface GTLRSheets_TreemapChartColorScale : GTLRObject
+
+/**
+ *  The background color for cells with a color value greater than or equal
+ *  to maxValue. Defaults to #109618 if not
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *maxValueColor;
+
+/**
+ *  The background color for cells with a color value at the midpoint between
+ *  minValue and
+ *  maxValue. Defaults to #efe6dc if not
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *midValueColor;
+
+/**
+ *  The background color for cells with a color value less than or equal to
+ *  minValue. Defaults to #dc3912 if not
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *minValueColor;
+
+/**
+ *  The background color for cells that have no color data associated with
+ *  them. Defaults to #000000 if not specified.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *noDataColor;
+
+@end
+
+
+/**
+ *  A <a href="/chart/interactive/docs/gallery/treemap">Treemap chart</a>.
+ */
+@interface GTLRSheets_TreemapChartSpec : GTLRObject
+
+/**
+ *  The data that determines the background color of each treemap data cell.
+ *  This field is optional. If not specified, size_data will be used to
+ *  determine background colors. If specified, the data is expected to be
+ *  numeric. color_scale will determine how the values in this data map to
+ *  data cell background colors.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *colorData;
+
+/**
+ *  The color scale for data cells in the treemap chart. Data cells are
+ *  assigned colors based on their color values. These color values come from
+ *  color_data, or from size_data if color_data is not specified.
+ *  Cells with color values less than or equal to min_value will
+ *  have minValueColor as their
+ *  background color. Cells with color values greater than or equal to
+ *  max_value will have
+ *  maxValueColor as their background
+ *  color. Cells with color values between min_value and max_value will
+ *  have background colors on a gradient between
+ *  minValueColor and
+ *  maxValueColor, the midpoint of
+ *  the gradient being midValueColor.
+ *  Cells with missing or non-numeric color values will have
+ *  noDataColor as their background
+ *  color.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TreemapChartColorScale *colorScale;
+
+/** The background color for header cells. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor;
+
+/**
+ *  True to hide tooltips.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hideTooltips;
+
+/**
+ *  The number of additional data levels beyond the labeled levels to be shown
+ *  on the treemap chart. These levels are not interactive and are shown
+ *  without their labels. Defaults to 0 if not specified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hintedLevels;
+
+/** The data that contains the treemap cell labels. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *labels;
+
+/**
+ *  The number of data levels to show on the treemap chart. These levels are
+ *  interactive and are shown with their labels. Defaults to 2 if not
+ *  specified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *levels;
+
+/**
+ *  The maximum possible data value. Cells with values greater than this will
+ *  have the same color as cells with this value. If not specified, defaults
+ *  to the actual maximum value from color_data, or the maximum value from
+ *  size_data if color_data is not specified.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
+
+/**
+ *  The minimum possible data value. Cells with values less than this will
+ *  have the same color as cells with this value. If not specified, defaults
+ *  to the actual minimum value from color_data, or the minimum value from
+ *  size_data if color_data is not specified.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValue;
+
+/** The data the contains the treemap cells' parent labels. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *parentLabels;
+
+/**
+ *  The data that determines the size of each treemap data cell. This data is
+ *  expected to be numeric. The cells corresponding to non-numeric or missing
+ *  data will not be rendered. If color_data is not specified, this data
+ *  will be used to determine data cell background colors as well.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *sizeData;
+
+/** The text format for all labels on the chart. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
 

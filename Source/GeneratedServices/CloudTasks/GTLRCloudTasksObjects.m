@@ -278,7 +278,7 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_Location
-@dynamic labels, locationId, metadata, name;
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 

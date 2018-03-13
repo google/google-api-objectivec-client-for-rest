@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Billing API (cloudbilling/v1)
+//   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects
@@ -17,6 +17,26 @@
 @implementation GTLRCloudbillingQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsCreate
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/billingAccounts";
+  GTLRCloudbillingQuery_BillingAccountsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.billingAccounts.create";
+  return query;
+}
 
 @end
 
@@ -39,9 +59,28 @@
 
 @end
 
+@implementation GTLRCloudbillingQuery_BillingAccountsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudbillingQuery_BillingAccountsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudbilling_Policy class];
+  query.loggingName = @"cloudbilling.billingAccounts.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudbillingQuery_BillingAccountsList
 
-@dynamic pageSize, pageToken;
+@dynamic filter, pageSize, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/billingAccounts";
@@ -51,6 +90,31 @@
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRCloudbilling_ListBillingAccountsResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudbillingQuery_BillingAccountsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.billingAccounts.patch";
   return query;
 }
 
@@ -70,6 +134,56 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudbilling_ListProjectBillingInfoResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.projects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudbillingQuery_BillingAccountsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudbilling_Policy class];
+  query.loggingName = @"cloudbilling.billingAccounts.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudbillingQuery_BillingAccountsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudbilling_TestIamPermissionsResponse class];
+  query.loggingName = @"cloudbilling.billingAccounts.testIamPermissions";
   return query;
 }
 

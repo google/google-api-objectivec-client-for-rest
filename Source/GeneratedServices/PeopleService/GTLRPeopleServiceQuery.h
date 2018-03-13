@@ -710,7 +710,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * addresses
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * emailAddresses
  *  * events
  *  * genders
@@ -724,7 +723,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * relations
  *  * residences
- *  * skills
  *  * urls
  *
  *  String format is a comma-separated list of fields.

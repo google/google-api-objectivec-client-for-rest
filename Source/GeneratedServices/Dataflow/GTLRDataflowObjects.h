@@ -55,6 +55,7 @@
 @class GTLRDataflow_InstructionInput;
 @class GTLRDataflow_InstructionOutput;
 @class GTLRDataflow_InstructionOutput_Codec;
+@class GTLRDataflow_IntegerGauge;
 @class GTLRDataflow_IntegerList;
 @class GTLRDataflow_IntegerMean;
 @class GTLRDataflow_Job;
@@ -257,6 +258,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution;
  *  Value: "INVALID"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
+/**
+ *  Aggregated value tracks the latest value of a variable.
+ *
+ *  Value: "LATEST_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_LatestValue;
 /**
  *  Aggregated value is the max of all contributed values.
  *
@@ -864,6 +871,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution;
  *  Value: "INVALID"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
+/**
+ *  Aggregated value tracks the latest value of a variable.
+ *
+ *  Value: "LATEST_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_LatestValue;
 /**
  *  Aggregated value is the max of all contributed values.
  *
@@ -1474,6 +1487,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        captures statistics about a distribution. (Value: "DISTRIBUTION")
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Invalid Counter aggregation
  *        kind was not set. (Value: "INVALID")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_LatestValue Aggregated value
+ *        tracks the latest value of a variable. (Value: "LATEST_VALUE")
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Max Aggregated value is the max
  *        of all contributed values. (Value: "MAX")
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Mean Aggregated value is the
@@ -1650,6 +1665,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Integer value for Sum, Max, Min. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *integer;
+
+/** Gauge data */
+@property(nonatomic, strong, nullable) GTLRDataflow_IntegerGauge *integerGauge;
 
 /** List of integers, for Set. */
 @property(nonatomic, strong, nullable) GTLRDataflow_IntegerList *integerList;
@@ -2478,6 +2496,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_InstructionOutput_Codec : GTLRObject
+@end
+
+
+/**
+ *  A metric value representing temporal values of a variable.
+ */
+@interface GTLRDataflow_IntegerGauge : GTLRObject
+
+/**
+ *  The time at which this value was measured. Measured as msecs from epoch.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/** The value of the variable represented by this gauge. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *value;
+
 @end
 
 
@@ -3366,6 +3400,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        captures statistics about a distribution. (Value: "DISTRIBUTION")
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Invalid Counter aggregation kind
  *        was not set. (Value: "INVALID")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_LatestValue Aggregated value tracks
+ *        the latest value of a variable. (Value: "LATEST_VALUE")
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Max Aggregated value is the max of
  *        all contributed values. (Value: "MAX")
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Mean Aggregated value is the mean

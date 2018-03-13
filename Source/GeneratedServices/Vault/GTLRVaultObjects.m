@@ -17,6 +17,7 @@
 NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Hold_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Hold_Corpus_Groups                = @"GROUPS";
+NSString * const kGTLRVault_Hold_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Hold_Corpus_Mail                  = @"MAIL";
 
 // GTLRVault_Matter.state
@@ -65,7 +66,7 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 //
 
 @implementation GTLRVault_CorpusQuery
-@dynamic driveQuery, groupsQuery, mailQuery;
+@dynamic driveQuery, groupsQuery, hangoutsChatQuery, mailQuery;
 @end
 
 
@@ -105,6 +106,16 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 @implementation GTLRVault_HeldGroupsQuery
 @dynamic endTime, startTime, terms;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HeldHangoutsChatQuery
+//
+
+@implementation GTLRVault_HeldHangoutsChatQuery
+@dynamic includeRooms;
 @end
 
 

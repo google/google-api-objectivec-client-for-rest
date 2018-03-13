@@ -30,6 +30,7 @@
 @class GTLRTesting_AndroidRuntimeConfiguration;
 @class GTLRTesting_AndroidTestLoop;
 @class GTLRTesting_AndroidVersion;
+@class GTLRTesting_Apk;
 @class GTLRTesting_ApkDetail;
 @class GTLRTesting_ApkManifest;
 @class GTLRTesting_ClientInfo;
@@ -50,6 +51,7 @@
 @class GTLRTesting_NetworkConfigurationCatalog;
 @class GTLRTesting_ObbFile;
 @class GTLRTesting_Orientation;
+@class GTLRTesting_RegularFile;
 @class GTLRTesting_ResultStorage;
 @class GTLRTesting_RoboDirective;
 @class GTLRTesting_RoboStartingIntent;
@@ -928,6 +930,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_RoboDirective *> *roboDirectives;
 
 /**
+ *  A JSON file with a sequence of actions Robo should perform as a prologue
+ *  for the crawl.
+ *  Optional
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *roboScript;
+
+/**
  *  The intents used to launch the app for the crawl.
  *  If none are provided, then the main launcher activity is launched.
  *  If some are provided, then only those provided are launched (the main
@@ -1054,6 +1063,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *versionString;
+
+@end
+
+
+/**
+ *  An Android package file to install.
+ */
+@interface GTLRTesting_Apk : GTLRObject
+
+/**
+ *  The path to an APK to be installed on the device before the test begins.
+ *  Optional
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *location;
+
+/**
+ *  The java package for the APK to be installed.
+ *  Optional, value is determined by examining the application's manifest.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 @end
 
@@ -1249,6 +1278,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** A reference to an opaque binary blob file */
 @property(nonatomic, strong, nullable) GTLRTesting_ObbFile *obbFile;
+
+/** A reference to a regular file */
+@property(nonatomic, strong, nullable) GTLRTesting_RegularFile *regularFile;
 
 @end
 
@@ -1521,6 +1553,38 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Examples: "default"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  A file or directory to install on the device before the test starts
+ */
+@interface GTLRTesting_RegularFile : GTLRObject
+
+/** Required */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *content;
+
+/**
+ *  Where to put the content on the device. Must be an absolute, whitelisted
+ *  path. If the file exists, it will be replaced.
+ *  The following device-side directories and any of their subdirectories are
+ *  whitelisted:
+ *  <p>${EXTERNAL_STORAGE}, or /sdcard</p>
+ *  <p>${ANDROID_DATA}/local/tmp, or /data/local/tmp</p>
+ *  <p>Specifying a path outside of these directory trees is invalid.
+ *  <p> The paths /sdcard and /data will be made available and treated as
+ *  implicit path substitutions. E.g. if /sdcard on a particular device does
+ *  not map to external storage, the system will replace it with the external
+ *  storage path prefix for that device and copy the file there.
+ *  <p> It is strongly advised to use the
+ *  <a href= 
+ "http://developer.android.com/reference/android/os/Environment.html">
+ *  Environment API</a> in app and test code to access files on the device in a
+ *  portable way.
+ *  Required
+ */
+@property(nonatomic, copy, nullable) NSString *devicePath;
 
 @end
 
@@ -1978,6 +2042,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_Account *account;
+
+/**
+ *  APKs to install in addition to those being directly tested.
+ *  Currently capped at 100.
+ *  Optional
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *additionalApks;
 
 /**
  *  List of directories on the device to upload to GCS at the end of the test;

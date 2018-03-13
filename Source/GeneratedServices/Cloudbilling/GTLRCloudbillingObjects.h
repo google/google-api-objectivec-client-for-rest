@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Billing API (cloudbilling/v1)
+//   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects
@@ -21,9 +21,13 @@
 #endif
 
 @class GTLRCloudbilling_AggregationInfo;
+@class GTLRCloudbilling_AuditConfig;
+@class GTLRCloudbilling_AuditLogConfig;
 @class GTLRCloudbilling_BillingAccount;
+@class GTLRCloudbilling_Binding;
 @class GTLRCloudbilling_Category;
 @class GTLRCloudbilling_Money;
+@class GTLRCloudbilling_Policy;
 @class GTLRCloudbilling_PricingExpression;
 @class GTLRCloudbilling_PricingInfo;
 @class GTLRCloudbilling_ProjectBillingInfo;
@@ -60,6 +64,34 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
 GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_AggregationLevelUnspecified;
 /** Value: "PROJECT" */
 GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudbilling_AuditLogConfig.logType
+
+/**
+ *  Admin reads. Example: CloudIAM getIamPolicy
+ *
+ *  Value: "ADMIN_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_AdminRead;
+/**
+ *  Data reads. Example: CloudSQL Users list
+ *
+ *  Value: "DATA_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataRead;
+/**
+ *  Data writes. Example: CloudSQL Users create
+ *
+ *  Value: "DATA_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite;
+/**
+ *  Default case. Should never be this.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
  *  Represents the aggregation level and interval for pricing of a single SKU.
@@ -105,18 +137,140 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
 
 
 /**
- *  A billing account in [Google Cloud
- *  Console](https://console.cloud.google.com/). You can assign a billing
- *  account
- *  to one or more projects.
+ *  Specifies the audit configuration for a service.
+ *  The configuration determines which permission types are logged, and what
+ *  identities, if any, are exempted from logging.
+ *  An AuditConfig must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service,
+ *  the union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditLogConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  {
+ *  "audit_configs": [
+ *  {
+ *  "service": "allServices"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  },
+ *  {
+ *  "log_type": "ADMIN_READ",
+ *  }
+ *  ]
+ *  },
+ *  {
+ *  "service": "fooservice.googleapis.com"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  "exempted_members": [
+ *  "user:bar\@gmail.com"
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
+ */
+@interface GTLRCloudbilling_AuditConfig : GTLRObject
+
+/**
+ *  The configuration for logging of each type of permission.
+ *  Next ID: 4
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudbilling_AuditLogConfig *> *auditLogConfigs;
+
+/**
+ *  Specifies a service that will be enabled for audit logging.
+ *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
+ *  `allServices` is a special value that covers all services.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for logging a type of permissions.
+ *  Example:
+ *  {
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  }
+ *  ]
+ *  }
+ *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
+ *  foo\@gmail.com from DATA_READ logging.
+ */
+@interface GTLRCloudbilling_AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission.
+ *  Follows the same format of Binding.members.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  The log type that this config enables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudbilling_AuditLogConfig_LogType_AdminRead Admin reads.
+ *        Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
+ *    @arg @c kGTLRCloudbilling_AuditLogConfig_LogType_DataRead Data reads.
+ *        Example: CloudSQL Users list (Value: "DATA_READ")
+ *    @arg @c kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite Data writes.
+ *        Example: CloudSQL Users create (Value: "DATA_WRITE")
+ *    @arg @c kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified
+ *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  A billing account in [GCP Console](https://console.cloud.google.com/).
+ *  You can assign a billing account to one or more projects.
  */
 @interface GTLRCloudbilling_BillingAccount : GTLRObject
 
 /**
  *  The display name given to the billing account, such as `My Billing
- *  Account`. This name is displayed in the Google Cloud Console.
+ *  Account`. This name is displayed in the GCP Console.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  If this account is a
+ *  [subaccount](https://cloud.google.com/billing/docs/concepts), then this
+ *  will be the resource name of the master billing account that it is being
+ *  resold through.
+ *  Otherwise this will be empty.
+ *  > This field is currently in
+ *  > [Beta](https://cloud.google.com/terms/launch-stages).
+ */
+@property(nonatomic, copy, nullable) NSString *masterBillingAccount;
 
 /**
  *  The resource name of the billing account. The resource name has the form
@@ -134,6 +288,39 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *open;
+
+@end
+
+
+/**
+ *  Associates `members` with a `role`.
+ */
+@interface GTLRCloudbilling_Binding : GTLRObject
+
+/**
+ *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  `members` can have the following values:
+ *  * `allUsers`: A special identifier that represents anyone who is
+ *  on the internet; with or without a Google account.
+ *  * `allAuthenticatedUsers`: A special identifier that represents anyone
+ *  who is authenticated with a Google account or a service account.
+ *  * `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  * `serviceAccount:{emailid}`: An email address that represents a service
+ *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
+ *  * `group:{emailid}`: An email address that represents a Google group.
+ *  For example, `admins\@example.com`.
+ *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  users of that domain. For example, `google.com` or `example.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  Role that is assigned to `members`.
+ *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Required
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -312,6 +499,73 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
 
 
 /**
+ *  Defines an Identity and Access Management (IAM) policy. It is used to
+ *  specify access control policies for Cloud Platform resources.
+ *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  `members` to a `role`, where the members can be user accounts, Google
+ *  groups,
+ *  Google domains, and service accounts. A `role` is a named list of
+ *  permissions
+ *  defined by IAM.
+ *  **Example**
+ *  {
+ *  "bindings": [
+ *  {
+ *  "role": "roles/owner",
+ *  "members": [
+ *  "user:mike\@example.com",
+ *  "group:admins\@example.com",
+ *  "domain:google.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  ]
+ *  },
+ *  {
+ *  "role": "roles/viewer",
+ *  "members": ["user:sean\@example.com"]
+ *  }
+ *  ]
+ *  }
+ *  For a description of IAM and its features, see the
+ *  [IAM developer's guide](https://cloud.google.com/iam/docs).
+ */
+@interface GTLRCloudbilling_Policy : GTLRObject
+
+/** Specifies cloud audit logging configuration for this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudbilling_AuditConfig *> *auditConfigs;
+
+/**
+ *  Associates a list of `members` to a `role`.
+ *  `bindings` with no members will result in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudbilling_Binding *> *bindings;
+
+/**
+ *  `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a policy from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform policy updates in order to avoid race
+ *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
+ *  systems are expected to put that etag in the request to `setIamPolicy` to
+ *  ensure that their change will be applied to the same version of the policy.
+ *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
+ *  policy is overwritten blindly.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Deprecated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  Expresses a mathematical pricing formula. For Example:-
  *  `usage_unit: GBy`
  *  `tiered_rates:`
@@ -427,7 +681,7 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
 
 
 /**
- *  Encapsulation of billing information for a Cloud Console project. A project
+ *  Encapsulation of billing information for a GCP Console project. A project
  *  has at most one associated billing account at a time (but a billing account
  *  can be assigned to multiple projects).
  */
@@ -491,6 +745,33 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
 
 
 /**
+ *  Request message for `SetIamPolicy` method.
+ */
+@interface GTLRCloudbilling_SetIamPolicyRequest : GTLRObject
+
+/**
+ *  REQUIRED: The complete policy to be applied to the `resource`. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is a
+ *  valid policy but certain Cloud Platform services (such as Projects)
+ *  might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudbilling_Policy *policy;
+
+/**
+ *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used:
+ *  paths: "bindings, etag"
+ *  This field is only used by Cloud IAM.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  Encapsulates a single SKU in Google Cloud Platform
  */
 @interface GTLRCloudbilling_Sku : GTLRObject
@@ -533,6 +814,36 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
  *  Example: "AA95-CD31-42FE"
  */
 @property(nonatomic, copy, nullable) NSString *skuId;
+
+@end
+
+
+/**
+ *  Request message for `TestIamPermissions` method.
+ */
+@interface GTLRCloudbilling_TestIamPermissionsRequest : GTLRObject
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more
+ *  information see
+ *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Response message for `TestIamPermissions` method.
+ */
+@interface GTLRCloudbilling_TestIamPermissionsResponse : GTLRObject
+
+/**
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

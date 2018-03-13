@@ -123,8 +123,8 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic enableWordConfidence, enableWordTimeOffsets, encoding, languageCode,
-         maxAlternatives, profanityFilter, sampleRateHertz, speechContexts;
+@dynamic enableWordTimeOffsets, encoding, languageCode, maxAlternatives,
+         profanityFilter, sampleRateHertz, speechContexts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

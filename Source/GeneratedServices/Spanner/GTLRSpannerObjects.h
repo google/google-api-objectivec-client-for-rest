@@ -230,11 +230,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Struct;
 /**
  *  Encoded as `string` in RFC 3339 timestamp format. The time zone
  *  must be present, and must be `"Z"`.
- *  If the schema has the column option
- *  `allow_commit_timestamp=true`, the placeholder string
- *  `"spanner.commit_timestamp()"` can be used to instruct the system
- *  to insert the commit timestamp associated with the transaction
- *  commit.
  *
  *  Value: "TIMESTAMP"
  */
@@ -1368,6 +1363,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_PartitionOptions : GTLRObject
 
 /**
+ *  **Note:** This hint is currently ignored by PartitionQuery and
+ *  PartitionRead requests.
  *  The desired maximum number of partitions to return. For example, this may
  *  be set to the number of workers available. The default for this option
  *  is currently 10,000. The maximum value is currently 200,000. This is only
@@ -1379,6 +1376,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *maxPartitions;
 
 /**
+ *  **Note:** This hint is currently ignored by PartitionQuery and
+ *  PartitionRead requests.
  *  The desired data size for each partition generated. The default for this
  *  option is currently 1 GiB. This is only a hint. The actual size of each
  *  partition may be smaller or larger than this size request.
@@ -2534,12 +2533,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        (Value: "STRUCT")
  *    @arg @c kGTLRSpanner_Type_Code_Timestamp Encoded as `string` in RFC 3339
  *        timestamp format. The time zone
- *        must be present, and must be `"Z"`.
- *        If the schema has the column option
- *        `allow_commit_timestamp=true`, the placeholder string
- *        `"spanner.commit_timestamp()"` can be used to instruct the system
- *        to insert the commit timestamp associated with the transaction
- *        commit. (Value: "TIMESTAMP")
+ *        must be present, and must be `"Z"`. (Value: "TIMESTAMP")
  *    @arg @c kGTLRSpanner_Type_Code_TypeCodeUnspecified Not specified. (Value:
  *        "TYPE_CODE_UNSPECIFIED")
  */
