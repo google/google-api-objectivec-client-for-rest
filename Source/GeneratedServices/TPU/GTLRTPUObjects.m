@@ -31,10 +31,42 @@ NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_AcceleratorType
+//
+
+@implementation GTLRTPU_AcceleratorType
+@dynamic name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Empty
 //
 
 @implementation GTLRTPU_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ListAcceleratorTypesResponse
+//
+
+@implementation GTLRTPU_ListAcceleratorTypesResponse
+@dynamic acceleratorTypes, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceleratorTypes" : [GTLRTPU_AcceleratorType class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"acceleratorTypes";
+}
+
 @end
 
 
@@ -132,7 +164,7 @@ NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 //
 
 @implementation GTLRTPU_Location
-@dynamic labels, locationId, metadata, name;
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 

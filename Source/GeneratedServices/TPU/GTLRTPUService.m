@@ -25,7 +25,7 @@ NSString * const kGTLRAuthScopeTPUCloudPlatform = @"https://www.googleapis.com/a
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://tpu.googleapis.com/";
+    self.rootURLString = @"https://content-tpu.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

@@ -1190,7 +1190,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Datafeed *datafeed;
 
 /**
- *  The ID of the data feed to get or delete.
+ *  The ID of the data feed to get, delete or fetch.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */

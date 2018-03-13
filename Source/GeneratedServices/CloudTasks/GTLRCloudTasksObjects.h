@@ -1074,6 +1074,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @interface GTLRCloudTasks_Location : GTLRObject
 
 /**
+ *  The friendly name for this location, typically a nearby city name.
+ *  For example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
  *  Cross-service attributes for the location. For example
  *  {"cloud.googleapis.com/region": "us-east1"}
  */

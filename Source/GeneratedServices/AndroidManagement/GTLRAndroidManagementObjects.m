@@ -161,6 +161,13 @@ NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrac
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta = @"BETA";
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Production = @"PRODUCTION";
 
+// GTLRAndroidManagement_Policy.appAutoUpdatePolicy
+NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always = @"ALWAYS";
+NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified = @"APP_AUTO_UPDATE_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser = @"CHOICE_TO_THE_USER";
+NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never = @"NEVER";
+NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
+
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @"GRANT";
@@ -298,7 +305,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Command
-@dynamic createTime, duration, newPassword, resetPasswordFlags, type;
+@dynamic createTime, duration, newPassword, resetPasswordFlags, type, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -731,11 +738,12 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @implementation GTLRAndroidManagement_Policy
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
          adjustVolumeDisabled, alwaysOnVpnPackage, androidDevicePolicyTracks,
-         applications, autoTimeRequired, blockApplicationsEnabled,
-         bluetoothConfigDisabled, bluetoothContactSharingDisabled,
-         bluetoothDisabled, cameraDisabled, cellBroadcastsConfigDisabled,
-         complianceRules, createWindowsDisabled, credentialsConfigDisabled,
-         dataRoamingDisabled, debuggingFeaturesAllowed, defaultPermissionPolicy,
+         appAutoUpdatePolicy, applications, autoTimeRequired,
+         blockApplicationsEnabled, bluetoothConfigDisabled,
+         bluetoothContactSharingDisabled, bluetoothDisabled, cameraDisabled,
+         cellBroadcastsConfigDisabled, complianceRules, createWindowsDisabled,
+         credentialsConfigDisabled, dataRoamingDisabled,
+         debuggingFeaturesAllowed, defaultPermissionPolicy,
          ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
          funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
          keyguardDisabled, keyguardDisabledFeatures, kioskCustomLauncherEnabled,

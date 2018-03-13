@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Proximity Beacon API (proximitybeacon/v1beta1)
+//   Proximity Beacon API (proximitybeacon/v1beta1)
 // Description:
 //   Registers, manages, indexes, and searches beacons.
 // Documentation:
@@ -40,7 +40,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeProximityBeaconUserlocationBeaconRegi
 //
 
 /**
- *  Service for executing Google Proximity Beacon API queries.
+ *  Service for executing Proximity Beacon API queries.
  *
  *  Registers, manages, indexes, and searches beacons.
  */

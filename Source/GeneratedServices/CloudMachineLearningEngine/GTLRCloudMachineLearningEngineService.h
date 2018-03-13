@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning Engine (ml/v1)
+//   Cloud Machine Learning Engine (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatfo
 //
 
 /**
- *  Service for executing Google Cloud Machine Learning Engine queries.
+ *  Service for executing Cloud Machine Learning Engine queries.
  *
  *  An API to enable creating and using machine learning models.
  */

@@ -256,7 +256,7 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_Location
-@dynamic labels, locationId, metadata, name;
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 

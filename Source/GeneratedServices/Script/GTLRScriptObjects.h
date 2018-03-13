@@ -183,6 +183,12 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStat
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Completed;
 /**
+ *  The process is delayed, waiting for quota.
+ *
+ *  Value: "DELAYED"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed;
+/**
  *  The process failed.
  *
  *  Value: "FAILED"
@@ -813,6 +819,8 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *        process was cancelled. (Value: "CANCELED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Completed
  *        The process has completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed The
+ *        process is delayed, waiting for quota. (Value: "DELAYED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Failed The
  *        process failed. (Value: "FAILED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused The

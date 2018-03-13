@@ -443,7 +443,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 /**
  *  Information about the Dynamic Link to be shortened.
  *  [Learn
- *  more](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
+ *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DynamicLinkInfo *dynamicLinkInfo;
 
@@ -452,7 +452,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  For example,
  *  "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample",
  *  [Learn
- *  more](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
+ *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
  */
 @property(nonatomic, copy, nullable) NSString *longDynamicLink;
 

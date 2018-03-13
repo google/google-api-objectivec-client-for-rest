@@ -765,6 +765,41 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTr
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Production;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.appAutoUpdatePolicy
+
+/**
+ *  Apps are auto-updated at any time. Data charges may apply.
+ *
+ *  Value: "ALWAYS"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always;
+/**
+ *  The auto-update policy is not set. Same as giving auto-update policy choice
+ *  to the user.
+ *
+ *  Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified;
+/**
+ *  The user can control auto-updates.
+ *
+ *  Value: "CHOICE_TO_THE_USER"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser;
+/**
+ *  Apps are never auto-updated.
+ *
+ *  Value: "NEVER"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never;
+/**
+ *  Apps are auto-updated over Wi-Fi only.
+ *
+ *  Value: "WIFI_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 
 /**
@@ -1156,6 +1191,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        password. (Value: "RESET_PASSWORD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The resource name of the user that owns the device in the form
+ *  enterprises/{enterpriseId}/users/{userId}. This is automatically generated
+ *  by the server based on the device the command is sent to.
+ */
+@property(nonatomic, copy, nullable) NSString *userName;
 
 @end
 
@@ -2553,6 +2595,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  specified, then the device only uses the production track.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
+
+/**
+ *  The auto update policy value. Specifies whether the user is given a choice
+ *  to configure the app update policy, or otherwise contains the enforced
+ *  update policy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always Apps are
+ *        auto-updated at any time. Data charges may apply. (Value: "ALWAYS")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified
+ *        The auto-update policy is not set. Same as giving auto-update policy
+ *        choice to the user. (Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser
+ *        The user can control auto-updates. (Value: "CHOICE_TO_THE_USER")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never Apps are
+ *        never auto-updated. (Value: "NEVER")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly Apps
+ *        are auto-updated over Wi-Fi only. (Value: "WIFI_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *appAutoUpdatePolicy;
 
 /** Policy applied to apps. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;

@@ -68,8 +68,8 @@ NSString * const kGTLRDns_Change_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_ManagedZone
-@dynamic creationTime, descriptionProperty, dnsName, identifier, kind, name,
-         nameServers, nameServerSet;
+@dynamic creationTime, descriptionProperty, dnsName, identifier, kind, labels,
+         name, nameServers, nameServerSet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -84,6 +84,20 @@ NSString * const kGTLRDns_Change_Status_Pending = @"pending";
     @"nameServers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZone_Labels
+//
+
+@implementation GTLRDns_ManagedZone_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

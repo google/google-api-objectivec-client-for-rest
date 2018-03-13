@@ -2,12 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v2)
+//   PageSpeed Insights API (pagespeedonline/v4)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
-// Documentation:
-//   https://developers.google.com/speed/docs/insights/v2/getting-started
 
 #import "GTLRPagespeedonlineQuery.h"
 
@@ -32,10 +30,16 @@ NSString * const kGTLRPagespeedonlineStrategyMobile  = @"mobile";
 
 @implementation GTLRPagespeedonlineQuery_PagespeedapiRunpagespeed
 
-@dynamic filterThirdPartyResources, locale, rule, screenshot, strategy, url;
+@dynamic filterThirdPartyResources, locale, rule, screenshot, snapshots,
+         strategy, url, utmCampaign, utmSource;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"filterThirdPartyResources" : @"filter_third_party_resources" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"filterThirdPartyResources" : @"filter_third_party_resources",
+    @"utmCampaign" : @"utm_campaign",
+    @"utmSource" : @"utm_source"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -52,7 +56,7 @@ NSString * const kGTLRPagespeedonlineStrategyMobile  = @"mobile";
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.url = url;
-  query.expectedObjectClass = [GTLRPagespeedonline_Result class];
+  query.expectedObjectClass = [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4 class];
   query.loggingName = @"pagespeedonline.pagespeedapi.runpagespeed";
   return query;
 }

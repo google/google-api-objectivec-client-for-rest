@@ -18,6 +18,44 @@
 
 @end
 
+@implementation GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTPU_AcceleratorType class];
+  query.loggingName = @"tpu.projects.locations.acceleratorTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}/acceleratorTypes";
+  GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTPU_ListAcceleratorTypesResponse class];
+  query.loggingName = @"tpu.projects.locations.acceleratorTypes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRTPUQuery_ProjectsLocationsGet
 
 @dynamic name;

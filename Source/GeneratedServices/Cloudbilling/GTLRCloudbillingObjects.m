@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Billing API (cloudbilling/v1)
+//   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects
@@ -25,6 +25,12 @@ NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Account = @"
 NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_AggregationLevelUnspecified = @"AGGREGATION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"PROJECT";
 
+// GTLRCloudbilling_AuditLogConfig.logType
+NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudbilling_AggregationInfo
@@ -37,11 +43,65 @@ NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_AuditConfig
+//
+
+@implementation GTLRCloudbilling_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRCloudbilling_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AuditLogConfig
+//
+
+@implementation GTLRCloudbilling_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_BillingAccount
 //
 
 @implementation GTLRCloudbilling_BillingAccount
-@dynamic displayName, name, open;
+@dynamic displayName, masterBillingAccount, name, open;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Binding
+//
+
+@implementation GTLRCloudbilling_Binding
+@dynamic members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -155,6 +215,29 @@ NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_Policy
+//
+
+@implementation GTLRCloudbilling_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRCloudbilling_AuditConfig class],
+    @"bindings" : [GTLRCloudbilling_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_PricingExpression
 //
 
@@ -205,6 +288,16 @@ NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_SetIamPolicyRequest
+//
+
+@implementation GTLRCloudbilling_SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_Sku
 //
 
@@ -220,6 +313,42 @@ NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"
   NSDictionary<NSString *, Class> *map = @{
     @"pricingInfo" : [GTLRCloudbilling_PricingInfo class],
     @"serviceRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TestIamPermissionsRequest
+//
+
+@implementation GTLRCloudbilling_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TestIamPermissionsResponse
+//
+
+@implementation GTLRCloudbilling_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
   };
   return map;
 }

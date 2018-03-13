@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google App Engine Admin API (appengine/v1)
+//   App Engine Admin API (appengine/v1)
 // Description:
 //   The App Engine Admin API enables developers to provision and manage their
 //   App Engine applications.
@@ -662,7 +662,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Location from which this application runs. Application instances run out of
  *  the data centers in the specified location, which is also where all of the
- *  application's end user content is stored.Defaults to us-central1.View the
+ *  application's end user content is stored.Defaults to us-central.View the
  *  list of supported locations
  *  (https://cloud.google.com/appengine/docs/locations).
  */
@@ -1776,6 +1776,12 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  A resource that represents Google Cloud Platform location.
  */
 @interface GTLRAppengine_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Cross-service attributes for the location. For example

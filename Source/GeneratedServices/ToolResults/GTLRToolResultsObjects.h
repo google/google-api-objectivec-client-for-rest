@@ -880,7 +880,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
 @property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
- *  A name to uniquely identify a history within a project. Maximum of 100
+ *  A name to uniquely identify a history within a project. Maximum of 200
  *  characters.
  *  - In response always set - In create request: always set
  */

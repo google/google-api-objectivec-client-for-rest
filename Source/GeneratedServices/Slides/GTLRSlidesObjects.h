@@ -4109,7 +4109,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The image URL.
  *  The image is fetched once at insertion time and a copy is stored for
  *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
+ *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
  *  The provided URL can be at most 2 kB in length.
  */
@@ -6751,7 +6751,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The image URL.
  *  The image is fetched once at insertion time and a copy is stored for
  *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
+ *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
  *  The provided URL can be at most 2 kB in length.
  */
@@ -6944,7 +6944,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The URL of the new image.
  *  The image is fetched once at insertion time and a copy is stored for
  *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
+ *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
  *  The provided URL can be at most 2 kB in length.
  */
@@ -7917,7 +7917,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  Writing the content_url:
  *  The picture is fetched once at insertion time and a copy is stored for
  *  display inside the presentation. Pictures must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
+ *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
  *  The provided URL can be at most 2 kB in length.
  */
@@ -9222,7 +9222,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The time at which to end playback, measured in seconds from the beginning
  *  of the video.
  *  If set, the end time should be after the start time.
- *  If not set or if you set this to a value that exceeds the video duration,
+ *  If not set or if you set this to a value that exceeds the video's length,
  *  the video will be played until its end.
  *
  *  Uses NSNumber of unsignedIntValue.

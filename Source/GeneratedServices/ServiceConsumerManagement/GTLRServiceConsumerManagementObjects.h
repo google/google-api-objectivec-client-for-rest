@@ -449,7 +449,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3;
 
 /**
- *  Request to add a newly created and configured tenant project to tenancy
+ *  Request to add a newly created and configured tenant project to a tenancy
  *  unit.
  */
 @interface GTLRServiceConsumerManagement_AddTenantProjectRequest : GTLRObject
@@ -841,7 +841,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Describes billing configuration for a new Tenant Project
+ *  Describes billing configuration for a new tenant project.
  */
 @interface GTLRServiceConsumerManagement_BillingConfig : GTLRObject
 
@@ -979,13 +979,13 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @interface GTLRServiceConsumerManagement_CreateTenancyUnitRequest : GTLRObject
 
 /**
- *  Optional producer provided identifier of the tenancy unit
- *  Must be no longer than 40 characters and preferably URI friendly
- *  If it is not provided, UID for the tenancy unit will be auto generated
+ *  Optional producer provided identifier of the tenancy unit.
+ *  Must be no longer than 40 characters and preferably URI friendly.
+ *  If it is not provided, a UID for the tenancy unit will be auto generated.
  *  It must be unique across a service.
  *  If the tenancy unit already exists for the service and consumer pair,
- *  CreateTenancyUnit will return existing tenancy unit if provided identifier
- *  is identical or empty, otherwise the call will fail.
+ *  `CreateTenancyUnit` will return the existing tenancy unit if the provided
+ *  identifier is identical or empty, otherwise the call will fail.
  */
 @property(nonatomic, copy, nullable) NSString *tenancyUnitId;
 
@@ -1833,7 +1833,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Tenancy Units matching the request.
+ *  Tenancy units matching the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2722,7 +2722,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  Uses the same format as in IAM policy.
- *  `member` must include both prefix and id. E.g., `user:{emailId}`,
+ *  `member` must include both prefix and ID. For example, `user:{emailId}`,
  *  `serviceAccount:{emailId}`, `group:{emailId}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -3131,7 +3131,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Roles for the service account above on tenant project. */
+/** Roles for the associated service account for the tenant project. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tenantProjectRoles;
 
 @end
@@ -3354,8 +3354,8 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @interface GTLRServiceConsumerManagement_TenancyUnit : GTLRObject
 
 /**
- *  \@OutputOnly Cloud resource One Platform Name of the consumer of this
- *  service. For example 'projects/123456'.
+ *  \@OutputOnly Cloud resource name of the consumer of this service.
+ *  For example 'projects/123456'.
  */
 @property(nonatomic, copy, nullable) NSString *consumer;
 
@@ -3376,7 +3376,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  Resources constituting the tenancy unit.
- *  There can be at most 512 tenant resources in a tenancy units.
+ *  There can be at most 512 tenant resources in a tenancy unit.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_TenantResource *> *tenantResources;
 
@@ -3394,7 +3394,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  Billing account properties.
- *  It may be specified explicitly, or created from the specified group
+ *  It might be specified explicitly, or created from the specified group
  *  during provisioning
  */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_BillingConfig *billingConfig;
@@ -3417,7 +3417,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 /**
  *  Google Cloud API names of services that will be activated on this project
  *  during provisioning. If any of these services can not be activated,
- *  addTenantProject method will fail.
+ *  the `addTenantProject` method will fail.
  *  For example: 'compute.googleapis.com','cloudfunctions.googleapis.com'
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
@@ -3442,7 +3442,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  Describes policy settings that need to be applied to a newly
- *  created Tenant Project.
+ *  created tenant project.
  */
 @interface GTLRServiceConsumerManagement_TenantProjectPolicy : GTLRObject
 
@@ -3466,7 +3466,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  \@OutputOnly Identifier of the tenant resource.
- *  For cloud projects it is in the form 'projects/{number}'.
+ *  For cloud projects, it is in the form 'projects/{number}'.
  *  For example 'projects/123456'.
  */
 @property(nonatomic, copy, nullable) NSString *resource;

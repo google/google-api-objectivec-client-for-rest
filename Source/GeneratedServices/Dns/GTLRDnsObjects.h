@@ -20,6 +20,7 @@
 
 @class GTLRDns_Change;
 @class GTLRDns_ManagedZone;
+@class GTLRDns_ManagedZone_Labels;
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
 
@@ -160,6 +161,9 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZone_Labels *labels;
+
 /**
  *  User assigned name for this resource. Must be unique within the project. The
  *  name must be 1-63 characters long, must begin with a letter, end with a
@@ -180,6 +184,18 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
 
+@end
+
+
+/**
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_ManagedZone_Labels : GTLRObject
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Resource Manager API (cloudresourcemanager/v1)
+//   Cloud Resource Manager API (cloudresourcemanager/v2)
 // Description:
 //   The Google Cloud Resource Manager API provides methods for creating,
 //   reading, and updating project metadata.
@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly = @"htt
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://cloudresourcemanager.googleapis.com/";
+    self.rootURLString = @"https://content-cloudresourcemanager.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

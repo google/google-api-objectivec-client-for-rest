@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1)
+//   Service Usage API (serviceusage/v1beta1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services

@@ -2477,7 +2477,7 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"provisioning/createAccount";
+  NSString *pathURITemplate = @"provisioning/createAccountTree";
   GTLRAnalyticsQuery_ProvisioningCreateAccountTree *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

@@ -61,7 +61,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb;
  */
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified;
 /**
- *  [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless Audio
+ *  `FLAC` (Free Lossless Audio
  *  Codec) is the recommended encoding because it is
  *  lossless--therefore recognition is not compromised--and
  *  requires only about half the bandwidth of `LINEAR16`. `FLAC` stream
@@ -299,15 +299,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
- *  *Optional* If `true`, the top result includes a list of words and the
- *  confidence for those words. If `false`, no word-level confidence
- *  information is returned. The default is `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableWordConfidence;
-
-/**
  *  *Optional* If `true`, the top result includes a list of words and
  *  the start and end time offsets (timestamps) for those words. If
  *  `false`, no word-level time offset information is returned. The default is
@@ -318,7 +309,9 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) NSNumber *enableWordTimeOffsets;
 
 /**
- *  *Required* Encoding of audio data sent in all `RecognitionAudio` messages.
+ *  Encoding of audio data sent in all `RecognitionAudio` messages.
+ *  This field is optional for `FLAC` and `WAV` audio files and required
+ *  for all other audio formats. For details, see AudioEncoding.
  *
  *  Likely values:
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Amr Adaptive Multi-Rate
@@ -327,8 +320,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *        Wideband codec. `sample_rate_hertz` must be 16000. (Value: "AMR_WB")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified Not
  *        specified. (Value: "ENCODING_UNSPECIFIED")
- *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Flac
- *        [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless
+ *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Flac `FLAC` (Free Lossless
  *        Audio
  *        Codec) is the recommended encoding because it is
  *        lossless--therefore recognition is not compromised--and
@@ -398,11 +390,13 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) NSNumber *profanityFilter;
 
 /**
- *  *Required* Sample rate in Hertz of the audio data sent in all
+ *  Sample rate in Hertz of the audio data sent in all
  *  `RecognitionAudio` messages. Valid values are: 8000-48000.
  *  16000 is optimal. For best results, set the sampling rate of the audio
  *  source to 16000 Hz. If that's not possible, use the native sample rate of
  *  the audio source (instead of re-sampling).
+ *  This field is optional for `FLAC` and `WAV` audio files and required
+ *  for all other audio formats. For details, see AudioEncoding.
  *
  *  Uses NSNumber of intValue.
  */

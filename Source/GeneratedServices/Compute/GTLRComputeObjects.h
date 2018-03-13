@@ -258,6 +258,7 @@
 @class GTLRCompute_RouteList_Warning;
 @class GTLRCompute_RouteList_Warning_Data_Item;
 @class GTLRCompute_Router;
+@class GTLRCompute_RouterAdvertisedIpRange;
 @class GTLRCompute_RouterAggregatedList_Items;
 @class GTLRCompute_RouterAggregatedList_Warning;
 @class GTLRCompute_RouterAggregatedList_Warning_Data_Item;
@@ -1923,6 +1924,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code
 GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified;
 /** Value: "MULTI_IP_SUBNET" */
 GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet;
+/** Value: "SECURE_BOOT" */
+GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot;
+/** Value: "UEFI_COMPATIBLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible;
 /** Value: "VIRTIO_SCSI_MULTIQUEUE" */
 GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue;
 /** Value: "WINDOWS" */
@@ -4181,6 +4186,34 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unde
 GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_RouterBgp.advertisedGroups
+
+/** Value: "ALL_SUBNETS" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertisedGroups_AllSubnets;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterBgp.advertiseMode
+
+/** Value: "CUSTOM" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Custom;
+/** Value: "DEFAULT" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Default;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterBgpPeer.advertisedGroups
+
+/** Value: "ALL_SUBNETS" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertisedGroups_AllSubnets;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterBgpPeer.advertiseMode
+
+/** Value: "CUSTOM" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Custom;
+/** Value: "DEFAULT" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Default;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_RouterList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -6243,7 +6276,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -6758,6 +6791,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
 
 /**
+ *  A list of features to enable on the guest operating system. Applicable only
+ *  for bootable images. Read Enabling guest operating system features to see a
+ *  list of available options.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_GuestOsFeature *> *guestOsFeatures;
+
+/**
  *  [Output Only] A zero-based index to this disk, where 0 is reserved for the
  *  boot disk. If you have many disks attached to an instance, each disk would
  *  have a unique index number.
@@ -6970,7 +7010,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -7745,7 +7785,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -8001,7 +8041,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -8640,7 +8680,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -9228,6 +9268,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
 
 /**
+ *  A list of features to enable on the guest operating system. Applicable only
+ *  for bootable images. Read Enabling guest operating system features to see a
+ *  list of available options.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_GuestOsFeature *> *guestOsFeatures;
+
+/**
  *  [Output Only] The unique identifier for the resource. This identifier is
  *  defined by the server.
  *
@@ -9272,7 +9319,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -10368,7 +10415,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -10777,7 +10824,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -11269,7 +11316,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  A list of labels to apply for this resource. Each label key & value must
  *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
- *  match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
  *  first character must be a lowercase letter, and all following characters
  *  must be a dash, lowercase letter, or digit, except the last character, which
  *  cannot be a dash. For example, "webserver-frontend": "images". A label value
@@ -11283,7 +11330,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  A list of labels to apply for this resource. Each label key & value must
  *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
- *  match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
  *  first character must be a lowercase letter, and all following characters
  *  must be a dash, lowercase letter, or digit, except the last character, which
  *  cannot be a dash. For example, "webserver-frontend": "images". A label value
@@ -11312,6 +11359,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "FEATURE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet Value
  *        "MULTI_IP_SUBNET"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_SecureBoot Value "SECURE_BOOT"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_UefiCompatible Value
+ *        "UEFI_COMPATIBLE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue Value
  *        "VIRTIO_SCSI_MULTIQUEUE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_Windows Value "WINDOWS"
@@ -11375,7 +11425,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -11696,7 +11746,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -12023,7 +12073,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -12307,7 +12357,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -12366,6 +12416,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  or a previous instance of a given image name.
  */
 @property(nonatomic, copy, nullable) NSString *sourceImageId;
+
+/**
+ *  URL of the source snapshot used to create this image. This can be a full or
+ *  valid partial URL. You must provide exactly one of:
+ *  - this property, or
+ *  - the sourceImage property, or
+ *  - the rawDisk.source property, or
+ *  - the sourceDisk property in order to create an image.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshot;
+
+/**
+ *  The customer-supplied encryption key of the source snapshot. Required if the
+ *  source snapshot is protected by a customer-supplied encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceSnapshotEncryptionKey;
+
+/**
+ *  [Output Only] The ID value of the snapshot used to create this image. This
+ *  value may be used to determine whether the snapshot was taken from the
+ *  current or a previous instance of a given snapshot name.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshotId;
 
 /**
  *  The type of the image used to create this disk. The default and only value
@@ -12690,7 +12763,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The name of the resource, provided by the client when initially creating the
  *  resource. The resource name must be 1-63 characters long, and comply with
  *  RFC1035. Specifically, the name must be 1-63 characters long and match the
- *  regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first
+ *  regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
  *  character must be a lowercase letter, and all following characters must be a
  *  dash, lowercase letter, or digit, except the last character, which cannot be
  *  a dash.
@@ -15016,7 +15089,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -15322,7 +15395,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -15439,7 +15512,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -16981,7 +17054,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  GTLRCompute_ManagedInstance
+ *  Next available tag: 12
  */
 @interface GTLRCompute_ManagedInstance : GTLRObject
 
@@ -17268,7 +17341,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -17313,6 +17386,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  specified for network interfaces on subnet-mode networks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AliasIpRange *> *aliasIpRanges;
+
+/**
+ *  Fingerprint hash of contents stored in this network interface. This field
+ *  will be ignored when inserting an Instance or adding a NetworkInterface. An
+ *  up-to-date fingerprint must be provided in order to update the
+ *  NetworkInterface.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  [Output Only] Type of the resource. Always compute#networkInterface for
@@ -17528,7 +17612,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Name of this peering. Provided by the client when the peering is created.
  *  The name must comply with RFC1035. Specifically, the name must be 1-63
- *  characters long and match regular expression [a-z]([-a-z0-9]*[a-z0-9])?
+ *  characters long and match regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`
  *  which means the first character must be a lowercase letter, and all the
  *  following characters must be a dash, lowercase letter, or digit, except the
  *  last character, which cannot be a dash.
@@ -19642,7 +19726,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -19991,7 +20075,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -20010,6 +20094,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Description-tagged IP ranges for the router to advertise.
+ */
+@interface GTLRCompute_RouterAdvertisedIpRange : GTLRObject
+
+/**
+ *  User-specified description for the IP range.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The IP range to advertise. The value must be a CIDR-formatted string. */
+@property(nonatomic, copy, nullable) NSString *range;
 
 @end
 
@@ -20161,6 +20263,32 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_RouterBgp : GTLRObject
 
 /**
+ *  User-specified list of prefix groups to advertise in custom mode. This field
+ *  can only be populated if advertise_mode is CUSTOM and is advertised to all
+ *  peers of the router. These groups will be advertised in addition to any
+ *  specified prefixes. Leave this field blank to advertise no custom groups.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advertisedGroups;
+
+/**
+ *  User-specified list of individual IP ranges to advertise in custom mode.
+ *  This field can only be populated if advertise_mode is CUSTOM and is
+ *  advertised to all peers of the router. These IP ranges will be advertised in
+ *  addition to any specified groups. Leave this field blank to advertise no
+ *  custom IP ranges.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterAdvertisedIpRange *> *advertisedIpRanges;
+
+/**
+ *  User-specified flag to indicate which mode to use for advertisement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterBgp_AdvertiseMode_Custom Value "CUSTOM"
+ *    @arg @c kGTLRCompute_RouterBgp_AdvertiseMode_Default Value "DEFAULT"
+ */
+@property(nonatomic, copy, nullable) NSString *advertiseMode;
+
+/**
  *  Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN,
  *  either 16-bit or 32-bit. The value will be fixed for this router resource.
  *  All VPN tunnels that link to this router will have the same local ASN.
@@ -20178,6 +20306,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_RouterBgpPeer : GTLRObject
 
 /**
+ *  User-specified list of prefix groups to advertise in custom mode. This field
+ *  can only be populated if advertise_mode is CUSTOM and overrides the list
+ *  defined for the router (in Bgp message). These groups will be advertised in
+ *  addition to any specified prefixes. Leave this field blank to advertise no
+ *  custom groups.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advertisedGroups;
+
+/**
+ *  User-specified list of individual IP ranges to advertise in custom mode.
+ *  This field can only be populated if advertise_mode is CUSTOM and overrides
+ *  the list defined for the router (in Bgp message). These IP ranges will be
+ *  advertised in addition to any specified groups. Leave this field blank to
+ *  advertise no custom IP ranges.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterAdvertisedIpRange *> *advertisedIpRanges;
+
+/**
  *  The priority of routes advertised to this BGP peer. In the case where there
  *  is more than one matching route of maximum length, the routes with lowest
  *  priority value win.
@@ -20185,6 +20331,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *advertisedRoutePriority;
+
+/**
+ *  User-specified flag to indicate which mode to use for advertisement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterBgpPeer_AdvertiseMode_Custom Value "CUSTOM"
+ *    @arg @c kGTLRCompute_RouterBgpPeer_AdvertiseMode_Default Value "DEFAULT"
+ */
+@property(nonatomic, copy, nullable) NSString *advertiseMode;
 
 /** Name of the interface the BGP peer is associated with. */
 @property(nonatomic, copy, nullable) NSString *interfaceName;
@@ -20764,7 +20919,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -21039,7 +21194,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -21262,6 +21417,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Fingerprint of this resource. A hash of the contents stored in this object.
+ *  This field is used in optimistic locking. This field will be ignored when
+ *  inserting a Subnetwork. An up-to-date fingerprint must be provided in order
+ *  to update the Subnetwork.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
  *  [Output Only] The gateway address for default routes to reach destination
  *  addresses outside this subnetwork.
  */
@@ -21296,7 +21462,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The name of the resource, provided by the client when initially creating the
  *  resource. The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -21854,7 +22020,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -22067,7 +22233,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -22289,7 +22455,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -22796,7 +22962,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -23398,7 +23564,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -23638,7 +23804,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -23847,7 +24013,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -24402,7 +24568,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
@@ -24728,7 +24894,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
  *  be a lowercase letter, and all following characters must be a dash,
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.

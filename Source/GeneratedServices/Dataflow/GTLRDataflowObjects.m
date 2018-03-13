@@ -29,6 +29,7 @@ NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorith
 NSString * const kGTLRDataflow_CounterMetadata_Kind_And        = @"AND";
 NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution = @"DISTRIBUTION";
 NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid    = @"INVALID";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_LatestValue = @"LATEST_VALUE";
 NSString * const kGTLRDataflow_CounterMetadata_Kind_Max        = @"MAX";
 NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean       = @"MEAN";
 NSString * const kGTLRDataflow_CounterMetadata_Kind_Min        = @"MIN";
@@ -128,6 +129,7 @@ NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning = 
 NSString * const kGTLRDataflow_NameAndKind_Kind_And          = @"AND";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution = @"DISTRIBUTION";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid      = @"INVALID";
+NSString * const kGTLRDataflow_NameAndKind_Kind_LatestValue  = @"LATEST_VALUE";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Max          = @"MAX";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Mean         = @"MEAN";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Min          = @"MIN";
@@ -347,8 +349,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_CounterUpdate
 @dynamic boolean, cumulative, distribution, floatingPoint, floatingPointList,
-         floatingPointMean, integer, integerList, integerMean, internal,
-         nameAndKind, shortId, stringList, structuredNameAndMetadata;
+         floatingPointMean, integer, integerGauge, integerList, integerMean,
+         internal, nameAndKind, shortId, stringList, structuredNameAndMetadata;
 @end
 
 
@@ -725,6 +727,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_IntegerGauge
+//
+
+@implementation GTLRDataflow_IntegerGauge
+@dynamic timestamp, value;
 @end
 
 

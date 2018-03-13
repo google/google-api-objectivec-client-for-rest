@@ -1717,6 +1717,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_LiveBroadcastContentDetails.stereoLayout
+
+/** Value: "left_right" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight;
+/** Value: "mono" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono;
+/** Value: "top_bottom" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 
 /** Value: "abandoned" */
@@ -6118,6 +6128,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @property(nonatomic, strong, nullable) NSNumber *startWithSlate;
 
+/**
+ *  stereoLayout
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight
+ *        Value "left_right"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono Value
+ *        "mono"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom
+ *        Value "top_bottom"
+ */
+@property(nonatomic, copy, nullable) NSString *stereoLayout;
+
 @end
 
 
@@ -8248,6 +8271,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /** The id of the channel being sponsored. */
 @property(nonatomic, copy, nullable) NSString *channelId;
+
+/**
+ *  The cumulative time a user has been a sponsor in months.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cumulativeDurationMonths;
 
 /** Details about the sponsor. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *sponsorDetails;

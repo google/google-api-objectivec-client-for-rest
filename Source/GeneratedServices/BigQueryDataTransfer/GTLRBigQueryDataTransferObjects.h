@@ -720,6 +720,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @interface GTLRBigQueryDataTransfer_Location : GTLRObject
 
 /**
+ *  The friendly name for this location, typically a nearby city name.
+ *  For example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
  *  Cross-service attributes for the location. For example
  *  {"cloud.googleapis.com/region": "us-east1"}
  */

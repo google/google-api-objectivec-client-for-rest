@@ -1047,13 +1047,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web;
 // GTLRAdExchangeBuyerII_FilterSet.format
 
 /**
- *  DEPRECATED: use combination of NATIVE_DISPLAY and NON_NATIVE_DISPLAY
- *  The ad impression is display format (i.e. an image).
- *
- *  Value: "DISPLAY"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Display;
-/**
  *  A placeholder for an undefined format; indicates that no format filter
  *  will be applied.
  *
@@ -1084,19 +1077,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDi
  *  Value: "NON_NATIVE_VIDEO"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo;
-/**
- *  DEPRECATED: use combination of NATIVE_VIDEO and NON_NATIVE_VIDEO
- *  The ad impression is video format.
- *
- *  Value: "VIDEO"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.formats
 
-/** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Display;
 /** Value: "FORMAT_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
 /** Value: "NATIVE_DISPLAY" */
@@ -1107,8 +1091,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVide
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeDisplay;
 /** Value: "NON_NATIVE_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeVideo;
-/** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.platforms
@@ -2396,10 +2378,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  The format on which to filter; optional.
  *
  *  Likely values:
- *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_Display DEPRECATED: use
- *        combination of NATIVE_DISPLAY and NON_NATIVE_DISPLAY
- *        The ad impression is display format (i.e. an image). (Value:
- *        "DISPLAY")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified A
  *        placeholder for an undefined format; indicates that no format filter
  *        will be applied. (Value: "FORMAT_UNSPECIFIED")
@@ -2414,9 +2392,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo The ad
  *        impression is not a native ad, and video format. (Value:
  *        "NON_NATIVE_VIDEO")
- *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_Video DEPRECATED: use
- *        combination of NATIVE_VIDEO and NON_NATIVE_VIDEO
- *        The ad impression is video format. (Value: "VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

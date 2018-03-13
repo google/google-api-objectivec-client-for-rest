@@ -62,6 +62,7 @@
 @class GTLRCompute_InterconnectAttachment;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
+@class GTLRCompute_NetworkInterface;
 @class GTLRCompute_NetworksAddPeeringRequest;
 @class GTLRCompute_NetworksRemovePeeringRequest;
 @class GTLRCompute_ProjectsDisableXpnResourceRequest;
@@ -8695,6 +8696,72 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates an instance's network interface. This method follows PATCH
+ *  semantics.
+ *
+ *  Method: compute.instances.updateNetworkInterface
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesUpdateNetworkInterface : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesUpdateNetworkInterfaceWithObject:project:zoneProperty:instance:networkInterface:]
+
+/** The instance name for this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** The name of the network interface to update. */
+@property(nonatomic, copy, nullable) NSString *networkInterface;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates an instance's network interface. This method follows PATCH
+ *  semantics.
+ *
+ *  @param object The @c GTLRCompute_NetworkInterface to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance The instance name for this request.
+ *  @param networkInterface The name of the network interface to update.
+ *
+ *  @returns GTLRComputeQuery_InstancesUpdateNetworkInterface
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkInterface *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance
+               networkInterface:(NSString *)networkInterface;
+
+@end
+
+/**
  *  Deletes the specified instance template. Deleting an instance template is
  *  permanent and cannot be undone. It's not possible to delete templates which
  *  are in use by an instance group.
@@ -14751,6 +14818,69 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified subnetwork with the data included in the request. Only
+ *  the following fields within the subnetwork resource can be specified in the
+ *  request: secondary_ip_range and allow_subnet_cidr_routes_overlap. It is also
+ *  mandatory to specify the current fingeprint of the subnetwork resource being
+ *  patched.
+ *
+ *  Method: compute.subnetworks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SubnetworksPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksPatchWithObject:project:region:subnetwork:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Subnetwork resource to patch. */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified subnetwork with the data included in the request. Only
+ *  the following fields within the subnetwork resource can be specified in the
+ *  request: secondary_ip_range and allow_subnet_cidr_routes_overlap. It is also
+ *  mandatory to specify the current fingeprint of the subnetwork resource being
+ *  patched.
+ *
+ *  @param object The @c GTLRCompute_Subnetwork to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param subnetwork Name of the Subnetwork resource to patch.
+ *
+ *  @returns GTLRComputeQuery_SubnetworksPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Subnetwork *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork;
 
 @end
 

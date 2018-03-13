@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1)
+//   Service Usage API (serviceusage/v1beta1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -18,11 +18,6 @@
 // GTLRServiceUsage_Api.syntax
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
-
-// GTLRServiceUsage_EnabledState.state
-NSString * const kGTLRServiceUsage_EnabledState_State_Disabled = @"DISABLED";
-NSString * const kGTLRServiceUsage_EnabledState_State_Enabled  = @"ENABLED";
-NSString * const kGTLRServiceUsage_EnabledState_State_EnabledUnspecified = @"ENABLED_UNSPECIFIED";
 
 // GTLRServiceUsage_Enum.syntax
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -78,6 +73,11 @@ NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Int64 = @"INT64";
 NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
+
+// GTLRServiceUsage_Service.state
+NSString * const kGTLRServiceUsage_Service_State_Disabled      = @"DISABLED";
+NSString * const kGTLRServiceUsage_Service_State_Enabled       = @"ENABLED";
+NSString * const kGTLRServiceUsage_Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRServiceUsage_Step.status
 NSString * const kGTLRServiceUsage_Step_Status_Cancelled       = @"CANCELLED";
@@ -223,6 +223,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_BatchEnableServicesRequest
+//
+
+@implementation GTLRServiceUsage_BatchEnableServicesRequest
+@dynamic serviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Billing
 //
 
@@ -254,15 +272,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_CancelOperationRequest
-//
-
-@implementation GTLRServiceUsage_CancelOperationRequest
 @end
 
 
@@ -412,25 +421,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_Empty
-//
-
-@implementation GTLRServiceUsage_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_EnabledState
-//
-
-@implementation GTLRServiceUsage_EnabledState
-@dynamic state;
 @end
 
 
@@ -627,28 +617,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_ListEnabledServicesResponse
-//
-
-@implementation GTLRServiceUsage_ListEnabledServicesResponse
-@dynamic nextPageToken, services;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRServiceUsage_ServiceState class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"services";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUsage_ListOperationsResponse
 //
 
@@ -664,6 +632,28 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ListServicesResponse
+//
+
+@implementation GTLRServiceUsage_ListServicesResponse
+@dynamic nextPageToken, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRServiceUsage_Service class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"services";
 }
 
 @end
@@ -1004,16 +994,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_PublishedService
-//
-
-@implementation GTLRServiceUsage_PublishedService
-@dynamic name, service;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUsage_Quota
 //
 
@@ -1063,33 +1043,31 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_SearchServicesResponse
+//   GTLRServiceUsage_Service
 //
 
-@implementation GTLRServiceUsage_SearchServicesResponse
-@dynamic nextPageToken, services;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRServiceUsage_PublishedService class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"services";
-}
-
+@implementation GTLRServiceUsage_Service
+@dynamic config, name, parent, state;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_ServiceState
+//   GTLRServiceUsage_ServiceConfig
 //
 
-@implementation GTLRServiceUsage_ServiceState
-@dynamic enabled, name, service;
+@implementation GTLRServiceUsage_ServiceConfig
+@dynamic apis, authentication, documentation, endpoints, name, quota, title,
+         usage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apis" : [GTLRServiceUsage_Api class],
+    @"endpoints" : [GTLRServiceUsage_Endpoint class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -1143,7 +1143,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @dynamic altText, backgroundColor, basicChart, bubbleChart, candlestickChart,
          fontName, hiddenDimensionStrategy, histogramChart, maximized, orgChart,
          pieChart, subtitle, subtitleTextFormat, subtitleTextPosition, title,
-         titleTextFormat, titleTextPosition, waterfallChart;
+         titleTextFormat, titleTextPosition, treemapChart, waterfallChart;
 @end
 
 
@@ -2420,6 +2420,27 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_TextToColumnsRequest
 @dynamic delimiter, delimiterType, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TreemapChartColorScale
+//
+
+@implementation GTLRSheets_TreemapChartColorScale
+@dynamic maxValueColor, midValueColor, minValueColor, noDataColor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TreemapChartSpec
+//
+
+@implementation GTLRSheets_TreemapChartSpec
+@dynamic colorData, colorScale, headerColor, hideTooltips, hintedLevels, labels,
+         levels, maxValue, minValue, parentLabels, sizeData, textFormat;
 @end
 
 

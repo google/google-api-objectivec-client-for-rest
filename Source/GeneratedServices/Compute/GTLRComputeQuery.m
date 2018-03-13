@@ -3774,6 +3774,43 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesUpdateNetworkInterface
+
+@dynamic instance, networkInterface, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkInterface *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance
+               networkInterface:(NSString *)networkInterface {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateNetworkInterface";
+  GTLRComputeQuery_InstancesUpdateNetworkInterface *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.networkInterface = networkInterface;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.updateNetworkInterface";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceTemplatesDelete
 
 @dynamic instanceTemplate, project, requestId;
@@ -6371,6 +6408,37 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_SubnetworkList class];
   query.loggingName = @"compute.subnetworks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SubnetworksPatch
+
+@dynamic project, region, requestId, subnetwork;
+
++ (instancetype)queryWithObject:(GTLRCompute_Subnetwork *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"subnetwork"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}";
+  GTLRComputeQuery_SubnetworksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.subnetwork = subnetwork;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.subnetworks.patch";
   return query;
 }
 

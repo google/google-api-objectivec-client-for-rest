@@ -1507,25 +1507,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage : GTLRObject
 
-/** The basic card response for Actions on Google. */
+/** Displays a basic card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCard *basicCard;
 
-/** The card response. */
+/** Displays a card. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCard *card;
 
-/** The carousel card response for Actions on Google. */
+/** Displays a carousel card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCarouselSelect *carouselSelect;
 
-/** The image response. */
+/** Displays an image. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage *image;
 
-/** The link out suggestion chip for Actions on Google. */
+/** Displays a link out suggestion chip for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageLinkOutSuggestion *linkOutSuggestion;
 
-/** The list card response for Actions on Google. */
+/** Displays a list card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelect *listSelect;
 
-/** The response containing a custom payload. */
+/** Returns a response containing a custom payload. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Payload *payload;
 
 /**
@@ -1553,23 +1553,23 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
  */
 @property(nonatomic, copy, nullable) NSString *platform;
 
-/** The quick replies response. */
+/** Displays quick replies. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageQuickReplies *quickReplies;
 
-/** The voice and text-only responses for Actions on Google. */
+/** Returns a voice or text-only response for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponses *simpleResponses;
 
-/** The suggestion chips for Actions on Google. */
+/** Displays suggestion chips for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestions *suggestions;
 
-/** The text response. */
+/** Returns a text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText *text;
 
 @end
 
 
 /**
- *  The response containing a custom payload.
+ *  Returns a response containing a custom payload.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

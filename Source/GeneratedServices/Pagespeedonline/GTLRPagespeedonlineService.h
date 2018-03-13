@@ -2,12 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v2)
+//   PageSpeed Insights API (pagespeedonline/v4)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
-// Documentation:
-//   https://developers.google.com/speed/docs/insights/v2/getting-started
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

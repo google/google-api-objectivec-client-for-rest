@@ -791,6 +791,8 @@ NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable
 // GTLRCompute_GuestOsFeature.type
 NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified = @"FEATURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet = @"MULTI_IP_SUBNET";
+NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot   = @"SECURE_BOOT";
+NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Windows      = @"WINDOWS";
 
@@ -1920,6 +1922,20 @@ NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_SingleInstancePr
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_RouterBgp.advertisedGroups
+NSString * const kGTLRCompute_RouterBgp_AdvertisedGroups_AllSubnets = @"ALL_SUBNETS";
+
+// GTLRCompute_RouterBgp.advertiseMode
+NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Custom  = @"CUSTOM";
+NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Default = @"DEFAULT";
+
+// GTLRCompute_RouterBgpPeer.advertisedGroups
+NSString * const kGTLRCompute_RouterBgpPeer_AdvertisedGroups_AllSubnets = @"ALL_SUBNETS";
+
+// GTLRCompute_RouterBgpPeer.advertiseMode
+NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Custom = @"CUSTOM";
+NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Default = @"DEFAULT";
+
 // GTLRCompute_RouterList_Warning.code
 NSString * const kGTLRCompute_RouterList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -3043,11 +3059,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AttachedDisk
-@dynamic autoDelete, boot, deviceName, diskEncryptionKey, index,
-         initializeParams, interface, kind, licenses, mode, source, type;
+@dynamic autoDelete, boot, deviceName, diskEncryptionKey, guestOsFeatures,
+         index, initializeParams, interface, kind, licenses, mode, source, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeatures" : [GTLRCompute_GuestOsFeature class],
     @"licenses" : [NSString class]
   };
   return map;
@@ -3887,12 +3904,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Disk
-@dynamic creationTimestamp, descriptionProperty, diskEncryptionKey, identifier,
-         kind, labelFingerprint, labels, lastAttachTimestamp,
-         lastDetachTimestamp, licenses, name, options, selfLink, sizeGb,
-         sourceImage, sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
-         sourceSnapshotEncryptionKey, sourceSnapshotId, status, type, users,
-         zoneProperty;
+@dynamic creationTimestamp, descriptionProperty, diskEncryptionKey,
+         guestOsFeatures, identifier, kind, labelFingerprint, labels,
+         lastAttachTimestamp, lastDetachTimestamp, licenses, name, options,
+         selfLink, sizeGb, sourceImage, sourceImageEncryptionKey, sourceImageId,
+         sourceSnapshot, sourceSnapshotEncryptionKey, sourceSnapshotId, status,
+         type, users, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3905,6 +3922,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeatures" : [GTLRCompute_GuestOsFeature class],
     @"licenses" : [NSString class],
     @"users" : [NSString class]
   };
@@ -4898,7 +4916,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          diskSizeGb, family, guestOsFeatures, identifier, imageEncryptionKey,
          kind, labelFingerprint, labels, licenses, name, rawDisk, selfLink,
          sourceDisk, sourceDiskEncryptionKey, sourceDiskId, sourceImage,
-         sourceImageEncryptionKey, sourceImageId, sourceType, status;
+         sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
+         sourceSnapshotEncryptionKey, sourceSnapshotId, sourceType, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6800,8 +6819,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkInterface
-@dynamic accessConfigs, aliasIpRanges, kind, name, network, networkIP,
-         subnetwork;
+@dynamic accessConfigs, aliasIpRanges, fingerprint, kind, name, network,
+         networkIP, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -7849,6 +7868,21 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_RouterAdvertisedIpRange
+//
+
+@implementation GTLRCompute_RouterAdvertisedIpRange
+@dynamic descriptionProperty, range;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_RouterAggregatedList
 //
 
@@ -7910,7 +7944,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterBgp
-@dynamic asn;
+@dynamic advertisedGroups, advertisedIpRanges, advertiseMode, asn;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advertisedGroups" : [NSString class],
+    @"advertisedIpRanges" : [GTLRCompute_RouterAdvertisedIpRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -7920,8 +7963,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterBgpPeer
-@dynamic advertisedRoutePriority, interfaceName, ipAddress, name, peerAsn,
-         peerIpAddress;
+@dynamic advertisedGroups, advertisedIpRanges, advertisedRoutePriority,
+         advertiseMode, interfaceName, ipAddress, name, peerAsn, peerIpAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advertisedGroups" : [NSString class],
+    @"advertisedIpRanges" : [GTLRCompute_RouterAdvertisedIpRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -8307,9 +8359,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Subnetwork
-@dynamic creationTimestamp, descriptionProperty, gatewayAddress, identifier,
-         ipCidrRange, kind, name, network, privateIpGoogleAccess, region,
-         secondaryIpRanges, selfLink;
+@dynamic creationTimestamp, descriptionProperty, fingerprint, gatewayAddress,
+         identifier, ipCidrRange, kind, name, network, privateIpGoogleAccess,
+         region, secondaryIpRanges, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

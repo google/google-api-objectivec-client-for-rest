@@ -2,12 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v2)
+//   PageSpeed Insights API (pagespeedonline/v4)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
-// Documentation:
-//   https://developers.google.com/speed/docs/insights/v2/getting-started
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -92,7 +90,14 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
 @property(nonatomic, assign) BOOL screenshot;
 
 /**
- *  The analysis strategy to use
+ *  Indicates if binary data containing snapshot images should be included
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL snapshots;
+
+/**
+ *  The analysis strategy (desktop or mobile) to use, and desktop is the default
  *
  *  Likely values:
  *    @arg @c kGTLRPagespeedonlineStrategyDesktop Fetch and analyze the URL for
@@ -105,8 +110,14 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
 /** The URL to fetch and analyze */
 @property(nonatomic, copy, nullable) NSString *url;
 
+/** Campaign name for analytics. */
+@property(nonatomic, copy, nullable) NSString *utmCampaign;
+
+/** Campaign source for analytics. */
+@property(nonatomic, copy, nullable) NSString *utmSource;
+
 /**
- *  Fetches a @c GTLRPagespeedonline_Result.
+ *  Fetches a @c GTLRPagespeedonline_PagespeedApiPagespeedResponseV4.
  *
  *  Runs PageSpeed analysis on the page at the specified URL, and returns
  *  PageSpeed scores, a list of suggestions to make that page faster, and other

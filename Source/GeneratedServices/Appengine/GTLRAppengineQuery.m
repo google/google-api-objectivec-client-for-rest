@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google App Engine Admin API (appengine/v1)
+//   App Engine Admin API (appengine/v1)
 // Description:
 //   The App Engine Admin API enables developers to provision and manage their
 //   App Engine applications.

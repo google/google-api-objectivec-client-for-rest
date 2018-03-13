@@ -22,6 +22,7 @@
 @class GTLRVault_HeldAccount;
 @class GTLRVault_HeldDriveQuery;
 @class GTLRVault_HeldGroupsQuery;
+@class GTLRVault_HeldHangoutsChatQuery;
 @class GTLRVault_HeldMailQuery;
 @class GTLRVault_HeldOrgUnit;
 @class GTLRVault_Hold;
@@ -59,6 +60,12 @@ GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
  *  Value: "GROUPS"
  */
 GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Groups;
+/**
+ *  Hangouts Chat.
+ *
+ *  Value: "HANGOUTS_CHAT"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_HangoutsChat;
 /**
  *  Mail.
  *
@@ -175,6 +182,12 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 /** Details pertaining to Groups holds. If set, corpus must be Groups. */
 @property(nonatomic, strong, nullable) GTLRVault_HeldGroupsQuery *groupsQuery;
 
+/**
+ *  Details pertaining to Hangouts Chat holds. If set, corpus must be
+ *  Hangouts Chat.
+ */
+@property(nonatomic, strong, nullable) GTLRVault_HeldHangoutsChatQuery *hangoutsChatQuery;
+
 /** Details pertaining to mail holds. If set, corpus must be mail. */
 @property(nonatomic, strong, nullable) GTLRVault_HeldMailQuery *mailQuery;
 
@@ -251,6 +264,21 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 
 
 /**
+ *  Query options for hangouts chat holds.
+ */
+@interface GTLRVault_HeldHangoutsChatQuery : GTLRObject
+
+/**
+ *  If true, include rooms the user has participated in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeRooms;
+
+@end
+
+
+/**
  *  Query options for mail holds.
  */
 @interface GTLRVault_HeldMailQuery : GTLRObject
@@ -310,6 +338,8 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
  *        (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive. (Value: "DRIVE")
  *    @arg @c kGTLRVault_Hold_Corpus_Groups Groups. (Value: "GROUPS")
+ *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat Hangouts Chat. (Value:
+ *        "HANGOUTS_CHAT")
  *    @arg @c kGTLRVault_Hold_Corpus_Mail Mail. (Value: "MAIL")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;

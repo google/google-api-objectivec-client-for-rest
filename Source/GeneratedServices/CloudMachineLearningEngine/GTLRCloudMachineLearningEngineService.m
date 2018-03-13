@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning Engine (ml/v1)
+//   Cloud Machine Learning Engine (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:

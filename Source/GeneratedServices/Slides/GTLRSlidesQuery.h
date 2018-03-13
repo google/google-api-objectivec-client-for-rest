@@ -128,8 +128,9 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
 @end
 
 /**
- *  Creates a new presentation using the title given in the request. Other
- *  fields in the request are ignored.
+ *  Creates a new presentation using the title given in the request. If a
+ *  presentationId is provided, uses it as the ID of the new presentation.
+ *  Otherwise, a new presentationId is generated.
  *  Returns the created presentation.
  *
  *  Method: slides.presentations.create
@@ -146,8 +147,9 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
 /**
  *  Fetches a @c GTLRSlides_Presentation.
  *
- *  Creates a new presentation using the title given in the request. Other
- *  fields in the request are ignored.
+ *  Creates a new presentation using the title given in the request. If a
+ *  presentationId is provided, uses it as the ID of the new presentation.
+ *  Otherwise, a new presentationId is generated.
  *  Returns the created presentation.
  *
  *  @param object The @c GTLRSlides_Presentation to include in the query.

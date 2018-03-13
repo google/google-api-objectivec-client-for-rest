@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1)
+//   Service Usage API (serviceusage/v1beta1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -40,13 +40,11 @@
 @class GTLRServiceUsage_CustomHttpPattern;
 @class GTLRServiceUsage_Documentation;
 @class GTLRServiceUsage_DocumentationRule;
-@class GTLRServiceUsage_EnabledState;
 @class GTLRServiceUsage_Endpoint;
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
 @class GTLRServiceUsage_Experimental;
 @class GTLRServiceUsage_Field;
-@class GTLRServiceUsage_GoogleApiService;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
 @class GTLRServiceUsage_LabelDescriptor;
@@ -70,11 +68,11 @@
 @class GTLRServiceUsage_Option;
 @class GTLRServiceUsage_Option_Value;
 @class GTLRServiceUsage_Page;
-@class GTLRServiceUsage_PublishedService;
 @class GTLRServiceUsage_Quota;
 @class GTLRServiceUsage_QuotaLimit;
 @class GTLRServiceUsage_QuotaLimit_Values;
-@class GTLRServiceUsage_ServiceState;
+@class GTLRServiceUsage_Service;
+@class GTLRServiceUsage_ServiceConfig;
 @class GTLRServiceUsage_SourceContext;
 @class GTLRServiceUsage_SourceInfo;
 @class GTLRServiceUsage_SourceInfo_SourceFiles_Item;
@@ -115,29 +113,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2;
  *  Value: "SYNTAX_PROTO3"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
-
-// ----------------------------------------------------------------------------
-// GTLRServiceUsage_EnabledState.state
-
-/**
- *  The service has not been made available for use for the consumer.
- *
- *  Value: "DISABLED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_EnabledState_State_Disabled;
-/**
- *  The service was explicitly enabled for use by a consumer.
- *
- *  Value: "ENABLED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_EnabledState_State_Enabled;
-/**
- *  The default value, which indicates that the enabled state of the service
- *  is unknown or unspecified.
- *
- *  Value: "ENABLED_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_EnabledState_State_EnabledUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Enum.syntax
@@ -418,6 +393,31 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_Service.state
+
+/**
+ *  The service cannot be used by this consumer. It has either been explicitly
+ *  disabled, or has never been enabled.
+ *
+ *  Value: "DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_Disabled;
+/**
+ *  The service has been explicitly enabled for use by this consumer.
+ *
+ *  Value: "ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_Enabled;
+/**
+ *  The default value, which indicates that the enabled state of the service
+ *  is unspecified or not meaningful. Currently, all consumers other than
+ *  projects (such as folders and organizations) are always in this state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Step.status
@@ -817,6 +817,28 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Request message for the `BatchEnableServices` method.
+ */
+@interface GTLRServiceUsage_BatchEnableServicesRequest : GTLRObject
+
+/**
+ *  The identifiers of the services to enable on the project.
+ *  A valid identifier would be:
+ *  serviceusage.googleapis.com
+ *  Enabling services requires that each service is public or is shared with
+ *  the user enabling the service.
+ *  Two or more services must be specified. To enable a single service,
+ *  use the `EnableService` method instead.
+ *  A single request can enable a maximum of 20 services at a time. If more
+ *  than 20 services are specified, the request will fail, and no state changes
+ *  will occur.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceIds;
+
+@end
+
+
+/**
  *  Billing related configuration of the service.
  *  The following example shows how to configure monitored resources and metrics
  *  for billing:
@@ -868,13 +890,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *monitoredResource;
 
-@end
-
-
-/**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRServiceUsage_CancelOperationRequest : GTLRObject
 @end
 
 
@@ -1047,7 +1062,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Request message for DisableService.
+ *  Request message for the `DisableService` method.
  */
 @interface GTLRServiceUsage_DisableServiceRequest : GTLRObject
 @end
@@ -1180,43 +1195,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
- */
-@interface GTLRServiceUsage_Empty : GTLRObject
-@end
-
-
-/**
- *  The EnabledState reflects whether the service has been explicitly enabled or
- *  not.
- */
-@interface GTLRServiceUsage_EnabledState : GTLRObject
-
-/**
- *  Whether or not the service has been explicitly enabled.
- *
- *  Likely values:
- *    @arg @c kGTLRServiceUsage_EnabledState_State_Disabled The service has not
- *        been made available for use for the consumer. (Value: "DISABLED")
- *    @arg @c kGTLRServiceUsage_EnabledState_State_Enabled The service was
- *        explicitly enabled for use by a consumer. (Value: "ENABLED")
- *    @arg @c kGTLRServiceUsage_EnabledState_State_EnabledUnspecified The
- *        default value, which indicates that the enabled state of the service
- *        is unknown or unspecified. (Value: "ENABLED_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Request message for EnableService.
+ *  Request message for the `EnableService` method.
  */
 @interface GTLRServiceUsage_EnableServiceRequest : GTLRObject
 @end
@@ -1977,33 +1956,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Response message for ListEnabledServices.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "services" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRServiceUsage_ListEnabledServicesResponse : GTLRCollectionObject
-
-/**
- *  Token that can be passed to `ListEnabledServices` to resume a paginated
- *  query.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The state of the enabled services for the requested parent.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_ServiceState *> *services;
-
-@end
-
-
-/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2023,6 +1975,33 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for the `ListServices` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "services" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRServiceUsage_ListServicesResponse : GTLRCollectionObject
+
+/**
+ *  Token that can be passed to `ListServices` to resume a paginated
+ *  query.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The available services for the requested project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Service *> *services;
 
 @end
 
@@ -2926,25 +2905,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The published version of a Service that is managed by
- *  Google Service Management.
- */
-@interface GTLRServiceUsage_PublishedService : GTLRObject
-
-/**
- *  The resource name of the service.
- *  A valid name would be:
- *  - services/serviceusage.googleapis.com
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The service's published configuration. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiService *service;
-
-@end
-
-
-/**
  *  Quota configuration helps to achieve fairness and budgeting in service
  *  usage.
  *  The quota configuration works this way:
@@ -3123,39 +3083,17 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Response message for SearchServices.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "services" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
+ *  A service that is available for use by the consumer.
  */
-@interface GTLRServiceUsage_SearchServicesResponse : GTLRCollectionObject
+@interface GTLRServiceUsage_Service : GTLRObject
 
 /**
- *  Token that can be passed to `SearchServices` to resume a paginated query.
+ *  The service configuration of the available service.
+ *  Some fields may be filtered out of the configuration in responses to
+ *  the `ListServices` method. These fields are present only in responses to
+ *  the `GetService` method.
  */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The state of services available publicly or available to the authenticated
- *  caller.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_PublishedService *> *services;
-
-@end
-
-
-/**
- *  The properties of a consumer with respect to a Service.
- */
-@interface GTLRServiceUsage_ServiceState : GTLRObject
-
-/** Reflects whether or not the service has been explicitly enabled. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_EnabledState *enabled;
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ServiceConfig *config;
 
 /**
  *  The resource name of the consumer and service.
@@ -3164,8 +3102,74 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The published version of the consumed service. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_PublishedService *service;
+/**
+ *  The resource name of the consumer.
+ *  A valid name would be:
+ *  - projects/123
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Whether or not the service has been enabled for use by the consumer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Service_State_Disabled The service cannot be
+ *        used by this consumer. It has either been explicitly
+ *        disabled, or has never been enabled. (Value: "DISABLED")
+ *    @arg @c kGTLRServiceUsage_Service_State_Enabled The service has been
+ *        explicitly enabled for use by this consumer. (Value: "ENABLED")
+ *    @arg @c kGTLRServiceUsage_Service_State_StateUnspecified The default
+ *        value, which indicates that the enabled state of the service
+ *        is unspecified or not meaningful. Currently, all consumers other than
+ *        projects (such as folders and organizations) are always in this state.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The configuration of the service.
+ */
+@interface GTLRServiceUsage_ServiceConfig : GTLRObject
+
+/**
+ *  A list of API interfaces exported by this service. Contains only the names,
+ *  versions, and method names of the interfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Api *> *apis;
+
+/** Auth configuration. Contains only the OAuth rules. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Authentication *authentication;
+
+/**
+ *  Additional API documentation. Contains only the summary and the
+ *  documentation URL.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Documentation *documentation;
+
+/**
+ *  Configuration for network endpoints. Contains only the names and aliases
+ *  of the endpoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
+
+/**
+ *  The DNS address at which this service is available.
+ *  An example DNS address would be:
+ *  `calendar.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Quota configuration. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Quota *quota;
+
+/** The product title for this service. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Configuration controlling usage of this service. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
 
 @end
 

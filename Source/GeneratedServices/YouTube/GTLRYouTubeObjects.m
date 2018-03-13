@@ -781,6 +781,11 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh = @"me
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular = @"rectangular";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360 = @"360";
 
+// GTLRYouTube_LiveBroadcastContentDetails.stereoLayout
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight = @"left_right";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono = @"mono";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom = @"top_bottom";
+
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Abandoned = @"abandoned";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete = @"complete";
@@ -2184,7 +2189,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
          enableAutoStart, enableClosedCaptions, enableContentEncryption,
          enableDvr, enableEmbed, enableLowLatency, latencyPreference, mesh,
-         monitorStream, projection, recordFromStart, startWithSlate;
+         monitorStream, projection, recordFromStart, startWithSlate,
+         stereoLayout;
 @end
 
 
@@ -3078,7 +3084,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_SponsorSnippet
-@dynamic channelId, sponsorDetails, sponsorSince;
+@dynamic channelId, cumulativeDurationMonths, sponsorDetails, sponsorSince;
 @end
 
 

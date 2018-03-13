@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Proximity Beacon API (proximitybeacon/v1beta1)
+//   Proximity Beacon API (proximitybeacon/v1beta1)
 // Description:
 //   Registers, manages, indexes, and searches beacons.
 // Documentation:
