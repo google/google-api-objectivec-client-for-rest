@@ -2739,9 +2739,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     GTMSessionFetcherSendProgressBlock fetcherSentDataBlock = ^(int64_t bytesSent,
                                                                 int64_t totalBytesSent,
                                                                 int64_t totalBytesExpectedToSend) {
-      [_service invokeProgressCallbackForTicket:self
-                                 deliveredBytes:(unsigned long long)totalBytesSent
-                                     totalBytes:(unsigned long long)totalBytesExpectedToSend];
+      [self->_service invokeProgressCallbackForTicket:self
+                                       deliveredBytes:(unsigned long long)totalBytesSent
+                                           totalBytes:(unsigned long long)totalBytesExpectedToSend];
     };
 
     fetcher.sendProgressBlock = fetcherSentDataBlock;
