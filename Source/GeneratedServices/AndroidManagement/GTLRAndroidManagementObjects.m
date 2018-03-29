@@ -34,6 +34,14 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInsta
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
 
+// GTLRAndroidManagement_Command.errorCode
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_ApiLevel = @"API_LEVEL";
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified = @"COMMAND_ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_InvalidValue = @"INVALID_VALUE";
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_ManagementMode = @"MANAGEMENT_MODE";
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unsupported = @"UNSUPPORTED";
+
 // GTLRAndroidManagement_Command.resetPasswordFlags
 NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot = @"DO_NOT_ASK_CREDENTIALS_ON_BOOT";
 NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow = @"LOCK_NOW";
@@ -174,6 +182,11 @@ NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified = @"PERMISSION_POLICY_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt = @"PROMPT";
 
+// GTLRAndroidManagement_Policy.encryptionPolicy
+NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithoutPassword = @"ENABLED_WITHOUT_PASSWORD";
+NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithPassword = @"ENABLED_WITH_PASSWORD";
+NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified = @"ENCRYPTION_POLICY_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures = @"ALL_FEATURES";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera = @"CAMERA";
@@ -183,6 +196,13 @@ NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Keyguard
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications = @"NOTIFICATIONS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents = @"TRUST_AGENTS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications = @"UNREDACTED_NOTIFICATIONS";
+
+// GTLRAndroidManagement_Policy.locationMode
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving = @"BATTERY_SAVING";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy = @"HIGH_ACCURACY";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified = @"LOCATION_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off = @"OFF";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly = @"SENSORS_ONLY";
 
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac = @"AC";
@@ -305,7 +325,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Command
-@dynamic createTime, duration, newPassword, resetPasswordFlags, type, userName;
+@dynamic createTime, duration, errorCode, newPassword, resetPasswordFlags, type,
+         userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -744,9 +765,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          cellBroadcastsConfigDisabled, complianceRules, createWindowsDisabled,
          credentialsConfigDisabled, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
-         ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
-         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
-         keyguardDisabled, keyguardDisabledFeatures, kioskCustomLauncherEnabled,
+         deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
+         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
+         installUnknownSourcesAllowed, keyguardDisabled,
+         keyguardDisabledFeatures, kioskCustomLauncherEnabled, locationMode,
          longSupportMessage, maximumTimeToLock, mobileNetworksConfigDisabled,
          modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
          networkEscapeHatchEnabled, networkResetDisabled,
@@ -754,12 +776,13 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordRequirements, permittedInputMethods,
          persistentPreferredActivities, recommendedGlobalProxy,
          removeUserDisabled, safeBootDisabled, screenCaptureDisabled,
-         setUserIconDisabled, setWallpaperDisabled, shortSupportMessage,
-         smsDisabled, statusBarDisabled, statusReportingSettings,
-         stayOnPluggedModes, systemUpdate, tetheringConfigDisabled,
-         uninstallAppsDisabled, unmuteMicrophoneDisabled,
-         usbFileTransferDisabled, version, vpnConfigDisabled,
-         wifiConfigDisabled, wifiConfigsLockdownEnabled;
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
+         unmuteMicrophoneDisabled, usbFileTransferDisabled,
+         usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
+         wifiConfigsLockdownEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

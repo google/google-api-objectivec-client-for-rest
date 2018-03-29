@@ -724,6 +724,222 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_LiasettingsCustombatch
+
+@dynamic dryRun;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiasettingsCustomBatchRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"liasettings/batch";
+  GTLRShoppingContentQuery_LiasettingsCustombatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsCustomBatchResponse class];
+  query.loggingName = @"content.liasettings.custombatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsGet
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}";
+  GTLRShoppingContentQuery_LiasettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiaSettings class];
+  query.loggingName = @"content.liasettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/accessiblegmbaccounts";
+  GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse class];
+  query.loggingName = @"content.liasettings.getaccessiblegmbaccounts";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsList
+
+@dynamic maxResults, merchantId, pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings";
+  GTLRShoppingContentQuery_LiasettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsListResponse class];
+  query.loggingName = @"content.liasettings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsPatch
+
+@dynamic accountId, dryRun, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiaSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}";
+  GTLRShoppingContentQuery_LiasettingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiaSettings class];
+  query.loggingName = @"content.liasettings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsRequestgmbaccess
+
+@dynamic accountId, gmbEmail, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/requestgmbaccess";
+  GTLRShoppingContentQuery_LiasettingsRequestgmbaccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsRequestGmbAccessResponse class];
+  query.loggingName = @"content.liasettings.requestgmbaccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsRequestinventoryverification
+
+@dynamic accountId, country, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId
+                            country:(NSString *)country {
+  NSArray *pathParams = @[
+    @"accountId", @"country", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/requestinventoryverification/{country}";
+  GTLRShoppingContentQuery_LiasettingsRequestinventoryverification *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.country = country;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse class];
+  query.loggingName = @"content.liasettings.requestinventoryverification";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact
+
+@dynamic accountId, contactEmail, contactName, country, language, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/setinventoryverificationcontact";
+  GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse class];
+  query.loggingName = @"content.liasettings.setinventoryverificationcontact";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LiasettingsUpdate
+
+@dynamic accountId, dryRun, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiaSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}";
+  GTLRShoppingContentQuery_LiasettingsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiaSettings class];
+  query.loggingName = @"content.liasettings.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrdersAcknowledge
 
 @dynamic merchantId, orderId;

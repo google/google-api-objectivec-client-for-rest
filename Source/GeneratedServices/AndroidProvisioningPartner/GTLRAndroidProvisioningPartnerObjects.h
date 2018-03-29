@@ -235,17 +235,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_ClaimDeviceRequest : GTLRObject
 
 /**
- *  The customer to claim for.
+ *  Required. The ID of the customer for whom the device is being claimed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *customerId;
 
-/** The device identifier of the device to claim. */
+/** Required. The device identifier of the device to claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  The section to claim.
+ *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified
@@ -280,11 +280,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Request to claim devices asynchronously in batch.
+ *  Request to claim devices asynchronously in batch. Claiming a device adds the
+ *  device to zero-touch enrollment and shows the device in the customer's view
+ *  of the portal.
  */
 @interface GTLRAndroidProvisioningPartner_ClaimDevicesRequest : GTLRObject
 
-/** List of claims. */
+/** Required. A list of device claims. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_PartnerClaim *> *claims;
 
 @end
@@ -706,19 +708,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Long running operation metadata.
+ *  Tracks the status of a long-running operation to asynchronously update a
+ *  batch of reseller metadata attached to devices. To learn more, read
+ *  [Long‑running batch operations](/zero-touch/guides/how-it-works#operations).
  */
 @interface GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata : GTLRObject
 
 /**
- *  Number of devices parsed in your requests.
+ *  The number of metadata updates in the operation. This might be different
+ *  from the number of updates in the request if the API can't parse some of
+ *  the updates.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *devicesCount;
 
 /**
- *  The overall processing status.
+ *  The processing status of the operation.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress
@@ -737,7 +743,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, copy, nullable) NSString *processingStatus;
 
 /**
- *  Processing progress from 0 to 100.
+ *  The processing progress of the operation. Measured as a number from 0 to
+ *  100. A value of 10O doesnt always mean the operation completed—check for
+ *  the inclusion of a `done` field.
  *
  *  Uses NSNumber of intValue.
  */
@@ -747,18 +755,22 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Long running operation response.
+ *  Tracks the status of a long-running operation to claim, unclaim, or attach
+ *  metadata to devices. To learn more, read
+ *  [Long‑running batch operations](/zero-touch/guides/how-it-works#operations).
  */
 @interface GTLRAndroidProvisioningPartner_DevicesLongRunningOperationResponse : GTLRObject
 
 /**
- *  Processing status for each device.
- *  One `PerDeviceStatus` per device. The order is the same as in your requests.
+ *  The processing status for each device in the operation.
+ *  One `PerDeviceStatus` per device. The list order matches the items in the
+ *  original request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_OperationPerDevice *> *perDeviceStatus;
 
 /**
- *  Number of succeesfully processed ones.
+ *  A summary of how many items in the operation the server processed
+ *  successfully. Updated as the operation progresses.
  *
  *  Uses NSNumber of intValue.
  */
@@ -818,17 +830,18 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest : GTLRObject
 
-/** The device identifier to search. */
+/** Required. The device identifier to search for. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  Number of devices to show.
+ *  Required. The maximum number of devices to show in a page of results. Must
+ *  be between 1 and 100 inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
-/** Page token. */
+/** A token specifying which result page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 @end
@@ -852,7 +865,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
 
-/** Page token of the next page. */
+/**
+ *  A token used to access the next page of results. Omitted if no further
+ *  results are available.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -864,24 +880,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest : GTLRObject
 
 /**
- *  List of customer IDs to search for.
+ *  Required. The list of customer IDs to search for.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *customerId;
 
 /**
- *  The number of devices to show in the result.
+ *  Required. The maximum number of devices to show in a page of results. Must
+ *  be between 1 and 100 inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
-/** Page token. */
+/** A token specifying which result page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The section type.
+ *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified
@@ -905,14 +922,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_FindDevicesByOwnerResponse : GTLRCollectionObject
 
 /**
- *  Devices found.
+ *  The customer's devices.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
 
-/** Page token of the next page. */
+/**
+ *  A token used to access the next page of results.
+ *  Omitted if no further results are available.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -923,7 +943,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_ListCustomersResponse : GTLRObject
 
-/** List of customers related to this partner. */
+/** List of customers related to this reseller partner. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
 
 @end
@@ -1005,20 +1025,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Operation the server received for every device.
+ *  A task for each device in the operation. Corresponds to each device
+ *  change in the request.
  */
 @interface GTLRAndroidProvisioningPartner_OperationPerDevice : GTLRObject
 
-/** Request to claim a device. */
+/** A copy of the original device-claim request received by the server. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_PartnerClaim *claim;
 
-/** Processing result for every device. */
+/** The processing result for each device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch *result;
 
-/** Request to unclaim a device. */
+/** A copy of the original device-unclaim request received by the server. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_PartnerUnclaim *unclaim;
 
-/** Request to set metadata for a device. */
+/** A copy of the original metadata-update request received by the server. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_UpdateMetadataArguments *updateMetadata;
 
 @end
@@ -1030,20 +1051,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_PartnerClaim : GTLRObject
 
 /**
- *  Customer ID to claim for.
+ *  Required. The ID of the customer for whom the device is being claimed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *customerId;
 
-/** Device identifier of the device. */
+/** Required. Device identifier of the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
-/** Metadata to set at claim. */
+/** Required. The metadata to attach to the device at claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
 /**
- *  Section type to claim.
+ *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified
@@ -1072,7 +1093,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  Section type to unclaim.
+ *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified
@@ -1086,25 +1107,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Stores the processing result for each device.
+ *  Captures the processing status for each device in the operation.
  */
 @interface GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch : GTLRObject
 
 /**
- *  Device ID of the device if process succeeds.
+ *  If processing succeeds, the device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** Error identifier. */
+/** If processing fails, the error type. */
 @property(nonatomic, copy, nullable) NSString *errorIdentifier;
 
-/** Error message. */
+/** If processing fails, a developer message explaining what went wrong. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  Process result.
+ *  The result status of the device after processing.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier
@@ -1235,7 +1256,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  The section type to unclaim for.
+ *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified
@@ -1253,7 +1274,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UnclaimDevicesRequest : GTLRObject
 
-/** List of devices to unclaim. */
+/** Required. The list of devices to unclaim. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_PartnerUnclaim *> *unclaims;
 
 @end
@@ -1264,7 +1285,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest : GTLRObject
 
-/** List of metadata updates. */
+/** Required. The list of metadata updates. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_UpdateMetadataArguments *> *updates;
 
 @end
@@ -1275,7 +1296,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UpdateDeviceMetadataRequest : GTLRObject
 
-/** The metdata to set. */
+/** Required. The metdata to attach to the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
 @end
@@ -1296,7 +1317,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /** Device identifier. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
-/** The metadata to update. */
+/** Required. The metadata to update. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
 @end

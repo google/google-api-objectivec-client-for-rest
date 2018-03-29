@@ -222,9 +222,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts a build with the specified configuration.
- *  This method returns a long-running `Operation`, which includes the build ID.
- *  Pass the build ID to `GetBuild` to determine the build status
- *  (such as `SUCCESS` or `FAILURE`).
+ *  This method returns a long-running `Operation`, which includes the build
+ *  ID. Pass the build ID to `GetBuild` to determine the build status (such as
+ *  `SUCCESS` or `FAILURE`).
  *
  *  Method: cloudbuild.projects.builds.create
  *
@@ -242,9 +242,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Starts a build with the specified configuration.
- *  This method returns a long-running `Operation`, which includes the build ID.
- *  Pass the build ID to `GetBuild` to determine the build status
- *  (such as `SUCCESS` or `FAILURE`).
+ *  This method returns a long-running `Operation`, which includes the build
+ *  ID. Pass the build ID to `GetBuild` to determine the build status (such as
+ *  `SUCCESS` or `FAILURE`).
  *
  *  @param object The @c GTLRCloudBuild_Build to include in the query.
  *  @param projectId ID of the project.

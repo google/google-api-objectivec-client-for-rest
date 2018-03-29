@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Cloud Vision API (vision/v1)
 // Description:
 //   Integrates Google Vision features, including image labeling, face, logo,
 //   and landmark detection, optical character recognition (OCR), and detection

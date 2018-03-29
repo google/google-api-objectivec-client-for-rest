@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud User Accounts API (clouduseraccounts/vm_alpha)
+//   Cloud Text-to-Speech API (texttospeech/v1beta1)
 // Description:
-//   Creates and manages users and groups for accessing Google Compute Engine
-//   virtual machines.
+//   Cloud Text-to-Speech API.
 // Documentation:
-//   https://cloud.google.com/compute/docs/access/user-accounts/api/latest/
+//   http://cloud.google.com/speech/text-to-speech/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -27,7 +26,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -35,43 +34,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudUserAccountsCloudPlatform;
-/**
- *  Authorization scope: View your data across Google Cloud Platform services
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudUserAccountsCloudPlatformReadOnly;
-/**
- *  Authorization scope: Manage your Google Cloud User Accounts
- *
- *  Value "https://www.googleapis.com/auth/cloud.useraccounts"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudUserAccountsCloudUseraccounts;
-/**
- *  Authorization scope: View your Google Cloud User Accounts
- *
- *  Value "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudUserAccountsCloudUseraccountsReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeTexttospeechCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudUserAccountsService
+//   GTLRTexttospeechService
 //
 
 /**
- *  Service for executing Cloud User Accounts API queries.
+ *  Service for executing Cloud Text-to-Speech API queries.
  *
- *  Creates and manages users and groups for accessing Google Compute Engine
- *  virtual machines.
+ *  Cloud Text-to-Speech API.
  */
-@interface GTLRCloudUserAccountsService : GTLRService
+@interface GTLRTexttospeechService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudUserAccountsQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRTexttospeechQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

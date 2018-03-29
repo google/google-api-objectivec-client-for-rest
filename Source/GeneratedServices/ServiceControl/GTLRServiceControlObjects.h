@@ -146,6 +146,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_DenialOfService
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified;
 /**
+ *  The credential in the request can not be verified.
+ *
+ *  Value: "INVALID_CREDENTIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_InvalidCredential;
+/**
  *  The IP address of the consumer is invalid for the specific consumer
  *  project.
  *
@@ -855,6 +861,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        "DENIAL_OF_SERVICE_DETECTED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified This is
  *        never used in `CheckResponse`. (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_InvalidCredential The
+ *        credential in the request can not be verified. (Value:
+ *        "INVALID_CREDENTIAL")
  *    @arg @c kGTLRServiceControl_CheckError_Code_IpAddressBlocked The IP
  *        address of the consumer is invalid for the specific consumer
  *        project. (Value: "IP_ADDRESS_BLOCKED")

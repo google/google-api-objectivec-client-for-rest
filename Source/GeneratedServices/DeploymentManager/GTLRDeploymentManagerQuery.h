@@ -235,6 +235,19 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsInsertWithObject:project:]
 
 /**
+ *  Sets the policy to use for creating new resources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
+ *    @arg @c kGTLRDeploymentManagerCreatePolicyCreateOrAcquire Value
+ *        "CREATE_OR_ACQUIRE"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
+ */
+@property(nonatomic, copy, nullable) NSString *createPolicy;
+
+/**
  *  If set to true, creates a deployment and creates "shell" resources but does
  *  not actually instantiate these resources. This allows you to preview what
  *  your deployment looks like. After previewing a deployment, you can deploy

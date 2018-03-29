@@ -175,34 +175,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_Entitlement
-//
-
-@implementation GTLRAndroidPublisher_Entitlement
-@dynamic kind, productId, productType, token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_EntitlementsListResponse
-//
-
-@implementation GTLRAndroidPublisher_EntitlementsListResponse
-@dynamic pageInfo, resources, tokenPagination;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRAndroidPublisher_Entitlement class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_ExpansionFile
 //
 
@@ -568,9 +540,10 @@
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic autoRenewing, cancelReason, countryCode, developerPayload,
-         expiryTimeMillis, kind, linkedPurchaseToken, orderId, paymentState,
-         priceAmountMicros, priceCurrencyCode, purchaseType, startTimeMillis,
-         userCancellationTimeMillis;
+         emailAddress, expiryTimeMillis, familyName, givenName, kind,
+         linkedPurchaseToken, orderId, paymentState, priceAmountMicros,
+         priceCurrencyCode, profileId, profileName, purchaseType,
+         startTimeMillis, userCancellationTimeMillis;
 @end
 
 

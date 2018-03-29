@@ -61,14 +61,50 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_ArtifactObjects
+//
+
+@implementation GTLRCloudBuild_ArtifactObjects
+@dynamic location, paths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Artifacts
+//
+
+@implementation GTLRCloudBuild_Artifacts
+@dynamic images, objects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"images" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Build
 //
 
 @implementation GTLRCloudBuild_Build
-@dynamic buildTriggerId, createTime, finishTime, identifier, images, logsBucket,
-         logUrl, options, projectId, results, secrets, source, sourceProvenance,
-         startTime, status, statusDetail, steps, substitutions, tags, timeout,
-         timing;
+@dynamic artifacts, buildTriggerId, createTime, finishTime, identifier, images,
+         logsBucket, logUrl, options, projectId, results, secrets, source,
+         sourceProvenance, startTime, status, statusDetail, steps,
+         substitutions, tags, timeout, timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -386,7 +422,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_Results
-@dynamic buildStepImages, images;
+@dynamic artifactManifest, buildStepImages, images, numArtifacts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

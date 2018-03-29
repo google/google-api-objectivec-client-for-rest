@@ -376,7 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Delete a tenancy unit. Before the tenancy unit is deleted, there should be
- *  no tenant resource in it.
+ *  no tenant resources in it.
  *  Operation<response: Empty>.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.delete
@@ -395,7 +395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Delete a tenancy unit. Before the tenancy unit is deleted, there should be
- *  no tenant resource in it.
+ *  no tenant resources in it.
  *  Operation<response: Empty>.
  *
  *  @param name Name of the tenancy unit to be deleted.

@@ -53,6 +53,8 @@
 @class GTLRShoppingContent_DeliveryTime;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
+@class GTLRShoppingContent_GmbAccounts;
+@class GTLRShoppingContent_GmbAccountsGmbAccount;
 @class GTLRShoppingContent_Headers;
 @class GTLRShoppingContent_HolidayCutoff;
 @class GTLRShoppingContent_HolidaysHoliday;
@@ -61,6 +63,13 @@
 @class GTLRShoppingContent_InventoryCustomBatchRequestEntry;
 @class GTLRShoppingContent_InventoryCustomBatchResponseEntry;
 @class GTLRShoppingContent_InventoryPickup;
+@class GTLRShoppingContent_LiaAboutPageSettings;
+@class GTLRShoppingContent_LiaCountrySettings;
+@class GTLRShoppingContent_LiaInventorySettings;
+@class GTLRShoppingContent_LiaOnDisplayToOrderSettings;
+@class GTLRShoppingContent_LiaSettings;
+@class GTLRShoppingContent_LiasettingsCustomBatchRequestEntry;
+@class GTLRShoppingContent_LiasettingsCustomBatchResponseEntry;
 @class GTLRShoppingContent_LocationIdSet;
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_Order;
@@ -1610,6 +1619,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_GmbAccounts
+ */
+@interface GTLRShoppingContent_GmbAccounts : GTLRObject
+
+/**
+ *  The ID of the account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/** A list of GMB accounts which are available to the merchant. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_GmbAccountsGmbAccount *> *gmbAccounts;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_GmbAccountsGmbAccount
+ */
+@interface GTLRShoppingContent_GmbAccountsGmbAccount : GTLRObject
+
+/** The email which identifies the GMB account. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Number of listings under this account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *listingCount;
+
+/** The name of the GMB account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The type of the GMB account (User or Business). */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A non-empty list of row or column headers for a table. Exactly one of
  *  prices, weights, numItems, postalCodeGroupNames, or locations must be set.
  */
@@ -2008,6 +2059,321 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_LiaAboutPageSettings
+ */
+@interface GTLRShoppingContent_LiaAboutPageSettings : GTLRObject
+
+/** The status of the verification process for the About page. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** The URL for the About page. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiaCountrySettings
+ */
+@interface GTLRShoppingContent_LiaCountrySettings : GTLRObject
+
+/** The settings for the About page. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaAboutPageSettings *about;
+
+/** CLDR country code (e.g. "US"). */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The status of the "Merchant hosted local storefront" feature.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hostedLocalStorefrontActive;
+
+/** LIA inventory verification settings. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaInventorySettings *inventory;
+
+/** LIA "On Display To Order" settings. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaOnDisplayToOrderSettings *onDisplayToOrder;
+
+/**
+ *  The status of the "Store pickup" feature.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storePickupActive;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiaInventorySettings
+ */
+@interface GTLRShoppingContent_LiaInventorySettings : GTLRObject
+
+/** The email of the contact for the inventory verification process. */
+@property(nonatomic, copy, nullable) NSString *inventoryVerificationContactEmail;
+
+/** The name of the contact for the inventory verification process. */
+@property(nonatomic, copy, nullable) NSString *inventoryVerificationContactName;
+
+/** The status of the verification contact. */
+@property(nonatomic, copy, nullable) NSString *inventoryVerificationContactStatus;
+
+/** The status of the inventory verification process. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiaOnDisplayToOrderSettings
+ */
+@interface GTLRShoppingContent_LiaOnDisplayToOrderSettings : GTLRObject
+
+/** Shipping cost and policy URL. */
+@property(nonatomic, copy, nullable) NSString *shippingCostPolicyUrl;
+
+/** The status of the ?On display to order? feature. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiaSettings
+ */
+@interface GTLRShoppingContent_LiaSettings : GTLRObject
+
+/**
+ *  The ID of the account to which these LIA settings belong. Ignored upon
+ *  update, always present in get request responses.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/** The LIA settings for each country. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LiaCountrySettings *> *countrySettings;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liaSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsCustomBatchRequest
+ */
+@interface GTLRShoppingContent_LiasettingsCustomBatchRequest : GTLRObject
+
+/** The request entries to be processed in the batch. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LiasettingsCustomBatchRequestEntry *> *entries;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsCustomBatchRequestEntry
+ */
+@interface GTLRShoppingContent_LiasettingsCustomBatchRequestEntry : GTLRObject
+
+/**
+ *  The ID of the account for which to get/update account shipping settings.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/**
+ *  An entry ID, unique within the batch request.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  Inventory validation contact email. Required only for
+ *  SetInventoryValidationContact.
+ */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/**
+ *  Inventory validation contact name. Required only for
+ *  SetInventoryValidationContact.
+ */
+@property(nonatomic, copy, nullable) NSString *contactName;
+
+/** The country code. Required only for RequestInventoryVerification. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The GMB account. Required only for RequestGmbAccess. */
+@property(nonatomic, copy, nullable) NSString *gmbEmail;
+
+/**
+ *  The account Lia settings to update. Only defined if the method is update.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaSettings *liaSettings;
+
+/**
+ *  The ID of the managing account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@property(nonatomic, copy, nullable) NSString *method;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsCustomBatchResponse
+ */
+@interface GTLRShoppingContent_LiasettingsCustomBatchResponse : GTLRObject
+
+/** The result of the execution of the batch requests. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LiasettingsCustomBatchResponseEntry *> *entries;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsCustomBatchResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsCustomBatchResponseEntry
+ */
+@interface GTLRShoppingContent_LiasettingsCustomBatchResponseEntry : GTLRObject
+
+/**
+ *  The ID of the request entry to which this entry responds.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/** A list of errors defined if, and only if, the request failed. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
+
+/** The the list of accessible GMB accounts. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_GmbAccounts *gmbAccounts;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsCustomBatchResponseEntry".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The retrieved or updated Lia settings. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaSettings *liaSettings;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse
+ */
+@interface GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse : GTLRObject
+
+/**
+ *  The ID of the account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/** A list of GMB accounts which are available to the merchant. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_GmbAccountsGmbAccount *> *gmbAccounts;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsGetAccessibleGmbAccountsResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_LiasettingsListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of LIA settings. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  resources
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LiaSettings *> *resources;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsRequestGmbAccessResponse
+ */
+@interface GTLRShoppingContent_LiasettingsRequestGmbAccessResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsRequestGmbAccessResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse
+ */
+@interface GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsRequestInventoryVerificationResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse
+ */
+@interface GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#liasettingsSetInventoryVerificationContactResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_LocationIdSet
  */
 @interface GTLRShoppingContent_LocationIdSet : GTLRObject
@@ -2222,7 +2588,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderCustomer : GTLRObject
 
-/** Email address of the customer. */
+/**
+ *  Email address that should be used for order related communications. In
+ *  certain cases this might not be a real users email, but a proxy email.
+ */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
@@ -4179,7 +4548,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */
@@ -4215,7 +4587,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */
@@ -4257,7 +4632,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */
@@ -4318,7 +4696,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** A unique ID to group items from the same sale event. */
 @property(nonatomic, copy, nullable) NSString *saleId;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */
@@ -4357,7 +4738,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** A unique ID to group items from the same sale event. */
 @property(nonatomic, copy, nullable) NSString *saleId;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */
@@ -4402,7 +4786,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** A unique ID to group items from the same sale event. */
 @property(nonatomic, copy, nullable) NSString *saleId;
 
-/** The identifier of the merchant's store. */
+/**
+ *  The identifier of the merchant's store. Either a storeCode inserted via the
+ *  API or the code of the store in Google My Business.
+ */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /** The CLDR territory code for the item. */

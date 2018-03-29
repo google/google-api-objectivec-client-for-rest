@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Speech API (speech/v1)
+//   Cloud Speech API (speech/v1)
 // Description:
 //   Converts audio to text by applying powerful neural network models.
 // Documentation:
@@ -236,7 +236,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognitionAlternative : GTLRObject
 
 /**
- *  *Output-only* The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. This field is set only for the top alternative of a non-streaming
  *  result or, of a streaming result where `is_final=true`.
@@ -249,12 +249,12 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  *Output-only* Transcript text representing the words that the user spoke.
+ *  Output only. Transcript text representing the words that the user spoke.
  */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
 /**
- *  *Output-only* A list of word-specific information for each recognized word.
+ *  Output only. A list of word-specific information for each recognized word.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_WordInfo *> *words;
 
@@ -414,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognitionResult : GTLRObject
 
 /**
- *  *Output-only* May contain one or more recognition hypotheses (up to the
+ *  Output only. May contain one or more recognition hypotheses (up to the
  *  maximum specified in `max_alternatives`).
  *  These alternatives are ordered in terms of accuracy, with the top (first)
  *  alternative being the most probable, as ranked by the recognizer.
@@ -449,7 +449,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognizeResponse : GTLRObject
 
 /**
- *  *Output-only* Sequential list of transcription results corresponding to
+ *  Output only. Sequential list of transcription results corresponding to
  *  sequential portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
@@ -545,7 +545,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_WordInfo : GTLRObject
 
 /**
- *  *Output-only* Time offset relative to the beginning of the audio,
+ *  Output only. Time offset relative to the beginning of the audio,
  *  and corresponding to the end of the spoken word.
  *  This field is only set if `enable_word_time_offsets=true` and only
  *  in the top hypothesis.
@@ -555,7 +555,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
- *  *Output-only* Time offset relative to the beginning of the audio,
+ *  Output only. Time offset relative to the beginning of the audio,
  *  and corresponding to the start of the spoken word.
  *  This field is only set if `enable_word_time_offsets=true` and only
  *  in the top hypothesis.
@@ -564,7 +564,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTime;
 
-/** *Output-only* The word corresponding to this set of information. */
+/** Output only. The word corresponding to this set of information. */
 @property(nonatomic, copy, nullable) NSString *word;
 
 @end

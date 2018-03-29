@@ -1085,7 +1085,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *discreteValues;
 
 /**
- *  Required if typeis `DOUBLE` or `INTEGER`. This field
+ *  Required if type is `DOUBLE` or `INTEGER`. This field
  *  should be unset if type is `CATEGORICAL`. This value should be integers if
  *  type is `INTEGER`.
  *
@@ -1322,6 +1322,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  file referenced from the --config command-line argument. For
  *  details, see the guide to
  *  <a href="/ml-engine/docs/training-jobs">submitting a training job</a>.
+ *  Next ID: 22
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
@@ -1609,8 +1610,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  The ML framework used to train this version of the model. If not specified,
- *  defaults to `TENSORFLOW`
+ *  Optional. The machine learning framework Cloud ML Engine uses to train
+ *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
+ *  and `XGBOOST`. If you do not specify a framework, Cloud ML Engine uses
+ *  TensorFlow. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set
+ *  the runtime version of the model to 1.4 or greater.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
@@ -1652,6 +1656,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The version name must be unique within the model it is created in.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The version of Python used in prediction. If not set, the default
+ *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
+ *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
+ */
+@property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
  *  Optional. The Google Cloud ML runtime version to use for this deployment.

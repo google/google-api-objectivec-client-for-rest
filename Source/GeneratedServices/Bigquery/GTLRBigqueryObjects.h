@@ -1927,6 +1927,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
 
 /**
+ *  [Output-only] Total number of partitions processed from all partitioned
+ *  tables referenced in the job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalPartitionsProcessed;
+
+/**
  *  [Output-only] Slot-milliseconds for the job.
  *
  *  Uses NSNumber of longLongValue.

@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Hangouts Chat API (chat/v1)
+// Description:
+//   Create bots and extend the new Hangouts Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 

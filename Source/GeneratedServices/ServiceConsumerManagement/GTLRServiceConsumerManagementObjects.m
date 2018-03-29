@@ -1054,7 +1054,7 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
          control, customError, documentation, endpoints, enums, experimental,
          http, identifier, logging, logs, metrics, monitoredResources,
          monitoring, name, producerProjectId, quota, sourceInfo,
-         systemParameters, systemTypes, title, types, usage, visibility;
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1340,32 +1340,4 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_UsageRule
 @dynamic allowUnregisteredCalls, selector, skipServiceControl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceConsumerManagement_Visibility
-//
-
-@implementation GTLRServiceConsumerManagement_Visibility
-@dynamic rules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rules" : [GTLRServiceConsumerManagement_VisibilityRule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceConsumerManagement_VisibilityRule
-//
-
-@implementation GTLRServiceConsumerManagement_VisibilityRule
-@dynamic restriction, selector;
 @end

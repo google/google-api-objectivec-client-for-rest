@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  Method: cloudkms.projects.locations.get
  *
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudKMS_Location.
  *
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  @param name Resource name for the location.
  *

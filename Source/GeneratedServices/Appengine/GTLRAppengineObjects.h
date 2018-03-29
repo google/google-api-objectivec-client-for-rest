@@ -26,8 +26,10 @@
 @class GTLRAppengine_AutomaticScaling;
 @class GTLRAppengine_BasicScaling;
 @class GTLRAppengine_CertificateRawData;
+@class GTLRAppengine_CloudBuildOptions;
 @class GTLRAppengine_ContainerInfo;
 @class GTLRAppengine_CpuUtilization;
+@class GTLRAppengine_CreateVersionMetadataV1;
 @class GTLRAppengine_CreateVersionMetadataV1Alpha;
 @class GTLRAppengine_CreateVersionMetadataV1Beta;
 @class GTLRAppengine_Deployment;
@@ -943,6 +945,30 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  Options for the build operations performed as a part of the version
+ *  deployment. Only applicable for App Engine flexible environment when
+ *  creating a version using source code directly.
+ */
+@interface GTLRAppengine_CloudBuildOptions : GTLRObject
+
+/**
+ *  Path to the yaml file used in deployment, used to determine runtime
+ *  configuration details.Required for flexible environment builds.See
+ *  https://cloud.google.com/appengine/docs/standard/python/config/appref for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *appYamlPath;
+
+/**
+ *  The Cloud Build timeout used as part of any dependent builds performed by
+ *  version creation. Defaults to 10 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cloudBuildTimeout;
+
+@end
+
+
+/**
  *  Docker image that is used to create a container and start a VM instance for
  *  the version that you deploy. Only applicable for instances running in the
  *  App Engine flexible environment.
@@ -974,6 +1000,21 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetUtilization;
+
+@end
+
+
+/**
+ *  Metadata for the given google.longrunning.Operation during a
+ *  google.appengine.v1.CreateVersionRequest.
+ */
+@interface GTLRAppengine_CreateVersionMetadataV1 : GTLRObject
+
+/**
+ *  The Cloud Build ID if one was created as part of the version create.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *cloudBuildId;
 
 @end
 
@@ -1030,6 +1071,15 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Code and application artifacts used to deploy a version to App Engine.
  */
 @interface GTLRAppengine_Deployment : GTLRObject
+
+/**
+ *  Options for any Google Cloud Container Builder builds created as a part of
+ *  this deployment.Note that this is orthogonal to the build parameter, where
+ *  the deployment depends on an already existing cloud build. These options
+ *  will only be used if a new build is created, such as when deploying to the
+ *  App Engine flexible environment using files or zip.
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_CloudBuildOptions *cloudBuildOptions;
 
 /**
  *  The Docker image for the container that runs the version. Only applicable
@@ -1151,8 +1201,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The
  *  Endpoints API Service provides tooling for serving Open API and gRPC
- *  endpoints via an NGINX proxy.The fields here refer to the name and
- *  configuration id of a "service" resource in the Service Management API
+ *  endpoints via an NGINX proxy. Only valid for App Engine Flexible environment
+ *  deployments.The fields here refer to the name and configuration id of a
+ *  "service" resource in the Service Management API
  *  (https://cloud.google.com/service-management/overview).
  */
 @interface GTLRAppengine_EndpointsApiService : GTLRObject
@@ -2078,6 +2129,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Metadata for the given google.longrunning.Operation.
  */
 @interface GTLRAppengine_OperationMetadataV1 : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAppengine_CreateVersionMetadataV1 *createVersionMetadata;
 
 /** Time that this operation completed.\@OutputOnly */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

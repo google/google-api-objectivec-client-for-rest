@@ -29,6 +29,8 @@
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequest;
 @class GTLRShoppingContent_InventoryCustomBatchRequest;
 @class GTLRShoppingContent_InventorySetRequest;
+@class GTLRShoppingContent_LiaSettings;
+@class GTLRShoppingContent_LiasettingsCustomBatchRequest;
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
 @class GTLRShoppingContent_OrdersCancelLineItemRequest;
 @class GTLRShoppingContent_OrdersCancelRequest;
@@ -1262,6 +1264,404 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
+ *  Retrieves and/or updates the LIA settings of multiple accounts in a single
+ *  request.
+ *
+ *  Method: content.liasettings.custombatch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsCustombatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsCustombatchWithObject:]
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiasettingsCustomBatchResponse.
+ *
+ *  Retrieves and/or updates the LIA settings of multiple accounts in a single
+ *  request.
+ *
+ *  @param object The @c GTLRShoppingContent_LiasettingsCustomBatchRequest to
+ *    include in the query.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsCustombatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiasettingsCustomBatchRequest *)object;
+
+@end
+
+/**
+ *  Retrieves the LIA settings of the account.
+ *
+ *  Method: content.liasettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsGetWithmerchantId:accountId:]
+
+/** The ID of the account for which to get or update LIA settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiaSettings.
+ *
+ *  Retrieves the LIA settings of the account.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to get or update LIA
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsGet
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Retrieves the list of accessible Google My Business accounts.
+ *
+ *  Method: content.liasettings.getaccessiblegmbaccounts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsGetaccessiblegmbaccountsWithmerchantId:accountId:]
+
+/**
+ *  The ID of the account for which to retrieve accessible Google My Business
+ *  accounts.
+ */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse.
+ *
+ *  Retrieves the list of accessible Google My Business accounts.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to retrieve accessible
+ *    Google My Business accounts.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Lists the LIA settings of the sub-accounts in your Merchant Center account.
+ *
+ *  Method: content.liasettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsListWithmerchantId:]
+
+/**
+ *  The maximum number of LIA settings to return in the response, used for
+ *  paging.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/** The ID of the managing account. This must be a multi-client account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiasettingsListResponse.
+ *
+ *  Lists the LIA settings of the sub-accounts in your Merchant Center account.
+ *
+ *  @param merchantId The ID of the managing account. This must be a
+ *    multi-client account.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Updates the LIA settings of the account. This method supports patch
+ *  semantics.
+ *
+ *  Method: content.liasettings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsPatchWithObject:merchantId:accountId:]
+
+/** The ID of the account for which to get or update LIA settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiaSettings.
+ *
+ *  Updates the LIA settings of the account. This method supports patch
+ *  semantics.
+ *
+ *  @param object The @c GTLRShoppingContent_LiaSettings to include in the
+ *    query.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to get or update LIA
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiaSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Requests access to a specified Google My Business account.
+ *
+ *  Method: content.liasettings.requestgmbaccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsRequestgmbaccess : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsRequestgmbaccessWithmerchantId:accountId:]
+
+/** The ID of the account for which GMB access is requested. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The email of the Google My Business account. */
+@property(nonatomic, copy, nullable) NSString *gmbEmail;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiasettingsRequestGmbAccessResponse.
+ *
+ *  Requests access to a specified Google My Business account.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which GMB access is requested.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsRequestgmbaccess
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Requests inventory validation for the specified country.
+ *
+ *  Method: content.liasettings.requestinventoryverification
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsRequestinventoryverification : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsRequestinventoryverificationWithmerchantId:accountId:country:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The country for which inventory validation is requested. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse.
+ *
+ *  Requests inventory validation for the specified country.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param country The country for which inventory validation is requested.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsRequestinventoryverification
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId
+                            country:(NSString *)country;
+
+@end
+
+/**
+ *  Sets the inventory verification contract for the specified country.
+ *
+ *  Method: content.liasettings.setinventoryverificationcontact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The email of the inventory verification contact. */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/** The name of the inventory verification contact. */
+@property(nonatomic, copy, nullable) NSString *contactName;
+
+/** The country for which inventory verification is requested. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The language for which inventory verification is requested. */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse.
+ *
+ *  Sets the inventory verification contract for the specified country.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Updates the LIA settings of the account.
+ *
+ *  Method: content.liasettings.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsUpdate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLiasettingsUpdateWithObject:merchantId:accountId:]
+
+/** The ID of the account for which to get or update LIA settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiaSettings.
+ *
+ *  Updates the LIA settings of the account.
+ *
+ *  @param object The @c GTLRShoppingContent_LiaSettings to include in the
+ *    query.
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to get or update LIA
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_LiasettingsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LiaSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId;
+
+@end
+
+/**
  *  Marks an order as acknowledged.
  *
  *  Method: content.orders.acknowledge
@@ -2163,7 +2563,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Flag to run the request in dry-run mode. */
 @property(nonatomic, assign) BOOL dryRun;
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** A store code that is unique per merchant. */
@@ -2178,7 +2578,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Deletes a store for the given merchant.
  *
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *  @param storeCode A store code that is unique per merchant.
  *
@@ -2202,7 +2602,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForPosGetWithmerchantId:targetMerchantId:storeCode:]
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** A store code that is unique per merchant. */
@@ -2216,7 +2616,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves information about the given store.
  *
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *  @param storeCode A store code that is unique per merchant.
  *
@@ -2243,7 +2643,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Flag to run the request in dry-run mode. */
 @property(nonatomic, assign) BOOL dryRun;
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the target merchant. */
@@ -2255,7 +2655,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Creates a store for the given merchant.
  *
  *  @param object The @c GTLRShoppingContent_PosStore to include in the query.
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *
  *  @returns GTLRShoppingContentQuery_PosInsert
@@ -2281,7 +2681,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Flag to run the request in dry-run mode. */
 @property(nonatomic, assign) BOOL dryRun;
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the target merchant. */
@@ -2294,7 +2694,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param object The @c GTLRShoppingContent_PosInventoryRequest to include in
  *    the query.
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *
  *  @returns GTLRShoppingContentQuery_PosInventory
@@ -2317,7 +2717,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForPosListWithmerchantId:targetMerchantId:]
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the target merchant. */
@@ -2328,7 +2728,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Lists the stores of the target merchant.
  *
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *
  *  @returns GTLRShoppingContentQuery_PosList
@@ -2353,7 +2753,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Flag to run the request in dry-run mode. */
 @property(nonatomic, assign) BOOL dryRun;
 
-/** The ID of the POS provider. */
+/** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the target merchant. */
@@ -2366,7 +2766,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param object The @c GTLRShoppingContent_PosSaleRequest to include in the
  *    query.
- *  @param merchantId The ID of the POS provider.
+ *  @param merchantId The ID of the POS or inventory data provider.
  *  @param targetMerchantId The ID of the target merchant.
  *
  *  @returns GTLRShoppingContentQuery_PosSale

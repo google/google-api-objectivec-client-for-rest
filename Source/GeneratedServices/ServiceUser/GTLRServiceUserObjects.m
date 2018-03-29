@@ -993,7 +993,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
          control, customError, documentation, endpoints, enums, experimental,
          http, identifier, logging, logs, metrics, monitoredResources,
          monitoring, name, producerProjectId, quota, sourceInfo,
-         systemParameters, systemTypes, title, types, usage, visibility;
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1197,32 +1197,4 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_UsageRule
 @dynamic allowUnregisteredCalls, selector, skipServiceControl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUser_Visibility
-//
-
-@implementation GTLRServiceUser_Visibility
-@dynamic rules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rules" : [GTLRServiceUser_VisibilityRule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUser_VisibilityRule
-//
-
-@implementation GTLRServiceUser_VisibilityRule
-@dynamic restriction, selector;
 @end

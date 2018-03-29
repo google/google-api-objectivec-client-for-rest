@@ -342,8 +342,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates an ACL entry on the specified bucket. This method supports patch
- *  semantics.
+ *  Patches an ACL entry on the specified bucket.
  *
  *  Method: storage.bucketAccessControls.patch
  *
@@ -373,8 +372,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControl.
  *
- *  Updates an ACL entry on the specified bucket. This method supports patch
- *  semantics.
+ *  Patches an ACL entry on the specified bucket.
  *
  *  @param object The @c GTLRStorage_BucketAccessControl to include in the
  *    query.
@@ -1286,8 +1284,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates a default object ACL entry on the specified bucket. This method
- *  supports patch semantics.
+ *  Patches a default object ACL entry on the specified bucket.
  *
  *  Method: storage.defaultObjectAccessControls.patch
  *
@@ -1317,8 +1314,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
  *
- *  Updates a default object ACL entry on the specified bucket. This method
- *  supports patch semantics.
+ *  Patches a default object ACL entry on the specified bucket.
  *
  *  @param object The @c GTLRStorage_ObjectAccessControl to include in the
  *    query.
@@ -1771,8 +1767,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates an ACL entry on the specified object. This method supports patch
- *  semantics.
+ *  Patches an ACL entry on the specified object.
  *
  *  Method: storage.objectAccessControls.patch
  *
@@ -1814,8 +1809,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
  *
- *  Updates an ACL entry on the specified object. This method supports patch
- *  semantics.
+ *  Patches an ACL entry on the specified object.
  *
  *  @param object The @c GTLRStorage_ObjectAccessControl to include in the
  *    query.

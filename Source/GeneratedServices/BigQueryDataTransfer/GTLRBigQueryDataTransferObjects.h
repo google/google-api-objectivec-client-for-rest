@@ -425,9 +425,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) NSNumber *supportsMultipleTransfers;
 
 /**
- *  Transfer type. Currently supports only batch transfers,
- *  which are transfers that use the BigQuery batch APIs (load or
- *  query) to ingest the data.
+ *  Deprecated. This field has no effect.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_TransferType_Batch Batch data

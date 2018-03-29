@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dialogflow API (dialogflow/v2beta1)
+//   Dialogflow API (dialogflow/v2)
 // Description:
 //   An end-to-end development suite for conversational interfaces (e.g.,
 //   chatbots, voice-powered apps and devices).

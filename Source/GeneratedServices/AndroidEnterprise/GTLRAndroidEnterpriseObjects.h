@@ -33,6 +33,7 @@
 @class GTLRAndroidEnterprise_Install;
 @class GTLRAndroidEnterprise_InstallFailureEvent;
 @class GTLRAndroidEnterprise_LocalizedText;
+@class GTLRAndroidEnterprise_MaintenanceWindow;
 @class GTLRAndroidEnterprise_ManagedConfiguration;
 @class GTLRAndroidEnterprise_ManagedConfigurationsSettings;
 @class GTLRAndroidEnterprise_ManagedProperty;
@@ -857,6 +858,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Maintenance window for managed Google Play Accounts. This allows Play store
+ *  to update the apps on the foreground in the designated window.
+ */
+@interface GTLRAndroidEnterprise_MaintenanceWindow : GTLRObject
+
+/**
+ *  Duration of the maintenance window, in milliseconds. The duration must be
+ *  between 30 minutes and 24 hours (inclusive).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
+
+/**
+ *  Start time of the maintenance window, in milliseconds after midnight on the
+ *  device. Windows can span midnight.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimeAfterMidnightMs;
+
+@end
+
+
+/**
  *  A managed configuration resource contains the set of managed properties
  *  defined by the app developer in the app's managed configurations schema, as
  *  well as any configuration variables defined for the user.
@@ -1240,6 +1266,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  updates only when the device is connected to wifi.
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
+
+/**
+ *  The maintenance window defining when apps running in the foreground should
+ *  be updated. This feature is only supported on fully managed devices.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_MaintenanceWindow *maintenanceWindow;
 
 /**
  *  The availability granted to the device for the specified products. "all"

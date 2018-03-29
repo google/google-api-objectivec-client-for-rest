@@ -162,6 +162,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  This method only stores the service configuration. To roll out the service
  *  configuration to backend systems please call
  *  CreateServiceRollout.
+ *  Only the 100 most recent service configurations and ones referenced by
+ *  existing rollouts are kept for each service. The rest will be deleted
+ *  eventually.
  *
  *  Method: servicemanagement.services.configs.create
  *
@@ -186,6 +189,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  This method only stores the service configuration. To roll out the service
  *  configuration to backend systems please call
  *  CreateServiceRollout.
+ *  Only the 100 most recent service configurations and ones referenced by
+ *  existing rollouts are kept for each service. The rest will be deleted
+ *  eventually.
  *
  *  @param object The @c GTLRServiceManagement_Service to include in the query.
  *  @param serviceName The name of the service. See the
@@ -306,6 +312,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  generated service configuration. To rollout the service configuration to
  *  other services,
  *  please call CreateServiceRollout.
+ *  Only the 100 most recent configuration sources and ones referenced by
+ *  existing service configurtions are kept for each service. The rest will be
+ *  deleted eventually.
  *  Operation<response: SubmitConfigSourceResponse>
  *
  *  Method: servicemanagement.services.configs.submit
@@ -334,6 +343,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  generated service configuration. To rollout the service configuration to
  *  other services,
  *  please call CreateServiceRollout.
+ *  Only the 100 most recent configuration sources and ones referenced by
+ *  existing service configurtions are kept for each service. The rest will be
+ *  deleted eventually.
  *  Operation<response: SubmitConfigSourceResponse>
  *
  *  @param object The @c GTLRServiceManagement_SubmitConfigSourceRequest to
@@ -886,6 +898,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Please note that any previous pending and running Rollouts and associated
  *  Operations will be automatically cancelled so that the latest Rollout will
  *  not be blocked by previous Rollouts.
+ *  Only the 100 most recent (in any state) and the last 10 successful (if not
+ *  already part of the set of 100 most recent) rollouts are kept for each
+ *  service. The rest will be deleted eventually.
  *  Operation<response: Rollout>
  *
  *  Method: servicemanagement.services.rollouts.create
@@ -914,6 +929,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Please note that any previous pending and running Rollouts and associated
  *  Operations will be automatically cancelled so that the latest Rollout will
  *  not be blocked by previous Rollouts.
+ *  Only the 100 most recent (in any state) and the last 10 successful (if not
+ *  already part of the set of 100 most recent) rollouts are kept for each
+ *  service. The rest will be deleted eventually.
  *  Operation<response: Rollout>
  *
  *  @param object The @c GTLRServiceManagement_Rollout to include in the query.

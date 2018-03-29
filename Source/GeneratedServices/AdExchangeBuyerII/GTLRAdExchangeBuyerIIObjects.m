@@ -211,13 +211,6 @@ NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_App = @"APP";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web = @"WEB";
 
-// GTLRAdExchangeBuyerII_FilterSet.format
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay = @"NATIVE_DISPLAY";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo = @"NATIVE_VIDEO";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay = @"NON_NATIVE_DISPLAY";
-NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo = @"NON_NATIVE_VIDEO";
-
 // GTLRAdExchangeBuyerII_FilterSet.formats
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay = @"NATIVE_DISPLAY";
@@ -543,9 +536,9 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 //
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
-@dynamic absoluteDateRange, creativeId, dealId, environment, format, formats,
-         name, platforms, realtimeTimeRange, relativeDateRange,
-         sellerNetworkIds, timeSeriesGranularity;
+@dynamic absoluteDateRange, creativeId, dealId, environment, formats, name,
+         platforms, realtimeTimeRange, relativeDateRange, sellerNetworkIds,
+         timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

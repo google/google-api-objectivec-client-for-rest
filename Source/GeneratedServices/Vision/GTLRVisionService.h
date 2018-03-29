@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Cloud Vision API (vision/v1)
 // Description:
 //   Integrates Google Vision features, including image labeling, face, logo,
 //   and landmark detection, optical character recognition (OCR), and detection
@@ -50,7 +50,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeVisionCloudVision;
 //
 
 /**
- *  Service for executing Google Cloud Vision API queries.
+ *  Service for executing Cloud Vision API queries.
  *
  *  Integrates Google Vision features, including image labeling, face, logo, and
  *  landmark detection, optical character recognition (OCR), and detection of

@@ -1395,7 +1395,8 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Checks Membership of an user within a Group
+ *  Checks whether the given user is a member of the group. Membership can be
+ *  direct or nested.
  *
  *  Method: directory.members.hasMember
  *
@@ -1409,19 +1410,28 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersHasMemberWithgroupKey:memberKey:]
 
-/** Email or immutable Id of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
-/** Email or immutable Id of the member */
+/**
+ *  Identifies the user member in the API request. The value can be the user's
+ *  primary email address, alias, or unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_MembersHasMember.
  *
- *  Checks Membership of an user within a Group
+ *  Checks whether the given user is a member of the group. Membership can be
+ *  direct or nested.
  *
- *  @param groupKey Email or immutable Id of the group
- *  @param memberKey Email or immutable Id of the member
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
+ *  @param memberKey Identifies the user member in the API request. The value
+ *    can be the user's primary email address, alias, or unique ID.
  *
  *  @returns GTLRDirectoryQuery_MembersHasMember
  */
@@ -2407,6 +2417,16 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
+ *  Maximum number of results to return.
+ *
+ *  @note The documented range is 1..500.
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/** Token to specify the next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  Fetches a @c GTLRDirectory_Buildings.
  *
  *  Retrieves a list of buildings for an account.
@@ -2416,6 +2436,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    your account's customer ID.
  *
  *  @returns GTLRDirectoryQuery_ResourcesBuildingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithCustomer:(NSString *)customer;
 
@@ -2664,8 +2688,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  String query used to filter results. Should be of the form "field operator
  *  value" where field can be any of supported fields and operators can be any
  *  of supported operations. Operators include '=' for exact match and ':' for
- *  prefix match where applicable. For prefix match, the value should always be
- *  followed by a *.
+ *  prefix match or HAS match where applicable. For prefix match, the value
+ *  should always be followed by a *. Supported fields include
+ *  generatedResourceName, name, buildingId, featureInstances.feature.name. For
+ *  example buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2917,6 +2943,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note The documented range is 1..500.
+ */
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify the next page in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;

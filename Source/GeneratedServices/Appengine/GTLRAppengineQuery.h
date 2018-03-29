@@ -895,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  Method: appengine.apps.locations.get
  *
@@ -917,7 +917,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Fetches a @c GTLRAppengine_Location.
  *
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  @param appsId Part of `name`. Resource name for the location.
  *  @param locationsId Part of `name`. See documentation of `appsId`.

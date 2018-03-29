@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Cloud Vision API (vision/v1)
 // Description:
 //   Integrates Google Vision features, including image labeling, face, logo,
 //   and landmark detection, optical character recognition (OCR), and detection
@@ -35,6 +35,25 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRVision_BatchAnnotateImagesResponse class];
   query.loggingName = @"vision.images.annotate";
+  return query;
+}
+
+@end
+
+@implementation GTLRVisionQuery_LocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVisionQuery_LocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVision_Operation class];
+  query.loggingName = @"vision.locations.operations.get";
   return query;
 }
 
