@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DLP API (dlp/v2beta2)
+//   Cloud Data Loss Prevention (DLP) API (dlp/v2)
 // Description:
-//   The Google Data Loss Prevention API provides methods for detection of
+//   Provides methods for detection, risk analysis, and de-identification of
 //   privacy-sensitive fragments in text, images, and Google Cloud Platform
 //   storage repositories.
 // Documentation:
@@ -23,132 +23,191 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Unl
 NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore.commonCharactersToIgnore
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase = @"ALPHA_LOWER_CASE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase = @"ALPHA_UPPER_CASE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified = @"COMMON_CHARS_TO_IGNORE_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_Numeric = @"NUMERIC";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_Punctuation = @"PUNCTUATION";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore_CommonCharactersToIgnore_Whitespace = @"WHITESPACE";
+// GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified = @"BYTES_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image = @"IMAGE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp = @"IMAGE_BMP";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg = @"IMAGE_JPEG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng = @"IMAGE_PNG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg = @"IMAGE_SVG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 = @"TEXT_UTF8";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2Condition.operatorProperty
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_EqualTo = @"EQUAL_TO";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_Exists = @"EXISTS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_GreaterThan = @"GREATER_THAN";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_GreaterThanOrEquals = @"GREATER_THAN_OR_EQUALS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_LessThan = @"LESS_THAN";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_LessThanOrEquals = @"LESS_THAN_OR_EQUALS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_NotEqualTo = @"NOT_EQUAL_TO";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Condition_OperatorProperty_RelationalOperatorUnspecified = @"RELATIONAL_OPERATOR_UNSPECIFIED";
+// GTLRDLP_GooglePrivacyDlpV2CharsToIgnore.commonCharactersToIgnore
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase = @"ALPHA_LOWER_CASE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase = @"ALPHA_UPPER_CASE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified = @"COMMON_CHARS_TO_IGNORE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Numeric = @"NUMERIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Punctuation = @"PUNCTUATION";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Whitespace = @"WHITESPACE";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig.commonAlphabet
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric = @"ALPHA_NUMERIC";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified = @"FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal = @"HEXADECIMAL";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric = @"NUMERIC";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric = @"UPPER_CASE_ALPHA_NUMERIC";
+// GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile = @"BINARY_FILE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile = @"TEXT_FILE";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType.likelihood
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_Likely = @"LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo = @"EQUAL_TO";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_Exists = @"EXISTS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThan = @"GREATER_THAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThanOrEquals = @"GREATER_THAN_OR_EQUALS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThan = @"LESS_THAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThanOrEquals = @"LESS_THAN_OR_EQUALS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_NotEqualTo = @"NOT_EQUAL_TO";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified = @"RELATIONAL_OPERATOR_UNSPECIFIED";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2DateTime.dayOfWeek
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Friday = @"FRIDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Monday = @"MONDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Saturday = @"SATURDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Sunday = @"SUNDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Thursday = @"THURSDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Tuesday = @"TUESDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DateTime_DayOfWeek_Wednesday = @"WEDNESDAY";
+// GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig.commonAlphabet
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric = @"ALPHA_NUMERIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified = @"FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal = @"HEXADECIMAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric = @"NUMERIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric = @"UPPER_CASE_ALPHA_NUMERIC";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2DlpJob.state
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_Canceled = @"CANCELED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_Done = @"DONE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_Failed = @"FAILED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_Pending = @"PENDING";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_State_Running = @"RUNNING";
+// GTLRDLP_GooglePrivacyDlpV2CustomInfoType.likelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2DlpJob.type
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_Type_DlpJobTypeUnspecified = @"DLP_JOB_TYPE_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_Type_InspectJob = @"INSPECT_JOB";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2DlpJob_Type_RiskAnalysisJob = @"RISK_ANALYSIS_JOB";
+// GTLRDLP_GooglePrivacyDlpV2DateTime.dayOfWeek
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday = @"WEDNESDAY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2Expressions.logicalOperator
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Expressions_LogicalOperator_And = @"AND";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Expressions_LogicalOperator_LogicalOperatorUnspecified = @"LOGICAL_OPERATOR_UNSPECIFIED";
+// GTLRDLP_GooglePrivacyDlpV2DlpJob.state
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled = @"CANCELED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done  = @"DONE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed = @"FAILED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending = @"PENDING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running = @"RUNNING";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2Finding.likelihood
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_Likely = @"LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Finding_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2DlpJob.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified = @"DLP_JOB_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob = @"INSPECT_JOB";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob = @"RISK_ANALYSIS_JOB";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription.supportedBy
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription_SupportedBy_EnumTypeUnspecified = @"ENUM_TYPE_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription_SupportedBy_Inspect = @"INSPECT";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription_SupportedBy_RiskAnalysis = @"RISK_ANALYSIS";
+// GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And = @"AND";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified = @"LOGICAL_OPERATOR_UNSPECIFIED";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2InspectConfig.minLikelihood
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_Likely = @"LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2Finding.likelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger.status
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2JobTrigger_Status_Cancelled = @"CANCELLED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2JobTrigger_Status_Healthy = @"HEALTHY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2JobTrigger_Status_Paused = @"PAUSED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2JobTrigger_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified = @"ENUM_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect = @"INSPECT";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_RiskAnalysis = @"RISK_ANALYSIS";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment.fixedLikelihood
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_Likely = @"LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2InspectConfig.contentOptions
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentImage = @"CONTENT_IMAGE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentText = @"CONTENT_TEXT";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentUnspecified = @"CONTENT_UNSPECIFIED";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig.outputSchema
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_AllColumns = @"ALL_COLUMNS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_BasicColumns = @"BASIC_COLUMNS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_BigQueryColumns = @"BIG_QUERY_COLUMNS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_DatastoreColumns = @"DATASTORE_COLUMNS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_GcsColumns = @"GCS_COLUMNS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified = @"OUTPUT_SCHEMA_UNSPECIFIED";
+// GTLRDLP_GooglePrivacyDlpV2InspectConfig.minLikelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2SummaryResult.code
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2SummaryResult_Code_Error = @"ERROR";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2SummaryResult_Code_Success = @"SUCCESS";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2SummaryResult_Code_TransformationResultCodeUnspecified = @"TRANSFORMATION_RESULT_CODE_UNSPECIFIED";
+// GTLRDLP_GooglePrivacyDlpV2JobTrigger.status
+NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Healthy = @"HEALTHY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Paused = @"PAUSED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig.partToExtract
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_DayOfMonth = @"DAY_OF_MONTH";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_DayOfWeek = @"DAY_OF_WEEK";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_HourOfDay = @"HOUR_OF_DAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_Month = @"MONTH";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_TimePartUnspecified = @"TIME_PART_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_WeekOfYear = @"WEEK_OF_YEAR";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig_PartToExtract_Year = @"YEAR";
+// GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment.fixedLikelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_GooglePrivacyDlpV2beta2Value.dayOfWeekValue
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Friday = @"FRIDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Monday = @"MONDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Saturday = @"SATURDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Sunday = @"SUNDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Thursday = @"THURSDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Tuesday = @"TUESDAY";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday = @"WEDNESDAY";
+// GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig.outputSchema
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns = @"ALL_COLUMNS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BasicColumns = @"BASIC_COLUMNS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BigQueryColumns = @"BIG_QUERY_COLUMNS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_DatastoreColumns = @"DATASTORE_COLUMNS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns = @"GCS_COLUMNS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified = @"OUTPUT_SCHEMA_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2SummaryResult.code
+NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error = @"ERROR";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success = @"SUCCESS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified = @"TRANSFORMATION_RESULT_CODE_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2TimePartConfig.partToExtract
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfMonth = @"DAY_OF_MONTH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfWeek = @"DAY_OF_WEEK";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_HourOfDay = @"HOUR_OF_DAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Month = @"MONTH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified = @"TIME_PART_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_WeekOfYear = @"WEEK_OF_YEAR";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year = @"YEAR";
+
+// GTLRDLP_GooglePrivacyDlpV2Value.dayOfWeekValue
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday = @"FRIDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday = @"MONDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday = @"SATURDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday = @"SUNDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday = @"THURSDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday = @"TUESDAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"WEDNESDAY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2Action
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Action
+@dynamic pubSub, saveFindings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails
+@dynamic categoricalStatsResult, kAnonymityResult, kMapEstimationResult,
+         lDiversityResult, numericalStatsResult, requestedPrivacyMetric,
+         requestedSourceTable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable
+@dynamic quasiIds, relativeFrequency, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2QuasiIdField class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -822,75 +881,25 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Action
+//   GTLRDLP_GooglePrivacyDlpV2BigQueryKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Action
-@dynamic pubSub, saveFindings;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2AnalyzeDataSourceRiskDetails
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2AnalyzeDataSourceRiskDetails
-@dynamic categoricalStatsResult, kAnonymityResult, kMapEstimationResult,
-         lDiversityResult, numericalStatsResult, requestedPrivacyMetric,
-         requestedSourceTable;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2AnalyzeDataSourceRiskRequest
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2AnalyzeDataSourceRiskRequest
-@dynamic jobConfig, jobId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2AuxiliaryTable
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2AuxiliaryTable
-@dynamic quasiIds, relativeFrequency, table;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta2QuasiIdField class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2BigQueryKey
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2BigQueryKey
+@implementation GTLRDLP_GooglePrivacyDlpV2BigQueryKey
 @dynamic rowNumber, tableReference;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2BigQueryOptions
+//   GTLRDLP_GooglePrivacyDlpV2BigQueryOptions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2BigQueryOptions
+@implementation GTLRDLP_GooglePrivacyDlpV2BigQueryOptions
 @dynamic identifyingFields, tableReference;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"identifyingFields" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldId class]
+    @"identifyingFields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
   };
   return map;
 }
@@ -900,35 +909,45 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2BigQueryTable
+//   GTLRDLP_GooglePrivacyDlpV2BigQueryTable
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2BigQueryTable
+@implementation GTLRDLP_GooglePrivacyDlpV2BigQueryTable
 @dynamic datasetId, projectId, tableId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Bucket
+//   GTLRDLP_GooglePrivacyDlpV2BoundingBox
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Bucket
+@implementation GTLRDLP_GooglePrivacyDlpV2BoundingBox
+@dynamic height, left, top, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2Bucket
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Bucket
 @dynamic max, min, replacementValue;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2BucketingConfig
+//   GTLRDLP_GooglePrivacyDlpV2BucketingConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2BucketingConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2BucketingConfig
 @dynamic buckets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"buckets" : [GTLRDLP_GooglePrivacyDlpV2beta2Bucket class]
+    @"buckets" : [GTLRDLP_GooglePrivacyDlpV2Bucket class]
   };
   return map;
 }
@@ -938,35 +957,45 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CancelDlpJobRequest
+//   GTLRDLP_GooglePrivacyDlpV2ByteContentItem
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CancelDlpJobRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2ByteContentItem
+@dynamic data, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsConfig
+//   GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2CategoricalStatsConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CategoricalStatsConfig
 @dynamic field;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsHistogramBucket
+//   GTLRDLP_GooglePrivacyDlpV2CategoricalStatsHistogramBucket
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsHistogramBucket
+@implementation GTLRDLP_GooglePrivacyDlpV2CategoricalStatsHistogramBucket
 @dynamic bucketSize, bucketValueCount, bucketValues, valueFrequencyLowerBound,
          valueFrequencyUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2beta2ValueFrequency class]
+    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2ValueFrequency class]
   };
   return map;
 }
@@ -976,15 +1005,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsResult
+//   GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsResult
+@implementation GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult
 @dynamic valueFrequencyHistogramBuckets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"valueFrequencyHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2beta2CategoricalStatsHistogramBucket class]
+    @"valueFrequencyHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2CategoricalStatsHistogramBucket class]
   };
   return map;
 }
@@ -994,15 +1023,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CharacterMaskConfig
+//   GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CharacterMaskConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig
 @dynamic charactersToIgnore, maskingCharacter, numberToMask, reverseOrder;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"charactersToIgnore" : [GTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore class]
+    @"charactersToIgnore" : [GTLRDLP_GooglePrivacyDlpV2CharsToIgnore class]
   };
   return map;
 }
@@ -1012,50 +1041,48 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore
+//   GTLRDLP_GooglePrivacyDlpV2CharsToIgnore
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CharsToIgnore
+@implementation GTLRDLP_GooglePrivacyDlpV2CharsToIgnore
 @dynamic charactersToSkip, commonCharactersToIgnore;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CloudStorageKey
+//   GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CloudStorageKey
-@dynamic filePath, startOffset;
+@implementation GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions
+@dynamic bytesLimitPerFile, fileSet, fileTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CloudStorageOptions
+//   GTLRDLP_GooglePrivacyDlpV2Color
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CloudStorageOptions
-@dynamic bytesLimitPerFile, fileSet;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2Color
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Color
+@implementation GTLRDLP_GooglePrivacyDlpV2Color
 @dynamic blue, green, red;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Condition
+//   GTLRDLP_GooglePrivacyDlpV2Condition
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Condition
+@implementation GTLRDLP_GooglePrivacyDlpV2Condition
 @dynamic field, operatorProperty, value;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1067,15 +1094,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Conditions
+//   GTLRDLP_GooglePrivacyDlpV2Conditions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Conditions
+@implementation GTLRDLP_GooglePrivacyDlpV2Conditions
 @dynamic conditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRDLP_GooglePrivacyDlpV2beta2Condition class]
+    @"conditions" : [GTLRDLP_GooglePrivacyDlpV2Condition class]
   };
   return map;
 }
@@ -1085,70 +1112,91 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ContentItem
+//   GTLRDLP_GooglePrivacyDlpV2ContentItem
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ContentItem
-@dynamic data, table, type, value;
+@implementation GTLRDLP_GooglePrivacyDlpV2ContentItem
+@dynamic byteItem, table, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CreateDeidentifyTemplateRequest
+//   GTLRDLP_GooglePrivacyDlpV2ContentLocation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CreateDeidentifyTemplateRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2ContentLocation
+@dynamic containerName, containerTimestamp, containerVersion, documentLocation,
+         imageLocation, recordLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
 @dynamic deidentifyTemplate, templateId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CreateInspectTemplateRequest
+//   GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CreateInspectTemplateRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest
+@dynamic inspectJob, jobId, riskJob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
 @dynamic inspectTemplate, templateId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest
+//   GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CreateJobTriggerRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest
 @dynamic jobTrigger, triggerId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CryptoHashConfig
+//   GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CryptoHashConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig
 @dynamic cryptoKey;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CryptoKey
+//   GTLRDLP_GooglePrivacyDlpV2CryptoKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CryptoKey
+@implementation GTLRDLP_GooglePrivacyDlpV2CryptoKey
 @dynamic kmsWrapped, transient, unwrapped;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig
+//   GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CryptoReplaceFfxFpeConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig
 @dynamic commonAlphabet, context, cryptoKey, customAlphabet, radix,
          surrogateInfoType;
 @end
@@ -1156,15 +1204,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType
+//   GTLRDLP_GooglePrivacyDlpV2CustomInfoType
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType
+@implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
 @dynamic detectionRules, dictionary, infoType, likelihood, regex, surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"detectionRules" : [GTLRDLP_GooglePrivacyDlpV2beta2DetectionRule class]
+    @"detectionRules" : [GTLRDLP_GooglePrivacyDlpV2DetectionRule class]
   };
   return map;
 }
@@ -1174,60 +1222,60 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DatastoreKey
+//   GTLRDLP_GooglePrivacyDlpV2DatastoreKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DatastoreKey
+@implementation GTLRDLP_GooglePrivacyDlpV2DatastoreKey
 @dynamic entityKey;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DatastoreOptions
+//   GTLRDLP_GooglePrivacyDlpV2DatastoreOptions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DatastoreOptions
+@implementation GTLRDLP_GooglePrivacyDlpV2DatastoreOptions
 @dynamic kind, partitionId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DateShiftConfig
+//   GTLRDLP_GooglePrivacyDlpV2DateShiftConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DateShiftConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2DateShiftConfig
 @dynamic context, cryptoKey, lowerBoundDays, upperBoundDays;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DateTime
+//   GTLRDLP_GooglePrivacyDlpV2DateTime
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DateTime
+@implementation GTLRDLP_GooglePrivacyDlpV2DateTime
 @dynamic date, dayOfWeek, time, timeZone;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyConfig
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig
 @dynamic infoTypeTransformations, recordTransformations;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyContentRequest
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyContentRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest
 @dynamic deidentifyConfig, deidentifyTemplateName, inspectConfig,
          inspectTemplateName, item;
 @end
@@ -1235,20 +1283,20 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyContentResponse
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyContentResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse
 @dynamic item, overview;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyTemplate
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyTemplate
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate
 @dynamic createTime, deidentifyConfig, descriptionProperty, displayName, name,
          updateTime;
 
@@ -1261,36 +1309,36 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DetectionRule
+//   GTLRDLP_GooglePrivacyDlpV2DetectionRule
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DetectionRule
+@implementation GTLRDLP_GooglePrivacyDlpV2DetectionRule
 @dynamic hotwordRule;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Dictionary
+//   GTLRDLP_GooglePrivacyDlpV2Dictionary
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Dictionary
+@implementation GTLRDLP_GooglePrivacyDlpV2Dictionary
 @dynamic wordList;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2DlpJob
+//   GTLRDLP_GooglePrivacyDlpV2DlpJob
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2DlpJob
-@dynamic createTime, endTime, errorResults, inspectDetails, jobTriggerName,
-         name, riskDetails, startTime, state, type;
+@implementation GTLRDLP_GooglePrivacyDlpV2DlpJob
+@dynamic createTime, endTime, errors, inspectDetails, jobTriggerName, name,
+         riskDetails, startTime, state, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errorResults" : [GTLRDLP_GoogleRpcStatus class]
+    @"errors" : [GTLRDLP_GooglePrivacyDlpV2Error class]
   };
   return map;
 }
@@ -1300,20 +1348,20 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2EntityId
+//   GTLRDLP_GooglePrivacyDlpV2DocumentLocation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2EntityId
-@dynamic field;
+@implementation GTLRDLP_GooglePrivacyDlpV2DocumentLocation
+@dynamic fileOffset;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Error
+//   GTLRDLP_GooglePrivacyDlpV2Error
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Error
+@implementation GTLRDLP_GooglePrivacyDlpV2Error
 @dynamic details, timestamps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1328,35 +1376,35 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Expressions
+//   GTLRDLP_GooglePrivacyDlpV2Expressions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Expressions
+@implementation GTLRDLP_GooglePrivacyDlpV2Expressions
 @dynamic conditions, logicalOperator;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2FieldId
+//   GTLRDLP_GooglePrivacyDlpV2FieldId
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2FieldId
+@implementation GTLRDLP_GooglePrivacyDlpV2FieldId
 @dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2FieldTransformation
+//   GTLRDLP_GooglePrivacyDlpV2FieldTransformation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2FieldTransformation
+@implementation GTLRDLP_GooglePrivacyDlpV2FieldTransformation
 @dynamic condition, fields, infoTypeTransformations, primitiveTransformation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldId class]
+    @"fields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
   };
   return map;
 }
@@ -1366,35 +1414,35 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2FileSet
+//   GTLRDLP_GooglePrivacyDlpV2FileSet
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2FileSet
+@implementation GTLRDLP_GooglePrivacyDlpV2FileSet
 @dynamic url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Finding
+//   GTLRDLP_GooglePrivacyDlpV2Finding
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Finding
+@implementation GTLRDLP_GooglePrivacyDlpV2Finding
 @dynamic createTime, infoType, likelihood, location, quote, quoteInfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2FindingLimits
+//   GTLRDLP_GooglePrivacyDlpV2FindingLimits
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2FindingLimits
+@implementation GTLRDLP_GooglePrivacyDlpV2FindingLimits
 @dynamic maxFindingsPerInfoType, maxFindingsPerItem, maxFindingsPerRequest;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"maxFindingsPerInfoType" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeLimit class]
+    @"maxFindingsPerInfoType" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit class]
   };
   return map;
 }
@@ -1404,60 +1452,68 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2FixedSizeBucketingConfig
+//   GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2FixedSizeBucketingConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig
 @dynamic bucketSize, lowerBound, upperBound;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2HotwordRule
+//   GTLRDLP_GooglePrivacyDlpV2HotwordRule
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2HotwordRule
+@implementation GTLRDLP_GooglePrivacyDlpV2HotwordRule
 @dynamic hotwordRegex, likelihoodAdjustment, proximity;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ImageLocation
+//   GTLRDLP_GooglePrivacyDlpV2ImageLocation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ImageLocation
-@dynamic height, left, top, width;
+@implementation GTLRDLP_GooglePrivacyDlpV2ImageLocation
+@dynamic boundingBoxes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundingBoxes" : [GTLRDLP_GooglePrivacyDlpV2BoundingBox class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ImageRedactionConfig
+//   GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ImageRedactionConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig
 @dynamic infoType, redactAllText, redactionColor;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoType
+//   GTLRDLP_GooglePrivacyDlpV2InfoType
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoType
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoType
 @dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
 @dynamic displayName, name, supportedBy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1472,35 +1528,35 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeLimit
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeLimit
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit
 @dynamic infoType, maxFindings;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeStatistics
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeStats
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeStatistics
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeStats
 @dynamic count, infoType;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeTransformation
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeTransformation
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation
 @dynamic infoTypes, primitiveTransformation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoType class]
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
   };
   return map;
 }
@@ -1510,15 +1566,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeTransformations
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeTransformations
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations
 @dynamic transformations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"transformations" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeTransformation class]
+    @"transformations" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation class]
   };
   return map;
 }
@@ -1528,17 +1584,18 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectConfig
+//   GTLRDLP_GooglePrivacyDlpV2InspectConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectConfig
-@dynamic customInfoTypes, excludeInfoTypes, includeQuote, infoTypes, limits,
-         minLikelihood;
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectConfig
+@dynamic contentOptions, customInfoTypes, excludeInfoTypes, includeQuote,
+         infoTypes, limits, minLikelihood;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta2CustomInfoType class],
-    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoType class]
+    @"contentOptions" : [NSString class],
+    @"customInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2CustomInfoType class],
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
   };
   return map;
 }
@@ -1548,56 +1605,45 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectContentRequest
+//   GTLRDLP_GooglePrivacyDlpV2InspectContentRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectContentRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectContentRequest
 @dynamic inspectConfig, inspectTemplateName, item;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectContentResponse
+//   GTLRDLP_GooglePrivacyDlpV2InspectContentResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectContentResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectContentResponse
 @dynamic result;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectDataSourceDetails
+//   GTLRDLP_GooglePrivacyDlpV2InspectDataSourceDetails
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectDataSourceDetails
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectDataSourceDetails
 @dynamic requestedOptions, result;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectDataSourceRequest
+//   GTLRDLP_GooglePrivacyDlpV2InspectJobConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectDataSourceRequest
-@dynamic jobConfig, jobId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectJobConfig
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectJobConfig
-@dynamic actions, inspectConfig, inspectTemplateName, outputConfig,
-         storageConfig;
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectJobConfig
+@dynamic actions, inspectConfig, inspectTemplateName, storageConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [GTLRDLP_GooglePrivacyDlpV2beta2Action class]
+    @"actions" : [GTLRDLP_GooglePrivacyDlpV2Action class]
   };
   return map;
 }
@@ -1607,15 +1653,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectResult
+//   GTLRDLP_GooglePrivacyDlpV2InspectResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectResult
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectResult
 @dynamic findings, findingsTruncated;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"findings" : [GTLRDLP_GooglePrivacyDlpV2beta2Finding class]
+    @"findings" : [GTLRDLP_GooglePrivacyDlpV2Finding class]
   };
   return map;
 }
@@ -1625,10 +1671,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2InspectTemplate
+//   GTLRDLP_GooglePrivacyDlpV2InspectTemplate
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2InspectTemplate
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectTemplate
 @dynamic createTime, descriptionProperty, displayName, inspectConfig, name,
          updateTime;
 
@@ -1641,10 +1687,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger
+//   GTLRDLP_GooglePrivacyDlpV2JobTrigger
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger
+@implementation GTLRDLP_GooglePrivacyDlpV2JobTrigger
 @dynamic createTime, descriptionProperty, displayName, errors, inspectJob,
          lastRunTime, name, status, triggers, updateTime;
 
@@ -1654,8 +1700,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRDLP_GooglePrivacyDlpV2beta2Error class],
-    @"triggers" : [GTLRDLP_GooglePrivacyDlpV2beta2Trigger class]
+    @"errors" : [GTLRDLP_GooglePrivacyDlpV2Error class],
+    @"triggers" : [GTLRDLP_GooglePrivacyDlpV2Trigger class]
   };
   return map;
 }
@@ -1665,15 +1711,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityConfig
+//   GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityConfig
-@dynamic entityId, quasiIds;
+@implementation GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig
+@dynamic quasiIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldId class]
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
   };
   return map;
 }
@@ -1683,15 +1729,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityEquivalenceClass
+//   GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityEquivalenceClass
+@implementation GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass
 @dynamic equivalenceClassSize, quasiIdsValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2beta2Value class]
+    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2Value class]
   };
   return map;
 }
@@ -1701,16 +1747,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityHistogramBucket
+//   GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityHistogramBucket
+@implementation GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket
 @dynamic bucketSize, bucketValueCount, bucketValues,
          equivalenceClassSizeLowerBound, equivalenceClassSizeUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityEquivalenceClass class]
+    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass class]
   };
   return map;
 }
@@ -1720,15 +1766,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityResult
+//   GTLRDLP_GooglePrivacyDlpV2KAnonymityResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityResult
+@implementation GTLRDLP_GooglePrivacyDlpV2KAnonymityResult
 @dynamic equivalenceClassHistogramBuckets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"equivalenceClassHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2beta2KAnonymityHistogramBucket class]
+    @"equivalenceClassHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket class]
   };
   return map;
 }
@@ -1738,15 +1784,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Key
+//   GTLRDLP_GooglePrivacyDlpV2Key
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Key
+@implementation GTLRDLP_GooglePrivacyDlpV2Key
 @dynamic partitionId, path;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"path" : [GTLRDLP_GooglePrivacyDlpV2beta2PathElement class]
+    @"path" : [GTLRDLP_GooglePrivacyDlpV2PathElement class]
   };
   return map;
 }
@@ -1756,26 +1802,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KindExpression
+//   GTLRDLP_GooglePrivacyDlpV2KindExpression
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KindExpression
+@implementation GTLRDLP_GooglePrivacyDlpV2KindExpression
 @dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationConfig
+//   GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig
 @dynamic auxiliaryTables, quasiIds, regionCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auxiliaryTables" : [GTLRDLP_GooglePrivacyDlpV2beta2AuxiliaryTable class],
-    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta2TaggedField class]
+    @"auxiliaryTables" : [GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable class],
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2TaggedField class]
   };
   return map;
 }
@@ -1785,15 +1831,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationHistogramBucket
+//   GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationHistogramBucket
+@implementation GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket
 @dynamic bucketSize, bucketValueCount, bucketValues, maxAnonymity, minAnonymity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationQuasiIdValues class]
+    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues class]
   };
   return map;
 }
@@ -1803,15 +1849,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationQuasiIdValues
+//   GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationQuasiIdValues
+@implementation GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues
 @dynamic estimatedAnonymity, quasiIdsValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2beta2Value class]
+    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2Value class]
   };
   return map;
 }
@@ -1821,15 +1867,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationResult
+//   GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationResult
+@implementation GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult
 @dynamic kMapEstimationHistogram;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"kMapEstimationHistogram" : [GTLRDLP_GooglePrivacyDlpV2beta2KMapEstimationHistogramBucket class]
+    @"kMapEstimationHistogram" : [GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket class]
   };
   return map;
 }
@@ -1839,25 +1885,25 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2KmsWrappedCryptoKey
+//   GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2KmsWrappedCryptoKey
+@implementation GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey
 @dynamic cryptoKeyName, wrappedKey;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2LDiversityConfig
+//   GTLRDLP_GooglePrivacyDlpV2LDiversityConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2LDiversityConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2LDiversityConfig
 @dynamic quasiIds, sensitiveAttribute;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldId class]
+    @"quasiIds" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
   };
   return map;
 }
@@ -1867,17 +1913,17 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2LDiversityEquivalenceClass
+//   GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2LDiversityEquivalenceClass
+@implementation GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass
 @dynamic equivalenceClassSize, numDistinctSensitiveValues, quasiIdsValues,
          topSensitiveValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2beta2Value class],
-    @"topSensitiveValues" : [GTLRDLP_GooglePrivacyDlpV2beta2ValueFrequency class]
+    @"quasiIdsValues" : [GTLRDLP_GooglePrivacyDlpV2Value class],
+    @"topSensitiveValues" : [GTLRDLP_GooglePrivacyDlpV2ValueFrequency class]
   };
   return map;
 }
@@ -1887,16 +1933,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2LDiversityHistogramBucket
+//   GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2LDiversityHistogramBucket
+@implementation GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket
 @dynamic bucketSize, bucketValueCount, bucketValues,
          sensitiveValueFrequencyLowerBound, sensitiveValueFrequencyUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2beta2LDiversityEquivalenceClass class]
+    @"bucketValues" : [GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass class]
   };
   return map;
 }
@@ -1906,15 +1952,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2LDiversityResult
+//   GTLRDLP_GooglePrivacyDlpV2LDiversityResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2LDiversityResult
+@implementation GTLRDLP_GooglePrivacyDlpV2LDiversityResult
 @dynamic sensitiveValueFrequencyHistogramBuckets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sensitiveValueFrequencyHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2beta2LDiversityHistogramBucket class]
+    @"sensitiveValueFrequencyHistogramBuckets" : [GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket class]
   };
   return map;
 }
@@ -1924,25 +1970,25 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment
+//   GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2LikelihoodAdjustment
+@implementation GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment
 @dynamic fixedLikelihood, relativeLikelihood;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ListDeidentifyTemplatesResponse
+//   GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ListDeidentifyTemplatesResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse
 @dynamic deidentifyTemplates, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"deidentifyTemplates" : [GTLRDLP_GooglePrivacyDlpV2beta2DeidentifyTemplate class]
+    @"deidentifyTemplates" : [GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate class]
   };
   return map;
 }
@@ -1956,15 +2002,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ListDlpJobsResponse
+//   GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ListDlpJobsResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse
 @dynamic jobs, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobs" : [GTLRDLP_GooglePrivacyDlpV2beta2DlpJob class]
+    @"jobs" : [GTLRDLP_GooglePrivacyDlpV2DlpJob class]
   };
   return map;
 }
@@ -1978,15 +2024,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ListInfoTypesResponse
+//   GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ListInfoTypesResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse
 @dynamic infoTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeDescription class]
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription class]
   };
   return map;
 }
@@ -1996,15 +2042,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ListInspectTemplatesResponse
+//   GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ListInspectTemplatesResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse
 @dynamic inspectTemplates, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"inspectTemplates" : [GTLRDLP_GooglePrivacyDlpV2beta2InspectTemplate class]
+    @"inspectTemplates" : [GTLRDLP_GooglePrivacyDlpV2InspectTemplate class]
   };
   return map;
 }
@@ -2018,15 +2064,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ListJobTriggersResponse
+//   GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ListJobTriggersResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse
 @dynamic jobTriggers, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobTriggers" : [GTLRDLP_GooglePrivacyDlpV2beta2JobTrigger class]
+    @"jobTriggers" : [GTLRDLP_GooglePrivacyDlpV2JobTrigger class]
   };
   return map;
 }
@@ -2040,16 +2086,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Location
+//   GTLRDLP_GooglePrivacyDlpV2Location
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Location
-@dynamic byteRange, codepointRange, fieldId, imageBoxes, recordKey,
-         tableLocation;
+@implementation GTLRDLP_GooglePrivacyDlpV2Location
+@dynamic byteRange, codepointRange, contentLocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"imageBoxes" : [GTLRDLP_GooglePrivacyDlpV2beta2ImageLocation class]
+    @"contentLocations" : [GTLRDLP_GooglePrivacyDlpV2ContentLocation class]
   };
   return map;
 }
@@ -2059,25 +2104,25 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2NumericalStatsConfig
+//   GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2NumericalStatsConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig
 @dynamic field;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2NumericalStatsResult
+//   GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2NumericalStatsResult
+@implementation GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult
 @dynamic maxValue, minValue, quantileValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quantileValues" : [GTLRDLP_GooglePrivacyDlpV2beta2Value class]
+    @"quantileValues" : [GTLRDLP_GooglePrivacyDlpV2Value class]
   };
   return map;
 }
@@ -2087,30 +2132,30 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig
+//   GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2OutputStorageConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig
 @dynamic outputSchema, table;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2PartitionId
+//   GTLRDLP_GooglePrivacyDlpV2PartitionId
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2PartitionId
+@implementation GTLRDLP_GooglePrivacyDlpV2PartitionId
 @dynamic namespaceId, projectId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2PathElement
+//   GTLRDLP_GooglePrivacyDlpV2PathElement
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2PathElement
+@implementation GTLRDLP_GooglePrivacyDlpV2PathElement
 @dynamic identifier, kind, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -2128,10 +2173,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2PrimitiveTransformation
+//   GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2PrimitiveTransformation
+@implementation GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation
 @dynamic bucketingConfig, characterMaskConfig, cryptoHashConfig,
          cryptoReplaceFfxFpeConfig, dateShiftConfig, fixedSizeBucketingConfig,
          redactConfig, replaceConfig, replaceWithInfoTypeConfig, timePartConfig;
@@ -2140,10 +2185,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2PrivacyMetric
+//   GTLRDLP_GooglePrivacyDlpV2PrivacyMetric
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2PrivacyMetric
+@implementation GTLRDLP_GooglePrivacyDlpV2PrivacyMetric
 @dynamic categoricalStatsConfig, kAnonymityConfig, kMapEstimationConfig,
          lDiversityConfig, numericalStatsConfig;
 @end
@@ -2151,96 +2196,106 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Proximity
+//   GTLRDLP_GooglePrivacyDlpV2Proximity
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Proximity
+@implementation GTLRDLP_GooglePrivacyDlpV2Proximity
 @dynamic windowAfter, windowBefore;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2PublishToPubSub
+//   GTLRDLP_GooglePrivacyDlpV2PublishToPubSub
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2PublishToPubSub
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishToPubSub
 @dynamic topic;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2QuasiIdField
+//   GTLRDLP_GooglePrivacyDlpV2QuasiIdField
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2QuasiIdField
+@implementation GTLRDLP_GooglePrivacyDlpV2QuasiIdField
 @dynamic customTag, field;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2QuoteInfo
+//   GTLRDLP_GooglePrivacyDlpV2QuoteInfo
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2QuoteInfo
+@implementation GTLRDLP_GooglePrivacyDlpV2QuoteInfo
 @dynamic dateTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Range
+//   GTLRDLP_GooglePrivacyDlpV2Range
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Range
+@implementation GTLRDLP_GooglePrivacyDlpV2Range
 @dynamic end, start;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RecordCondition
+//   GTLRDLP_GooglePrivacyDlpV2RecordCondition
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RecordCondition
+@implementation GTLRDLP_GooglePrivacyDlpV2RecordCondition
 @dynamic expressions;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RecordKey
+//   GTLRDLP_GooglePrivacyDlpV2RecordKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RecordKey
-@dynamic bigQueryKey, cloudStorageKey, datastoreKey;
+@implementation GTLRDLP_GooglePrivacyDlpV2RecordKey
+@dynamic bigQueryKey, datastoreKey;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RecordSuppression
+//   GTLRDLP_GooglePrivacyDlpV2RecordLocation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RecordSuppression
+@implementation GTLRDLP_GooglePrivacyDlpV2RecordLocation
+@dynamic fieldId, recordKey, tableLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2RecordSuppression
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2RecordSuppression
 @dynamic condition;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RecordTransformations
+//   GTLRDLP_GooglePrivacyDlpV2RecordTransformations
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RecordTransformations
+@implementation GTLRDLP_GooglePrivacyDlpV2RecordTransformations
 @dynamic fieldTransformations, recordSuppressions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fieldTransformations" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldTransformation class],
-    @"recordSuppressions" : [GTLRDLP_GooglePrivacyDlpV2beta2RecordSuppression class]
+    @"fieldTransformations" : [GTLRDLP_GooglePrivacyDlpV2FieldTransformation class],
+    @"recordSuppressions" : [GTLRDLP_GooglePrivacyDlpV2RecordSuppression class]
   };
   return map;
 }
@@ -2250,24 +2305,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RedactConfig
+//   GTLRDLP_GooglePrivacyDlpV2RedactConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RedactConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2RedactConfig
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RedactImageRequest
+//   GTLRDLP_GooglePrivacyDlpV2RedactImageRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RedactImageRequest
-@dynamic imageData, imageRedactionConfigs, imageType, inspectConfig;
+@implementation GTLRDLP_GooglePrivacyDlpV2RedactImageRequest
+@dynamic byteItem, imageRedactionConfigs, inspectConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"imageRedactionConfigs" : [GTLRDLP_GooglePrivacyDlpV2beta2ImageRedactionConfig class]
+    @"imageRedactionConfigs" : [GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig class]
   };
   return map;
 }
@@ -2277,30 +2332,30 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RedactImageResponse
+//   GTLRDLP_GooglePrivacyDlpV2RedactImageResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RedactImageResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2RedactImageResponse
 @dynamic extractedText, redactedImage;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Regex
+//   GTLRDLP_GooglePrivacyDlpV2Regex
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Regex
+@implementation GTLRDLP_GooglePrivacyDlpV2Regex
 @dynamic pattern;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ReidentifyContentRequest
+//   GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ReidentifyContentRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest
 @dynamic inspectConfig, inspectTemplateName, item, reidentifyConfig,
          reidentifyTemplateName;
 @end
@@ -2308,54 +2363,54 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ReidentifyContentResponse
+//   GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ReidentifyContentResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse
 @dynamic item, overview;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ReplaceValueConfig
+//   GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ReplaceValueConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig
 @dynamic newValue;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ReplaceWithInfoTypeConfig
+//   GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ReplaceWithInfoTypeConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RequestedOptions
+//   GTLRDLP_GooglePrivacyDlpV2RequestedOptions
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RequestedOptions
+@implementation GTLRDLP_GooglePrivacyDlpV2RequestedOptions
 @dynamic jobConfig, snapshotInspectTemplate;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Result
+//   GTLRDLP_GooglePrivacyDlpV2Result
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Result
+@implementation GTLRDLP_GooglePrivacyDlpV2Result
 @dynamic infoTypeStats, processedBytes, totalEstimatedBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"infoTypeStats" : [GTLRDLP_GooglePrivacyDlpV2beta2InfoTypeStatistics class]
+    @"infoTypeStats" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeStats class]
   };
   return map;
 }
@@ -2365,15 +2420,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2RiskAnalysisJobConfig
+//   GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2RiskAnalysisJobConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig
 @dynamic actions, privacyMetric, sourceTable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [GTLRDLP_GooglePrivacyDlpV2beta2Action class]
+    @"actions" : [GTLRDLP_GooglePrivacyDlpV2Action class]
   };
   return map;
 }
@@ -2383,15 +2438,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Row
+//   GTLRDLP_GooglePrivacyDlpV2Row
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Row
+@implementation GTLRDLP_GooglePrivacyDlpV2Row
 @dynamic values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRDLP_GooglePrivacyDlpV2beta2Value class]
+    @"values" : [GTLRDLP_GooglePrivacyDlpV2Value class]
   };
   return map;
 }
@@ -2401,65 +2456,65 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2SaveFindings
+//   GTLRDLP_GooglePrivacyDlpV2SaveFindings
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2SaveFindings
+@implementation GTLRDLP_GooglePrivacyDlpV2SaveFindings
 @dynamic outputConfig;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Schedule
+//   GTLRDLP_GooglePrivacyDlpV2Schedule
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Schedule
-@dynamic reccurrencePeriodDuration;
+@implementation GTLRDLP_GooglePrivacyDlpV2Schedule
+@dynamic recurrencePeriodDuration;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2StorageConfig
+//   GTLRDLP_GooglePrivacyDlpV2StorageConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2StorageConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2StorageConfig
 @dynamic bigQueryOptions, cloudStorageOptions, datastoreOptions, timespanConfig;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2SummaryResult
+//   GTLRDLP_GooglePrivacyDlpV2SummaryResult
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2SummaryResult
+@implementation GTLRDLP_GooglePrivacyDlpV2SummaryResult
 @dynamic code, count, details;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2SurrogateType
+//   GTLRDLP_GooglePrivacyDlpV2SurrogateType
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2SurrogateType
+@implementation GTLRDLP_GooglePrivacyDlpV2SurrogateType
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Table
+//   GTLRDLP_GooglePrivacyDlpV2Table
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Table
+@implementation GTLRDLP_GooglePrivacyDlpV2Table
 @dynamic headers, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"headers" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldId class],
-    @"rows" : [GTLRDLP_GooglePrivacyDlpV2beta2Row class]
+    @"headers" : [GTLRDLP_GooglePrivacyDlpV2FieldId class],
+    @"rows" : [GTLRDLP_GooglePrivacyDlpV2Row class]
   };
   return map;
 }
@@ -2469,65 +2524,66 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TableLocation
+//   GTLRDLP_GooglePrivacyDlpV2TableLocation
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TableLocation
+@implementation GTLRDLP_GooglePrivacyDlpV2TableLocation
 @dynamic rowIndex;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TaggedField
+//   GTLRDLP_GooglePrivacyDlpV2TaggedField
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TaggedField
+@implementation GTLRDLP_GooglePrivacyDlpV2TaggedField
 @dynamic customTag, field, inferred, infoType;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig
+//   GTLRDLP_GooglePrivacyDlpV2TimePartConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TimePartConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2TimePartConfig
 @dynamic partToExtract;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TimespanConfig
+//   GTLRDLP_GooglePrivacyDlpV2TimespanConfig
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TimespanConfig
-@dynamic enableAutoPopulationOfTimespanConfig, endTime, startTime;
+@implementation GTLRDLP_GooglePrivacyDlpV2TimespanConfig
+@dynamic enableAutoPopulationOfTimespanConfig, endTime, startTime,
+         timestampField;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TimeZone
+//   GTLRDLP_GooglePrivacyDlpV2TimeZone
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TimeZone
+@implementation GTLRDLP_GooglePrivacyDlpV2TimeZone
 @dynamic offsetMinutes;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TransformationOverview
+//   GTLRDLP_GooglePrivacyDlpV2TransformationOverview
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TransformationOverview
+@implementation GTLRDLP_GooglePrivacyDlpV2TransformationOverview
 @dynamic transformationSummaries, transformedBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"transformationSummaries" : [GTLRDLP_GooglePrivacyDlpV2beta2TransformationSummary class]
+    @"transformationSummaries" : [GTLRDLP_GooglePrivacyDlpV2TransformationSummary class]
   };
   return map;
 }
@@ -2537,17 +2593,17 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TransformationSummary
+//   GTLRDLP_GooglePrivacyDlpV2TransformationSummary
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TransformationSummary
+@implementation GTLRDLP_GooglePrivacyDlpV2TransformationSummary
 @dynamic field, fieldTransformations, infoType, recordSuppress, results,
          transformation, transformedBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fieldTransformations" : [GTLRDLP_GooglePrivacyDlpV2beta2FieldTransformation class],
-    @"results" : [GTLRDLP_GooglePrivacyDlpV2beta2SummaryResult class]
+    @"fieldTransformations" : [GTLRDLP_GooglePrivacyDlpV2FieldTransformation class],
+    @"results" : [GTLRDLP_GooglePrivacyDlpV2SummaryResult class]
   };
   return map;
 }
@@ -2557,70 +2613,70 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2TransientCryptoKey
+//   GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2TransientCryptoKey
+@implementation GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey
 @dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Trigger
+//   GTLRDLP_GooglePrivacyDlpV2Trigger
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Trigger
+@implementation GTLRDLP_GooglePrivacyDlpV2Trigger
 @dynamic schedule;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2UnwrappedCryptoKey
+//   GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2UnwrappedCryptoKey
+@implementation GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey
 @dynamic key;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2UpdateDeidentifyTemplateRequest
+//   GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2UpdateDeidentifyTemplateRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest
 @dynamic deidentifyTemplate, updateMask;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2UpdateInspectTemplateRequest
+//   GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2UpdateInspectTemplateRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
 @dynamic inspectTemplate, updateMask;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest
+//   GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2UpdateJobTriggerRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest
 @dynamic jobTrigger, updateMask;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2Value
+//   GTLRDLP_GooglePrivacyDlpV2Value
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2Value
+@implementation GTLRDLP_GooglePrivacyDlpV2Value
 @dynamic booleanValue, dateValue, dayOfWeekValue, floatValue, integerValue,
          stringValue, timestampValue, timeValue;
 @end
@@ -2628,20 +2684,20 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta2Value_DayOfWeekValue_Wednesday 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2ValueFrequency
+//   GTLRDLP_GooglePrivacyDlpV2ValueFrequency
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2ValueFrequency
+@implementation GTLRDLP_GooglePrivacyDlpV2ValueFrequency
 @dynamic count, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2beta2WordList
+//   GTLRDLP_GooglePrivacyDlpV2WordList
 //
 
-@implementation GTLRDLP_GooglePrivacyDlpV2beta2WordList
+@implementation GTLRDLP_GooglePrivacyDlpV2WordList
 @dynamic words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

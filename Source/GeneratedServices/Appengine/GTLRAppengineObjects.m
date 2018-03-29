@@ -262,6 +262,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_CloudBuildOptions
+//
+
+@implementation GTLRAppengine_CloudBuildOptions
+@dynamic appYamlPath, cloudBuildTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ContainerInfo
 //
 
@@ -277,6 +287,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_CpuUtilization
 @dynamic aggregationWindowLength, targetUtilization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_CreateVersionMetadataV1
+//
+
+@implementation GTLRAppengine_CreateVersionMetadataV1
+@dynamic cloudBuildId;
 @end
 
 
@@ -316,7 +336,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Deployment
-@dynamic container, files, zip;
+@dynamic cloudBuildOptions, container, files, zip;
 @end
 
 
@@ -829,7 +849,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_OperationMetadataV1
-@dynamic endTime, ephemeralMessage, insertTime, method, target, user, warning;
+@dynamic createVersionMetadata, endTime, ephemeralMessage, insertTime, method,
+         target, user, warning;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

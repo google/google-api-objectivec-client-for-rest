@@ -39,7 +39,6 @@ NSString * const kGTLRAuthScopeAndroidPublisher = @"https://www.googleapis.com/a
   return @{
     @"androidpublisher#apkListingsListResponse" : [GTLRAndroidPublisher_ApkListingsListResponse class],
     @"androidpublisher#apksListResponse" : [GTLRAndroidPublisher_ApksListResponse class],
-    @"androidpublisher#entitlement" : [GTLRAndroidPublisher_Entitlement class],
     @"androidpublisher#inappproductsListResponse" : [GTLRAndroidPublisher_InappproductsListResponse class],
     @"androidpublisher#listingsListResponse" : [GTLRAndroidPublisher_ListingsListResponse class],
     @"androidpublisher#productPurchase" : [GTLRAndroidPublisher_ProductPurchase class],

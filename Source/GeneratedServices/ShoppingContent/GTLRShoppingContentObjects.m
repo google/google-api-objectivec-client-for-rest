@@ -789,6 +789,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_GmbAccounts
+//
+
+@implementation GTLRShoppingContent_GmbAccounts
+@dynamic accountId, gmbAccounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gmbAccounts" : [GTLRShoppingContent_GmbAccountsGmbAccount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_GmbAccountsGmbAccount
+//
+
+@implementation GTLRShoppingContent_GmbAccountsGmbAccount
+@dynamic email, listingCount, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Headers
 //
 
@@ -940,6 +968,193 @@
 //
 
 @implementation GTLRShoppingContent_InventorySetResponse
+@dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaAboutPageSettings
+//
+
+@implementation GTLRShoppingContent_LiaAboutPageSettings
+@dynamic status, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaCountrySettings
+//
+
+@implementation GTLRShoppingContent_LiaCountrySettings
+@dynamic about, country, hostedLocalStorefrontActive, inventory,
+         onDisplayToOrder, storePickupActive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaInventorySettings
+//
+
+@implementation GTLRShoppingContent_LiaInventorySettings
+@dynamic inventoryVerificationContactEmail, inventoryVerificationContactName,
+         inventoryVerificationContactStatus, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaOnDisplayToOrderSettings
+//
+
+@implementation GTLRShoppingContent_LiaOnDisplayToOrderSettings
+@dynamic shippingCostPolicyUrl, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaSettings
+//
+
+@implementation GTLRShoppingContent_LiaSettings
+@dynamic accountId, countrySettings, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countrySettings" : [GTLRShoppingContent_LiaCountrySettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsCustomBatchRequest
+//
+
+@implementation GTLRShoppingContent_LiasettingsCustomBatchRequest
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_LiasettingsCustomBatchRequestEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsCustomBatchRequestEntry
+//
+
+@implementation GTLRShoppingContent_LiasettingsCustomBatchRequestEntry
+@dynamic accountId, batchId, contactEmail, contactName, country, gmbEmail,
+         liaSettings, merchantId, method;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsCustomBatchResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsCustomBatchResponse
+@dynamic entries, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_LiasettingsCustomBatchResponseEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsCustomBatchResponseEntry
+//
+
+@implementation GTLRShoppingContent_LiasettingsCustomBatchResponseEntry
+@dynamic batchId, errors, gmbAccounts, kind, liaSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse
+@dynamic accountId, gmbAccounts, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gmbAccounts" : [GTLRShoppingContent_GmbAccountsGmbAccount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsListResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsListResponse
+@dynamic kind, nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_LiaSettings class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsRequestGmbAccessResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsRequestGmbAccessResponse
+@dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse
+@dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse
+//
+
+@implementation GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse
 @dynamic kind;
 @end
 

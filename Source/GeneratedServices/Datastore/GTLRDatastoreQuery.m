@@ -94,6 +94,56 @@
 
 @end
 
+@implementation GTLRDatastoreQuery_ProjectsExport
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}:export";
+  GTLRDatastoreQuery_ProjectsExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleLongrunningOperation class];
+  query.loggingName = @"datastore.projects.export";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastoreQuery_ProjectsImport
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}:import";
+  GTLRDatastoreQuery_ProjectsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleLongrunningOperation class];
+  query.loggingName = @"datastore.projects.import";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatastoreQuery_ProjectsLookup
 
 @dynamic projectId;

@@ -577,7 +577,8 @@
 @dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
          estimatedBytesProcessed, numDmlAffectedRows, queryPlan,
          referencedTables, schema, statementType, timeline, totalBytesBilled,
-         totalBytesProcessed, totalSlotMs, undeclaredQueryParameters;
+         totalBytesProcessed, totalPartitionsProcessed, totalSlotMs,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

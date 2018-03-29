@@ -29,6 +29,12 @@
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_Labels;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1EntityFilter;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1Progress;
+@class GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata;
+@class GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_Labels;
+@class GTLRDatastore_GoogleDatastoreAdminV1EntityFilter;
+@class GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels;
+@class GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels;
+@class GTLRDatastore_GoogleDatastoreAdminV1Progress;
 @class GTLRDatastore_GoogleLongrunningOperation;
 @class GTLRDatastore_GoogleLongrunningOperation_Metadata;
 @class GTLRDatastore_GoogleLongrunningOperation_Response;
@@ -181,6 +187,82 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMet
  *  Value: "SUCCESSFUL"
  */
 GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata.operationType
+
+/**
+ *  ExportEntities.
+ *
+ *  Value: "EXPORT_ENTITIES"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ExportEntities;
+/**
+ *  ImportEntities.
+ *
+ *  Value: "IMPORT_ENTITIES"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ImportEntities;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_OperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata.state
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Initializing;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Processing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_StateUnspecified;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyFilter.op
@@ -804,6 +886,305 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Measures the progress of a particular metric.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1beta1Progress : GTLRObject
+
+/**
+ *  The amount of work that has been completed. Note that this may be greater
+ *  than work_estimated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workCompleted;
+
+/**
+ *  An estimate of how much work needs to be performed. May be zero if the
+ *  work estimate is unavailable.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workEstimated;
+
+@end
+
+
+/**
+ *  Metadata common to all Datastore Admin operations.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata : GTLRObject
+
+/** The time the operation ended, either successfully or otherwise. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The client-assigned labels which were provided when the operation was
+ *  created. May also include additional labels.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_Labels *labels;
+
+/**
+ *  The type of the operation. Can be used as a filter in
+ *  ListOperationsRequest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ExportEntities
+ *        ExportEntities. (Value: "EXPORT_ENTITIES")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ImportEntities
+ *        ImportEntities. (Value: "IMPORT_ENTITIES")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_OperationTypeUnspecified
+ *        Unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** The time that work began on the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The current state of the Operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_StateUnspecified
+ *        Unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The client-assigned labels which were provided when the operation was
+ *  created. May also include additional labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_Labels : GTLRObject
+@end
+
+
+/**
+ *  Identifies a subset of entities in a project. This is specified as
+ *  combinations of kinds and namespaces (either or both of which may be all, as
+ *  described in the following examples).
+ *  Example usage:
+ *  Entire project:
+ *  kinds=[], namespace_ids=[]
+ *  Kinds Foo and Bar in all namespaces:
+ *  kinds=['Foo', 'Bar'], namespace_ids=[]
+ *  Kinds Foo and Bar only in the default namespace:
+ *  kinds=['Foo', 'Bar'], namespace_ids=['']
+ *  Kinds Foo and Bar in both the default and Baz namespaces:
+ *  kinds=['Foo', 'Bar'], namespace_ids=['', 'Baz']
+ *  The entire Baz namespace:
+ *  kinds=[], namespace_ids=['Baz']
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1EntityFilter : GTLRObject
+
+/** If empty, then this represents all kinds. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kinds;
+
+/**
+ *  An empty list represents all namespaces. This is the preferred
+ *  usage for projects that don't use namespaces.
+ *  An empty string element represents the default namespace. This should be
+ *  used if the project has data in non-default namespaces, but doesn't want to
+ *  include them.
+ *  Each namespace in this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+@end
+
+
+/**
+ *  Metadata for ExportEntities operations.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesMetadata : GTLRObject
+
+/** Metadata common to all Datastore Admin operations. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata *common;
+
+/** Description of which entities are being exported. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
+
+/**
+ *  Location for the export metadata and data files. This will be the same
+ *  value as the
+ *  google.datastore.admin.v1.ExportEntitiesRequest.output_url_prefix
+ *  field. The final output location is provided in
+ *  google.datastore.admin.v1.ExportEntitiesResponse.output_url.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUrlPrefix;
+
+/** An estimate of the number of bytes processed. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1Progress *progressBytes;
+
+/** An estimate of the number of entities processed. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1Progress *progressEntities;
+
+@end
+
+
+/**
+ *  The request for
+ *  google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest : GTLRObject
+
+/** Description of what data from the project is included in the export. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
+
+/** Client-assigned labels. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels *labels;
+
+/**
+ *  Location for the export metadata and data files.
+ *  The full resource URL of the external storage location. Currently, only
+ *  Google Cloud Storage is supported. So output_url_prefix should be of the
+ *  form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the
+ *  name of the Cloud Storage bucket and `NAMESPACE_PATH` is an optional Cloud
+ *  Storage namespace path (this is not a Cloud Datastore namespace). For more
+ *  information about Cloud Storage namespace paths, see
+ *  [Object name
+ *  considerations](https://cloud.google.com/storage/docs/naming#object-considerations).
+ *  The resulting files will be nested deeper than the specified URL prefix.
+ *  The final output URL will be provided in the
+ *  google.datastore.admin.v1.ExportEntitiesResponse.output_url field. That
+ *  value should be used for subsequent ImportEntities operations.
+ *  By nesting the data files deeper, the same Cloud Storage bucket can be used
+ *  in multiple ExportEntities operations without conflict.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUrlPrefix;
+
+@end
+
+
+/**
+ *  Client-assigned labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  The response for
+ *  google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesResponse : GTLRObject
+
+/**
+ *  Location of the output metadata file. This can be used to begin an import
+ *  into Cloud Datastore (this project or another project). See
+ *  google.datastore.admin.v1.ImportEntitiesRequest.input_url.
+ *  Only present if the operation completed successfully.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUrl;
+
+@end
+
+
+/**
+ *  Metadata for ImportEntities operations.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesMetadata : GTLRObject
+
+/** Metadata common to all Datastore Admin operations. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata *common;
+
+/** Description of which entities are being imported. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
+
+/**
+ *  The location of the import metadata file. This will be the same value as
+ *  the google.datastore.admin.v1.ExportEntitiesResponse.output_url field.
+ */
+@property(nonatomic, copy, nullable) NSString *inputUrl;
+
+/** An estimate of the number of bytes processed. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1Progress *progressBytes;
+
+/** An estimate of the number of entities processed. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1Progress *progressEntities;
+
+@end
+
+
+/**
+ *  The request for
+ *  google.datastore.admin.v1.DatastoreAdmin.ImportEntities.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest : GTLRObject
+
+/**
+ *  Optionally specify which kinds/namespaces are to be imported. If provided,
+ *  the list must be a subset of the EntityFilter used in creating the export,
+ *  otherwise a FAILED_PRECONDITION error will be returned. If no filter is
+ *  specified then all entities from the export are imported.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
+
+/**
+ *  The full resource URL of the external storage location. Currently, only
+ *  Google Cloud Storage is supported. So input_url should be of the form:
+ *  `gs://BUCKET_NAME[/NAMESPACE_PATH]/OVERALL_EXPORT_METADATA_FILE`, where
+ *  `BUCKET_NAME` is the name of the Cloud Storage bucket, `NAMESPACE_PATH` is
+ *  an optional Cloud Storage namespace path (this is not a Cloud Datastore
+ *  namespace), and `OVERALL_EXPORT_METADATA_FILE` is the metadata file written
+ *  by the ExportEntities operation. For more information about Cloud Storage
+ *  namespace paths, see
+ *  [Object name
+ *  considerations](https://cloud.google.com/storage/docs/naming#object-considerations).
+ *  For more information, see
+ *  google.datastore.admin.v1.ExportEntitiesResponse.output_url.
+ */
+@property(nonatomic, copy, nullable) NSString *inputUrl;
+
+/** Client-assigned labels. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  Client-assigned labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Measures the progress of a particular metric.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1Progress : GTLRObject
 
 /**
  *  The amount of work that has been completed. Note that this may be greater

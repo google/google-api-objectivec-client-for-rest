@@ -2,30 +2,30 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Manufacturer Center API (manufacturers/v1)
+//   Cloud Text-to-Speech API (texttospeech/v1beta1)
 // Description:
-//   Public API for managing Manufacturer Center related data.
+//   Cloud Text-to-Speech API.
 // Documentation:
-//   https://developers.google.com/manufacturers/
+//   http://cloud.google.com/speech/text-to-speech/
 
-#import "GTLRManufacturerCenter.h"
+#import "GTLRTexttospeech.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeManufacturerCenterManufacturercenter = @"https://www.googleapis.com/auth/manufacturercenter";
+NSString * const kGTLRAuthScopeTexttospeechCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRManufacturerCenterService
+//   GTLRTexttospeechService
 //
 
-@implementation GTLRManufacturerCenterService
+@implementation GTLRTexttospeechService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://content-manufacturers.googleapis.com/";
+    self.rootURLString = @"https://texttospeech.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

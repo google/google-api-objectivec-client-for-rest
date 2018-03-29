@@ -25,7 +25,6 @@
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_DeviceMetadata;
-@class GTLRAndroidPublisher_Entitlement;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
 @class GTLRAndroidPublisher_ExternallyHostedApkUsesPermission;
@@ -310,47 +309,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *screenWidthPx;
-
-@end
-
-
-/**
- *  An Entitlement resource indicates a user's current entitlement to an inapp
- *  item or subscription.
- */
-@interface GTLRAndroidPublisher_Entitlement : GTLRObject
-
-/**
- *  This kind represents an entitlement object in the androidpublisher service.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The SKU of the product. */
-@property(nonatomic, copy, nullable) NSString *productId;
-
-/**
- *  The type of the inapp product. Possible values are:
- *  - In-app item: "inapp"
- *  - Subscription: "subs"
- */
-@property(nonatomic, copy, nullable) NSString *productType;
-
-/**
- *  The token which can be verified using the subscriptions or products API.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_EntitlementsListResponse
- */
-@interface GTLRAndroidPublisher_EntitlementsListResponse : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Entitlement *> *resources;
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
 
 @end
 
@@ -1008,11 +966,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *developerPayload;
 
 /**
+ *  The email address of the user when the subscription was purchased. Only
+ *  present for purchases made with 'Subscribe with Google'.
+ */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
+
+/**
  *  Time at which the subscription will expire, in milliseconds since the Epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expiryTimeMillis;
+
+/**
+ *  The family name of the user when the subscription was purchased. Only
+ *  present for purchases made with 'Subscribe with Google'.
+ */
+@property(nonatomic, copy, nullable) NSString *familyName;
+
+/**
+ *  The given name of the user when the subscription was purchased. Only present
+ *  for purchases made with 'Subscribe with Google'.
+ */
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 /**
  *  This kind represents a subscriptionPurchase object in the androidpublisher
@@ -1066,6 +1042,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  is specified in British pounds sterling, price_currency_code is "GBP".
  */
 @property(nonatomic, copy, nullable) NSString *priceCurrencyCode;
+
+/**
+ *  The profile id of the user when the subscription was purchased. Only present
+ *  for purchases made with 'Subscribe with Google'.
+ */
+@property(nonatomic, copy, nullable) NSString *profileId;
+
+/**
+ *  The profile name of the user when the subscription was purchased. Only
+ *  present for purchases made with 'Subscribe with Google'.
+ */
+@property(nonatomic, copy, nullable) NSString *profileName;
 
 /**
  *  The type of purchase of the subscription. This field is only set if this
@@ -1171,8 +1159,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_Track : GTLRObject
 
 /**
- *  Identifier for this track. One of "alpha", "beta", "production" or
- *  "rollout".
+ *  Identifier for this track. One of "alpha", "beta", "production", "rollout"
+ *  or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 

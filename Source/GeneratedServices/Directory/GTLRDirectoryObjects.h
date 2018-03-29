@@ -605,6 +605,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Final date the device will be supported (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportEndDate;
 
+/** Trusted Platform Module (TPM) (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDirectory_ChromeOsDevice_TpmVersionInfo *tpmVersionInfo;
 
 /**
@@ -647,7 +648,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Date and time the file was created */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** File downlod URL */
+/** File download URL */
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /** File name */
@@ -674,15 +675,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDirectory_ChromeOsDevice_TpmVersionInfo
+ *  Trusted Platform Module (TPM) (Read-only)
  */
 @interface GTLRDirectory_ChromeOsDevice_TpmVersionInfo : GTLRObject
 
+/** TPM family. */
 @property(nonatomic, copy, nullable) NSString *family;
+
+/** TPM firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
+
+/** TPM manufacturer code. */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** TPM specification level. */
 @property(nonatomic, copy, nullable) NSString *specLevel;
+
+/** TPM model number. */
 @property(nonatomic, copy, nullable) NSString *tpmModel;
+
+/** Vendor-specific information such as Vendor ID. */
 @property(nonatomic, copy, nullable) NSString *vendorSpecific;
 
 @end
@@ -975,6 +987,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDirectory_FeatureInstance : GTLRObject
 
+/**
+ *  The feature that this is an instance of. A calendar resource may have
+ *  multiple instances of a feature.
+ */
 @property(nonatomic, strong, nullable) GTLRDirectory_Feature *feature;
 
 @end
@@ -1178,7 +1194,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_MembersHasMember : GTLRObject
 
 /**
- *  Identifies whether given user is a member or not.
+ *  Identifies whether the given user is a member of the group. Membership can
+ *  be direct or nested.
  *
  *  Uses NSNumber of boolValue.
  */

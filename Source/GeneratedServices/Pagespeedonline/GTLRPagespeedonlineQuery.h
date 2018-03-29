@@ -6,6 +6,8 @@
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
+// Documentation:
+//   https://developers.google.com/speed/docs/insights/v4/getting-started
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

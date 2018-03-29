@@ -199,6 +199,11 @@
 @class GTLRCompute_InterconnectLocationList_Warning_Data_Item;
 @class GTLRCompute_InterconnectLocationRegionInfo;
 @class GTLRCompute_InterconnectOutageNotification;
+@class GTLRCompute_License;
+@class GTLRCompute_LicenseCodeLicenseAlias;
+@class GTLRCompute_LicenseResourceRequirements;
+@class GTLRCompute_LicensesListResponse_Warning;
+@class GTLRCompute_LicensesListResponse_Warning_Data_Item;
 @class GTLRCompute_MachineType;
 @class GTLRCompute_MachineType_ScratchDisks_Item;
 @class GTLRCompute_MachineTypeAggregatedList_Items;
@@ -282,6 +287,11 @@
 @class GTLRCompute_SslCertificateList_Warning;
 @class GTLRCompute_SslCertificateList_Warning_Data_Item;
 @class GTLRCompute_SSLHealthCheck;
+@class GTLRCompute_SslPoliciesList_Warning;
+@class GTLRCompute_SslPoliciesList_Warning_Data_Item;
+@class GTLRCompute_SslPolicy;
+@class GTLRCompute_SslPolicy_Warnings_Item;
+@class GTLRCompute_SslPolicy_Warnings_Item_Data_Item;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworkAggregatedList_Items;
 @class GTLRCompute_SubnetworkAggregatedList_Warning;
@@ -3190,6 +3200,70 @@ GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_N
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_LicenseCode.state
+
+/** Value: "DISABLED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Disabled;
+/** Value: "ENABLED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Enabled;
+/** Value: "RESTRICTED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Restricted;
+/** Value: "STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_StateUnspecified;
+/** Value: "TERMINATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_LicensesListResponse_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -3710,6 +3784,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
 /** Value: "NVIDIA_P100_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
+/** Value: "NVIDIA_V100_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus;
 /** Value: "PREEMPTIBLE_CPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
 /** Value: "PREEMPTIBLE_LOCAL_SSD_GB" */
@@ -4460,6 +4536,130 @@ GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreac
 GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
 GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPoliciesList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPolicy.minTlsVersion
+
+/** Value: "TLS_1_0" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls10;
+/** Value: "TLS_1_1" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls11;
+/** Value: "TLS_1_2" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls12;
+/** Value: "TLS_1_3" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls13;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPolicy.profile
+
+/** Value: "COMPATIBLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Compatible;
+/** Value: "CUSTOM" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Custom;
+/** Value: "MODERN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Modern;
+/** Value: "RESTRICTED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Restricted;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPolicy_Warnings_Item.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkAggregatedList_Warning.code
@@ -9312,6 +9512,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** [Output Only] Last detach timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *lastDetachTimestamp;
 
+/**
+ *  Integer license codes indicating which licenses are attached to this disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *licenseCodes;
+
 /** Any applicable publicly visible licenses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
@@ -12349,6 +12556,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  method.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Image_Labels *labels;
+
+/**
+ *  Integer license codes indicating which licenses are attached to this image.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *licenseCodes;
 
 /** Any applicable license URI. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
@@ -16526,8 +16740,37 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSNumber *chargesUseFee;
 
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional textual description of the resource; provided by the client when
+ *  the resource is created.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
 /** [Output Only] Type of resource. Always compute#license for licenses. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] The unique code used to attach this license to images,
+ *  snapshots, and disks.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *licenseCode;
 
 /**
  *  [Output Only] Name of the resource. The name is 1-63 characters long and
@@ -16535,8 +16778,265 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@property(nonatomic, strong, nullable) GTLRCompute_LicenseResourceRequirements *resourceRequirements;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  If false, licenses will not be copied from the source resource when creating
+ *  an image from a disk, disk from snapshot, or snapshot from disk.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transferable;
+
+@end
+
+
+/**
+ *  GTLRCompute_LicenseCode
+ */
+@interface GTLRCompute_LicenseCode : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  [Output Only] Description of this License Code.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of resource. Always compute#licenseCode for licenses.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] URL and description aliases of Licenses with the same License
+ *  Code.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LicenseCodeLicenseAlias *> *licenseAlias;
+
+/**
+ *  [Output Only] Name of the resource. The name is 1-20 characters long and
+ *  must be a valid 64 bit integer.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output Only] Current state of this License Code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_LicenseCode_State_Disabled Value "DISABLED"
+ *    @arg @c kGTLRCompute_LicenseCode_State_Enabled Value "ENABLED"
+ *    @arg @c kGTLRCompute_LicenseCode_State_Restricted Value "RESTRICTED"
+ *    @arg @c kGTLRCompute_LicenseCode_State_StateUnspecified Value
+ *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_LicenseCode_State_Terminated Value "TERMINATED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  [Output Only] If true, the license will remain attached when creating images
+ *  or snapshots from disks. Otherwise, the license is not transferred.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transferable;
+
+@end
+
+
+/**
+ *  GTLRCompute_LicenseCodeLicenseAlias
+ */
+@interface GTLRCompute_LicenseCodeLicenseAlias : GTLRObject
+
+/**
+ *  [Output Only] Description of this License Code.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** [Output Only] URL of license corresponding to this License Code. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_LicenseResourceRequirements
+ */
+@interface GTLRCompute_LicenseResourceRequirements : GTLRObject
+
+/**
+ *  Minimum number of guest cpus required to use the Instance. Enforced at
+ *  Instance creation and Instance start.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minGuestCpuCount;
+
+/**
+ *  Minimum memory required to use the Instance. Enforced at Instance creation
+ *  and Instance start.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minMemoryMb;
+
+@end
+
+
+/**
+ *  GTLRCompute_LicensesListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_LicensesListResponse : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of License resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_License *> *items;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_LicensesListResponse_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_LicensesListResponse_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LicensesListResponse_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_LicensesListResponse_Warning_Data_Item
+ */
+@interface GTLRCompute_LicensesListResponse_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -18648,6 +19148,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_Networks Value "NETWORKS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaK80Gpus Value "NVIDIA_K80_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP100Gpus Value "NVIDIA_P100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NvidiaV100Gpus Value "NVIDIA_V100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb Value
  *        "PREEMPTIBLE_LOCAL_SSD_GB"
@@ -20909,6 +21410,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_Snapshot_Labels *labels;
 
 /**
+ *  Integer license codes indicating which licenses are attached to this
+ *  snapshot.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *licenseCodes;
+
+/**
  *  [Output Only] A list of public visible licenses that apply to this snapshot.
  *  This can be because the original image had licenses attached (such as a
  *  Windows image).
@@ -21395,6 +21904,370 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  can only be ASCII.
  */
 @property(nonatomic, copy, nullable) NSString *response;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesList
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_SslPoliciesList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of SslPolicy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPolicy *> *items;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#sslPoliciesList for lists
+ *  of sslPolicies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslPoliciesList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_SslPoliciesList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ExternalApiWarning Value
+ *        "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopNotRunning Value
+ *        "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ResourceNotDeleted Value
+ *        "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPoliciesList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesList_Warning_Data_Item
+ */
+@interface GTLRCompute_SslPoliciesList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesListAvailableFeaturesResponse
+ */
+@interface GTLRCompute_SslPoliciesListAvailableFeaturesResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
+
+@end
+
+
+/**
+ *  A SSL policy specifies the server-side support for SSL features. This can be
+ *  attached to a TargetHttpsProxy or a TargetSslProxy. This affects connections
+ *  between clients and the HTTPS or SSL proxy load balancer. They do not affect
+ *  the connection between the load balancers and the backends.
+ */
+@interface GTLRCompute_SslPolicy : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  List of features enabled when the selected profile is CUSTOM. The
+ *  - method returns the set of features that can be specified in this list.
+ *  This field must be empty if the profile is not CUSTOM.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customFeatures;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** [Output Only] The list of features enabled in the SSL policy. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledFeatures;
+
+/**
+ *  Fingerprint of this resource. A hash of the contents stored in this object.
+ *  This field is used in optimistic locking. This field will be ignored when
+ *  inserting a SslPolicy. An up-to-date fingerprint must be provided in order
+ *  to update the SslPolicy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output only] Type of the resource. Always compute#sslPolicyfor SSL
+ *  policies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The minimum version of SSL protocol that can be used by the clients to
+ *  establish a connection with the load balancer. This can be one of TLS_1_0,
+ *  TLS_1_1, TLS_1_2, TLS_1_3.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPolicy_MinTlsVersion_Tls10 Value "TLS_1_0"
+ *    @arg @c kGTLRCompute_SslPolicy_MinTlsVersion_Tls11 Value "TLS_1_1"
+ *    @arg @c kGTLRCompute_SslPolicy_MinTlsVersion_Tls12 Value "TLS_1_2"
+ *    @arg @c kGTLRCompute_SslPolicy_MinTlsVersion_Tls13 Value "TLS_1_3"
+ */
+@property(nonatomic, copy, nullable) NSString *minTlsVersion;
+
+/**
+ *  Name of the resource. The name must be 1-63 characters long, and comply with
+ *  RFC1035. Specifically, the name must be 1-63 characters long and match the
+ *  regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Profile specifies the set of SSL features that can be used by the load
+ *  balancer when negotiating SSL with clients. This can be one of COMPATIBLE,
+ *  MODERN, RESTRICTED, or CUSTOM. If using CUSTOM, the set of SSL features to
+ *  enable must be specified in the customFeatures field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPolicy_Profile_Compatible Value "COMPATIBLE"
+ *    @arg @c kGTLRCompute_SslPolicy_Profile_Custom Value "CUSTOM"
+ *    @arg @c kGTLRCompute_SslPolicy_Profile_Modern Value "MODERN"
+ *    @arg @c kGTLRCompute_SslPolicy_Profile_Restricted Value "RESTRICTED"
+ */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output Only] If potential misconfigurations are detected for this SSL
+ *  policy, this field will be populated with warning messages.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPolicy_Warnings_Item *> *warnings;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPolicy_Warnings_Item
+ */
+@interface GTLRCompute_SslPolicy_Warnings_Item : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ExternalApiWarning Value
+ *        "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopNotRunning Value
+ *        "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceNotDeleted Value
+ *        "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPolicy_Warnings_Item_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPolicy_Warnings_Item_Data_Item
+ */
+@interface GTLRCompute_SslPolicy_Warnings_Item_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPolicyReference
+ */
+@interface GTLRCompute_SslPolicyReference : GTLRObject
+
+/**
+ *  URL of the SSL policy resource. Set this to empty string to clear any
+ *  existing SSL policy associated with the target proxy resource.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
 
 @end
 
@@ -22249,6 +23122,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  must be specified.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
+
+/**
+ *  URL of SslPolicy resource that will be associated with the TargetHttpsProxy
+ *  resource. If not set, the TargetHttpsProxy resource will not have any SSL
+ *  policy configured.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
 
 /**
  *  A fully-qualified or valid partial URL to the UrlMap resource that defines
@@ -23593,6 +24473,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
 
+/**
+ *  URL of SslPolicy resource that will be associated with the TargetSslProxy
+ *  resource. If not set, the TargetSslProxy resource will not have any SSL
+ *  policy configured.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
+
 @end
 
 
@@ -24510,6 +25397,33 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *expectedService;
 @property(nonatomic, copy, nullable) NSString *host;
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  GTLRCompute_TestPermissionsRequest
+ */
+@interface GTLRCompute_TestPermissionsRequest : GTLRObject
+
+/**
+ *  The set of permissions to check for the 'resource'. Permissions with
+ *  wildcards (such as '*' or 'storage.*') are not allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  GTLRCompute_TestPermissionsResponse
+ */
+@interface GTLRCompute_TestPermissionsResponse : GTLRObject
+
+/**
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

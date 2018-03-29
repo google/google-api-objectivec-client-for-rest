@@ -60,6 +60,7 @@
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_Interconnect;
 @class GTLRCompute_InterconnectAttachment;
+@class GTLRCompute_License;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
 @class GTLRCompute_NetworkInterface;
@@ -81,6 +82,8 @@
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
+@class GTLRCompute_SslPolicy;
+@class GTLRCompute_SslPolicyReference;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworksExpandIpCidrRangeRequest;
 @class GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest;
@@ -103,6 +106,7 @@
 @class GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest;
 @class GTLRCompute_TargetTcpProxy;
 @class GTLRCompute_TargetVpnGateway;
+@class GTLRCompute_TestPermissionsRequest;
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapReference;
 @class GTLRCompute_UrlMapsValidateRequest;
@@ -142,25 +146,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAcceleratorTypesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -270,25 +271,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAcceleratorTypesListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -365,25 +363,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAddressesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -592,25 +587,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAddressesListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -683,25 +675,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAutoscalersAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -924,25 +913,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForAutoscalersListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1272,25 +1258,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForBackendBucketsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1466,25 +1449,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForBackendServicesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1726,25 +1706,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForBackendServicesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1927,25 +1904,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForDisksAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2244,25 +2218,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForDisksListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2462,25 +2433,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForDiskTypesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2590,25 +2558,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForDiskTypesListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2815,25 +2780,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForFirewallsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3009,25 +2971,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForForwardingRulesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3237,25 +3196,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForForwardingRulesListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3519,25 +3475,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForGlobalAddressesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3738,25 +3691,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForGlobalForwardingRulesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3878,25 +3828,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForGlobalOperationsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4033,25 +3980,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForGlobalOperationsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4253,25 +4197,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForHealthChecksListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4579,25 +4520,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForHttpHealthChecksListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4905,25 +4843,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForHttpsHealthChecksListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5330,25 +5265,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForImagesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5544,25 +5476,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceGroupManagersAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5888,25 +5817,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceGroupManagersListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6419,25 +6345,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceGroupsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6668,25 +6591,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceGroupsListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6765,25 +6685,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceGroupsListInstancesWithObject:project:zoneProperty:instanceGroup:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7073,25 +6990,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstancesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7531,6 +7445,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Specifies instance template to create the instance.
+ *  This field is optional. It can be a full or partial URL. For example, the
+ *  following are all valid URLs to an instance template:
+ *  -
+ *  https://www.googleapis.com/compute/v1/projects/project/global/global/instanceTemplates/instanceTemplate
+ *  - projects/project/global/global/instanceTemplates/instanceTemplate
+ *  - global/instancesTemplates/instanceTemplate
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInstanceTemplate;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -7570,25 +7495,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstancesListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7666,25 +7588,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstancesListReferrersWithproject:zoneProperty:instance:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8917,25 +8836,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInstanceTemplatesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9004,25 +8920,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInterconnectAttachmentsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9233,25 +9146,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInterconnectAttachmentsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9363,25 +9273,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInterconnectLocationsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9582,25 +9489,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForInterconnectsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9708,6 +9612,130 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Return a specified license code. License codes are mirrored across all
+ *  projects that have permissions to read the License Code.
+ *
+ *  Method: compute.licenseCodes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_LicenseCodesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicenseCodesGetWithproject:licenseCode:]
+
+/** Number corresponding to the License code resource to return. */
+@property(nonatomic, copy, nullable) NSString *licenseCode;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_LicenseCode.
+ *
+ *  Return a specified license code. License codes are mirrored across all
+ *  projects that have permissions to read the License Code.
+ *
+ *  @param project Project ID for this request.
+ *  @param licenseCode Number corresponding to the License code resource to
+ *    return.
+ *
+ *  @returns GTLRComputeQuery_LicenseCodesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                     licenseCode:(NSString *)licenseCode;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.licenseCodes.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_LicenseCodesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicenseCodesTestIamPermissionsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_LicenseCodesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Deletes the specified license.
+ *
+ *  Method: compute.licenses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_LicensesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesDeleteWithproject:license:]
+
+/** Name of the license resource to delete. */
+@property(nonatomic, copy, nullable) NSString *license;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified license.
+ *
+ *  @param project Project ID for this request.
+ *  @param license Name of the license resource to delete.
+ *
+ *  @returns GTLRComputeQuery_LicensesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         license:(NSString *)license;
+
+@end
+
+/**
  *  Returns the specified License resource.
  *
  *  Method: compute.licenses.get
@@ -9743,6 +9771,185 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a License resource in the specified project.
+ *
+ *  Method: compute.licenses.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeDevstorageFullControl
+ *    @c kGTLRAuthScopeComputeDevstorageReadOnly
+ *    @c kGTLRAuthScopeComputeDevstorageReadWrite
+ */
+@interface GTLRComputeQuery_LicensesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create a License resource in the specified project.
+ *
+ *  @param object The @c GTLRCompute_License to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_LicensesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_License *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of licenses available in the specified project. This
+ *  method does not get any licenses that belong to other projects, including
+ *  licenses attached to publicly-available images, like Debian 8. If you want
+ *  to get a list of publicly-available licenses, use this method to make a
+ *  request to the respective image project, such as debian-cloud or
+ *  windows-cloud.
+ *
+ *  Method: compute.licenses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_LicensesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_LicensesListResponse.
+ *
+ *  Retrieves the list of licenses available in the specified project. This
+ *  method does not get any licenses that belong to other projects, including
+ *  licenses attached to publicly-available images, like Debian 8. If you want
+ *  to get a list of publicly-available licenses, use this method to make a
+ *  request to the respective image project, such as debian-cloud or
+ *  windows-cloud.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_LicensesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.licenses.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_LicensesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesTestIamPermissionsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_LicensesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Retrieves an aggregated list of machine types.
  *
  *  Method: compute.machineTypes.aggregatedList
@@ -9757,25 +9964,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForMachineTypesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9885,25 +10089,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForMachineTypesListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10163,25 +10364,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForNetworksListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11078,25 +11276,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionAutoscalersListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11474,25 +11669,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionBackendServicesListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11690,25 +11882,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionCommitmentsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11866,25 +12055,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionCommitmentsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12272,25 +12458,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionInstanceGroupManagersListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12731,25 +12914,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionInstanceGroupsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12825,25 +13005,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionInstanceGroupsListInstancesWithObject:project:region:instanceGroup:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13069,25 +13246,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionOperationsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13198,25 +13372,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRegionsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13284,25 +13455,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRoutersAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13553,25 +13721,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRoutersListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13934,25 +14099,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForRoutesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14114,25 +14276,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForSnapshotsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14373,25 +14532,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForSslCertificatesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14446,6 +14602,368 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the specified SSL policy. The SSL policy resource can be deleted
+ *  only if it is not in use by any TargetHttpsProxy or TargetSslProxy
+ *  resources.
+ *
+ *  Method: compute.sslPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SslPoliciesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesDeleteWithproject:sslPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the SSL policy to delete. The name must be 1-63 characters long, and
+ *  comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified SSL policy. The SSL policy resource can be deleted
+ *  only if it is not in use by any TargetHttpsProxy or TargetSslProxy
+ *  resources.
+ *
+ *  @param project Project ID for this request.
+ *  @param sslPolicy Name of the SSL policy to delete. The name must be 1-63
+ *    characters long, and comply with RFC1035.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                       sslPolicy:(NSString *)sslPolicy;
+
+@end
+
+/**
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  Method: compute.sslPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SslPoliciesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesGetWithproject:sslPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the SSL policy to update. The name must be 1-63 characters long, and
+ *  comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SslPolicy.
+ *
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
+ *    characters long, and comply with RFC1035.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                       sslPolicy:(NSString *)sslPolicy;
+
+@end
+
+/**
+ *  Returns the specified SSL policy resource. Get a list of available SSL
+ *  policies by making a list() request.
+ *
+ *  Method: compute.sslPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SslPoliciesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Returns the specified SSL policy resource. Get a list of available SSL
+ *  policies by making a list() request.
+ *
+ *  @param object The @c GTLRCompute_SslPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  List all the SSL policies that have been configured for the specified
+ *  project.
+ *
+ *  Method: compute.sslPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SslPoliciesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_SslPoliciesList.
+ *
+ *  List all the SSL policies that have been configured for the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Lists all features that can be specified in the SSL policy when using custom
+ *  profile.
+ *
+ *  Method: compute.sslPolicies.listAvailableFeatures
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SslPoliciesListAvailableFeatures : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesListAvailableFeaturesWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_SslPoliciesListAvailableFeaturesResponse.
+ *
+ *  Lists all features that can be specified in the SSL policy when using custom
+ *  profile.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesListAvailableFeatures
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified SSL policy with the data included in the request.
+ *
+ *  Method: compute.sslPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SslPoliciesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSslPoliciesPatchWithObject:project:sslPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the SSL policy to update. The name must be 1-63 characters long, and
+ *  comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified SSL policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_SslPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
+ *    characters long, and comply with RFC1035.
+ *
+ *  @returns GTLRComputeQuery_SslPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
+                        project:(NSString *)project
+                      sslPolicy:(NSString *)sslPolicy;
+
+@end
+
+/**
  *  Retrieves an aggregated list of subnetworks.
  *
  *  Method: compute.subnetworks.aggregatedList
@@ -14460,25 +14978,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForSubnetworksAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14745,25 +15260,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForSubnetworksListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14824,9 +15336,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Patches the specified subnetwork with the data included in the request. Only
  *  the following fields within the subnetwork resource can be specified in the
- *  request: secondary_ip_range and allow_subnet_cidr_routes_overlap. It is also
- *  mandatory to specify the current fingeprint of the subnetwork resource being
- *  patched.
+ *  request: secondary_ip_range, allow_subnet_cidr_routes_overlap and role. It
+ *  is also mandatory to specify the current fingeprint of the subnetwork
+ *  resource being patched.
  *
  *  Method: compute.subnetworks.patch
  *
@@ -14866,9 +15378,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Patches the specified subnetwork with the data included in the request. Only
  *  the following fields within the subnetwork resource can be specified in the
- *  request: secondary_ip_range and allow_subnet_cidr_routes_overlap. It is also
- *  mandatory to specify the current fingeprint of the subnetwork resource being
- *  patched.
+ *  request: secondary_ip_range, allow_subnet_cidr_routes_overlap and role. It
+ *  is also mandatory to specify the current fingeprint of the subnetwork
+ *  resource being patched.
  *
  *  @param object The @c GTLRCompute_Subnetwork to include in the query.
  *  @param project Project ID for this request.
@@ -15090,25 +15602,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetHttpProxiesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15360,25 +15869,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetHttpsProxiesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15488,6 +15994,67 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the
+ *  server-side support for SSL features. This affects connections between
+ *  clients and the HTTPS proxy load balancer. They do not affect the connection
+ *  between the load balancer and the backends.
+ *
+ *  Method: compute.targetHttpsProxies.setSslPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetHttpsProxiesSetSslPolicyWithObject:project:targetHttpsProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetHttpsProxy resource whose SSL policy is to be set. The
+ *  name must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the
+ *  server-side support for SSL features. This affects connections between
+ *  clients and the HTTPS proxy load balancer. They do not affect the connection
+ *  between the load balancer and the backends.
+ *
+ *  @param object The @c GTLRCompute_SslPolicyReference to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetHttpsProxy Name of the TargetHttpsProxy resource whose SSL
+ *    policy is to be set. The name must be 1-63 characters long, and comply
+ *    with RFC1035.
+ *
+ *  @returns GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicyReference *)object
+                        project:(NSString *)project
+               targetHttpsProxy:(NSString *)targetHttpsProxy;
+
+@end
+
+/**
  *  Changes the URL map for TargetHttpsProxy.
  *
  *  Method: compute.targetHttpsProxies.setUrlMap
@@ -15553,25 +16120,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetInstancesAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15795,25 +16359,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetInstancesListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16003,25 +16564,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetPoolsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16278,25 +16836,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetPoolsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16673,25 +17228,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetSslProxiesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16908,6 +17460,67 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
+ *  server-side support for SSL features. This affects connections between
+ *  clients and the SSL proxy load balancer. They do not affect the connection
+ *  between the load balancer and the backends.
+ *
+ *  Method: compute.targetSslProxies.setSslPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesSetSslPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesSetSslPolicyWithObject:project:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetSslProxy resource whose SSL policy is to be set. The name
+ *  must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
+ *  server-side support for SSL features. This affects connections between
+ *  clients and the SSL proxy load balancer. They do not affect the connection
+ *  between the load balancer and the backends.
+ *
+ *  @param object The @c GTLRCompute_SslPolicyReference to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource whose SSL policy
+ *    is to be set. The name must be 1-63 characters long, and comply with
+ *    RFC1035.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesSetSslPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicyReference *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
  *  Deletes the specified TargetTcpProxy resource.
  *
  *  Method: compute.targetTcpProxies.delete
@@ -17055,25 +17668,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetTcpProxiesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17249,25 +17859,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetVpnGatewaysAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17479,25 +18086,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForTargetVpnGatewaysListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17756,25 +18360,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForUrlMapsListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17985,25 +18586,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForVpnTunnelsAggregatedListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18215,25 +18813,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForVpnTunnelsListWithproject:region:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18395,25 +18990,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForZoneOperationsListWithproject:zoneProperty:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18531,25 +19123,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCompute queryForZonesListWithproject:]
 
 /**
- *  Sets a filter {expression} for filtering listed resources. Your {expression}
- *  must be in the format: field_name comparison_string literal_string.
- *  The field_name is the name of the field you want to compare. Only atomic
- *  field types are supported (string, number, boolean). The comparison_string
- *  must be either eq (equals) or ne (not equals). The literal_string is the
- *  string value to filter to. The literal value must be valid for the type of
- *  field you are filtering by (string, number, boolean). For string fields, the
- *  literal value is interpreted as a regular expression using RE2 syntax. The
- *  literal value must match the entire field.
- *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use name ne example-instance.
- *  You can filter on nested fields. For example, you could filter on instances
- *  that have set the scheduling.automaticRestart field to true. Use filtering
- *  on nested fields to take advantage of labels to organize and search for
- *  results based on label values.
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
- *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
- *  that resources must match all expressions to pass the filters.
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

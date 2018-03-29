@@ -1699,7 +1699,10 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of the category representing the document. */
+/**
+ *  The name of the category representing the document, from the [predefined
+ *  taxonomy](/natural-language/docs/categories).
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

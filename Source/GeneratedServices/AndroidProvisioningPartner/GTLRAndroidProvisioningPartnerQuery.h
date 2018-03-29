@@ -551,7 +551,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersListWithpartnerId:]
 
-/** The ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
@@ -561,7 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `partnerId` argument. This list includes customers that the reseller
  *  created and customers that enrolled themselves using the portal.
  *
- *  @param partnerId The ID of the partner.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList
  */
@@ -570,7 +570,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Claim the device identified by device identifier.
+ *  Claims a device for a customer and adds it to zero-touch enrollment. If the
+ *  device is already claimed by another customer, the call returns an error.
  *
  *  Method: androiddeviceprovisioning.partners.devices.claim
  */
@@ -578,17 +579,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesClaimWithObject:partnerId:]
 
-/** ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_ClaimDeviceResponse.
  *
- *  Claim the device identified by device identifier.
+ *  Claims a device for a customer and adds it to zero-touch enrollment. If the
+ *  device is already claimed by another customer, the call returns an error.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_ClaimDeviceRequest to
  *    include in the query.
- *  @param partnerId ID of the partner.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaim
  */
@@ -598,7 +600,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Claim devices asynchronously.
+ *  Claims a batch of devices for a customer asynchronously. Adds the devices
+ *  to zero-touch enrollment. To learn more, read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  Method: androiddeviceprovisioning.partners.devices.claimAsync
  */
@@ -606,17 +610,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesClaimAsyncWithObject:partnerId:]
 
-/** Partner ID. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Operation.
  *
- *  Claim devices asynchronously.
+ *  Claims a batch of devices for a customer asynchronously. Adds the devices
+ *  to zero-touch enrollment. To learn more, read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_ClaimDevicesRequest to
  *    include in the query.
- *  @param partnerId Partner ID.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaimAsync
  */
@@ -626,7 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Find devices by device identifier.
+ *  Finds devices by hardware identifiers, such as IMEI.
  *
  *  Method: androiddeviceprovisioning.partners.devices.findByIdentifier
  */
@@ -634,19 +640,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesFindByIdentifierWithObject:partnerId:]
 
-/** ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c
  *  GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierResponse.
  *
- *  Find devices by device identifier.
+ *  Finds devices by hardware identifiers, such as IMEI.
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest to
  *    include in the query.
- *  @param partnerId ID of the partner.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByIdentifier
  */
@@ -656,7 +662,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Find devices by ownership.
+ *  Finds devices claimed for customers. The results only contain devices
+ *  registered to the reseller that's identified by the `partnerId` argument.
+ *  The customer's devices purchased from other resellers don't appear in the
+ *  results.
  *
  *  Method: androiddeviceprovisioning.partners.devices.findByOwner
  */
@@ -664,18 +673,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesFindByOwnerWithObject:partnerId:]
 
-/** ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_FindDevicesByOwnerResponse.
  *
- *  Find devices by ownership.
+ *  Finds devices claimed for customers. The results only contain devices
+ *  registered to the reseller that's identified by the `partnerId` argument.
+ *  The customer's devices purchased from other resellers don't appear in the
+ *  results.
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest to include in the
  *    query.
- *  @param partnerId ID of the partner.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByOwner
  */
@@ -685,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a device.
+ *  Gets a device.
  *
  *  Method: androiddeviceprovisioning.partners.devices.get
  */
@@ -693,15 +705,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesGetWithname:]
 
-/** Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`. */
+/**
+ *  Required. The device API resource name in the format
+ *  `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Device.
  *
- *  Get a device.
+ *  Gets a device.
  *
- *  @param name Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
+ *  @param name Required. The device API resource name in the format
+ *    `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGet
  */
@@ -710,7 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update the metadata.
+ *  Updates reseller metadata associated with the device.
  *
  *  Method: androiddeviceprovisioning.partners.devices.metadata
  */
@@ -718,23 +734,25 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesMetadataWithObject:metadataOwnerId:deviceId:]
 
-/** ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long deviceId;
 
-/** The owner of the newly set metadata. Set this to the partner ID. */
+/**
+ *  Required. The owner of the newly set metadata. Set this to the partner ID.
+ */
 @property(nonatomic, assign) long long metadataOwnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_DeviceMetadata.
  *
- *  Update the metadata.
+ *  Updates reseller metadata associated with the device.
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_UpdateDeviceMetadataRequest to include in
  *    the query.
- *  @param metadataOwnerId The owner of the newly set metadata. Set this to the
- *    partner ID.
- *  @param deviceId ID of the partner.
+ *  @param metadataOwnerId Required. The owner of the newly set metadata. Set
+ *    this to the partner ID.
+ *  @param deviceId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata
  */
@@ -745,7 +763,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Unclaim the device identified by the `device_id` or the `deviceIdentifier`.
+ *  Unclaims a device from a customer and removes it from zero-touch
+ *  enrollment.
  *
  *  Method: androiddeviceprovisioning.partners.devices.unclaim
  */
@@ -753,17 +772,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUnclaimWithObject:partnerId:]
 
-/** ID of the partner. */
+/** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Empty.
  *
- *  Unclaim the device identified by the `device_id` or the `deviceIdentifier`.
+ *  Unclaims a device from a customer and removes it from zero-touch
+ *  enrollment.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_UnclaimDeviceRequest to
  *    include in the query.
- *  @param partnerId ID of the partner.
+ *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaim
  */
@@ -773,7 +793,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Unclaim devices asynchronously.
+ *  Unclaims a batch of devices for a customer asynchronously. Removes the
+ *  devices from zero-touch enrollment. To learn more, read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  Method: androiddeviceprovisioning.partners.devices.unclaimAsync
  */
@@ -781,17 +803,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUnclaimAsyncWithObject:partnerId:]
 
-/** Partner ID. */
+/** Required. The reseller partner ID. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Operation.
  *
- *  Unclaim devices asynchronously.
+ *  Unclaims a batch of devices for a customer asynchronously. Removes the
+ *  devices from zero-touch enrollment. To learn more, read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_UnclaimDevicesRequest to
  *    include in the query.
- *  @param partnerId Partner ID.
+ *  @param partnerId Required. The reseller partner ID.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaimAsync
  */
@@ -801,7 +825,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Set metadata in batch asynchronously.
+ *  Updates the reseller metadata attached to a batch of devices. This method
+ *  updates devices asynchronously and returns an `Operation` that can be used
+ *  to track progress. Read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  Method: androiddeviceprovisioning.partners.devices.updateMetadataAsync
  */
@@ -809,18 +836,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUpdateMetadataAsyncWithObject:partnerId:]
 
-/** Partner ID. */
+/** Required. The reseller partner ID. */
 @property(nonatomic, assign) long long partnerId;
 
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Operation.
  *
- *  Set metadata in batch asynchronously.
+ *  Updates the reseller metadata attached to a batch of devices. This method
+ *  updates devices asynchronously and returns an `Operation` that can be used
+ *  to track progress. Read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest to
  *    include in the query.
- *  @param partnerId Partner ID.
+ *  @param partnerId Required. The reseller partner ID.
  *
  *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUpdateMetadataAsync
  */

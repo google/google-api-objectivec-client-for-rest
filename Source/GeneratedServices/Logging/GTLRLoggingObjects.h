@@ -884,9 +884,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
 @property(nonatomic, strong, nullable) GTLRDateTime *receiveTimestamp;
 
 /**
- *  Required. The monitored resource associated with this log entry. Example: a
- *  log entry that reports a database error would be associated with the
- *  monitored resource designating the particular database that reported the
+ *  Required. The primary monitored resource associated with this log entry.
+ *  Example: a log entry that reports a database error would be associated with
+ *  the monitored resource designating the particular database that reported the
  *  error.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;

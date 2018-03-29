@@ -1100,25 +1100,6 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
-@implementation GTLRAndroidPublisherQuery_EntitlementsList
-
-@dynamic maxResults, packageName, productId, startIndex, token;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName {
-  NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/entitlements";
-  GTLRAndroidPublisherQuery_EntitlementsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.expectedObjectClass = [GTLRAndroidPublisher_EntitlementsListResponse class];
-  query.loggingName = @"androidpublisher.entitlements.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidPublisherQuery_InappproductsDelete
 
 @dynamic packageName, sku;

@@ -25,7 +25,7 @@ NSString * const kGTLRAuthScopeDataprocCloudPlatform = @"https://www.googleapis.
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://content-dataproc.googleapis.com/";
+    self.rootURLString = @"https://dataproc.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

@@ -134,7 +134,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsInsert
 
-@dynamic preview, project;
+@dynamic createPolicy, preview, project;
 
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project {

@@ -1788,7 +1788,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -1799,7 +1799,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTestersGet
  */
@@ -1832,7 +1832,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -1844,7 +1844,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTestersPatch
  */
@@ -1878,7 +1878,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -1890,7 +1890,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTestersUpdate
  */
@@ -1925,7 +1925,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -1939,7 +1939,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTracksGet
  */
@@ -2011,7 +2011,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -2027,7 +2027,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTracksPatch
  */
@@ -2063,7 +2063,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production" or "rollout".
+ *  "production", "rollout" or "internal".
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -2079,7 +2079,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production" or "rollout".
+ *    "beta", "production", "rollout" or "internal".
  *
  *  @returns GTLRAndroidPublisherQuery_EditsTracksUpdate
  */
@@ -2126,47 +2126,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
-
-@end
-
-/**
- *  Lists the user's current inapp item or subscription entitlements
- *
- *  Method: androidpublisher.entitlements.list
- */
-@interface GTLRAndroidPublisherQuery_EntitlementsList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEntitlementsListWithpackageName:]
-
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/**
- *  The package name of the application the inapp product was sold in (for
- *  example, 'com.some.thing').
- */
-@property(nonatomic, copy, nullable) NSString *packageName;
-
-/**
- *  The product id of the inapp product (for example, 'sku1'). This can be used
- *  to restrict the result set.
- */
-@property(nonatomic, copy, nullable) NSString *productId;
-
-@property(nonatomic, assign) NSUInteger startIndex;
-
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Fetches a @c GTLRAndroidPublisher_EntitlementsListResponse.
- *
- *  Lists the user's current inapp item or subscription entitlements
- *
- *  @param packageName The package name of the application the inapp product was
- *    sold in (for example, 'com.some.thing').
- *
- *  @returns GTLRAndroidPublisherQuery_EntitlementsList
- */
-+ (instancetype)queryWithPackageName:(NSString *)packageName;
 
 @end
 

@@ -1424,7 +1424,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesBuildingsList
 
-@dynamic customer;
+@dynamic customer, maxResults, pageToken;
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
@@ -1718,7 +1718,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesFeaturesList
 
-@dynamic customer, pageToken;
+@dynamic customer, maxResults, pageToken;
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];

@@ -410,6 +410,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_MaintenanceWindow
+//
+
+@implementation GTLRAndroidEnterprise_MaintenanceWindow
+@dynamic durationMs, startTimeAfterMidnightMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_ManagedConfiguration
 //
 
@@ -627,7 +637,8 @@
 //
 
 @implementation GTLRAndroidEnterprise_Policy
-@dynamic autoUpdatePolicy, productAvailabilityPolicy, productPolicy;
+@dynamic autoUpdatePolicy, maintenanceWindow, productAvailabilityPolicy,
+         productPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

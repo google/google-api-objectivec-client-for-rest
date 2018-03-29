@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Cloud Vision API (vision/v1)
 // Description:
 //   Integrates Google Vision features, including image labeling, face, logo,
 //   and landmark detection, optical character recognition (OCR), and detection
@@ -64,6 +64,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRVisionQuery_ImagesAnnotate
  */
 + (instancetype)queryWithObject:(GTLRVision_BatchAnnotateImagesRequest *)object;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: vision.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVisionCloudPlatform
+ *    @c kGTLRAuthScopeVisionCloudVision
+ */
+@interface GTLRVisionQuery_LocationsOperationsGet : GTLRVisionQuery
+// Previous library name was
+//   +[GTLQueryVision queryForLocationsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVision_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @returns GTLRVisionQuery_LocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

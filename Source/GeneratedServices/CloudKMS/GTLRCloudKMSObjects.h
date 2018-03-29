@@ -662,6 +662,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 @interface GTLRCloudKMS_Location : GTLRObject
 
 /**
+ *  The friendly name for this location, typically a nearby city name.
+ *  For example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
  *  Cross-service attributes for the location. For example
  *  {"cloud.googleapis.com/region": "us-east1"}
  */

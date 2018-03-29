@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Cloud Vision API (vision/v1)
 // Description:
 //   Integrates Google Vision features, including image labeling, face, logo,
 //   and landmark detection, optical character recognition (OCR), and detection
@@ -1814,6 +1814,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** The output location and metadata from AsyncAnnotateFileRequest. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1OutputConfig *outputConfig;
+
+/** The full list of output files in GCS. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1GcsDestination *> *outputs;
 
 @end
 

@@ -111,9 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Whether replication log archiving is enabled. Replication log archiving is
- *  required for the point-in-time recovery (PITR) feature. PostgreSQL instances
- *  only.
+ *  Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -268,9 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The epoch timestamp, in milliseconds, of the time to which a point-in-time
- *  recovery (PITR) is performed. PostgreSQL instances only. For MySQL
- *  instances, use the binLogCoordinates property.
+ *  Reserved for future use.
  *
  *  Uses NSNumber of longLongValue.
  */

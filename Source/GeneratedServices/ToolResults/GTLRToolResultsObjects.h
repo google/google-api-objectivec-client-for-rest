@@ -203,8 +203,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 /** Value: "compatibleWithOrchestrator" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
+/** Value: "completeRoboScriptExecution" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
 /** Value: "fatalException" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
+/** Value: "incompleteRoboScriptExecution" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
 /** Value: "launcherActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /** Value: "nativeCrash" */
@@ -1800,8 +1804,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Value "anr"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator Value
  *        "compatibleWithOrchestrator"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
+ *        "completeRoboScriptExecution"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value
  *        "fatalException"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution
+ *        Value "incompleteRoboScriptExecution"
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Value
  *        "launcherActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
@@ -1982,8 +1990,10 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *  always expressed using four digits while {month}, {day}, {hour}, {min}, and
  *  {sec} are zero-padded to two digits each. The fractional seconds, which can
  *  go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The
- *  "Z" suffix indicates the timezone ("UTC"); the timezone is required, though
- *  only UTC (as indicated by "Z") is currently supported.
+ *  "Z" suffix indicates the timezone ("UTC"); the timezone is required. A
+ *  proto3 JSON serializer should always use UTC (as indicated by "Z") when
+ *  printing the Timestamp type and a proto3 JSON parser should be able to
+ *  accept both UTC and other timezones (as indicated by an offset).
  *  For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30 UTC
  *  on January 15, 2017.
  *  In JavaScript, one can convert a Date object to this format using the

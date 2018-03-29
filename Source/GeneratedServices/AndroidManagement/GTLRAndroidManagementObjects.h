@@ -138,6 +138,48 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Command.errorCode
+
+/**
+ *  The API level of the device does not support this command.
+ *
+ *  Value: "API_LEVEL"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ApiLevel;
+/**
+ *  There was no error.
+ *
+ *  Value: "COMMAND_ERROR_CODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified;
+/**
+ *  The command has an invalid parameter value.
+ *
+ *  Value: "INVALID_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_InvalidValue;
+/**
+ *  The management mode (profile owner, device owner, etc.) does not support the
+ *  command.
+ *
+ *  Value: "MANAGEMENT_MODE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ManagementMode;
+/**
+ *  An unknown error occurred.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unknown;
+/**
+ *  The device doesn't support the command. Updating Android Device Policy to
+ *  the latest version may resolve the issue.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.resetPasswordFlags
 
 /** Value: "DO_NOT_ASK_CREDENTIALS_ON_BOOT" */
@@ -774,8 +816,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTr
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always;
 /**
- *  The auto-update policy is not set. Same as giving auto-update policy choice
- *  to the user.
+ *  The auto-update policy is not set. Equivalent to CHOICE_TO_THE_USER.
  *
  *  Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED"
  */
@@ -829,6 +870,28 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPoli
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.encryptionPolicy
+
+/**
+ *  Encryption required but no password required to boot
+ *
+ *  Value: "ENABLED_WITHOUT_PASSWORD"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithoutPassword;
+/**
+ *  Encryption required with password required to boot
+ *
+ *  Value: "ENABLED_WITH_PASSWORD"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithPassword;
+/**
+ *  This value is ignored, i.e. no encryption required
+ *
+ *  Value: "ENCRYPTION_POLICY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 
 /** Value: "ALL_FEATURES" */
@@ -847,6 +910,41 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatu
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents;
 /** Value: "UNREDACTED_NOTIFICATIONS" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.locationMode
+
+/**
+ *  Only the network location provider is enabled.
+ *
+ *  Value: "BATTERY_SAVING"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving;
+/**
+ *  All location detection methods are enabled, including GPS, networks, and
+ *  other sensors.
+ *
+ *  Value: "HIGH_ACCURACY"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy;
+/**
+ *  The current device value is not modified.
+ *
+ *  Value: "LOCATION_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified;
+/**
+ *  Location detection is disabled.
+ *
+ *  Value: "OFF"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
+/**
+ *  Only GPS and other sensors are enabled.
+ *
+ *  Value: "SENSORS_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
@@ -1168,6 +1266,28 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  is ten minutes. There is no maximum duration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  If the command failed, an error code explaining the failure. This is not set
+ *  when the command is cancelled by the caller.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_ApiLevel The API level of
+ *        the device does not support this command. (Value: "API_LEVEL")
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified
+ *        There was no error. (Value: "COMMAND_ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_InvalidValue The command
+ *        has an invalid parameter value. (Value: "INVALID_VALUE")
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_ManagementMode The
+ *        management mode (profile owner, device owner, etc.) does not support
+ *        the command. (Value: "MANAGEMENT_MODE")
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_Unknown An unknown error
+ *        occurred. (Value: "UNKNOWN")
+ *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_Unsupported The device
+ *        doesn't support the command. Updating Android Device Policy to the
+ *        latest version may resolve the issue. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
 
 /**
  *  For commands of type RESET_PASSWORD, optionally specifies the new password.
@@ -2597,16 +2717,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
 
 /**
- *  The auto update policy value. Specifies whether the user is given a choice
- *  to configure the app update policy, or otherwise contains the enforced
- *  update policy
+ *  The app auto update policy, which controls when automatic app updates can be
+ *  applied.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always Apps are
  *        auto-updated at any time. Data charges may apply. (Value: "ALWAYS")
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified
- *        The auto-update policy is not set. Same as giving auto-update policy
- *        choice to the user. (Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED")
+ *        The auto-update policy is not set. Equivalent to CHOICE_TO_THE_USER.
+ *        (Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser
  *        The user can control auto-updates. (Value: "CHOICE_TO_THE_USER")
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never Apps are
@@ -2727,6 +2846,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *defaultPermissionPolicy;
 
+/** The device owner information to be shown on the lock screen. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *deviceOwnerLockScreenInfo;
+
+/**
+ *  Whether encryption is enabled
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithoutPassword
+ *        Encryption required but no password required to boot (Value:
+ *        "ENABLED_WITHOUT_PASSWORD")
+ *    @arg @c kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithPassword
+ *        Encryption required with password required to boot (Value:
+ *        "ENABLED_WITH_PASSWORD")
+ *    @arg @c kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified
+ *        This value is ignored, i.e. no encryption required (Value:
+ *        "ENCRYPTION_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionPolicy;
+
 /**
  *  Whether app verification is force-enabled.
  *
@@ -2792,6 +2930,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *kioskCustomLauncherEnabled;
+
+/**
+ *  The degree of location detection enabled. The user may change the value
+ *  unless the user is otherwise blocked from accessing device settings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_BatterySaving Only the
+ *        network location provider is enabled. (Value: "BATTERY_SAVING")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy All
+ *        location detection methods are enabled, including GPS, networks, and
+ *        other sensors. (Value: "HIGH_ACCURACY")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified
+ *        The current device value is not modified. (Value:
+ *        "LOCATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_Off Location detection
+ *        is disabled. (Value: "OFF")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly Only GPS
+ *        and other sensors are enabled. (Value: "SENSORS_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *locationMode;
 
 /**
  *  A message displayed to the user in the device administators settings screen.
@@ -2931,10 +3089,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *setWallpaperDisabled;
 
 /**
+ *  Whether location sharing is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shareLocationDisabled;
+
+/**
  *  A message displayed to the user in the settings screen wherever
  *  functionality has been disabled by the admin.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *shortSupportMessage;
+
+/**
+ *  Flag to skip hints on the first use. Enterprise admin can enable the system
+ *  recommendation for apps to skip their user tutorial and other introductory
+ *  hints on first start-up.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipFirstUseHintsEnabled;
 
 /**
  *  Whether sending and receiving SMS messages is disabled.
@@ -2995,6 +3169,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *usbFileTransferDisabled;
+
+/**
+ *  Allows admins to toggle whether USB storge is enabled or disabled on user's
+ *  devices. Next ID: 113
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usbMassStorageEnabled;
 
 /**
  *  The version of the policy. This is a read-only field. The version is

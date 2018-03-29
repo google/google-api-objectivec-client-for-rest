@@ -184,10 +184,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudTrace/*.{h,m}'
   end
-  s.subspec 'CloudUserAccounts' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudUserAccounts/*.{h,m}'
-  end
   s.subspec 'CloudVideoIntelligence' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudVideoIntelligence/*.{h,m}'
@@ -519,6 +515,10 @@ Pod::Spec.new do |s|
   s.subspec 'Testing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Testing/*.{h,m}'
+  end
+  s.subspec 'Texttospeech' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Texttospeech/*.{h,m}'
   end
   s.subspec 'ToolResults' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

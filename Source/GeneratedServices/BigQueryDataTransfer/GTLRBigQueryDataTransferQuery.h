@@ -358,7 +358,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @end
 
 /**
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  Method: bigquerydatatransfer.projects.locations.get
  *
@@ -377,7 +377,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_Location.
  *
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  @param name Resource name for the location.
  *
@@ -436,7 +436,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
@@ -623,7 +622,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.patch
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch : GTLRBigQueryDataTransferQuery
@@ -945,7 +943,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.transferConfigs.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
@@ -1132,7 +1129,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.transferConfigs.patch
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch : GTLRBigQueryDataTransferQuery

@@ -89,8 +89,6 @@
 @class GTLRServiceConsumerManagement_Type;
 @class GTLRServiceConsumerManagement_Usage;
 @class GTLRServiceConsumerManagement_UsageRule;
-@class GTLRServiceConsumerManagement_Visibility;
-@class GTLRServiceConsumerManagement_VisibilityRule;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1109,9 +1107,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  <pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>
  *  Text can be excluded from doc using the following notation:
  *  <pre><code>&#40;-- internal comment --&#41;</code></pre>
- *  Comments can be made conditional using a visibility label. The below
- *  text will be only rendered if the `BETA` label is available:
- *  <pre><code>&#40;--BETA: comment for BETA users --&#41;</code></pre>
  *  A few directives are available in documentation. Note that
  *  directives must appear on a single line to be properly
  *  identified. The `include` directive includes a markdown file from
@@ -3111,9 +3106,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Usage *usage;
 
-/** API visibility configuration. */
-@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Visibility *visibility;
-
 @end
 
 
@@ -3417,7 +3409,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 /**
  *  Google Cloud API names of services that will be activated on this project
  *  during provisioning. If any of these services can not be activated,
- *  the `addTenantProject` method will fail.
+ *  request will fail.
  *  For example: 'compute.googleapis.com','cloudfunctions.googleapis.com'
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
@@ -3608,66 +3600,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipServiceControl;
-
-@end
-
-
-/**
- *  `Visibility` defines restrictions for the visibility of service
- *  elements. Restrictions are specified using visibility labels
- *  (e.g., TRUSTED_TESTER) that are elsewhere linked to users and projects.
- *  Users and projects can have access to more than one visibility label. The
- *  effective visibility for multiple labels is the union of each label's
- *  elements, plus any unrestricted elements.
- *  If an element and its parents have no restrictions, visibility is
- *  unconditionally granted.
- *  Example:
- *  visibility:
- *  rules:
- *  - selector: google.calendar.Calendar.EnhancedSearch
- *  restriction: TRUSTED_TESTER
- *  - selector: google.calendar.Calendar.Delegate
- *  restriction: GOOGLE_INTERNAL
- *  Here, all methods are publicly visible except for the restricted methods
- *  EnhancedSearch and Delegate.
- */
-@interface GTLRServiceConsumerManagement_Visibility : GTLRObject
-
-/**
- *  A list of visibility rules that apply to individual API elements.
- *  **NOTE:** All service configuration rules follow "last one wins" order.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_VisibilityRule *> *rules;
-
-@end
-
-
-/**
- *  A visibility rule provides visibility configuration for an individual API
- *  element.
- */
-@interface GTLRServiceConsumerManagement_VisibilityRule : GTLRObject
-
-/**
- *  A comma-separated list of visibility labels that apply to the `selector`.
- *  Any of the listed labels can be used to grant the visibility.
- *  If a rule has multiple labels, removing one of the labels but not all of
- *  them can break clients.
- *  Example:
- *  visibility:
- *  rules:
- *  - selector: google.calendar.Calendar.EnhancedSearch
- *  restriction: GOOGLE_INTERNAL, TRUSTED_TESTER
- *  Removing GOOGLE_INTERNAL from this restriction will break clients that
- *  rely on this method and only had access to it through GOOGLE_INTERNAL.
- */
-@property(nonatomic, copy, nullable) NSString *restriction;
-
-/**
- *  Selects methods, messages, fields, enums, etc. to which this rule applies.
- *  Refer to selector for syntax details.
- */
-@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 

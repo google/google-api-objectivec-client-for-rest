@@ -431,6 +431,35 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  CancelOperationRequest cancels a single operation.
  */
 @interface GTLRContainer_CancelOperationRequest : GTLRObject
+
+/**
+ *  The name (project, location, operation id) of the operation to cancel.
+ *  Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The server-assigned `name` of the operation.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the operation resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -541,6 +570,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  found in validMasterVersions returned by getServerConfig. The version can
  *  be upgraded over time; such upgrades are reflected in
  *  currentMasterVersion and currentNodeVersion.
+ *  Users may specify either explicit versions offered by
+ *  Kubernetes Engine or version aliases, which have the following behavior:
+ *  - "latest": picks the highest valid Kubernetes version
+ *  - "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+ *  - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+ *  - "1.X.Y-gke.N": picks an explicit Kubernetes version
+ *  - "","-": picks the default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *initialClusterVersion;
 
@@ -569,6 +605,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** Configuration for the legacy ABAC authorization mode. */
 @property(nonatomic, strong, nullable) GTLRContainer_LegacyAbac *legacyAbac;
+
+/**
+ *  [Output only] The name of the Google Compute Engine
+ *  [zone](/compute/docs/regions-zones/regions-zones#available) or
+ *  [region](/compute/docs/regions-zones/regions-zones#available) in which
+ *  the cluster resides.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The list of Google Compute Engine
@@ -719,6 +763,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  [Output only] The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the cluster
  *  resides.
+ *  This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -773,9 +818,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig;
 
 /**
- *  The Kubernetes version to change the master to. The only valid value is the
- *  latest supported version. Use "-" to have the server automatically select
- *  the latest version.
+ *  The Kubernetes version to change the master to.
+ *  Users may specify either explicit versions offered by
+ *  Kubernetes Engine or version aliases, which have the following behavior:
+ *  - "latest": picks the highest valid Kubernetes version
+ *  - "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+ *  - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+ *  - "1.X.Y-gke.N": picks an explicit Kubernetes version
+ *  - "-": picks the default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *desiredMasterVersion;
 
@@ -805,8 +855,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The Kubernetes version to change the nodes to (typically an
- *  upgrade). Use `-` to upgrade to the latest version supported by
- *  the server.
+ *  upgrade).
+ *  Users may specify either explicit versions offered by
+ *  Kubernetes Engine or version aliases, which have the following behavior:
+ *  - "latest": picks the highest valid Kubernetes version
+ *  - "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+ *  - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+ *  - "1.X.Y-gke.N": picks an explicit Kubernetes version
+ *  - "-": picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
 
@@ -817,6 +873,37 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  CompleteIPRotationRequest moves the cluster master back into single-IP mode.
  */
 @interface GTLRContainer_CompleteIPRotationRequest : GTLRObject
+
+/**
+ *  Deprecated. The name of the cluster.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster id) of the cluster to complete IP
+ *  rotation.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -831,6 +918,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster *cluster;
 
+/**
+ *  The parent (project and location) where the cluster will be created.
+ *  Specified in the format 'projects/ * /locations/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the parent field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the parent field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -839,8 +949,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_CreateNodePoolRequest : GTLRObject
 
+/**
+ *  Deprecated. The name of the cluster.
+ *  This field has been deprecated and replaced by the parent field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
 /** The node pool to create. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePool *nodePool;
+
+/**
+ *  The parent (project, location, cluster id) where the node pool will be
+ *  created.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ *  This field has been deprecated and replaced by the parent field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the parent field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1589,6 +1730,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
+/**
+ *  [Output only] The name of the Google Compute Engine
+ *  [zone](/compute/docs/regions-zones/regions-zones#available) or
+ *  [region](/compute/docs/regions-zones/regions-zones#available) in which
+ *  the cluster resides.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The server-assigned ID for the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1669,6 +1818,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the operation
  *  is taking place.
+ *  This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1683,6 +1833,44 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  completed.
  */
 @interface GTLRContainer_RollbackNodePoolUpgradeRequest : GTLRObject
+
+/**
+ *  Deprecated. The name of the cluster to rollback.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster, node pool id) of the node poll to
+ *  rollback upgrade.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The name of the node pool to rollback.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1720,6 +1908,35 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
 
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster) of the cluster to set addons.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1731,6 +1948,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetLabelsRequest : GTLRObject
 
 /**
+ *  Deprecated. The name of the cluster.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
  *  The fingerprint of the previous set of labels for this resource,
  *  used to detect conflicts. The fingerprint is initially generated by
  *  Kubernetes Engine and changes after every request to modify or update
@@ -1740,8 +1963,31 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
+/**
+ *  The name (project, location, cluster id) of the cluster to set labels.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /** The labels to set for that cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SetLabelsRequest_ResourceLabels *resourceLabels;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1766,11 +2012,40 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetLegacyAbacRequest : GTLRObject
 
 /**
+ *  Deprecated. The name of the cluster to update.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
  *  Whether ABAC authorization will be enabled in the cluster.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The name (project, location, cluster id) of the cluster to set legacy abac.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1779,6 +2054,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  SetLocationsRequest sets the locations of the cluster.
  */
 @interface GTLRContainer_SetLocationsRequest : GTLRObject
+
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The desired list of Google Compute Engine
@@ -1790,6 +2071,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
+/**
+ *  The name (project, location, cluster) of the cluster to set locations.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1799,12 +2103,41 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetLoggingServiceRequest : GTLRObject
 
 /**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
  *  The logging service the cluster should use to write metrics.
  *  Currently available options:
  *  * "logging.googleapis.com" - the Google Cloud Logging service
  *  * "none" - no metrics will be exported from the cluster
  */
 @property(nonatomic, copy, nullable) NSString *loggingService;
+
+/**
+ *  The name (project, location, cluster) of the cluster to set logging.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1814,11 +2147,36 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_SetMaintenancePolicyRequest : GTLRObject
 
+/** The name of the cluster to update. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
 /**
  *  The maintenance policy to be set for the cluster. An empty field
  *  clears the existing maintenance policy.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
+
+/**
+ *  The name (project, location, cluster id) of the cluster to set maintenance
+ *  policy.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1849,8 +2207,37 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster) of the cluster to set auth.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /** A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *update;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1861,12 +2248,41 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetMonitoringServiceRequest : GTLRObject
 
 /**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
  *  The monitoring service the cluster should use to write metrics.
  *  Currently available options:
  *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
  *  * "none" - no metrics will be exported from the cluster
  */
 @property(nonatomic, copy, nullable) NSString *monitoringService;
+
+/**
+ *  The name (project, location, cluster) of the cluster to set monitoring.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1876,8 +2292,38 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_SetNetworkPolicyRequest : GTLRObject
 
+/**
+ *  Deprecated. The name of the cluster.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster id) of the cluster to set networking
+ *  policy.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** Configuration options for the NetworkPolicy feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicy *networkPolicy;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1890,6 +2336,42 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** Autoscaling configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
 
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster, node pool) of the node pool to set
+ *  autoscaler settings. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The name of the node pool to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1899,8 +2381,44 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_SetNodePoolManagementRequest : GTLRObject
 
+/**
+ *  Deprecated. The name of the cluster to update.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
 /** NodeManagement configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
+/**
+ *  The name (project, location, cluster, node pool id) of the node pool to set
+ *  management properties. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The name of the node pool to update.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1912,11 +2430,48 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_SetNodePoolSizeRequest : GTLRObject
 
 /**
+ *  Deprecated. The name of the cluster to update.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster, node pool id) of the node pool to set
+ *  size.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  The desired node count for the pool.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  Deprecated. The name of the node pool to update.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1926,6 +2481,37 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  a node upgrade on each node pool to point to the new IP.
  */
 @interface GTLRContainer_StartIPRotationRequest : GTLRObject
+
+/**
+ *  Deprecated. The name of the cluster.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster id) of the cluster to start IP
+ *  rotation.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -1934,8 +2520,37 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_UpdateClusterRequest : GTLRObject
 
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The name (project, location, cluster) of the cluster to update.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /** A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterUpdate *update;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1946,10 +2561,45 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @interface GTLRContainer_UpdateMasterRequest : GTLRObject
 
 /**
- *  The Kubernetes version to change the master to. Use "-" to have the server
- *  automatically select the default version.
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The Kubernetes version to change the master to.
+ *  Users may specify either explicit versions offered by Kubernetes Engine or
+ *  version aliases, which have the following behavior:
+ *  - "latest": picks the highest valid Kubernetes version
+ *  - "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+ *  - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+ *  - "1.X.Y-gke.N": picks an explicit Kubernetes version
+ *  - "-": picks the default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *masterVersion;
+
+/**
+ *  The name (project, location, cluster) of the cluster to update.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1959,15 +2609,57 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @interface GTLRContainer_UpdateNodePoolRequest : GTLRObject
 
+/**
+ *  Deprecated. The name of the cluster to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
 /** The desired image type for the node pool. */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
+ *  The name (project, location, cluster, node pool) of the node pool to update.
+ *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Deprecated. The name of the node pool to upgrade.
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
  *  The Kubernetes version to change the nodes to (typically an
- *  upgrade). Use `-` to upgrade to the latest version supported by
- *  the server.
+ *  upgrade).
+ *  Users may specify either explicit versions offered by Kubernetes Engine or
+ *  version aliases, which have the following behavior:
+ *  - "latest": picks the highest valid Kubernetes version
+ *  - "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+ *  - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+ *  - "1.X.Y-gke.N": picks an explicit Kubernetes version
+ *  - "-": picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *nodeVersion;
+
+/**
+ *  Deprecated. The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ *  This field has been deprecated and replaced by the name field.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Deprecated. The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *  This field has been deprecated and replaced by the name field.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
