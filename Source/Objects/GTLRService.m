@@ -37,14 +37,14 @@
 #import "GTLRURITemplate.h"
 #import "GTLRUtilities.h"
 
-#import "GTMMIMEDocument.h"
-
 #if GTLR_USE_FRAMEWORK_IMPORTS
   #import <GTMSessionFetcher/GTMSessionFetcher.h>
   #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+  #import <GTMSessionFetcher/GTMMIMEDocument.h>
 #else
   #import "GTMSessionFetcher.h"
   #import "GTMSessionFetcherService.h"
+  #import "GTMMIMEDocument.h"
 #endif  // GTLR_USE_FRAMEWORK_IMPORTS
 
 
