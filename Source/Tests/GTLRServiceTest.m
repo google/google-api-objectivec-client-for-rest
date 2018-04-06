@@ -3521,7 +3521,7 @@ UIBackgroundTaskIdentifier gTaskID = 1000;
   if (_shouldExpireTasks) {
     dispatch_async(dispatch_get_main_queue(), ^{
       handler();
-      _numberOfExpiredTasks++;
+      self->_numberOfExpiredTasks++;
     });
   }
   return taskID;
