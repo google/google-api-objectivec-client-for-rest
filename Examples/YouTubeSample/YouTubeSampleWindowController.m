@@ -137,7 +137,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
 
 - (IBAction)getPlaylist:(id)sender {
   void (^getPlaylist)(void) = ^{
-    if (_myPlaylists == nil) {
+    if (self->_myPlaylists == nil) {
       [self fetchMyChannelList];
     } else {
       [self fetchSelectedPlaylist];
@@ -177,10 +177,10 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
     if (result == NSFileHandlingPanelOKButton) {
       // The user chose a file.
       NSString *path = openPanel.URL.path;
-      _uploadPathField.stringValue = path;
+      self->_uploadPathField.stringValue = path;
 
-      if (_uploadTitleField.stringValue.length == 0) {
-        _uploadTitleField.stringValue = path.lastPathComponent;
+      if (self->_uploadTitleField.stringValue.length == 0) {
+        self->_uploadTitleField.stringValue = path.lastPathComponent;
       }
 
       [self updateUI]; // Update UI in case we need to enable the upload button.
@@ -298,12 +298,12 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
     // "my channel".
     if (channelList.items.count > 0) {
       GTLRYouTube_Channel *channel = channelList[0];
-      _myPlaylists = channel.contentDetails.relatedPlaylists;
+      self->_myPlaylists = channel.contentDetails.relatedPlaylists;
     }
-    _channelListFetchError = callbackError;
-    _channelListTicket = nil;
+    self->_channelListFetchError = callbackError;
+    self->_channelListTicket = nil;
 
-    if (_myPlaylists) {
+    if (self->_myPlaylists) {
       [self fetchSelectedPlaylist];
     }
 
@@ -339,9 +339,9 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
                                 GTLRYouTube_PlaylistItemListResponse *playlistItemList,
                                 NSError *callbackError) {
        // Callback
-       _playlistItemList = playlistItemList;
-       _playlistFetchError = callbackError;
-       _playlistItemListTicket = nil;
+       self->_playlistItemList = playlistItemList;
+       self->_playlistFetchError = callbackError;
+       self->_playlistItemListTicket = nil;
 
        [self updateUI];
      }];
@@ -378,8 +378,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
           item.representedObject = categoryID;
           [categoryMenu addItem:item];
         }
-        _uploadCategoryPopup.menu = categoryMenu;
-        _uploadCategoryPopup.enabled = YES;
+        self->_uploadCategoryPopup.menu = categoryMenu;
+        self->_uploadCategoryPopup.enabled = YES;
       }
       [self updateUI];
    }];
@@ -470,13 +470,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
                                               GTLRYouTube_Video *uploadedVideo,
                                               NSError *callbackError) {
       // Callback
-      _uploadFileTicket = nil;
+      self->_uploadFileTicket = nil;
       if (callbackError == nil) {
         [self displayAlert:@"Uploaded"
                     format:@"Uploaded file \"%@\"",
          uploadedVideo.snippet.title];
 
-        if (_playlistPopup.selectedTag == kUploadsTag) {
+        if (self->_playlistPopup.selectedTag == kUploadsTag) {
           // Refresh the displayed uploads playlist.
           [self fetchSelectedPlaylist];
         }
@@ -485,8 +485,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
                     format:@"%@", callbackError];
       }
 
-      _uploadProgressIndicator.doubleValue = 0.0;
-      _uploadLocationURL = nil;
+      self->_uploadProgressIndicator.doubleValue = 0.0;
+      self->_uploadLocationURL = nil;
       [self updateUI];
     }];
 
@@ -693,7 +693,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
         if (data) {
           NSImage *image = [[NSImage alloc] initWithData:data];
           if (image) {
-            _thumbnailView.image = image;
+            self->_thumbnailView.image = image;
           } else {
             NSLog(@"Failed to make image from %tu bytes for \"%@\"",
                   data.length, title);
