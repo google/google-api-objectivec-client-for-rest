@@ -21,10 +21,10 @@
 #import "EditEventWindowController.h"
 #import "EditACLWindowController.h"
 
-#import "GTLR/AppAuth.h"
-#import "GTLR/GTLRUtilities.h"
-#import "GTLR/GTMSessionFetcherLogging.h"
-#import "GTLR/GTMAppAuth.h"
+#import <AppAuth/AppAuth.h>
+#import <GTMAppAuth/GTMAppAuth.h>
+#import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
+#import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 enum {
   kEventsSegment = 0,

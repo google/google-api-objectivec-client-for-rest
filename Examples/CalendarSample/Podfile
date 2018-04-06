@@ -1,0 +1,13 @@
+target 'CalendarSample' do
+  platform :osx, '10.9'
+
+  # Pods for GTMAppAuth development
+  pod 'GoogleAPIClientForREST', :path => '../../'
+  # In production, you would use:
+  # pod 'GoogleAPIClientForREST'
+
+  # Also use GTMAppAuth. See the project wiki, you can use this or Google
+  # SignIn.
+  pod 'GTMAppAuth'
+
+end
