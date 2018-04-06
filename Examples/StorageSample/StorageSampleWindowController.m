@@ -447,9 +447,9 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                                              GTLRStorage_Buckets *bucketList,
                                              NSError *callbackError) {
     // Callback
-    _bucketList = bucketList;
-    _bucketListFetchError = callbackError;
-    _bucketListTicket = nil;
+    self->_bucketList = bucketList;
+    self->_bucketListFetchError = callbackError;
+    self->_bucketListTicket = nil;
 
     [self updateUI];
   }];
@@ -480,9 +480,9 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                                                  GTLRStorage_Objects *objectsList,
                                                  NSError *callbackError) {
       // Callback
-      _objectsList = objectsList;
-      _objectsListFetchError = callbackError;
-      _objectsListTicket = nil;
+      self->_objectsList = objectsList;
+      self->_objectsListFetchError = callbackError;
+      self->_objectsListTicket = nil;
 
       [self updateUI];
     }];
@@ -516,7 +516,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                                                   id nilObject,
                                                   NSError *callbackError) {
     // Callback
-    _editBucketListTicket = nil;
+    self->_editBucketListTicket = nil;
     if (callbackError == nil) {
         [self displayAlert:@"Added"
                     format:@"Added \"%@\"",
@@ -545,7 +545,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                                                     id nilObject,
                                                     NSError *callbackError) {
       // Callback
-      _editBucketListTicket = nil;
+      self->_editBucketListTicket = nil;
       if (callbackError == nil) {
         [self displayAlert:@"Deleted"
                     format:@"Deleted \"%@\"",
@@ -596,7 +596,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                                               GTLRStorage_Object *uploadedFile,
                                               NSError *callbackError) {
     // Callback
-    _uploadObjectTicket = nil;
+    self->_uploadObjectTicket = nil;
     if (callbackError == nil) {
       [self displayAlert:@"Created"
                   format:@"Uploaded file \"%@\"",
@@ -606,7 +606,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
       [self displayAlert:@"Upload Failed"
                   format:@"%@", callbackError];
     }
-    _uploadProgressIndicator.doubleValue = 0.0;
+    self->_uploadProgressIndicator.doubleValue = 0.0;
     [self updateUI];
   }];
 
