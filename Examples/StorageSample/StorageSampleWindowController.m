@@ -19,10 +19,10 @@
 
 #import "StorageSampleWindowController.h"
 
-#import "GTLR/AppAuth.h"
-#import "GTLR/GTMSessionFetcherService.h"
-#import "GTLR/GTMSessionFetcherLogging.h"
-#import "GTLR/GTMAppAuth.h"
+#import <AppAuth/AppAuth.h>
+#import <GTMAppAuth/GTMAppAuth.h>
+#import <GTMSessionFetcher/GTMSessionFetcherService.h>
+#import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 
 // Segmented control indices.
 enum {
