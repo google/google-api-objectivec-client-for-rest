@@ -23,11 +23,11 @@
 
 #import "YouTubeSampleWindowController.h"
 
-#import "GTLR/AppAuth.h"
-#import "GTLR/GTLRUtilities.h"
-#import "GTLR/GTMSessionUploadFetcher.h"
-#import "GTLR/GTMSessionFetcherLogging.h"
-#import "GTLR/GTMAppAuth.h"
+#import <AppAuth/AppAuth.h>
+#import <GTMAppAuth/GTMAppAuth.h>
+#import <GTMSessionFetcher/GTMSessionUploadFetcher.h>
+#import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
+#import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 enum {
   // Playlist pop-up menu item tags.
