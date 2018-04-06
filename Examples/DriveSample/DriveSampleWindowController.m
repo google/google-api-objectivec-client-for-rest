@@ -511,9 +511,9 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                             GTLRDrive_FileList *fileList,
                                             NSError *callbackError) {
     // Callback
-    _fileList = fileList;
-    _fileListFetchError = callbackError;
-    _fileListTicket = nil;
+    self->_fileList = fileList;
+    self->_fileListFetchError = callbackError;
+    self->_fileListTicket = nil;
 
     [self updateUI];
   }];
@@ -548,8 +548,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
     revisionQuery.completionBlock = ^(GTLRServiceTicket *callbackTicket,
                                       GTLRDrive_RevisionList *obj,
                                       NSError *callbackError) {
-      _revisionList = obj;
-      _revisionListFetchError = callbackError;
+      self->_revisionList = obj;
+      self->_revisionListFetchError = callbackError;
     };
 
     GTLRDriveQuery_PermissionsList *permissionQuery =
@@ -557,8 +557,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
     permissionQuery.completionBlock = ^(GTLRServiceTicket *callbackTicket,
                                         GTLRDrive_PermissionList *obj,
                                         NSError *callbackError) {
-      _permissionList = obj;
-      _permissionListFetchError = callbackError;
+      self->_permissionList = obj;
+      self->_permissionListFetchError = callbackError;
     };
 
     GTLRDriveQuery_FilesList *childQuery = [GTLRDriveQuery_FilesList query];
@@ -566,8 +566,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
     // Accumulate additional pages of results for this query, if necessary.
     childQuery.completionBlock = ^(GTLRServiceTicket *callbackTicket, GTLRDrive_FileList *obj,
                                    NSError *callbackError) {
-      _childList = obj;
-      _childListFetchError = callbackError;
+      self->_childList = obj;
+      self->_childListFetchError = callbackError;
     };
 
     // Note: The fields property in Google APIs is supposed to restrict
@@ -577,8 +577,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
     parentsQuery.fields = @"parents";
     parentsQuery.completionBlock = ^(GTLRServiceTicket *callbackTicket, GTLRDrive_File *obj,
                                      NSError *callbackError) {
-      _parentsList = obj.parents;
-      _parentsListFetchError = callbackError;
+      self->_parentsList = obj.parents;
+      self->_parentsListFetchError = callbackError;
     };
 
     // Combine the separate queries into one batch.
@@ -596,8 +596,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
        //
        // The batch query execution completionHandler runs after the individual
        // query completion handlers have been called.
-       _detailsTicket = nil;
-       _detailsFetchError = callbackError;
+       self->_detailsTicket = nil;
+       self->_detailsFetchError = callbackError;
 
        [self updateUI];
      }];
@@ -619,7 +619,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                                   id nilObject,
                                                   NSError *callbackError) {
       // Callback
-      _editFileListTicket = nil;
+      self->_editFileListTicket = nil;
       if (callbackError == nil) {
         [self displayAlert:@"Deleted"
                     format:@"Deleted \"%@\"",
@@ -656,7 +656,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                                   GTLRDrive_File *updatedObject,
                                                   NSError *callbackError) {
                                 // Callback
-      _editFileListTicket = nil;
+      self->_editFileListTicket = nil;
       if (callbackError == nil) {
         NSString *fmt = (isInTrash ? @"Moved \"%@\" out of trash" : @"Moved \"%@\" to trash");
         [self displayAlert:@"Updated"
@@ -690,7 +690,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                                   GTLRDrive_File *copiedFile,
                                                   NSError *callbackError) {
       // Callback
-      _editFileListTicket = nil;
+      self->_editFileListTicket = nil;
       if (callbackError == nil) {
         [self displayAlert:@"Copied"
                     format:@"Created copy \"%@\"",
@@ -724,7 +724,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                                 GTLRDrive_File *folderItem,
                                                 NSError *callbackError) {
                               // Callback
-    _editFileListTicket = nil;
+    self->_editFileListTicket = nil;
     if (callbackError == nil) {
       [self displayAlert:@"Created"
                   format:@"Created folder \"%@\"",
@@ -781,7 +781,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                                               GTLRDrive_File *uploadedFile,
                                               NSError *callbackError) {
     // Callback
-    _uploadFileTicket = nil;
+    self->_uploadFileTicket = nil;
     if (callbackError == nil) {
       [self displayAlert:@"Created"
                   format:@"Uploaded file \"%@\"",
@@ -791,7 +791,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
       [self displayAlert:@"Upload Failed"
                   format:@"%@", callbackError];
     }
-    _uploadProgressIndicator.doubleValue = 0.0;
+    self->_uploadProgressIndicator.doubleValue = 0.0;
     [self updateUI];
   }];
 
@@ -1052,7 +1052,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
         if (data) {
           NSImage *image = [[NSImage alloc] initWithData:data];
           if (image) {
-            _thumbnailView.image = image;
+            self->_thumbnailView.image = image;
           } else {
             NSLog(@"Failed to make image from %tu bytes for \"%@\"",
                   data.length, selectedFile.name);
