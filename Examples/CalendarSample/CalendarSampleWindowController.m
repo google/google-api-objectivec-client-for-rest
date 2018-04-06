@@ -428,7 +428,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
     // Callback
     self.editCalendarListTicket = nil;
     if (callbackError == nil) {
-      _calendarNameField.stringValue = @"";
+      self->_calendarNameField.stringValue = @"";
       [self fetchCalendarList];
     } else {
       [self displayAlert:@"Add failed"
@@ -466,7 +466,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
          selectedCalendarListEntry.summary,
          calendar.summary];
 
-        _calendarNameField.stringValue = @"";
+        self->_calendarNameField.stringValue = @"";
 
         [self fetchCalendarList];
       } else {
