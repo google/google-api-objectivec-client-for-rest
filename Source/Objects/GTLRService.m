@@ -864,16 +864,16 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   if (uploadLocationURL) {
     // Resuming with the session fetcher and a file URL.
     GTLR_DEBUG_ASSERT(uploadFileURL != nil, @"Resume requires a file URL");
-    fetcher = [uploadClass uploadFetcherWithLocation:uploadLocationURL
-                                      uploadMIMEType:uploadMIMEType
-                                           chunkSize:(int64_t)uploadChunkSize
-                                      fetcherService:fetcherService];
+    fetcher = [GTMSessionUploadFetcher uploadFetcherWithLocation:uploadLocationURL
+                                                  uploadMIMEType:uploadMIMEType
+                                                       chunkSize:(int64_t)uploadChunkSize
+                                                  fetcherService:fetcherService];
     fetcher.uploadFileURL = uploadFileURL;
   } else {
-    fetcher = [uploadClass uploadFetcherWithRequest:request
-                                     uploadMIMEType:uploadMIMEType
-                                          chunkSize:(int64_t)uploadChunkSize
-                                     fetcherService:fetcherService];
+    fetcher = [GTMSessionUploadFetcher uploadFetcherWithRequest:request
+                                                 uploadMIMEType:uploadMIMEType
+                                                      chunkSize:(int64_t)uploadChunkSize
+                                                 fetcherService:fetcherService];
     if (uploadFileURL) {
       fetcher.uploadFileURL = uploadFileURL;
     } else if (uploadData) {
