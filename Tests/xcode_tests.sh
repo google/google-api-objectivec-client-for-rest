@@ -37,7 +37,7 @@ case "${BUILD_MODE}" in
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "tvOS Framework and Tests"
-      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest"
+      -destination "platform=tvOS Simulator,name=Apple TV,OS=latest"
     )
     ;;
   watchOSCore)
