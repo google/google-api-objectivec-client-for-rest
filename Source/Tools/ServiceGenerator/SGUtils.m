@@ -164,7 +164,7 @@ static const NSUInteger kMaxWidth = 80;
 }
 
 - (void)appendReturns:(NSString *)str {
-  [self appendFirstIndent:@"@returns " indent:@"  " string:str];
+  [self appendFirstIndent:@"@return " indent:@"  " string:str];
 }
 
 - (void)appendArg:(NSString *)name string:(NSString *)str {
