@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRCloudVideoIntelligenceQuery_OperationsCancel
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name;
@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRCloudVideoIntelligenceQuery_OperationsDelete
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudVideoIntelligenceQuery_OperationsGet
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  @returns GTLRCloudVideoIntelligenceQuery_OperationsList
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest
  *    to include in the query.
  *
- *  @returns GTLRCloudVideoIntelligenceQuery_VideosAnnotate
+ *  @return GTLRCloudVideoIntelligenceQuery_VideosAnnotate
  */
 + (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest *)object;
 

@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  supports. For more information, see [Listing supported predefined
  *  infoTypes](/dlp/docs/listing-infotypes).
  *
- *  @returns GTLRDLPQuery_InfoTypesList
+ *  @return GTLRDLPQuery_InfoTypesList
  */
 + (instancetype)query;
 
@@ -139,7 +139,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesCreate
+ *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
                          parent:(NSString *)parent;
@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    for example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesDelete
+ *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesGet
+ *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -255,7 +255,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesList
+ *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -297,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsDeidentifyTemplatesPatch
+ *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest *)object
                            name:(NSString *)name;
@@ -335,7 +335,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesCreate
+ *  @return GTLRDLPQuery_OrganizationsInspectTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
                          parent:(NSString *)parent;
@@ -371,7 +371,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesDelete
+ *  @return GTLRDLPQuery_OrganizationsInspectTemplatesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -406,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesGet
+ *  @return GTLRDLPQuery_OrganizationsInspectTemplatesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -451,7 +451,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesList
+ *  @return GTLRDLPQuery_OrganizationsInspectTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -492,7 +492,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_OrganizationsInspectTemplatesPatch
+ *  @return GTLRDLPQuery_OrganizationsInspectTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest *)object
                            name:(NSString *)name;
@@ -527,7 +527,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsContentDeidentify
+ *  @return GTLRDLPQuery_ProjectsContentDeidentify
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
                          parent:(NSString *)parent;
@@ -564,7 +564,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsContentInspect
+ *  @return GTLRDLPQuery_ProjectsContentInspect
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2InspectContentRequest *)object
                          parent:(NSString *)parent;
@@ -595,7 +595,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent The parent resource name.
  *
- *  @returns GTLRDLPQuery_ProjectsContentReidentify
+ *  @return GTLRDLPQuery_ProjectsContentReidentify
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest *)object
                          parent:(NSString *)parent;
@@ -634,7 +634,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesCreate
+ *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
                          parent:(NSString *)parent;
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    for example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesDelete
+ *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -705,7 +705,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesGet
+ *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -750,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesList
+ *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -792,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsDeidentifyTemplatesPatch
+ *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest *)object
                            name:(NSString *)name;
@@ -827,7 +827,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param name The name of the DlpJob resource to be cancelled.
  *
- *  @returns GTLRDLPQuery_ProjectsDlpJobsCancel
+ *  @return GTLRDLPQuery_ProjectsDlpJobsCancel
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest *)object
                            name:(NSString *)name;
@@ -860,7 +860,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsDlpJobsCreate
+ *  @return GTLRDLPQuery_ProjectsDlpJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest *)object
                          parent:(NSString *)parent;
@@ -893,7 +893,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name The name of the DlpJob resource to be deleted.
  *
- *  @returns GTLRDLPQuery_ProjectsDlpJobsDelete
+ *  @return GTLRDLPQuery_ProjectsDlpJobsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -921,7 +921,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name The name of the DlpJob resource.
  *
- *  @returns GTLRDLPQuery_ProjectsDlpJobsGet
+ *  @return GTLRDLPQuery_ProjectsDlpJobsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -987,7 +987,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsDlpJobsList
+ *  @return GTLRDLPQuery_ProjectsDlpJobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1025,7 +1025,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsImageRedact
+ *  @return GTLRDLPQuery_ProjectsImageRedact
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2RedactImageRequest *)object
                          parent:(NSString *)parent;
@@ -1063,7 +1063,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_ProjectsInspectTemplatesCreate
+ *  @return GTLRDLPQuery_ProjectsInspectTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
                          parent:(NSString *)parent;
@@ -1099,7 +1099,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsInspectTemplatesDelete
+ *  @return GTLRDLPQuery_ProjectsInspectTemplatesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1134,7 +1134,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsInspectTemplatesGet
+ *  @return GTLRDLPQuery_ProjectsInspectTemplatesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1179,7 +1179,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    or
  *    organizations/my-org-id.
  *
- *  @returns GTLRDLPQuery_ProjectsInspectTemplatesList
+ *  @return GTLRDLPQuery_ProjectsInspectTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1220,7 +1220,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    example `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
- *  @returns GTLRDLPQuery_ProjectsInspectTemplatesPatch
+ *  @return GTLRDLPQuery_ProjectsInspectTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest *)object
                            name:(NSString *)name;
@@ -1253,7 +1253,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsJobTriggersCreate
+ *  @return GTLRDLPQuery_ProjectsJobTriggersCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest *)object
                          parent:(NSString *)parent;
@@ -1286,7 +1286,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param name Resource name of the project and the triggeredJob, for example
  *    `projects/dlp-test-project/jobTriggers/53234423`.
  *
- *  @returns GTLRDLPQuery_ProjectsJobTriggersDelete
+ *  @return GTLRDLPQuery_ProjectsJobTriggersDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1318,7 +1318,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param name Resource name of the project and the triggeredJob, for example
  *    `projects/dlp-test-project/jobTriggers/53234423`.
  *
- *  @returns GTLRDLPQuery_ProjectsJobTriggersGet
+ *  @return GTLRDLPQuery_ProjectsJobTriggersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1370,7 +1370,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
- *  @returns GTLRDLPQuery_ProjectsJobTriggersList
+ *  @return GTLRDLPQuery_ProjectsJobTriggersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1408,7 +1408,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param name Resource name of the project and the triggeredJob, for example
  *    `projects/dlp-test-project/jobTriggers/53234423`.
  *
- *  @returns GTLRDLPQuery_ProjectsJobTriggersPatch
+ *  @return GTLRDLPQuery_ProjectsJobTriggersPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest *)object
                            name:(NSString *)name;

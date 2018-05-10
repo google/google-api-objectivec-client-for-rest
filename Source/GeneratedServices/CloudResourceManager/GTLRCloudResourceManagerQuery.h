@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_Folder to include in the
  *    query.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersCreate
+ *  @return GTLRCloudResourceManagerQuery_FoldersCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object;
 
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name the resource name of the Folder to be deleted.
  *    Must be of the form `folders/{folder_id}`.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersDelete
+ *  @return GTLRCloudResourceManagerQuery_FoldersDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -203,7 +203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the Folder to retrieve.
  *    Must be of the form `folders/{folder_id}`.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersGet
+ *  @return GTLRCloudResourceManagerQuery_FoldersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersGetIamPolicy
+ *  @return GTLRCloudResourceManagerQuery_FoldersGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The caller must have `resourcemanager.folders.list` permission on the
  *  identified parent.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersList
+ *  @return GTLRCloudResourceManagerQuery_FoldersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -383,7 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the Folder to move.
  *    Must be of the form folders/{folder_id}
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersMove
+ *  @return GTLRCloudResourceManagerQuery_FoldersMove
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_MoveFolderRequest *)object
                            name:(NSString *)name;
@@ -450,7 +450,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. The resource name of the Folder.
  *    Its format is `folders/{folder_id}`, for example: "folders/1234".
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersPatch
+ *  @return GTLRCloudResourceManagerQuery_FoldersPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object
                            name:(NSString *)name;
@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SearchFoldersRequest to
  *    include in the query.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersSearch
+ *  @return GTLRCloudResourceManagerQuery_FoldersSearch
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_SearchFoldersRequest *)object;
 
@@ -529,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersSetIamPolicy
+ *  @return GTLRCloudResourceManagerQuery_FoldersSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -571,7 +571,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersTestIamPermissions
+ *  @return GTLRCloudResourceManagerQuery_FoldersTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -624,7 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the Folder to undelete.
  *    Must be of the form `folders/{folder_id}`.
  *
- *  @returns GTLRCloudResourceManagerQuery_FoldersUndelete
+ *  @return GTLRCloudResourceManagerQuery_FoldersUndelete
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_UndeleteFolderRequest *)object
                            name:(NSString *)name;

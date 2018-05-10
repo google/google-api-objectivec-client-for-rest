@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    API will lead to the verification page, prompting the user to go through
  *    that process before they can gain access to the Ad Experience Report.
  *
- *  @returns GTLRAdExperienceReportQuery_SitesGet
+ *  @return GTLRAdExperienceReportQuery_SitesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists sites with Ad Experience Report statuses of "Failing" or "Warning".
  *
- *  @returns GTLRAdExperienceReportQuery_ViolatingSitesList
+ *  @return GTLRAdExperienceReportQuery_ViolatingSitesList
  */
 + (instancetype)query;
 

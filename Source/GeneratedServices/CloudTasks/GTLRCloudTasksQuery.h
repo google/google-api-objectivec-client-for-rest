@@ -89,7 +89,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param name Resource name for the location.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsGet
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -126,7 +126,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsList
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -189,7 +189,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    Tasks' implementation of
  *    ListLocations.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesCreate
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_Queue *)object
                          parent:(NSString *)parent;
@@ -240,7 +240,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesDelete
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The resource name of the queue. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesGet
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -319,7 +319,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesGetIamPolicy
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -389,7 +389,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The location name.
  *    For example: `projects/PROJECT_ID/locations/LOCATION_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesList
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -484,7 +484,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    Caller-specified and required in CreateQueue,
  *    after which it becomes output only.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesPatch
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_Queue *)object
                            name:(NSString *)name;
@@ -531,7 +531,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesPause
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPause
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_PauseQueueRequest *)object
                            name:(NSString *)name;
@@ -574,7 +574,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesPurge
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPurge
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_PurgeQueueRequest *)object
                            name:(NSString *)name;
@@ -631,7 +631,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesResume
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesResume
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_ResumeQueueRequest *)object
                            name:(NSString *)name;
@@ -679,7 +679,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesSetIamPolicy
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -744,7 +744,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksAcknowledge
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksAcknowledge
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_AcknowledgeTaskRequest *)object
                            name:(NSString *)name;
@@ -789,7 +789,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCancelLease
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCancelLease
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_CancelLeaseRequest *)object
                            name:(NSString *)name;
@@ -846,7 +846,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *    The queue must already exist.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCreate
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_CreateTaskRequest *)object
                          parent:(NSString *)parent;
@@ -887,7 +887,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksDelete
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -941,7 +941,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksGet
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1013,7 +1013,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksLease
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_LeaseTasksRequest *)object
                          parent:(NSString *)parent;
@@ -1105,7 +1105,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1151,7 +1151,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRenewLease
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRenewLease
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_RenewLeaseRequest *)object
                            name:(NSString *)name;
@@ -1227,7 +1227,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRun
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRun
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_RunTaskRequest *)object
                            name:(NSString *)name;
@@ -1273,7 +1273,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudTasksQuery_ProjectsLocationsQueuesTestIamPermissions
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

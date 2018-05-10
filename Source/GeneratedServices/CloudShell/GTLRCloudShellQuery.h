@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRCloudShellQuery_OperationsCancel
+ *  @return GTLRCloudShellQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRCloudShell_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRCloudShellQuery_OperationsDelete
+ *  @return GTLRCloudShellQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -147,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudShellQuery_OperationsGet
+ *  @return GTLRCloudShellQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRCloudShellQuery_OperationsList
+ *  @return GTLRCloudShellQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

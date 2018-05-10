@@ -287,7 +287,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  List information about processes made by or on behalf of a user,
  *  such as process type and current status.
  *
- *  @returns GTLRScriptQuery_ProcessesList
+ *  @return GTLRScriptQuery_ProcessesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -401,7 +401,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  List information about a script's executed processes, such as process type
  *  and current status.
  *
- *  @returns GTLRScriptQuery_ProcessesListScriptProcesses
+ *  @return GTLRScriptQuery_ProcessesListScriptProcesses
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -430,7 +430,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param object The @c GTLRScript_CreateProjectRequest to include in the
  *    query.
  *
- *  @returns GTLRScriptQuery_ProjectsCreate
+ *  @return GTLRScriptQuery_ProjectsCreate
  */
 + (instancetype)queryWithObject:(GTLRScript_CreateProjectRequest *)object;
 
@@ -456,7 +456,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param object The @c GTLRScript_DeploymentConfig to include in the query.
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsDeploymentsCreate
+ *  @return GTLRScriptQuery_ProjectsDeploymentsCreate
  */
 + (instancetype)queryWithObject:(GTLRScript_DeploymentConfig *)object
                        scriptId:(NSString *)scriptId;
@@ -486,7 +486,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param scriptId The script project's Drive ID.
  *  @param deploymentId The deployment ID to be undeployed.
  *
- *  @returns GTLRScriptQuery_ProjectsDeploymentsDelete
+ *  @return GTLRScriptQuery_ProjectsDeploymentsDelete
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId
                      deploymentId:(NSString *)deploymentId;
@@ -516,7 +516,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param scriptId The script project's Drive ID.
  *  @param deploymentId The deployment ID.
  *
- *  @returns GTLRScriptQuery_ProjectsDeploymentsGet
+ *  @return GTLRScriptQuery_ProjectsDeploymentsGet
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId
                      deploymentId:(NSString *)deploymentId;
@@ -553,7 +553,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsDeploymentsList
+ *  @return GTLRScriptQuery_ProjectsDeploymentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -588,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param scriptId The script project's Drive ID.
  *  @param deploymentId The deployment ID for this deployment.
  *
- *  @returns GTLRScriptQuery_ProjectsDeploymentsUpdate
+ *  @return GTLRScriptQuery_ProjectsDeploymentsUpdate
  */
 + (instancetype)queryWithObject:(GTLRScript_UpdateDeploymentRequest *)object
                        scriptId:(NSString *)scriptId
@@ -615,7 +615,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsGet
+ *  @return GTLRScriptQuery_ProjectsGet
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId;
 
@@ -648,7 +648,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsGetContent
+ *  @return GTLRScriptQuery_ProjectsGetContent
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId;
 
@@ -691,7 +691,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *
  *  @param scriptId Required field indicating the script to get metrics for.
  *
- *  @returns GTLRScriptQuery_ProjectsGetMetrics
+ *  @return GTLRScriptQuery_ProjectsGetMetrics
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId;
 
@@ -725,7 +725,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param object The @c GTLRScript_Content to include in the query.
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsUpdateContent
+ *  @return GTLRScriptQuery_ProjectsUpdateContent
  */
 + (instancetype)queryWithObject:(GTLRScript_Content *)object
                        scriptId:(NSString *)scriptId;
@@ -754,7 +754,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param object The @c GTLRScript_Version to include in the query.
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsVersionsCreate
+ *  @return GTLRScriptQuery_ProjectsVersionsCreate
  */
 + (instancetype)queryWithObject:(GTLRScript_Version *)object
                        scriptId:(NSString *)scriptId;
@@ -784,7 +784,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  @param scriptId The script project's Drive ID.
  *  @param versionNumber The version number.
  *
- *  @returns GTLRScriptQuery_ProjectsVersionsGet
+ *  @return GTLRScriptQuery_ProjectsVersionsGet
  */
 + (instancetype)queryWithScriptId:(NSString *)scriptId
                     versionNumber:(NSInteger)versionNumber;
@@ -819,7 +819,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *
  *  @param scriptId The script project's Drive ID.
  *
- *  @returns GTLRScriptQuery_ProjectsVersionsList
+ *  @return GTLRScriptQuery_ProjectsVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -881,7 +881,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    script ID, open
  *    the project in the script editor and select **File > Project properties**.
  *
- *  @returns GTLRScriptQuery_ScriptsRun
+ *  @return GTLRScriptQuery_ScriptsRun
  */
 + (instancetype)queryWithObject:(GTLRScript_ExecutionRequest *)object
                        scriptId:(NSString *)scriptId;

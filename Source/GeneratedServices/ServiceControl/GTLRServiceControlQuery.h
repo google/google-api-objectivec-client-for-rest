@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `"pubsub.googleapis.com"`.
  *    See google.api.Service for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesAllocateQuota
+ *  @return GTLRServiceControlQuery_ServicesAllocateQuota
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_AllocateQuotaRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service)
  *    for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesCheck
+ *  @return GTLRServiceControlQuery_ServicesCheck
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_CheckRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -205,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `"pubsub.googleapis.com"`.
  *    See google.api.Service for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesEndReconciliation
+ *  @return GTLRServiceControlQuery_ServicesEndReconciliation
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_EndReconciliationRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -258,7 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `"pubsub.googleapis.com"`.
  *    See google.api.Service for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesReleaseQuota
+ *  @return GTLRServiceControlQuery_ServicesReleaseQuota
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_ReleaseQuotaRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service)
  *    for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesReport
+ *  @return GTLRServiceControlQuery_ServicesReport
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_ReportRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -404,7 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `"pubsub.googleapis.com"`.
  *    See google.api.Service for the definition of a service name.
  *
- *  @returns GTLRServiceControlQuery_ServicesStartReconciliation
+ *  @return GTLRServiceControlQuery_ServicesStartReconciliation
  */
 + (instancetype)queryWithObject:(GTLRServiceControl_StartReconciliationRequest *)object
                     serviceName:(NSString *)serviceName;

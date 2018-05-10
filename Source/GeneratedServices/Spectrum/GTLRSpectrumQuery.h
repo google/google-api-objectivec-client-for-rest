@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpectrum_PawsGetSpectrumRequest to include in the
  *    query.
  *
- *  @returns GTLRSpectrumQuery_PawsGetSpectrum
+ *  @return GTLRSpectrumQuery_PawsGetSpectrum
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsGetSpectrumRequest *)object;
 
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpectrum_PawsGetSpectrumBatchRequest to include in
  *    the query.
  *
- *  @returns GTLRSpectrumQuery_PawsGetSpectrumBatch
+ *  @return GTLRSpectrumQuery_PawsGetSpectrumBatch
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsGetSpectrumBatchRequest *)object;
 
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSpectrum_PawsInitRequest to include in the query.
  *
- *  @returns GTLRSpectrumQuery_PawsInit
+ *  @return GTLRSpectrumQuery_PawsInit
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsInitRequest *)object;
 
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpectrum_PawsNotifySpectrumUseRequest to include in
  *    the query.
  *
- *  @returns GTLRSpectrumQuery_PawsNotifySpectrumUse
+ *  @return GTLRSpectrumQuery_PawsNotifySpectrumUse
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsNotifySpectrumUseRequest *)object;
 
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpectrum_PawsRegisterRequest to include in the
  *    query.
  *
- *  @returns GTLRSpectrumQuery_PawsRegister
+ *  @return GTLRSpectrumQuery_PawsRegister
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsRegisterRequest *)object;
 
@@ -191,7 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpectrum_PawsVerifyDeviceRequest to include in the
  *    query.
  *
- *  @returns GTLRSpectrumQuery_PawsVerifyDevice
+ *  @return GTLRSpectrumQuery_PawsVerifyDevice
  */
 + (instancetype)queryWithObject:(GTLRSpectrum_PawsVerifyDeviceRequest *)object;
 

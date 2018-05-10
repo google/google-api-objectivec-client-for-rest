@@ -103,7 +103,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersAddPermissions
+ *  @return GTLRVaultQuery_MattersAddPermissions
  */
 + (instancetype)queryWithObject:(GTLRVault_AddMatterPermissionsRequest *)object
                        matterId:(NSString *)matterId;
@@ -133,7 +133,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param object The @c GTLRVault_CloseMatterRequest to include in the query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersClose
+ *  @return GTLRVaultQuery_MattersClose
  */
 + (instancetype)queryWithObject:(GTLRVault_CloseMatterRequest *)object
                        matterId:(NSString *)matterId;
@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  @param object The @c GTLRVault_Matter to include in the query.
  *
- *  @returns GTLRVaultQuery_MattersCreate
+ *  @return GTLRVaultQuery_MattersCreate
  */
 + (instancetype)queryWithObject:(GTLRVault_Matter *)object;
 
@@ -191,7 +191,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  @param matterId The matter ID
  *
- *  @returns GTLRVaultQuery_MattersDelete
+ *  @return GTLRVaultQuery_MattersDelete
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId;
 
@@ -230,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersGet
+ *  @return GTLRVaultQuery_MattersGet
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId;
 
@@ -267,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsAccountsCreate
+ *  @return GTLRVaultQuery_MattersHoldsAccountsCreate
  */
 + (instancetype)queryWithObject:(GTLRVault_HeldAccount *)object
                        matterId:(NSString *)matterId
@@ -307,7 +307,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param holdId The hold ID.
  *  @param accountId The ID of the account to remove from the hold.
  *
- *  @returns GTLRVaultQuery_MattersHoldsAccountsDelete
+ *  @return GTLRVaultQuery_MattersHoldsAccountsDelete
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId
                            holdId:(NSString *)holdId
@@ -348,7 +348,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsAccountsList
+ *  @return GTLRVaultQuery_MattersHoldsAccountsList
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId
                            holdId:(NSString *)holdId;
@@ -378,7 +378,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param object The @c GTLRVault_Hold to include in the query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsCreate
+ *  @return GTLRVaultQuery_MattersHoldsCreate
  */
 + (instancetype)queryWithObject:(GTLRVault_Hold *)object
                        matterId:(NSString *)matterId;
@@ -411,7 +411,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsDelete
+ *  @return GTLRVaultQuery_MattersHoldsDelete
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId
                            holdId:(NSString *)holdId;
@@ -455,7 +455,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsGet
+ *  @return GTLRVaultQuery_MattersHoldsGet
  */
 + (instancetype)queryWithMatterId:(NSString *)matterId
                            holdId:(NSString *)holdId;
@@ -509,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersHoldsList
+ *  @return GTLRVaultQuery_MattersHoldsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -550,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param matterId The matter ID.
  *  @param holdId The ID of the hold.
  *
- *  @returns GTLRVaultQuery_MattersHoldsUpdate
+ *  @return GTLRVaultQuery_MattersHoldsUpdate
  */
 + (instancetype)queryWithObject:(GTLRVault_Hold *)object
                        matterId:(NSString *)matterId
@@ -607,7 +607,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  Lists matters the user has access to.
  *
- *  @returns GTLRVaultQuery_MattersList
+ *  @return GTLRVaultQuery_MattersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -641,7 +641,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    the query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersRemovePermissions
+ *  @return GTLRVaultQuery_MattersRemovePermissions
  */
 + (instancetype)queryWithObject:(GTLRVault_RemoveMatterPermissionsRequest *)object
                        matterId:(NSString *)matterId;
@@ -671,7 +671,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param object The @c GTLRVault_ReopenMatterRequest to include in the query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersReopen
+ *  @return GTLRVaultQuery_MattersReopen
  */
 + (instancetype)queryWithObject:(GTLRVault_ReopenMatterRequest *)object
                        matterId:(NSString *)matterId;
@@ -702,7 +702,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersUndelete
+ *  @return GTLRVaultQuery_MattersUndelete
  */
 + (instancetype)queryWithObject:(GTLRVault_UndeleteMatterRequest *)object
                        matterId:(NSString *)matterId;
@@ -738,7 +738,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param object The @c GTLRVault_Matter to include in the query.
  *  @param matterId The matter ID.
  *
- *  @returns GTLRVaultQuery_MattersUpdate
+ *  @return GTLRVaultQuery_MattersUpdate
  */
 + (instancetype)queryWithObject:(GTLRVault_Matter *)object
                        matterId:(NSString *)matterId;

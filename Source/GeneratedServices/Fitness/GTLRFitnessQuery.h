@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param userId Aggregate data for the person identified. Use me to indicate
  *    the authenticated user. Only me is supported at this time.
  *
- *  @returns GTLRFitnessQuery_UsersDatasetAggregate
+ *  @return GTLRFitnessQuery_UsersDatasetAggregate
  */
 + (instancetype)queryWithObject:(GTLRFitness_AggregateRequest *)object
                          userId:(NSString *)userId;
@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param userId Create the data source for the person identified. Use me to
  *    indicate the authenticated user. Only me is supported at this time.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesCreate
+ *  @return GTLRFitnessQuery_UsersDataSourcesCreate
  */
 + (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
                          userId:(NSString *)userId;
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param dataSourceId The data stream ID of the data source that created the
  *    dataset.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesDataPointChangesList
+ *  @return GTLRFitnessQuery_UsersDataSourcesDataPointChangesList
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId;
@@ -288,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    nanoseconds from the epoch. The ID is formatted like: "startTime-endTime"
  *    where startTime and endTime are 64 bit integers.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesDatasetsDelete
+ *  @return GTLRFitnessQuery_UsersDataSourcesDatasetsDelete
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId
@@ -380,7 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    nanoseconds from the epoch. The ID is formatted like: "startTime-endTime"
  *    where startTime and endTime are 64 bit integers.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesDatasetsGet
+ *  @return GTLRFitnessQuery_UsersDataSourcesDatasetsGet
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -457,7 +457,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    nanoseconds from the epoch. The ID is formatted like: "startTime-endTime"
  *    where startTime and endTime are 64 bit integers.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesDatasetsPatch
+ *  @return GTLRFitnessQuery_UsersDataSourcesDatasetsPatch
  */
 + (instancetype)queryWithObject:(GTLRFitness_Dataset *)object
                          userId:(NSString *)userId
@@ -506,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    indicate the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source to delete.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesDelete
+ *  @return GTLRFitnessQuery_UsersDataSourcesDelete
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId;
@@ -560,7 +560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    indicate the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source to retrieve.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesGet
+ *  @return GTLRFitnessQuery_UsersDataSourcesGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId;
@@ -622,7 +622,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param userId List data sources for the person identified. Use me to
  *    indicate the authenticated user. Only me is supported at this time.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesList
+ *  @return GTLRFitnessQuery_UsersDataSourcesList
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -675,7 +675,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    indicate the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source to update.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesPatch
+ *  @return GTLRFitnessQuery_UsersDataSourcesPatch
  */
 + (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
                          userId:(NSString *)userId
@@ -728,7 +728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    indicate the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source to update.
  *
- *  @returns GTLRFitnessQuery_UsersDataSourcesUpdate
+ *  @return GTLRFitnessQuery_UsersDataSourcesUpdate
  */
 + (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
                          userId:(NSString *)userId
@@ -770,7 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the authenticated user. Only me is supported at this time.
  *  @param sessionId The ID of the session to be deleted.
  *
- *  @returns GTLRFitnessQuery_UsersSessionsDelete
+ *  @return GTLRFitnessQuery_UsersSessionsDelete
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                       sessionId:(NSString *)sessionId;
@@ -846,7 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param userId List sessions for the person identified. Use me to indicate
  *    the authenticated user. Only me is supported at this time.
  *
- *  @returns GTLRFitnessQuery_UsersSessionsList
+ *  @return GTLRFitnessQuery_UsersSessionsList
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -886,7 +886,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the authenticated user. Only me is supported at this time.
  *  @param sessionId The ID of the session to be created.
  *
- *  @returns GTLRFitnessQuery_UsersSessionsUpdate
+ *  @return GTLRFitnessQuery_UsersSessionsUpdate
  */
 + (instancetype)queryWithObject:(GTLRFitness_Session *)object
                          userId:(NSString *)userId

@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table from which the column is being deleted.
  *  @param columnId Name or identifier for the column being deleted.
  *
- *  @returns GTLRFusionTablesQuery_ColumnDelete
+ *  @return GTLRFusionTablesQuery_ColumnDelete
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                         columnId:(NSString *)columnId;
@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the column belongs.
  *  @param columnId Name or identifier for the column that is being requested.
  *
- *  @returns GTLRFusionTablesQuery_ColumnGet
+ *  @return GTLRFusionTablesQuery_ColumnGet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                         columnId:(NSString *)columnId;
@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFusionTables_Column to include in the query.
  *  @param tableId Table for which a new column is being added.
  *
- *  @returns GTLRFusionTablesQuery_ColumnInsert
+ *  @return GTLRFusionTablesQuery_ColumnInsert
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Column *)object
                         tableId:(NSString *)tableId;
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Table whose columns are being listed.
  *
- *  @returns GTLRFusionTablesQuery_ColumnList
+ *  @return GTLRFusionTablesQuery_ColumnList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -206,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table for which the column is being updated.
  *  @param columnId Name or identifier for the column that is being updated.
  *
- *  @returns GTLRFusionTablesQuery_ColumnPatch
+ *  @return GTLRFusionTablesQuery_ColumnPatch
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Column *)object
                         tableId:(NSString *)tableId
@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table for which the column is being updated.
  *  @param columnId Name or identifier for the column that is being updated.
  *
- *  @returns GTLRFusionTablesQuery_ColumnUpdate
+ *  @return GTLRFusionTablesQuery_ColumnUpdate
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Column *)object
                         tableId:(NSString *)tableId
@@ -311,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    - DESCRIBE
  *    - CREATE
  *
- *  @returns GTLRFusionTablesQuery_QuerySql
+ *  @return GTLRFusionTablesQuery_QuerySql
  */
 + (instancetype)queryWithSql:(NSString *)sql;
 
@@ -336,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    - DESCRIBE
  *    - CREATE
  *
- *  @returns GTLRFusionTablesQuery_QuerySql
+ *  @return GTLRFusionTablesQuery_QuerySql
  */
 + (instancetype)queryForMediaWithSql:(NSString *)sql;
 
@@ -388,7 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    - SHOW
  *    - DESCRIBE
  *
- *  @returns GTLRFusionTablesQuery_QuerySqlGet
+ *  @return GTLRFusionTablesQuery_QuerySqlGet
  */
 + (instancetype)queryWithSql:(NSString *)sql;
 
@@ -405,7 +405,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    - SHOW
  *    - DESCRIBE
  *
- *  @returns GTLRFusionTablesQuery_QuerySqlGet
+ *  @return GTLRFusionTablesQuery_QuerySqlGet
  */
 + (instancetype)queryForMediaWithSql:(NSString *)sql;
 
@@ -438,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table from which the style is being deleted
  *  @param styleId Identifier (within a table) for the style being deleted
  *
- *  @returns GTLRFusionTablesQuery_StyleDelete
+ *  @return GTLRFusionTablesQuery_StyleDelete
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                          styleId:(NSInteger)styleId;
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the requested style belongs
  *  @param styleId Identifier (integer) for a specific style in a table
  *
- *  @returns GTLRFusionTablesQuery_StyleGet
+ *  @return GTLRFusionTablesQuery_StyleGet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                          styleId:(NSInteger)styleId;
@@ -502,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFusionTables_StyleSetting to include in the query.
  *  @param tableId Table for which a new style is being added
  *
- *  @returns GTLRFusionTablesQuery_StyleInsert
+ *  @return GTLRFusionTablesQuery_StyleInsert
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_StyleSetting *)object
                         tableId:(NSString *)tableId;
@@ -538,7 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Table whose styles are being listed
  *
- *  @returns GTLRFusionTablesQuery_StyleList
+ *  @return GTLRFusionTablesQuery_StyleList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -575,7 +575,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table whose style is being updated.
  *  @param styleId Identifier (within a table) for the style being updated.
  *
- *  @returns GTLRFusionTablesQuery_StylePatch
+ *  @return GTLRFusionTablesQuery_StylePatch
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_StyleSetting *)object
                         tableId:(NSString *)tableId
@@ -610,7 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table whose style is being updated.
  *  @param styleId Identifier (within a table) for the style being updated.
  *
- *  @returns GTLRFusionTablesQuery_StyleUpdate
+ *  @return GTLRFusionTablesQuery_StyleUpdate
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_StyleSetting *)object
                         tableId:(NSString *)tableId
@@ -644,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId ID of the table that is being copied.
  *
- *  @returns GTLRFusionTablesQuery_TableCopy
+ *  @return GTLRFusionTablesQuery_TableCopy
  */
 + (instancetype)queryWithTableId:(NSString *)tableId;
 
@@ -673,7 +673,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId ID of the table to be deleted.
  *
- *  @returns GTLRFusionTablesQuery_TableDelete
+ *  @return GTLRFusionTablesQuery_TableDelete
  */
 + (instancetype)queryWithTableId:(NSString *)tableId;
 
@@ -702,7 +702,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Identifier for the table being requested.
  *
- *  @returns GTLRFusionTablesQuery_TableGet
+ *  @return GTLRFusionTablesQuery_TableGet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId;
 
@@ -764,7 +764,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param uploadParameters The media to include in this query. Maximum size
  *    250MB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRFusionTablesQuery_TableImportRows
+ *  @return GTLRFusionTablesQuery_TableImportRows
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                 uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -807,7 +807,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param uploadParameters The media to include in this query. Maximum size
  *    250MB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRFusionTablesQuery_TableImportTable
+ *  @return GTLRFusionTablesQuery_TableImportTable
  */
 + (instancetype)queryWithName:(NSString *)name
              uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -833,7 +833,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFusionTables_Table to include in the query.
  *
- *  @returns GTLRFusionTablesQuery_TableInsert
+ *  @return GTLRFusionTablesQuery_TableInsert
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Table *)object;
 
@@ -863,7 +863,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves a list of tables a user owns.
  *
- *  @returns GTLRFusionTablesQuery_TableList
+ *  @return GTLRFusionTablesQuery_TableList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -906,7 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFusionTables_Table to include in the query.
  *  @param tableId ID of the table that is being updated.
  *
- *  @returns GTLRFusionTablesQuery_TablePatch
+ *  @return GTLRFusionTablesQuery_TablePatch
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Table *)object
                         tableId:(NSString *)tableId;
@@ -939,7 +939,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Table whose rows will be replaced from the spreadsheet.
  *
- *  @returns GTLRFusionTablesQuery_TableRefetchSheet
+ *  @return GTLRFusionTablesQuery_TableRefetchSheet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId;
 
@@ -1004,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param uploadParameters The media to include in this query. Maximum size
  *    250MB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRFusionTablesQuery_TableReplaceRows
+ *  @return GTLRFusionTablesQuery_TableReplaceRows
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                 uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -1042,7 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFusionTables_Table to include in the query.
  *  @param tableId ID of the table that is being updated.
  *
- *  @returns GTLRFusionTablesQuery_TableUpdate
+ *  @return GTLRFusionTablesQuery_TableUpdate
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Table *)object
                         tableId:(NSString *)tableId;
@@ -1078,7 +1078,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table from which the task is being deleted.
  *  @param taskId The identifier of the task to delete.
  *
- *  @returns GTLRFusionTablesQuery_TaskDelete
+ *  @return GTLRFusionTablesQuery_TaskDelete
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                           taskId:(NSString *)taskId;
@@ -1112,7 +1112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the task belongs.
  *  @param taskId The identifier of the task to get.
  *
- *  @returns GTLRFusionTablesQuery_TaskGet
+ *  @return GTLRFusionTablesQuery_TaskGet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                           taskId:(NSString *)taskId;
@@ -1151,7 +1151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Table whose tasks are being listed.
  *
- *  @returns GTLRFusionTablesQuery_TaskList
+ *  @return GTLRFusionTablesQuery_TaskList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1188,7 +1188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table from which the template is being deleted
  *  @param templateId Identifier for the template which is being deleted
  *
- *  @returns GTLRFusionTablesQuery_TemplateDelete
+ *  @return GTLRFusionTablesQuery_TemplateDelete
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                       templateId:(NSInteger)templateId;
@@ -1222,7 +1222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the template belongs
  *  @param templateId Identifier for the template that is being requested
  *
- *  @returns GTLRFusionTablesQuery_TemplateGet
+ *  @return GTLRFusionTablesQuery_TemplateGet
  */
 + (instancetype)queryWithTableId:(NSString *)tableId
                       templateId:(NSInteger)templateId;
@@ -1252,7 +1252,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFusionTables_Template to include in the query.
  *  @param tableId Table for which a new template is being created
  *
- *  @returns GTLRFusionTablesQuery_TemplateInsert
+ *  @return GTLRFusionTablesQuery_TemplateInsert
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Template *)object
                         tableId:(NSString *)tableId;
@@ -1288,7 +1288,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableId Identifier for the table whose templates are being requested
  *
- *  @returns GTLRFusionTablesQuery_TemplateList
+ *  @return GTLRFusionTablesQuery_TemplateList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1325,7 +1325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the updated template belongs
  *  @param templateId Identifier for the template that is being updated
  *
- *  @returns GTLRFusionTablesQuery_TemplatePatch
+ *  @return GTLRFusionTablesQuery_TemplatePatch
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Template *)object
                         tableId:(NSString *)tableId
@@ -1360,7 +1360,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tableId Table to which the updated template belongs
  *  @param templateId Identifier for the template that is being updated
  *
- *  @returns GTLRFusionTablesQuery_TemplateUpdate
+ *  @return GTLRFusionTablesQuery_TemplateUpdate
  */
 + (instancetype)queryWithObject:(GTLRFusionTables_Template *)object
                         tableId:(NSString *)tableId

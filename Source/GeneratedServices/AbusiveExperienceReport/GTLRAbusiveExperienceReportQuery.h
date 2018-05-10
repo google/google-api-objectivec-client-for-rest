@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to go through that process before they can gain access to the Abusive
  *    Experience Report.
  *
- *  @returns GTLRAbusiveExperienceReportQuery_SitesGet
+ *  @return GTLRAbusiveExperienceReportQuery_SitesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists sites with Abusive Experience Report statuses of "Failing".
  *
- *  @returns GTLRAbusiveExperienceReportQuery_ViolatingSitesList
+ *  @return GTLRAbusiveExperienceReportQuery_ViolatingSitesList
  */
 + (instancetype)query;
 

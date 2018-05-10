@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Resource name for the location.
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsGet
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project_id}/locations/{location_id}`
  *    where `location_id` refers to a GCP region
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudRedis_Instance *)object
                          parent:(NSString *)parent;
@@ -160,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *    where `location_id` refers to a GCP region
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsInstancesDelete
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -194,7 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *    where `location_id` refers to a GCP region
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsInstancesGet
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -255,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project_id}/locations/{location_id}`
  *    where `location_id` refers to a GCP region
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsInstancesList
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    should be provisioned in. Refer to [location_id] and
  *    [alternative_location_id] fields for more details.
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudRedis_Instance *)object
                            name:(NSString *)name;
@@ -364,7 +364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsList
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsOperationsGet
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -453,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRCloudRedisQuery_ProjectsLocationsOperationsList
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

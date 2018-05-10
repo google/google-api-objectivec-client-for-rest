@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the application in the form
  *    enterprises/{enterpriseId}/applications/{package_name}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesApplicationsGet
+ *  @return GTLRAndroidManagementQuery_EnterprisesApplicationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesCreate
+ *  @return GTLRAndroidManagementQuery_EnterprisesCreate
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Enterprise *)object;
 
@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesDelete
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -177,7 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesGet
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -214,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Command *)object
                            name:(NSString *)name;
@@ -253,7 +253,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesList
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -301,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesOperationsCancel
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesOperationsGet
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -420,7 +420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesOperationsList
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -465,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesPatch
+ *  @return GTLRAndroidManagementQuery_EnterprisesDevicesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Device *)object
                            name:(NSString *)name;
@@ -497,7 +497,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate
+ *  @return GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_EnrollmentToken *)object
                          parent:(NSString *)parent;
@@ -532,7 +532,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the enrollment token in the form
  *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete
+ *  @return GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -561,7 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesGet
+ *  @return GTLRAndroidManagementQuery_EnterprisesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -600,7 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesPatch
+ *  @return GTLRAndroidManagementQuery_EnterprisesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Enterprise *)object
                            name:(NSString *)name;
@@ -635,7 +635,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the policy in the form
  *    enterprises/{enterpriseId}/policies/{policyId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesDelete
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -667,7 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the policy in the form
  *    enterprises/{enterpriseId}/policies/{policyId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesGet
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -705,7 +705,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesList
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -750,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the policy in the form
  *    enterprises/{enterpriseId}/policies/{policyId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Policy *)object
                            name:(NSString *)name;
@@ -783,7 +783,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
  *
- *  @returns GTLRAndroidManagementQuery_EnterprisesWebTokensCreate
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebTokensCreate
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_WebToken *)object
                          parent:(NSString *)parent;
@@ -822,7 +822,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates an enterprise signup URL.
  *
- *  @returns GTLRAndroidManagementQuery_SignupUrlsCreate
+ *  @return GTLRAndroidManagementQuery_SignupUrlsCreate
  */
 + (instancetype)query;
 

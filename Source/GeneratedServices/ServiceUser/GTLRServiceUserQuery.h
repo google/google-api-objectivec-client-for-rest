@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    -
  *    /v1/projects/my-project/services/servicemanagement.googleapis.com:disable
  *
- *  @returns GTLRServiceUserQuery_ProjectsServicesDisable
+ *  @return GTLRServiceUserQuery_ProjectsServicesDisable
  */
 + (instancetype)queryWithObject:(GTLRServiceUser_DisableServiceRequest *)object
                            name:(NSString *)name;
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    A valid path would be:
  *    - /v1/projects/my-project/services/servicemanagement.googleapis.com:enable
  *
- *  @returns GTLRServiceUserQuery_ProjectsServicesEnable
+ *  @return GTLRServiceUserQuery_ProjectsServicesEnable
  */
 + (instancetype)queryWithObject:(GTLRServiceUser_EnableServiceRequest *)object
                            name:(NSString *)name;
@@ -173,7 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    An example valid parent would be:
  *    - projects/my-project
  *
- *  @returns GTLRServiceUserQuery_ProjectsServicesList
+ *  @return GTLRServiceUserQuery_ProjectsServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  authenticated users, also returns all services the calling user has
  *  "servicemanagement.services.bind" permission for.
  *
- *  @returns GTLRServiceUserQuery_ServicesSearch
+ *  @return GTLRServiceUserQuery_ServicesSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

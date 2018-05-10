@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param stateKey The key for the data to be retrieved. (Range 0..3)
  *
- *  @returns GTLRAppStateQuery_StatesClear
+ *  @return GTLRAppStateQuery_StatesClear
  */
 + (instancetype)queryWithStateKey:(NSInteger)stateKey;
 
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param stateKey The key for the data to be retrieved. (Range 0..3)
  *
- *  @returns GTLRAppStateQuery_StatesDelete
+ *  @return GTLRAppStateQuery_StatesDelete
  */
 + (instancetype)queryWithStateKey:(NSInteger)stateKey;
 
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param stateKey The key for the data to be retrieved. (Range 0..3)
  *
- *  @returns GTLRAppStateQuery_StatesGet
+ *  @return GTLRAppStateQuery_StatesGet
  */
 + (instancetype)queryWithStateKey:(NSInteger)stateKey;
 
@@ -178,7 +178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all the states keys, and optionally the state data.
  *
- *  @returns GTLRAppStateQuery_StatesList
+ *  @return GTLRAppStateQuery_StatesList
  */
 + (instancetype)query;
 
@@ -223,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAppState_UpdateRequest to include in the query.
  *  @param stateKey The key for the data to be retrieved. (Range 0..3)
  *
- *  @returns GTLRAppStateQuery_StatesUpdate
+ *  @return GTLRAppStateQuery_StatesUpdate
  */
 + (instancetype)queryWithObject:(GTLRAppState_UpdateRequest *)object
                        stateKey:(NSInteger)stateKey;

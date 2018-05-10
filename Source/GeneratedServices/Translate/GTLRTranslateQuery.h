@@ -83,7 +83,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *  @param object The @c GTLRTranslate_DetectLanguageRequest to include in the
  *    query.
  *
- *  @returns GTLRTranslateQuery_DetectionsDetect
+ *  @return GTLRTranslateQuery_DetectionsDetect
  */
 + (instancetype)queryWithObject:(GTLRTranslate_DetectLanguageRequest *)object;
 
@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *    this
  *    parameter to perform language detection on multiple text inputs.
  *
- *  @returns GTLRTranslateQuery_DetectionsList
+ *  @return GTLRTranslateQuery_DetectionsList
  */
 + (instancetype)queryWithQ:(NSArray<NSString *> *)q;
 
@@ -150,7 +150,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *
  *  Returns a list of supported languages for translation.
  *
- *  @returns GTLRTranslateQuery_LanguagesList
+ *  @return GTLRTranslateQuery_LanguagesList
  */
 + (instancetype)query;
 
@@ -222,7 +222,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *    one of the
  *    language codes listed in Language Support.
  *
- *  @returns GTLRTranslateQuery_TranslationsList
+ *  @return GTLRTranslateQuery_TranslationsList
  */
 + (instancetype)queryWithQ:(NSArray<NSString *> *)q
                     target:(NSString *)target;
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *
  *  @param object The @c GTLRTranslate_TextRequest to include in the query.
  *
- *  @returns GTLRTranslateQuery_TranslationsTranslate
+ *  @return GTLRTranslateQuery_TranslationsTranslate
  */
 + (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object;
 

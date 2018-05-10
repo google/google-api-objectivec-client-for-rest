@@ -126,7 +126,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the dataset being deleted
  *  @param datasetId Dataset ID of dataset being deleted
  *
- *  @returns GTLRBigqueryQuery_DatasetsDelete
+ *  @return GTLRBigqueryQuery_DatasetsDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId;
@@ -161,7 +161,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the requested dataset
  *  @param datasetId Dataset ID of the requested dataset
  *
- *  @returns GTLRBigqueryQuery_DatasetsGet
+ *  @return GTLRBigqueryQuery_DatasetsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId;
@@ -192,7 +192,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
  *  @param projectId Project ID of the new dataset
  *
- *  @returns GTLRBigqueryQuery_DatasetsInsert
+ *  @return GTLRBigqueryQuery_DatasetsInsert
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId;
@@ -244,7 +244,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *
  *  @param projectId Project ID of the datasets to be listed
  *
- *  @returns GTLRBigqueryQuery_DatasetsList
+ *  @return GTLRBigqueryQuery_DatasetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -288,7 +288,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the dataset being updated
  *  @param datasetId Dataset ID of the dataset being updated
  *
- *  @returns GTLRBigqueryQuery_DatasetsPatch
+ *  @return GTLRBigqueryQuery_DatasetsPatch
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -328,7 +328,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the dataset being updated
  *  @param datasetId Dataset ID of the dataset being updated
  *
- *  @returns GTLRBigqueryQuery_DatasetsUpdate
+ *  @return GTLRBigqueryQuery_DatasetsUpdate
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -373,7 +373,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId [Required] Project ID of the job to cancel
  *  @param jobId [Required] Job ID of the job to cancel
  *
- *  @returns GTLRBigqueryQuery_JobsCancel
+ *  @return GTLRBigqueryQuery_JobsCancel
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -418,7 +418,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId [Required] Project ID of the requested job
  *  @param jobId [Required] Job ID of the requested job
  *
- *  @returns GTLRBigqueryQuery_JobsGet
+ *  @return GTLRBigqueryQuery_JobsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -477,7 +477,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId [Required] Project ID of the query job
  *  @param jobId [Required] Job ID of the query job
  *
- *  @returns GTLRBigqueryQuery_JobsGetQueryResults
+ *  @return GTLRBigqueryQuery_JobsGetQueryResults
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -513,7 +513,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
- *  @returns GTLRBigqueryQuery_JobsInsert
+ *  @return GTLRBigqueryQuery_JobsInsert
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Job *)object
                       projectId:(NSString *)projectId
@@ -596,7 +596,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *
  *  @param projectId Project ID of the jobs to list
  *
- *  @returns GTLRBigqueryQuery_JobsList
+ *  @return GTLRBigqueryQuery_JobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -633,7 +633,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_QueryRequest to include in the query.
  *  @param projectId Project ID of the project billed for the query
  *
- *  @returns GTLRBigqueryQuery_JobsQuery
+ *  @return GTLRBigqueryQuery_JobsQuery
  */
 + (instancetype)queryWithObject:(GTLRBigquery_QueryRequest *)object
                       projectId:(NSString *)projectId;
@@ -666,7 +666,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *
  *  @param projectId Project ID for which the service account is requested.
  *
- *  @returns GTLRBigqueryQuery_ProjectsGetServiceAccount
+ *  @return GTLRBigqueryQuery_ProjectsGetServiceAccount
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -699,7 +699,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *
  *  Lists all projects to which you have been granted any project role.
  *
- *  @returns GTLRBigqueryQuery_ProjectsList
+ *  @return GTLRBigqueryQuery_ProjectsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -745,7 +745,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the destination table.
  *  @param tableId Table ID of the destination table.
  *
- *  @returns GTLRBigqueryQuery_TabledataInsertAll
+ *  @return GTLRBigqueryQuery_TabledataInsertAll
  */
 + (instancetype)queryWithObject:(GTLRBigquery_TableDataInsertAllRequest *)object
                       projectId:(NSString *)projectId
@@ -803,7 +803,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the table to read
  *  @param tableId Table ID of the table to read
  *
- *  @returns GTLRBigqueryQuery_TabledataList
+ *  @return GTLRBigqueryQuery_TabledataList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId
@@ -845,7 +845,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the table to delete
  *  @param tableId Table ID of the table to delete
  *
- *  @returns GTLRBigqueryQuery_TablesDelete
+ *  @return GTLRBigqueryQuery_TablesDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId
@@ -895,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the requested table
  *  @param tableId Table ID of the requested table
  *
- *  @returns GTLRBigqueryQuery_TablesGet
+ *  @return GTLRBigqueryQuery_TablesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId
@@ -931,7 +931,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the new table
  *  @param datasetId Dataset ID of the new table
  *
- *  @returns GTLRBigqueryQuery_TablesInsert
+ *  @return GTLRBigqueryQuery_TablesInsert
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Table *)object
                       projectId:(NSString *)projectId
@@ -975,7 +975,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param projectId Project ID of the tables to list
  *  @param datasetId Dataset ID of the tables to list
  *
- *  @returns GTLRBigqueryQuery_TablesList
+ *  @return GTLRBigqueryQuery_TablesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1024,7 +1024,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the table to update
  *  @param tableId Table ID of the table to update
  *
- *  @returns GTLRBigqueryQuery_TablesPatch
+ *  @return GTLRBigqueryQuery_TablesPatch
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Table *)object
                       projectId:(NSString *)projectId
@@ -1069,7 +1069,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param datasetId Dataset ID of the table to update
  *  @param tableId Table ID of the table to update
  *
- *  @returns GTLRBigqueryQuery_TablesUpdate
+ *  @return GTLRBigqueryQuery_TablesUpdate
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Table *)object
                       projectId:(NSString *)projectId

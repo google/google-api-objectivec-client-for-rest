@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param identifier The id of a verified site or domain.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceDelete
+ *  @return GTLRSiteVerificationQuery_WebResourceDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param identifier The id of a verified site or domain.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceGet
+ *  @return GTLRSiteVerificationQuery_WebResourceGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSiteVerification_WebResourceGettokenRequest to
  *    include in the query.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceGetToken
+ *  @return GTLRSiteVerificationQuery_WebResourceGetToken
  */
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceGettokenRequest *)object;
 
@@ -155,7 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param verificationMethod The method to use for verifying a site or domain.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceInsert
+ *  @return GTLRSiteVerificationQuery_WebResourceInsert
  */
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
              verificationMethod:(NSString *)verificationMethod;
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get the list of your verified websites and domains.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceList
+ *  @return GTLRSiteVerificationQuery_WebResourceList
  */
 + (instancetype)query;
 
@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param identifier The id of a verified site or domain.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourcePatch
+ *  @return GTLRSiteVerificationQuery_WebResourcePatch
  */
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
                      identifier:(NSString *)identifier;
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param identifier The id of a verified site or domain.
  *
- *  @returns GTLRSiteVerificationQuery_WebResourceUpdate
+ *  @return GTLRSiteVerificationQuery_WebResourceUpdate
  */
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
                      identifier:(NSString *)identifier;

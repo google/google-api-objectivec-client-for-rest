@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Removes an item from a group.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupItemsDelete
+ *  @return GTLRYouTubeAnalyticsQuery_GroupItemsDelete
  */
 + (instancetype)query;
 
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRYouTubeAnalytics_GroupItem to include in the query.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupItemsInsert
+ *  @return GTLRYouTubeAnalyticsQuery_GroupItemsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTubeAnalytics_GroupItem *)object;
 
@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a collection of group items that match the API request parameters.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupItemsList
+ *  @return GTLRYouTubeAnalyticsQuery_GroupItemsList
  */
 + (instancetype)query;
 
@@ -220,7 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a group.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupsDelete
+ *  @return GTLRYouTubeAnalyticsQuery_GroupsDelete
  */
 + (instancetype)query;
 
@@ -263,7 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRYouTubeAnalytics_Group to include in the query.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupsInsert
+ *  @return GTLRYouTubeAnalyticsQuery_GroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTubeAnalytics_Group *)object;
 
@@ -334,7 +334,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  example, you can retrieve all groups that the authenticated user owns,
  *  or you can retrieve one or more groups by their unique IDs.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupsList
+ *  @return GTLRYouTubeAnalyticsQuery_GroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -381,7 +381,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRYouTubeAnalytics_Group to include in the query.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_GroupsUpdate
+ *  @return GTLRYouTubeAnalyticsQuery_GroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTubeAnalytics_Group *)object;
 
@@ -508,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve your YouTube Analytics reports.
  *
- *  @returns GTLRYouTubeAnalyticsQuery_ReportsQuery
+ *  @return GTLRYouTubeAnalyticsQuery_ReportsQuery
  */
 + (instancetype)query;
 

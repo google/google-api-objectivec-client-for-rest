@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest
  *    to include in the query.
  *
- *  @returns GTLRFirebaseDynamicLinksQuery_ManagedShortLinksCreate
+ *  @return GTLRFirebaseDynamicLinksQuery_ManagedShortLinksCreate
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest *)object;
 
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest
  *    to include in the query.
  *
- *  @returns GTLRFirebaseDynamicLinksQuery_ShortLinksCreate
+ *  @return GTLRFirebaseDynamicLinksQuery_ShortLinksCreate
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest *)object;
 
@@ -152,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param dynamicLink Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz
  *
- *  @returns GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
+ *  @return GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
  */
 + (instancetype)queryWithDynamicLink:(NSString *)dynamicLink;
 
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest to include in
  *    the query.
  *
- *  @returns GTLRFirebaseDynamicLinksQuery_V1InstallAttribution
+ *  @return GTLRFirebaseDynamicLinksQuery_V1InstallAttribution
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest *)object;
 

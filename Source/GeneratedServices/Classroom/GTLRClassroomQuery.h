@@ -176,7 +176,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesAliasesCreate
+ *  @return GTLRClassroomQuery_CoursesAliasesCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_CourseAlias *)object
                        courseId:(NSString *)courseId;
@@ -233,7 +233,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param alias Alias to delete.
  *    This may not be the Classroom-assigned identifier.
  *
- *  @returns GTLRClassroomQuery_CoursesAliasesDelete
+ *  @return GTLRClassroomQuery_CoursesAliasesDelete
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                             alias:(NSString *)alias;
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesAliasesList
+ *  @return GTLRClassroomQuery_CoursesAliasesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -349,7 +349,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsCreate
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Announcement *)object
                        courseId:(NSString *)courseId;
@@ -414,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param identifier Identifier of the announcement to delete.
  *    This identifier is a Classroom-assigned identifier.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsDelete
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsDelete
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
@@ -468,7 +468,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the announcement.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsGet
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsGet
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
@@ -557,7 +557,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsList
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -619,7 +619,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the announcement.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsModifyAssignees
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsModifyAssignees
  */
 + (instancetype)queryWithObject:(GTLRClassroom_ModifyAnnouncementAssigneesRequest *)object
                        courseId:(NSString *)courseId
@@ -695,7 +695,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the announcement.
  *
- *  @returns GTLRClassroomQuery_CoursesAnnouncementsPatch
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsPatch
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Announcement *)object
                        courseId:(NSString *)courseId
@@ -760,7 +760,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkCreate
+ *  @return GTLRClassroomQuery_CoursesCourseWorkCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
                        courseId:(NSString *)courseId;
@@ -825,7 +825,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param identifier Identifier of the course work to delete.
  *    This identifier is a Classroom-assigned identifier.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkDelete
+ *  @return GTLRClassroomQuery_CoursesCourseWorkDelete
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
@@ -881,7 +881,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the course work.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkGet
+ *  @return GTLRClassroomQuery_CoursesCourseWorkGet
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
@@ -973,7 +973,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkList
+ *  @return GTLRClassroomQuery_CoursesCourseWorkList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1035,7 +1035,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the coursework.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkModifyAssignees
+ *  @return GTLRClassroomQuery_CoursesCourseWorkModifyAssignees
  */
 + (instancetype)queryWithObject:(GTLRClassroom_ModifyCourseWorkAssigneesRequest *)object
                        courseId:(NSString *)courseId
@@ -1132,7 +1132,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    alias.
  *  @param identifier Identifier of the course work.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkPatch
+ *  @return GTLRClassroomQuery_CoursesCourseWorkPatch
  */
 + (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
                        courseId:(NSString *)courseId
@@ -1197,7 +1197,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                      courseWorkId:(NSString *)courseWorkId
@@ -1324,7 +1324,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This may be set to the string literal `"-"` to request student work for
  *    all course work in the specified course.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1404,7 +1404,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments
  */
 + (instancetype)queryWithObject:(GTLRClassroom_ModifyAttachmentsRequest *)object
                        courseId:(NSString *)courseId
@@ -1494,7 +1494,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch
  */
 + (instancetype)queryWithObject:(GTLRClassroom_StudentSubmission *)object
                        courseId:(NSString *)courseId
@@ -1575,7 +1575,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim
  */
 + (instancetype)queryWithObject:(GTLRClassroom_ReclaimStudentSubmissionRequest *)object
                        courseId:(NSString *)courseId
@@ -1658,7 +1658,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn
  */
 + (instancetype)queryWithObject:(GTLRClassroom_ReturnStudentSubmissionRequest *)object
                        courseId:(NSString *)courseId
@@ -1737,7 +1737,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
- *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn
+ *  @return GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn
  */
 + (instancetype)queryWithObject:(GTLRClassroom_TurnInStudentSubmissionRequest *)object
                        courseId:(NSString *)courseId
@@ -1787,7 +1787,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *
- *  @returns GTLRClassroomQuery_CoursesCreate
+ *  @return GTLRClassroomQuery_CoursesCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object;
 
@@ -1831,7 +1831,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesDelete
+ *  @return GTLRClassroomQuery_CoursesDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -1876,7 +1876,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesGet
+ *  @return GTLRClassroomQuery_CoursesGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -1962,7 +1962,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  * `INVALID_ARGUMENT` if the query argument is malformed.
  *  * `NOT_FOUND` if any users specified in the query arguments do not exist.
  *
- *  @returns GTLRClassroomQuery_CoursesList
+ *  @return GTLRClassroomQuery_CoursesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2040,7 +2040,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesPatch
+ *  @return GTLRClassroomQuery_CoursesPatch
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier;
@@ -2108,7 +2108,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesStudentsCreate
+ *  @return GTLRClassroomQuery_CoursesStudentsCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Student *)object
                        courseId:(NSString *)courseId;
@@ -2168,7 +2168,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the email address of the user
  *    * the string literal `"me"`, indicating the requesting user
  *
- *  @returns GTLRClassroomQuery_CoursesStudentsDelete
+ *  @return GTLRClassroomQuery_CoursesStudentsDelete
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                            userId:(NSString *)userId;
@@ -2231,7 +2231,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the email address of the user
  *    * the string literal `"me"`, indicating the requesting user
  *
- *  @returns GTLRClassroomQuery_CoursesStudentsGet
+ *  @return GTLRClassroomQuery_CoursesStudentsGet
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                            userId:(NSString *)userId;
@@ -2293,7 +2293,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesStudentsList
+ *  @return GTLRClassroomQuery_CoursesStudentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2358,7 +2358,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesTeachersCreate
+ *  @return GTLRClassroomQuery_CoursesTeachersCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Teacher *)object
                        courseId:(NSString *)courseId;
@@ -2422,7 +2422,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the email address of the user
  *    * the string literal `"me"`, indicating the requesting user
  *
- *  @returns GTLRClassroomQuery_CoursesTeachersDelete
+ *  @return GTLRClassroomQuery_CoursesTeachersDelete
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                            userId:(NSString *)userId;
@@ -2485,7 +2485,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the email address of the user
  *    * the string literal `"me"`, indicating the requesting user
  *
- *  @returns GTLRClassroomQuery_CoursesTeachersGet
+ *  @return GTLRClassroomQuery_CoursesTeachersGet
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                            userId:(NSString *)userId;
@@ -2547,7 +2547,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesTeachersList
+ *  @return GTLRClassroomQuery_CoursesTeachersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2600,7 +2600,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
  *
- *  @returns GTLRClassroomQuery_CoursesUpdate
+ *  @return GTLRClassroomQuery_CoursesUpdate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier;
@@ -2655,7 +2655,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param identifier Identifier of the invitation to accept.
  *
- *  @returns GTLRClassroomQuery_InvitationsAccept
+ *  @return GTLRClassroomQuery_InvitationsAccept
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -2698,7 +2698,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_Invitation to include in the query.
  *
- *  @returns GTLRClassroomQuery_InvitationsCreate
+ *  @return GTLRClassroomQuery_InvitationsCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Invitation *)object;
 
@@ -2738,7 +2738,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param identifier Identifier of the invitation to delete.
  *
- *  @returns GTLRClassroomQuery_InvitationsDelete
+ *  @return GTLRClassroomQuery_InvitationsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -2779,7 +2779,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param identifier Identifier of the invitation to return.
  *
- *  @returns GTLRClassroomQuery_InvitationsGet
+ *  @return GTLRClassroomQuery_InvitationsGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -2844,7 +2844,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  This method returns the following error codes:
  *  * `PERMISSION_DENIED` for access errors.
  *
- *  @returns GTLRClassroomQuery_InvitationsList
+ *  @return GTLRClassroomQuery_InvitationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2925,7 +2925,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_Registration to include in the query.
  *
- *  @returns GTLRClassroomQuery_RegistrationsCreate
+ *  @return GTLRClassroomQuery_RegistrationsCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Registration *)object;
 
@@ -2958,7 +2958,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param registrationId The `registration_id` of the `Registration` to be
  *    deleted.
  *
- *  @returns GTLRClassroomQuery_RegistrationsDelete
+ *  @return GTLRClassroomQuery_RegistrationsDelete
  */
 + (instancetype)queryWithRegistrationId:(NSString *)registrationId;
 
@@ -3008,7 +3008,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the email address of the user
  *    * the string literal `"me"`, indicating the requesting user
  *
- *  @returns GTLRClassroomQuery_UserProfilesGet
+ *  @return GTLRClassroomQuery_UserProfilesGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -3088,7 +3088,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    query.
  *  @param studentId ID of the student (in standard format)
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate
+ *  @return GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate
  */
 + (instancetype)queryWithObject:(GTLRClassroom_GuardianInvitation *)object
                       studentId:(NSString *)studentId;
@@ -3146,7 +3146,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param invitationId The `id` field of the `GuardianInvitation` being
  *    requested.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsGet
+ *  @return GTLRClassroomQuery_UserProfilesGuardianInvitationsGet
  */
 + (instancetype)queryWithStudentId:(NSString *)studentId
                       invitationId:(NSString *)invitationId;
@@ -3254,7 +3254,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    all students that the requesting user is permitted to view guardian
  *    invitations.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsList
+ *  @return GTLRClassroomQuery_UserProfilesGuardianInvitationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3334,7 +3334,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param invitationId The `id` field of the `GuardianInvitation` to be
  *    modified.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch
+ *  @return GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch
  */
 + (instancetype)queryWithObject:(GTLRClassroom_GuardianInvitation *)object
                       studentId:(NSString *)studentId
@@ -3405,7 +3405,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the string literal `"me"`, indicating the requesting user
  *  @param guardianId The `id` field from a `Guardian`.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardiansDelete
+ *  @return GTLRClassroomQuery_UserProfilesGuardiansDelete
  */
 + (instancetype)queryWithStudentId:(NSString *)studentId
                         guardianId:(NSString *)guardianId;
@@ -3473,7 +3473,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the string literal `"me"`, indicating the requesting user
  *  @param guardianId The `id` field from a `Guardian`.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardiansGet
+ *  @return GTLRClassroomQuery_UserProfilesGuardiansGet
  */
 + (instancetype)queryWithStudentId:(NSString *)studentId
                         guardianId:(NSString *)guardianId;
@@ -3575,7 +3575,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    * the string literal `"-"`, indicating that results should be returned for
  *    all students that the requesting user has access to view.
  *
- *  @returns GTLRClassroomQuery_UserProfilesGuardiansList
+ *  @return GTLRClassroomQuery_UserProfilesGuardiansList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

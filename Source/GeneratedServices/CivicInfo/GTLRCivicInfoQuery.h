@@ -123,7 +123,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @param object The @c GTLRCivicInfo_DivisionSearchRequest to include in the
  *    query.
  *
- *  @returns GTLRCivicInfoQuery_DivisionsSearch
+ *  @return GTLRCivicInfoQuery_DivisionsSearch
  */
 + (instancetype)queryWithObject:(GTLRCivicInfo_DivisionSearchRequest *)object;
 
@@ -146,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @param object The @c GTLRCivicInfo_ElectionsQueryRequest to include in the
  *    query.
  *
- *  @returns GTLRCivicInfoQuery_ElectionsElectionQuery
+ *  @return GTLRCivicInfoQuery_ElectionsElectionQuery
  */
 + (instancetype)queryWithObject:(GTLRCivicInfo_ElectionsQueryRequest *)object;
 
@@ -198,7 +198,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @param object The @c GTLRCivicInfo_VoterInfoRequest to include in the query.
  *  @param address The registered address of the voter to look up.
  *
- *  @returns GTLRCivicInfoQuery_ElectionsVoterInfoQuery
+ *  @return GTLRCivicInfoQuery_ElectionsVoterInfoQuery
  */
 + (instancetype)queryWithObject:(GTLRCivicInfo_VoterInfoRequest *)object
                         address:(NSString *)address;
@@ -280,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @param object The @c GTLRCivicInfo_RepresentativeInfoRequest to include in
  *    the query.
  *
- *  @returns GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress
+ *  @return GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress
  */
 + (instancetype)queryWithObject:(GTLRCivicInfo_RepresentativeInfoRequest *)object;
 
@@ -358,7 +358,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @param ocdId The Open Civic Data division identifier of the division to look
  *    up.
  *
- *  @returns GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision
+ *  @return GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision
  */
 + (instancetype)queryWithObject:(GTLRCivicInfo_DivisionRepresentativeInfoRequest *)object
                           ocdId:(NSString *)ocdId;

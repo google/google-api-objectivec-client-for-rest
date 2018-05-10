@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesManagementQuery_AchievementsReset
+ *  @return GTLRGamesManagementQuery_AchievementsReset
  */
 + (instancetype)queryWithAchievementId:(NSString *)achievementId;
 
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  application. This method is only accessible to whitelisted tester accounts
  *  for your application.
  *
- *  @returns GTLRGamesManagementQuery_AchievementsResetAll
+ *  @return GTLRGamesManagementQuery_AchievementsResetAll
  */
 + (instancetype)query;
 
@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resets all draft achievements for all players. This method is only available
  *  to user accounts for your developer console.
  *
- *  @returns GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers
+ *  @return GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers
  */
 + (instancetype)query;
 
@@ -156,7 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesManagementQuery_AchievementsResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_AchievementsResetForAllPlayers
  */
 + (instancetype)queryWithAchievementId:(NSString *)achievementId;
 
@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRGamesManagement_AchievementResetMultipleForAllRequest to include in
  *    the query.
  *
- *  @returns GTLRGamesManagementQuery_AchievementsResetMultipleForAllPlayers
+ *  @return GTLRGamesManagementQuery_AchievementsResetMultipleForAllPlayers
  */
 + (instancetype)queryWithObject:(GTLRGamesManagement_AchievementResetMultipleForAllRequest *)object;
 
@@ -233,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param applicationId The application ID from the Google Play developer
  *    console.
  *
- *  @returns GTLRGamesManagementQuery_ApplicationsListHidden
+ *  @return GTLRGamesManagementQuery_ApplicationsListHidden
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param eventId The ID of the event.
  *
- *  @returns GTLRGamesManagementQuery_EventsReset
+ *  @return GTLRGamesManagementQuery_EventsReset
  */
 + (instancetype)queryWithEventId:(NSString *)eventId;
 
@@ -302,7 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  player. This method is only accessible to whitelisted tester accounts for
  *  your application. All quests for this player will also be reset.
  *
- *  @returns GTLRGamesManagementQuery_EventsResetAll
+ *  @return GTLRGamesManagementQuery_EventsResetAll
  */
 + (instancetype)query;
 
@@ -331,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  user accounts for your developer console. All quests that use any of these
  *  events will also be reset.
  *
- *  @returns GTLRGamesManagementQuery_EventsResetAllForAllPlayers
+ *  @return GTLRGamesManagementQuery_EventsResetAllForAllPlayers
  */
 + (instancetype)query;
 
@@ -365,7 +365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param eventId The ID of the event.
  *
- *  @returns GTLRGamesManagementQuery_EventsResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_EventsResetForAllPlayers
  */
 + (instancetype)queryWithEventId:(NSString *)eventId;
 
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGamesManagement_EventsResetMultipleForAllRequest to
  *    include in the query.
  *
- *  @returns GTLRGamesManagementQuery_EventsResetMultipleForAllPlayers
+ *  @return GTLRGamesManagementQuery_EventsResetMultipleForAllPlayers
  */
 + (instancetype)queryWithObject:(GTLRGamesManagement_EventsResetMultipleForAllRequest *)object;
 
@@ -438,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param playerId A player ID. A value of me may be used in place of the
  *    authenticated player's ID.
  *
- *  @returns GTLRGamesManagementQuery_PlayersHide
+ *  @return GTLRGamesManagementQuery_PlayersHide
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId
                               playerId:(NSString *)playerId;
@@ -480,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param playerId A player ID. A value of me may be used in place of the
  *    authenticated player's ID.
  *
- *  @returns GTLRGamesManagementQuery_PlayersUnhide
+ *  @return GTLRGamesManagementQuery_PlayersUnhide
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId
                               playerId:(NSString *)playerId;
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param questId The ID of the quest.
  *
- *  @returns GTLRGamesManagementQuery_QuestsReset
+ *  @return GTLRGamesManagementQuery_QuestsReset
  */
 + (instancetype)queryWithQuestId:(NSString *)questId;
 
@@ -544,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  player. This method is only accessible to whitelisted tester accounts for
  *  your application.
  *
- *  @returns GTLRGamesManagementQuery_QuestsResetAll
+ *  @return GTLRGamesManagementQuery_QuestsResetAll
  */
 + (instancetype)query;
 
@@ -571,7 +571,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resets all draft quests for all players. This method is only available to
  *  user accounts for your developer console.
  *
- *  @returns GTLRGamesManagementQuery_QuestsResetAllForAllPlayers
+ *  @return GTLRGamesManagementQuery_QuestsResetAllForAllPlayers
  */
 + (instancetype)query;
 
@@ -605,7 +605,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param questId The ID of the quest.
  *
- *  @returns GTLRGamesManagementQuery_QuestsResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_QuestsResetForAllPlayers
  */
 + (instancetype)queryWithQuestId:(NSString *)questId;
 
@@ -637,7 +637,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGamesManagement_QuestsResetMultipleForAllRequest to
  *    include in the query.
  *
- *  @returns GTLRGamesManagementQuery_QuestsResetMultipleForAllPlayers
+ *  @return GTLRGamesManagementQuery_QuestsResetMultipleForAllPlayers
  */
 + (instancetype)queryWithObject:(GTLRGamesManagement_QuestsResetMultipleForAllRequest *)object;
 
@@ -666,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  This method is only accessible to whitelisted tester accounts for your
  *  application.
  *
- *  @returns GTLRGamesManagementQuery_RoomsReset
+ *  @return GTLRGamesManagementQuery_RoomsReset
  */
 + (instancetype)query;
 
@@ -695,7 +695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  accounts for your application. This method is only available to user
  *  accounts for your developer console.
  *
- *  @returns GTLRGamesManagementQuery_RoomsResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_RoomsResetForAllPlayers
  */
 + (instancetype)query;
 
@@ -728,7 +728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesManagementQuery_ScoresReset
+ *  @return GTLRGamesManagementQuery_ScoresReset
  */
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId;
 
@@ -756,7 +756,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  players. This method is only accessible to whitelisted tester accounts for
  *  your application.
  *
- *  @returns GTLRGamesManagementQuery_ScoresResetAll
+ *  @return GTLRGamesManagementQuery_ScoresResetAll
  */
 + (instancetype)query;
 
@@ -783,7 +783,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resets scores for all draft leaderboards for all players. This method is
  *  only available to user accounts for your developer console.
  *
- *  @returns GTLRGamesManagementQuery_ScoresResetAllForAllPlayers
+ *  @return GTLRGamesManagementQuery_ScoresResetAllForAllPlayers
  */
 + (instancetype)query;
 
@@ -817,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesManagementQuery_ScoresResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_ScoresResetForAllPlayers
  */
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId;
 
@@ -849,7 +849,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGamesManagement_ScoresResetMultipleForAllRequest to
  *    include in the query.
  *
- *  @returns GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers
+ *  @return GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers
  */
 + (instancetype)queryWithObject:(GTLRGamesManagement_ScoresResetMultipleForAllRequest *)object;
 
@@ -876,7 +876,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Reset all turn-based match data for a user. This method is only accessible
  *  to whitelisted tester accounts for your application.
  *
- *  @returns GTLRGamesManagementQuery_TurnBasedMatchesReset
+ *  @return GTLRGamesManagementQuery_TurnBasedMatchesReset
  */
 + (instancetype)query;
 
@@ -905,7 +905,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  whitelisted tester accounts for your application. This method is only
  *  available to user accounts for your developer console.
  *
- *  @returns GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers
+ *  @return GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers
  */
 + (instancetype)query;
 

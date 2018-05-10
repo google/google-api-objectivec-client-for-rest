@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resource name
  *    in the format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsCreate
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsCreate
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_Configuration *)object
                          parent:(NSString *)parent;
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. If the
  *    configuration is applied to any devices, the API call fails.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsDelete
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    format
  *    `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsGet
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -174,7 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    An API
  *    resource name in the format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsList
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by
  *    the server.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsPatch
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_Configuration *)object
                            name:(NSString *)name;
@@ -255,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    name in the
  *    format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDevicesApplyConfiguration
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesApplyConfiguration
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_CustomerApplyConfigurationRequest *)object
                          parent:(NSString *)parent;
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The device to get. An API resource name in the format
  *    `customers/[CUSTOMER_ID]/devices/[DEVICE_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDevicesGet
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    name in the
  *    format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDevicesList
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The customer managing the device in the format
  *    `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDevicesRemoveConfiguration
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesRemoveConfiguration
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_CustomerRemoveConfigurationRequest *)object
                          parent:(NSString *)parent;
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    name in the
  *    format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDevicesUnclaim
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesUnclaim
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest *)object
                          parent:(NSString *)parent;
@@ -433,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    configurations. An API
  *    resource name in the format `customers/[CUSTOMER_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersDpcsList
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDpcsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -462,7 +462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the user's customer accounts.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_CustomersList
+ *  @return GTLRAndroidProvisioningPartnerQuery_CustomersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -495,7 +495,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_OperationsGet
+ *  @return GTLRAndroidProvisioningPartnerQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -533,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `partners/[PARTNER_ID]` that
  *    identifies the reseller.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_CreateCustomerRequest *)object
                          parent:(NSString *)parent;
@@ -563,7 +563,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList
  */
 + (instancetype)queryWithPartnerId:(long long)partnerId;
 
@@ -592,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaim
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaim
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_ClaimDeviceRequest *)object
                       partnerId:(long long)partnerId;
@@ -624,7 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaimAsync
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaimAsync
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_ClaimDevicesRequest *)object
                       partnerId:(long long)partnerId;
@@ -654,7 +654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByIdentifier
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByIdentifier
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest *)object
                       partnerId:(long long)partnerId;
@@ -689,7 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByOwner
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByOwner
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest *)object
                       partnerId:(long long)partnerId;
@@ -719,7 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The device API resource name in the format
  *    `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGet
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -754,7 +754,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    this to the partner ID.
  *  @param deviceId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_UpdateDeviceMetadataRequest *)object
                 metadataOwnerId:(long long)metadataOwnerId
@@ -785,7 +785,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The ID of the reseller partner.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaim
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaim
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_UnclaimDeviceRequest *)object
                       partnerId:(long long)partnerId;
@@ -817,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The reseller partner ID.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaimAsync
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaimAsync
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_UnclaimDevicesRequest *)object
                       partnerId:(long long)partnerId;
@@ -852,7 +852,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param partnerId Required. The reseller partner ID.
  *
- *  @returns GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUpdateMetadataAsync
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUpdateMetadataAsync
  */
 + (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest *)object
                       partnerId:(long long)partnerId;

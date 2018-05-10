@@ -407,7 +407,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param userId ID of user for whom to retrieve bookshelves.
  *  @param shelf ID of bookshelf to retrieve.
  *
- *  @returns GTLRBooksQuery_BookshelvesGet
+ *  @return GTLRBooksQuery_BookshelvesGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                           shelf:(NSString *)shelf;
@@ -439,7 +439,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param userId ID of user for whom to retrieve bookshelves.
  *
- *  @returns GTLRBooksQuery_BookshelvesList
+ *  @return GTLRBooksQuery_BookshelvesList
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -483,7 +483,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param userId ID of user for whom to retrieve bookshelf volumes.
  *  @param shelf ID of bookshelf to retrieve volumes.
  *
- *  @returns GTLRBooksQuery_BookshelvesVolumesList
+ *  @return GTLRBooksQuery_BookshelvesVolumesList
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                           shelf:(NSString *)shelf;
@@ -518,7 +518,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 /**
  *  Fetches a @c GTLRBooks_CloudloadingResource.
  *
- *  @returns GTLRBooksQuery_CloudloadingAddBook
+ *  @return GTLRBooksQuery_CloudloadingAddBook
  */
 + (instancetype)query;
 
@@ -547,7 +547,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param volumeId The id of the book to be removed.
  *
- *  @returns GTLRBooksQuery_CloudloadingDeleteBook
+ *  @return GTLRBooksQuery_CloudloadingDeleteBook
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
@@ -570,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param object The @c GTLRBooks_CloudloadingResource to include in the query.
  *
- *  @returns GTLRBooksQuery_CloudloadingUpdateBook
+ *  @return GTLRBooksQuery_CloudloadingUpdateBook
  */
 + (instancetype)queryWithObject:(GTLRBooks_CloudloadingResource *)object;
 
@@ -598,7 +598,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param cpksver The device/version ID from which to request the data.
  *
- *  @returns GTLRBooksQuery_DictionaryListOfflineMetadata
+ *  @return GTLRBooksQuery_DictionaryListOfflineMetadata
  */
 + (instancetype)queryWithCpksver:(NSString *)cpksver;
 
@@ -624,7 +624,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Gets information regarding the family that the user is part of.
  *
- *  @returns GTLRBooksQuery_FamilysharingGetFamilyInfo
+ *  @return GTLRBooksQuery_FamilysharingGetFamilyInfo
  */
 + (instancetype)query;
 
@@ -659,7 +659,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  Initiates sharing of the content with the user's family. Empty response
  *  indicates success.
  *
- *  @returns GTLRBooksQuery_FamilysharingShare
+ *  @return GTLRBooksQuery_FamilysharingShare
  */
 + (instancetype)query;
 
@@ -694,7 +694,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  Initiates revoking content that has already been shared with the user's
  *  family. Empty response indicates success.
  *
- *  @returns GTLRBooksQuery_FamilysharingUnshare
+ *  @return GTLRBooksQuery_FamilysharingUnshare
  */
 + (instancetype)query;
 
@@ -762,7 +762,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param contentVersion The content version for the volume you are trying to
  *    retrieve.
  *
- *  @returns GTLRBooksQuery_LayersAnnotationDataGet
+ *  @return GTLRBooksQuery_LayersAnnotationDataGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                           layerId:(NSString *)layerId
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param layerId The ID for the layer to get the annotation data.
  *  @param contentVersion The content version for the requested volume.
  *
- *  @returns GTLRBooksQuery_LayersAnnotationDataList
+ *  @return GTLRBooksQuery_LayersAnnotationDataList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -897,7 +897,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param volumeId The volume to retrieve layers for.
  *  @param summaryId The ID for the layer to get the summary for.
  *
- *  @returns GTLRBooksQuery_LayersGet
+ *  @return GTLRBooksQuery_LayersGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                         summaryId:(NSString *)summaryId;
@@ -942,7 +942,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param volumeId The volume to retrieve layers for.
  *
- *  @returns GTLRBooksQuery_LayersList
+ *  @return GTLRBooksQuery_LayersList
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
@@ -987,7 +987,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param layerId The ID for the layer to get the annotations.
  *  @param annotationId The ID of the volume annotation to retrieve.
  *
- *  @returns GTLRBooksQuery_LayersVolumeAnnotationsGet
+ *  @return GTLRBooksQuery_LayersVolumeAnnotationsGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                           layerId:(NSString *)layerId
@@ -1077,7 +1077,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param layerId The ID for the layer to get the annotations.
  *  @param contentVersion The content version for the requested volume.
  *
- *  @returns GTLRBooksQuery_LayersVolumeAnnotationsList
+ *  @return GTLRBooksQuery_LayersVolumeAnnotationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1106,7 +1106,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Gets the current settings for the user.
  *
- *  @returns GTLRBooksQuery_MyconfigGetUserSettings
+ *  @return GTLRBooksQuery_MyconfigGetUserSettings
  */
 + (instancetype)query;
 
@@ -1144,7 +1144,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param volumeIds The volume(s) to release restrictions for.
  *  @param cpksver The device/version ID from which to release the restriction.
  *
- *  @returns GTLRBooksQuery_MyconfigReleaseDownloadAccess
+ *  @return GTLRBooksQuery_MyconfigReleaseDownloadAccess
  */
 + (instancetype)queryWithVolumeIds:(NSArray<NSString *> *)volumeIds
                            cpksver:(NSString *)cpksver;
@@ -1202,7 +1202,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param nonce The client nonce value.
  *  @param cpksver The device/version ID from which to request the restrictions.
  *
- *  @returns GTLRBooksQuery_MyconfigRequestAccess
+ *  @return GTLRBooksQuery_MyconfigRequestAccess
  */
 + (instancetype)queryWithSource:(NSString *)source
                        volumeId:(NSString *)volumeId
@@ -1264,7 +1264,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param nonce The client nonce value.
  *  @param cpksver The device/version ID from which to release the restriction.
  *
- *  @returns GTLRBooksQuery_MyconfigSyncVolumeLicenses
+ *  @return GTLRBooksQuery_MyconfigSyncVolumeLicenses
  */
 + (instancetype)queryWithSource:(NSString *)source
                           nonce:(NSString *)nonce
@@ -1295,7 +1295,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param object The @c GTLRBooks_Usersettings to include in the query.
  *
- *  @returns GTLRBooksQuery_MyconfigUpdateUserSettings
+ *  @return GTLRBooksQuery_MyconfigUpdateUserSettings
  */
 + (instancetype)queryWithObject:(GTLRBooks_Usersettings *)object;
 
@@ -1327,7 +1327,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param annotationId The ID for the annotation to delete.
  *
- *  @returns GTLRBooksQuery_MylibraryAnnotationsDelete
+ *  @return GTLRBooksQuery_MylibraryAnnotationsDelete
  */
 + (instancetype)queryWithAnnotationId:(NSString *)annotationId;
 
@@ -1367,7 +1367,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param object The @c GTLRBooks_Annotation to include in the query.
  *
- *  @returns GTLRBooksQuery_MylibraryAnnotationsInsert
+ *  @return GTLRBooksQuery_MylibraryAnnotationsInsert
  */
 + (instancetype)queryWithObject:(GTLRBooks_Annotation *)object;
 
@@ -1433,7 +1433,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Retrieves a list of annotations, possibly filtered.
  *
- *  @returns GTLRBooksQuery_MylibraryAnnotationsList
+ *  @return GTLRBooksQuery_MylibraryAnnotationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1469,7 +1469,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param layerIds Array of layer IDs to get the summary for.
  *  @param volumeId Volume id to get the summary for.
  *
- *  @returns GTLRBooksQuery_MylibraryAnnotationsSummary
+ *  @return GTLRBooksQuery_MylibraryAnnotationsSummary
  */
 + (instancetype)queryWithLayerIds:(NSArray<NSString *> *)layerIds
                          volumeId:(NSString *)volumeId;
@@ -1502,7 +1502,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param object The @c GTLRBooks_Annotation to include in the query.
  *  @param annotationId The ID for the annotation to update.
  *
- *  @returns GTLRBooksQuery_MylibraryAnnotationsUpdate
+ *  @return GTLRBooksQuery_MylibraryAnnotationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRBooks_Annotation *)object
                    annotationId:(NSString *)annotationId;
@@ -1552,7 +1552,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param shelf ID of bookshelf to which to add a volume.
  *  @param volumeId ID of volume to add.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesAddVolume
+ *  @return GTLRBooksQuery_MylibraryBookshelvesAddVolume
  */
 + (instancetype)queryWithShelf:(NSString *)shelf
                       volumeId:(NSString *)volumeId;
@@ -1585,7 +1585,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param shelf ID of bookshelf from which to remove a volume.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesClearVolumes
+ *  @return GTLRBooksQuery_MylibraryBookshelvesClearVolumes
  */
 + (instancetype)queryWithShelf:(NSString *)shelf;
 
@@ -1618,7 +1618,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param shelf ID of bookshelf to retrieve.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesGet
+ *  @return GTLRBooksQuery_MylibraryBookshelvesGet
  */
 + (instancetype)queryWithShelf:(NSString *)shelf;
 
@@ -1644,7 +1644,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Retrieves a list of bookshelves belonging to the authenticated user.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesList
+ *  @return GTLRBooksQuery_MylibraryBookshelvesList
  */
 + (instancetype)query;
 
@@ -1689,7 +1689,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    before the current first item, 1 puts it between the first and the second
  *    and so on.)
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesMoveVolume
+ *  @return GTLRBooksQuery_MylibraryBookshelvesMoveVolume
  */
 + (instancetype)queryWithShelf:(NSString *)shelf
                       volumeId:(NSString *)volumeId
@@ -1736,7 +1736,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  @param shelf ID of bookshelf from which to remove a volume.
  *  @param volumeId ID of volume to remove.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesRemoveVolume
+ *  @return GTLRBooksQuery_MylibraryBookshelvesRemoveVolume
  */
 + (instancetype)queryWithShelf:(NSString *)shelf
                       volumeId:(NSString *)volumeId;
@@ -1793,7 +1793,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param shelf The bookshelf ID or name retrieve volumes for.
  *
- *  @returns GTLRBooksQuery_MylibraryBookshelvesVolumesList
+ *  @return GTLRBooksQuery_MylibraryBookshelvesVolumesList
  */
 + (instancetype)queryWithShelf:(NSString *)shelf;
 
@@ -1827,7 +1827,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param volumeId ID of volume for which to retrieve a reading position.
  *
- *  @returns GTLRBooksQuery_MylibraryReadingpositionsGet
+ *  @return GTLRBooksQuery_MylibraryReadingpositionsGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
@@ -1890,7 +1890,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    position.
  *  @param position Position string for the new volume reading position.
  *
- *  @returns GTLRBooksQuery_MylibraryReadingpositionsSetPosition
+ *  @return GTLRBooksQuery_MylibraryReadingpositionsSetPosition
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                         timestamp:(NSString *)timestamp
@@ -1929,7 +1929,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param notificationId String to identify the notification.
  *
- *  @returns GTLRBooksQuery_NotificationGet
+ *  @return GTLRBooksQuery_NotificationGet
  */
 + (instancetype)queryWithNotificationId:(NSString *)notificationId;
 
@@ -1957,7 +1957,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  List categories for onboarding experience.
  *
- *  @returns GTLRBooksQuery_OnboardingListCategories
+ *  @return GTLRBooksQuery_OnboardingListCategories
  */
 + (instancetype)query;
 
@@ -2006,7 +2006,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  List available volumes under categories for onboarding experience.
  *
- *  @returns GTLRBooksQuery_OnboardingListCategoryVolumes
+ *  @return GTLRBooksQuery_OnboardingListCategoryVolumes
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2054,7 +2054,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Returns a stream of personalized book clusters
  *
- *  @returns GTLRBooksQuery_PersonalizedstreamGet
+ *  @return GTLRBooksQuery_PersonalizedstreamGet
  */
 + (instancetype)query;
 
@@ -2099,7 +2099,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  @returns GTLRBooksQuery_PromoofferAccept
+ *  @return GTLRBooksQuery_PromoofferAccept
  */
 + (instancetype)query;
 
@@ -2142,7 +2142,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  @returns GTLRBooksQuery_PromoofferDismiss
+ *  @return GTLRBooksQuery_PromoofferDismiss
  */
 + (instancetype)query;
 
@@ -2183,7 +2183,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Returns a list of promo offers available to the user
  *
- *  @returns GTLRBooksQuery_PromoofferGet
+ *  @return GTLRBooksQuery_PromoofferGet
  */
 + (instancetype)query;
 
@@ -2211,7 +2211,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param seriesId String that identifies the series
  *
- *  @returns GTLRBooksQuery_SeriesGet
+ *  @return GTLRBooksQuery_SeriesGet
  */
 + (instancetype)queryWithSeriesId:(NSArray<NSString *> *)seriesId;
 
@@ -2245,7 +2245,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param seriesId String that identifies the series
  *
- *  @returns GTLRBooksQuery_SeriesMembershipGet
+ *  @return GTLRBooksQuery_SeriesMembershipGet
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2311,7 +2311,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param volumeId ID of the source volume.
  *
- *  @returns GTLRBooksQuery_VolumesAssociatedList
+ *  @return GTLRBooksQuery_VolumesAssociatedList
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
@@ -2363,7 +2363,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param volumeId ID of volume to retrieve.
  *
- *  @returns GTLRBooksQuery_VolumesGet
+ *  @return GTLRBooksQuery_VolumesGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
@@ -2490,7 +2490,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  @param q Full-text search query string.
  *
- *  @returns GTLRBooksQuery_VolumesList
+ *  @return GTLRBooksQuery_VolumesList
  */
 + (instancetype)queryWithQ:(NSString *)q;
 
@@ -2570,7 +2570,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Return a list of books in My Library.
  *
- *  @returns GTLRBooksQuery_VolumesMybooksList
+ *  @return GTLRBooksQuery_VolumesMybooksList
  */
 + (instancetype)query;
 
@@ -2614,7 +2614,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Return a list of recommended books for the current user.
  *
- *  @returns GTLRBooksQuery_VolumesRecommendedList
+ *  @return GTLRBooksQuery_VolumesRecommendedList
  */
 + (instancetype)query;
 
@@ -2669,7 +2669,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksRatingNotInterested Rating indicating a negative
  *        dismissal of a volume. (Value: "NOT_INTERESTED")
  *
- *  @returns GTLRBooksQuery_VolumesRecommendedRate
+ *  @return GTLRBooksQuery_VolumesRecommendedRate
  */
 + (instancetype)queryWithRating:(NSString *)rating
                        volumeId:(NSString *)volumeId;
@@ -2731,7 +2731,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *
  *  Return a list of books uploaded by the current user.
  *
- *  @returns GTLRBooksQuery_VolumesUseruploadedList
+ *  @return GTLRBooksQuery_VolumesUseruploadedList
  */
 + (instancetype)query;
 

@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    suffix of the form /alertPolicies/[POLICY_ID], identifying the policy in
  *    the container.
  *
- *  @returns GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
+ *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_AlertPolicy *)object
                            name:(NSString *)name;
@@ -211,7 +211,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
  *    For more information, see AlertPolicy.
  *
- *  @returns GTLRMonitoringQuery_ProjectsAlertPoliciesDelete
+ *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -245,7 +245,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The alerting policy to retrieve. The format is
  *    projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
  *
- *  @returns GTLRMonitoringQuery_ProjectsAlertPoliciesGet
+ *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -310,7 +310,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    policies to be listed are stored. To retrieve a single alerting policy by
  *    name, use the GetAlertPolicy operation, instead.
  *
- *  @returns GTLRMonitoringQuery_ProjectsAlertPoliciesList
+ *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -385,7 +385,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    created. When calling the alertPolicies.create method, do not include the
  *    name field in the alerting policy passed as part of the request.
  *
- *  @returns GTLRMonitoringQuery_ProjectsAlertPoliciesPatch
+ *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_AlertPolicy *)object
                            name:(NSString *)name;
@@ -426,7 +426,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project in which to create the time series. The format is
  *    "projects/PROJECT_ID_OR_NUMBER".
  *
- *  @returns GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
+ *  @return GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_CreateCollectdTimeSeriesRequest *)object
                            name:(NSString *)name;
@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project in which to create the group. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsCreate
+ *  @return GTLRMonitoringQuery_ProjectsGroupsCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_Group *)object
                            name:(NSString *)name;
@@ -498,7 +498,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The group to delete. The format is
  *    "projects/{project_id_or_number}/groups/{group_id}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsDelete
+ *  @return GTLRMonitoringQuery_ProjectsGroupsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -532,7 +532,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The group to retrieve. The format is
  *    "projects/{project_id_or_number}/groups/{group_id}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsGet
+ *  @return GTLRMonitoringQuery_ProjectsGroupsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -600,7 +600,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project whose groups are to be listed. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsList
+ *  @return GTLRMonitoringQuery_ProjectsGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -667,7 +667,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The group whose members are listed. The format is
  *    "projects/{project_id_or_number}/groups/{group_id}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsMembersList
+ *  @return GTLRMonitoringQuery_ProjectsGroupsMembersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -714,7 +714,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    project specified in the call to CreateGroup and a unique {group_id} that
  *    is generated automatically.
  *
- *  @returns GTLRMonitoringQuery_ProjectsGroupsUpdate
+ *  @return GTLRMonitoringQuery_ProjectsGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_Group *)object
                            name:(NSString *)name;
@@ -753,7 +753,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project on which to execute the request. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
+ *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_MetricDescriptor *)object
                            name:(NSString *)name;
@@ -791,7 +791,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}".
  *    An example of {metric_id} is: "custom.googleapis.com/my_test_metric".
  *
- *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete
+ *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -832,7 +832,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    An example value of {metric_id} is
  *    "compute.googleapis.com/instance/disk/read_bytes_count".
  *
- *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsGet
+ *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -887,7 +887,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project on which to execute the request. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsList
+ *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -930,7 +930,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}".
  *    The {resource_type} is a predefined type, such as cloudsql_database.
  *
- *  @returns GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsGet
+ *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -985,7 +985,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project on which to execute the request. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
+ *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1025,7 +1025,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The channel type for which to execute the request. The format is
  *    projects/[PROJECT_ID]/notificationChannelDescriptors/{channel_type}.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1081,7 +1081,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    descriptors; to retrieve a single descriptor by name, use the
  *    GetNotificationChannelDescriptor operation, instead.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1130,7 +1130,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    will have a normalized version of this field as a prefix, but will add
  *    /notificationChannels/[CHANNEL_ID] to identify the channel.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_NotificationChannel *)object
                            name:(NSString *)name;
@@ -1172,7 +1172,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The channel for which to execute the request. The format is
  *    projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsDelete
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1214,7 +1214,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The channel for which to execute the request. The format is
  *    projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsGet
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1286,7 +1286,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    generated and retrieved. This must name a channel that is already
  *    verified; if the specified channel is not verified, the request will fail.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsGetVerificationCode
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsGetVerificationCode
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_GetNotificationChannelVerificationCodeRequest *)object
                            name:(NSString *)name;
@@ -1354,7 +1354,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    query a specific channel by REST resource name, use the
  *    GetNotificationChannel operation.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsList
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1404,7 +1404,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
  *    The [CHANNEL_ID] is automatically assigned by the server on creation.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsPatch
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsPatch
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_NotificationChannel *)object
                            name:(NSString *)name;
@@ -1439,7 +1439,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    in the query.
  *  @param name The notification channel to which to send a verification code.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsSendVerificationCode
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsSendVerificationCode
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_SendNotificationChannelVerificationCodeRequest *)object
                            name:(NSString *)name;
@@ -1473,7 +1473,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    include in the query.
  *  @param name The notification channel to verify.
  *
- *  @returns GTLRMonitoringQuery_ProjectsNotificationChannelsVerify
+ *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsVerify
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_VerifyNotificationChannelRequest *)object
                            name:(NSString *)name;
@@ -1514,7 +1514,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project on which to execute the request. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsTimeSeriesCreate
+ *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
                            name:(NSString *)name;
@@ -1717,7 +1717,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The project on which to execute the request. The format is
  *    "projects/{project_id_or_number}".
  *
- *  @returns GTLRMonitoringQuery_ProjectsTimeSeriesList
+ *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1756,7 +1756,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param parent The project in which to create the uptime check. The format is
  *    projects/[PROJECT_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
+ *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
                          parent:(NSString *)parent;
@@ -1794,7 +1794,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The uptime check configuration to delete. The format is
  *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
+ *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1828,7 +1828,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param name The uptime check configuration to retrieve. The format is
  *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
+ *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1879,7 +1879,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param parent The project whose uptime check configurations are listed. The
  *    format is projects/[PROJECT_ID].
  *
- *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
+ *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1938,7 +1938,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    should be omitted when creating the uptime check configuration; on create,
  *    the resource name is assigned by the server and included in the response.
  *
- *  @returns GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
+ *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
                            name:(NSString *)name;
@@ -1980,7 +1980,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *
  *  Returns the list of IPs that checkers run from
  *
- *  @returns GTLRMonitoringQuery_UptimeCheckIpsList
+ *  @return GTLRMonitoringQuery_UptimeCheckIpsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

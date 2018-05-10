@@ -103,7 +103,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedCertificatesCreate
+ *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesCreate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
                          appsId:(NSString *)appsId;
@@ -141,7 +141,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedCertificatesDelete
+ *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
        authorizedCertificatesId:(NSString *)authorizedCertificatesId;
@@ -190,7 +190,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedCertificatesGet
+ *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
        authorizedCertificatesId:(NSString *)authorizedCertificatesId;
@@ -240,7 +240,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedCertificatesList
+ *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -297,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param authorizedCertificatesId Part of `name`. See documentation of
  *    `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedCertificatesPatch
+ *  @return GTLRAppengineQuery_AppsAuthorizedCertificatesPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
                          appsId:(NSString *)appsId
@@ -339,7 +339,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsAuthorizedDomainsList
+ *  @return GTLRAppengineQuery_AppsAuthorizedDomainsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -380,7 +380,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
  *
- *  @returns GTLRAppengineQuery_AppsCreate
+ *  @return GTLRAppengineQuery_AppsCreate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_Application *)object;
 
@@ -429,7 +429,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsDomainMappingsCreate
+ *  @return GTLRAppengineQuery_AppsDomainMappingsCreate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
                          appsId:(NSString *)appsId;
@@ -470,7 +470,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsDomainMappingsDelete
+ *  @return GTLRAppengineQuery_AppsDomainMappingsDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                domainMappingsId:(NSString *)domainMappingsId;
@@ -509,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsDomainMappingsGet
+ *  @return GTLRAppengineQuery_AppsDomainMappingsGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                domainMappingsId:(NSString *)domainMappingsId;
@@ -550,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsDomainMappingsList
+ *  @return GTLRAppengineQuery_AppsDomainMappingsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -604,7 +604,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/domainMappings/example.com.
  *  @param domainMappingsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsDomainMappingsPatch
+ *  @return GTLRAppengineQuery_AppsDomainMappingsPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
                          appsId:(NSString *)appsId
@@ -646,7 +646,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. Name of the Firewall collection to set.
  *    Example: apps/myapp/firewall/ingressRules.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_BatchUpdateIngressRulesRequest *)object
                          appsId:(NSString *)appsId;
@@ -680,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Firewall collection in
  *    which to create a new rule. Example: apps/myapp/firewall/ingressRules.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesCreate
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesCreate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
                          appsId:(NSString *)appsId;
@@ -717,7 +717,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    Example: apps/myapp/firewall/ingressRules/100.
  *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesDelete
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                  ingressRulesId:(NSString *)ingressRulesId;
@@ -756,7 +756,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    Example: apps/myapp/firewall/ingressRules/100.
  *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesGet
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                  ingressRulesId:(NSString *)ingressRulesId;
@@ -804,7 +804,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the Firewall collection to retrieve.
  *    Example: apps/myapp/firewall/ingressRules.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesList
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -852,7 +852,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    Example: apps/myapp/firewall/ingressRules/100.
  *  @param ingressRulesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsFirewallIngressRulesPatch
+ *  @return GTLRAppengineQuery_AppsFirewallIngressRulesPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
                          appsId:(NSString *)appsId
@@ -888,7 +888,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. Name of the Application resource to get.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsGet
+ *  @return GTLRAppengineQuery_AppsGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId;
 
@@ -922,7 +922,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. Resource name for the location.
  *  @param locationsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsLocationsGet
+ *  @return GTLRAppengineQuery_AppsLocationsGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                     locationsId:(NSString *)locationsId;
@@ -966,7 +966,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. The resource that owns the locations
  *    collection, if applicable.
  *
- *  @returns GTLRAppengineQuery_AppsLocationsList
+ *  @return GTLRAppengineQuery_AppsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1008,7 +1008,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. The name of the operation resource.
  *  @param operationsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsOperationsGet
+ *  @return GTLRAppengineQuery_AppsOperationsGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                    operationsId:(NSString *)operationsId;
@@ -1064,7 +1064,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  @param appsId Part of `name`. The name of the operation's parent resource.
  *
- *  @returns GTLRAppengineQuery_AppsOperationsList
+ *  @return GTLRAppengineQuery_AppsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1116,7 +1116,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. Name of the Application resource to update.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsPatch
+ *  @return GTLRAppengineQuery_AppsPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_Application *)object
                          appsId:(NSString *)appsId;
@@ -1154,7 +1154,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `name`. Name of the application to repair. Example:
  *    apps/myapp
  *
- *  @returns GTLRAppengineQuery_AppsRepair
+ *  @return GTLRAppengineQuery_AppsRepair
  */
 + (instancetype)queryWithObject:(GTLRAppengine_RepairApplicationRequest *)object
                          appsId:(NSString *)appsId;
@@ -1191,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesDelete
+ *  @return GTLRAppengineQuery_AppsServicesDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId;
@@ -1230,7 +1230,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesGet
+ *  @return GTLRAppengineQuery_AppsServicesGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId;
@@ -1271,7 +1271,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param appsId Part of `parent`. Name of the parent Application resource.
  *    Example: apps/myapp.
  *
- *  @returns GTLRAppengineQuery_AppsServicesList
+ *  @return GTLRAppengineQuery_AppsServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1336,7 +1336,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    apps/myapp/services/default.
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesPatch
+ *  @return GTLRAppengineQuery_AppsServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_Service *)object
                          appsId:(NSString *)appsId
@@ -1375,7 +1375,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    version under. Example: apps/myapp/services/default.
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsCreate
+ *  @return GTLRAppengineQuery_AppsServicesVersionsCreate
  */
 + (instancetype)queryWithObject:(GTLRAppengine_Version *)object
                          appsId:(NSString *)appsId
@@ -1417,7 +1417,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsDelete
+ *  @return GTLRAppengineQuery_AppsServicesVersionsDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
@@ -1472,7 +1472,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsGet
+ *  @return GTLRAppengineQuery_AppsServicesVersionsGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
@@ -1530,7 +1530,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsInstancesDebug
+ *  @return GTLRAppengineQuery_AppsServicesVersionsInstancesDebug
  */
 + (instancetype)queryWithObject:(GTLRAppengine_DebugInstanceRequest *)object
                          appsId:(NSString *)appsId
@@ -1578,7 +1578,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsInstancesDelete
+ *  @return GTLRAppengineQuery_AppsServicesVersionsInstancesDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
@@ -1627,7 +1627,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *  @param instancesId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsInstancesGet
+ *  @return GTLRAppengineQuery_AppsServicesVersionsInstancesGet
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
@@ -1682,7 +1682,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *  @param versionsId Part of `parent`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsInstancesList
+ *  @return GTLRAppengineQuery_AppsServicesVersionsInstancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1741,7 +1741,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    Example: apps/myapp/services/default.
  *  @param servicesId Part of `parent`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsList
+ *  @return GTLRAppengineQuery_AppsServicesVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1860,7 +1860,7 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @param servicesId Part of `name`. See documentation of `appsId`.
  *  @param versionsId Part of `name`. See documentation of `appsId`.
  *
- *  @returns GTLRAppengineQuery_AppsServicesVersionsPatch
+ *  @return GTLRAppengineQuery_AppsServicesVersionsPatch
  */
 + (instancetype)queryWithObject:(GTLRAppengine_Version *)object
                          appsId:(NSString *)appsId

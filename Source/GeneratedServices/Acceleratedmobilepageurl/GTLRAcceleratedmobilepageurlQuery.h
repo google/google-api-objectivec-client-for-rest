@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest to
  *    include in the query.
  *
- *  @returns GTLRAcceleratedmobilepageurlQuery_AmpUrlsBatchGet
+ *  @return GTLRAcceleratedmobilepageurlQuery_AmpUrlsBatchGet
  */
 + (instancetype)queryWithObject:(GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest *)object;
 

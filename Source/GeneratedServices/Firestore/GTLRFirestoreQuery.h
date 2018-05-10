@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param database The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet
  */
 + (instancetype)queryWithObject:(GTLRFirestore_BatchGetDocumentsRequest *)object
                        database:(NSString *)database;
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param database The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsBeginTransaction
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsBeginTransaction
  */
 + (instancetype)queryWithObject:(GTLRFirestore_BeginTransactionRequest *)object
                        database:(NSString *)database;
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param database The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsCommit
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsCommit
  */
 + (instancetype)queryWithObject:(GTLRFirestore_CommitRequest *)object
                        database:(NSString *)database;
@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param collectionId The collection ID, relative to `parent`, to list. For
  *    example: `chatrooms`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsCreateDocument
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsCreateDocument
  */
 + (instancetype)queryWithObject:(GTLRFirestore_Document *)object
                          parent:(NSString *)parent
@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the Document to delete. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsDelete
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the Document to get. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -395,7 +395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    example: `chatrooms`
  *    or `messages`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -439,7 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    For example:
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsListCollectionIds
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsListCollectionIds
  */
 + (instancetype)queryWithObject:(GTLRFirestore_ListCollectionIdsRequest *)object
                          parent:(NSString *)parent;
@@ -474,7 +474,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param database The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsListen
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsListen
  */
 + (instancetype)queryWithObject:(GTLRFirestore_ListenRequest *)object
                        database:(NSString *)database;
@@ -533,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the document, for example
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsPatch
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsPatch
  */
 + (instancetype)queryWithObject:(GTLRFirestore_Document *)object
                            name:(NSString *)name;
@@ -568,7 +568,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param database The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsRollback
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsRollback
  */
 + (instancetype)queryWithObject:(GTLRFirestore_RollbackRequest *)object
                        database:(NSString *)database;
@@ -611,7 +611,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/my-project/databases/my-database/documents` or
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunQuery
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunQuery
  */
 + (instancetype)queryWithObject:(GTLRFirestore_RunQueryRequest *)object
                          parent:(NSString *)parent;
@@ -648,7 +648,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project_id}/databases/{database_id}`.
  *    This is only required in the first message.
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesDocumentsWrite
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsWrite
  */
 + (instancetype)queryWithObject:(GTLRFirestore_WriteRequest *)object
                        database:(NSString *)database;
@@ -704,7 +704,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    example:
  *    `projects/{project_id}/databases/{database_id}`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesIndexesCreate
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesIndexesCreate
  */
 + (instancetype)queryWithObject:(GTLRFirestore_Index *)object
                          parent:(NSString *)parent;
@@ -738,7 +738,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The index name. For example:
  *    `projects/{project_id}/databases/{database_id}/indexes/{index_id}`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesIndexesDelete
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesIndexesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -771,7 +771,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the index. For example:
  *    `projects/{project_id}/databases/{database_id}/indexes/{index_id}`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesIndexesGet
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesIndexesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -812,7 +812,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The database name. For example:
  *    `projects/{project_id}/databases/{database_id}`
  *
- *  @returns GTLRFirestoreQuery_ProjectsDatabasesIndexesList
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesIndexesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

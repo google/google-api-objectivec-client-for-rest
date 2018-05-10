@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest to
  *    include in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest *)object;
 
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest
  *    to include in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object;
 
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeSentimentRequest to
  *    include in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSentimentRequest *)object;
 
@@ -156,7 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest to
  *    include in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object;
 
@@ -185,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_AnnotateTextRequest to include
  *    in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnnotateTextRequest *)object;
 
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudNaturalLanguage_ClassifyTextRequest to include
  *    in the query.
  *
- *  @returns GTLRCloudNaturalLanguageQuery_DocumentsClassifyText
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsClassifyText
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ClassifyTextRequest *)object;
 

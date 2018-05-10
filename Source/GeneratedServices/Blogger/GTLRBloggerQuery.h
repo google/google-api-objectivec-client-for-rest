@@ -187,7 +187,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param blogId The ID of the blog to get.
  *
- *  @returns GTLRBloggerQuery_BlogsGet
+ *  @return GTLRBloggerQuery_BlogsGet
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId;
 
@@ -227,7 +227,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param url The URL of the blog to retrieve.
  *
- *  @returns GTLRBloggerQuery_BlogsGetByUrl
+ *  @return GTLRBloggerQuery_BlogsGetByUrl
  */
 + (instancetype)queryWithUrl:(NSString *)url;
 
@@ -306,7 +306,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param userId ID of the user whose blogs are to be fetched. Either the word
  *    'self' (sans quote marks) or the user's profile identifier.
  *
- *  @returns GTLRBloggerQuery_BlogsListByUser
+ *  @return GTLRBloggerQuery_BlogsListByUser
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -346,7 +346,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    'self' (sans quote marks) or the user's profile identifier.
  *  @param blogId The ID of the blog to get.
  *
- *  @returns GTLRBloggerQuery_BlogUserInfosGet
+ *  @return GTLRBloggerQuery_BlogUserInfosGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                          blogId:(NSString *)blogId;
@@ -383,7 +383,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param postId The ID of the Post.
  *  @param commentId The ID of the comment to mark as not spam.
  *
- *  @returns GTLRBloggerQuery_CommentsApprove
+ *  @return GTLRBloggerQuery_CommentsApprove
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId
@@ -422,7 +422,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param postId The ID of the Post.
  *  @param commentId The ID of the comment to delete.
  *
- *  @returns GTLRBloggerQuery_CommentsDelete
+ *  @return GTLRBloggerQuery_CommentsDelete
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId
@@ -474,7 +474,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param postId ID of the post to fetch posts from.
  *  @param commentId The ID of the comment to get.
  *
- *  @returns GTLRBloggerQuery_CommentsGet
+ *  @return GTLRBloggerQuery_CommentsGet
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId
@@ -552,7 +552,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId ID of the blog to fetch comments from.
  *  @param postId ID of the post to fetch posts from.
  *
- *  @returns GTLRBloggerQuery_CommentsList
+ *  @return GTLRBloggerQuery_CommentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -618,7 +618,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param blogId ID of the blog to fetch comments from.
  *
- *  @returns GTLRBloggerQuery_CommentsListByBlog
+ *  @return GTLRBloggerQuery_CommentsListByBlog
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -658,7 +658,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param postId The ID of the Post.
  *  @param commentId The ID of the comment to mark as spam.
  *
- *  @returns GTLRBloggerQuery_CommentsMarkAsSpam
+ *  @return GTLRBloggerQuery_CommentsMarkAsSpam
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId
@@ -696,7 +696,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param postId The ID of the Post.
  *  @param commentId The ID of the comment to delete content from.
  *
- *  @returns GTLRBloggerQuery_CommentsRemoveContent
+ *  @return GTLRBloggerQuery_CommentsRemoveContent
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId
@@ -731,7 +731,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param pageId The ID of the Page.
  *
- *  @returns GTLRBloggerQuery_PagesDelete
+ *  @return GTLRBloggerQuery_PagesDelete
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          pageId:(NSString *)pageId;
@@ -775,7 +775,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId ID of the blog containing the page.
  *  @param pageId The ID of the page to get.
  *
- *  @returns GTLRBloggerQuery_PagesGet
+ *  @return GTLRBloggerQuery_PagesGet
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          pageId:(NSString *)pageId;
@@ -808,7 +808,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param object The @c GTLRBlogger_Page to include in the query.
  *  @param blogId ID of the blog to add the page to.
  *
- *  @returns GTLRBloggerQuery_PagesInsert
+ *  @return GTLRBloggerQuery_PagesInsert
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Page *)object
                          blogId:(NSString *)blogId;
@@ -868,7 +868,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param blogId ID of the blog to fetch Pages from.
  *
- *  @returns GTLRBloggerQuery_PagesList
+ *  @return GTLRBloggerQuery_PagesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -917,7 +917,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param pageId The ID of the Page.
  *
- *  @returns GTLRBloggerQuery_PagesPatch
+ *  @return GTLRBloggerQuery_PagesPatch
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Page *)object
                          blogId:(NSString *)blogId
@@ -951,7 +951,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the blog.
  *  @param pageId The ID of the page.
  *
- *  @returns GTLRBloggerQuery_PagesPublish
+ *  @return GTLRBloggerQuery_PagesPublish
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          pageId:(NSString *)pageId;
@@ -984,7 +984,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the blog.
  *  @param pageId The ID of the page.
  *
- *  @returns GTLRBloggerQuery_PagesRevert
+ *  @return GTLRBloggerQuery_PagesRevert
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          pageId:(NSString *)pageId;
@@ -1030,7 +1030,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param pageId The ID of the Page.
  *
- *  @returns GTLRBloggerQuery_PagesUpdate
+ *  @return GTLRBloggerQuery_PagesUpdate
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Page *)object
                          blogId:(NSString *)blogId
@@ -1073,7 +1073,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param blogId The ID of the blog to get.
  *
- *  @returns GTLRBloggerQuery_PageViewsGet
+ *  @return GTLRBloggerQuery_PageViewsGet
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId;
 
@@ -1106,7 +1106,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param postId The ID of the Post.
  *
- *  @returns GTLRBloggerQuery_PostsDelete
+ *  @return GTLRBloggerQuery_PostsDelete
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId;
@@ -1166,7 +1166,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId ID of the blog to fetch the post from.
  *  @param postId The ID of the post
  *
- *  @returns GTLRBloggerQuery_PostsGet
+ *  @return GTLRBloggerQuery_PostsGet
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId;
@@ -1214,7 +1214,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId ID of the blog to fetch the post from.
  *  @param path Path of the Post to retrieve.
  *
- *  @returns GTLRBloggerQuery_PostsGetByPath
+ *  @return GTLRBloggerQuery_PostsGetByPath
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                            path:(NSString *)path;
@@ -1261,7 +1261,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param object The @c GTLRBlogger_Post to include in the query.
  *  @param blogId ID of the blog to add the post to.
  *
- *  @returns GTLRBloggerQuery_PostsInsert
+ *  @return GTLRBloggerQuery_PostsInsert
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Post *)object
                          blogId:(NSString *)blogId;
@@ -1354,7 +1354,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param blogId ID of the blog to fetch posts from.
  *
- *  @returns GTLRBloggerQuery_PostsList
+ *  @return GTLRBloggerQuery_PostsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1420,7 +1420,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param postId The ID of the Post.
  *
- *  @returns GTLRBloggerQuery_PostsPatch
+ *  @return GTLRBloggerQuery_PostsPatch
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Post *)object
                          blogId:(NSString *)blogId
@@ -1464,7 +1464,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param postId The ID of the Post.
  *
- *  @returns GTLRBloggerQuery_PostsPublish
+ *  @return GTLRBloggerQuery_PostsPublish
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId;
@@ -1497,7 +1497,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param postId The ID of the Post.
  *
- *  @returns GTLRBloggerQuery_PostsRevert
+ *  @return GTLRBloggerQuery_PostsRevert
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId;
@@ -1553,7 +1553,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId ID of the blog to fetch the post from.
  *  @param q Query terms to search this blog for matching posts.
  *
- *  @returns GTLRBloggerQuery_PostsSearch
+ *  @return GTLRBloggerQuery_PostsSearch
  */
 + (instancetype)queryWithBlogId:(NSString *)blogId
                               q:(NSString *)q;
@@ -1616,7 +1616,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the Blog.
  *  @param postId The ID of the Post.
  *
- *  @returns GTLRBloggerQuery_PostsUpdate
+ *  @return GTLRBloggerQuery_PostsUpdate
  */
 + (instancetype)queryWithObject:(GTLRBlogger_Post *)object
                          blogId:(NSString *)blogId
@@ -1667,7 +1667,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @param blogId The ID of the blog.
  *  @param postId The ID of the post to get.
  *
- *  @returns GTLRBloggerQuery_PostUserInfosGet
+ *  @return GTLRBloggerQuery_PostUserInfosGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                          blogId:(NSString *)blogId
@@ -1768,7 +1768,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    identifier.
  *  @param blogId ID of the blog to fetch posts from.
  *
- *  @returns GTLRBloggerQuery_PostUserInfosList
+ *  @return GTLRBloggerQuery_PostUserInfosList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1802,7 +1802,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @param userId The ID of the user to get.
  *
- *  @returns GTLRBloggerQuery_UsersGet
+ *  @return GTLRBloggerQuery_UsersGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 

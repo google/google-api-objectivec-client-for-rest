@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param albumId Identifier of the album where the enrichment will be added.
  *
- *  @returns GTLRPhotosLibraryQuery_AlbumsAddEnrichment
+ *  @return GTLRPhotosLibraryQuery_AlbumsAddEnrichment
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_AddEnrichmentToAlbumRequest *)object
                         albumId:(NSString *)albumId;
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPhotosLibrary_CreateAlbumRequest to include in the
  *    query.
  *
- *  @returns GTLRPhotosLibraryQuery_AlbumsCreate
+ *  @return GTLRPhotosLibraryQuery_AlbumsCreate
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_CreateAlbumRequest *)object;
 
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param albumId Identifier of the album to be requested.
  *
- *  @returns GTLRPhotosLibraryQuery_AlbumsGet
+ *  @return GTLRPhotosLibraryQuery_AlbumsGet
  */
 + (instancetype)queryWithAlbumId:(NSString *)albumId;
 
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all albums shown to a user in the 'Albums' tab of the Google
  *  Photos app.
  *
- *  @returns GTLRPhotosLibraryQuery_AlbumsList
+ *  @return GTLRPhotosLibraryQuery_AlbumsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    created by the developer.
  *    .
  *
- *  @returns GTLRPhotosLibraryQuery_AlbumsShare
+ *  @return GTLRPhotosLibraryQuery_AlbumsShare
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_ShareAlbumRequest *)object
                         albumId:(NSString *)albumId;
@@ -258,7 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPhotosLibrary_BatchCreateMediaItemsRequest to
  *    include in the query.
  *
- *  @returns GTLRPhotosLibraryQuery_MediaItemsBatchCreate
+ *  @return GTLRPhotosLibraryQuery_MediaItemsBatchCreate
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_BatchCreateMediaItemsRequest *)object;
 
@@ -289,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param mediaItemId Identifier of media item to be requested.
  *
- *  @returns GTLRPhotosLibraryQuery_MediaItemsGet
+ *  @return GTLRPhotosLibraryQuery_MediaItemsGet
  */
 + (instancetype)queryWithMediaItemId:(NSString *)mediaItemId;
 
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPhotosLibrary_SearchMediaItemsRequest to include in
  *    the query.
  *
- *  @returns GTLRPhotosLibraryQuery_MediaItemsSearch
+ *  @return GTLRPhotosLibraryQuery_MediaItemsSearch
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_SearchMediaItemsRequest *)object;
 
@@ -358,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPhotosLibrary_JoinSharedAlbumRequest to include in
  *    the query.
  *
- *  @returns GTLRPhotosLibraryQuery_SharedAlbumsJoin
+ *  @return GTLRPhotosLibraryQuery_SharedAlbumsJoin
  */
 + (instancetype)queryWithObject:(GTLRPhotosLibrary_JoinSharedAlbumRequest *)object;
 
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all shared albums shown to a user in the 'Sharing' tab of the
  *  Google Photos app.
  *
- *  @returns GTLRPhotosLibraryQuery_SharedAlbumsList
+ *  @return GTLRPhotosLibraryQuery_SharedAlbumsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

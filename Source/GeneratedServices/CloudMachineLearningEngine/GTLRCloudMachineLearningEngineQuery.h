@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The project name.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param name Required. The name of the job to cancel.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsCancel
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsCancel
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest *)object
                            name:(NSString *)name;
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. The project name.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsCreate
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job *)object
                          parent:(NSString *)parent;
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the job to get the description of.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -201,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -261,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The name of the project for which to list jobs.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsList
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -303,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsSetIamPolicy
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -351,7 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsJobsTestIamPermissions
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -382,7 +382,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the location.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -432,7 +432,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    locations are to be
  *    listed (since some locations might be whitelisted for specific projects).
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. The project name.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model *)object
                          parent:(NSString *)parent;
@@ -507,7 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the model.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsDelete
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -539,7 +539,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the model.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -576,7 +576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -632,7 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The name of the project whose models are to be
  *    listed.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsList
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -689,7 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name Required. The project name.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsPatch
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model *)object
                            name:(NSString *)name;
@@ -728,7 +728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -776,7 +776,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -819,7 +819,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Required. The name of the model.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsCreate
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *)object
                          parent:(NSString *)parent;
@@ -863,7 +863,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    versions of a model by calling
  *    [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -899,7 +899,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the version.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsGet
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -956,7 +956,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The name of the model for which to list the version.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1007,7 +1007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param name Required. The name of the model.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsPatch
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *)object
                            name:(NSString *)name;
@@ -1056,7 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    can get the names of all the versions of a model by calling
  *    [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest *)object
                            name:(NSString *)name;
@@ -1103,7 +1103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1137,7 +1137,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1169,7 +1169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsOperationsGet
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1223,7 +1223,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1269,7 +1269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Authorization: requires the `predict` permission on the specified
  *    resource.
  *
- *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsPredict
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsPredict
  */
 + (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest *)object
                            name:(NSString *)name;

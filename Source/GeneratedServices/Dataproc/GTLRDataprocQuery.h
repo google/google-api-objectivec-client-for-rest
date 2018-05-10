@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param region Required. The Cloud Dataproc region in which to handle the
  *    request.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersCreate
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersCreate
  */
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
                       projectId:(NSString *)projectId
@@ -161,7 +161,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param clusterName Required. The cluster name.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersDelete
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region
@@ -208,7 +208,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param clusterName Required. The cluster name.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersDiagnose
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersDiagnose
  */
 + (instancetype)queryWithObject:(GTLRDataproc_DiagnoseClusterRequest *)object
                       projectId:(NSString *)projectId
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param clusterName Required. The cluster name.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersGet
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region
@@ -312,7 +312,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param region Required. The Cloud Dataproc region in which to handle the
  *    request.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersList
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -417,7 +417,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param clusterName Required. The cluster name.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsClustersPatch
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersPatch
  */
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
                       projectId:(NSString *)projectId
@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param jobId Required. The job ID.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsCancel
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsCancel
  */
 + (instancetype)queryWithObject:(GTLRDataproc_CancelJobRequest *)object
                       projectId:(NSString *)projectId
@@ -510,7 +510,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param jobId Required. The job ID.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsDelete
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region
@@ -553,7 +553,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param jobId Required. The job ID.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsGet
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region
@@ -629,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param region Required. The Cloud Dataproc region in which to handle the
  *    request.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsList
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -688,7 +688,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    request.
  *  @param jobId Required. The job ID.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsPatch
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsPatch
  */
 + (instancetype)queryWithObject:(GTLRDataproc_Job *)object
                       projectId:(NSString *)projectId
@@ -729,7 +729,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param region Required. The Cloud Dataproc region in which to handle the
  *    request.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsJobsSubmit
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsSubmit
  */
 + (instancetype)queryWithObject:(GTLRDataproc_SubmitJobRequest *)object
                       projectId:(NSString *)projectId
@@ -775,7 +775,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsOperationsCancel
+ *  @return GTLRDataprocQuery_ProjectsRegionsOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -809,7 +809,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsOperationsDelete
+ *  @return GTLRDataprocQuery_ProjectsRegionsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -841,7 +841,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsOperationsGet
+ *  @return GTLRDataprocQuery_ProjectsRegionsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -894,7 +894,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRDataprocQuery_ProjectsRegionsOperationsList
+ *  @return GTLRDataprocQuery_ProjectsRegionsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

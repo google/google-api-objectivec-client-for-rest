@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsCreate
+ *  @return GTLRCloudbillingQuery_BillingAccountsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object;
 
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    example,
  *    `billingAccounts/012345-567890-ABCDEF`.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsGet
+ *  @return GTLRCloudbillingQuery_BillingAccountsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -160,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsGetIamPolicy
+ *  @return GTLRCloudbillingQuery_BillingAccountsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission to
  *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsList
+ *  @return GTLRCloudbillingQuery_BillingAccountsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -268,7 +268,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the billing account resource to be updated.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsPatch
+ *  @return GTLRCloudbillingQuery_BillingAccountsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
                            name:(NSString *)name;
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects that
  *    you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsProjectsList
+ *  @return GTLRCloudbillingQuery_BillingAccountsProjectsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsSetIamPolicy
+ *  @return GTLRCloudbillingQuery_BillingAccountsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -416,7 +416,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudbillingQuery_BillingAccountsTestIamPermissions
+ *  @return GTLRCloudbillingQuery_BillingAccountsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -456,7 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    is
  *    retrieved. For example, `projects/tokyo-rain-123`.
  *
- *  @returns GTLRCloudbillingQuery_ProjectsGetBillingInfo
+ *  @return GTLRCloudbillingQuery_ProjectsGetBillingInfo
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -543,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    information
  *    that you want to update. For example, `projects/tokyo-rain-123`.
  *
- *  @returns GTLRCloudbillingQuery_ProjectsUpdateBillingInfo
+ *  @return GTLRCloudbillingQuery_ProjectsUpdateBillingInfo
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_ProjectBillingInfo *)object
                            name:(NSString *)name;
@@ -574,7 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all public cloud services.
  *
- *  @returns GTLRCloudbillingQuery_ServicesList
+ *  @return GTLRCloudbillingQuery_ServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -644,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The name of the service.
  *    Example: "services/DA34-426B-A397"
  *
- *  @returns GTLRCloudbillingQuery_ServicesSkusList
+ *  @return GTLRCloudbillingQuery_ServicesSkusList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

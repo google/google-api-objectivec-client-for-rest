@@ -83,7 +83,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Get a list of contact groups owned by the authenticated user by specifying
  *  a list of contact group resource names.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsBatchGet
+ *  @return GTLRPeopleServiceQuery_ContactGroupsBatchGet
  */
 + (instancetype)query;
 
@@ -109,7 +109,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  @param object The @c GTLRPeopleService_CreateContactGroupRequest to include
  *    in the query.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsCreate
+ *  @return GTLRPeopleServiceQuery_ContactGroupsCreate
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_CreateContactGroupRequest *)object;
 
@@ -142,7 +142,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param resourceName The resource name of the contact group to delete.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsDelete
+ *  @return GTLRPeopleServiceQuery_ContactGroupsDelete
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -176,7 +176,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param resourceName The resource name of the contact group to get.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsGet
+ *  @return GTLRPeopleServiceQuery_ContactGroupsGet
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -218,7 +218,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  List all contact groups owned by the authenticated user. Members of the
  *  contact groups are not populated.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsList
+ *  @return GTLRPeopleServiceQuery_ContactGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    include in the query.
  *  @param resourceName The resource name of the contact group to modify.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsMembersModify
+ *  @return GTLRPeopleServiceQuery_ContactGroupsMembersModify
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_ModifyContactGroupMembersRequest *)object
                    resourceName:(NSString *)resourceName;
@@ -290,7 +290,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    server. An ASCII
  *    string, in the form of `contactGroups/`<var>contact_group_id</var>.
  *
- *  @returns GTLRPeopleServiceQuery_ContactGroupsUpdate
+ *  @return GTLRPeopleServiceQuery_ContactGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_UpdateContactGroupRequest *)object
                    resourceName:(NSString *)resourceName;
@@ -410,7 +410,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  @param resourceName The resource name to return connections for. Only
  *    `people/me` is valid.
  *
- *  @returns GTLRPeopleServiceQuery_PeopleConnectionsList
+ *  @return GTLRPeopleServiceQuery_PeopleConnectionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -442,7 +442,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *
- *  @returns GTLRPeopleServiceQuery_PeopleCreateContact
+ *  @return GTLRPeopleServiceQuery_PeopleCreateContact
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object;
 
@@ -470,7 +470,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param resourceName The resource name of the contact to delete.
  *
- *  @returns GTLRPeopleServiceQuery_PeopleDeleteContact
+ *  @return GTLRPeopleServiceQuery_PeopleDeleteContact
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -572,7 +572,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    identifies the contact as returned by
  *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *
- *  @returns GTLRPeopleServiceQuery_PeopleGet
+ *  @return GTLRPeopleServiceQuery_PeopleGet
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -668,7 +668,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
- *  @returns GTLRPeopleServiceQuery_PeopleGetBatchGet
+ *  @return GTLRPeopleServiceQuery_PeopleGetBatchGet
  */
 + (instancetype)query;
 
@@ -750,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    with a max length of 27 characters, in the form of
  *    `people/`<var>person_id</var>.
  *
- *  @returns GTLRPeopleServiceQuery_PeopleUpdateContact
+ *  @return GTLRPeopleServiceQuery_PeopleUpdateContact
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object
                    resourceName:(NSString *)resourceName;

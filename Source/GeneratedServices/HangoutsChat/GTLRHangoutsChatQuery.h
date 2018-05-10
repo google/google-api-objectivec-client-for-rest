@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
  *    Example: spaces/AAAAMpdlehY
  *
- *  @returns GTLRHangoutsChatQuery_SpacesGet
+ *  @return GTLRHangoutsChatQuery_SpacesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists spaces the caller is a member of.
  *
- *  @returns GTLRHangoutsChatQuery_SpacesList
+ *  @return GTLRHangoutsChatQuery_SpacesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "spaces/ * /members/ *".
  *    Example: spaces/AAAAMpdlehY/members/105115627578887013105
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMembersGet
+ *  @return GTLRHangoutsChatQuery_SpacesMembersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -169,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    fetched, in the form "spaces/ *".
  *    Example: spaces/AAAAMpdlehY
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMembersList
+ *  @return GTLRHangoutsChatQuery_SpacesMembersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. Space resource name, in the form "spaces/ *".
  *    Example: spaces/AAAAMpdlehY
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMessagesCreate
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesCreate
  */
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent;
@@ -249,7 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "spaces/ * /messages/ *"
  *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMessagesDelete
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "spaces/ * /messages/ *".
  *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMessagesGet
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Resource name, in the form "spaces/ * /messages/ *".
  *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
- *  @returns GTLRHangoutsChatQuery_SpacesMessagesUpdate
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                            name:(NSString *)name;

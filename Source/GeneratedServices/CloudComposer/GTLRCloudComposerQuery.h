@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The parent must be of the form
  *    `projects/{projectId}/locations/{locationId}`.
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCreate
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudComposer_Environment *)object
                          parent:(NSString *)parent;
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The environment to delete, in the form:
  *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the environment to get, in the form:
  *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsGet
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form:
  *    `projects/{projectId}/locations/{locationId}`
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsList
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form:
  *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPatch
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudComposer_Environment *)object
                            name:(NSString *)name;
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsOperationsDelete
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -404,7 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsOperationsGet
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -457,7 +457,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRCloudComposerQuery_ProjectsLocationsOperationsList
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

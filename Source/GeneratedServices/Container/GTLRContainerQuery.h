@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
  *    *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
  */
 + (instancetype)queryWithObject:(GTLRContainer_CompleteIPRotationRequest *)object
                            name:(NSString *)name;
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    created.
  *    Specified in the format 'projects/ * /locations/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersCreate
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersCreate
  */
 + (instancetype)queryWithObject:(GTLRContainer_CreateClusterRequest *)object
                          parent:(NSString *)parent;
@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster) of the cluster to delete.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersDelete
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    retrieve.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersGet
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Specified in the format 'projects/ * /locations/ *'.
  *    Location "-" matches all zones and all regions.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersList
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -358,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    created. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
  */
 + (instancetype)queryWithObject:(GTLRContainer_CreateNodePoolRequest *)object
                          parent:(NSString *)parent;
@@ -423,7 +423,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    delete. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -487,7 +487,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    get. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -543,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    pools will be
  *    listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -584,7 +584,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *
  *    /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback
  */
 + (instancetype)queryWithObject:(GTLRContainer_RollbackNodePoolUpgradeRequest *)object
                            name:(NSString *)name;
@@ -622,7 +622,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    autoscaler settings. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolAutoscalingRequest *)object
                            name:(NSString *)name;
@@ -660,7 +660,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    management properties. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolManagementRequest *)object
                            name:(NSString *)name;
@@ -700,7 +700,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *
  *    /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolSizeRequest *)object
                            name:(NSString *)name;
@@ -738,7 +738,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    update. Specified in the format
  *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateNodePoolRequest *)object
                            name:(NSString *)name;
@@ -774,7 +774,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    addons.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetAddons
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetAddons
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetAddonsConfigRequest *)object
                            name:(NSString *)name;
@@ -810,7 +810,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    legacy abac.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLegacyAbacRequest *)object
                            name:(NSString *)name;
@@ -846,7 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    locations.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetLocations
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLocations
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLocationsRequest *)object
                            name:(NSString *)name;
@@ -882,7 +882,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    logging.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetLogging
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLogging
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLoggingServiceRequest *)object
                            name:(NSString *)name;
@@ -920,7 +920,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    policy.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMaintenancePolicyRequest *)object
                            name:(NSString *)name;
@@ -960,7 +960,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    auth.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMasterAuthRequest *)object
                            name:(NSString *)name;
@@ -996,7 +996,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    monitoring.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMonitoringServiceRequest *)object
                            name:(NSString *)name;
@@ -1032,7 +1032,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    networking
  *    policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNetworkPolicyRequest *)object
                            name:(NSString *)name;
@@ -1067,7 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    labels.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLabelsRequest *)object
                            name:(NSString *)name;
@@ -1104,7 +1104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
  *    *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
  */
 + (instancetype)queryWithObject:(GTLRContainer_StartIPRotationRequest *)object
                            name:(NSString *)name;
@@ -1139,7 +1139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster) of the cluster to update.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersUpdate
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersUpdate
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateClusterRequest *)object
                            name:(NSString *)name;
@@ -1174,7 +1174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster) of the cluster to update.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsClustersUpdateMaster
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersUpdateMaster
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateMasterRequest *)object
                            name:(NSString *)name;
@@ -1223,7 +1223,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project and location) of the server config to get
  *    Specified in the format 'projects/ * /locations/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsGetServerConfig
+ *  @return GTLRContainerQuery_ProjectsLocationsGetServerConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1258,7 +1258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    cancel.
  *    Specified in the format 'projects/ * /locations/ * /operations/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsOperationsCancel
+ *  @return GTLRContainerQuery_ProjectsLocationsOperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRContainer_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -1315,7 +1315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    get.
  *    Specified in the format 'projects/ * /locations/ * /operations/ *'.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsOperationsGet
+ *  @return GTLRContainerQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1366,7 +1366,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Specified in the format 'projects/ * /locations/ *'.
  *    Location "-" matches all zones and all regions.
  *
- *  @returns GTLRContainerQuery_ProjectsLocationsOperationsList
+ *  @return GTLRContainerQuery_ProjectsLocationsOperationsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -1425,7 +1425,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersAddons
+ *  @return GTLRContainerQuery_ProjectsZonesClustersAddons
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetAddonsConfigRequest *)object
                       projectId:(NSString *)projectId
@@ -1487,7 +1487,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation
+ *  @return GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation
  */
 + (instancetype)queryWithObject:(GTLRContainer_CompleteIPRotationRequest *)object
                       projectId:(NSString *)projectId
@@ -1559,7 +1559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *    This field has been deprecated and replaced by the parent field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersCreate
+ *  @return GTLRContainerQuery_ProjectsZonesClustersCreate
  */
 + (instancetype)queryWithObject:(GTLRContainer_CreateClusterRequest *)object
                       projectId:(NSString *)projectId
@@ -1636,7 +1636,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to delete.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersDelete
+ *  @return GTLRContainerQuery_ProjectsZonesClustersDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -1701,7 +1701,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to retrieve.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersGet
+ *  @return GTLRContainerQuery_ProjectsZonesClustersGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -1762,7 +1762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to update.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersLegacyAbac
+ *  @return GTLRContainerQuery_ProjectsZonesClustersLegacyAbac
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLegacyAbacRequest *)object
                       projectId:(NSString *)projectId
@@ -1823,7 +1823,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides, or "-" for all zones.
  *    This field has been deprecated and replaced by the parent field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersList
+ *  @return GTLRContainerQuery_ProjectsZonesClustersList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty;
@@ -1883,7 +1883,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersLocations
+ *  @return GTLRContainerQuery_ProjectsZonesClustersLocations
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLocationsRequest *)object
                       projectId:(NSString *)projectId
@@ -1945,7 +1945,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersLogging
+ *  @return GTLRContainerQuery_ProjectsZonesClustersLogging
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLoggingServiceRequest *)object
                       projectId:(NSString *)projectId
@@ -2007,7 +2007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersMaster
+ *  @return GTLRContainerQuery_ProjectsZonesClustersMaster
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateMasterRequest *)object
                       projectId:(NSString *)projectId
@@ -2069,7 +2069,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersMonitoring
+ *  @return GTLRContainerQuery_ProjectsZonesClustersMonitoring
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMonitoringServiceRequest *)object
                       projectId:(NSString *)projectId
@@ -2139,7 +2139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsAutoscaling
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsAutoscaling
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolAutoscalingRequest *)object
                       projectId:(NSString *)projectId
@@ -2202,7 +2202,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the parent field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsCreate
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsCreate
  */
 + (instancetype)queryWithObject:(GTLRContainer_CreateNodePoolRequest *)object
                       projectId:(NSString *)projectId
@@ -2277,7 +2277,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to delete.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsDelete
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -2352,7 +2352,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsGet
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -2418,7 +2418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the parent field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsList
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -2489,7 +2489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to rollback.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsRollback
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsRollback
  */
 + (instancetype)queryWithObject:(GTLRContainer_RollbackNodePoolUpgradeRequest *)object
                       projectId:(NSString *)projectId
@@ -2560,7 +2560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to update.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolManagementRequest *)object
                       projectId:(NSString *)projectId
@@ -2631,7 +2631,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to update.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolSizeRequest *)object
                       projectId:(NSString *)projectId
@@ -2702,7 +2702,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsUpdate
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsUpdate
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateNodePoolRequest *)object
                       projectId:(NSString *)projectId
@@ -2764,7 +2764,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersResourceLabels
+ *  @return GTLRContainerQuery_ProjectsZonesClustersResourceLabels
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetLabelsRequest *)object
                       projectId:(NSString *)projectId
@@ -2817,7 +2817,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param clusterId The name of the cluster to update.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
+ *  @return GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMaintenancePolicyRequest *)object
                       projectId:(NSString *)projectId
@@ -2883,7 +2883,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth
+ *  @return GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMasterAuthRequest *)object
                       projectId:(NSString *)projectId
@@ -2945,7 +2945,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersSetNetworkPolicy
+ *  @return GTLRContainerQuery_ProjectsZonesClustersSetNetworkPolicy
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNetworkPolicyRequest *)object
                       projectId:(NSString *)projectId
@@ -3007,7 +3007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersStartIpRotation
+ *  @return GTLRContainerQuery_ProjectsZonesClustersStartIpRotation
  */
 + (instancetype)queryWithObject:(GTLRContainer_StartIPRotationRequest *)object
                       projectId:(NSString *)projectId
@@ -3069,7 +3069,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesClustersUpdate
+ *  @return GTLRContainerQuery_ProjectsZonesClustersUpdate
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateClusterRequest *)object
                       projectId:(NSString *)projectId
@@ -3125,7 +3125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](/compute/docs/zones#available) to return operations for.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesGetServerconfig
+ *  @return GTLRContainerQuery_ProjectsZonesGetServerconfig
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty;
@@ -3183,7 +3183,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesOperationsCancel
+ *  @return GTLRContainerQuery_ProjectsZonesOperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRContainer_CancelOperationRequest *)object
                       projectId:(NSString *)projectId
@@ -3249,7 +3249,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesOperationsGet
+ *  @return GTLRContainerQuery_ProjectsZonesOperationsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
@@ -3306,7 +3306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    all zones. This field has been deprecated and replaced by the parent
  *    field.
  *
- *  @returns GTLRContainerQuery_ProjectsZonesOperationsList
+ *  @return GTLRContainerQuery_ProjectsZonesOperationsList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty;

@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param api The name of the API.
  *  @param version The version of the API.
  *
- *  @returns GTLRDiscoveryQuery_ApisGetRest
+ *  @return GTLRDiscoveryQuery_ApisGetRest
  */
 + (instancetype)queryWithApi:(NSString *)api
                      version:(NSString *)version;
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve the list of APIs supported at this endpoint.
  *
- *  @returns GTLRDiscoveryQuery_ApisList
+ *  @return GTLRDiscoveryQuery_ApisList
  */
 + (instancetype)query;
 

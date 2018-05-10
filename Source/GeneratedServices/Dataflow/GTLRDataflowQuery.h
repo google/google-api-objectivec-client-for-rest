@@ -156,7 +156,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *
  *  @param projectId The project which owns the jobs.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsAggregated
+ *  @return GTLRDataflowQuery_ProjectsJobsAggregated
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -206,7 +206,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsCreate
+ *  @return GTLRDataflowQuery_ProjectsJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId;
@@ -244,7 +244,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The project id.
  *  @param jobId The job id.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsDebugGetConfig
+ *  @return GTLRDataflowQuery_ProjectsJobsDebugGetConfig
  */
 + (instancetype)queryWithObject:(GTLRDataflow_GetDebugConfigRequest *)object
                       projectId:(NSString *)projectId
@@ -283,7 +283,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The project id.
  *  @param jobId The job id.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsDebugSendCapture
+ *  @return GTLRDataflowQuery_ProjectsJobsDebugSendCapture
  */
 + (instancetype)queryWithObject:(GTLRDataflow_SendDebugCaptureRequest *)object
                       projectId:(NSString *)projectId
@@ -335,7 +335,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    to.
  *  @param jobId The job ID.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsGet
+ *  @return GTLRDataflowQuery_ProjectsJobsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -380,7 +380,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId A project id.
  *  @param jobId The job to get messages for.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsGetMetrics
+ *  @return GTLRDataflowQuery_ProjectsJobsGetMetrics
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -450,7 +450,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *
  *  @param projectId The project which owns the jobs.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsList
+ *  @return GTLRDataflowQuery_ProjectsJobsList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -533,7 +533,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId A project id.
  *  @param jobId The job to get messages about.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsMessagesList
+ *  @return GTLRDataflowQuery_ProjectsJobsMessagesList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
@@ -574,7 +574,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    to.
  *  @param jobId The job ID.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsUpdate
+ *  @return GTLRDataflowQuery_ProjectsJobsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId
@@ -613,7 +613,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId Identifies the project this worker belongs to.
  *  @param jobId Identifies the workflow job this worker belongs to.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsWorkItemsLease
+ *  @return GTLRDataflowQuery_ProjectsJobsWorkItemsLease
  */
 + (instancetype)queryWithObject:(GTLRDataflow_LeaseWorkItemRequest *)object
                       projectId:(NSString *)projectId
@@ -652,7 +652,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The project which owns the WorkItem's job.
  *  @param jobId The job which the WorkItem is part of.
  *
- *  @returns GTLRDataflowQuery_ProjectsJobsWorkItemsReportStatus
+ *  @return GTLRDataflowQuery_ProjectsJobsWorkItemsReportStatus
  */
 + (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
                       projectId:(NSString *)projectId
@@ -705,7 +705,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    to.
  *  @param location The location that contains this job.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsCreate
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId
@@ -748,7 +748,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the job specified by job_id.
  *  @param jobId The job id.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig
  */
 + (instancetype)queryWithObject:(GTLRDataflow_GetDebugConfigRequest *)object
                       projectId:(NSString *)projectId
@@ -792,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the job specified by job_id.
  *  @param jobId The job id.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture
  */
 + (instancetype)queryWithObject:(GTLRDataflow_SendDebugCaptureRequest *)object
                       projectId:(NSString *)projectId
@@ -846,7 +846,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location that contains this job.
  *  @param jobId The job ID.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsGet
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location
@@ -893,7 +893,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the job specified by job_id.
  *  @param jobId The job to get messages for.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location
@@ -965,7 +965,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The project which owns the jobs.
  *  @param location The location that contains this job.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsList
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location;
@@ -1050,7 +1050,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the job specified by job_id.
  *  @param jobId The job to get messages about.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsMessagesList
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsMessagesList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location
@@ -1093,7 +1093,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location that contains this job.
  *  @param jobId The job ID.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsUpdate
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId
@@ -1137,7 +1137,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the WorkItem's job.
  *  @param jobId Identifies the workflow job this worker belongs to.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease
  */
 + (instancetype)queryWithObject:(GTLRDataflow_LeaseWorkItemRequest *)object
                       projectId:(NSString *)projectId
@@ -1181,7 +1181,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The location which contains the WorkItem's job.
  *  @param jobId The job which the WorkItem is part of.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus
  */
 + (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
                       projectId:(NSString *)projectId
@@ -1222,7 +1222,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    belongs to.
  *  @param location The location to which to direct the request.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsTemplatesCreate
+ *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_CreateJobFromTemplateRequest *)object
                       projectId:(NSString *)projectId
@@ -1275,7 +1275,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    belongs to.
  *  @param location The location to which to direct the request.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsTemplatesGet
+ *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location;
@@ -1327,7 +1327,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    belongs to.
  *  @param location The location to which to direct the request.
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch
+ *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch
  */
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId
@@ -1366,7 +1366,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId The project to send the WorkerMessages to.
  *  @param location The location which contains the job
  *
- *  @returns GTLRDataflowQuery_ProjectsLocationsWorkerMessages
+ *  @return GTLRDataflowQuery_ProjectsLocationsWorkerMessages
  */
 + (instancetype)queryWithObject:(GTLRDataflow_SendWorkerMessagesRequest *)object
                       projectId:(NSString *)projectId
@@ -1402,7 +1402,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
  *
- *  @returns GTLRDataflowQuery_ProjectsTemplatesCreate
+ *  @return GTLRDataflowQuery_ProjectsTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_CreateJobFromTemplateRequest *)object
                       projectId:(NSString *)projectId;
@@ -1453,7 +1453,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
  *
- *  @returns GTLRDataflowQuery_ProjectsTemplatesGet
+ *  @return GTLRDataflowQuery_ProjectsTemplatesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -1503,7 +1503,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
  *
- *  @returns GTLRDataflowQuery_ProjectsTemplatesLaunch
+ *  @return GTLRDataflowQuery_ProjectsTemplatesLaunch
  */
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId;
@@ -1537,7 +1537,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    the query.
  *  @param projectId The project to send the WorkerMessages to.
  *
- *  @returns GTLRDataflowQuery_ProjectsWorkerMessages
+ *  @return GTLRDataflowQuery_ProjectsWorkerMessages
  */
 + (instancetype)queryWithObject:(GTLRDataflow_SendWorkerMessagesRequest *)object
                       projectId:(NSString *)projectId;

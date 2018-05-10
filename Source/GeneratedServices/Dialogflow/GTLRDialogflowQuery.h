@@ -104,7 +104,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    for. Format:
  *    `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchDelete
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest *)object
                          parent:(NSString *)parent;
@@ -147,7 +147,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    types in.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchUpdate
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest *)object
                          parent:(NSString *)parent;
@@ -191,7 +191,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The agent to create a entity type for.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesCreate
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesCreate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2EntityType *)object
                          parent:(NSString *)parent;
@@ -224,7 +224,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the entity type to delete.
  *    Format: `projects/<Project ID>/agent/entityTypes/<EntityType ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -264,7 +264,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    Format:
  *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchCreate
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchCreate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchCreateEntitiesRequest *)object
                          parent:(NSString *)parent;
@@ -307,7 +307,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    Format:
  *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchDelete
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntitiesRequest *)object
                          parent:(NSString *)parent;
@@ -352,7 +352,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    in. Format:
  *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchUpdate
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntitiesRequest *)object
                          parent:(NSString *)parent;
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the entity type.
  *    Format: `projects/<Project ID>/agent/entityTypes/<EntityType ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesGet
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -446,7 +446,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The agent to list all entity types from.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesList
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    The unique identifier of the entity type. Format:
  *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentEntityTypesPatch
+ *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesPatch
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2EntityType *)object
                            name:(NSString *)name;
@@ -548,7 +548,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    with.
  *    Format: `projects/<Project ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentExport
+ *  @return GTLRDialogflowQuery_ProjectsAgentExport
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest *)object
                          parent:(NSString *)parent;
@@ -597,7 +597,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    with.
  *    Format: `projects/<Project ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentImport
+ *  @return GTLRDialogflowQuery_ProjectsAgentImport
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest *)object
                          parent:(NSString *)parent;
@@ -636,7 +636,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    for. Format:
  *    `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsBatchDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsBatchDelete
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteIntentsRequest *)object
                          parent:(NSString *)parent;
@@ -675,7 +675,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    in.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsBatchUpdate
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest *)object
                          parent:(NSString *)parent;
@@ -729,7 +729,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The agent to create a intent for.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsCreate
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsCreate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Intent *)object
                          parent:(NSString *)parent;
@@ -762,7 +762,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the intent to delete.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -813,7 +813,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the intent.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsGet
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -875,7 +875,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The agent to list all intents from.
  *    Format: `projects/<Project ID>/agent`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsList
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -944,7 +944,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    The unique identifier of this intent.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentIntentsPatch
+ *  @return GTLRDialogflowQuery_ProjectsAgentIntentsPatch
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Intent *)object
                            name:(NSString *)name;
@@ -991,7 +991,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    with.
  *    Format: `projects/<Project ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRestore
+ *  @return GTLRDialogflowQuery_ProjectsAgentRestore
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2RestoreAgentRequest *)object
                          parent:(NSString *)parent;
@@ -1045,7 +1045,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The project to list agents from.
  *    Format: `projects/<Project ID or '-'>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSearch
+ *  @return GTLRDialogflowQuery_ProjectsAgentSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1083,7 +1083,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The session to create a context for.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsCreate
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsCreate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
                          parent:(NSString *)parent;
@@ -1116,7 +1116,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the context to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1148,7 +1148,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsGet
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1191,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The session to list all contexts from.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsList
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1236,7 +1236,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The unique identifier of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
                            name:(NSString *)name;
@@ -1270,7 +1270,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsDeleteContexts
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsDeleteContexts
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -1319,7 +1319,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    session
  *    ID must not exceed 36 bytes.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest *)object
                         session:(NSString *)session;
@@ -1354,7 +1354,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The session to create a session entity type for.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesCreate
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesCreate
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
                          parent:(NSString *)parent;
@@ -1391,7 +1391,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    ID>/entityTypes/<Entity Type 
  Display Name>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesDelete
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1427,7 +1427,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    ID>/entityTypes/<Entity Type 
  Display Name>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesGet
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1471,7 +1471,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param parent Required. The session to list all session entity types from.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesList
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1521,7 +1521,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    ID>/entityTypes/<Entity Type 
  Display Name>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesPatch
+ *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesPatch
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
                            name:(NSString *)name;
@@ -1563,7 +1563,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    with.
  *    Format: `projects/<Project ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsAgentTrain
+ *  @return GTLRDialogflowQuery_ProjectsAgentTrain
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest *)object
                          parent:(NSString *)parent;
@@ -1597,7 +1597,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    with.
  *    Format: `projects/<Project ID>`.
  *
- *  @returns GTLRDialogflowQuery_ProjectsGetAgent
+ *  @return GTLRDialogflowQuery_ProjectsGetAgent
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -1629,7 +1629,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRDialogflowQuery_ProjectsOperationsGet
+ *  @return GTLRDialogflowQuery_ProjectsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 

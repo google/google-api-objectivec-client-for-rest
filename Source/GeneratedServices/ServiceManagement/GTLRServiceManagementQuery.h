@@ -90,7 +90,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRServiceManagementQuery_OperationsGet
+ *  @return GTLRServiceManagementQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -147,7 +147,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *
  *  Lists service operations that match the specified filter in the request.
  *
- *  @returns GTLRServiceManagementQuery_OperationsList
+ *  @return GTLRServiceManagementQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -198,7 +198,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConfigsCreate
+ *  @return GTLRServiceManagementQuery_ServicesConfigsCreate
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_Service *)object
                     serviceName:(NSString *)serviceName;
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    for naming requirements. For example: `example.googleapis.com`.
  *  @param configId The id of the service configuration resource.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConfigsGet
+ *  @return GTLRServiceManagementQuery_ServicesConfigsGet
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName
                             configId:(NSString *)configId;
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConfigsList
+ *  @return GTLRServiceManagementQuery_ServicesConfigsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConfigsSubmit
+ *  @return GTLRServiceManagementQuery_ServicesConfigsSubmit
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_SubmitConfigSourceRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -397,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConsumersGetIamPolicy
+ *  @return GTLRServiceManagementQuery_ServicesConsumersGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -436,7 +436,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConsumersSetIamPolicy
+ *  @return GTLRServiceManagementQuery_ServicesConsumersSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -485,7 +485,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesConsumersTestIamPermissions
+ *  @return GTLRServiceManagementQuery_ServicesConsumersTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -517,7 +517,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_ManagedService to include in the
  *    query.
  *
- *  @returns GTLRServiceManagementQuery_ServicesCreate
+ *  @return GTLRServiceManagementQuery_ServicesCreate
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_ManagedService *)object;
 
@@ -559,7 +559,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesDelete
+ *  @return GTLRServiceManagementQuery_ServicesDelete
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName;
 
@@ -601,7 +601,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    service name
  *    will cause the request to fail.
  *
- *  @returns GTLRServiceManagementQuery_ServicesDisable
+ *  @return GTLRServiceManagementQuery_ServicesDisable
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_DisableServiceRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -646,7 +646,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    service name will
  *    cause the request to fail.
  *
- *  @returns GTLRServiceManagementQuery_ServicesEnable
+ *  @return GTLRServiceManagementQuery_ServicesEnable
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_EnableServiceRequest *)object
                     serviceName:(NSString *)serviceName;
@@ -692,7 +692,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_GenerateConfigReportRequest to
  *    include in the query.
  *
- *  @returns GTLRServiceManagementQuery_ServicesGenerateConfigReport
+ *  @return GTLRServiceManagementQuery_ServicesGenerateConfigReport
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_GenerateConfigReportRequest *)object;
 
@@ -730,7 +730,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    overview for naming
  *    requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesGet
+ *  @return GTLRServiceManagementQuery_ServicesGet
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName;
 
@@ -779,7 +779,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesGetConfig
+ *  @return GTLRServiceManagementQuery_ServicesGetConfig
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName;
 
@@ -821,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesGetIamPolicy
+ *  @return GTLRServiceManagementQuery_ServicesGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -880,7 +880,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  services enabled on the consumer. The `consumer_id` must have the format
  *  of "project:{PROJECT-ID}".
  *
- *  @returns GTLRServiceManagementQuery_ServicesList
+ *  @return GTLRServiceManagementQuery_ServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -939,7 +939,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesRolloutsCreate
+ *  @return GTLRServiceManagementQuery_ServicesRolloutsCreate
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_Rollout *)object
                     serviceName:(NSString *)serviceName;
@@ -980,7 +980,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    for naming requirements. For example: `example.googleapis.com`.
  *  @param rolloutId The id of the rollout resource.
  *
- *  @returns GTLRServiceManagementQuery_ServicesRolloutsGet
+ *  @return GTLRServiceManagementQuery_ServicesRolloutsGet
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName
                            rolloutId:(NSString *)rolloutId;
@@ -1037,7 +1037,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesRolloutsList
+ *  @return GTLRServiceManagementQuery_ServicesRolloutsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1079,7 +1079,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesSetIamPolicy
+ *  @return GTLRServiceManagementQuery_ServicesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1128,7 +1128,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceManagementQuery_ServicesTestIamPermissions
+ *  @return GTLRServiceManagementQuery_ServicesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRServiceManagement_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -1171,7 +1171,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *
- *  @returns GTLRServiceManagementQuery_ServicesUndelete
+ *  @return GTLRServiceManagementQuery_ServicesUndelete
  */
 + (instancetype)queryWithServiceName:(NSString *)serviceName;
 

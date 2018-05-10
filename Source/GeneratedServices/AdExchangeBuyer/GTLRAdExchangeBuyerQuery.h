@@ -155,7 +155,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param identifier The account id
  *
- *  @returns GTLRAdExchangeBuyerQuery_AccountsGet
+ *  @return GTLRAdExchangeBuyerQuery_AccountsGet
  */
 + (instancetype)queryWithIdentifier:(NSInteger)identifier;
 
@@ -178,7 +178,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  Retrieves the authenticated user's list of accounts.
  *
- *  @returns GTLRAdExchangeBuyerQuery_AccountsList
+ *  @return GTLRAdExchangeBuyerQuery_AccountsList
  */
 + (instancetype)query;
 
@@ -214,7 +214,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param object The @c GTLRAdExchangeBuyer_Account to include in the query.
  *  @param identifier The account id
  *
- *  @returns GTLRAdExchangeBuyerQuery_AccountsPatch
+ *  @return GTLRAdExchangeBuyerQuery_AccountsPatch
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Account *)object
                      identifier:(NSInteger)identifier;
@@ -251,7 +251,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param object The @c GTLRAdExchangeBuyer_Account to include in the query.
  *  @param identifier The account id
  *
- *  @returns GTLRAdExchangeBuyerQuery_AccountsUpdate
+ *  @return GTLRAdExchangeBuyerQuery_AccountsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Account *)object
                      identifier:(NSInteger)identifier;
@@ -280,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param accountId The account id.
  *
- *  @returns GTLRAdExchangeBuyerQuery_BillingInfoGet
+ *  @return GTLRAdExchangeBuyerQuery_BillingInfoGet
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId;
 
@@ -305,7 +305,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  Retrieves a list of billing information for all accounts of the
  *  authenticated user.
  *
- *  @returns GTLRAdExchangeBuyerQuery_BillingInfoList
+ *  @return GTLRAdExchangeBuyerQuery_BillingInfoList
  */
 + (instancetype)query;
 
@@ -339,7 +339,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id to get the budget information for.
  *  @param billingId The billing id to get the budget information for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_BudgetGet
+ *  @return GTLRAdExchangeBuyerQuery_BudgetGet
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                          billingId:(long long)billingId;
@@ -377,7 +377,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id associated with the budget being updated.
  *  @param billingId The billing id associated with the budget being updated.
  *
- *  @returns GTLRAdExchangeBuyerQuery_BudgetPatch
+ *  @return GTLRAdExchangeBuyerQuery_BudgetPatch
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Budget *)object
                       accountId:(long long)accountId
@@ -414,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id associated with the budget being updated.
  *  @param billingId The billing id associated with the budget being updated.
  *
- *  @returns GTLRAdExchangeBuyerQuery_BudgetUpdate
+ *  @return GTLRAdExchangeBuyerQuery_BudgetUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Budget *)object
                       accountId:(long long)accountId
@@ -453,7 +453,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param buyerCreativeId The buyer-specific id for this creative.
  *  @param dealId The id of the deal id to associate with this creative.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesAddDeal
+ *  @return GTLRAdExchangeBuyerQuery_CreativesAddDeal
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId
                    buyerCreativeId:(NSString *)buyerCreativeId
@@ -489,7 +489,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The id for the account that will serve this creative.
  *  @param buyerCreativeId The buyer-specific id for this creative.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesGet
+ *  @return GTLRAdExchangeBuyerQuery_CreativesGet
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId
                    buyerCreativeId:(NSString *)buyerCreativeId;
@@ -515,7 +515,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param object The @c GTLRAdExchangeBuyer_Creative to include in the query.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesInsert
+ *  @return GTLRAdExchangeBuyerQuery_CreativesInsert
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Creative *)object;
 
@@ -603,7 +603,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  Retrieves a list of the authenticated user's active creatives. A creative
  *  will be available 30-40 minutes after submission.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesList
+ *  @return GTLRAdExchangeBuyerQuery_CreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -639,7 +639,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The id for the account that will serve this creative.
  *  @param buyerCreativeId The buyer-specific id for this creative.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesListDeals
+ *  @return GTLRAdExchangeBuyerQuery_CreativesListDeals
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId
                    buyerCreativeId:(NSString *)buyerCreativeId;
@@ -677,7 +677,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param buyerCreativeId The buyer-specific id for this creative.
  *  @param dealId The id of the deal id to disassociate with this creative.
  *
- *  @returns GTLRAdExchangeBuyerQuery_CreativesRemoveDeal
+ *  @return GTLRAdExchangeBuyerQuery_CreativesRemoveDeal
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId
                    buyerCreativeId:(NSString *)buyerCreativeId
@@ -709,7 +709,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    in the query.
  *  @param proposalId The proposalId to delete deals from.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacedealsDelete
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacedealsDelete
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_DeleteOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId;
@@ -740,7 +740,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    the query.
  *  @param proposalId proposalId for which deals need to be added.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacedealsInsert
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacedealsInsert
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_AddOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId;
@@ -776,7 +776,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param proposalId The proposalId to get deals for. To search across all
  *    proposals specify order_id = '-' as part of the URL.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacedealsList
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacedealsList
  */
 + (instancetype)queryWithProposalId:(NSString *)proposalId;
 
@@ -806,7 +806,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    in the query.
  *  @param proposalId The proposalId to edit deals on.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacedealsUpdate
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacedealsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_EditAllOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId;
@@ -837,7 +837,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    the query.
  *  @param proposalId The proposalId to add notes for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacenotesInsert
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacenotesInsert
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_AddOrderNotesRequest *)object
                      proposalId:(NSString *)proposalId;
@@ -877,7 +877,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param proposalId The proposalId to get notes for. To search across all
  *    proposals specify order_id = '-' as part of the URL.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplacenotesList
+ *  @return GTLRAdExchangeBuyerQuery_MarketplacenotesList
  */
 + (instancetype)queryWithProposalId:(NSString *)proposalId;
 
@@ -908,7 +908,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    to include in the query.
  *  @param privateAuctionId The private auction id to be updated.
  *
- *  @returns GTLRAdExchangeBuyerQuery_MarketplaceprivateauctionUpdateproposal
+ *  @return GTLRAdExchangeBuyerQuery_MarketplaceprivateauctionUpdateproposal
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_UpdatePrivateAuctionProposalRequest *)object
                privateAuctionId:(NSString *)privateAuctionId;
@@ -962,7 +962,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param startDateTime The start time of the report in ISO 8601 timestamp
  *    format using UTC.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PerformanceReportList
+ *  @return GTLRAdExchangeBuyerQuery_PerformanceReportList
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                        endDateTime:(NSString *)endDateTime
@@ -997,7 +997,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id to delete the pretargeting config for.
  *  @param configId The specific id of the configuration to delete.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigDelete
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigDelete
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                           configId:(long long)configId;
@@ -1030,7 +1030,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id to get the pretargeting config for.
  *  @param configId The specific id of the configuration to retrieve.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigGet
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigGet
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                           configId:(long long)configId;
@@ -1061,7 +1061,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    the query.
  *  @param accountId The account id to insert the pretargeting config for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigInsert
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigInsert
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_PretargetingConfig *)object
                       accountId:(long long)accountId;
@@ -1090,7 +1090,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param accountId The account id to get the pretargeting configs for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigList
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigList
  */
 + (instancetype)queryWithAccountId:(long long)accountId;
 
@@ -1126,7 +1126,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id to update the pretargeting config for.
  *  @param configId The specific id of the configuration to update.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigPatch
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigPatch
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_PretargetingConfig *)object
                       accountId:(long long)accountId
@@ -1162,7 +1162,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param accountId The account id to update the pretargeting config for.
  *  @param configId The specific id of the configuration to update.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PretargetingConfigUpdate
+ *  @return GTLRAdExchangeBuyerQuery_PretargetingConfigUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_PretargetingConfig *)object
                       accountId:(long long)accountId
@@ -1192,7 +1192,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param productId The id for the product to get the head revision for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProductsGet
+ *  @return GTLRAdExchangeBuyerQuery_ProductsGet
  */
 + (instancetype)queryWithProductId:(NSString *)productId;
 
@@ -1218,7 +1218,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  Gets the requested product.
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProductsSearch
+ *  @return GTLRAdExchangeBuyerQuery_ProductsSearch
  */
 + (instancetype)query;
 
@@ -1246,7 +1246,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param proposalId Id of the proposal to retrieve.
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsGet
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsGet
  */
 + (instancetype)queryWithProposalId:(NSString *)proposalId;
 
@@ -1272,7 +1272,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *  @param object The @c GTLRAdExchangeBuyer_CreateOrdersRequest to include in
  *    the query.
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsInsert
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsInsert
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_CreateOrdersRequest *)object;
 
@@ -1343,7 +1343,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
  *        "updateNonTerms"
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsPatch
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsPatch
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Proposal *)object
                      proposalId:(NSString *)proposalId
@@ -1372,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  Search for proposals using pql query
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsSearch
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsSearch
  */
 + (instancetype)query;
 
@@ -1401,7 +1401,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param proposalId The proposal id for which the setup is complete
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsSetupcomplete
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsSetupcomplete
  */
 + (instancetype)queryWithProposalId:(NSString *)proposalId;
 
@@ -1472,7 +1472,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
  *        "updateNonTerms"
  *
- *  @returns GTLRAdExchangeBuyerQuery_ProposalsUpdate
+ *  @return GTLRAdExchangeBuyerQuery_ProposalsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Proposal *)object
                      proposalId:(NSString *)proposalId
@@ -1503,7 +1503,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
  *
  *  @param accountId The accountId of the publisher to get profiles for.
  *
- *  @returns GTLRAdExchangeBuyerQuery_PubprofilesList
+ *  @return GTLRAdExchangeBuyerQuery_PubprofilesList
  */
 + (instancetype)queryWithAccountId:(NSInteger)accountId;
 

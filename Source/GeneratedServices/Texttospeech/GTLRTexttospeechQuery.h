@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRTexttospeech_SynthesizeSpeechRequest to include in
  *    the query.
  *
- *  @returns GTLRTexttospeechQuery_TextSynthesize
+ *  @return GTLRTexttospeechQuery_TextSynthesize
  */
 + (instancetype)queryWithObject:(GTLRTexttospeech_SynthesizeSpeechRequest *)object;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a list of Voice
  *  supported for synthesis.
  *
- *  @returns GTLRTexttospeechQuery_VoicesList
+ *  @return GTLRTexttospeechQuery_VoicesList
  */
 + (instancetype)query;
 

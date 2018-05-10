@@ -120,7 +120,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the project which owns this `Release`.
  *    Format: `projects/{project_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesCreate
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesCreate
  */
 + (instancetype)queryWithObject:(GTLRFirebaseRules_Release *)object
                            name:(NSString *)name;
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the `Release` to delete.
  *    Format: `projects/{project_id}/releases/{release_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesDelete
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -188,7 +188,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name of the `Release`.
  *    Format: `projects/{project_id}/releases/{release_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesGet
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -236,7 +236,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name of the `Release`.
  *    Format: `projects/{project_id}/releases/{release_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -309,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the project.
  *    Format: `projects/{project_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesList
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the project which owns this `Release`.
  *    Format: `projects/{project_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsReleasesPatch
+ *  @return GTLRFirebaseRulesQuery_ProjectsReleasesPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseRules_UpdateReleaseRequest *)object
                            name:(NSString *)name;
@@ -397,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for Project which owns this `Ruleset`.
  *    Format: `projects/{project_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsRulesetsCreate
+ *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsCreate
  */
 + (instancetype)queryWithObject:(GTLRFirebaseRules_Ruleset *)object
                            name:(NSString *)name;
@@ -433,7 +433,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the ruleset to delete.
  *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsRulesetsDelete
+ *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -467,7 +467,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the ruleset to get.
  *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsRulesetsGet
+ *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -527,7 +527,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *  @param name Resource name for the project.
  *    Format: `projects/{project_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsRulesetsList
+ *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -607,7 +607,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
  *    For tests against a `Ruleset`, this must be the `Ruleset` resource name:
  *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
  *
- *  @returns GTLRFirebaseRulesQuery_ProjectsTest
+ *  @return GTLRFirebaseRulesQuery_ProjectsTest
  */
 + (instancetype)queryWithObject:(GTLRFirebaseRules_TestRulesetRequest *)object
                            name:(NSString *)name;

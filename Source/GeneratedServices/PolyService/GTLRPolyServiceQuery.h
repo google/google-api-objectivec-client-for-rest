@@ -90,7 +90,7 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
  *
  *  @param name Required. An asset's name in the form `assets/{ASSET_ID}`.
  *
- *  @returns GTLRPolyServiceQuery_AssetsGet
+ *  @return GTLRPolyServiceQuery_AssetsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -174,7 +174,7 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
  *  PUBLIC and published under the
  *  CC-By license.
  *
- *  @returns GTLRPolyServiceQuery_AssetsList
+ *  @return GTLRPolyServiceQuery_AssetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -259,7 +259,7 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
  *    currently-authenticated user is supported. To use 'me', you must pass
  *    an OAuth token with the request.
  *
- *  @returns GTLRPolyServiceQuery_UsersAssetsList
+ *  @return GTLRPolyServiceQuery_UsersAssetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -326,7 +326,7 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
  *    currently-authenticated user is supported. To use 'me', you must pass
  *    an OAuth token with the request.
  *
- *  @returns GTLRPolyServiceQuery_UsersLikedassetsList
+ *  @return GTLRPolyServiceQuery_UsersLikedassetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

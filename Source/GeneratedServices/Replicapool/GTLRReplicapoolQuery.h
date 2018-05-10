@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager The name of the instance group manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersAbandonInstances
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersAbandonInstances
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManagersAbandonInstancesRequest *)object
                         project:(NSString *)project
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroupManager Name of the Instance Group Manager resource to
  *    delete.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersDelete
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager The name of the instance group manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersDeleteInstances
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersDeleteInstances
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManagersDeleteInstancesRequest *)object
                         project:(NSString *)project
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager Name of the instance resource to return.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersGet
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -282,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param size Number of instances that should exist.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersInsert
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersInsert
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManager *)object
                         project:(NSString *)project
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone in which the instance group manager
  *    resides.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersList
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager The name of the instance group manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersRecreateInstances
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersRecreateInstances
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManagersRecreateInstancesRequest *)object
                         project:(NSString *)project
@@ -451,7 +451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param size Number of instances that should exist in this Instance Group
  *    Manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersResize
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersResize
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -501,7 +501,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager The name of the instance group manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersSetInstanceTemplate
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersSetInstanceTemplate
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManagersSetInstanceTemplateRequest *)object
                         project:(NSString *)project
@@ -551,7 +551,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param instanceGroupManager The name of the instance group manager.
  *
- *  @returns GTLRReplicapoolQuery_InstanceGroupManagersSetTargetPools
+ *  @return GTLRReplicapoolQuery_InstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRReplicapool_InstanceGroupManagersSetTargetPoolsRequest *)object
                         project:(NSString *)project
@@ -595,7 +595,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone scoping this request.
  *  @param operation Name of the operation resource to return.
  *
- *  @returns GTLRReplicapoolQuery_ZoneOperationsGet
+ *  @return GTLRReplicapoolQuery_ZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -654,7 +654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Name of the project scoping this request.
  *  @param zoneProperty Name of the zone scoping this request.
  *
- *  @returns GTLRReplicapoolQuery_ZoneOperationsList
+ *  @return GTLRReplicapoolQuery_ZoneOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

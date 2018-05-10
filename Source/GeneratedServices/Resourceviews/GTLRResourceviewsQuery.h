@@ -105,7 +105,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty Name of the zone scoping this request.
  *  @param operation Name of the operation resource to return.
  *
- *  @returns GTLRResourceviewsQuery_ZoneOperationsGet
+ *  @return GTLRResourceviewsQuery_ZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -168,7 +168,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param project Name of the project scoping this request.
  *  @param zoneProperty Name of the zone scoping this request.
  *
- *  @returns GTLRResourceviewsQuery_ZoneOperationsList
+ *  @return GTLRResourceviewsQuery_ZoneOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsAddResources
+ *  @return GTLRResourceviewsQuery_ZoneViewsAddResources
  */
 + (instancetype)queryWithObject:(GTLRResourceviews_ZoneViewsAddResourcesRequest *)object
                         project:(NSString *)project
@@ -262,7 +262,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsDelete
+ *  @return GTLRResourceviewsQuery_ZoneViewsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -309,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsGet
+ *  @return GTLRResourceviewsQuery_ZoneViewsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -359,7 +359,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsGetService
+ *  @return GTLRResourceviewsQuery_ZoneViewsGetService
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -400,7 +400,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param project The project name of the resource view.
  *  @param zoneProperty The zone name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsInsert
+ *  @return GTLRResourceviewsQuery_ZoneViewsInsert
  */
 + (instancetype)queryWithObject:(GTLRResourceviews_ResourceView *)object
                         project:(NSString *)project
@@ -459,7 +459,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param project The project name of the resource view.
  *  @param zoneProperty The zone name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsList
+ *  @return GTLRResourceviewsQuery_ZoneViewsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -555,7 +555,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsListResources
+ *  @return GTLRResourceviewsQuery_ZoneViewsListResources
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -605,7 +605,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsRemoveResources
+ *  @return GTLRResourceviewsQuery_ZoneViewsRemoveResources
  */
 + (instancetype)queryWithObject:(GTLRResourceviews_ZoneViewsRemoveResourcesRequest *)object
                         project:(NSString *)project
@@ -652,7 +652,7 @@ GTLR_EXTERN NSString * const kGTLRResourceviewsListStateRunning;
  *  @param zoneProperty The zone name of the resource view.
  *  @param resourceView The name of the resource view.
  *
- *  @returns GTLRResourceviewsQuery_ZoneViewsSetService
+ *  @return GTLRResourceviewsQuery_ZoneViewsSetService
  */
 + (instancetype)queryWithObject:(GTLRResourceviews_ZoneViewsSetServiceRequest *)object
                         project:(NSString *)project

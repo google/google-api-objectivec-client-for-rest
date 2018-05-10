@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param groupUniqueId The resource ID
  *
- *  @returns GTLRGroupsSettingsQuery_GroupsGet
+ *  @return GTLRGroupsSettingsQuery_GroupsGet
  */
 + (instancetype)queryWithGroupUniqueId:(NSString *)groupUniqueId;
 
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGroupsSettings_Groups to include in the query.
  *  @param groupUniqueId The resource ID
  *
- *  @returns GTLRGroupsSettingsQuery_GroupsPatch
+ *  @return GTLRGroupsSettingsQuery_GroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRGroupsSettings_Groups *)object
                   groupUniqueId:(NSString *)groupUniqueId;
@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGroupsSettings_Groups to include in the query.
  *  @param groupUniqueId The resource ID
  *
- *  @returns GTLRGroupsSettingsQuery_GroupsUpdate
+ *  @return GTLRGroupsSettingsQuery_GroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRGroupsSettings_Groups *)object
                   groupUniqueId:(NSString *)groupUniqueId;

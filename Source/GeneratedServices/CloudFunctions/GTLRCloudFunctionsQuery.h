@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudFunctionsQuery_OperationsGet
+ *  @return GTLRCloudFunctionsQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  @returns GTLRCloudFunctionsQuery_OperationsList
+ *  @return GTLRCloudFunctionsQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name The name of the function to be called.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCall
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCall
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_CallFunctionRequest *)object
                            name:(NSString *)name;
@@ -193,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    created, specified
  *    in the format `projects/ * /locations/ *`
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_CloudFunction *)object
                        location:(NSString *)location;
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the function which should be deleted.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    signed
  *    URL should be generated.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_GenerateDownloadUrlRequest *)object
                            name:(NSString *)name;
@@ -329,7 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    signed URL
  *    should be generated, specified in the format `projects/ * /locations/ *`.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_GenerateUploadUrlRequest *)object
                          parent:(NSString *)parent;
@@ -358,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the function which details should be obtained.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -406,7 +406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    If you want to list functions in all locations, use "-" in place of a
  *    location.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -452,7 +452,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    unique
  *    globally and match pattern `projects/ * /locations/ * /functions/ *`
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_CloudFunction *)object
                            name:(NSString *)name;
@@ -490,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsList
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

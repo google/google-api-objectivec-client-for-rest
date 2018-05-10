@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    format is
  *    `projects/[PROJECT_ID]`.
  *
- *  @returns GTLRCloudTraceQuery_ProjectsTracesBatchWrite
+ *  @return GTLRCloudTraceQuery_ProjectsTracesBatchWrite
  */
 + (instancetype)queryWithObject:(GTLRCloudTrace_BatchWriteSpansRequest *)object
                            name:(NSString *)name;
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    [SPAN_ID] is a unique identifier for a span within a trace; it
  *    is a 16-character hexadecimal encoding of an 8-byte array.
  *
- *  @returns GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan
+ *  @return GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan
  */
 + (instancetype)queryWithObject:(GTLRCloudTrace_Span *)object
                            name:(NSString *)name;

@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Resource name for the location.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsGet
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the
  *    KeyRings, in the format `projects/ * /locations/ *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_KeyRing *)object
                          parent:(NSString *)parent;
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The name of the KeyRing associated with the
  *    CryptoKeys.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                          parent:(NSString *)parent;
@@ -191,7 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The name of the CryptoKey associated with
  *    the CryptoKeyVersions.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreate
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKeyVersion *)object
                          parent:(NSString *)parent;
@@ -240,7 +240,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param name The resource name of the CryptoKeyVersion to destroy.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroy
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroy
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_DestroyCryptoKeyVersionRequest *)object
                            name:(NSString *)name;
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the CryptoKeyVersion to get.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -317,7 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    format
  *    `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -374,7 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ * /cryptoKeyVersions/
  *    *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKeyVersion *)object
                            name:(NSString *)name;
@@ -415,7 +415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param name The resource name of the CryptoKeyVersion to restore.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestore
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestore
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_RestoreCryptoKeyVersionRequest *)object
                            name:(NSString *)name;
@@ -450,7 +450,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    decryption.
  *    The server will choose the appropriate version.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDecrypt
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDecrypt
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_DecryptRequest *)object
                            name:(NSString *)name;
@@ -488,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    If a CryptoKey is specified, the server will use its
  *    primary version.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysEncrypt
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysEncrypt
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_EncryptRequest *)object
                            name:(NSString *)name;
@@ -519,7 +519,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the CryptoKey to get.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGet
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -556,7 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -603,7 +603,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    format
  *    `projects/ * /locations/ * /keyRings/ *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -647,7 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. The resource name for this CryptoKey in the format
  *    `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysPatch
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                            name:(NSString *)name;
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -731,7 +731,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -762,7 +762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name The resource name of the CryptoKey to update.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersion
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersion
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest *)object
                            name:(NSString *)name;
@@ -791,7 +791,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the KeyRing to get.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -828,7 +828,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -875,7 +875,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the
  *    KeyRings, in the format `projects/ * /locations/ *`.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -916,7 +916,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -962,7 +962,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -1000,7 +1000,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
- *  @returns GTLRCloudKMSQuery_ProjectsLocationsList
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

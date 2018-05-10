@@ -75,7 +75,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *
  *  @param object The @c GTLRTesting_FileReference to include in the query.
  *
- *  @returns GTLRTestingQuery_ApplicationDetailServiceGetApkDetails
+ *  @return GTLRTestingQuery_ApplicationDetailServiceGetApkDetails
  */
 + (instancetype)queryWithObject:(GTLRTesting_FileReference *)object;
 
@@ -119,7 +119,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *  @param projectId Cloud project that owns the test.
  *  @param testMatrixId Test matrix that will be canceled.
  *
- *  @returns GTLRTestingQuery_ProjectsTestMatricesCancel
+ *  @return GTLRTestingQuery_ProjectsTestMatricesCancel
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       testMatrixId:(NSString *)testMatrixId;
@@ -170,7 +170,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *  @param object The @c GTLRTesting_TestMatrix to include in the query.
  *  @param projectId The GCE project under which this job will run.
  *
- *  @returns GTLRTestingQuery_ProjectsTestMatricesCreate
+ *  @return GTLRTestingQuery_ProjectsTestMatricesCreate
  */
 + (instancetype)queryWithObject:(GTLRTesting_TestMatrix *)object
                       projectId:(NSString *)projectId;
@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *  @param projectId Cloud project that owns the test matrix.
  *  @param testMatrixId Unique test matrix id which was assigned by the service.
  *
- *  @returns GTLRTestingQuery_ProjectsTestMatricesGet
+ *  @return GTLRTestingQuery_ProjectsTestMatricesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       testMatrixId:(NSString *)testMatrixId;
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
  *        "NETWORK_CONFIGURATION"
  *
- *  @returns GTLRTestingQuery_TestEnvironmentCatalogGet
+ *  @return GTLRTestingQuery_TestEnvironmentCatalogGet
  */
 + (instancetype)queryWithEnvironmentType:(NSString *)environmentType;
 

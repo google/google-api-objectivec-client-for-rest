@@ -144,7 +144,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param activityId The ID of the activity to get.
  *
- *  @returns GTLRPlusDomainsQuery_ActivitiesGet
+ *  @return GTLRPlusDomainsQuery_ActivitiesGet
  */
 + (instancetype)queryWithActivityId:(NSString *)activityId;
 
@@ -186,7 +186,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param userId The ID of the user to create the activity on behalf of. Its
  *    value should be "me", to indicate the authenticated user.
  *
- *  @returns GTLRPlusDomainsQuery_ActivitiesInsert
+ *  @return GTLRPlusDomainsQuery_ActivitiesInsert
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Activity *)object
                          userId:(NSString *)userId;
@@ -256,7 +256,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *        specified user that the authenticated user is authorized to view.
  *        (Value: "user")
  *
- *  @returns GTLRPlusDomainsQuery_ActivitiesList
+ *  @return GTLRPlusDomainsQuery_ActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -312,7 +312,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param userId The ID of the user to get audiences for. The special value
  *    "me" can be used to indicate the authenticated user.
  *
- *  @returns GTLRPlusDomainsQuery_AudiencesList
+ *  @return GTLRPlusDomainsQuery_AudiencesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -353,7 +353,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param circleId The ID of the circle to add the person to.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesAddPeople
+ *  @return GTLRPlusDomainsQuery_CirclesAddPeople
  */
 + (instancetype)queryWithCircleId:(NSString *)circleId;
 
@@ -382,7 +382,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param circleId The ID of the circle to get.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesGet
+ *  @return GTLRPlusDomainsQuery_CirclesGet
  */
 + (instancetype)queryWithCircleId:(NSString *)circleId;
 
@@ -417,7 +417,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param userId The ID of the user to create the circle on behalf of. The
  *    value "me" can be used to indicate the authenticated user.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesInsert
+ *  @return GTLRPlusDomainsQuery_CirclesInsert
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
                          userId:(NSString *)userId;
@@ -469,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param userId The ID of the user to get circles for. The special value "me"
  *    can be used to indicate the authenticated user.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesList
+ *  @return GTLRPlusDomainsQuery_CirclesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -503,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param object The @c GTLRPlusDomains_Circle to include in the query.
  *  @param circleId The ID of the circle to update.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesPatch
+ *  @return GTLRPlusDomainsQuery_CirclesPatch
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
                        circleId:(NSString *)circleId;
@@ -534,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param circleId The ID of the circle to delete.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesRemove
+ *  @return GTLRPlusDomainsQuery_CirclesRemove
  */
 + (instancetype)queryWithCircleId:(NSString *)circleId;
 
@@ -570,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param circleId The ID of the circle to remove the person from.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesRemovePeople
+ *  @return GTLRPlusDomainsQuery_CirclesRemovePeople
  */
 + (instancetype)queryWithCircleId:(NSString *)circleId;
 
@@ -600,7 +600,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param object The @c GTLRPlusDomains_Circle to include in the query.
  *  @param circleId The ID of the circle to update.
  *
- *  @returns GTLRPlusDomainsQuery_CirclesUpdate
+ *  @return GTLRPlusDomainsQuery_CirclesUpdate
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
                        circleId:(NSString *)circleId;
@@ -630,7 +630,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param commentId The ID of the comment to get.
  *
- *  @returns GTLRPlusDomainsQuery_CommentsGet
+ *  @return GTLRPlusDomainsQuery_CommentsGet
  */
 + (instancetype)queryWithCommentId:(NSString *)commentId;
 
@@ -660,7 +660,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param object The @c GTLRPlusDomains_Comment to include in the query.
  *  @param activityId The ID of the activity to reply to.
  *
- *  @returns GTLRPlusDomainsQuery_CommentsInsert
+ *  @return GTLRPlusDomainsQuery_CommentsInsert
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Comment *)object
                      activityId:(NSString *)activityId;
@@ -721,7 +721,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param activityId The ID of the activity to get comments for.
  *
- *  @returns GTLRPlusDomainsQuery_CommentsList
+ *  @return GTLRPlusDomainsQuery_CommentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -778,7 +778,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    types: image/ *, video/ *
  *
- *  @returns GTLRPlusDomainsQuery_MediaInsert
+ *  @return GTLRPlusDomainsQuery_MediaInsert
  */
 + (instancetype)queryWithObject:(GTLRPlusDomains_Media *)object
                          userId:(NSString *)userId
@@ -817,7 +817,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @param userId The ID of the person to get the profile for. The special value
  *    "me" can be used to indicate the authenticated user.
  *
- *  @returns GTLRPlusDomainsQuery_PeopleGet
+ *  @return GTLRPlusDomainsQuery_PeopleGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -893,7 +893,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsCollectionCircled The list of people who this user
  *        has added to one or more circles. (Value: "circled")
  *
- *  @returns GTLRPlusDomainsQuery_PeopleList
+ *  @return GTLRPlusDomainsQuery_PeopleList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -968,7 +968,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsCollectionSharedto List all people who this
  *        activity was shared to. (Value: "sharedto")
  *
- *  @returns GTLRPlusDomainsQuery_PeopleListByActivity
+ *  @return GTLRPlusDomainsQuery_PeopleListByActivity
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1019,7 +1019,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *
  *  @param circleId The ID of the circle to get the members of.
  *
- *  @returns GTLRPlusDomainsQuery_PeopleListByCircle
+ *  @return GTLRPlusDomainsQuery_PeopleListByCircle
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

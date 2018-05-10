@@ -109,7 +109,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param accountId Account which contains the ad client.
  *  @param adClientId Ad client to get.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdclientsGet
+ *  @return GTLRAdSenseHostQuery_AccountsAdclientsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId;
@@ -153,7 +153,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param accountId Account for which to list ad clients.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdclientsList
+ *  @return GTLRAdSenseHostQuery_AccountsAdclientsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -193,7 +193,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client for which to get ad unit.
  *  @param adUnitId Ad unit to delete.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsDelete
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsDelete
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId
@@ -231,7 +231,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client for which to get ad unit.
  *  @param adUnitId Ad unit to get.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsGet
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client with contains the ad unit.
  *  @param adUnitId Ad unit to get the code for.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsGetAdCode
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsGetAdCode
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId
@@ -309,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param accountId Account which will contain the ad unit.
  *  @param adClientId Ad client into which to insert the ad unit.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsInsert
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsInsert
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_AdUnit *)object
                       accountId:(NSString *)accountId
@@ -360,7 +360,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param accountId Account which contains the ad client.
  *  @param adClientId Ad client for which to list ad units.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsList
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -404,7 +404,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client which contains the ad unit.
  *  @param adUnitId Ad unit to get.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsPatch
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsPatch
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_AdUnit *)object
                       accountId:(NSString *)accountId
@@ -440,7 +440,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param accountId Account which contains the ad client.
  *  @param adClientId Ad client which contains the ad unit.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsAdunitsUpdate
+ *  @return GTLRAdSenseHostQuery_AccountsAdunitsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_AdUnit *)object
                       accountId:(NSString *)accountId
@@ -470,7 +470,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param accountId Account to get information about.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsGet
+ *  @return GTLRAdSenseHostQuery_AccountsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -498,7 +498,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param filterAdClientId Ad clients to list accounts for.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsList
+ *  @return GTLRAdSenseHostQuery_AccountsList
  */
 + (instancetype)queryWithFilterAdClientId:(NSArray<NSString *> *)filterAdClientId;
 
@@ -576,7 +576,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param endDate End of the date range to report on in "YYYY-MM-DD" format,
  *    inclusive.
  *
- *  @returns GTLRAdSenseHostQuery_AccountsReportsGenerate
+ *  @return GTLRAdSenseHostQuery_AccountsReportsGenerate
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                          startDate:(NSString *)startDate
@@ -606,7 +606,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param adClientId Ad client to get.
  *
- *  @returns GTLRAdSenseHostQuery_AdclientsGet
+ *  @return GTLRAdSenseHostQuery_AdclientsGet
  */
 + (instancetype)queryWithAdClientId:(NSString *)adClientId;
 
@@ -644,7 +644,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  List all host ad clients in this AdSense account.
  *
- *  @returns GTLRAdSenseHostQuery_AdclientsList
+ *  @return GTLRAdSenseHostQuery_AdclientsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -708,7 +708,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *        (Value: "AFS")
  *    @arg @c kGTLRAdSenseHostProductCodeAfv AdSense For Video (Value: "AFV")
  *
- *  @returns GTLRAdSenseHostQuery_AssociationsessionsStart
+ *  @return GTLRAdSenseHostQuery_AssociationsessionsStart
  */
 + (instancetype)queryWithProductCode:(NSArray<NSString *> *)productCode
                           websiteUrl:(NSString *)websiteUrl;
@@ -739,7 +739,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param token The token returned to the association callback URL.
  *
- *  @returns GTLRAdSenseHostQuery_AssociationsessionsVerify
+ *  @return GTLRAdSenseHostQuery_AssociationsessionsVerify
  */
 + (instancetype)queryWithToken:(NSString *)token;
 
@@ -771,7 +771,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client from which to delete the custom channel.
  *  @param customChannelId Custom channel to delete.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsDelete
+ *  @return GTLRAdSenseHostQuery_CustomchannelsDelete
  */
 + (instancetype)queryWithAdClientId:(NSString *)adClientId
                     customChannelId:(NSString *)customChannelId;
@@ -804,7 +804,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client from which to get the custom channel.
  *  @param customChannelId Custom channel to get.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsGet
+ *  @return GTLRAdSenseHostQuery_CustomchannelsGet
  */
 + (instancetype)queryWithAdClientId:(NSString *)adClientId
                     customChannelId:(NSString *)customChannelId;
@@ -834,7 +834,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param object The @c GTLRAdSenseHost_CustomChannel to include in the query.
  *  @param adClientId Ad client to which the new custom channel will be added.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsInsert
+ *  @return GTLRAdSenseHostQuery_CustomchannelsInsert
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_CustomChannel *)object
                      adClientId:(NSString *)adClientId;
@@ -878,7 +878,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param adClientId Ad client for which to list custom channels.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsList
+ *  @return GTLRAdSenseHostQuery_CustomchannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -917,7 +917,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client in which the custom channel will be updated.
  *  @param customChannelId Custom channel to get.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsPatch
+ *  @return GTLRAdSenseHostQuery_CustomchannelsPatch
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_CustomChannel *)object
                      adClientId:(NSString *)adClientId
@@ -948,7 +948,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param object The @c GTLRAdSenseHost_CustomChannel to include in the query.
  *  @param adClientId Ad client in which the custom channel will be updated.
  *
- *  @returns GTLRAdSenseHostQuery_CustomchannelsUpdate
+ *  @return GTLRAdSenseHostQuery_CustomchannelsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_CustomChannel *)object
                      adClientId:(NSString *)adClientId;
@@ -1023,7 +1023,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param endDate End of the date range to report on in "YYYY-MM-DD" format,
  *    inclusive.
  *
- *  @returns GTLRAdSenseHostQuery_ReportsGenerate
+ *  @return GTLRAdSenseHostQuery_ReportsGenerate
  */
 + (instancetype)queryWithStartDate:(NSString *)startDate
                            endDate:(NSString *)endDate;
@@ -1056,7 +1056,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param adClientId Ad client from which to delete the URL channel.
  *  @param urlChannelId URL channel to delete.
  *
- *  @returns GTLRAdSenseHostQuery_UrlchannelsDelete
+ *  @return GTLRAdSenseHostQuery_UrlchannelsDelete
  */
 + (instancetype)queryWithAdClientId:(NSString *)adClientId
                        urlChannelId:(NSString *)urlChannelId;
@@ -1086,7 +1086,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *  @param object The @c GTLRAdSenseHost_UrlChannel to include in the query.
  *  @param adClientId Ad client to which the new URL channel will be added.
  *
- *  @returns GTLRAdSenseHostQuery_UrlchannelsInsert
+ *  @return GTLRAdSenseHostQuery_UrlchannelsInsert
  */
 + (instancetype)queryWithObject:(GTLRAdSenseHost_UrlChannel *)object
                      adClientId:(NSString *)adClientId;
@@ -1130,7 +1130,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @param adClientId Ad client for which to list URL channels.
  *
- *  @returns GTLRAdSenseHostQuery_UrlchannelsList
+ *  @return GTLRAdSenseHostQuery_UrlchannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

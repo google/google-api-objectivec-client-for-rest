@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAnalyticsReporting_GetReportsRequest to include in
  *    the query.
  *
- *  @returns GTLRAnalyticsReportingQuery_ReportsBatchGet
+ *  @return GTLRAnalyticsReportingQuery_ReportsBatchGet
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsReporting_GetReportsRequest *)object;
 

@@ -128,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    recommend using a customerId as a key for persistent data. If the domain
  *    name for a customerId is changed, the Google system automatically updates.
  *
- *  @returns GTLRResellerQuery_CustomersGet
+ *  @return GTLRResellerQuery_CustomersGet
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId;
 
@@ -162,7 +162,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
  *
- *  @returns GTLRResellerQuery_CustomersInsert
+ *  @return GTLRResellerQuery_CustomersInsert
  */
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object;
 
@@ -199,7 +199,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    recommend using a customerId as a key for persistent data. If the domain
  *    name for a customerId is changed, the Google system automatically updates.
  *
- *  @returns GTLRResellerQuery_CustomersPatch
+ *  @return GTLRResellerQuery_CustomersPatch
  */
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object
                      customerId:(NSString *)customerId;
@@ -237,7 +237,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    recommend using a customerId as a key for persistent data. If the domain
  *    name for a customerId is changed, the Google system automatically updates.
  *
- *  @returns GTLRResellerQuery_CustomersUpdate
+ *  @return GTLRResellerQuery_CustomersUpdate
  */
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object
                      customerId:(NSString *)customerId;
@@ -262,7 +262,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Returns all the details of the watch corresponding to the reseller.
  *
- *  @returns GTLRResellerQuery_ResellernotifyGetwatchdetails
+ *  @return GTLRResellerQuery_ResellernotifyGetwatchdetails
  */
 + (instancetype)query;
 
@@ -288,7 +288,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Registers a Reseller for receiving notifications.
  *
- *  @returns GTLRResellerQuery_ResellernotifyRegister
+ *  @return GTLRResellerQuery_ResellernotifyRegister
  */
 + (instancetype)query;
 
@@ -314,7 +314,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Unregisters a Reseller for receiving notifications.
  *
- *  @returns GTLRResellerQuery_ResellernotifyUnregister
+ *  @return GTLRResellerQuery_ResellernotifyUnregister
  */
 + (instancetype)query;
 
@@ -364,7 +364,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsActivate
+ *  @return GTLRResellerQuery_SubscriptionsActivate
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                      subscriptionId:(NSString *)subscriptionId;
@@ -420,7 +420,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsChangePlan
+ *  @return GTLRResellerQuery_SubscriptionsChangePlan
  */
 + (instancetype)queryWithObject:(GTLRReseller_ChangePlanRequest *)object
                      customerId:(NSString *)customerId
@@ -475,7 +475,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsChangeRenewalSettings
+ *  @return GTLRResellerQuery_SubscriptionsChangeRenewalSettings
  */
 + (instancetype)queryWithObject:(GTLRReseller_RenewalSettings *)object
                      customerId:(NSString *)customerId
@@ -528,7 +528,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsChangeSeats
+ *  @return GTLRResellerQuery_SubscriptionsChangeSeats
  */
 + (instancetype)queryWithObject:(GTLRReseller_Seats *)object
                      customerId:(NSString *)customerId
@@ -653,7 +653,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *        up billing directly with Google by using a credit card, or they can
  *        transfer to another reseller. (Value: "transfer_to_direct")
  *
- *  @returns GTLRResellerQuery_SubscriptionsDelete
+ *  @return GTLRResellerQuery_SubscriptionsDelete
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                      subscriptionId:(NSString *)subscriptionId
@@ -706,7 +706,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsGet
+ *  @return GTLRResellerQuery_SubscriptionsGet
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                      subscriptionId:(NSString *)subscriptionId;
@@ -753,7 +753,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    recommend using a customerId as a key for persistent data. If the domain
  *    name for a customerId is changed, the Google system automatically updates.
  *
- *  @returns GTLRResellerQuery_SubscriptionsInsert
+ *  @return GTLRResellerQuery_SubscriptionsInsert
  */
 + (instancetype)queryWithObject:(GTLRReseller_Subscription *)object
                      customerId:(NSString *)customerId;
@@ -822,7 +822,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  subscriptions, all of a customer's subscriptions, or all of a customer's
  *  transferable subscriptions.
  *
- *  @returns GTLRResellerQuery_SubscriptionsList
+ *  @return GTLRResellerQuery_SubscriptionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -878,7 +878,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsStartPaidService
+ *  @return GTLRResellerQuery_SubscriptionsStartPaidService
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                      subscriptionId:(NSString *)subscriptionId;
@@ -929,7 +929,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    use this ID as a key for persistent data. And the subscriptionId can be
  *    found using the retrieve all reseller subscriptions method.
  *
- *  @returns GTLRResellerQuery_SubscriptionsSuspend
+ *  @return GTLRResellerQuery_SubscriptionsSuspend
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                      subscriptionId:(NSString *)subscriptionId;

@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param skuId Name for sku
  *  @param userId email id or unique Id of the user
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsDelete
+ *  @return GTLRLicensingQuery_LicenseAssignmentsDelete
  */
 + (instancetype)queryWithProductId:(NSString *)productId
                              skuId:(NSString *)skuId
@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param skuId Name for sku
  *  @param userId email id or unique Id of the user
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsGet
+ *  @return GTLRLicensingQuery_LicenseAssignmentsGet
  */
 + (instancetype)queryWithProductId:(NSString *)productId
                              skuId:(NSString *)skuId
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param productId Name for product
  *  @param skuId Name for sku
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsInsert
+ *  @return GTLRLicensingQuery_LicenseAssignmentsInsert
  */
 + (instancetype)queryWithObject:(GTLRLicensing_LicenseAssignmentInsert *)object
                       productId:(NSString *)productId
@@ -195,7 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param customerId CustomerId represents the customer for whom
  *    licenseassignments are queried
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsListForProduct
+ *  @return GTLRLicensingQuery_LicenseAssignmentsListForProduct
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -254,7 +254,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param customerId CustomerId represents the customer for whom
  *    licenseassignments are queried
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku
+ *  @return GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -298,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param skuId Name for sku for which license would be revoked
  *  @param userId email id or unique Id of the user
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsPatch
+ *  @return GTLRLicensingQuery_LicenseAssignmentsPatch
  */
 + (instancetype)queryWithObject:(GTLRLicensing_LicenseAssignment *)object
                       productId:(NSString *)productId
@@ -339,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param skuId Name for sku for which license would be revoked
  *  @param userId email id or unique Id of the user
  *
- *  @returns GTLRLicensingQuery_LicenseAssignmentsUpdate
+ *  @return GTLRLicensingQuery_LicenseAssignmentsUpdate
  */
 + (instancetype)queryWithObject:(GTLRLicensing_LicenseAssignment *)object
                       productId:(NSString *)productId

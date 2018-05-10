@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
- *  @returns GTLRReportsQuery_ActivitiesList
+ *  @return GTLRReportsQuery_ActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
- *  @returns GTLRReportsQuery_ActivitiesWatch
+ *  @return GTLRReportsQuery_ActivitiesWatch
  */
 + (instancetype)queryWithObject:(GTLRReports_Channel *)object
                         userKey:(NSString *)userKey
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRReports_Channel to include in the query.
  *
- *  @returns GTLRReportsQuery_ChannelsStop
+ *  @return GTLRReportsQuery_ChannelsStop
  */
 + (instancetype)queryWithObject:(GTLRReports_Channel *)object;
 
@@ -258,7 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param date Represents the date in yyyy-mm-dd format for which the data is
  *    to be fetched.
  *
- *  @returns GTLRReportsQuery_CustomerUsageReportsGet
+ *  @return GTLRReportsQuery_CustomerUsageReportsGet
  */
 + (instancetype)queryWithDate:(NSString *)date;
 
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param date Represents the date in yyyy-mm-dd format for which the data is
  *    to be fetched.
  *
- *  @returns GTLRReportsQuery_EntityUsageReportsGet
+ *  @return GTLRReportsQuery_EntityUsageReportsGet
  */
 + (instancetype)queryWithEntityType:(NSString *)entityType
                           entityKey:(NSString *)entityKey
@@ -381,7 +381,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param date Represents the date in yyyy-mm-dd format for which the data is
  *    to be fetched.
  *
- *  @returns GTLRReportsQuery_UserUsageReportGet
+ *  @return GTLRReportsQuery_UserUsageReportGet
  */
 + (instancetype)queryWithUserKey:(NSString *)userKey
                             date:(NSString *)date;

@@ -614,7 +614,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    identifies the properties that the write operation will set as well as the
  *    properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_ActivitiesInsert
+ *  @return GTLRYouTubeQuery_ActivitiesInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Activity *)object
                            part:(NSString *)part;
@@ -728,7 +728,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    forth. If you set part=snippet, the API response will also contain all of
  *    those nested properties.
  *
- *  @returns GTLRYouTubeQuery_ActivitiesList
+ *  @return GTLRYouTubeQuery_ActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -789,7 +789,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    being deleted. The value is a caption track ID as identified by the id
  *    property in a caption resource.
  *
- *  @returns GTLRYouTubeQuery_CaptionsDelete
+ *  @return GTLRYouTubeQuery_CaptionsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -876,7 +876,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    being retrieved. The value is a caption track ID as identified by the id
  *    property in a caption resource.
  *
- *  @returns GTLRYouTubeQuery_CaptionsDownload
+ *  @return GTLRYouTubeQuery_CaptionsDownload
  */
 + (instancetype)queryForMediaWithIdentifier:(NSString *)identifier;
 
@@ -942,7 +942,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    100MB. Accepted MIME types: * / *, application/octet-stream, text/xml
  *
- *  @returns GTLRYouTubeQuery_CaptionsInsert
+ *  @return GTLRYouTubeQuery_CaptionsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Caption *)object
                            part:(NSString *)part
@@ -1019,7 +1019,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param videoId The videoId parameter specifies the YouTube video ID of the
  *    video for which the API should return caption tracks.
  *
- *  @returns GTLRYouTubeQuery_CaptionsList
+ *  @return GTLRYouTubeQuery_CaptionsList
  */
 + (instancetype)queryWithPart:(NSString *)part
                       videoId:(NSString *)videoId;
@@ -1092,7 +1092,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    100MB. Accepted MIME types: * / *, application/octet-stream, text/xml
  *
- *  @returns GTLRYouTubeQuery_CaptionsUpdate
+ *  @return GTLRYouTubeQuery_CaptionsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Caption *)object
                            part:(NSString *)part
@@ -1168,7 +1168,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    6MB. Accepted MIME types: application/octet-stream, image/jpeg, image/png
  *
- *  @returns GTLRYouTubeQuery_ChannelBannersInsert
+ *  @return GTLRYouTubeQuery_ChannelBannersInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelBannerResource *)object
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -1222,7 +1222,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    for the resource that is being deleted. In a channelSection resource, the
  *    id property specifies the YouTube channelSection ID.
  *
- *  @returns GTLRYouTubeQuery_ChannelSectionsDelete
+ *  @return GTLRYouTubeQuery_ChannelSectionsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -1297,7 +1297,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are snippet and
  *    contentDetails.
  *
- *  @returns GTLRYouTubeQuery_ChannelSectionsInsert
+ *  @return GTLRYouTubeQuery_ChannelSectionsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
                            part:(NSString *)part;
@@ -1394,7 +1394,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    such as a display title for the channelSection. If you set part=snippet,
  *    the API response will also contain all of those nested properties.
  *
- *  @returns GTLRYouTubeQuery_ChannelSectionsList
+ *  @return GTLRYouTubeQuery_ChannelSectionsList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -1449,7 +1449,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are snippet and
  *    contentDetails.
  *
- *  @returns GTLRYouTubeQuery_ChannelSectionsUpdate
+ *  @return GTLRYouTubeQuery_ChannelSectionsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
                            part:(NSString *)part;
@@ -1576,7 +1576,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    such as the uploads properties. As such, if you set part=contentDetails,
  *    the API response will also contain all of those nested properties.
  *
- *  @returns GTLRYouTubeQuery_ChannelsList
+ *  @return GTLRYouTubeQuery_ChannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1645,7 +1645,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that are contained in any parts that the parameter value
  *    specifies.
  *
- *  @returns GTLRYouTubeQuery_ChannelsUpdate
+ *  @return GTLRYouTubeQuery_ChannelsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Channel *)object
                            part:(NSString *)part;
@@ -1681,7 +1681,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter specifies the comment ID for the resource
  *    that is being deleted.
  *
- *  @returns GTLRYouTubeQuery_CommentsDelete
+ *  @return GTLRYouTubeQuery_CommentsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -1718,7 +1718,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    response will include. Set the parameter value to snippet. The snippet
  *    part has a quota cost of 2 units.
  *
- *  @returns GTLRYouTubeQuery_CommentsInsert
+ *  @return GTLRYouTubeQuery_CommentsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
                            part:(NSString *)part;
@@ -1802,7 +1802,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies a comma-separated list of one or
  *    more comment resource properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_CommentsList
+ *  @return GTLRYouTubeQuery_CommentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1843,7 +1843,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter specifies a comma-separated list of IDs
  *    of comments that the caller believes should be classified as spam.
  *
- *  @returns GTLRYouTubeQuery_CommentsMarkAsSpam
+ *  @return GTLRYouTubeQuery_CommentsMarkAsSpam
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -1931,7 +1931,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        replies would subsequently be discoverable again as well. (Value:
  *        "rejected")
  *
- *  @returns GTLRYouTubeQuery_CommentsSetModerationStatus
+ *  @return GTLRYouTubeQuery_CommentsSetModerationStatus
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier
                    moderationStatus:(NSString *)moderationStatus;
@@ -1969,7 +1969,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    parameter value since that part contains all of the properties that the
  *    API request can update.
  *
- *  @returns GTLRYouTubeQuery_CommentsUpdate
+ *  @return GTLRYouTubeQuery_CommentsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
                            part:(NSString *)part;
@@ -2007,7 +2007,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    response will include. Set the parameter value to snippet. The snippet
  *    part has a quota cost of 2 units.
  *
- *  @returns GTLRYouTubeQuery_CommentThreadsInsert
+ *  @return GTLRYouTubeQuery_CommentThreadsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
                            part:(NSString *)part;
@@ -2152,7 +2152,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies a comma-separated list of one or
  *    more commentThread resource properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_CommentThreadsList
+ *  @return GTLRYouTubeQuery_CommentThreadsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2193,7 +2193,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    must at least include the snippet part in the parameter value since that
  *    part contains all of the properties that the API request can update.
  *
- *  @returns GTLRYouTubeQuery_CommentThreadsUpdate
+ *  @return GTLRYouTubeQuery_CommentThreadsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
                            part:(NSString *)part;
@@ -2255,7 +2255,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the API response will include. Set the parameter value to
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_GuideCategoriesList
+ *  @return GTLRYouTubeQuery_GuideCategoriesList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -2299,7 +2299,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the API response will include. Set the parameter value to
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_I18nLanguagesList
+ *  @return GTLRYouTubeQuery_I18nLanguagesList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -2342,7 +2342,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies the i18nRegion resource properties
  *    that the API response will include. Set the parameter value to snippet.
  *
- *  @returns GTLRYouTubeQuery_I18nRegionsList
+ *  @return GTLRYouTubeQuery_I18nRegionsList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -2434,7 +2434,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are id,
  *    snippet, contentDetails, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsBind
+ *  @return GTLRYouTubeQuery_LiveBroadcastsBind
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier
                                part:(NSString *)part;
@@ -2546,7 +2546,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are id,
  *    snippet, contentDetails, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsControl
+ *  @return GTLRYouTubeQuery_LiveBroadcastsControl
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier
                                part:(NSString *)part;
@@ -2617,7 +2617,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter specifies the YouTube live broadcast ID
  *    for the resource that is being deleted.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsDelete
+ *  @return GTLRYouTubeQuery_LiveBroadcastsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -2691,7 +2691,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part properties that you can include in the parameter value are id,
  *    snippet, contentDetails, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsInsert
+ *  @return GTLRYouTubeQuery_LiveBroadcastsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
                            part:(NSString *)part;
@@ -2829,7 +2829,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are id,
  *    snippet, contentDetails, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsList
+ *  @return GTLRYouTubeQuery_LiveBroadcastsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2960,7 +2960,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        contentDetails.monitorStream.enableMonitorStream property is set to
  *        true. (Value: "testing")
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsTransition
+ *  @return GTLRYouTubeQuery_LiveBroadcastsTransition
  */
 + (instancetype)queryWithBroadcastStatus:(NSString *)broadcastStatus
                               identifier:(NSString *)identifier
@@ -3056,7 +3056,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    value, the existing privacy setting will be removed and the broadcast will
  *    revert to the default privacy setting.
  *
- *  @returns GTLRYouTubeQuery_LiveBroadcastsUpdate
+ *  @return GTLRYouTubeQuery_LiveBroadcastsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
                            part:(NSString *)part;
@@ -3093,7 +3093,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter identifies the chat ban to remove. The
  *    value uniquely identifies both the ban and the chat.
  *
- *  @returns GTLRYouTubeQuery_LiveChatBansDelete
+ *  @return GTLRYouTubeQuery_LiveChatBansDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -3130,7 +3130,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the API response returns. Set the parameter value to
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_LiveChatBansInsert
+ *  @return GTLRYouTubeQuery_LiveChatBansInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatBan *)object
                            part:(NSString *)part;
@@ -3167,7 +3167,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter specifies the YouTube chat message ID of
  *    the resource that is being deleted.
  *
- *  @returns GTLRYouTubeQuery_LiveChatMessagesDelete
+ *  @return GTLRYouTubeQuery_LiveChatMessagesDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -3203,7 +3203,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the write operation will set as well as the properties
  *    that the API response will include. Set the parameter value to snippet.
  *
- *  @returns GTLRYouTubeQuery_LiveChatMessagesInsert
+ *  @return GTLRYouTubeQuery_LiveChatMessagesInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatMessage *)object
                            part:(NSString *)part;
@@ -3282,7 +3282,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies the liveChatComment resource parts
  *    that the API response will include. Supported values are id and snippet.
  *
- *  @returns GTLRYouTubeQuery_LiveChatMessagesList
+ *  @return GTLRYouTubeQuery_LiveChatMessagesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3323,7 +3323,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter identifies the chat moderator to remove.
  *    The value uniquely identifies both the moderator and the chat.
  *
- *  @returns GTLRYouTubeQuery_LiveChatModeratorsDelete
+ *  @return GTLRYouTubeQuery_LiveChatModeratorsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -3360,7 +3360,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the API response returns. Set the parameter value to
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_LiveChatModeratorsInsert
+ *  @return GTLRYouTubeQuery_LiveChatModeratorsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatModerator *)object
                            part:(NSString *)part;
@@ -3420,7 +3420,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    parts that the API response will include. Supported values are id and
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_LiveChatModeratorsList
+ *  @return GTLRYouTubeQuery_LiveChatModeratorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3495,7 +3495,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param identifier The id parameter specifies the YouTube live stream ID for
  *    the resource that is being deleted.
  *
- *  @returns GTLRYouTubeQuery_LiveStreamsDelete
+ *  @return GTLRYouTubeQuery_LiveStreamsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -3571,7 +3571,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part properties that you can include in the parameter value are id,
  *    snippet, cdn, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveStreamsInsert
+ *  @return GTLRYouTubeQuery_LiveStreamsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
                            part:(NSString *)part;
@@ -3676,7 +3676,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    The part names that you can include in the parameter value are id,
  *    snippet, cdn, and status.
  *
- *  @returns GTLRYouTubeQuery_LiveStreamsList
+ *  @return GTLRYouTubeQuery_LiveStreamsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3764,7 +3764,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    value specifies. If the request body does not specify a value for a
  *    mutable property, the existing value for that property will be removed.
  *
- *  @returns GTLRYouTubeQuery_LiveStreamsUpdate
+ *  @return GTLRYouTubeQuery_LiveStreamsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
                            part:(NSString *)part;
@@ -3818,7 +3818,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    for the playlist item that is being deleted. In a playlistItem resource,
  *    the id property specifies the playlist item's ID.
  *
- *  @returns GTLRYouTubeQuery_PlaylistItemsDelete
+ *  @return GTLRYouTubeQuery_PlaylistItemsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -3869,7 +3869,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    identifies the properties that the write operation will set as well as the
  *    properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_PlaylistItemsInsert
+ *  @return GTLRYouTubeQuery_PlaylistItemsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
                            part:(NSString *)part;
@@ -3973,7 +3973,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    such, if you set part=snippet, the API response will contain all of those
  *    properties.
  *
- *  @returns GTLRYouTubeQuery_PlaylistItemsList
+ *  @return GTLRYouTubeQuery_PlaylistItemsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4050,7 +4050,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    request body does not specify values, the existing start and end times
  *    will be removed and replaced with the default settings.
  *
- *  @returns GTLRYouTubeQuery_PlaylistItemsUpdate
+ *  @return GTLRYouTubeQuery_PlaylistItemsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
                            part:(NSString *)part;
@@ -4104,7 +4104,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    playlist that is being deleted. In a playlist resource, the id property
  *    specifies the playlist's ID.
  *
- *  @returns GTLRYouTubeQuery_PlaylistsDelete
+ *  @return GTLRYouTubeQuery_PlaylistsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -4175,7 +4175,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    identifies the properties that the write operation will set as well as the
  *    properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_PlaylistsInsert
+ *  @return GTLRYouTubeQuery_PlaylistsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
                            part:(NSString *)part;
@@ -4302,7 +4302,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    title, description, tags, and timeCreated. As such, if you set
  *    part=snippet, the API response will contain all of those properties.
  *
- *  @returns GTLRYouTubeQuery_PlaylistsList
+ *  @return GTLRYouTubeQuery_PlaylistsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4371,7 +4371,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    does not specify a value for the snippet.description property, the
  *    playlist's existing description will be deleted.
  *
- *  @returns GTLRYouTubeQuery_PlaylistsUpdate
+ *  @return GTLRYouTubeQuery_PlaylistsUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
                            part:(NSString *)part;
@@ -4770,7 +4770,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    more search resource properties that the API response will include. Set
  *    the parameter value to snippet.
  *
- *  @returns GTLRYouTubeQuery_SearchList
+ *  @return GTLRYouTubeQuery_SearchList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4837,7 +4837,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies the sponsor resource parts that the
  *    API response will include. Supported values are id and snippet.
  *
- *  @returns GTLRYouTubeQuery_SponsorsList
+ *  @return GTLRYouTubeQuery_SponsorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4880,7 +4880,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    the resource that is being deleted. In a subscription resource, the id
  *    property specifies the YouTube subscription ID.
  *
- *  @returns GTLRYouTubeQuery_SubscriptionsDelete
+ *  @return GTLRYouTubeQuery_SubscriptionsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -4917,7 +4917,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    identifies the properties that the write operation will set as well as the
  *    properties that the API response will include.
  *
- *  @returns GTLRYouTubeQuery_SubscriptionsInsert
+ *  @return GTLRYouTubeQuery_SubscriptionsInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Subscription *)object
                            part:(NSString *)part;
@@ -5070,7 +5070,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    such as a display title for the subscription. If you set part=snippet, the
  *    API response will also contain all of those nested properties.
  *
- *  @returns GTLRYouTubeQuery_SubscriptionsList
+ *  @return GTLRYouTubeQuery_SubscriptionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5136,7 +5136,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies the superChatEvent resource parts
  *    that the API response will include. Supported values are id and snippet.
  *
- *  @returns GTLRYouTubeQuery_SuperChatEventsList
+ *  @return GTLRYouTubeQuery_SuperChatEventsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5191,7 +5191,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    2MB. Accepted MIME types: application/octet-stream, image/jpeg, image/png
  *
- *  @returns GTLRYouTubeQuery_ThumbnailsSet
+ *  @return GTLRYouTubeQuery_ThumbnailsSet
  */
 + (instancetype)queryWithVideoId:(NSString *)videoId
                 uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -5236,7 +5236,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param part The part parameter specifies the videoCategory resource parts
  *    that the API response will include. Supported values are id and snippet.
  *
- *  @returns GTLRYouTubeQuery_VideoAbuseReportReasonsList
+ *  @return GTLRYouTubeQuery_VideoAbuseReportReasonsList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -5295,7 +5295,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    properties that the API response will include. Set the parameter value to
  *    snippet.
  *
- *  @returns GTLRYouTubeQuery_VideoCategoriesList
+ *  @return GTLRYouTubeQuery_VideoCategoriesList
  */
 + (instancetype)queryWithPart:(NSString *)part;
 
@@ -5348,7 +5348,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    resource that is being deleted. In a video resource, the id property
  *    specifies the video's ID.
  *
- *  @returns GTLRYouTubeQuery_VideosDelete
+ *  @return GTLRYouTubeQuery_VideosDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -5403,7 +5403,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    rating data. In a video resource, the id property specifies the video's
  *    ID.
  *
- *  @returns GTLRYouTubeQuery_VideosGetRating
+ *  @return GTLRYouTubeQuery_VideosGetRating
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -5512,7 +5512,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    64GB. Accepted MIME types: application/octet-stream, video/ *
  *
- *  @returns GTLRYouTubeQuery_VideosInsert
+ *  @return GTLRYouTubeQuery_VideosInsert
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Video *)object
                            part:(NSString *)part
@@ -5677,7 +5677,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    tags, and categoryId properties. As such, if you set part=snippet, the API
  *    response will contain all of those properties.
  *
- *  @returns GTLRYouTubeQuery_VideosList
+ *  @return GTLRYouTubeQuery_VideosList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5740,7 +5740,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeRatingNone Removes any rating that the authenticated
  *        user had previously set for the video. (Value: "none")
  *
- *  @returns GTLRYouTubeQuery_VideosRate
+ *  @return GTLRYouTubeQuery_VideosRate
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier
                              rating:(NSString *)rating;
@@ -5783,7 +5783,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @param object The @c GTLRYouTube_VideoAbuseReport to include in the query.
  *
- *  @returns GTLRYouTubeQuery_VideosReportAbuse
+ *  @return GTLRYouTubeQuery_VideosReportAbuse
  */
 + (instancetype)queryWithObject:(GTLRYouTube_VideoAbuseReport *)object;
 
@@ -5863,7 +5863,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    specifies a part that does not contain mutable values, that part will
  *    still be included in the API response.
  *
- *  @returns GTLRYouTubeQuery_VideosUpdate
+ *  @return GTLRYouTubeQuery_VideosUpdate
  */
 + (instancetype)queryWithObject:(GTLRYouTube_Video *)object
                            part:(NSString *)part;
@@ -5917,7 +5917,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    10MB. Accepted MIME types: application/octet-stream, image/jpeg, image/png
  *
- *  @returns GTLRYouTubeQuery_WatermarksSet
+ *  @return GTLRYouTubeQuery_WatermarksSet
  */
 + (instancetype)queryWithObject:(GTLRYouTube_InvideoBranding *)object
                       channelId:(NSString *)channelId
@@ -5968,7 +5968,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @param channelId The channelId parameter specifies the YouTube channel ID
  *    for which the watermark is being unset.
  *
- *  @returns GTLRYouTubeQuery_WatermarksUnset
+ *  @return GTLRYouTubeQuery_WatermarksUnset
  */
 + (instancetype)queryWithChannelId:(NSString *)channelId;
 

@@ -747,7 +747,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *
  *  @param q Query
  *
- *  @returns GTLRCustomsearchQuery_CseList
+ *  @return GTLRCustomsearchQuery_CseList
  */
 + (instancetype)queryWithQ:(NSString *)q;
 
@@ -1016,7 +1016,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *
  *  @param q Query
  *
- *  @returns GTLRCustomsearchQuery_CseSiterestrictList
+ *  @return GTLRCustomsearchQuery_CseSiterestrictList
  */
 + (instancetype)queryWithQ:(NSString *)q;
 
