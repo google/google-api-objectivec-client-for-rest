@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROauth2_Jwk.
  *
- *  @returns GTLROauth2Query_GetCertForOpenIdConnect
+ *  @return GTLROauth2Query_GetCertForOpenIdConnect
  */
 + (instancetype)query;
 
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROauth2_Tokeninfo.
  *
- *  @returns GTLROauth2Query_Tokeninfo
+ *  @return GTLROauth2Query_Tokeninfo
  */
 + (instancetype)query;
 
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROauth2_Userinfoplus.
  *
- *  @returns GTLROauth2Query_UserinfoGet
+ *  @return GTLROauth2Query_UserinfoGet
  */
 + (instancetype)query;
 
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROauth2_Userinfoplus.
  *
- *  @returns GTLROauth2Query_UserinfoV2MeGet
+ *  @return GTLROauth2Query_UserinfoV2MeGet
  */
 + (instancetype)query;
 

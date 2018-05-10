@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_BatchCreateAnnotationsRequest to include
  *    in the query.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsBatchCreate
+ *  @return GTLRGenomicsQuery_AnnotationsBatchCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_BatchCreateAnnotationsRequest *)object;
 
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_Annotation to include in the query.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsCreate
+ *  @return GTLRGenomicsQuery_AnnotationsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Annotation *)object;
 
@@ -193,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param annotationId The ID of the annotation to be deleted.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsDelete
+ *  @return GTLRGenomicsQuery_AnnotationsDelete
  */
 + (instancetype)queryWithAnnotationId:(NSString *)annotationId;
 
@@ -231,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_AnnotationSet to include in the query.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsetsCreate
+ *  @return GTLRGenomicsQuery_AnnotationsetsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_AnnotationSet *)object;
 
@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param annotationSetId The ID of the annotation set to be deleted.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsetsDelete
+ *  @return GTLRGenomicsQuery_AnnotationsetsDelete
  */
 + (instancetype)queryWithAnnotationSetId:(NSString *)annotationSetId;
 
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param annotationSetId The ID of the annotation set to be retrieved.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsetsGet
+ *  @return GTLRGenomicsQuery_AnnotationsetsGet
  */
 + (instancetype)queryWithAnnotationSetId:(NSString *)annotationSetId;
 
@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchAnnotationSetsRequest to include in
  *    the query.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsetsSearch
+ *  @return GTLRGenomicsQuery_AnnotationsetsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchAnnotationSetsRequest *)object;
 
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_AnnotationSet to include in the query.
  *  @param annotationSetId The ID of the annotation set to be updated.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsetsUpdate
+ *  @return GTLRGenomicsQuery_AnnotationsetsUpdate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_AnnotationSet *)object
                 annotationSetId:(NSString *)annotationSetId;
@@ -408,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param annotationId The ID of the annotation to be retrieved.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsGet
+ *  @return GTLRGenomicsQuery_AnnotationsGet
  */
 + (instancetype)queryWithAnnotationId:(NSString *)annotationId;
 
@@ -448,7 +448,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchAnnotationsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsSearch
+ *  @return GTLRGenomicsQuery_AnnotationsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchAnnotationsRequest *)object;
 
@@ -492,7 +492,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_Annotation to include in the query.
  *  @param annotationId The ID of the annotation to be updated.
  *
- *  @returns GTLRGenomicsQuery_AnnotationsUpdate
+ *  @return GTLRGenomicsQuery_AnnotationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Annotation *)object
                    annotationId:(NSString *)annotationId;
@@ -519,7 +519,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_CallSet to include in the query.
  *
- *  @returns GTLRGenomicsQuery_CallsetsCreate
+ *  @return GTLRGenomicsQuery_CallsetsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_CallSet *)object;
 
@@ -548,7 +548,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param callSetId The ID of the call set to be deleted.
  *
- *  @returns GTLRGenomicsQuery_CallsetsDelete
+ *  @return GTLRGenomicsQuery_CallsetsDelete
  */
 + (instancetype)queryWithCallSetId:(NSString *)callSetId;
 
@@ -578,7 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param callSetId The ID of the call set.
  *
- *  @returns GTLRGenomicsQuery_CallsetsGet
+ *  @return GTLRGenomicsQuery_CallsetsGet
  */
 + (instancetype)queryWithCallSetId:(NSString *)callSetId;
 
@@ -620,7 +620,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_CallSet to include in the query.
  *  @param callSetId The ID of the call set to be updated.
  *
- *  @returns GTLRGenomicsQuery_CallsetsPatch
+ *  @return GTLRGenomicsQuery_CallsetsPatch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_CallSet *)object
                       callSetId:(NSString *)callSetId;
@@ -653,7 +653,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchCallSetsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_CallsetsSearch
+ *  @return GTLRGenomicsQuery_CallsetsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchCallSetsRequest *)object;
 
@@ -679,7 +679,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_Dataset to include in the query.
  *
- *  @returns GTLRGenomicsQuery_DatasetsCreate
+ *  @return GTLRGenomicsQuery_DatasetsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Dataset *)object;
 
@@ -718,7 +718,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param datasetId The ID of the dataset to be deleted.
  *
- *  @returns GTLRGenomicsQuery_DatasetsDelete
+ *  @return GTLRGenomicsQuery_DatasetsDelete
  */
 + (instancetype)queryWithDatasetId:(NSString *)datasetId;
 
@@ -748,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param datasetId The ID of the dataset.
  *
- *  @returns GTLRGenomicsQuery_DatasetsGet
+ *  @return GTLRGenomicsQuery_DatasetsGet
  */
 + (instancetype)queryWithDatasetId:(NSString *)datasetId;
 
@@ -790,7 +790,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Format is
  *    `datasets/<dataset ID>`.
  *
- *  @returns GTLRGenomicsQuery_DatasetsGetIamPolicy
+ *  @return GTLRGenomicsQuery_DatasetsGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRGenomics_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -832,7 +832,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists datasets within a project.
  *
- *  @returns GTLRGenomicsQuery_DatasetsList
+ *  @return GTLRGenomicsQuery_DatasetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -878,7 +878,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_Dataset to include in the query.
  *  @param datasetId The ID of the dataset to be updated.
  *
- *  @returns GTLRGenomicsQuery_DatasetsPatch
+ *  @return GTLRGenomicsQuery_DatasetsPatch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Dataset *)object
                       datasetId:(NSString *)datasetId;
@@ -921,7 +921,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Format is
  *    `datasets/<dataset ID>`.
  *
- *  @returns GTLRGenomicsQuery_DatasetsSetIamPolicy
+ *  @return GTLRGenomicsQuery_DatasetsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -962,7 +962,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Format is
  *    `datasets/<dataset ID>`.
  *
- *  @returns GTLRGenomicsQuery_DatasetsTestIamPermissions
+ *  @return GTLRGenomicsQuery_DatasetsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRGenomics_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -996,7 +996,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param datasetId The ID of the dataset to be undeleted.
  *
- *  @returns GTLRGenomicsQuery_DatasetsUndelete
+ *  @return GTLRGenomicsQuery_DatasetsUndelete
  */
 + (instancetype)queryWithObject:(GTLRGenomics_UndeleteDatasetRequest *)object
                       datasetId:(NSString *)datasetId;
@@ -1036,7 +1036,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRGenomicsQuery_OperationsCancel
+ *  @return GTLRGenomicsQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRGenomics_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -1070,7 +1070,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRGenomicsQuery_OperationsGet
+ *  @return GTLRGenomicsQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1136,7 +1136,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRGenomicsQuery_OperationsList
+ *  @return GTLRGenomicsQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1230,7 +1230,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param readGroupSetId Required. The ID of the read group set over which
  *    coverage is requested.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsCoveragebucketsList
+ *  @return GTLRGenomicsQuery_ReadgroupsetsCoveragebucketsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1268,7 +1268,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    must have WRITE
  *    permissions to the dataset associated with this read group set.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsDelete
+ *  @return GTLRGenomicsQuery_ReadgroupsetsDelete
  */
 + (instancetype)queryWithReadGroupSetId:(NSString *)readGroupSetId;
 
@@ -1313,7 +1313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    caller must have
  *    READ access to this read group set.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsExport
+ *  @return GTLRGenomicsQuery_ReadgroupsetsExport
  */
 + (instancetype)queryWithObject:(GTLRGenomics_ExportReadGroupSetRequest *)object
                  readGroupSetId:(NSString *)readGroupSetId;
@@ -1344,7 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param readGroupSetId The ID of the read group set.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsGet
+ *  @return GTLRGenomicsQuery_ReadgroupsetsGet
  */
 + (instancetype)queryWithReadGroupSetId:(NSString *)readGroupSetId;
 
@@ -1392,7 +1392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_ImportReadGroupSetsRequest to include in
  *    the query.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsImport
+ *  @return GTLRGenomicsQuery_ReadgroupsetsImport
  */
 + (instancetype)queryWithObject:(GTLRGenomics_ImportReadGroupSetsRequest *)object;
 
@@ -1440,7 +1440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    must have WRITE
  *    permissions to the dataset associated with this read group set.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsPatch
+ *  @return GTLRGenomicsQuery_ReadgroupsetsPatch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_ReadGroupSet *)object
                  readGroupSetId:(NSString *)readGroupSetId;
@@ -1473,7 +1473,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchReadGroupSetsRequest to include in
  *    the query.
  *
- *  @returns GTLRGenomicsQuery_ReadgroupsetsSearch
+ *  @return GTLRGenomicsQuery_ReadgroupsetsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchReadGroupSetsRequest *)object;
 
@@ -1531,7 +1531,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchReadsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_ReadsSearch
+ *  @return GTLRGenomicsQuery_ReadsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchReadsRequest *)object;
 
@@ -1588,7 +1588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param referenceId The ID of the reference.
  *
- *  @returns GTLRGenomicsQuery_ReferencesBasesList
+ *  @return GTLRGenomicsQuery_ReferencesBasesList
  */
 + (instancetype)queryWithReferenceId:(NSString *)referenceId;
 
@@ -1622,7 +1622,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param referenceSetId The ID of the reference set.
  *
- *  @returns GTLRGenomicsQuery_ReferencesetsGet
+ *  @return GTLRGenomicsQuery_ReferencesetsGet
  */
 + (instancetype)queryWithReferenceSetId:(NSString *)referenceSetId;
 
@@ -1654,7 +1654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchReferenceSetsRequest to include in
  *    the query.
  *
- *  @returns GTLRGenomicsQuery_ReferencesetsSearch
+ *  @return GTLRGenomicsQuery_ReferencesetsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchReferenceSetsRequest *)object;
 
@@ -1688,7 +1688,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param referenceId The ID of the reference.
  *
- *  @returns GTLRGenomicsQuery_ReferencesGet
+ *  @return GTLRGenomicsQuery_ReferencesGet
  */
 + (instancetype)queryWithReferenceId:(NSString *)referenceId;
 
@@ -1720,7 +1720,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchReferencesRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_ReferencesSearch
+ *  @return GTLRGenomicsQuery_ReferencesSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchReferencesRequest *)object;
 
@@ -1746,7 +1746,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_Variant to include in the query.
  *
- *  @returns GTLRGenomicsQuery_VariantsCreate
+ *  @return GTLRGenomicsQuery_VariantsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Variant *)object;
 
@@ -1775,7 +1775,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param variantId The ID of the variant to be deleted.
  *
- *  @returns GTLRGenomicsQuery_VariantsDelete
+ *  @return GTLRGenomicsQuery_VariantsDelete
  */
 + (instancetype)queryWithVariantId:(NSString *)variantId;
 
@@ -1807,7 +1807,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGenomics_VariantSet to include in the query.
  *
- *  @returns GTLRGenomicsQuery_VariantsetsCreate
+ *  @return GTLRGenomicsQuery_VariantsetsCreate
  */
 + (instancetype)queryWithObject:(GTLRGenomics_VariantSet *)object;
 
@@ -1838,7 +1838,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param variantSetId The ID of the variant set to be deleted.
  *
- *  @returns GTLRGenomicsQuery_VariantsetsDelete
+ *  @return GTLRGenomicsQuery_VariantsetsDelete
  */
 + (instancetype)queryWithVariantSetId:(NSString *)variantSetId;
 
@@ -1875,7 +1875,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    variant data which
  *    should be exported. The caller must have READ access to this variant set.
  *
- *  @returns GTLRGenomicsQuery_VariantsetsExport
+ *  @return GTLRGenomicsQuery_VariantsetsExport
  */
 + (instancetype)queryWithObject:(GTLRGenomics_ExportVariantSetRequest *)object
                    variantSetId:(NSString *)variantSetId;
@@ -1906,7 +1906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param variantSetId Required. The ID of the variant set.
  *
- *  @returns GTLRGenomicsQuery_VariantsetsGet
+ *  @return GTLRGenomicsQuery_VariantsetsGet
  */
 + (instancetype)queryWithVariantSetId:(NSString *)variantSetId;
 
@@ -1949,7 +1949,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param variantSetId The ID of the variant to be updated (must already
  *    exist).
  *
- *  @returns GTLRGenomicsQuery_VariantsetsPatch
+ *  @return GTLRGenomicsQuery_VariantsetsPatch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_VariantSet *)object
                    variantSetId:(NSString *)variantSetId;
@@ -1982,7 +1982,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchVariantSetsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_VariantsetsSearch
+ *  @return GTLRGenomicsQuery_VariantsetsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchVariantSetsRequest *)object;
 
@@ -2012,7 +2012,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param variantId The ID of the variant.
  *
- *  @returns GTLRGenomicsQuery_VariantsGet
+ *  @return GTLRGenomicsQuery_VariantsGet
  */
 + (instancetype)queryWithVariantId:(NSString *)variantId;
 
@@ -2062,7 +2062,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_ImportVariantsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_VariantsImport
+ *  @return GTLRGenomicsQuery_VariantsImport
  */
 + (instancetype)queryWithObject:(GTLRGenomics_ImportVariantsRequest *)object;
 
@@ -2245,7 +2245,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_MergeVariantsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_VariantsMerge
+ *  @return GTLRGenomicsQuery_VariantsMerge
  */
 + (instancetype)queryWithObject:(GTLRGenomics_MergeVariantsRequest *)object;
 
@@ -2289,7 +2289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_Variant to include in the query.
  *  @param variantId The ID of the variant to be updated.
  *
- *  @returns GTLRGenomicsQuery_VariantsPatch
+ *  @return GTLRGenomicsQuery_VariantsPatch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_Variant *)object
                       variantId:(NSString *)variantId;
@@ -2322,7 +2322,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGenomics_SearchVariantsRequest to include in the
  *    query.
  *
- *  @returns GTLRGenomicsQuery_VariantsSearch
+ *  @return GTLRGenomicsQuery_VariantsSearch
  */
 + (instancetype)queryWithObject:(GTLRGenomics_SearchVariantsRequest *)object;
 

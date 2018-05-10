@@ -127,7 +127,7 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
  *
  *  @param url The URL to fetch and analyze
  *
- *  @returns GTLRPagespeedonlineQuery_PagespeedapiRunpagespeed
+ *  @return GTLRPagespeedonlineQuery_PagespeedapiRunpagespeed
  */
 + (instancetype)queryWithUrl:(NSString *)url;
 

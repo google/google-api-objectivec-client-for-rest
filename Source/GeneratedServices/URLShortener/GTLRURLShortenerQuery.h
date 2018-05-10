@@ -93,7 +93,7 @@ GTLR_EXTERN NSString * const kGTLRURLShortenerProjectionFull;
  *
  *  @param shortUrl The short URL, including the protocol.
  *
- *  @returns GTLRURLShortenerQuery_UrlGet
+ *  @return GTLRURLShortenerQuery_UrlGet
  */
 + (instancetype)queryWithShortUrl:(NSString *)shortUrl;
 
@@ -118,7 +118,7 @@ GTLR_EXTERN NSString * const kGTLRURLShortenerProjectionFull;
  *
  *  @param object The @c GTLRURLShortener_Url to include in the query.
  *
- *  @returns GTLRURLShortenerQuery_UrlInsert
+ *  @return GTLRURLShortenerQuery_UrlInsert
  */
 + (instancetype)queryWithObject:(GTLRURLShortener_Url *)object;
 
@@ -155,7 +155,7 @@ GTLR_EXTERN NSString * const kGTLRURLShortenerProjectionFull;
  *
  *  Retrieves a list of URLs shortened by a user.
  *
- *  @returns GTLRURLShortenerQuery_UrlList
+ *  @return GTLRURLShortenerQuery_UrlList
  */
 + (instancetype)query;
 

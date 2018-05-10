@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRServiceConsumerManagementQuery_OperationsCancel
+ *  @return GTLRServiceConsumerManagementQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRServiceConsumerManagement_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRServiceConsumerManagementQuery_OperationsDelete
+ *  @return GTLRServiceConsumerManagementQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRServiceConsumerManagementQuery_OperationsGet
+ *  @return GTLRServiceConsumerManagementQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRServiceConsumerManagementQuery_OperationsList
+ *  @return GTLRServiceConsumerManagementQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -279,7 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    services/{service}
  *    {service} the name of a service, for example 'service.googleapis.com'.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesSearch
+ *  @return GTLRServiceConsumerManagementQuery_ServicesSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -323,7 +323,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Name of the tenancy unit.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject
  */
 + (instancetype)queryWithObject:(GTLRServiceConsumerManagement_AddTenantProjectRequest *)object
                          parent:(NSString *)parent;
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    {service} the name of a service, for example 'service.googleapis.com'.
  *    Enabled service binding using the new tenancy unit.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate
  */
 + (instancetype)queryWithObject:(GTLRServiceConsumerManagement_CreateTenancyUnitRequest *)object
                          parent:(NSString *)parent;
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Name of the tenancy unit to be deleted.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDelete
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -460,7 +460,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    '123456'.
  *    {service} the name of a service, for example 'service.googleapis.com'.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsList
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -508,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
- *  @returns GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsRemoveProject
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsRemoveProject
  */
 + (instancetype)queryWithObject:(GTLRServiceConsumerManagement_RemoveTenantProjectRequest *)object
                            name:(NSString *)name;

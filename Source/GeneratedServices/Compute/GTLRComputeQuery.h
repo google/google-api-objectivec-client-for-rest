@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_AcceleratorTypesAggregatedList
+ *  @return GTLRComputeQuery_AcceleratorTypesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -248,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param acceleratorType Name of the accelerator type to return.
  *
- *  @returns GTLRComputeQuery_AcceleratorTypesGet
+ *  @return GTLRComputeQuery_AcceleratorTypesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_AcceleratorTypesList
+ *  @return GTLRComputeQuery_AcceleratorTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -421,7 +421,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_AddressesAggregatedList
+ *  @return GTLRComputeQuery_AddressesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param address Name of the address resource to delete.
  *
- *  @returns GTLRComputeQuery_AddressesDelete
+ *  @return GTLRComputeQuery_AddressesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -512,7 +512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param address Name of the address resource to return.
  *
- *  @returns GTLRComputeQuery_AddressesGet
+ *  @return GTLRComputeQuery_AddressesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -564,7 +564,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_AddressesInsert
+ *  @return GTLRComputeQuery_AddressesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Address *)object
                         project:(NSString *)project
@@ -649,7 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_AddressesList
+ *  @return GTLRComputeQuery_AddressesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -733,7 +733,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_AutoscalersAggregatedList
+ *  @return GTLRComputeQuery_AutoscalersAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -788,7 +788,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone for this request.
  *  @param autoscaler Name of the autoscaler to delete.
  *
- *  @returns GTLRComputeQuery_AutoscalersDelete
+ *  @return GTLRComputeQuery_AutoscalersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -834,7 +834,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone for this request.
  *  @param autoscaler Name of the autoscaler to return.
  *
- *  @returns GTLRComputeQuery_AutoscalersGet
+ *  @return GTLRComputeQuery_AutoscalersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -890,7 +890,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_AutoscalersInsert
+ *  @return GTLRComputeQuery_AutoscalersInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -979,7 +979,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_AutoscalersList
+ *  @return GTLRComputeQuery_AutoscalersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1043,7 +1043,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_AutoscalersPatch
+ *  @return GTLRComputeQuery_AutoscalersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -1102,7 +1102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_AutoscalersUpdate
+ *  @return GTLRComputeQuery_AutoscalersUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -1151,7 +1151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to delete.
  *
- *  @returns GTLRComputeQuery_BackendBucketsDelete
+ *  @return GTLRComputeQuery_BackendBucketsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                    backendBucket:(NSString *)backendBucket;
@@ -1188,7 +1188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to return.
  *
- *  @returns GTLRComputeQuery_BackendBucketsGet
+ *  @return GTLRComputeQuery_BackendBucketsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                    backendBucket:(NSString *)backendBucket;
@@ -1235,7 +1235,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_BackendBucketsInsert
+ *  @return GTLRComputeQuery_BackendBucketsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
                         project:(NSString *)project;
@@ -1317,7 +1317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_BackendBucketsList
+ *  @return GTLRComputeQuery_BackendBucketsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1373,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to patch.
  *
- *  @returns GTLRComputeQuery_BackendBucketsPatch
+ *  @return GTLRComputeQuery_BackendBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
                         project:(NSString *)project
@@ -1425,7 +1425,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to update.
  *
- *  @returns GTLRComputeQuery_BackendBucketsUpdate
+ *  @return GTLRComputeQuery_BackendBucketsUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
                         project:(NSString *)project
@@ -1508,7 +1508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Name of the project scoping this request.
  *
- *  @returns GTLRComputeQuery_BackendServicesAggregatedList
+ *  @return GTLRComputeQuery_BackendServicesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -1555,7 +1555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to delete.
  *
- *  @returns GTLRComputeQuery_BackendServicesDelete
+ *  @return GTLRComputeQuery_BackendServicesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                   backendService:(NSString *)backendService;
@@ -1592,7 +1592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to return.
  *
- *  @returns GTLRComputeQuery_BackendServicesGet
+ *  @return GTLRComputeQuery_BackendServicesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                   backendService:(NSString *)backendService;
@@ -1631,7 +1631,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param backendService Name of the BackendService resource to which the
  *    queried instance belongs.
  *
- *  @returns GTLRComputeQuery_BackendServicesGetHealth
+ *  @return GTLRComputeQuery_BackendServicesGetHealth
  */
 + (instancetype)queryWithObject:(GTLRCompute_ResourceGroupReference *)object
                         project:(NSString *)project
@@ -1683,7 +1683,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_BackendServicesInsert
+ *  @return GTLRComputeQuery_BackendServicesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project;
@@ -1765,7 +1765,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_BackendServicesList
+ *  @return GTLRComputeQuery_BackendServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1825,7 +1825,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to patch.
  *
- *  @returns GTLRComputeQuery_BackendServicesPatch
+ *  @return GTLRComputeQuery_BackendServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project
@@ -1881,7 +1881,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to update.
  *
- *  @returns GTLRComputeQuery_BackendServicesUpdate
+ *  @return GTLRComputeQuery_BackendServicesUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project
@@ -1962,7 +1962,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_DisksAggregatedList
+ *  @return GTLRComputeQuery_DisksAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -2020,7 +2020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param disk Name of the persistent disk to snapshot.
  *
- *  @returns GTLRComputeQuery_DisksCreateSnapshot
+ *  @return GTLRComputeQuery_DisksCreateSnapshot
  */
 + (instancetype)queryWithObject:(GTLRCompute_Snapshot *)object
                         project:(NSString *)project
@@ -2084,7 +2084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param disk Name of the persistent disk to delete.
  *
- *  @returns GTLRComputeQuery_DisksDelete
+ *  @return GTLRComputeQuery_DisksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -2130,7 +2130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param disk Name of the persistent disk to return.
  *
- *  @returns GTLRComputeQuery_DisksGet
+ *  @return GTLRComputeQuery_DisksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -2195,7 +2195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_DisksInsert
+ *  @return GTLRComputeQuery_DisksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Disk *)object
                         project:(NSString *)project
@@ -2284,7 +2284,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_DisksList
+ *  @return GTLRComputeQuery_DisksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2347,7 +2347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param disk The name of the persistent disk.
  *
- *  @returns GTLRComputeQuery_DisksResize
+ *  @return GTLRComputeQuery_DisksResize
  */
 + (instancetype)queryWithObject:(GTLRCompute_DisksResizeRequest *)object
                         project:(NSString *)project
@@ -2409,7 +2409,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_DisksSetLabels
+ *  @return GTLRComputeQuery_DisksSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_ZoneSetLabelsRequest *)object
                         project:(NSString *)project
@@ -2491,7 +2491,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_DiskTypesAggregatedList
+ *  @return GTLRComputeQuery_DiskTypesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -2535,7 +2535,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param diskType Name of the disk type to return.
  *
- *  @returns GTLRComputeQuery_DiskTypesGet
+ *  @return GTLRComputeQuery_DiskTypesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -2624,7 +2624,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_DiskTypesList
+ *  @return GTLRComputeQuery_DiskTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2676,7 +2676,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to delete.
  *
- *  @returns GTLRComputeQuery_FirewallsDelete
+ *  @return GTLRComputeQuery_FirewallsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                         firewall:(NSString *)firewall;
@@ -2711,7 +2711,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to return.
  *
- *  @returns GTLRComputeQuery_FirewallsGet
+ *  @return GTLRComputeQuery_FirewallsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                         firewall:(NSString *)firewall;
@@ -2758,7 +2758,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_FirewallsInsert
+ *  @return GTLRComputeQuery_FirewallsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Firewall *)object
                         project:(NSString *)project;
@@ -2838,7 +2838,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_FirewallsList
+ *  @return GTLRComputeQuery_FirewallsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2894,7 +2894,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to patch.
  *
- *  @returns GTLRComputeQuery_FirewallsPatch
+ *  @return GTLRComputeQuery_FirewallsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Firewall *)object
                         project:(NSString *)project
@@ -2948,7 +2948,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to update.
  *
- *  @returns GTLRComputeQuery_FirewallsUpdate
+ *  @return GTLRComputeQuery_FirewallsUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Firewall *)object
                         project:(NSString *)project
@@ -3029,7 +3029,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesAggregatedList
+ *  @return GTLRComputeQuery_ForwardingRulesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -3080,7 +3080,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param forwardingRule Name of the ForwardingRule resource to delete.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesDelete
+ *  @return GTLRComputeQuery_ForwardingRulesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -3120,7 +3120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param forwardingRule Name of the ForwardingRule resource to return.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesGet
+ *  @return GTLRComputeQuery_ForwardingRulesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -3172,7 +3172,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesInsert
+ *  @return GTLRComputeQuery_ForwardingRulesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
                         project:(NSString *)project
@@ -3259,7 +3259,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesList
+ *  @return GTLRComputeQuery_ForwardingRulesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3319,7 +3319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param forwardingRule Name of the ForwardingRule resource in which target is
  *    to be set.
  *
- *  @returns GTLRComputeQuery_ForwardingRulesSetTarget
+ *  @return GTLRComputeQuery_ForwardingRulesSetTarget
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetReference *)object
                         project:(NSString *)project
@@ -3369,7 +3369,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to delete.
  *
- *  @returns GTLRComputeQuery_GlobalAddressesDelete
+ *  @return GTLRComputeQuery_GlobalAddressesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                          address:(NSString *)address;
@@ -3406,7 +3406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to return.
  *
- *  @returns GTLRComputeQuery_GlobalAddressesGet
+ *  @return GTLRComputeQuery_GlobalAddressesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                          address:(NSString *)address;
@@ -3453,7 +3453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Address to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalAddressesInsert
+ *  @return GTLRComputeQuery_GlobalAddressesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Address *)object
                         project:(NSString *)project;
@@ -3533,7 +3533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalAddressesList
+ *  @return GTLRComputeQuery_GlobalAddressesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3584,7 +3584,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to delete.
  *
- *  @returns GTLRComputeQuery_GlobalForwardingRulesDelete
+ *  @return GTLRComputeQuery_GlobalForwardingRulesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                   forwardingRule:(NSString *)forwardingRule;
@@ -3621,7 +3621,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to return.
  *
- *  @returns GTLRComputeQuery_GlobalForwardingRulesGet
+ *  @return GTLRComputeQuery_GlobalForwardingRulesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                   forwardingRule:(NSString *)forwardingRule;
@@ -3668,7 +3668,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalForwardingRulesInsert
+ *  @return GTLRComputeQuery_GlobalForwardingRulesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
                         project:(NSString *)project;
@@ -3750,7 +3750,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalForwardingRulesList
+ *  @return GTLRComputeQuery_GlobalForwardingRulesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3805,7 +3805,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param forwardingRule Name of the ForwardingRule resource in which target is
  *    to be set.
  *
- *  @returns GTLRComputeQuery_GlobalForwardingRulesSetTarget
+ *  @return GTLRComputeQuery_GlobalForwardingRulesSetTarget
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetReference *)object
                         project:(NSString *)project
@@ -3886,7 +3886,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalOperationsAggregatedList
+ *  @return GTLRComputeQuery_GlobalOperationsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -3920,7 +3920,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to delete.
  *
- *  @returns GTLRComputeQuery_GlobalOperationsDelete
+ *  @return GTLRComputeQuery_GlobalOperationsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation;
@@ -3957,7 +3957,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
  *
- *  @returns GTLRComputeQuery_GlobalOperationsGet
+ *  @return GTLRComputeQuery_GlobalOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation;
@@ -4039,7 +4039,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_GlobalOperationsList
+ *  @return GTLRComputeQuery_GlobalOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4090,7 +4090,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to delete.
  *
- *  @returns GTLRComputeQuery_HealthChecksDelete
+ *  @return GTLRComputeQuery_HealthChecksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                      healthCheck:(NSString *)healthCheck;
@@ -4127,7 +4127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to return.
  *
- *  @returns GTLRComputeQuery_HealthChecksGet
+ *  @return GTLRComputeQuery_HealthChecksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      healthCheck:(NSString *)healthCheck;
@@ -4174,7 +4174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HealthChecksInsert
+ *  @return GTLRComputeQuery_HealthChecksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
                         project:(NSString *)project;
@@ -4256,7 +4256,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HealthChecksList
+ *  @return GTLRComputeQuery_HealthChecksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4312,7 +4312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to patch.
  *
- *  @returns GTLRComputeQuery_HealthChecksPatch
+ *  @return GTLRComputeQuery_HealthChecksPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
                         project:(NSString *)project
@@ -4364,7 +4364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to update.
  *
- *  @returns GTLRComputeQuery_HealthChecksUpdate
+ *  @return GTLRComputeQuery_HealthChecksUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
                         project:(NSString *)project
@@ -4413,7 +4413,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to delete.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksDelete
+ *  @return GTLRComputeQuery_HttpHealthChecksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                  httpHealthCheck:(NSString *)httpHealthCheck;
@@ -4450,7 +4450,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to return.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksGet
+ *  @return GTLRComputeQuery_HttpHealthChecksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                  httpHealthCheck:(NSString *)httpHealthCheck;
@@ -4497,7 +4497,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksInsert
+ *  @return GTLRComputeQuery_HttpHealthChecksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpHealthCheck *)object
                         project:(NSString *)project;
@@ -4579,7 +4579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksList
+ *  @return GTLRComputeQuery_HttpHealthChecksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4635,7 +4635,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to patch.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksPatch
+ *  @return GTLRComputeQuery_HttpHealthChecksPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpHealthCheck *)object
                         project:(NSString *)project
@@ -4687,7 +4687,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to update.
  *
- *  @returns GTLRComputeQuery_HttpHealthChecksUpdate
+ *  @return GTLRComputeQuery_HttpHealthChecksUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpHealthCheck *)object
                         project:(NSString *)project
@@ -4736,7 +4736,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to delete.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksDelete
+ *  @return GTLRComputeQuery_HttpsHealthChecksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                 httpsHealthCheck:(NSString *)httpsHealthCheck;
@@ -4773,7 +4773,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to return.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksGet
+ *  @return GTLRComputeQuery_HttpsHealthChecksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                 httpsHealthCheck:(NSString *)httpsHealthCheck;
@@ -4820,7 +4820,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksInsert
+ *  @return GTLRComputeQuery_HttpsHealthChecksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpsHealthCheck *)object
                         project:(NSString *)project;
@@ -4902,7 +4902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksList
+ *  @return GTLRComputeQuery_HttpsHealthChecksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4958,7 +4958,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to patch.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksPatch
+ *  @return GTLRComputeQuery_HttpsHealthChecksPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpsHealthCheck *)object
                         project:(NSString *)project
@@ -5010,7 +5010,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to update.
  *
- *  @returns GTLRComputeQuery_HttpsHealthChecksUpdate
+ *  @return GTLRComputeQuery_HttpsHealthChecksUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_HttpsHealthCheck *)object
                         project:(NSString *)project
@@ -5059,7 +5059,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param image Name of the image resource to delete.
  *
- *  @returns GTLRComputeQuery_ImagesDelete
+ *  @return GTLRComputeQuery_ImagesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                            image:(NSString *)image;
@@ -5110,7 +5110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param image Image name.
  *
- *  @returns GTLRComputeQuery_ImagesDeprecate
+ *  @return GTLRComputeQuery_ImagesDeprecate
  */
 + (instancetype)queryWithObject:(GTLRCompute_DeprecationStatus *)object
                         project:(NSString *)project
@@ -5148,7 +5148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param image Name of the image resource to return.
  *
- *  @returns GTLRComputeQuery_ImagesGet
+ *  @return GTLRComputeQuery_ImagesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                            image:(NSString *)image;
@@ -5185,7 +5185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param family Name of the image family to search for.
  *
- *  @returns GTLRComputeQuery_ImagesGetFromFamily
+ *  @return GTLRComputeQuery_ImagesGetFromFamily
  */
 + (instancetype)queryWithProject:(NSString *)project
                           family:(NSString *)family;
@@ -5238,7 +5238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Image to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ImagesInsert
+ *  @return GTLRComputeQuery_ImagesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Image *)object
                         project:(NSString *)project;
@@ -5328,7 +5328,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ImagesList
+ *  @return GTLRComputeQuery_ImagesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5369,7 +5369,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_ImagesSetLabels
+ *  @return GTLRComputeQuery_ImagesSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
                         project:(NSString *)project
@@ -5452,7 +5452,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersAbandonInstances
+ *  @return GTLRComputeQuery_InstanceGroupManagersAbandonInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersAbandonInstancesRequest *)object
                         project:(NSString *)project
@@ -5534,7 +5534,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersAggregatedList
+ *  @return GTLRComputeQuery_InstanceGroupManagersAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -5595,7 +5595,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroupManager The name of the managed instance group to
  *    delete.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersDelete
+ *  @return GTLRComputeQuery_InstanceGroupManagersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -5675,7 +5675,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersDeleteInstances
+ *  @return GTLRComputeQuery_InstanceGroupManagersDeleteInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersDeleteInstancesRequest *)object
                         project:(NSString *)project
@@ -5723,7 +5723,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersGet
+ *  @return GTLRComputeQuery_InstanceGroupManagersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -5793,7 +5793,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone where you want to create the
  *    managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersInsert
+ *  @return GTLRComputeQuery_InstanceGroupManagersInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
                         project:(NSString *)project
@@ -5885,7 +5885,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone where the managed instance group is
  *    located.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersList
+ *  @return GTLRComputeQuery_InstanceGroupManagersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5954,7 +5954,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersListManagedInstances
+ *  @return GTLRComputeQuery_InstanceGroupManagersListManagedInstances
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -6033,7 +6033,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersRecreateInstances
+ *  @return GTLRComputeQuery_InstanceGroupManagersRecreateInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersRecreateInstancesRequest *)object
                         project:(NSString *)project
@@ -6118,7 +6118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    should maintain at any given time. The group automatically adds or removes
  *    instances to maintain the number of instances specified by this parameter.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersResize
+ *  @return GTLRComputeQuery_InstanceGroupManagersResize
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -6184,7 +6184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersSetInstanceTemplate
+ *  @return GTLRComputeQuery_InstanceGroupManagersSetInstanceTemplate
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSetInstanceTemplateRequest *)object
                         project:(NSString *)project
@@ -6255,7 +6255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupManagersSetTargetPools
+ *  @return GTLRComputeQuery_InstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest *)object
                         project:(NSString *)project
@@ -6321,7 +6321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup The name of the instance group where you are adding
  *    instances.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsAddInstances
+ *  @return GTLRComputeQuery_InstanceGroupsAddInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupsAddInstancesRequest *)object
                         project:(NSString *)project
@@ -6403,7 +6403,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsAggregatedList
+ *  @return GTLRComputeQuery_InstanceGroupsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -6463,7 +6463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroup The name of the instance group to delete.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsDelete
+ *  @return GTLRComputeQuery_InstanceGroupsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -6510,7 +6510,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    located.
  *  @param instanceGroup The name of the instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsGet
+ *  @return GTLRComputeQuery_InstanceGroupsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -6567,7 +6567,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone where you want to create the
  *    instance group.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsInsert
+ *  @return GTLRComputeQuery_InstanceGroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroup *)object
                         project:(NSString *)project
@@ -6659,7 +6659,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone where the instance group is
  *    located.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsList
+ *  @return GTLRComputeQuery_InstanceGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -6762,7 +6762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup The name of the instance group from which you want to
  *    generate a list of included instances.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsListInstances
+ *  @return GTLRComputeQuery_InstanceGroupsListInstances
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -6839,7 +6839,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup The name of the instance group where the specified
  *    instances will be removed.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsRemoveInstances
+ *  @return GTLRComputeQuery_InstanceGroupsRemoveInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupsRemoveInstancesRequest *)object
                         project:(NSString *)project
@@ -6901,7 +6901,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup The name of the instance group where the named ports
  *    are updated.
  *
- *  @returns GTLRComputeQuery_InstanceGroupsSetNamedPorts
+ *  @return GTLRComputeQuery_InstanceGroupsSetNamedPorts
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupsSetNamedPortsRequest *)object
                         project:(NSString *)project
@@ -6965,7 +6965,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param networkInterface The name of the network interface to add to this
  *    instance.
  *
- *  @returns GTLRComputeQuery_InstancesAddAccessConfig
+ *  @return GTLRComputeQuery_InstancesAddAccessConfig
  */
 + (instancetype)queryWithObject:(GTLRCompute_AccessConfig *)object
                         project:(NSString *)project
@@ -7048,7 +7048,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InstancesAggregatedList
+ *  @return GTLRComputeQuery_InstancesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -7110,7 +7110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance The instance name for this request.
  *
- *  @returns GTLRComputeQuery_InstancesAttachDisk
+ *  @return GTLRComputeQuery_InstancesAttachDisk
  */
 + (instancetype)queryWithObject:(GTLRCompute_AttachedDisk *)object
                         project:(NSString *)project
@@ -7170,7 +7170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to delete.
  *
- *  @returns GTLRComputeQuery_InstancesDelete
+ *  @return GTLRComputeQuery_InstancesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7235,7 +7235,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accessConfig The name of the access config to delete.
  *  @param networkInterface The name of the network interface.
  *
- *  @returns GTLRComputeQuery_InstancesDeleteAccessConfig
+ *  @return GTLRComputeQuery_InstancesDeleteAccessConfig
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7298,7 +7298,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instance Instance name.
  *  @param deviceName Disk device name to detach.
  *
- *  @returns GTLRComputeQuery_InstancesDetachDisk
+ *  @return GTLRComputeQuery_InstancesDetachDisk
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7345,7 +7345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to return.
  *
- *  @returns GTLRComputeQuery_InstancesGet
+ *  @return GTLRComputeQuery_InstancesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7405,7 +7405,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesGetSerialPortOutput
+ *  @return GTLRComputeQuery_InstancesGetSerialPortOutput
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7472,7 +7472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_InstancesInsert
+ *  @return GTLRComputeQuery_InstancesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Instance *)object
                         project:(NSString *)project
@@ -7561,7 +7561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_InstancesList
+ *  @return GTLRComputeQuery_InstancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -7663,7 +7663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instance Name of the target instance scoping this request, or '-' if
  *    the request should span over all instances in the container.
  *
- *  @returns GTLRComputeQuery_InstancesListReferrers
+ *  @return GTLRComputeQuery_InstancesListReferrers
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -7726,7 +7726,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesReset
+ *  @return GTLRComputeQuery_InstancesReset
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7790,7 +7790,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetDeletionProtection
+ *  @return GTLRComputeQuery_InstancesSetDeletionProtection
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7856,7 +7856,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    deleted.
  *  @param deviceName The device name of the disk to modify.
  *
- *  @returns GTLRComputeQuery_InstancesSetDiskAutoDelete
+ *  @return GTLRComputeQuery_InstancesSetDiskAutoDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -7919,7 +7919,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetLabels
+ *  @return GTLRComputeQuery_InstancesSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesSetLabelsRequest *)object
                         project:(NSString *)project
@@ -7981,7 +7981,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetMachineResources
+ *  @return GTLRComputeQuery_InstancesSetMachineResources
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesSetMachineResourcesRequest *)object
                         project:(NSString *)project
@@ -8043,7 +8043,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetMachineType
+ *  @return GTLRComputeQuery_InstancesSetMachineType
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesSetMachineTypeRequest *)object
                         project:(NSString *)project
@@ -8104,7 +8104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetMetadata
+ *  @return GTLRComputeQuery_InstancesSetMetadata
  */
 + (instancetype)queryWithObject:(GTLRCompute_Metadata *)object
                         project:(NSString *)project
@@ -8168,7 +8168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetMinCpuPlatform
+ *  @return GTLRComputeQuery_InstancesSetMinCpuPlatform
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesSetMinCpuPlatformRequest *)object
                         project:(NSString *)project
@@ -8227,7 +8227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Instance name.
  *
- *  @returns GTLRComputeQuery_InstancesSetScheduling
+ *  @return GTLRComputeQuery_InstancesSetScheduling
  */
 + (instancetype)queryWithObject:(GTLRCompute_Scheduling *)object
                         project:(NSString *)project
@@ -8289,7 +8289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to start.
  *
- *  @returns GTLRComputeQuery_InstancesSetServiceAccount
+ *  @return GTLRComputeQuery_InstancesSetServiceAccount
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesSetServiceAccountRequest *)object
                         project:(NSString *)project
@@ -8348,7 +8348,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance scoping this request.
  *
- *  @returns GTLRComputeQuery_InstancesSetTags
+ *  @return GTLRComputeQuery_InstancesSetTags
  */
 + (instancetype)queryWithObject:(GTLRCompute_Tags *)object
                         project:(NSString *)project
@@ -8408,7 +8408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to start.
  *
- *  @returns GTLRComputeQuery_InstancesStart
+ *  @return GTLRComputeQuery_InstancesStart
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -8469,7 +8469,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to start.
  *
- *  @returns GTLRComputeQuery_InstancesStartWithEncryptionKey
+ *  @return GTLRComputeQuery_InstancesStartWithEncryptionKey
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesStartWithEncryptionKeyRequest *)object
                         project:(NSString *)project
@@ -8537,7 +8537,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param instance Name of the instance resource to stop.
  *
- *  @returns GTLRComputeQuery_InstancesStop
+ *  @return GTLRComputeQuery_InstancesStop
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -8604,7 +8604,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param networkInterface The name of the network interface where the access
  *    config is attached.
  *
- *  @returns GTLRComputeQuery_InstancesUpdateAccessConfig
+ *  @return GTLRComputeQuery_InstancesUpdateAccessConfig
  */
 + (instancetype)queryWithObject:(GTLRCompute_AccessConfig *)object
                         project:(NSString *)project
@@ -8670,7 +8670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instance The instance name for this request.
  *  @param networkInterface The name of the network interface to update.
  *
- *  @returns GTLRComputeQuery_InstancesUpdateNetworkInterface
+ *  @return GTLRComputeQuery_InstancesUpdateNetworkInterface
  */
 + (instancetype)queryWithObject:(GTLRCompute_NetworkInterface *)object
                         project:(NSString *)project
@@ -8725,7 +8725,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template to delete.
  *
- *  @returns GTLRComputeQuery_InstanceTemplatesDelete
+ *  @return GTLRComputeQuery_InstanceTemplatesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                 instanceTemplate:(NSString *)instanceTemplate;
@@ -8762,7 +8762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template.
  *
- *  @returns GTLRComputeQuery_InstanceTemplatesGet
+ *  @return GTLRComputeQuery_InstanceTemplatesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                 instanceTemplate:(NSString *)instanceTemplate;
@@ -8813,7 +8813,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_InstanceTemplate to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InstanceTemplatesInsert
+ *  @return GTLRComputeQuery_InstanceTemplatesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceTemplate *)object
                         project:(NSString *)project;
@@ -8895,7 +8895,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InstanceTemplatesList
+ *  @return GTLRComputeQuery_InstanceTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -8978,7 +8978,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectAttachmentsAggregatedList
+ *  @return GTLRComputeQuery_InterconnectAttachmentsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -9029,7 +9029,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param interconnectAttachment Name of the interconnect attachment to delete.
  *
- *  @returns GTLRComputeQuery_InterconnectAttachmentsDelete
+ *  @return GTLRComputeQuery_InterconnectAttachmentsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -9069,7 +9069,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param interconnectAttachment Name of the interconnect attachment to return.
  *
- *  @returns GTLRComputeQuery_InterconnectAttachmentsGet
+ *  @return GTLRComputeQuery_InterconnectAttachmentsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -9122,7 +9122,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectAttachmentsInsert
+ *  @return GTLRComputeQuery_InterconnectAttachmentsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachment *)object
                         project:(NSString *)project
@@ -9209,7 +9209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectAttachmentsList
+ *  @return GTLRComputeQuery_InterconnectAttachmentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9250,7 +9250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param interconnectLocation Name of the interconnect location to return.
  *
- *  @returns GTLRComputeQuery_InterconnectLocationsGet
+ *  @return GTLRComputeQuery_InterconnectLocationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
             interconnectLocation:(NSString *)interconnectLocation;
@@ -9332,7 +9332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectLocationsList
+ *  @return GTLRComputeQuery_InterconnectLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9383,7 +9383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to delete.
  *
- *  @returns GTLRComputeQuery_InterconnectsDelete
+ *  @return GTLRComputeQuery_InterconnectsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     interconnect:(NSString *)interconnect;
@@ -9420,7 +9420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to return.
  *
- *  @returns GTLRComputeQuery_InterconnectsGet
+ *  @return GTLRComputeQuery_InterconnectsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     interconnect:(NSString *)interconnect;
@@ -9467,7 +9467,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Interconnect to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectsInsert
+ *  @return GTLRComputeQuery_InterconnectsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
                         project:(NSString *)project;
@@ -9547,7 +9547,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_InterconnectsList
+ *  @return GTLRComputeQuery_InterconnectsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9603,7 +9603,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to update.
  *
- *  @returns GTLRComputeQuery_InterconnectsPatch
+ *  @return GTLRComputeQuery_InterconnectsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
                         project:(NSString *)project
@@ -9642,7 +9642,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param licenseCode Number corresponding to the License code resource to
  *    return.
  *
- *  @returns GTLRComputeQuery_LicenseCodesGet
+ *  @return GTLRComputeQuery_LicenseCodesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      licenseCode:(NSString *)licenseCode;
@@ -9679,7 +9679,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_LicenseCodesTestIamPermissions
+ *  @return GTLRComputeQuery_LicenseCodesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
@@ -9728,7 +9728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param license Name of the license resource to delete.
  *
- *  @returns GTLRComputeQuery_LicensesDelete
+ *  @return GTLRComputeQuery_LicensesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                          license:(NSString *)license;
@@ -9763,7 +9763,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param license Name of the License resource to return.
  *
- *  @returns GTLRComputeQuery_LicensesGet
+ *  @return GTLRComputeQuery_LicensesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                          license:(NSString *)license;
@@ -9811,7 +9811,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_License to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_LicensesInsert
+ *  @return GTLRComputeQuery_LicensesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_License *)object
                         project:(NSString *)project;
@@ -9901,7 +9901,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_LicensesList
+ *  @return GTLRComputeQuery_LicensesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9941,7 +9941,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_LicensesTestIamPermissions
+ *  @return GTLRComputeQuery_LicensesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
@@ -10022,7 +10022,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_MachineTypesAggregatedList
+ *  @return GTLRComputeQuery_MachineTypesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -10066,7 +10066,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone for this request.
  *  @param machineType Name of the machine type to return.
  *
- *  @returns GTLRComputeQuery_MachineTypesGet
+ *  @return GTLRComputeQuery_MachineTypesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -10155,7 +10155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
  *
- *  @returns GTLRComputeQuery_MachineTypesList
+ *  @return GTLRComputeQuery_MachineTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -10209,7 +10209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network resource to add peering to.
  *
- *  @returns GTLRComputeQuery_NetworksAddPeering
+ *  @return GTLRComputeQuery_NetworksAddPeering
  */
 + (instancetype)queryWithObject:(GTLRCompute_NetworksAddPeeringRequest *)object
                         project:(NSString *)project
@@ -10258,7 +10258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network to delete.
  *
- *  @returns GTLRComputeQuery_NetworksDelete
+ *  @return GTLRComputeQuery_NetworksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                          network:(NSString *)network;
@@ -10295,7 +10295,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network to return.
  *
- *  @returns GTLRComputeQuery_NetworksGet
+ *  @return GTLRComputeQuery_NetworksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                          network:(NSString *)network;
@@ -10342,7 +10342,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Network to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_NetworksInsert
+ *  @return GTLRComputeQuery_NetworksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Network *)object
                         project:(NSString *)project;
@@ -10422,7 +10422,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_NetworksList
+ *  @return GTLRComputeQuery_NetworksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -10476,7 +10476,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network to update.
  *
- *  @returns GTLRComputeQuery_NetworksPatch
+ *  @return GTLRComputeQuery_NetworksPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Network *)object
                         project:(NSString *)project
@@ -10527,7 +10527,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network resource to remove peering from.
  *
- *  @returns GTLRComputeQuery_NetworksRemovePeering
+ *  @return GTLRComputeQuery_NetworksRemovePeering
  */
 + (instancetype)queryWithObject:(GTLRCompute_NetworksRemovePeeringRequest *)object
                         project:(NSString *)project
@@ -10576,7 +10576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param network Name of the network to be updated.
  *
- *  @returns GTLRComputeQuery_NetworksSwitchToCustomMode
+ *  @return GTLRComputeQuery_NetworksSwitchToCustomMode
  */
 + (instancetype)queryWithProject:(NSString *)project
                          network:(NSString *)network;
@@ -10620,7 +10620,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsDisableXpnHost
+ *  @return GTLRComputeQuery_ProjectsDisableXpnHost
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -10667,7 +10667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsDisableXpnResource
+ *  @return GTLRComputeQuery_ProjectsDisableXpnResource
  */
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsDisableXpnResourceRequest *)object
                         project:(NSString *)project;
@@ -10711,7 +10711,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsEnableXpnHost
+ *  @return GTLRComputeQuery_ProjectsEnableXpnHost
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -10758,7 +10758,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsEnableXpnResource
+ *  @return GTLRComputeQuery_ProjectsEnableXpnResource
  */
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsEnableXpnResourceRequest *)object
                         project:(NSString *)project;
@@ -10789,7 +10789,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsGet
+ *  @return GTLRComputeQuery_ProjectsGet
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -10820,7 +10820,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsGetXpnHost
+ *  @return GTLRComputeQuery_ProjectsGetXpnHost
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -10864,7 +10864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsGetXpnResources
+ *  @return GTLRComputeQuery_ProjectsGetXpnResources
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -10912,7 +10912,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsListXpnHosts
+ *  @return GTLRComputeQuery_ProjectsListXpnHosts
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -10961,7 +10961,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_DiskMoveRequest to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsMoveDisk
+ *  @return GTLRComputeQuery_ProjectsMoveDisk
  */
 + (instancetype)queryWithObject:(GTLRCompute_DiskMoveRequest *)object
                         project:(NSString *)project;
@@ -11009,7 +11009,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsMoveInstance
+ *  @return GTLRComputeQuery_ProjectsMoveInstance
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceMoveRequest *)object
                         project:(NSString *)project;
@@ -11056,7 +11056,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Metadata to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsSetCommonInstanceMetadata
+ *  @return GTLRComputeQuery_ProjectsSetCommonInstanceMetadata
  */
 + (instancetype)queryWithObject:(GTLRCompute_Metadata *)object
                         project:(NSString *)project;
@@ -11109,7 +11109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ProjectsSetUsageExportBucket
+ *  @return GTLRComputeQuery_ProjectsSetUsageExportBucket
  */
 + (instancetype)queryWithObject:(GTLRCompute_UsageExportLocation *)object
                         project:(NSString *)project;
@@ -11161,7 +11161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param autoscaler Name of the autoscaler to delete.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersDelete
+ *  @return GTLRComputeQuery_RegionAutoscalersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11201,7 +11201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param autoscaler Name of the autoscaler to return.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersGet
+ *  @return GTLRComputeQuery_RegionAutoscalersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11253,7 +11253,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersInsert
+ *  @return GTLRComputeQuery_RegionAutoscalersInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -11338,7 +11338,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersList
+ *  @return GTLRComputeQuery_RegionAutoscalersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -11398,7 +11398,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersPatch
+ *  @return GTLRComputeQuery_RegionAutoscalersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -11453,7 +11453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionAutoscalersUpdate
+ *  @return GTLRComputeQuery_RegionAutoscalersUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
@@ -11506,7 +11506,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param backendService Name of the BackendService resource to delete.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesDelete
+ *  @return GTLRComputeQuery_RegionBackendServicesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11546,7 +11546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param backendService Name of the BackendService resource to return.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesGet
+ *  @return GTLRComputeQuery_RegionBackendServicesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11588,7 +11588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param backendService Name of the BackendService resource for which to get
  *    health.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesGetHealth
+ *  @return GTLRComputeQuery_RegionBackendServicesGetHealth
  */
 + (instancetype)queryWithObject:(GTLRCompute_ResourceGroupReference *)object
                         project:(NSString *)project
@@ -11645,7 +11645,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesInsert
+ *  @return GTLRComputeQuery_RegionBackendServicesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project
@@ -11732,7 +11732,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesList
+ *  @return GTLRComputeQuery_RegionBackendServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -11797,7 +11797,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param backendService Name of the BackendService resource to patch.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesPatch
+ *  @return GTLRComputeQuery_RegionBackendServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project
@@ -11858,7 +11858,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param backendService Name of the BackendService resource to update.
  *
- *  @returns GTLRComputeQuery_RegionBackendServicesUpdate
+ *  @return GTLRComputeQuery_RegionBackendServicesUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project
@@ -11940,7 +11940,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_RegionCommitmentsAggregatedList
+ *  @return GTLRComputeQuery_RegionCommitmentsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -11980,7 +11980,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param commitment Name of the commitment to return.
  *
- *  @returns GTLRComputeQuery_RegionCommitmentsGet
+ *  @return GTLRComputeQuery_RegionCommitmentsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12032,7 +12032,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_RegionCommitmentsInsert
+ *  @return GTLRComputeQuery_RegionCommitmentsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Commitment *)object
                         project:(NSString *)project
@@ -12117,7 +12117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_RegionCommitmentsList
+ *  @return GTLRComputeQuery_RegionCommitmentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -12198,7 +12198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest *)object
                         project:(NSString *)project
@@ -12254,7 +12254,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group to delete.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersDelete
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12330,7 +12330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest *)object
                         project:(NSString *)project
@@ -12371,7 +12371,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group to return.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersGet
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12434,7 +12434,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersInsert
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
                         project:(NSString *)project
@@ -12521,7 +12521,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersList
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -12581,7 +12581,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12654,7 +12654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersRecreateRequest *)object
                         project:(NSString *)project
@@ -12731,7 +12731,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param size Number of instances that should exist in this instance group
  *    manager.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersResize
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersResize
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12790,7 +12790,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager The name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest *)object
                         project:(NSString *)project
@@ -12849,7 +12849,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroupManager Name of the managed instance group.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest *)object
                         project:(NSString *)project
@@ -12890,7 +12890,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param instanceGroup Name of the instance group resource to return.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupsGet
+ *  @return GTLRComputeQuery_RegionInstanceGroupsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -12977,7 +12977,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupsList
+ *  @return GTLRComputeQuery_RegionInstanceGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -13078,7 +13078,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup Name of the regional instance group for which we want
  *    to list the instances.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupsListInstances
+ *  @return GTLRComputeQuery_RegionInstanceGroupsListInstances
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -13141,7 +13141,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instanceGroup The name of the regional instance group where the named
  *    ports are updated.
  *
- *  @returns GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts
+ *  @return GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest *)object
                         project:(NSString *)project
@@ -13182,7 +13182,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param operation Name of the Operations resource to delete.
  *
- *  @returns GTLRComputeQuery_RegionOperationsDelete
+ *  @return GTLRComputeQuery_RegionOperationsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -13222,7 +13222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param operation Name of the Operations resource to return.
  *
- *  @returns GTLRComputeQuery_RegionOperationsGet
+ *  @return GTLRComputeQuery_RegionOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -13309,7 +13309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_RegionOperationsList
+ *  @return GTLRComputeQuery_RegionOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -13350,7 +13350,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
  *
- *  @returns GTLRComputeQuery_RegionsGet
+ *  @return GTLRComputeQuery_RegionsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
@@ -13430,7 +13430,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_RegionsList
+ *  @return GTLRComputeQuery_RegionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -13513,7 +13513,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_RoutersAggregatedList
+ *  @return GTLRComputeQuery_RoutersAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -13564,7 +13564,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to delete.
  *
- *  @returns GTLRComputeQuery_RoutersDelete
+ *  @return GTLRComputeQuery_RoutersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -13606,7 +13606,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to return.
  *
- *  @returns GTLRComputeQuery_RoutersGet
+ *  @return GTLRComputeQuery_RoutersGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -13646,7 +13646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to query.
  *
- *  @returns GTLRComputeQuery_RoutersGetRouterStatus
+ *  @return GTLRComputeQuery_RoutersGetRouterStatus
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -13698,7 +13698,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_RoutersInsert
+ *  @return GTLRComputeQuery_RoutersInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
                         project:(NSString *)project
@@ -13783,7 +13783,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_RoutersList
+ *  @return GTLRComputeQuery_RoutersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -13844,7 +13844,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to patch.
  *
- *  @returns GTLRComputeQuery_RoutersPatch
+ *  @return GTLRComputeQuery_RoutersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
                         project:(NSString *)project
@@ -13888,7 +13888,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to query.
  *
- *  @returns GTLRComputeQuery_RoutersPreview
+ *  @return GTLRComputeQuery_RoutersPreview
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
                         project:(NSString *)project
@@ -13943,7 +13943,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param router Name of the Router resource to update.
  *
- *  @returns GTLRComputeQuery_RoutersUpdate
+ *  @return GTLRComputeQuery_RoutersUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
                         project:(NSString *)project
@@ -13993,7 +13993,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param route Name of the Route resource to delete.
  *
- *  @returns GTLRComputeQuery_RoutesDelete
+ *  @return GTLRComputeQuery_RoutesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                            route:(NSString *)route;
@@ -14030,7 +14030,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param route Name of the Route resource to return.
  *
- *  @returns GTLRComputeQuery_RoutesGet
+ *  @return GTLRComputeQuery_RoutesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                            route:(NSString *)route;
@@ -14077,7 +14077,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Route to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_RoutesInsert
+ *  @return GTLRComputeQuery_RoutesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Route *)object
                         project:(NSString *)project;
@@ -14157,7 +14157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_RoutesList
+ *  @return GTLRComputeQuery_RoutesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -14216,7 +14216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to delete.
  *
- *  @returns GTLRComputeQuery_SnapshotsDelete
+ *  @return GTLRComputeQuery_SnapshotsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                         snapshot:(NSString *)snapshot;
@@ -14253,7 +14253,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to return.
  *
- *  @returns GTLRComputeQuery_SnapshotsGet
+ *  @return GTLRComputeQuery_SnapshotsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                         snapshot:(NSString *)snapshot;
@@ -14335,7 +14335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SnapshotsList
+ *  @return GTLRComputeQuery_SnapshotsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -14376,7 +14376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRComputeQuery_SnapshotsSetLabels
+ *  @return GTLRComputeQuery_SnapshotsSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
                         project:(NSString *)project
@@ -14425,7 +14425,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param sslCertificate Name of the SslCertificate resource to delete.
  *
- *  @returns GTLRComputeQuery_SslCertificatesDelete
+ *  @return GTLRComputeQuery_SslCertificatesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                   sslCertificate:(NSString *)sslCertificate;
@@ -14462,7 +14462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param sslCertificate Name of the SslCertificate resource to return.
  *
- *  @returns GTLRComputeQuery_SslCertificatesGet
+ *  @return GTLRComputeQuery_SslCertificatesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                   sslCertificate:(NSString *)sslCertificate;
@@ -14509,7 +14509,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_SslCertificate to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SslCertificatesInsert
+ *  @return GTLRComputeQuery_SslCertificatesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_SslCertificate *)object
                         project:(NSString *)project;
@@ -14591,7 +14591,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SslCertificatesList
+ *  @return GTLRComputeQuery_SslCertificatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -14650,7 +14650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sslPolicy Name of the SSL policy to delete. The name must be 1-63
  *    characters long, and comply with RFC1035.
  *
- *  @returns GTLRComputeQuery_SslPoliciesDelete
+ *  @return GTLRComputeQuery_SslPoliciesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                        sslPolicy:(NSString *)sslPolicy;
@@ -14689,7 +14689,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
  *    characters long, and comply with RFC1035.
  *
- *  @returns GTLRComputeQuery_SslPoliciesGet
+ *  @return GTLRComputeQuery_SslPoliciesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                        sslPolicy:(NSString *)sslPolicy;
@@ -14736,7 +14736,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_SslPolicy to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SslPoliciesInsert
+ *  @return GTLRComputeQuery_SslPoliciesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
                         project:(NSString *)project;
@@ -14818,7 +14818,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SslPoliciesList
+ *  @return GTLRComputeQuery_SslPoliciesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -14903,7 +14903,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SslPoliciesListAvailableFeatures
+ *  @return GTLRComputeQuery_SslPoliciesListAvailableFeatures
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -14955,7 +14955,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
  *    characters long, and comply with RFC1035.
  *
- *  @returns GTLRComputeQuery_SslPoliciesPatch
+ *  @return GTLRComputeQuery_SslPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
                         project:(NSString *)project
@@ -15036,7 +15036,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_SubnetworksAggregatedList
+ *  @return GTLRComputeQuery_SubnetworksAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -15087,7 +15087,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param subnetwork Name of the Subnetwork resource to delete.
  *
- *  @returns GTLRComputeQuery_SubnetworksDelete
+ *  @return GTLRComputeQuery_SubnetworksDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -15142,7 +15142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param subnetwork Name of the Subnetwork resource to update.
  *
- *  @returns GTLRComputeQuery_SubnetworksExpandIpCidrRange
+ *  @return GTLRComputeQuery_SubnetworksExpandIpCidrRange
  */
 + (instancetype)queryWithObject:(GTLRCompute_SubnetworksExpandIpCidrRangeRequest *)object
                         project:(NSString *)project
@@ -15185,7 +15185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param subnetwork Name of the Subnetwork resource to return.
  *
- *  @returns GTLRComputeQuery_SubnetworksGet
+ *  @return GTLRComputeQuery_SubnetworksGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -15237,7 +15237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_SubnetworksInsert
+ *  @return GTLRComputeQuery_SubnetworksInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_Subnetwork *)object
                         project:(NSString *)project
@@ -15322,7 +15322,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_SubnetworksList
+ *  @return GTLRComputeQuery_SubnetworksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -15387,7 +15387,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param subnetwork Name of the Subnetwork resource to patch.
  *
- *  @returns GTLRComputeQuery_SubnetworksPatch
+ *  @return GTLRComputeQuery_SubnetworksPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Subnetwork *)object
                         project:(NSString *)project
@@ -15445,7 +15445,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param subnetwork Name of the Subnetwork resource.
  *
- *  @returns GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess
+ *  @return GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess
  */
 + (instancetype)queryWithObject:(GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest *)object
                         project:(NSString *)project
@@ -15495,7 +15495,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetHttpProxiesDelete
+ *  @return GTLRComputeQuery_TargetHttpProxiesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                  targetHttpProxy:(NSString *)targetHttpProxy;
@@ -15532,7 +15532,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy resource to return.
  *
- *  @returns GTLRComputeQuery_TargetHttpProxiesGet
+ *  @return GTLRComputeQuery_TargetHttpProxiesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                  targetHttpProxy:(NSString *)targetHttpProxy;
@@ -15579,7 +15579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TargetHttpProxy to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetHttpProxiesInsert
+ *  @return GTLRComputeQuery_TargetHttpProxiesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetHttpProxy *)object
                         project:(NSString *)project;
@@ -15661,7 +15661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetHttpProxiesList
+ *  @return GTLRComputeQuery_TargetHttpProxiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -15713,7 +15713,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy to set a URL map for.
  *
- *  @returns GTLRComputeQuery_TargetHttpProxiesSetUrlMap
+ *  @return GTLRComputeQuery_TargetHttpProxiesSetUrlMap
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMapReference *)object
                         project:(NSString *)project
@@ -15762,7 +15762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesDelete
+ *  @return GTLRComputeQuery_TargetHttpsProxiesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                 targetHttpsProxy:(NSString *)targetHttpsProxy;
@@ -15799,7 +15799,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to return.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesGet
+ *  @return GTLRComputeQuery_TargetHttpsProxiesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                 targetHttpsProxy:(NSString *)targetHttpsProxy;
@@ -15846,7 +15846,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesInsert
+ *  @return GTLRComputeQuery_TargetHttpsProxiesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxy *)object
                         project:(NSString *)project;
@@ -15928,7 +15928,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesList
+ *  @return GTLRComputeQuery_TargetHttpsProxiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -15985,7 +15985,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to set an
  *    SslCertificates resource for.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesSetSslCertificates
+ *  @return GTLRComputeQuery_TargetHttpsProxiesSetSslCertificates
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxiesSetSslCertificatesRequest *)object
                         project:(NSString *)project
@@ -16046,7 +16046,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    policy is to be set. The name must be 1-63 characters long, and comply
  *    with RFC1035.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy
+ *  @return GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy
  */
 + (instancetype)queryWithObject:(GTLRCompute_SslPolicyReference *)object
                         project:(NSString *)project
@@ -16097,7 +16097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource whose URL map
  *    is to be set.
  *
- *  @returns GTLRComputeQuery_TargetHttpsProxiesSetUrlMap
+ *  @return GTLRComputeQuery_TargetHttpsProxiesSetUrlMap
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMapReference *)object
                         project:(NSString *)project
@@ -16178,7 +16178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetInstancesAggregatedList
+ *  @return GTLRComputeQuery_TargetInstancesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -16233,7 +16233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone scoping this request.
  *  @param targetInstance Name of the TargetInstance resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetInstancesDelete
+ *  @return GTLRComputeQuery_TargetInstancesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -16279,7 +16279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone scoping this request.
  *  @param targetInstance Name of the TargetInstance resource to return.
  *
- *  @returns GTLRComputeQuery_TargetInstancesGet
+ *  @return GTLRComputeQuery_TargetInstancesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -16335,7 +16335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
  *
- *  @returns GTLRComputeQuery_TargetInstancesInsert
+ *  @return GTLRComputeQuery_TargetInstancesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetInstance *)object
                         project:(NSString *)project
@@ -16426,7 +16426,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
  *
- *  @returns GTLRComputeQuery_TargetInstancesList
+ *  @return GTLRComputeQuery_TargetInstancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -16484,7 +16484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the target pool to add a health check to.
  *
- *  @returns GTLRComputeQuery_TargetPoolsAddHealthCheck
+ *  @return GTLRComputeQuery_TargetPoolsAddHealthCheck
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetPoolsAddHealthCheckRequest *)object
                         project:(NSString *)project
@@ -16540,7 +16540,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the TargetPool resource to add instances to.
  *
- *  @returns GTLRComputeQuery_TargetPoolsAddInstance
+ *  @return GTLRComputeQuery_TargetPoolsAddInstance
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetPoolsAddInstanceRequest *)object
                         project:(NSString *)project
@@ -16622,7 +16622,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetPoolsAggregatedList
+ *  @return GTLRComputeQuery_TargetPoolsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -16673,7 +16673,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the TargetPool resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetPoolsDelete
+ *  @return GTLRComputeQuery_TargetPoolsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -16715,7 +16715,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the TargetPool resource to return.
  *
- *  @returns GTLRComputeQuery_TargetPoolsGet
+ *  @return GTLRComputeQuery_TargetPoolsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -16759,7 +16759,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetPool Name of the TargetPool resource to which the queried
  *    instance belongs.
  *
- *  @returns GTLRComputeQuery_TargetPoolsGetHealth
+ *  @return GTLRComputeQuery_TargetPoolsGetHealth
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceReference *)object
                         project:(NSString *)project
@@ -16812,7 +16812,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_TargetPoolsInsert
+ *  @return GTLRComputeQuery_TargetPoolsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetPool *)object
                         project:(NSString *)project
@@ -16899,7 +16899,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
  *
- *  @returns GTLRComputeQuery_TargetPoolsList
+ *  @return GTLRComputeQuery_TargetPoolsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -16957,7 +16957,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param targetPool Name of the target pool to remove health checks from.
  *
- *  @returns GTLRComputeQuery_TargetPoolsRemoveHealthCheck
+ *  @return GTLRComputeQuery_TargetPoolsRemoveHealthCheck
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetPoolsRemoveHealthCheckRequest *)object
                         project:(NSString *)project
@@ -17013,7 +17013,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the TargetPool resource to remove instances from.
  *
- *  @returns GTLRComputeQuery_TargetPoolsRemoveInstance
+ *  @return GTLRComputeQuery_TargetPoolsRemoveInstance
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetPoolsRemoveInstanceRequest *)object
                         project:(NSString *)project
@@ -17071,7 +17071,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region scoping this request.
  *  @param targetPool Name of the TargetPool resource to set a backup pool for.
  *
- *  @returns GTLRComputeQuery_TargetPoolsSetBackup
+ *  @return GTLRComputeQuery_TargetPoolsSetBackup
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetReference *)object
                         project:(NSString *)project
@@ -17121,7 +17121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetSslProxy Name of the TargetSslProxy resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesDelete
+ *  @return GTLRComputeQuery_TargetSslProxiesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                   targetSslProxy:(NSString *)targetSslProxy;
@@ -17158,7 +17158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetSslProxy Name of the TargetSslProxy resource to return.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesGet
+ *  @return GTLRComputeQuery_TargetSslProxiesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                   targetSslProxy:(NSString *)targetSslProxy;
@@ -17205,7 +17205,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TargetSslProxy to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesInsert
+ *  @return GTLRComputeQuery_TargetSslProxiesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxy *)object
                         project:(NSString *)project;
@@ -17287,7 +17287,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesList
+ *  @return GTLRComputeQuery_TargetSslProxiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -17344,7 +17344,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetSslProxy Name of the TargetSslProxy resource whose
  *    BackendService resource is to be set.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesSetBackendService
+ *  @return GTLRComputeQuery_TargetSslProxiesSetBackendService
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetBackendServiceRequest *)object
                         project:(NSString *)project
@@ -17396,7 +17396,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetSslProxy Name of the TargetSslProxy resource whose ProxyHeader
  *    is to be set.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesSetProxyHeader
+ *  @return GTLRComputeQuery_TargetSslProxiesSetProxyHeader
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetProxyHeaderRequest *)object
                         project:(NSString *)project
@@ -17451,7 +17451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetSslProxy Name of the TargetSslProxy resource whose
  *    SslCertificate resource is to be set.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesSetSslCertificates
+ *  @return GTLRComputeQuery_TargetSslProxiesSetSslCertificates
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetSslCertificatesRequest *)object
                         project:(NSString *)project
@@ -17512,7 +17512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    is to be set. The name must be 1-63 characters long, and comply with
  *    RFC1035.
  *
- *  @returns GTLRComputeQuery_TargetSslProxiesSetSslPolicy
+ *  @return GTLRComputeQuery_TargetSslProxiesSetSslPolicy
  */
 + (instancetype)queryWithObject:(GTLRCompute_SslPolicyReference *)object
                         project:(NSString *)project
@@ -17561,7 +17561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetTcpProxy Name of the TargetTcpProxy resource to delete.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesDelete
+ *  @return GTLRComputeQuery_TargetTcpProxiesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                   targetTcpProxy:(NSString *)targetTcpProxy;
@@ -17598,7 +17598,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param targetTcpProxy Name of the TargetTcpProxy resource to return.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesGet
+ *  @return GTLRComputeQuery_TargetTcpProxiesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                   targetTcpProxy:(NSString *)targetTcpProxy;
@@ -17645,7 +17645,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TargetTcpProxy to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesInsert
+ *  @return GTLRComputeQuery_TargetTcpProxiesInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetTcpProxy *)object
                         project:(NSString *)project;
@@ -17727,7 +17727,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesList
+ *  @return GTLRComputeQuery_TargetTcpProxiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -17784,7 +17784,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetTcpProxy Name of the TargetTcpProxy resource whose
  *    BackendService resource is to be set.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesSetBackendService
+ *  @return GTLRComputeQuery_TargetTcpProxiesSetBackendService
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetTcpProxiesSetBackendServiceRequest *)object
                         project:(NSString *)project
@@ -17836,7 +17836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targetTcpProxy Name of the TargetTcpProxy resource whose ProxyHeader
  *    is to be set.
  *
- *  @returns GTLRComputeQuery_TargetTcpProxiesSetProxyHeader
+ *  @return GTLRComputeQuery_TargetTcpProxiesSetProxyHeader
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest *)object
                         project:(NSString *)project
@@ -17917,7 +17917,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_TargetVpnGatewaysAggregatedList
+ *  @return GTLRComputeQuery_TargetVpnGatewaysAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -17968,7 +17968,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param targetVpnGateway Name of the target VPN gateway to delete.
  *
- *  @returns GTLRComputeQuery_TargetVpnGatewaysDelete
+ *  @return GTLRComputeQuery_TargetVpnGatewaysDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -18010,7 +18010,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param targetVpnGateway Name of the target VPN gateway to return.
  *
- *  @returns GTLRComputeQuery_TargetVpnGatewaysGet
+ *  @return GTLRComputeQuery_TargetVpnGatewaysGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -18062,7 +18062,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_TargetVpnGatewaysInsert
+ *  @return GTLRComputeQuery_TargetVpnGatewaysInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetVpnGateway *)object
                         project:(NSString *)project
@@ -18149,7 +18149,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_TargetVpnGatewaysList
+ *  @return GTLRComputeQuery_TargetVpnGatewaysList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -18201,7 +18201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to delete.
  *
- *  @returns GTLRComputeQuery_UrlMapsDelete
+ *  @return GTLRComputeQuery_UrlMapsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           urlMap:(NSString *)urlMap;
@@ -18238,7 +18238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to return.
  *
- *  @returns GTLRComputeQuery_UrlMapsGet
+ *  @return GTLRComputeQuery_UrlMapsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           urlMap:(NSString *)urlMap;
@@ -18285,7 +18285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_UrlMapsInsert
+ *  @return GTLRComputeQuery_UrlMapsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMap *)object
                         project:(NSString *)project;
@@ -18337,7 +18337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap scoping this request.
  *
- *  @returns GTLRComputeQuery_UrlMapsInvalidateCache
+ *  @return GTLRComputeQuery_UrlMapsInvalidateCache
  */
 + (instancetype)queryWithObject:(GTLRCompute_CacheInvalidationRule *)object
                         project:(NSString *)project
@@ -18418,7 +18418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_UrlMapsList
+ *  @return GTLRComputeQuery_UrlMapsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -18474,7 +18474,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to patch.
  *
- *  @returns GTLRComputeQuery_UrlMapsPatch
+ *  @return GTLRComputeQuery_UrlMapsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMap *)object
                         project:(NSString *)project
@@ -18524,7 +18524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to update.
  *
- *  @returns GTLRComputeQuery_UrlMapsUpdate
+ *  @return GTLRComputeQuery_UrlMapsUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMap *)object
                         project:(NSString *)project
@@ -18563,7 +18563,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to be validated as.
  *
- *  @returns GTLRComputeQuery_UrlMapsValidate
+ *  @return GTLRComputeQuery_UrlMapsValidate
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMapsValidateRequest *)object
                         project:(NSString *)project
@@ -18644,7 +18644,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_VpnTunnelsAggregatedList
+ *  @return GTLRComputeQuery_VpnTunnelsAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -18695,7 +18695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param vpnTunnel Name of the VpnTunnel resource to delete.
  *
- *  @returns GTLRComputeQuery_VpnTunnelsDelete
+ *  @return GTLRComputeQuery_VpnTunnelsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -18737,7 +18737,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region Name of the region for this request.
  *  @param vpnTunnel Name of the VpnTunnel resource to return.
  *
- *  @returns GTLRComputeQuery_VpnTunnelsGet
+ *  @return GTLRComputeQuery_VpnTunnelsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -18789,7 +18789,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_VpnTunnelsInsert
+ *  @return GTLRComputeQuery_VpnTunnelsInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_VpnTunnel *)object
                         project:(NSString *)project
@@ -18876,7 +18876,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
  *
- *  @returns GTLRComputeQuery_VpnTunnelsList
+ *  @return GTLRComputeQuery_VpnTunnelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -18923,7 +18923,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone for this request.
  *  @param operation Name of the Operations resource to delete.
  *
- *  @returns GTLRComputeQuery_ZoneOperationsDelete
+ *  @return GTLRComputeQuery_ZoneOperationsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -18967,7 +18967,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone for this request.
  *  @param operation Name of the Operations resource to return.
  *
- *  @returns GTLRComputeQuery_ZoneOperationsGet
+ *  @return GTLRComputeQuery_ZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -19056,7 +19056,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for request.
  *
- *  @returns GTLRComputeQuery_ZoneOperationsList
+ *  @return GTLRComputeQuery_ZoneOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -19101,7 +19101,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone resource to return.
  *
- *  @returns GTLRComputeQuery_ZonesGet
+ *  @return GTLRComputeQuery_ZonesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
@@ -19181,7 +19181,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *
- *  @returns GTLRComputeQuery_ZonesList
+ *  @return GTLRComputeQuery_ZonesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

@@ -84,7 +84,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  @param object The @c GTLRProximityBeacon_GetInfoForObservedBeaconsRequest to
  *    include in the query.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconinfoGetforobserved
+ *  @return GTLRProximityBeaconQuery_BeaconinfoGetforobserved
  */
 + (instancetype)queryWithObject:(GTLRProximityBeacon_GetInfoForObservedBeaconsRequest *)object;
 
@@ -149,7 +149,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsActivate
+ *  @return GTLRProximityBeaconQuery_BeaconsActivate
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -228,7 +228,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsAttachmentsBatchDelete
+ *  @return GTLRProximityBeaconQuery_BeaconsAttachmentsBatchDelete
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -309,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsAttachmentsCreate
+ *  @return GTLRProximityBeaconQuery_BeaconsAttachmentsCreate
  */
 + (instancetype)queryWithObject:(GTLRProximityBeacon_BeaconAttachment *)object
                      beaconName:(NSString *)beaconName;
@@ -373,7 +373,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    beacon's current EID, or its "stable" Eddystone-UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsAttachmentsDelete
+ *  @return GTLRProximityBeaconQuery_BeaconsAttachmentsDelete
  */
 + (instancetype)queryWithAttachmentName:(NSString *)attachmentName;
 
@@ -451,7 +451,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsAttachmentsList
+ *  @return GTLRProximityBeaconQuery_BeaconsAttachmentsList
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -516,7 +516,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsDeactivate
+ *  @return GTLRProximityBeaconQuery_BeaconsDeactivate
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -581,7 +581,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID of the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsDecommission
+ *  @return GTLRProximityBeaconQuery_BeaconsDecommission
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -643,7 +643,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsDelete
+ *  @return GTLRProximityBeaconQuery_BeaconsDelete
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -716,7 +716,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *
  *  @param beaconName Beacon that the diagnostics are for.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsDiagnosticsList
+ *  @return GTLRProximityBeaconQuery_BeaconsDiagnosticsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -788,7 +788,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    current EID or the beacon's "stable" UID.
  *    Required.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsGet
+ *  @return GTLRProximityBeaconQuery_BeaconsGet
  */
 + (instancetype)queryWithBeaconName:(NSString *)beaconName;
 
@@ -907,7 +907,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
  *  permissions in the Google Developers Console project.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsList
+ *  @return GTLRProximityBeaconQuery_BeaconsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -954,7 +954,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *
  *  @param object The @c GTLRProximityBeacon_Beacon to include in the query.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsRegister
+ *  @return GTLRProximityBeaconQuery_BeaconsRegister
  */
 + (instancetype)queryWithObject:(GTLRProximityBeacon_Beacon *)object;
 
@@ -1023,7 +1023,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    This field must be left empty when registering. After reading a beacon,
  *    clients can use the name for future operations.
  *
- *  @returns GTLRProximityBeaconQuery_BeaconsUpdate
+ *  @return GTLRProximityBeaconQuery_BeaconsUpdate
  */
 + (instancetype)queryWithObject:(GTLRProximityBeacon_Beacon *)object
                      beaconName:(NSString *)beaconName;
@@ -1065,7 +1065,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
  *  permissions in the Google Developers Console project.
  *
- *  @returns GTLRProximityBeaconQuery_NamespacesList
+ *  @return GTLRProximityBeaconQuery_NamespacesList
  */
 + (instancetype)query;
 
@@ -1109,7 +1109,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *    the format:
  *    <code>namespaces/<var>namespace</var></code>.
  *
- *  @returns GTLRProximityBeaconQuery_NamespacesUpdate
+ *  @return GTLRProximityBeaconQuery_NamespacesUpdate
  */
 + (instancetype)queryWithObject:(GTLRProximityBeacon_Namespace *)object
                   namespaceName:(NSString *)namespaceName;
@@ -1145,7 +1145,7 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  prepared to refresh this key when they encounter an error registering an
  *  Eddystone-EID beacon.
  *
- *  @returns GTLRProximityBeaconQuery_V1beta1GetEidparams
+ *  @return GTLRProximityBeaconQuery_V1beta1GetEidparams
  */
 + (instancetype)query;
 

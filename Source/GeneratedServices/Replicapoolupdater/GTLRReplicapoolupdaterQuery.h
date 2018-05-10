@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesCancel
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesCancel
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesGet
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone in which the update's target
  *    resides.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesInsert
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesInsert
  */
 + (instancetype)queryWithObject:(GTLRReplicapoolupdater_RollingUpdate *)object
                         project:(NSString *)project
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty The name of the zone in which the update's target
  *    resides.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesList
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesListInstanceUpdates
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesListInstanceUpdates
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -344,7 +344,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesPause
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesPause
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -390,7 +390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesResume
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesResume
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -436,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resides.
  *  @param rollingUpdate The name of the update.
  *
- *  @returns GTLRReplicapoolupdaterQuery_RollingUpdatesRollback
+ *  @return GTLRReplicapoolupdaterQuery_RollingUpdatesRollback
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -479,7 +479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param zoneProperty Name of the zone scoping this request.
  *  @param operation Name of the operation resource to return.
  *
- *  @returns GTLRReplicapoolupdaterQuery_ZoneOperationsGet
+ *  @return GTLRReplicapoolupdaterQuery_ZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -538,7 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Name of the project scoping this request.
  *  @param zoneProperty Name of the zone scoping this request.
  *
- *  @returns GTLRReplicapoolupdaterQuery_ZoneOperationsList
+ *  @return GTLRReplicapoolupdaterQuery_ZoneOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

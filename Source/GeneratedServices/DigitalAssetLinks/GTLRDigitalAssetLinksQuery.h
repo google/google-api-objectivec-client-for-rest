@@ -214,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  party. For more information, see the [Digital Asset Links technical design
  *  specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md).
  *
- *  @returns GTLRDigitalAssetLinksQuery_AssetlinksCheck
+ *  @return GTLRDigitalAssetLinksQuery_AssetlinksCheck
  */
 + (instancetype)query;
 
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  device, the feature would make it easy to navigate to the corresponding web
  *  site or Google+ profile.
  *
- *  @returns GTLRDigitalAssetLinksQuery_StatementsList
+ *  @return GTLRDigitalAssetLinksQuery_StatementsList
  */
 + (instancetype)query;
 

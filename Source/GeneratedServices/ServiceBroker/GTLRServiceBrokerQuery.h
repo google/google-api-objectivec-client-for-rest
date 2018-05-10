@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceBrokerQuery_V1GetIamPolicy
+ *  @return GTLRServiceBrokerQuery_V1GetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceBrokerQuery_V1SetIamPolicy
+ *  @return GTLRServiceBrokerQuery_V1SetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRServiceBroker_GoogleIamV1SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -154,7 +154,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRServiceBrokerQuery_V1TestIamPermissions
+ *  @return GTLRServiceBrokerQuery_V1TestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRServiceBroker_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

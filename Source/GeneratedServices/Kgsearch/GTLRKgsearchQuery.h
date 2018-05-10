@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A list of matched entities will be returned in response, which will be in
  *  JSON-LD format and compatible with http://schema.org
  *
- *  @returns GTLRKgsearchQuery_EntitiesSearch
+ *  @return GTLRKgsearchQuery_EntitiesSearch
  */
 + (instancetype)query;
 

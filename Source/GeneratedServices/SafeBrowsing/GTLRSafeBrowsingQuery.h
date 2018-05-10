@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param encodedRequest A serialized FindFullHashesRequest proto.
  *
- *  @returns GTLRSafeBrowsingQuery_EncodedFullHashesGet
+ *  @return GTLRSafeBrowsingQuery_EncodedFullHashesGet
  */
 + (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest;
 
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param encodedRequest A serialized FetchThreatListUpdatesRequest proto.
  *
- *  @returns GTLRSafeBrowsingQuery_EncodedUpdatesGet
+ *  @return GTLRSafeBrowsingQuery_EncodedUpdatesGet
  */
 + (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest;
 
@@ -132,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSafeBrowsing_FindFullHashesRequest to include in
  *    the query.
  *
- *  @returns GTLRSafeBrowsingQuery_FullHashesFind
+ *  @return GTLRSafeBrowsingQuery_FullHashesFind
  */
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FindFullHashesRequest *)object;
 
@@ -156,7 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSafeBrowsing_ThreatHit to include in the query.
  *
- *  @returns GTLRSafeBrowsingQuery_ThreatHitsCreate
+ *  @return GTLRSafeBrowsingQuery_ThreatHitsCreate
  */
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_ThreatHit *)object;
 
@@ -176,7 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the Safe Browsing threat lists available for download.
  *
- *  @returns GTLRSafeBrowsingQuery_ThreatListsList
+ *  @return GTLRSafeBrowsingQuery_ThreatListsList
  */
 + (instancetype)query;
 
@@ -201,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSafeBrowsing_FetchThreatListUpdatesRequest to
  *    include in the query.
  *
- *  @returns GTLRSafeBrowsingQuery_ThreatListUpdatesFetch
+ *  @return GTLRSafeBrowsingQuery_ThreatListUpdatesFetch
  */
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FetchThreatListUpdatesRequest *)object;
 
@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSafeBrowsing_FindThreatMatchesRequest to include in
  *    the query.
  *
- *  @returns GTLRSafeBrowsingQuery_ThreatMatchesFind
+ *  @return GTLRSafeBrowsingQuery_ThreatMatchesFind
  */
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FindThreatMatchesRequest *)object;
 

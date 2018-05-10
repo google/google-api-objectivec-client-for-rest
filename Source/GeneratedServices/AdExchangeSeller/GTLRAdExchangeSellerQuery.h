@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account to which the ad client belongs.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsAdclientsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsAdclientsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account owning the alerts.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsAlertsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsAlertsList
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -150,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param adClientId Ad client which contains the custom channel.
  *  @param customChannelId Custom channel to retrieve.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsCustomchannelsGet
+ *  @return GTLRAdExchangeSellerQuery_AccountsCustomchannelsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId
@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accountId Account to which the ad client belongs.
  *  @param adClientId Ad client for which to list custom channels.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsCustomchannelsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsCustomchannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accountId Account to get information about. Tip: 'myaccount' is a
  *    valid ID.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsGet
+ *  @return GTLRAdExchangeSellerQuery_AccountsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List all accounts available to this Ad Exchange account.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -308,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account with visibility to the dimensions.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsMetadataDimensionsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsMetadataDimensionsList
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account with visibility to the metrics.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsMetadataMetricsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsMetadataMetricsList
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -370,7 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accountId Account owning the deal.
  *  @param dealId Preferred deal to get information about.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsPreferreddealsGet
+ *  @return GTLRAdExchangeSellerQuery_AccountsPreferreddealsGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                             dealId:(NSString *)dealId;
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account owning the deals.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsPreferreddealsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsPreferreddealsList
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
 
@@ -479,7 +479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param endDate End of the date range to report on in "YYYY-MM-DD" format,
  *    inclusive.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsReportsGenerate
+ *  @return GTLRAdExchangeSellerQuery_AccountsReportsGenerate
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                          startDate:(NSString *)startDate
@@ -498,7 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param endDate End of the date range to report on in "YYYY-MM-DD" format,
  *    inclusive.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsReportsGenerate
+ *  @return GTLRAdExchangeSellerQuery_AccountsReportsGenerate
  */
 + (instancetype)queryForMediaWithAccountId:(NSString *)accountId
                                  startDate:(NSString *)startDate
@@ -555,7 +555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accountId Account owning the saved report.
  *  @param savedReportId The saved report to retrieve.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsReportsSavedGenerate
+ *  @return GTLRAdExchangeSellerQuery_AccountsReportsSavedGenerate
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                      savedReportId:(NSString *)savedReportId;
@@ -600,7 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param accountId Account owning the saved reports.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsReportsSavedList
+ *  @return GTLRAdExchangeSellerQuery_AccountsReportsSavedList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -654,7 +654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param accountId Account to which the ad client belongs.
  *  @param adClientId Ad client for which to list URL channels.
  *
- *  @returns GTLRAdExchangeSellerQuery_AccountsUrlchannelsList
+ *  @return GTLRAdExchangeSellerQuery_AccountsUrlchannelsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

@@ -136,7 +136,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @param activityId The ID of the activity to get.
  *
- *  @returns GTLRPlusQuery_ActivitiesGet
+ *  @return GTLRPlusQuery_ActivitiesGet
  */
 + (instancetype)queryWithActivityId:(NSString *)activityId;
 
@@ -202,7 +202,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *    @arg @c kGTLRPlusCollectionPublic All public activities created by the
  *        specified user. (Value: "public")
  *
- *  @returns GTLRPlusQuery_ActivitiesList
+ *  @return GTLRPlusQuery_ActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -275,7 +275,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @param query Full-text search query string.
  *
- *  @returns GTLRPlusQuery_ActivitiesSearch
+ *  @return GTLRPlusQuery_ActivitiesSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -308,7 +308,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @param commentId The ID of the comment to get.
  *
- *  @returns GTLRPlusQuery_CommentsGet
+ *  @return GTLRPlusQuery_CommentsGet
  */
 + (instancetype)queryWithCommentId:(NSString *)commentId;
 
@@ -368,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @param activityId The ID of the activity to get comments for.
  *
- *  @returns GTLRPlusQuery_CommentsList
+ *  @return GTLRPlusQuery_CommentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -411,7 +411,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @param userId The ID of the person to get the profile for. The special value
  *    "me" can be used to indicate the authenticated user.
  *
- *  @returns GTLRPlusQuery_PeopleGet
+ *  @return GTLRPlusQuery_PeopleGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -496,7 +496,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *        added to one or more circles, limited to the circles visible to the
  *        requesting application. (Value: "visible")
  *
- *  @returns GTLRPlusQuery_PeopleList
+ *  @return GTLRPlusQuery_PeopleList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -567,7 +567,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *    @arg @c kGTLRPlusCollectionResharers List all people who have reshared
  *        this activity. (Value: "resharers")
  *
- *  @returns GTLRPlusQuery_PeopleListByActivity
+ *  @return GTLRPlusQuery_PeopleListByActivity
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -629,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @param query Specify a query string for full text search of public text in
  *    all profiles.
  *
- *  @returns GTLRPlusQuery_PeopleSearch
+ *  @return GTLRPlusQuery_PeopleSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

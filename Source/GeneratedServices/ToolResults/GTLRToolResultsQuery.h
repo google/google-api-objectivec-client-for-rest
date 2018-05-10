@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param projectId A Project id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsGetSettings
+ *  @return GTLRToolResultsQuery_ProjectsGetSettings
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -144,7 +144,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param projectId A Project id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_History *)object
                       projectId:(NSString *)projectId;
@@ -198,7 +198,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param clusterId A Cluster id
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -258,7 +258,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId An Execution id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -318,7 +318,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param historyId A History id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Execution *)object
                       projectId:(NSString *)projectId
@@ -376,7 +376,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId An Execution id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -446,7 +446,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param historyId A History id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param historyId Required.
  *  @param executionId Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsPatch
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsPatch
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Execution *)object
                       projectId:(NSString *)projectId
@@ -576,7 +576,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A Execution id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Step *)object
                       projectId:(NSString *)projectId
@@ -643,7 +643,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A Step id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -690,7 +690,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A tool results execution ID.
  *  @param stepId A tool results step ID.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -771,7 +771,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A Execution id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A Step id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPatch
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPatch
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Step *)object
                       projectId:(NSString *)projectId
@@ -905,7 +905,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A tool results execution ID.
  *  @param stepId A tool results step ID.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_PerfMetricsSummary *)object
                       projectId:(NSString *)projectId
@@ -957,7 +957,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A tool results execution ID.
  *  @param stepId A tool results step ID.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_PerfSampleSeries *)object
                       projectId:(NSString *)projectId
@@ -1009,7 +1009,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A tool results step ID.
  *  @param sampleSeriesId A sample series id
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -1076,7 +1076,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param executionId A tool results execution ID.
  *  @param stepId A tool results step ID.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -1139,7 +1139,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A tool results step ID.
  *  @param sampleSeriesId A sample series id
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_BatchCreatePerfSamplesRequest *)object
                       projectId:(NSString *)projectId
@@ -1213,7 +1213,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A tool results step ID.
  *  @param sampleSeriesId A sample series id
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1291,7 +1291,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A Step id. Note: This step must include a TestExecutionStep.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPublishXunitXmlFiles
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPublishXunitXmlFiles
  */
 + (instancetype)queryWithObject:(GTLRToolResults_PublishXunitXmlFilesRequest *)object
                       projectId:(NSString *)projectId
@@ -1373,7 +1373,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param stepId A Step id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1428,7 +1428,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param historyId A History id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId;
@@ -1495,7 +1495,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param projectId A Project id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsHistoriesList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1571,7 +1571,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  @param projectId A Project id.
  *    Required.
  *
- *  @returns GTLRToolResultsQuery_ProjectsInitializeSettings
+ *  @return GTLRToolResultsQuery_ProjectsInitializeSettings
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 

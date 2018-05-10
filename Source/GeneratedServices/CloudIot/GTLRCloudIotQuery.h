@@ -139,7 +139,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param parent The device registry path. Required. For example,
  *    `projects/my-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsGroupsDevicesList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsGroupsDevicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -178,7 +178,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    be created.
  *    For example, `projects/example-project/locations/us-central1`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesCreate
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_DeviceRegistry *)object
                          parent:(NSString *)parent;
@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param name The name of the device registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDelete
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -257,7 +257,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesConfigVersionsList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesConfigVersionsList
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesCreate
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
                          parent:(NSString *)parent;
@@ -331,7 +331,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesDelete
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -375,7 +375,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesGet
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -460,7 +460,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param parent The device registry path. Required. For example,
  *    `projects/my-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -506,7 +506,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesModifyCloudToDeviceConfig
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesModifyCloudToDeviceConfig
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_ModifyCloudToDeviceConfigRequest *)object
                            name:(NSString *)name;
@@ -557,7 +557,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    When `name` is populated as a response from the service, it always ends
  *    in the device numeric ID.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesPatch
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
                            name:(NSString *)name;
@@ -603,7 +603,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesStatesList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesStatesList
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -636,7 +636,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param name The name of the device registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGet
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -676,7 +676,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -722,7 +722,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesConfigVersionsList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesConfigVersionsList
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -758,7 +758,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesDelete
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -802,7 +802,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesGet
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -844,7 +844,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesModifyCloudToDeviceConfig
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesModifyCloudToDeviceConfig
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_ModifyCloudToDeviceConfigRequest *)object
                            name:(NSString *)name;
@@ -895,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    When `name` is populated as a response from the service, it always ends
  *    in the device numeric ID.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesPatch
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
                            name:(NSString *)name;
@@ -941,7 +941,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesStatesList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesStatesList
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -981,7 +981,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1020,7 +1020,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1061,7 +1061,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsTestIamPermissions
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -1110,7 +1110,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param parent The project and cloud region path. For example,
  *    `projects/example-project/locations/us-central1`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesList
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1159,7 +1159,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *  @param name The resource path name. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesPatch
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_DeviceRegistry *)object
                            name:(NSString *)name;
@@ -1198,7 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1239,7 +1239,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayTypeNonGateway;
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudIotQuery_ProjectsLocationsRegistriesTestIamPermissions
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

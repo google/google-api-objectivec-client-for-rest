@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Values are of
  *    the form `projects/<project>/instanceConfigs/<config>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstanceConfigsGet
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    configurations is requested. Values are of the form
  *    `projects/<project>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstanceConfigsList
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -221,7 +221,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    instance. Values
  *    are of the form `projects/<project>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesCreate
+ *  @return GTLRSpannerQuery_ProjectsInstancesCreate
  */
 + (instancetype)queryWithObject:(GTLRSpanner_CreateInstanceRequest *)object
                          parent:(NSString *)parent;
@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    database.
  *    Values are of the form `projects/<project>/instances/<instance>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesCreate
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesCreate
  */
 + (instancetype)queryWithObject:(GTLRSpanner_CreateDatabaseRequest *)object
                          parent:(NSString *)parent;
@@ -302,7 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param database Required. The database to be dropped.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesDropDatabase
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesDropDatabase
  */
 + (instancetype)queryWithDatabase:(NSString *)database;
 
@@ -336,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form
  *    `projects/<project>/instances/<instance>/databases/<database>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesGet
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -369,7 +369,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param database Required. The database whose schema we wish to get.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesGetDdl
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGetDdl
  */
 + (instancetype)queryWithDatabase:(NSString *)database;
 
@@ -414,7 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    ID>` for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for database resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesGetIamPolicy
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -461,7 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The instance whose databases should be listed.
  *    Values are of the form `projects/<project>/instances/<instance>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesList
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -512,7 +512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsCancel
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -547,7 +547,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsDelete
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -580,7 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsGet
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsList
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -675,7 +675,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param session Required. The session in which the transaction runs.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction
  */
 + (instancetype)queryWithObject:(GTLRSpanner_BeginTransactionRequest *)object
                         session:(NSString *)session;
@@ -721,7 +721,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param session Required. The session in which the transaction to be
  *    committed is running.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCommit
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCommit
  */
 + (instancetype)queryWithObject:(GTLRSpanner_CommitRequest *)object
                         session:(NSString *)session;
@@ -783,7 +783,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param database Required. The database in which the new session is created.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCreate
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCreate
  */
 + (instancetype)queryWithObject:(GTLRSpanner_CreateSessionRequest *)object
                        database:(NSString *)database;
@@ -813,7 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the session to delete.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsDelete
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -860,7 +860,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param session Required. The session in which the SQL query should be
  *    performed.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteSql
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteSql
  */
 + (instancetype)queryWithObject:(GTLRSpanner_ExecuteSqlRequest *)object
                         session:(NSString *)session;
@@ -900,7 +900,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param session Required. The session in which the SQL query should be
  *    performed.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteStreamingSql
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteStreamingSql
  */
 + (instancetype)queryWithObject:(GTLRSpanner_ExecuteSqlRequest *)object
                         session:(NSString *)session;
@@ -934,7 +934,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the session to retrieve.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsGet
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -987,7 +987,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param database Required. The database in which to list sessions.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsList
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1036,7 +1036,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param session Required. The session used to create the partitions.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery
  */
 + (instancetype)queryWithObject:(GTLRSpanner_PartitionQueryRequest *)object
                         session:(NSString *)session;
@@ -1082,7 +1082,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param session Required. The session used to create the partitions.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead
  */
 + (instancetype)queryWithObject:(GTLRSpanner_PartitionReadRequest *)object
                         session:(NSString *)session;
@@ -1133,7 +1133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpanner_ReadRequest to include in the query.
  *  @param session Required. The session in which the read should be performed.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRead
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRead
  */
 + (instancetype)queryWithObject:(GTLRSpanner_ReadRequest *)object
                         session:(NSString *)session;
@@ -1177,7 +1177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param session Required. The session in which the transaction to roll back
  *    is running.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRollback
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRollback
  */
 + (instancetype)queryWithObject:(GTLRSpanner_RollbackRequest *)object
                         session:(NSString *)session;
@@ -1216,7 +1216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpanner_ReadRequest to include in the query.
  *  @param session Required. The session in which the read should be performed.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsStreamingRead
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsStreamingRead
  */
 + (instancetype)queryWithObject:(GTLRSpanner_ReadRequest *)object
                         session:(NSString *)session;
@@ -1262,7 +1262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for databases resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesSetIamPolicy
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRSpanner_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1310,7 +1310,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    ID>` for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for database resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesTestIamPermissions
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -1354,7 +1354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param database Required. The database to update.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDatabasesUpdateDdl
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesUpdateDdl
  */
 + (instancetype)queryWithObject:(GTLRSpanner_UpdateDatabaseDdlRequest *)object
                        database:(NSString *)database;
@@ -1401,7 +1401,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the form
  *    `projects/<project>/instances/<instance>`
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesDelete
+ *  @return GTLRSpannerQuery_ProjectsInstancesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1435,7 +1435,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form
  *    `projects/<project>/instances/<instance>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesGet
+ *  @return GTLRSpannerQuery_ProjectsInstancesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1480,7 +1480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    ID>` for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for database resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesGetIamPolicy
+ *  @return GTLRSpannerQuery_ProjectsInstancesGetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1548,7 +1548,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    instances is
  *    requested. Values are of the form `projects/<project>`.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesList
+ *  @return GTLRSpannerQuery_ProjectsInstancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1599,7 +1599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesOperationsCancel
+ *  @return GTLRSpannerQuery_ProjectsInstancesOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1634,7 +1634,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesOperationsDelete
+ *  @return GTLRSpannerQuery_ProjectsInstancesOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1667,7 +1667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesOperationsGet
+ *  @return GTLRSpannerQuery_ProjectsInstancesOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1721,7 +1721,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesOperationsList
+ *  @return GTLRSpannerQuery_ProjectsInstancesOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1827,7 +1827,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/<project>/instances/a-z*[a-z0-9]`. The final
  *    segment of the name must be between 6 and 30 characters in length.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesPatch
+ *  @return GTLRSpannerQuery_ProjectsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRSpanner_UpdateInstanceRequest *)object
                            name:(NSString *)name;
@@ -1873,7 +1873,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for databases resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesSetIamPolicy
+ *  @return GTLRSpannerQuery_ProjectsInstancesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRSpanner_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1921,7 +1921,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    ID>` for instance resources and `projects/<project ID>/instances/<instance
  *    ID>/databases/<database ID>` for database resources.
  *
- *  @returns GTLRSpannerQuery_ProjectsInstancesTestIamPermissions
+ *  @return GTLRSpannerQuery_ProjectsInstancesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

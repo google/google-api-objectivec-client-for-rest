@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param applicationId ID of the application resource to be retrieved.
  *
- *  @returns GTLRDataTransferQuery_ApplicationsGet
+ *  @return GTLRDataTransferQuery_ApplicationsGet
  */
 + (instancetype)queryWithApplicationId:(long long)applicationId;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the applications available for data transfer for a customer.
  *
- *  @returns GTLRDataTransferQuery_ApplicationsList
+ *  @return GTLRDataTransferQuery_ApplicationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param dataTransferId ID of the resource to be retrieved. This is returned
  *    in the response from the insert method.
  *
- *  @returns GTLRDataTransferQuery_TransfersGet
+ *  @return GTLRDataTransferQuery_TransfersGet
  */
 + (instancetype)queryWithDataTransferId:(NSString *)dataTransferId;
 
@@ -159,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataTransfer_DataTransfer to include in the query.
  *
- *  @returns GTLRDataTransferQuery_TransfersInsert
+ *  @return GTLRDataTransferQuery_TransfersInsert
  */
 + (instancetype)queryWithObject:(GTLRDataTransfer_DataTransfer *)object;
 
@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the transfers for a customer by source user, destination user, or
  *  status.
  *
- *  @returns GTLRDataTransferQuery_TransfersList
+ *  @return GTLRDataTransferQuery_TransfersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

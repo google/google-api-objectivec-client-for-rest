@@ -127,7 +127,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
+ *  @return GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_ApksAddExternallyHostedRequest *)object
                     packageName:(NSString *)packageName
@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsApksList
+ *  @return GTLRAndroidPublisherQuery_EditsApksList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    1GB. Accepted MIME types: application/octet-stream,
  *    application/vnd.android.package-archive
  *
- *  @returns GTLRAndroidPublisherQuery_EditsApksUpload
+ *  @return GTLRAndroidPublisherQuery_EditsApksUpload
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -237,7 +237,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsBundlesList
+ *  @return GTLRAndroidPublisherQuery_EditsBundlesList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    2GB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRAndroidPublisherQuery_EditsBundlesUpload
+ *  @return GTLRAndroidPublisherQuery_EditsBundlesUpload
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -312,7 +312,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsCommit
+ *  @return GTLRAndroidPublisherQuery_EditsCommit
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsDelete
+ *  @return GTLRAndroidPublisherQuery_EditsDelete
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -414,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    300MB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
+ *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -456,7 +456,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsDetailsGet
+ *  @return GTLRAndroidPublisherQuery_EditsDetailsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -495,7 +495,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsDetailsPatch
+ *  @return GTLRAndroidPublisherQuery_EditsDetailsPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_AppDetails *)object
                     packageName:(NSString *)packageName
@@ -535,7 +535,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsDetailsUpdate
+ *  @return GTLRAndroidPublisherQuery_EditsDetailsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_AppDetails *)object
                     packageName:(NSString *)packageName
@@ -595,7 +595,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsExpansionfilesGet
+ *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -662,7 +662,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsExpansionfilesPatch
+ *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_ExpansionFile *)object
                     packageName:(NSString *)packageName
@@ -728,7 +728,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsExpansionfilesUpdate
+ *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_ExpansionFile *)object
                     packageName:(NSString *)packageName
@@ -792,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    2048MB. Accepted MIME type: application/octet-stream
  *
- *  @returns GTLRAndroidPublisherQuery_EditsExpansionfilesUpload
+ *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesUpload
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -834,7 +834,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsGet
+ *  @return GTLRAndroidPublisherQuery_EditsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -927,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsImagesDelete
+ *  @return GTLRAndroidPublisherQuery_EditsImagesDelete
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1015,7 +1015,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsImagesDeleteall
+ *  @return GTLRAndroidPublisherQuery_EditsImagesDeleteall
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1102,7 +1102,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  *
- *  @returns GTLRAndroidPublisherQuery_EditsImagesList
+ *  @return GTLRAndroidPublisherQuery_EditsImagesList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1193,7 +1193,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    15MB. Accepted MIME type: image/ *
  *
- *  @returns GTLRAndroidPublisherQuery_EditsImagesUpload
+ *  @return GTLRAndroidPublisherQuery_EditsImagesUpload
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1230,7 +1230,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app that is being
  *    updated; for example, "com.spiffygame".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsInsert
+ *  @return GTLRAndroidPublisherQuery_EditsInsert
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_AppEdit *)object
                     packageName:(NSString *)packageName;
@@ -1277,7 +1277,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    listing to read or modify. For example, to select Austrian German, pass
  *    "de-AT".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsDelete
+ *  @return GTLRAndroidPublisherQuery_EditsListingsDelete
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1316,7 +1316,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsDeleteall
+ *  @return GTLRAndroidPublisherQuery_EditsListingsDeleteall
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -1362,7 +1362,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    listing to read or modify. For example, to select Austrian German, pass
  *    "de-AT".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsGet
+ *  @return GTLRAndroidPublisherQuery_EditsListingsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1400,7 +1400,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsList
+ *  @return GTLRAndroidPublisherQuery_EditsListingsList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -1449,7 +1449,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    listing to read or modify. For example, to select Austrian German, pass
  *    "de-AT".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsPatch
+ *  @return GTLRAndroidPublisherQuery_EditsListingsPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Listing *)object
                     packageName:(NSString *)packageName
@@ -1498,7 +1498,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    listing to read or modify. For example, to select Austrian German, pass
  *    "de-AT".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsListingsUpdate
+ *  @return GTLRAndroidPublisherQuery_EditsListingsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Listing *)object
                     packageName:(NSString *)packageName
@@ -1543,7 +1543,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param track The track to read or modify. Acceptable values are: "alpha",
  *    "beta", "production", "rollout" or "internal".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTestersGet
+ *  @return GTLRAndroidPublisherQuery_EditsTestersGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1588,7 +1588,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param track The track to read or modify. Acceptable values are: "alpha",
  *    "beta", "production", "rollout" or "internal".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTestersPatch
+ *  @return GTLRAndroidPublisherQuery_EditsTestersPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Testers *)object
                     packageName:(NSString *)packageName
@@ -1634,7 +1634,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param track The track to read or modify. Acceptable values are: "alpha",
  *    "beta", "production", "rollout" or "internal".
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTestersUpdate
+ *  @return GTLRAndroidPublisherQuery_EditsTestersUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Testers *)object
                     packageName:(NSString *)packageName
@@ -1679,7 +1679,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTracksGet
+ *  @return GTLRAndroidPublisherQuery_EditsTracksGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId
@@ -1717,7 +1717,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTracksList
+ *  @return GTLRAndroidPublisherQuery_EditsTracksList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -1763,7 +1763,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTracksPatch
+ *  @return GTLRAndroidPublisherQuery_EditsTracksPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Track *)object
                     packageName:(NSString *)packageName
@@ -1811,7 +1811,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param editId Unique identifier for this edit.
  *  @param track The track to read or modify.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsTracksUpdate
+ *  @return GTLRAndroidPublisherQuery_EditsTracksUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_Track *)object
                     packageName:(NSString *)packageName
@@ -1852,7 +1852,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *
- *  @returns GTLRAndroidPublisherQuery_EditsValidate
+ *  @return GTLRAndroidPublisherQuery_EditsValidate
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
@@ -1890,7 +1890,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    product; for example, "com.spiffygame".
  *  @param sku Unique identifier for the in-app product.
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsDelete
+ *  @return GTLRAndroidPublisherQuery_InappproductsDelete
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                                  sku:(NSString *)sku;
@@ -1922,7 +1922,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName NSString
  *  @param sku Unique identifier for the in-app product.
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsGet
+ *  @return GTLRAndroidPublisherQuery_InappproductsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                                  sku:(NSString *)sku;
@@ -1961,7 +1961,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app; for example,
  *    "com.spiffygame".
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsInsert
+ *  @return GTLRAndroidPublisherQuery_InappproductsInsert
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName;
@@ -2002,7 +2002,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app with in-app
  *    products; for example, "com.spiffygame".
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsList
+ *  @return GTLRAndroidPublisherQuery_InappproductsList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName;
 
@@ -2049,7 +2049,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    product; for example, "com.spiffygame".
  *  @param sku Unique identifier for the in-app product.
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsPatch
+ *  @return GTLRAndroidPublisherQuery_InappproductsPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
@@ -2096,7 +2096,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    product; for example, "com.spiffygame".
  *  @param sku Unique identifier for the in-app product.
  *
- *  @returns GTLRAndroidPublisherQuery_InappproductsUpdate
+ *  @return GTLRAndroidPublisherQuery_InappproductsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
@@ -2143,7 +2143,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the inapp product
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesProductsGet
+ *  @return GTLRAndroidPublisherQuery_PurchasesProductsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                            productId:(NSString *)productId
@@ -2192,7 +2192,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesSubscriptionsCancel
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsCancel
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
@@ -2242,7 +2242,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesSubscriptionsDefer
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsDefer
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest *)object
                     packageName:(NSString *)packageName
@@ -2291,7 +2291,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
@@ -2340,7 +2340,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
@@ -2389,7 +2389,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
@@ -2449,7 +2449,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName The package name of the application for which voided
  *    purchases need to be returned (for example, 'com.some.thing').
  *
- *  @returns GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
+ *  @return GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName;
 
@@ -2486,7 +2486,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    reviews; for example, "com.spiffygame".
  *  @param reviewId NSString
  *
- *  @returns GTLRAndroidPublisherQuery_ReviewsGet
+ *  @return GTLRAndroidPublisherQuery_ReviewsGet
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                             reviewId:(NSString *)reviewId;
@@ -2527,7 +2527,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app for which we want
  *    reviews; for example, "com.spiffygame".
  *
- *  @returns GTLRAndroidPublisherQuery_ReviewsList
+ *  @return GTLRAndroidPublisherQuery_ReviewsList
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName;
 
@@ -2564,7 +2564,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    reviews; for example, "com.spiffygame".
  *  @param reviewId NSString
  *
- *  @returns GTLRAndroidPublisherQuery_ReviewsReply
+ *  @return GTLRAndroidPublisherQuery_ReviewsReply
  */
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_ReviewsReplyRequest *)object
                     packageName:(NSString *)packageName

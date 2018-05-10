@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param startRow The 0-based starting index for retrieving conversions
  *    results.
  *
- *  @returns GTLRDoubleClickSearchQuery_ConversionGet
+ *  @return GTLRDoubleClickSearchQuery_ConversionGet
  */
 + (instancetype)queryWithAgencyId:(long long)agencyId
                      advertiserId:(long long)advertiserId
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickSearch_ConversionList to include in the
  *    query.
  *
- *  @returns GTLRDoubleClickSearchQuery_ConversionInsert
+ *  @return GTLRDoubleClickSearchQuery_ConversionInsert
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object;
 
@@ -218,7 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param startRow The 0-based starting index for retrieving conversions
  *    results.
  *
- *  @returns GTLRDoubleClickSearchQuery_ConversionPatch
+ *  @return GTLRDoubleClickSearchQuery_ConversionPatch
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object
                    advertiserId:(long long)advertiserId
@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickSearch_ConversionList to include in the
  *    query.
  *
- *  @returns GTLRDoubleClickSearchQuery_ConversionUpdate
+ *  @return GTLRDoubleClickSearchQuery_ConversionUpdate
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object;
 
@@ -279,7 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickSearch_UpdateAvailabilityRequest to
  *    include in the query.
  *
- *  @returns GTLRDoubleClickSearchQuery_ConversionUpdateAvailability
+ *  @return GTLRDoubleClickSearchQuery_ConversionUpdateAvailability
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_UpdateAvailabilityRequest *)object;
 
@@ -305,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickSearch_ReportRequest to include in the
  *    query.
  *
- *  @returns GTLRDoubleClickSearchQuery_ReportsGenerate
+ *  @return GTLRDoubleClickSearchQuery_ReportsGenerate
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ReportRequest *)object;
 
@@ -333,7 +333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param reportId ID of the report request being polled.
  *
- *  @returns GTLRDoubleClickSearchQuery_ReportsGet
+ *  @return GTLRDoubleClickSearchQuery_ReportsGet
  */
 + (instancetype)queryWithReportId:(NSString *)reportId;
 
@@ -365,7 +365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param reportId ID of the report.
  *  @param reportFragment The index of the report fragment to download.
  *
- *  @returns GTLRDoubleClickSearchQuery_ReportsGetFile
+ *  @return GTLRDoubleClickSearchQuery_ReportsGetFile
  */
 + (instancetype)queryForMediaWithReportId:(NSString *)reportId
                            reportFragment:(NSInteger)reportFragment;
@@ -392,7 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickSearch_ReportRequest to include in the
  *    query.
  *
- *  @returns GTLRDoubleClickSearchQuery_ReportsRequest
+ *  @return GTLRDoubleClickSearchQuery_ReportsRequest
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ReportRequest *)object;
 
@@ -424,7 +424,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param agencyId DS ID of the agency.
  *  @param advertiserId DS ID of the advertiser.
  *
- *  @returns GTLRDoubleClickSearchQuery_SavedColumnsList
+ *  @return GTLRDoubleClickSearchQuery_SavedColumnsList
  */
 + (instancetype)queryWithAgencyId:(long long)agencyId
                      advertiserId:(long long)advertiserId;

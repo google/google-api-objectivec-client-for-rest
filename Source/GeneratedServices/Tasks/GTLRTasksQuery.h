@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasklistsDelete
+ *  @return GTLRTasksQuery_TasklistsDelete
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist;
 
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasklistsGet
+ *  @return GTLRTasksQuery_TasklistsGet
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist;
 
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *
- *  @returns GTLRTasksQuery_TasklistsInsert
+ *  @return GTLRTasksQuery_TasklistsInsert
  */
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object;
 
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns all the authenticated user's task lists.
  *
- *  @returns GTLRTasksQuery_TasklistsList
+ *  @return GTLRTasksQuery_TasklistsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasklistsPatch
+ *  @return GTLRTasksQuery_TasklistsPatch
  */
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object
                        tasklist:(NSString *)tasklist;
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasklistsUpdate
+ *  @return GTLRTasksQuery_TasklistsUpdate
  */
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object
                        tasklist:(NSString *)tasklist;
@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasksClear
+ *  @return GTLRTasksQuery_TasksClear
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist;
 
@@ -280,7 +280,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
  *
- *  @returns GTLRTasksQuery_TasksDelete
+ *  @return GTLRTasksQuery_TasksDelete
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist
                              task:(NSString *)task;
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
  *
- *  @returns GTLRTasksQuery_TasksGet
+ *  @return GTLRTasksQuery_TasksGet
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist
                              task:(NSString *)task;
@@ -356,7 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasksInsert
+ *  @return GTLRTasksQuery_TasksInsert
  */
 + (instancetype)queryWithObject:(GTLRTasks_Task *)object
                        tasklist:(NSString *)tasklist;
@@ -443,7 +443,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tasklist Task list identifier.
  *
- *  @returns GTLRTasksQuery_TasksList
+ *  @return GTLRTasksQuery_TasksList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -495,7 +495,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
  *
- *  @returns GTLRTasksQuery_TasksMove
+ *  @return GTLRTasksQuery_TasksMove
  */
 + (instancetype)queryWithTasklist:(NSString *)tasklist
                              task:(NSString *)task;
@@ -529,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
  *
- *  @returns GTLRTasksQuery_TasksPatch
+ *  @return GTLRTasksQuery_TasksPatch
  */
 + (instancetype)queryWithObject:(GTLRTasks_Task *)object
                        tasklist:(NSString *)tasklist
@@ -564,7 +564,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
  *
- *  @returns GTLRTasksQuery_TasksUpdate
+ *  @return GTLRTasksQuery_TasksUpdate
  */
 + (instancetype)queryWithObject:(GTLRTasks_Task *)object
                        tasklist:(NSString *)tasklist

@@ -115,7 +115,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *
  *  @param debuggeeId Identifies the debuggee.
  *
- *  @returns GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList
+ *  @return GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList
  */
 + (instancetype)queryWithDebuggeeId:(NSString *)debuggeeId;
 
@@ -167,7 +167,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  @param identifier Breakpoint identifier, unique in the scope of the
  *    debuggee.
  *
- *  @returns GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsUpdate
+ *  @return GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsUpdate
  */
 + (instancetype)queryWithObject:(GTLRCloudDebugger_UpdateActiveBreakpointRequest *)object
                      debuggeeId:(NSString *)debuggeeId
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  @param object The @c GTLRCloudDebugger_RegisterDebuggeeRequest to include in
  *    the query.
  *
- *  @returns GTLRCloudDebuggerQuery_ControllerDebuggeesRegister
+ *  @return GTLRCloudDebuggerQuery_ControllerDebuggeesRegister
  */
 + (instancetype)queryWithObject:(GTLRCloudDebugger_RegisterDebuggeeRequest *)object;
 
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  @param debuggeeId ID of the debuggee whose breakpoint to delete.
  *  @param breakpointId ID of the breakpoint to delete.
  *
- *  @returns GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsDelete
+ *  @return GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsDelete
  */
 + (instancetype)queryWithDebuggeeId:(NSString *)debuggeeId
                        breakpointId:(NSString *)breakpointId;
@@ -289,7 +289,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  @param debuggeeId ID of the debuggee whose breakpoint to get.
  *  @param breakpointId ID of the breakpoint to get.
  *
- *  @returns GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsGet
+ *  @return GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsGet
  */
 + (instancetype)queryWithDebuggeeId:(NSString *)debuggeeId
                        breakpointId:(NSString *)breakpointId;
@@ -361,7 +361,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *
  *  @param debuggeeId ID of the debuggee whose breakpoints to list.
  *
- *  @returns GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsList
+ *  @return GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsList
  */
 + (instancetype)queryWithDebuggeeId:(NSString *)debuggeeId;
 
@@ -397,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  @param object The @c GTLRCloudDebugger_Breakpoint to include in the query.
  *  @param debuggeeId ID of the debuggee where the breakpoint is to be set.
  *
- *  @returns GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsSet
+ *  @return GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsSet
  */
 + (instancetype)queryWithObject:(GTLRCloudDebugger_Breakpoint *)object
                      debuggeeId:(NSString *)debuggeeId;
@@ -437,7 +437,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *
  *  Lists all the debuggees that the user has access to.
  *
- *  @returns GTLRCloudDebuggerQuery_DebuggerDebuggeesList
+ *  @return GTLRCloudDebuggerQuery_DebuggerDebuggeesList
  */
 + (instancetype)query;
 

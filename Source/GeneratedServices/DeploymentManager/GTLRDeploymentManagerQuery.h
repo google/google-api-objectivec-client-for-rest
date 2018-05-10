@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsCancelPreview
+ *  @return GTLRDeploymentManagerQuery_DeploymentsCancelPreview
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_DeploymentsCancelPreviewRequest *)object
                         project:(NSString *)project
@@ -141,7 +141,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsDelete
+ *  @return GTLRDeploymentManagerQuery_DeploymentsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment;
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsGet
+ *  @return GTLRDeploymentManagerQuery_DeploymentsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment;
@@ -213,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
+ *  @return GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
  */
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource;
@@ -271,7 +271,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    query.
  *  @param project The project ID for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsInsert
+ *  @return GTLRDeploymentManagerQuery_DeploymentsInsert
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project;
@@ -352,7 +352,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *
  *  @param project The project ID for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsList
+ *  @return GTLRDeploymentManagerQuery_DeploymentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -434,7 +434,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsPatch
+ *  @return GTLRDeploymentManagerQuery_DeploymentsPatch
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project
@@ -473,7 +473,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy
+ *  @return GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_GlobalSetPolicyRequest *)object
                         project:(NSString *)project
@@ -512,7 +512,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsStop
+ *  @return GTLRDeploymentManagerQuery_DeploymentsStop
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_DeploymentsStopRequest *)object
                         project:(NSString *)project
@@ -549,7 +549,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions
+ *  @return GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_TestPermissionsRequest *)object
                         project:(NSString *)project
@@ -629,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_DeploymentsUpdate
+ *  @return GTLRDeploymentManagerQuery_DeploymentsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param deployment The name of the deployment for this request.
  *  @param manifest The name of the manifest for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_ManifestsGet
+ *  @return GTLRDeploymentManagerQuery_ManifestsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment
@@ -756,7 +756,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_ManifestsList
+ *  @return GTLRDeploymentManagerQuery_ManifestsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -796,7 +796,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param operation The name of the operation for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_OperationsGet
+ *  @return GTLRDeploymentManagerQuery_OperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation;
@@ -877,7 +877,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *
  *  @param project The project ID for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_OperationsList
+ *  @return GTLRDeploymentManagerQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -920,7 +920,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param deployment The name of the deployment for this request.
  *  @param resource The name of the resource for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_ResourcesGet
+ *  @return GTLRDeploymentManagerQuery_ResourcesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment
@@ -1006,7 +1006,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param project The project ID for this request.
  *  @param deployment The name of the deployment for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_ResourcesList
+ *  @return GTLRDeploymentManagerQuery_ResourcesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1091,7 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *
  *  @param project The project ID for this request.
  *
- *  @returns GTLRDeploymentManagerQuery_TypesList
+ *  @return GTLRDeploymentManagerQuery_TypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

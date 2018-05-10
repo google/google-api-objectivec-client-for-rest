@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    `product_id` - The ID of the product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
- *  @returns GTLRManufacturerCenterQuery_AccountsProductsDelete
+ *  @return GTLRManufacturerCenterQuery_AccountsProductsDelete
  */
 + (instancetype)queryWithParent:(NSString *)parent
                            name:(NSString *)name;
@@ -179,7 +179,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    `product_id` - The ID of the product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
- *  @returns GTLRManufacturerCenterQuery_AccountsProductsGet
+ *  @return GTLRManufacturerCenterQuery_AccountsProductsGet
  */
 + (instancetype)queryWithParent:(NSString *)parent
                            name:(NSString *)name;
@@ -237,7 +237,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *  @param parent Parent ID in the format `accounts/{account_id}`.
  *    `account_id` - The ID of the Manufacturer Center account.
  *
- *  @returns GTLRManufacturerCenterQuery_AccountsProductsList
+ *  @return GTLRManufacturerCenterQuery_AccountsProductsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -318,7 +318,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    `product_id` - The ID of the product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
- *  @returns GTLRManufacturerCenterQuery_AccountsProductsUpdate
+ *  @return GTLRManufacturerCenterQuery_AccountsProductsUpdate
  */
 + (instancetype)queryWithObject:(GTLRManufacturerCenter_Attributes *)object
                          parent:(NSString *)parent

@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form
  *    `projects/<project>`.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudSourceRepositories_Repo *)object
                          parent:(NSString *)parent;
@@ -111,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the repo to delete. Values are of the form
  *    `projects/<project>/repos/<repo>`.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposDelete
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the requested repository. Values are of the form
  *    `projects/<project>/repos/<repo>`.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposGet
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposGetIamPolicy
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    form
  *    `projects/<project>`.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposList
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudSourceRepositories_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested.
  *    See the operation documentation for the appropriate value for this field.
  *
- *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposTestIamPermissions
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudSourceRepositories_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

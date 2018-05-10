@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    the query.
  *  @param spreadsheetId The spreadsheet to apply the updates to.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsBatchUpdate
+ *  @return GTLRSheetsQuery_SpreadsheetsBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchUpdateSpreadsheetRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -203,7 +203,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_Spreadsheet to include in the query.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsCreate
+ *  @return GTLRSheetsQuery_SpreadsheetsCreate
  */
 + (instancetype)queryWithObject:(GTLRSheets_Spreadsheet *)object;
 
@@ -241,7 +241,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet to retrieve metadata from.
  *  @param metadataId The ID of the developer metadata to retrieve.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsDeveloperMetadataGet
+ *  @return GTLRSheetsQuery_SpreadsheetsDeveloperMetadataGet
  */
 + (instancetype)queryWithSpreadsheetId:(NSString *)spreadsheetId
                             metadataId:(NSInteger)metadataId;
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    the query.
  *  @param spreadsheetId The ID of the spreadsheet to retrieve metadata from.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsDeveloperMetadataSearch
+ *  @return GTLRSheetsQuery_SpreadsheetsDeveloperMetadataSearch
  */
 + (instancetype)queryWithObject:(GTLRSheets_SearchDeveloperMetadataRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param spreadsheetId The spreadsheet to request.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsGet
+ *  @return GTLRSheetsQuery_SpreadsheetsGet
  */
 + (instancetype)queryWithSpreadsheetId:(NSString *)spreadsheetId;
 
@@ -418,7 +418,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    in the query.
  *  @param spreadsheetId The spreadsheet to request.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsGetByDataFilter
+ *  @return GTLRSheetsQuery_SpreadsheetsGetByDataFilter
  */
 + (instancetype)queryWithObject:(GTLRSheets_GetSpreadsheetByDataFilterRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -457,7 +457,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet containing the sheet to copy.
  *  @param sheetId The ID of the sheet to copy.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsSheetsCopyTo
+ *  @return GTLRSheetsQuery_SpreadsheetsSheetsCopyTo
  */
 + (instancetype)queryWithObject:(GTLRSheets_CopySheetToAnotherSpreadsheetRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId
@@ -577,7 +577,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    data.
  *    Values will be appended after the last row of the table.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesAppend
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesAppend
  */
 + (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
                   spreadsheetId:(NSString *)spreadsheetId
@@ -617,7 +617,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchClear
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchClear
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchClearValuesRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -658,7 +658,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchClearByDataFilter
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchClearByDataFilter
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchClearValuesByDataFilterRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -737,7 +737,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchGet
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchGet
  */
 + (instancetype)queryWithSpreadsheetId:(NSString *)spreadsheetId;
 
@@ -775,7 +775,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    in the query.
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchGetByDataFilter
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchGetByDataFilter
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchGetValuesByDataFilterRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -814,7 +814,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchUpdate
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchUpdateValuesRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesBatchUpdateByDataFilter
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesBatchUpdateByDataFilter
  */
 + (instancetype)queryWithObject:(GTLRSheets_BatchUpdateValuesByDataFilterRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId;
@@ -895,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *  @param range The A1 notation of the values to clear.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesClear
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesClear
  */
 + (instancetype)queryWithObject:(GTLRSheets_ClearValuesRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId
@@ -976,7 +976,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *  @param range The A1 notation of the values to retrieve.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesGet
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesGet
  */
 + (instancetype)queryWithSpreadsheetId:(NSString *)spreadsheetId
                                  range:(NSString *)range;
@@ -1064,7 +1064,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *  @param range The A1 notation of the values to update.
  *
- *  @returns GTLRSheetsQuery_SpreadsheetsValuesUpdate
+ *  @return GTLRSheetsQuery_SpreadsheetsValuesUpdate
  */
 + (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
                   spreadsheetId:(NSString *)spreadsheetId

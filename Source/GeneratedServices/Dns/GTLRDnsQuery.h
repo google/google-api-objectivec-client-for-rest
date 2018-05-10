@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ChangesCreate
+ *  @return GTLRDnsQuery_ChangesCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_Change *)object
                         project:(NSString *)project
@@ -150,7 +150,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param changeId The identifier of the requested change, from a previous
  *    ResourceRecordSetsChangeResponse.
  *
- *  @returns GTLRDnsQuery_ChangesGet
+ *  @return GTLRDnsQuery_ChangesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ChangesList
+ *  @return GTLRDnsQuery_ChangesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -279,7 +279,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    Can be the managed zone name or id.
  *  @param dnsKeyId The identifier of the requested DnsKey.
  *
- *  @returns GTLRDnsQuery_DnsKeysGet
+ *  @return GTLRDnsQuery_DnsKeysGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone
@@ -339,7 +339,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_DnsKeysList
+ *  @return GTLRDnsQuery_DnsKeysList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -390,7 +390,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *  @param operation Identifies the operation addressed by this request.
  *
- *  @returns GTLRDnsQuery_ManagedZoneOperationsGet
+ *  @return GTLRDnsQuery_ManagedZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone
@@ -451,7 +451,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
  *
- *  @returns GTLRDnsQuery_ManagedZoneOperationsList
+ *  @return GTLRDnsQuery_ManagedZoneOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -493,7 +493,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
  *
- *  @returns GTLRDnsQuery_ManagedZonesCreate
+ *  @return GTLRDnsQuery_ManagedZonesCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project;
@@ -539,7 +539,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ManagedZonesDelete
+ *  @return GTLRDnsQuery_ManagedZonesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone;
@@ -586,7 +586,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ManagedZonesGet
+ *  @return GTLRDnsQuery_ManagedZonesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone;
@@ -633,7 +633,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *
- *  @returns GTLRDnsQuery_ManagedZonesList
+ *  @return GTLRDnsQuery_ManagedZonesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -682,7 +682,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ManagedZonesPatch
+ *  @return GTLRDnsQuery_ManagedZonesPatch
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
@@ -729,7 +729,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ManagedZonesUpdate
+ *  @return GTLRDnsQuery_ManagedZonesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
@@ -769,7 +769,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *
- *  @returns GTLRDnsQuery_ProjectsGet
+ *  @return GTLRDnsQuery_ProjectsGet
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -832,7 +832,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or id.
  *
- *  @returns GTLRDnsQuery_ResourceRecordSetsList
+ *  @return GTLRDnsQuery_ResourceRecordSetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

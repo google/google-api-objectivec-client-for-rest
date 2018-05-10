@@ -90,7 +90,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    client buyer
  *    is a customer; the sponsor buyer to create a client for. (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsCreate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Client *)object
                       accountId:(long long)accountId;
@@ -125,7 +125,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param clientAccountId Numerical account ID of the client buyer to retrieve.
  *    (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsGet
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsGet
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                    clientAccountId:(long long)clientAccountId;
@@ -168,7 +168,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    user
  *    should be associated with. (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsCreate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ClientUserInvitation *)object
                       accountId:(long long)accountId
@@ -213,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param invitationId Numerical identifier of the user invitation to retrieve.
  *    (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsGet
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsGet
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                    clientAccountId:(long long)clientAccountId
@@ -279,7 +279,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    to list all the invitations for all the clients
  *    of a given sponsor buyer.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsList
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -337,7 +337,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param accountId Unique numerical account ID of the sponsor buyer to list
  *    the clients for.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsList
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -380,7 +380,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param clientAccountId Unique numerical account ID of the client to update.
  *    (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsUpdate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Client *)object
                       accountId:(long long)accountId
@@ -423,7 +423,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    that the user to be retrieved is associated with. (required)
  *  @param userId Numerical identifier of the user to retrieve. (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersGet
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersGet
  */
 + (instancetype)queryWithAccountId:(long long)accountId
                    clientAccountId:(long long)clientAccountId
@@ -490,7 +490,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    to list all the client users for all the clients
  *    of a given sponsor buyer.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersList
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -541,7 +541,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    is associated with. (required)
  *  @param userId Numerical identifier of the user to retrieve. (required)
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersUpdate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ClientUser *)object
                       accountId:(long long)accountId
@@ -593,7 +593,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    creatives.list
  *    method.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesCreate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Creative *)object
                       accountId:(NSString *)accountId;
@@ -628,7 +628,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param accountId The account the creative belongs to.
  *  @param creativeId The ID of the creative associated with the deal.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsAdd
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsAdd
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_AddDealAssociationRequest *)object
                       accountId:(NSString *)accountId
@@ -701,7 +701,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param creativeId The creative ID to list the associations from.
  *    Specify "-" to list all creatives under the above account.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsList
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -740,7 +740,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param accountId The account the creative belongs to.
  *  @param creativeId The ID of the creative associated with the deal.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsRemove
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsRemove
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_RemoveDealAssociationRequest *)object
                       accountId:(NSString *)accountId
@@ -774,7 +774,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param accountId The account the creative belongs to.
  *  @param creativeId The ID of the creative to retrieve.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesGet
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesGet
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         creativeId:(NSString *)creativeId;
@@ -843,7 +843,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param accountId The account to list the creatives from.
  *    Specify "-" to list all creatives the current user has access to.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesList
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -887,7 +887,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param creativeId The creative ID of the creative to stop notifications for.
  *    Specify "-" to specify stopping account level notifications.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesStopWatching
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesStopWatching
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_StopWatchingCreativeRequest *)object
                       accountId:(NSString *)accountId
@@ -938,7 +938,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    creatives.list
  *    method.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesUpdate
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesUpdate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Creative *)object
                       accountId:(NSString *)accountId
@@ -986,7 +986,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    sent, only a single notification will be sent to the
  *    creative-level notification topic.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsCreativesWatch
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsCreativesWatch
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_WatchCreativeRequest *)object
                       accountId:(NSString *)accountId
@@ -1049,7 +1049,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1116,7 +1116,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1183,7 +1183,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1240,7 +1240,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
                       ownerName:(NSString *)ownerName;
@@ -1288,7 +1288,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1351,7 +1351,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1432,7 +1432,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    See
  *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1515,7 +1515,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and
  *    87.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1583,7 +1583,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1634,7 +1634,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1695,7 +1695,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1759,7 +1759,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1826,7 +1826,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1893,7 +1893,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1958,7 +1958,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2025,7 +2025,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2092,7 +2092,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2149,7 +2149,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate
  */
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
                       ownerName:(NSString *)ownerName;
@@ -2197,7 +2197,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2260,7 +2260,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2341,7 +2341,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    See
  *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2424,7 +2424,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and
  *    87.
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2492,7 +2492,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2543,7 +2543,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2604,7 +2604,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2668,7 +2668,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2735,7 +2735,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2802,7 +2802,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    - For an account-level filter set for the child seat buyer account 456
  *    whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
  *
- *  @returns GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList
+ *  @return GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

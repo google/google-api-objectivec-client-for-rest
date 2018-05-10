@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRSpeechQuery_OperationsGet
+ *  @return GTLRSpeechQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpeech_LongRunningRecognizeRequest to include in
  *    the query.
  *
- *  @returns GTLRSpeechQuery_SpeechLongrunningrecognize
+ *  @return GTLRSpeechQuery_SpeechLongrunningrecognize
  */
 + (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object;
 
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSpeech_RecognizeRequest to include in the query.
  *
- *  @returns GTLRSpeechQuery_SpeechRecognize
+ *  @return GTLRSpeechQuery_SpeechRecognize
  */
 + (instancetype)queryWithObject:(GTLRSpeech_RecognizeRequest *)object;
 

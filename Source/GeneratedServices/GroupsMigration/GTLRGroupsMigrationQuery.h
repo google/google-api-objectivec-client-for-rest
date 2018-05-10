@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param uploadParameters The media to include in this query. Maximum size
  *    16MB. Accepted MIME type: message/rfc822
  *
- *  @returns GTLRGroupsMigrationQuery_ArchiveInsert
+ *  @return GTLRGroupsMigrationQuery_ArchiveInsert
  */
 + (instancetype)queryWithGroupId:(NSString *)groupId
                 uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;

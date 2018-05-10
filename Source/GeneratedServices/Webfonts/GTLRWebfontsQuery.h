@@ -107,7 +107,7 @@ GTLR_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *  Retrieves the list of fonts currently served by the Google Fonts Developer
  *  API
  *
- *  @returns GTLRWebfontsQuery_WebfontsList
+ *  @return GTLRWebfontsQuery_WebfontsList
  */
 + (instancetype)query;
 

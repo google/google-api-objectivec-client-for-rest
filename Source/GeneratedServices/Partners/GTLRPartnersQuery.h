@@ -208,7 +208,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  Lists analytics data for a user's associated company.
  *  Should only be called within the context of an authorized logged in user.
  *
- *  @returns GTLRPartnersQuery_AnalyticsList
+ *  @return GTLRPartnersQuery_AnalyticsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -238,7 +238,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  @param object The @c GTLRPartners_LogMessageRequest to include in the query.
  *
- *  @returns GTLRPartnersQuery_ClientMessagesLog
+ *  @return GTLRPartnersQuery_ClientMessagesLog
  */
 + (instancetype)queryWithObject:(GTLRPartners_LogMessageRequest *)object;
 
@@ -325,7 +325,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  @param companyId The ID of the company to retrieve.
  *
- *  @returns GTLRPartnersQuery_CompaniesGet
+ *  @return GTLRPartnersQuery_CompaniesGet
  */
 + (instancetype)queryWithCompanyId:(NSString *)companyId;
 
@@ -351,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  @param object The @c GTLRPartners_CreateLeadRequest to include in the query.
  *  @param companyId The ID of the company to contact.
  *
- *  @returns GTLRPartnersQuery_CompaniesLeadsCreate
+ *  @return GTLRPartnersQuery_CompaniesLeadsCreate
  */
 + (instancetype)queryWithObject:(GTLRPartners_CreateLeadRequest *)object
                       companyId:(NSString *)companyId;
@@ -576,7 +576,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  Lists companies.
  *
- *  @returns GTLRPartnersQuery_CompaniesList
+ *  @return GTLRPartnersQuery_CompaniesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -651,7 +651,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  Lists advertiser leads for a user's associated company.
  *  Should only be called within the context of an authorized logged in user.
  *
- *  @returns GTLRPartnersQuery_LeadsList
+ *  @return GTLRPartnersQuery_LeadsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -724,7 +724,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  Lists the Historical Offers for the current user (or user's entire company)
  *
- *  @returns GTLRPartnersQuery_OffersHistoryList
+ *  @return GTLRPartnersQuery_OffersHistoryList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -777,7 +777,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  Lists the Offers available for the current user
  *
- *  @returns GTLRPartnersQuery_OffersList
+ *  @return GTLRPartnersQuery_OffersList
  */
 + (instancetype)query;
 
@@ -800,7 +800,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  @param object The @c GTLRPartners_LogUserEventRequest to include in the
  *    query.
  *
- *  @returns GTLRPartnersQuery_UserEventsLog
+ *  @return GTLRPartnersQuery_UserEventsLog
  */
 + (instancetype)queryWithObject:(GTLRPartners_LogUserEventRequest *)object;
 
@@ -859,7 +859,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  @param userId The ID of the user. Can be set to <code>me</code> to mean
  *    the currently authenticated user.
  *
- *  @returns GTLRPartnersQuery_UsersCreateCompanyRelation
+ *  @return GTLRPartnersQuery_UsersCreateCompanyRelation
  */
 + (instancetype)queryWithObject:(GTLRPartners_CompanyRelation *)object
                          userId:(NSString *)userId;
@@ -918,7 +918,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  @param userId The ID of the user. Can be set to <code>me</code> to mean
  *    the currently authenticated user.
  *
- *  @returns GTLRPartnersQuery_UsersDeleteCompanyRelation
+ *  @return GTLRPartnersQuery_UsersDeleteCompanyRelation
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -987,7 +987,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *    the currently
  *    authenticated user.
  *
- *  @returns GTLRPartnersQuery_UsersGet
+ *  @return GTLRPartnersQuery_UsersGet
  */
 + (instancetype)queryWithUserId:(NSString *)userId;
 
@@ -1036,7 +1036,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  Lists states for current user.
  *
- *  @returns GTLRPartnersQuery_UserStatesList
+ *  @return GTLRPartnersQuery_UserStatesList
  */
 + (instancetype)query;
 
@@ -1089,7 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  @param object The @c GTLRPartners_UserProfile to include in the query.
  *
- *  @returns GTLRPartnersQuery_UsersUpdateProfile
+ *  @return GTLRPartnersQuery_UsersUpdateProfile
  */
 + (instancetype)queryWithObject:(GTLRPartners_UserProfile *)object;
 
@@ -1140,7 +1140,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  Gets Partners Status of the logged in user's agency.
  *  Should only be called if the logged in user is the admin of the agency.
  *
- *  @returns GTLRPartnersQuery_V2GetPartnersstatus
+ *  @return GTLRPartnersQuery_V2GetPartnersstatus
  */
 + (instancetype)query;
 
@@ -1201,7 +1201,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  @param object The @c GTLRPartners_Company to include in the query.
  *
- *  @returns GTLRPartnersQuery_V2UpdateCompanies
+ *  @return GTLRPartnersQuery_V2UpdateCompanies
  */
 + (instancetype)queryWithObject:(GTLRPartners_Company *)object;
 
@@ -1261,7 +1261,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *
  *  @param object The @c GTLRPartners_Lead to include in the query.
  *
- *  @returns GTLRPartnersQuery_V2UpdateLeads
+ *  @return GTLRPartnersQuery_V2UpdateLeads
  */
 + (instancetype)queryWithObject:(GTLRPartners_Lead *)object;
 

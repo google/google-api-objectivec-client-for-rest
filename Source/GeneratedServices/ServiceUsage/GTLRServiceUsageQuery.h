@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRServiceUsageQuery_OperationsGet
+ *  @return GTLRServiceUsageQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  @returns GTLRServiceUsageQuery_OperationsList
+ *  @return GTLRServiceUsageQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -169,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    where `123` is the project number (not project ID).
  *    The `BatchEnableServices` method currently only supports projects.
  *
- *  @returns GTLRServiceUsageQuery_ServicesBatchEnable
+ *  @return GTLRServiceUsageQuery_ServicesBatchEnable
  */
 + (instancetype)queryWithObject:(GTLRServiceUsage_BatchEnableServicesRequest *)object
                          parent:(NSString *)parent;
@@ -223,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/123/services/serviceusage.googleapis.com`
  *    where `123` is the project number (not project ID).
  *
- *  @returns GTLRServiceUsageQuery_ServicesDisable
+ *  @return GTLRServiceUsageQuery_ServicesDisable
  */
 + (instancetype)queryWithObject:(GTLRServiceUsage_DisableServiceRequest *)object
                            name:(NSString *)name;
@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/123/services/serviceusage.googleapis.com`
  *    where `123` is the project number (not project ID).
  *
- *  @returns GTLRServiceUsageQuery_ServicesEnable
+ *  @return GTLRServiceUsageQuery_ServicesEnable
  */
 + (instancetype)queryWithObject:(GTLRServiceUsage_EnableServiceRequest *)object
                            name:(NSString *)name;
@@ -311,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/123/services/serviceusage.googleapis.com`
  *    where `123` is the project number (not project ID).
  *
- *  @returns GTLRServiceUsageQuery_ServicesGet
+ *  @return GTLRServiceUsageQuery_ServicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/123`
  *    where `123` is the project number (not project ID).
  *
- *  @returns GTLRServiceUsageQuery_ServicesList
+ *  @return GTLRServiceUsageQuery_ServicesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

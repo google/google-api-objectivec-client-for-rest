@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRVision_BatchAnnotateImagesRequest to include in the
  *    query.
  *
- *  @returns GTLRVisionQuery_ImagesAnnotate
+ *  @return GTLRVisionQuery_ImagesAnnotate
  */
 + (instancetype)queryWithObject:(GTLRVision_BatchAnnotateImagesRequest *)object;
 
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRVisionQuery_LocationsOperationsGet
+ *  @return GTLRVisionQuery_LocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRVisionQuery_OperationsCancel
+ *  @return GTLRVisionQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRVision_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRVisionQuery_OperationsDelete
+ *  @return GTLRVisionQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRVisionQuery_OperationsGet
+ *  @return GTLRVisionQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -266,7 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRVisionQuery_OperationsList
+ *  @return GTLRVisionQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param accountName The name of the account to be passed to the Android
  *    Account Manager.
  *
- *  @returns GTLRMirrorQuery_AccountsInsert
+ *  @return GTLRMirrorQuery_AccountsInsert
  */
 + (instancetype)queryWithObject:(GTLRMirror_Account *)object
                       userToken:(NSString *)userToken
@@ -130,7 +130,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param identifier The ID of the contact.
  *
- *  @returns GTLRMirrorQuery_ContactsDelete
+ *  @return GTLRMirrorQuery_ContactsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -162,7 +162,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param identifier The ID of the contact.
  *
- *  @returns GTLRMirrorQuery_ContactsGet
+ *  @return GTLRMirrorQuery_ContactsGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -187,7 +187,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param object The @c GTLRMirror_Contact to include in the query.
  *
- *  @returns GTLRMirrorQuery_ContactsInsert
+ *  @return GTLRMirrorQuery_ContactsInsert
  */
 + (instancetype)queryWithObject:(GTLRMirror_Contact *)object;
 
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  Retrieves a list of contacts for the authenticated user.
  *
- *  @returns GTLRMirrorQuery_ContactsList
+ *  @return GTLRMirrorQuery_ContactsList
  */
 + (instancetype)query;
 
@@ -243,7 +243,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param object The @c GTLRMirror_Contact to include in the query.
  *  @param identifier The ID of the contact.
  *
- *  @returns GTLRMirrorQuery_ContactsPatch
+ *  @return GTLRMirrorQuery_ContactsPatch
  */
 + (instancetype)queryWithObject:(GTLRMirror_Contact *)object
                      identifier:(NSString *)identifier;
@@ -277,7 +277,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param object The @c GTLRMirror_Contact to include in the query.
  *  @param identifier The ID of the contact.
  *
- *  @returns GTLRMirrorQuery_ContactsUpdate
+ *  @return GTLRMirrorQuery_ContactsUpdate
  */
 + (instancetype)queryWithObject:(GTLRMirror_Contact *)object
                      identifier:(NSString *)identifier;
@@ -312,7 +312,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param identifier The ID of the location or latest for the last known
  *    location.
  *
- *  @returns GTLRMirrorQuery_LocationsGet
+ *  @return GTLRMirrorQuery_LocationsGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -336,7 +336,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  Retrieves a list of locations for the user.
  *
- *  @returns GTLRMirrorQuery_LocationsList
+ *  @return GTLRMirrorQuery_LocationsList
  */
 + (instancetype)query;
 
@@ -376,7 +376,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *    - timezone - The key to the user’s current time zone region as defined in
  *    the tz database. Example: America/Los_Angeles.
  *
- *  @returns GTLRMirrorQuery_SettingsGet
+ *  @return GTLRMirrorQuery_SettingsGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -409,7 +409,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param identifier The ID of the subscription.
  *
- *  @returns GTLRMirrorQuery_SubscriptionsDelete
+ *  @return GTLRMirrorQuery_SubscriptionsDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -434,7 +434,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param object The @c GTLRMirror_Subscription to include in the query.
  *
- *  @returns GTLRMirrorQuery_SubscriptionsInsert
+ *  @return GTLRMirrorQuery_SubscriptionsInsert
  */
 + (instancetype)queryWithObject:(GTLRMirror_Subscription *)object;
 
@@ -457,7 +457,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  Retrieves a list of subscriptions for the authenticated user and service.
  *
- *  @returns GTLRMirrorQuery_SubscriptionsList
+ *  @return GTLRMirrorQuery_SubscriptionsList
  */
 + (instancetype)query;
 
@@ -490,7 +490,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param object The @c GTLRMirror_Subscription to include in the query.
  *  @param identifier The ID of the subscription.
  *
- *  @returns GTLRMirrorQuery_SubscriptionsUpdate
+ *  @return GTLRMirrorQuery_SubscriptionsUpdate
  */
 + (instancetype)queryWithObject:(GTLRMirror_Subscription *)object
                      identifier:(NSString *)identifier;
@@ -524,7 +524,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param itemId The ID of the timeline item the attachment belongs to.
  *  @param attachmentId The ID of the attachment.
  *
- *  @returns GTLRMirrorQuery_TimelineAttachmentsDelete
+ *  @return GTLRMirrorQuery_TimelineAttachmentsDelete
  */
 + (instancetype)queryWithItemId:(NSString *)itemId
                    attachmentId:(NSString *)attachmentId;
@@ -557,7 +557,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param itemId The ID of the timeline item the attachment belongs to.
  *  @param attachmentId The ID of the attachment.
  *
- *  @returns GTLRMirrorQuery_TimelineAttachmentsGet
+ *  @return GTLRMirrorQuery_TimelineAttachmentsGet
  */
 + (instancetype)queryWithItemId:(NSString *)itemId
                    attachmentId:(NSString *)attachmentId;
@@ -570,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param itemId The ID of the timeline item the attachment belongs to.
  *  @param attachmentId The ID of the attachment.
  *
- *  @returns GTLRMirrorQuery_TimelineAttachmentsGet
+ *  @return GTLRMirrorQuery_TimelineAttachmentsGet
  */
 + (instancetype)queryForMediaWithItemId:(NSString *)itemId
                            attachmentId:(NSString *)attachmentId;
@@ -601,7 +601,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    10MB. Accepted MIME types: audio/ *, image/ *, video/ *
  *
- *  @returns GTLRMirrorQuery_TimelineAttachmentsInsert
+ *  @return GTLRMirrorQuery_TimelineAttachmentsInsert
  */
 + (instancetype)queryWithItemId:(NSString *)itemId
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -631,7 +631,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param itemId The ID of the timeline item whose attachments should be
  *    listed.
  *
- *  @returns GTLRMirrorQuery_TimelineAttachmentsList
+ *  @return GTLRMirrorQuery_TimelineAttachmentsList
  */
 + (instancetype)queryWithItemId:(NSString *)itemId;
 
@@ -665,7 +665,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param identifier The ID of the timeline item.
  *
- *  @returns GTLRMirrorQuery_TimelineDelete
+ *  @return GTLRMirrorQuery_TimelineDelete
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -698,7 +698,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  @param identifier The ID of the timeline item.
  *
- *  @returns GTLRMirrorQuery_TimelineGet
+ *  @return GTLRMirrorQuery_TimelineGet
  */
 + (instancetype)queryWithIdentifier:(NSString *)identifier;
 
@@ -726,7 +726,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    10MB. Accepted MIME types: audio/ *, image/ *, video/ *
  *
- *  @returns GTLRMirrorQuery_TimelineInsert
+ *  @return GTLRMirrorQuery_TimelineInsert
  */
 + (instancetype)queryWithObject:(GTLRMirror_TimelineItem *)object
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
@@ -783,7 +783,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  Retrieves a list of timeline items for the authenticated user.
  *
- *  @returns GTLRMirrorQuery_TimelineList
+ *  @return GTLRMirrorQuery_TimelineList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -821,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param object The @c GTLRMirror_TimelineItem to include in the query.
  *  @param identifier The ID of the timeline item.
  *
- *  @returns GTLRMirrorQuery_TimelinePatch
+ *  @return GTLRMirrorQuery_TimelinePatch
  */
 + (instancetype)queryWithObject:(GTLRMirror_TimelineItem *)object
                      identifier:(NSString *)identifier;
@@ -858,7 +858,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    10MB. Accepted MIME types: audio/ *, image/ *, video/ *
  *
- *  @returns GTLRMirrorQuery_TimelineUpdate
+ *  @return GTLRMirrorQuery_TimelineUpdate
  */
 + (instancetype)queryWithObject:(GTLRMirror_TimelineItem *)object
                      identifier:(NSString *)identifier

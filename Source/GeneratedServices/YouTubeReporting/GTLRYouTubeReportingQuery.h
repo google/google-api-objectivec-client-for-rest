@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRYouTubeReporting_Job to include in the query.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsCreate
+ *  @return GTLRYouTubeReportingQuery_JobsCreate
  */
 + (instancetype)queryWithObject:(GTLRYouTubeReporting_Job *)object;
 
@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param jobId The ID of the job to delete.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsDelete
+ *  @return GTLRYouTubeReportingQuery_JobsDelete
  */
 + (instancetype)queryWithJobId:(NSString *)jobId;
 
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param jobId The ID of the job to retrieve.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsGet
+ *  @return GTLRYouTubeReportingQuery_JobsGet
  */
 + (instancetype)queryWithJobId:(NSString *)jobId;
 
@@ -185,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists jobs.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsList
+ *  @return GTLRYouTubeReportingQuery_JobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param jobId The ID of the job.
  *  @param reportId The ID of the report to retrieve.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsReportsGet
+ *  @return GTLRYouTubeReportingQuery_JobsReportsGet
  */
 + (instancetype)queryWithJobId:(NSString *)jobId
                       reportId:(NSString *)reportId;
@@ -297,7 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param jobId The ID of the job.
  *
- *  @returns GTLRYouTubeReportingQuery_JobsReportsList
+ *  @return GTLRYouTubeReportingQuery_JobsReportsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resourceName Name of the media that is being downloaded.
  *
- *  @returns GTLRYouTubeReportingQuery_MediaDownload
+ *  @return GTLRYouTubeReportingQuery_MediaDownload
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -344,7 +344,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resourceName Name of the media that is being downloaded.
  *
- *  @returns GTLRYouTubeReportingQuery_MediaDownload
+ *  @return GTLRYouTubeReportingQuery_MediaDownload
  */
 + (instancetype)queryForMediaWithResourceName:(NSString *)resourceName;
 
@@ -395,7 +395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists report types.
  *
- *  @returns GTLRYouTubeReportingQuery_ReportTypesList
+ *  @return GTLRYouTubeReportingQuery_ReportTypesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

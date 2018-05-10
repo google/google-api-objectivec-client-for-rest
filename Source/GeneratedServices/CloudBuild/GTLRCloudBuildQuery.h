@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRCloudBuildQuery_OperationsCancel
+ *  @return GTLRCloudBuildQuery_OperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRCloudBuildQuery_OperationsGet
+ *  @return GTLRCloudBuildQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @returns GTLRCloudBuildQuery_OperationsList
+ *  @return GTLRCloudBuildQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project.
  *  @param identifier ID of the build.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsBuildsCancel
+ *  @return GTLRCloudBuildQuery_ProjectsBuildsCancel
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_CancelBuildRequest *)object
                       projectId:(NSString *)projectId
@@ -249,7 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_Build to include in the query.
  *  @param projectId ID of the project.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsBuildsCreate
+ *  @return GTLRCloudBuildQuery_ProjectsBuildsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
                       projectId:(NSString *)projectId;
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project.
  *  @param identifier ID of the build.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsBuildsGet
+ *  @return GTLRCloudBuildQuery_ProjectsBuildsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                         identifier:(NSString *)identifier;
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param projectId ID of the project.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsBuildsList
+ *  @return GTLRCloudBuildQuery_ProjectsBuildsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -412,7 +412,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project.
  *  @param identifier Build ID of the original build.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsBuildsRetry
+ *  @return GTLRCloudBuildQuery_ProjectsBuildsRetry
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
                       projectId:(NSString *)projectId
@@ -445,7 +445,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
  *  @param projectId ID of the project for which to configure automatic builds.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersCreate
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                       projectId:(NSString *)projectId;
@@ -480,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project that owns the trigger.
  *  @param triggerId ID of the `BuildTrigger` to delete.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersDelete
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersDelete
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          triggerId:(NSString *)triggerId;
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project that owns the trigger.
  *  @param triggerId ID of the `BuildTrigger` to get.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersGet
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          triggerId:(NSString *)triggerId;
@@ -546,7 +546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param projectId ID of the project for which to list BuildTriggers.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersList
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -581,7 +581,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project that owns the trigger.
  *  @param triggerId ID of the `BuildTrigger` to update.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersPatch
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                       projectId:(NSString *)projectId
@@ -616,7 +616,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project.
  *  @param triggerId ID of the trigger.
  *
- *  @returns GTLRCloudBuildQuery_ProjectsTriggersRun
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersRun
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
                       projectId:(NSString *)projectId

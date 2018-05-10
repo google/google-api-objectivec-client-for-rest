@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    account is associated with.
  *    Required.
  *
- *  @returns GTLRStorageTransferQuery_GoogleServiceAccountsGet
+ *  @return GTLRStorageTransferQuery_GoogleServiceAccountsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRStorageTransfer_TransferJob to include in the
  *    query.
  *
- *  @returns GTLRStorageTransferQuery_TransferJobsCreate
+ *  @return GTLRStorageTransferQuery_TransferJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRStorageTransfer_TransferJob *)object;
 
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param jobName The job to get.
  *    Required.
  *
- *  @returns GTLRStorageTransferQuery_TransferJobsGet
+ *  @return GTLRStorageTransferQuery_TransferJobsGet
  */
 + (instancetype)queryWithJobName:(NSString *)jobName;
 
@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists transfer jobs.
  *
- *  @returns GTLRStorageTransferQuery_TransferJobsList
+ *  @return GTLRStorageTransferQuery_TransferJobsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -231,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param jobName The name of job to update.
  *    Required.
  *
- *  @returns GTLRStorageTransferQuery_TransferJobsPatch
+ *  @return GTLRStorageTransferQuery_TransferJobsPatch
  */
 + (instancetype)queryWithObject:(GTLRStorageTransfer_UpdateTransferJobRequest *)object
                         jobName:(NSString *)jobName;
@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsCancel
+ *  @return GTLRStorageTransferQuery_TransferOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsDelete
+ *  @return GTLRStorageTransferQuery_TransferOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -322,7 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsGet
+ *  @return GTLRStorageTransferQuery_TransferOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -383,7 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The value `transferOperations`.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsList
+ *  @return GTLRStorageTransferQuery_TransferOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -421,7 +421,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the transfer operation.
  *    Required.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsPause
+ *  @return GTLRStorageTransferQuery_TransferOperationsPause
  */
 + (instancetype)queryWithObject:(GTLRStorageTransfer_PauseTransferOperationRequest *)object
                            name:(NSString *)name;
@@ -456,7 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the transfer operation.
  *    Required.
  *
- *  @returns GTLRStorageTransferQuery_TransferOperationsResume
+ *  @return GTLRStorageTransferQuery_TransferOperationsResume
  */
 + (instancetype)queryWithObject:(GTLRStorageTransfer_ResumeTransferOperationRequest *)object
                            name:(NSString *)name;

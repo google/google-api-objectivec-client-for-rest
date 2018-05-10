@@ -457,7 +457,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param summaryAccountId Account ID.
  *
- *  @returns GTLRDfareportingQuery_AccountActiveAdSummariesGet
+ *  @return GTLRDfareportingQuery_AccountActiveAdSummariesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                   summaryAccountId:(long long)summaryAccountId;
@@ -494,7 +494,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Account permission group ID.
  *
- *  @returns GTLRDfareportingQuery_AccountPermissionGroupsGet
+ *  @return GTLRDfareportingQuery_AccountPermissionGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -523,7 +523,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountPermissionGroupsList
+ *  @return GTLRDfareportingQuery_AccountPermissionGroupsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -559,7 +559,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Account permission ID.
  *
- *  @returns GTLRDfareportingQuery_AccountPermissionsGet
+ *  @return GTLRDfareportingQuery_AccountPermissionsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -588,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountPermissionsList
+ *  @return GTLRDfareportingQuery_AccountPermissionsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -624,7 +624,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Account ID.
  *
- *  @returns GTLRDfareportingQuery_AccountsGet
+ *  @return GTLRDfareportingQuery_AccountsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -713,7 +713,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountsList
+ *  @return GTLRDfareportingQuery_AccountsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -754,7 +754,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Account ID.
  *
- *  @returns GTLRDfareportingQuery_AccountsPatch
+ *  @return GTLRDfareportingQuery_AccountsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Account *)object
                       profileId:(long long)profileId
@@ -785,7 +785,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Account to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountsUpdate
+ *  @return GTLRDfareportingQuery_AccountsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Account *)object
                       profileId:(long long)profileId;
@@ -822,7 +822,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User profile ID.
  *
- *  @returns GTLRDfareportingQuery_AccountUserProfilesGet
+ *  @return GTLRDfareportingQuery_AccountUserProfilesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountUserProfilesInsert
+ *  @return GTLRDfareportingQuery_AccountUserProfilesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AccountUserProfile *)object
                       profileId:(long long)profileId;
@@ -946,7 +946,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountUserProfilesList
+ *  @return GTLRDfareportingQuery_AccountUserProfilesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -990,7 +990,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User profile ID.
  *
- *  @returns GTLRDfareportingQuery_AccountUserProfilesPatch
+ *  @return GTLRDfareportingQuery_AccountUserProfilesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AccountUserProfile *)object
                       profileId:(long long)profileId
@@ -1022,7 +1022,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AccountUserProfilesUpdate
+ *  @return GTLRDfareportingQuery_AccountUserProfilesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AccountUserProfile *)object
                       profileId:(long long)profileId;
@@ -1059,7 +1059,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Ad ID.
  *
- *  @returns GTLRDfareportingQuery_AdsGet
+ *  @return GTLRDfareportingQuery_AdsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -1089,7 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Ad to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdsInsert
+ *  @return GTLRDfareportingQuery_AdsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Ad *)object
                       profileId:(long long)profileId;
@@ -1286,7 +1286,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdsList
+ *  @return GTLRDfareportingQuery_AdsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1327,7 +1327,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Ad ID.
  *
- *  @returns GTLRDfareportingQuery_AdsPatch
+ *  @return GTLRDfareportingQuery_AdsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Ad *)object
                       profileId:(long long)profileId
@@ -1358,7 +1358,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Ad to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdsUpdate
+ *  @return GTLRDfareportingQuery_AdsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Ad *)object
                       profileId:(long long)profileId;
@@ -1396,7 +1396,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Advertiser group ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsDelete
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -1433,7 +1433,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Advertiser group ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsGet
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -1464,7 +1464,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsInsert
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AdvertiserGroup *)object
                       profileId:(long long)profileId;
@@ -1548,7 +1548,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsList
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1590,7 +1590,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Advertiser group ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsPatch
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AdvertiserGroup *)object
                       profileId:(long long)profileId
@@ -1622,7 +1622,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserGroupsUpdate
+ *  @return GTLRDfareportingQuery_AdvertiserGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_AdvertiserGroup *)object
                       profileId:(long long)profileId;
@@ -1659,7 +1659,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Landing page ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesGet
+ *  @return GTLRDfareportingQuery_AdvertiserLandingPagesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -1689,7 +1689,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesInsert
+ *  @return GTLRDfareportingQuery_AdvertiserLandingPagesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
                       profileId:(long long)profileId;
@@ -1787,7 +1787,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesList
+ *  @return GTLRDfareportingQuery_AdvertiserLandingPagesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1828,7 +1828,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Landing page ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesPatch
+ *  @return GTLRDfareportingQuery_AdvertiserLandingPagesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
                       profileId:(long long)profileId
@@ -1859,7 +1859,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertiserLandingPagesUpdate
+ *  @return GTLRDfareportingQuery_AdvertiserLandingPagesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_LandingPage *)object
                       profileId:(long long)profileId;
@@ -1896,7 +1896,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Advertiser ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertisersGet
+ *  @return GTLRDfareportingQuery_AdvertisersGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -1926,7 +1926,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Advertiser to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertisersInsert
+ *  @return GTLRDfareportingQuery_AdvertisersInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Advertiser *)object
                       profileId:(long long)profileId;
@@ -2045,7 +2045,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertisersList
+ *  @return GTLRDfareportingQuery_AdvertisersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2086,7 +2086,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Advertiser ID.
  *
- *  @returns GTLRDfareportingQuery_AdvertisersPatch
+ *  @return GTLRDfareportingQuery_AdvertisersPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Advertiser *)object
                       profileId:(long long)profileId
@@ -2117,7 +2117,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Advertiser to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_AdvertisersUpdate
+ *  @return GTLRDfareportingQuery_AdvertisersUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Advertiser *)object
                       profileId:(long long)profileId;
@@ -2146,7 +2146,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_BrowsersList
+ *  @return GTLRDfareportingQuery_BrowsersList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -2184,7 +2184,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param campaignId Campaign ID in this association.
  *
- *  @returns GTLRDfareportingQuery_CampaignCreativeAssociationsInsert
+ *  @return GTLRDfareportingQuery_CampaignCreativeAssociationsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CampaignCreativeAssociation *)object
                       profileId:(long long)profileId
@@ -2243,7 +2243,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param campaignId Campaign ID in this association.
  *
- *  @returns GTLRDfareportingQuery_CampaignCreativeAssociationsList
+ *  @return GTLRDfareportingQuery_CampaignCreativeAssociationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2284,7 +2284,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Campaign ID.
  *
- *  @returns GTLRDfareportingQuery_CampaignsGet
+ *  @return GTLRDfareportingQuery_CampaignsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -2314,7 +2314,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CampaignsInsert
+ *  @return GTLRDfareportingQuery_CampaignsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Campaign *)object
                       profileId:(long long)profileId;
@@ -2433,7 +2433,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CampaignsList
+ *  @return GTLRDfareportingQuery_CampaignsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2474,7 +2474,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Campaign ID.
  *
- *  @returns GTLRDfareportingQuery_CampaignsPatch
+ *  @return GTLRDfareportingQuery_CampaignsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Campaign *)object
                       profileId:(long long)profileId
@@ -2505,7 +2505,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CampaignsUpdate
+ *  @return GTLRDfareportingQuery_CampaignsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Campaign *)object
                       profileId:(long long)profileId;
@@ -2542,7 +2542,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Change log ID.
  *
- *  @returns GTLRDfareportingQuery_ChangeLogsGet
+ *  @return GTLRDfareportingQuery_ChangeLogsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -2729,7 +2729,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ChangeLogsList
+ *  @return GTLRDfareportingQuery_ChangeLogsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2785,7 +2785,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CitiesList
+ *  @return GTLRDfareportingQuery_CitiesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -2821,7 +2821,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Connection type ID.
  *
- *  @returns GTLRDfareportingQuery_ConnectionTypesGet
+ *  @return GTLRDfareportingQuery_ConnectionTypesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -2850,7 +2850,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ConnectionTypesList
+ *  @return GTLRDfareportingQuery_ConnectionTypesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -2887,7 +2887,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Content category ID.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesDelete
+ *  @return GTLRDfareportingQuery_ContentCategoriesDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -2924,7 +2924,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Content category ID.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesGet
+ *  @return GTLRDfareportingQuery_ContentCategoriesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -2955,7 +2955,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesInsert
+ *  @return GTLRDfareportingQuery_ContentCategoriesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_ContentCategory *)object
                       profileId:(long long)profileId;
@@ -3039,7 +3039,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesList
+ *  @return GTLRDfareportingQuery_ContentCategoriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3081,7 +3081,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Content category ID.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesPatch
+ *  @return GTLRDfareportingQuery_ContentCategoriesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_ContentCategory *)object
                       profileId:(long long)profileId
@@ -3113,7 +3113,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ContentCategoriesUpdate
+ *  @return GTLRDfareportingQuery_ContentCategoriesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_ContentCategory *)object
                       profileId:(long long)profileId;
@@ -3144,7 +3144,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ConversionsBatchinsert
+ *  @return GTLRDfareportingQuery_ConversionsBatchinsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_ConversionsBatchInsertRequest *)object
                       profileId:(long long)profileId;
@@ -3175,7 +3175,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ConversionsBatchupdate
+ *  @return GTLRDfareportingQuery_ConversionsBatchupdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_ConversionsBatchUpdateRequest *)object
                       profileId:(long long)profileId;
@@ -3208,7 +3208,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param dartId Country DART ID.
  *
- *  @returns GTLRDfareportingQuery_CountriesGet
+ *  @return GTLRDfareportingQuery_CountriesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                             dartId:(long long)dartId;
@@ -3237,7 +3237,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CountriesList
+ *  @return GTLRDfareportingQuery_CountriesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -3274,7 +3274,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    1024MB. Accepted MIME type: * / *
  *
- *  @returns GTLRDfareportingQuery_CreativeAssetsInsert
+ *  @return GTLRDfareportingQuery_CreativeAssetsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeAssetMetadata *)object
                       profileId:(long long)profileId
@@ -3314,7 +3314,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative Field ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsDelete
+ *  @return GTLRDfareportingQuery_CreativeFieldsDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -3351,7 +3351,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative Field ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsGet
+ *  @return GTLRDfareportingQuery_CreativeFieldsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -3381,7 +3381,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_CreativeField to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsInsert
+ *  @return GTLRDfareportingQuery_CreativeFieldsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeField *)object
                       profileId:(long long)profileId;
@@ -3472,7 +3472,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsList
+ *  @return GTLRDfareportingQuery_CreativeFieldsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3513,7 +3513,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative Field ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsPatch
+ *  @return GTLRDfareportingQuery_CreativeFieldsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeField *)object
                       profileId:(long long)profileId
@@ -3544,7 +3544,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_CreativeField to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldsUpdate
+ *  @return GTLRDfareportingQuery_CreativeFieldsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeField *)object
                       profileId:(long long)profileId;
@@ -3586,7 +3586,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param creativeFieldId Creative field ID for this creative field value.
  *  @param identifier Creative Field Value ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesDelete
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                    creativeFieldId:(long long)creativeFieldId
@@ -3628,7 +3628,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param creativeFieldId Creative field ID for this creative field value.
  *  @param identifier Creative Field Value ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesGet
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                    creativeFieldId:(long long)creativeFieldId
@@ -3664,7 +3664,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param creativeFieldId Creative field ID for this creative field value.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesInsert
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeFieldValue *)object
                       profileId:(long long)profileId
@@ -3748,7 +3748,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param creativeFieldId Creative field ID for this creative field value.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesList
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3797,7 +3797,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param creativeFieldId Creative field ID for this creative field value.
  *  @param identifier Creative Field Value ID
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesPatch
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeFieldValue *)object
                       profileId:(long long)profileId
@@ -3834,7 +3834,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param creativeFieldId Creative field ID for this creative field value.
  *
- *  @returns GTLRDfareportingQuery_CreativeFieldValuesUpdate
+ *  @return GTLRDfareportingQuery_CreativeFieldValuesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeFieldValue *)object
                       profileId:(long long)profileId
@@ -3872,7 +3872,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative group ID.
  *
- *  @returns GTLRDfareportingQuery_CreativeGroupsGet
+ *  @return GTLRDfareportingQuery_CreativeGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -3902,7 +3902,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_CreativeGroup to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeGroupsInsert
+ *  @return GTLRDfareportingQuery_CreativeGroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeGroup *)object
                       profileId:(long long)profileId;
@@ -4000,7 +4000,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeGroupsList
+ *  @return GTLRDfareportingQuery_CreativeGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4041,7 +4041,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative group ID.
  *
- *  @returns GTLRDfareportingQuery_CreativeGroupsPatch
+ *  @return GTLRDfareportingQuery_CreativeGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeGroup *)object
                       profileId:(long long)profileId
@@ -4072,7 +4072,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_CreativeGroup to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativeGroupsUpdate
+ *  @return GTLRDfareportingQuery_CreativeGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_CreativeGroup *)object
                       profileId:(long long)profileId;
@@ -4109,7 +4109,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative ID.
  *
- *  @returns GTLRDfareportingQuery_CreativesGet
+ *  @return GTLRDfareportingQuery_CreativesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -4139,7 +4139,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Creative to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativesInsert
+ *  @return GTLRDfareportingQuery_CreativesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Creative *)object
                       profileId:(long long)profileId;
@@ -4316,7 +4316,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativesList
+ *  @return GTLRDfareportingQuery_CreativesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4357,7 +4357,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Creative ID.
  *
- *  @returns GTLRDfareportingQuery_CreativesPatch
+ *  @return GTLRDfareportingQuery_CreativesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Creative *)object
                       profileId:(long long)profileId
@@ -4388,7 +4388,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Creative to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_CreativesUpdate
+ *  @return GTLRDfareportingQuery_CreativesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Creative *)object
                       profileId:(long long)profileId;
@@ -4430,7 +4430,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    the query.
  *  @param profileId The DFA user profile ID.
  *
- *  @returns GTLRDfareportingQuery_DimensionValuesQuery
+ *  @return GTLRDfareportingQuery_DimensionValuesQuery
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4471,7 +4471,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Directory site contact ID.
  *
- *  @returns GTLRDfareportingQuery_DirectorySiteContactsGet
+ *  @return GTLRDfareportingQuery_DirectorySiteContactsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -4564,7 +4564,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_DirectorySiteContactsList
+ *  @return GTLRDfareportingQuery_DirectorySiteContactsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4604,7 +4604,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Directory site ID.
  *
- *  @returns GTLRDfareportingQuery_DirectorySitesGet
+ *  @return GTLRDfareportingQuery_DirectorySitesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -4634,7 +4634,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_DirectorySite to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_DirectorySitesInsert
+ *  @return GTLRDfareportingQuery_DirectorySitesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_DirectorySite *)object
                       profileId:(long long)profileId;
@@ -4751,7 +4751,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_DirectorySitesList
+ *  @return GTLRDfareportingQuery_DirectorySitesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -4824,7 +4824,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
  *        "OBJECT_PLACEMENT"
  *
- *  @returns GTLRDfareportingQuery_DynamicTargetingKeysDelete
+ *  @return GTLRDfareportingQuery_DynamicTargetingKeysDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                           objectId:(long long)objectId
@@ -4863,7 +4863,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_DynamicTargetingKeysInsert
+ *  @return GTLRDfareportingQuery_DynamicTargetingKeysInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_DynamicTargetingKey *)object
                       profileId:(long long)profileId;
@@ -4914,7 +4914,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_DynamicTargetingKeysList
+ *  @return GTLRDfareportingQuery_DynamicTargetingKeysList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -4951,7 +4951,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Event tag ID.
  *
- *  @returns GTLRDfareportingQuery_EventTagsDelete
+ *  @return GTLRDfareportingQuery_EventTagsDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -4988,7 +4988,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Event tag ID.
  *
- *  @returns GTLRDfareportingQuery_EventTagsGet
+ *  @return GTLRDfareportingQuery_EventTagsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -5018,7 +5018,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_EventTag to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_EventTagsInsert
+ *  @return GTLRDfareportingQuery_EventTagsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_EventTag *)object
                       profileId:(long long)profileId;
@@ -5134,7 +5134,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_EventTagsList
+ *  @return GTLRDfareportingQuery_EventTagsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -5171,7 +5171,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Event tag ID.
  *
- *  @returns GTLRDfareportingQuery_EventTagsPatch
+ *  @return GTLRDfareportingQuery_EventTagsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_EventTag *)object
                       profileId:(long long)profileId
@@ -5202,7 +5202,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_EventTag to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_EventTagsUpdate
+ *  @return GTLRDfareportingQuery_EventTagsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_EventTag *)object
                       profileId:(long long)profileId;
@@ -5237,7 +5237,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
- *  @returns GTLRDfareportingQuery_FilesGet
+ *  @return GTLRDfareportingQuery_FilesGet
  */
 + (instancetype)queryWithReportId:(long long)reportId
                            fileId:(long long)fileId;
@@ -5251,7 +5251,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
- *  @returns GTLRDfareportingQuery_FilesGet
+ *  @return GTLRDfareportingQuery_FilesGet
  */
 + (instancetype)queryForMediaWithReportId:(long long)reportId
                                    fileId:(long long)fileId;
@@ -5332,7 +5332,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId The DFA profile ID.
  *
- *  @returns GTLRDfareportingQuery_FilesList
+ *  @return GTLRDfareportingQuery_FilesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5373,7 +5373,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight activity ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesDelete
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -5405,7 +5405,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesGeneratetag
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesGeneratetag
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -5441,7 +5441,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight activity ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesGet
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -5472,7 +5472,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesInsert
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivity *)object
                       profileId:(long long)profileId;
@@ -5607,7 +5607,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesList
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5651,7 +5651,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight activity ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesPatch
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivity *)object
                       profileId:(long long)profileId
@@ -5683,7 +5683,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivitiesUpdate
+ *  @return GTLRDfareportingQuery_FloodlightActivitiesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivity *)object
                       profileId:(long long)profileId;
@@ -5720,7 +5720,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight activity Group ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivityGroupsGet
+ *  @return GTLRDfareportingQuery_FloodlightActivityGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -5751,7 +5751,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivityGroupsInsert
+ *  @return GTLRDfareportingQuery_FloodlightActivityGroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivityGroup *)object
                       profileId:(long long)profileId;
@@ -5861,7 +5861,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivityGroupsList
+ *  @return GTLRDfareportingQuery_FloodlightActivityGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -5905,7 +5905,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight activity Group ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivityGroupsPatch
+ *  @return GTLRDfareportingQuery_FloodlightActivityGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivityGroup *)object
                       profileId:(long long)profileId
@@ -5937,7 +5937,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightActivityGroupsUpdate
+ *  @return GTLRDfareportingQuery_FloodlightActivityGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightActivityGroup *)object
                       profileId:(long long)profileId;
@@ -5974,7 +5974,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight configuration ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightConfigurationsGet
+ *  @return GTLRDfareportingQuery_FloodlightConfigurationsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -6011,7 +6011,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightConfigurationsList
+ *  @return GTLRDfareportingQuery_FloodlightConfigurationsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6051,7 +6051,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Floodlight configuration ID.
  *
- *  @returns GTLRDfareportingQuery_FloodlightConfigurationsPatch
+ *  @return GTLRDfareportingQuery_FloodlightConfigurationsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightConfiguration *)object
                       profileId:(long long)profileId
@@ -6083,7 +6083,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_FloodlightConfigurationsUpdate
+ *  @return GTLRDfareportingQuery_FloodlightConfigurationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_FloodlightConfiguration *)object
                       profileId:(long long)profileId;
@@ -6124,7 +6124,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param projectId Project ID for order documents.
  *  @param identifier Inventory item ID.
  *
- *  @returns GTLRDfareportingQuery_InventoryItemsGet
+ *  @return GTLRDfareportingQuery_InventoryItemsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                          projectId:(long long)projectId
@@ -6230,7 +6230,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param projectId Project ID for order documents.
  *
- *  @returns GTLRDfareportingQuery_InventoryItemsList
+ *  @return GTLRDfareportingQuery_InventoryItemsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -6263,7 +6263,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_LanguagesList
+ *  @return GTLRDfareportingQuery_LanguagesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6291,7 +6291,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_MetrosList
+ *  @return GTLRDfareportingQuery_MetrosList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6327,7 +6327,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Mobile carrier ID.
  *
- *  @returns GTLRDfareportingQuery_MobileCarriersGet
+ *  @return GTLRDfareportingQuery_MobileCarriersGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -6356,7 +6356,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_MobileCarriersList
+ *  @return GTLRDfareportingQuery_MobileCarriersList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6388,7 +6388,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param dartId Operating system DART ID.
  *
- *  @returns GTLRDfareportingQuery_OperatingSystemsGet
+ *  @return GTLRDfareportingQuery_OperatingSystemsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                             dartId:(long long)dartId;
@@ -6417,7 +6417,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_OperatingSystemsList
+ *  @return GTLRDfareportingQuery_OperatingSystemsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6453,7 +6453,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Operating system version ID.
  *
- *  @returns GTLRDfareportingQuery_OperatingSystemVersionsGet
+ *  @return GTLRDfareportingQuery_OperatingSystemVersionsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -6482,7 +6482,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_OperatingSystemVersionsList
+ *  @return GTLRDfareportingQuery_OperatingSystemVersionsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -6522,7 +6522,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param projectId Project ID for order documents.
  *  @param identifier Order document ID.
  *
- *  @returns GTLRDfareportingQuery_OrderDocumentsGet
+ *  @return GTLRDfareportingQuery_OrderDocumentsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                          projectId:(long long)projectId
@@ -6630,7 +6630,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param projectId Project ID for order documents.
  *
- *  @returns GTLRDfareportingQuery_OrderDocumentsList
+ *  @return GTLRDfareportingQuery_OrderDocumentsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -6675,7 +6675,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param projectId Project ID for orders.
  *  @param identifier Order ID.
  *
- *  @returns GTLRDfareportingQuery_OrdersGet
+ *  @return GTLRDfareportingQuery_OrdersGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                          projectId:(long long)projectId
@@ -6768,7 +6768,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param projectId Project ID for orders.
  *
- *  @returns GTLRDfareportingQuery_OrdersList
+ *  @return GTLRDfareportingQuery_OrdersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -6809,7 +6809,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement group ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementGroupsGet
+ *  @return GTLRDfareportingQuery_PlacementGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -6840,7 +6840,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementGroupsInsert
+ *  @return GTLRDfareportingQuery_PlacementGroupsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementGroup *)object
                       profileId:(long long)profileId;
@@ -7033,7 +7033,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementGroupsList
+ *  @return GTLRDfareportingQuery_PlacementGroupsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -7075,7 +7075,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement group ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementGroupsPatch
+ *  @return GTLRDfareportingQuery_PlacementGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementGroup *)object
                       profileId:(long long)profileId
@@ -7107,7 +7107,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementGroupsUpdate
+ *  @return GTLRDfareportingQuery_PlacementGroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementGroup *)object
                       profileId:(long long)profileId;
@@ -7194,7 +7194,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementsGeneratetags
+ *  @return GTLRDfareportingQuery_PlacementsGeneratetags
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -7230,7 +7230,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementsGet
+ *  @return GTLRDfareportingQuery_PlacementsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -7260,7 +7260,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Placement to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementsInsert
+ *  @return GTLRDfareportingQuery_PlacementsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Placement *)object
                       profileId:(long long)profileId;
@@ -7479,7 +7479,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementsList
+ *  @return GTLRDfareportingQuery_PlacementsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -7520,7 +7520,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementsPatch
+ *  @return GTLRDfareportingQuery_PlacementsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Placement *)object
                       profileId:(long long)profileId
@@ -7559,7 +7559,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement strategy ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesDelete
+ *  @return GTLRDfareportingQuery_PlacementStrategiesDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -7596,7 +7596,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement strategy ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesGet
+ *  @return GTLRDfareportingQuery_PlacementStrategiesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -7627,7 +7627,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesInsert
+ *  @return GTLRDfareportingQuery_PlacementStrategiesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementStrategy *)object
                       profileId:(long long)profileId;
@@ -7711,7 +7711,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesList
+ *  @return GTLRDfareportingQuery_PlacementStrategiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -7755,7 +7755,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Placement strategy ID.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesPatch
+ *  @return GTLRDfareportingQuery_PlacementStrategiesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementStrategy *)object
                       profileId:(long long)profileId
@@ -7787,7 +7787,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementStrategiesUpdate
+ *  @return GTLRDfareportingQuery_PlacementStrategiesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_PlacementStrategy *)object
                       profileId:(long long)profileId;
@@ -7817,7 +7817,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Placement to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlacementsUpdate
+ *  @return GTLRDfareportingQuery_PlacementsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Placement *)object
                       profileId:(long long)profileId;
@@ -7854,7 +7854,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Platform type ID.
  *
- *  @returns GTLRDfareportingQuery_PlatformTypesGet
+ *  @return GTLRDfareportingQuery_PlatformTypesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -7883,7 +7883,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PlatformTypesList
+ *  @return GTLRDfareportingQuery_PlatformTypesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -7915,7 +7915,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param code Postal code ID.
  *
- *  @returns GTLRDfareportingQuery_PostalCodesGet
+ *  @return GTLRDfareportingQuery_PostalCodesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                               code:(NSString *)code;
@@ -7944,7 +7944,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_PostalCodesList
+ *  @return GTLRDfareportingQuery_PostalCodesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -7980,7 +7980,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Project ID.
  *
- *  @returns GTLRDfareportingQuery_ProjectsGet
+ *  @return GTLRDfareportingQuery_ProjectsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -8070,7 +8070,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_ProjectsList
+ *  @return GTLRDfareportingQuery_ProjectsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -8102,7 +8102,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_RegionsList
+ *  @return GTLRDfareportingQuery_RegionsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -8138,7 +8138,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Remarketing list ID.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListsGet
+ *  @return GTLRDfareportingQuery_RemarketingListsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -8171,7 +8171,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param remarketingListId Remarketing list ID.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListSharesGet
+ *  @return GTLRDfareportingQuery_RemarketingListSharesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                  remarketingListId:(long long)remarketingListId;
@@ -8208,7 +8208,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param remarketingListId Remarketing list ID.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListSharesPatch
+ *  @return GTLRDfareportingQuery_RemarketingListSharesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingListShare *)object
                       profileId:(long long)profileId
@@ -8240,7 +8240,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListSharesUpdate
+ *  @return GTLRDfareportingQuery_RemarketingListSharesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingListShare *)object
                       profileId:(long long)profileId;
@@ -8271,7 +8271,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListsInsert
+ *  @return GTLRDfareportingQuery_RemarketingListsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingList *)object
                       profileId:(long long)profileId;
@@ -8358,7 +8358,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param advertiserId Select only remarketing lists owned by this advertiser.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListsList
+ *  @return GTLRDfareportingQuery_RemarketingListsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -8401,7 +8401,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Remarketing list ID.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListsPatch
+ *  @return GTLRDfareportingQuery_RemarketingListsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingList *)object
                       profileId:(long long)profileId
@@ -8433,7 +8433,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_RemarketingListsUpdate
+ *  @return GTLRDfareportingQuery_RemarketingListsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingList *)object
                       profileId:(long long)profileId;
@@ -8467,7 +8467,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Report to include in the query.
  *  @param profileId The DFA user profile ID.
  *
- *  @returns GTLRDfareportingQuery_ReportsCompatibleFieldsQuery
+ *  @return GTLRDfareportingQuery_ReportsCompatibleFieldsQuery
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
                       profileId:(long long)profileId;
@@ -8501,7 +8501,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA user profile ID.
  *  @param reportId The ID of the report.
  *
- *  @returns GTLRDfareportingQuery_ReportsDelete
+ *  @return GTLRDfareportingQuery_ReportsDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                           reportId:(long long)reportId;
@@ -8538,7 +8538,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
- *  @returns GTLRDfareportingQuery_ReportsFilesGet
+ *  @return GTLRDfareportingQuery_ReportsFilesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                           reportId:(long long)reportId
@@ -8553,7 +8553,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
- *  @returns GTLRDfareportingQuery_ReportsFilesGet
+ *  @return GTLRDfareportingQuery_ReportsFilesGet
  */
 + (instancetype)queryForMediaWithProfileId:(long long)profileId
                                   reportId:(long long)reportId
@@ -8625,7 +8625,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA profile ID.
  *  @param reportId The ID of the parent report.
  *
- *  @returns GTLRDfareportingQuery_ReportsFilesList
+ *  @return GTLRDfareportingQuery_ReportsFilesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -8662,7 +8662,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA user profile ID.
  *  @param reportId The ID of the report.
  *
- *  @returns GTLRDfareportingQuery_ReportsGet
+ *  @return GTLRDfareportingQuery_ReportsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                           reportId:(long long)reportId;
@@ -8692,7 +8692,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Report to include in the query.
  *  @param profileId The DFA user profile ID.
  *
- *  @returns GTLRDfareportingQuery_ReportsInsert
+ *  @return GTLRDfareportingQuery_ReportsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
                       profileId:(long long)profileId;
@@ -8773,7 +8773,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId The DFA user profile ID.
  *
- *  @returns GTLRDfareportingQuery_ReportsList
+ *  @return GTLRDfareportingQuery_ReportsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -8810,7 +8810,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA user profile ID.
  *  @param reportId The ID of the report.
  *
- *  @returns GTLRDfareportingQuery_ReportsPatch
+ *  @return GTLRDfareportingQuery_ReportsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
                       profileId:(long long)profileId
@@ -8851,7 +8851,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA profile ID.
  *  @param reportId The ID of the report.
  *
- *  @returns GTLRDfareportingQuery_ReportsRun
+ *  @return GTLRDfareportingQuery_ReportsRun
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                           reportId:(long long)reportId;
@@ -8885,7 +8885,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId The DFA user profile ID.
  *  @param reportId The ID of the report.
  *
- *  @returns GTLRDfareportingQuery_ReportsUpdate
+ *  @return GTLRDfareportingQuery_ReportsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
                       profileId:(long long)profileId
@@ -8923,7 +8923,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Site ID.
  *
- *  @returns GTLRDfareportingQuery_SitesGet
+ *  @return GTLRDfareportingQuery_SitesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -8953,7 +8953,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Site to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SitesInsert
+ *  @return GTLRDfareportingQuery_SitesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Site *)object
                       profileId:(long long)profileId;
@@ -9075,7 +9075,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SitesList
+ *  @return GTLRDfareportingQuery_SitesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9116,7 +9116,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Site ID.
  *
- *  @returns GTLRDfareportingQuery_SitesPatch
+ *  @return GTLRDfareportingQuery_SitesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Site *)object
                       profileId:(long long)profileId
@@ -9147,7 +9147,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Site to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SitesUpdate
+ *  @return GTLRDfareportingQuery_SitesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Site *)object
                       profileId:(long long)profileId;
@@ -9184,7 +9184,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Size ID.
  *
- *  @returns GTLRDfareportingQuery_SizesGet
+ *  @return GTLRDfareportingQuery_SizesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -9214,7 +9214,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Size to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SizesInsert
+ *  @return GTLRDfareportingQuery_SizesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Size *)object
                       profileId:(long long)profileId;
@@ -9267,7 +9267,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SizesList
+ *  @return GTLRDfareportingQuery_SizesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -9303,7 +9303,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Subaccount ID.
  *
- *  @returns GTLRDfareportingQuery_SubaccountsGet
+ *  @return GTLRDfareportingQuery_SubaccountsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -9333,7 +9333,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Subaccount to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SubaccountsInsert
+ *  @return GTLRDfareportingQuery_SubaccountsInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Subaccount *)object
                       profileId:(long long)profileId;
@@ -9415,7 +9415,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SubaccountsList
+ *  @return GTLRDfareportingQuery_SubaccountsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9456,7 +9456,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Subaccount ID.
  *
- *  @returns GTLRDfareportingQuery_SubaccountsPatch
+ *  @return GTLRDfareportingQuery_SubaccountsPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Subaccount *)object
                       profileId:(long long)profileId
@@ -9487,7 +9487,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_Subaccount to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_SubaccountsUpdate
+ *  @return GTLRDfareportingQuery_SubaccountsUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Subaccount *)object
                       profileId:(long long)profileId;
@@ -9524,7 +9524,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Remarketing list ID.
  *
- *  @returns GTLRDfareportingQuery_TargetableRemarketingListsGet
+ *  @return GTLRDfareportingQuery_TargetableRemarketingListsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -9611,7 +9611,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param advertiserId Select only targetable remarketing lists targetable by
  *    these advertisers.
  *
- *  @returns GTLRDfareportingQuery_TargetableRemarketingListsList
+ *  @return GTLRDfareportingQuery_TargetableRemarketingListsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9652,7 +9652,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Targeting template ID.
  *
- *  @returns GTLRDfareportingQuery_TargetingTemplatesGet
+ *  @return GTLRDfareportingQuery_TargetingTemplatesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -9683,7 +9683,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_TargetingTemplatesInsert
+ *  @return GTLRDfareportingQuery_TargetingTemplatesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_TargetingTemplate *)object
                       profileId:(long long)profileId;
@@ -9769,7 +9769,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_TargetingTemplatesList
+ *  @return GTLRDfareportingQuery_TargetingTemplatesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -9813,7 +9813,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Targeting template ID.
  *
- *  @returns GTLRDfareportingQuery_TargetingTemplatesPatch
+ *  @return GTLRDfareportingQuery_TargetingTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_TargetingTemplate *)object
                       profileId:(long long)profileId
@@ -9845,7 +9845,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_TargetingTemplatesUpdate
+ *  @return GTLRDfareportingQuery_TargetingTemplatesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_TargetingTemplate *)object
                       profileId:(long long)profileId;
@@ -9875,7 +9875,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId The user profile ID.
  *
- *  @returns GTLRDfareportingQuery_UserProfilesGet
+ *  @return GTLRDfareportingQuery_UserProfilesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -9899,7 +9899,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Retrieves list of user profiles for a user.
  *
- *  @returns GTLRDfareportingQuery_UserProfilesList
+ *  @return GTLRDfareportingQuery_UserProfilesList
  */
 + (instancetype)query;
 
@@ -9935,7 +9935,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User role permission group ID.
  *
- *  @returns GTLRDfareportingQuery_UserRolePermissionGroupsGet
+ *  @return GTLRDfareportingQuery_UserRolePermissionGroupsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -9964,7 +9964,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_UserRolePermissionGroupsList
+ *  @return GTLRDfareportingQuery_UserRolePermissionGroupsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -10000,7 +10000,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User role permission ID.
  *
- *  @returns GTLRDfareportingQuery_UserRolePermissionsGet
+ *  @return GTLRDfareportingQuery_UserRolePermissionsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -10036,7 +10036,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_UserRolePermissionsList
+ *  @return GTLRDfareportingQuery_UserRolePermissionsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 
@@ -10073,7 +10073,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User role ID.
  *
- *  @returns GTLRDfareportingQuery_UserRolesDelete
+ *  @return GTLRDfareportingQuery_UserRolesDelete
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -10110,7 +10110,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User role ID.
  *
- *  @returns GTLRDfareportingQuery_UserRolesGet
+ *  @return GTLRDfareportingQuery_UserRolesGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(long long)identifier;
@@ -10140,7 +10140,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_UserRole to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_UserRolesInsert
+ *  @return GTLRDfareportingQuery_UserRolesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_UserRole *)object
                       profileId:(long long)profileId;
@@ -10232,7 +10232,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_UserRolesList
+ *  @return GTLRDfareportingQuery_UserRolesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -10273,7 +10273,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier User role ID.
  *
- *  @returns GTLRDfareportingQuery_UserRolesPatch
+ *  @return GTLRDfareportingQuery_UserRolesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_UserRole *)object
                       profileId:(long long)profileId
@@ -10304,7 +10304,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_UserRole to include in the query.
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_UserRolesUpdate
+ *  @return GTLRDfareportingQuery_UserRolesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_UserRole *)object
                       profileId:(long long)profileId;
@@ -10341,7 +10341,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param identifier Video format ID.
  *
- *  @returns GTLRDfareportingQuery_VideoFormatsGet
+ *  @return GTLRDfareportingQuery_VideoFormatsGet
  */
 + (instancetype)queryWithProfileId:(long long)profileId
                         identifier:(NSInteger)identifier;
@@ -10370,7 +10370,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param profileId User profile ID associated with this request.
  *
- *  @returns GTLRDfareportingQuery_VideoFormatsList
+ *  @return GTLRDfareportingQuery_VideoFormatsList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
 

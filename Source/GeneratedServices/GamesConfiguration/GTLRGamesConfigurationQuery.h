@@ -84,7 +84,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsDelete
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsDelete
  */
 + (instancetype)queryWithAchievementId:(NSString *)achievementId;
 
@@ -112,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsGet
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsGet
  */
 + (instancetype)queryWithAchievementId:(NSString *)achievementId;
 
@@ -143,7 +143,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param applicationId The application ID from the Google Play developer
  *    console.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsInsert
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsInsert
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   applicationId:(NSString *)applicationId;
@@ -185,7 +185,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param applicationId The application ID from the Google Play developer
  *    console.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsList
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -221,7 +221,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *    include in the query.
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsPatch
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsPatch
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   achievementId:(NSString *)achievementId;
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *    include in the query.
  *  @param achievementId The ID of the achievement used by this method.
  *
- *  @returns GTLRGamesConfigurationQuery_AchievementConfigurationsUpdate
+ *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   achievementId:(NSString *)achievementId;
@@ -301,7 +301,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param uploadParameters The media to include in this query. Maximum size
  *    15MB. Accepted MIME type: image/ *
  *
- *  @returns GTLRGamesConfigurationQuery_ImageConfigurationsUpload
+ *  @return GTLRGamesConfigurationQuery_ImageConfigurationsUpload
  */
 + (instancetype)queryWithResourceId:(NSString *)resourceId
                           imageType:(NSString *)imageType
@@ -332,7 +332,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsDelete
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsDelete
  */
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId;
 
@@ -360,7 +360,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsGet
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsGet
  */
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId;
 
@@ -391,7 +391,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param applicationId The application ID from the Google Play developer
  *    console.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsInsert
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsInsert
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
                   applicationId:(NSString *)applicationId;
@@ -433,7 +433,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param applicationId The application ID from the Google Play developer
  *    console.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsList
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -469,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *    include in the query.
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
                   leaderboardId:(NSString *)leaderboardId;
@@ -500,7 +500,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *    include in the query.
  *  @param leaderboardId The ID of the leaderboard.
  *
- *  @returns GTLRGamesConfigurationQuery_LeaderboardConfigurationsUpdate
+ *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
                   leaderboardId:(NSString *)leaderboardId;

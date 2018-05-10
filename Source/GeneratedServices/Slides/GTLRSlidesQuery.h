@@ -120,7 +120,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *    the query.
  *  @param presentationId The presentation to apply the updates to.
  *
- *  @returns GTLRSlidesQuery_PresentationsBatchUpdate
+ *  @return GTLRSlidesQuery_PresentationsBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRSlides_BatchUpdatePresentationRequest *)object
                  presentationId:(NSString *)presentationId;
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  @param object The @c GTLRSlides_Presentation to include in the query.
  *
- *  @returns GTLRSlidesQuery_PresentationsCreate
+ *  @return GTLRSlidesQuery_PresentationsCreate
  */
 + (instancetype)queryWithObject:(GTLRSlides_Presentation *)object;
 
@@ -186,7 +186,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *
  *  @param presentationId The ID of the presentation to retrieve.
  *
- *  @returns GTLRSlidesQuery_PresentationsGet
+ *  @return GTLRSlidesQuery_PresentationsGet
  */
 + (instancetype)queryWithPresentationId:(NSString *)presentationId;
 
@@ -222,7 +222,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *  @param presentationId The ID of the presentation to retrieve.
  *  @param pageObjectId The object ID of the page to retrieve.
  *
- *  @returns GTLRSlidesQuery_PresentationsPagesGet
+ *  @return GTLRSlidesQuery_PresentationsPagesGet
  */
 + (instancetype)queryWithPresentationId:(NSString *)presentationId
                            pageObjectId:(NSString *)pageObjectId;
@@ -286,7 +286,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *  @param presentationId The ID of the presentation to retrieve.
  *  @param pageObjectId The object ID of the page whose thumbnail to retrieve.
  *
- *  @returns GTLRSlidesQuery_PresentationsPagesGetThumbnail
+ *  @return GTLRSlidesQuery_PresentationsPagesGetThumbnail
  */
 + (instancetype)queryWithPresentationId:(NSString *)presentationId
                            pageObjectId:(NSString *)pageObjectId;

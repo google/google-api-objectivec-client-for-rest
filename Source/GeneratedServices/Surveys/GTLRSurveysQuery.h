@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSurveys_ResultsGetRequest to include in the query.
  *  @param surveyUrlId External URL ID for the survey.
  *
- *  @returns GTLRSurveysQuery_ResultsGet
+ *  @return GTLRSurveysQuery_ResultsGet
  */
 + (instancetype)queryWithObject:(GTLRSurveys_ResultsGetRequest *)object
                     surveyUrlId:(NSString *)surveyUrlId;
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSurveys_ResultsGetRequest to include in the query.
  *  @param surveyUrlId External URL ID for the survey.
  *
- *  @returns GTLRSurveysQuery_ResultsGet
+ *  @return GTLRSurveysQuery_ResultsGet
  */
 + (instancetype)queryForMediaWithObject:(GTLRSurveys_ResultsGetRequest *)object
                             surveyUrlId:(NSString *)surveyUrlId;
@@ -112,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param surveyUrlId External URL ID for the survey.
  *
- *  @returns GTLRSurveysQuery_SurveysDelete
+ *  @return GTLRSurveysQuery_SurveysDelete
  */
 + (instancetype)queryWithSurveyUrlId:(NSString *)surveyUrlId;
 
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param surveyUrlId External URL ID for the survey.
  *
- *  @returns GTLRSurveysQuery_SurveysGet
+ *  @return GTLRSurveysQuery_SurveysGet
  */
 + (instancetype)queryWithSurveyUrlId:(NSString *)surveyUrlId;
 
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSurveys_Survey to include in the query.
  *
- *  @returns GTLRSurveysQuery_SurveysInsert
+ *  @return GTLRSurveysQuery_SurveysInsert
  */
 + (instancetype)queryWithObject:(GTLRSurveys_Survey *)object;
 
@@ -199,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the surveys owned by the authenticated user.
  *
- *  @returns GTLRSurveysQuery_SurveysList
+ *  @return GTLRSurveysQuery_SurveysList
  */
 + (instancetype)query;
 
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSurveys_StartRequest to include in the query.
  *  @param resourceId NSString
  *
- *  @returns GTLRSurveysQuery_SurveysStart
+ *  @return GTLRSurveysQuery_SurveysStart
  */
 + (instancetype)queryWithObject:(GTLRSurveys_StartRequest *)object
                      resourceId:(NSString *)resourceId;
@@ -257,7 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resourceId NSString
  *
- *  @returns GTLRSurveysQuery_SurveysStop
+ *  @return GTLRSurveysQuery_SurveysStop
  */
 + (instancetype)queryWithResourceId:(NSString *)resourceId;
 
@@ -289,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSurveys_Survey to include in the query.
  *  @param surveyUrlId External URL ID for the survey.
  *
- *  @returns GTLRSurveysQuery_SurveysUpdate
+ *  @return GTLRSurveysQuery_SurveysUpdate
  */
 + (instancetype)queryWithObject:(GTLRSurveys_Survey *)object
                     surveyUrlId:(NSString *)surveyUrlId;

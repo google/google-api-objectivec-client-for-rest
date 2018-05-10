@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param uploadParameters The media to include in this query. Maximum size
  *    100MB. Accepted MIME type: * / *
  *
- *  @returns GTLRPlaycustomappQuery_AccountsCustomAppsCreate
+ *  @return GTLRPlaycustomappQuery_AccountsCustomAppsCreate
  */
 + (instancetype)queryWithObject:(GTLRPlaycustomapp_CustomApp *)object
                         account:(long long)account

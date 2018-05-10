@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSearchConsole_RunMobileFriendlyTestRequest to
  *    include in the query.
  *
- *  @returns GTLRSearchConsoleQuery_UrlTestingToolsMobileFriendlyTestRun
+ *  @return GTLRSearchConsoleQuery_UrlTestingToolsMobileFriendlyTestRun
  */
 + (instancetype)queryWithObject:(GTLRSearchConsole_RunMobileFriendlyTestRequest *)object;
 
