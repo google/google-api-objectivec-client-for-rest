@@ -426,11 +426,13 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_Enterprise
 @dynamic appAutoApprovalEnabled, enabledNotificationTypes,
-         enterpriseDisplayName, logo, name, primaryColor, pubsubTopic;
+         enterpriseDisplayName, logo, name, primaryColor, pubsubTopic,
+         termsAndConditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"enabledNotificationTypes" : [NSString class]
+    @"enabledNotificationTypes" : [NSString class],
+    @"termsAndConditions" : [GTLRAndroidManagement_TermsAndConditions class]
   };
   return map;
 }
@@ -916,6 +918,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_SystemUpdate
 @dynamic endMinutes, startMinutes, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_TermsAndConditions
+//
+
+@implementation GTLRAndroidManagement_TermsAndConditions
+@dynamic content, header;
 @end
 
 

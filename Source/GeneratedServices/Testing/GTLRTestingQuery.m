@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Testing API (testing/v1)
+//   Cloud Testing API (testing/v1)
 // Description:
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.

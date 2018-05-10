@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified accelerator type. Get a list of available accelerator
+ *  Returns the specified accelerator type. Gets a list of available accelerator
  *  types by making a list() request.
  *
  *  Method: compute.acceleratorTypes.get
@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AcceleratorType.
  *
- *  Returns the specified accelerator type. Get a list of available accelerator
+ *  Returns the specified accelerator type. Gets a list of available accelerator
  *  types by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -797,7 +797,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified autoscaler resource. Get a list of available
+ *  Returns the specified autoscaler resource. Gets a list of available
  *  autoscalers by making a list() request.
  *
  *  Method: compute.autoscalers.get
@@ -827,7 +827,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Autoscaler.
  *
- *  Returns the specified autoscaler resource. Get a list of available
+ *  Returns the specified autoscaler resource. Gets a list of available
  *  autoscalers by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -1159,7 +1159,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified BackendBucket resource. Get a list of available
+ *  Returns the specified BackendBucket resource. Gets a list of available
  *  backend buckets by making a list() request.
  *
  *  Method: compute.backendBuckets.get
@@ -1182,7 +1182,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_BackendBucket.
  *
- *  Returns the specified BackendBucket resource. Get a list of available
+ *  Returns the specified BackendBucket resource. Gets a list of available
  *  backend buckets by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -1563,7 +1563,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified BackendService resource. Get a list of available
+ *  Returns the specified BackendService resource. Gets a list of available
  *  backend services by making a list() request.
  *
  *  Method: compute.backendServices.get
@@ -1586,7 +1586,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_BackendService.
  *
- *  Returns the specified BackendService resource. Get a list of available
+ *  Returns the specified BackendService resource. Gets a list of available
  *  backend services by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -2093,7 +2093,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a specified persistent disk. Get a list of available persistent
+ *  Returns a specified persistent disk. Gets a list of available persistent
  *  disks by making a list() request.
  *
  *  Method: compute.disks.get
@@ -2123,7 +2123,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Disk.
  *
- *  Returns a specified persistent disk. Get a list of available persistent
+ *  Returns a specified persistent disk. Gets a list of available persistent
  *  disks by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -2498,7 +2498,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified disk type. Get a list of available disk types by
+ *  Returns the specified disk type. Gets a list of available disk types by
  *  making a list() request.
  *
  *  Method: compute.diskTypes.get
@@ -2528,7 +2528,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_DiskType.
  *
- *  Returns the specified disk type. Get a list of available disk types by
+ *  Returns the specified disk type. Gets a list of available disk types by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -3377,8 +3377,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified address resource. Get a list of available addresses by
- *  making a list() request.
+ *  Returns the specified address resource. Gets a list of available addresses
+ *  by making a list() request.
  *
  *  Method: compute.globalAddresses.get
  *
@@ -3400,8 +3400,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Address.
  *
- *  Returns the specified address resource. Get a list of available addresses by
- *  making a list() request.
+ *  Returns the specified address resource. Gets a list of available addresses
+ *  by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to return.
@@ -3592,8 +3592,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified GlobalForwardingRule resource. Get a list of available
- *  forwarding rules by making a list() request.
+ *  Returns the specified GlobalForwardingRule resource. Gets a list of
+ *  available forwarding rules by making a list() request.
  *
  *  Method: compute.globalForwardingRules.get
  *
@@ -3615,8 +3615,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ForwardingRule.
  *
- *  Returns the specified GlobalForwardingRule resource. Get a list of available
- *  forwarding rules by making a list() request.
+ *  Returns the specified GlobalForwardingRule resource. Gets a list of
+ *  available forwarding rules by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to return.
@@ -3928,7 +3928,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the specified Operations resource. Get a list of operations by
+ *  Retrieves the specified Operations resource. Gets a list of operations by
  *  making a list() request.
  *
  *  Method: compute.globalOperations.get
@@ -3951,7 +3951,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Retrieves the specified Operations resource. Get a list of operations by
+ *  Retrieves the specified Operations resource. Gets a list of operations by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -4098,7 +4098,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified HealthCheck resource. Get a list of available health
+ *  Returns the specified HealthCheck resource. Gets a list of available health
  *  checks by making a list() request.
  *
  *  Method: compute.healthChecks.get
@@ -4121,7 +4121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_HealthCheck.
  *
- *  Returns the specified HealthCheck resource. Get a list of available health
+ *  Returns the specified HealthCheck resource. Gets a list of available health
  *  checks by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -4421,8 +4421,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified HttpHealthCheck resource. Get a list of available HTTP
- *  health checks by making a list() request.
+ *  Returns the specified HttpHealthCheck resource. Gets a list of available
+ *  HTTP health checks by making a list() request.
  *
  *  Method: compute.httpHealthChecks.get
  *
@@ -4444,8 +4444,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_HttpHealthCheck.
  *
- *  Returns the specified HttpHealthCheck resource. Get a list of available HTTP
- *  health checks by making a list() request.
+ *  Returns the specified HttpHealthCheck resource. Gets a list of available
+ *  HTTP health checks by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to return.
@@ -4744,7 +4744,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified HttpsHealthCheck resource. Get a list of available
+ *  Returns the specified HttpsHealthCheck resource. Gets a list of available
  *  HTTPS health checks by making a list() request.
  *
  *  Method: compute.httpsHealthChecks.get
@@ -4767,7 +4767,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_HttpsHealthCheck.
  *
- *  Returns the specified HttpsHealthCheck resource. Get a list of available
+ *  Returns the specified HttpsHealthCheck resource. Gets a list of available
  *  HTTPS health checks by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -5119,7 +5119,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified image. Get a list of available images by making a
+ *  Returns the specified image. Gets a list of available images by making a
  *  list() request.
  *
  *  Method: compute.images.get
@@ -5142,7 +5142,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Image.
  *
- *  Returns the specified image. Get a list of available images by making a
+ *  Returns the specified image. Gets a list of available images by making a
  *  list() request.
  *
  *  @param project Project ID for this request.
@@ -5685,8 +5685,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all of the details about the specified managed instance group. Get a
- *  list of available managed instance groups by making a list() request.
+ *  Returns all of the details about the specified managed instance group. Gets
+ *  a list of available managed instance groups by making a list() request.
  *
  *  Method: compute.instanceGroupManagers.get
  *
@@ -5715,8 +5715,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManager.
  *
- *  Returns all of the details about the specified managed instance group. Get a
- *  list of available managed instance groups by making a list() request.
+ *  Returns all of the details about the specified managed instance group. Gets
+ *  a list of available managed instance groups by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -6472,7 +6472,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified instance group. Get a list of available instance
+ *  Returns the specified instance group. Gets a list of available instance
  *  groups by making a list() request.
  *
  *  Method: compute.instanceGroups.get
@@ -6502,7 +6502,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroup.
  *
- *  Returns the specified instance group. Get a list of available instance
+ *  Returns the specified instance group. Gets a list of available instance
  *  groups by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -7308,7 +7308,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Instance resource. Get a list of available instances
+ *  Returns the specified Instance resource. Gets a list of available instances
  *  by making a list() request.
  *
  *  Method: compute.instances.get
@@ -7338,7 +7338,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Instance.
  *
- *  Returns the specified Instance resource. Get a list of available instances
+ *  Returns the specified Instance resource. Gets a list of available instances
  *  by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -8358,8 +8358,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts an instance that was stopped using the using the instances().stop
- *  method. For more information, see Restart an instance.
+ *  Starts an instance that was stopped using the instances().stop method. For
+ *  more information, see Restart an instance.
  *
  *  Method: compute.instances.start
  *
@@ -8401,8 +8401,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Starts an instance that was stopped using the using the instances().stop
- *  method. For more information, see Restart an instance.
+ *  Starts an instance that was stopped using the instances().stop method. For
+ *  more information, see Restart an instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8417,8 +8417,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts an instance that was stopped using the using the instances().stop
- *  method. For more information, see Restart an instance.
+ *  Starts an instance that was stopped using the instances().stop method. For
+ *  more information, see Restart an instance.
  *
  *  Method: compute.instances.startWithEncryptionKey
  *
@@ -8460,8 +8460,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Starts an instance that was stopped using the using the instances().stop
- *  method. For more information, see Restart an instance.
+ *  Starts an instance that was stopped using the instances().stop method. For
+ *  more information, see Restart an instance.
  *
  *  @param object The @c GTLRCompute_InstancesStartWithEncryptionKeyRequest to
  *    include in the query.
@@ -8733,7 +8733,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified instance template. Get a list of available instance
+ *  Returns the specified instance template. Gets a list of available instance
  *  templates by making a list() request.
  *
  *  Method: compute.instanceTemplates.get
@@ -8756,7 +8756,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplate.
  *
- *  Returns the specified instance template. Get a list of available instance
+ *  Returns the specified instance template. Gets a list of available instance
  *  templates by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -9221,7 +9221,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the details for the specified interconnect location. Get a list of
+ *  Returns the details for the specified interconnect location. Gets a list of
  *  available interconnect locations by making a list() request.
  *
  *  Method: compute.interconnectLocations.get
@@ -9244,7 +9244,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InterconnectLocation.
  *
- *  Returns the details for the specified interconnect location. Get a list of
+ *  Returns the details for the specified interconnect location. Gets a list of
  *  available interconnect locations by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -9391,8 +9391,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified interconnect. Get a list of available interconnects by
- *  making a list() request.
+ *  Returns the specified interconnect. Gets a list of available interconnects
+ *  by making a list() request.
  *
  *  Method: compute.interconnects.get
  *
@@ -9414,8 +9414,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Interconnect.
  *
- *  Returns the specified interconnect. Get a list of available interconnects by
- *  making a list() request.
+ *  Returns the specified interconnect. Gets a list of available interconnects
+ *  by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to return.
@@ -10029,8 +10029,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified machine type. Get a list of available machine types by
- *  making a list() request.
+ *  Returns the specified machine type. Gets a list of available machine types
+ *  by making a list() request.
  *
  *  Method: compute.machineTypes.get
  *
@@ -10059,8 +10059,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_MachineType.
  *
- *  Returns the specified machine type. Get a list of available machine types by
- *  making a list() request.
+ *  Returns the specified machine type. Gets a list of available machine types
+ *  by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -10266,7 +10266,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified network. Get a list of available networks by making a
+ *  Returns the specified network. Gets a list of available networks by making a
  *  list() request.
  *
  *  Method: compute.networks.get
@@ -10289,7 +10289,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Network.
  *
- *  Returns the specified network. Get a list of available networks by making a
+ *  Returns the specified network. Gets a list of available networks by making a
  *  list() request.
  *
  *  @param project Project ID for this request.
@@ -10796,7 +10796,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the shared VPC host project that this project links to. May be empty if
+ *  Gets the shared VPC host project that this project links to. May be empty if
  *  no link exists.
  *
  *  Method: compute.projects.getXpnHost
@@ -10815,7 +10815,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Project.
  *
- *  Get the shared VPC host project that this project links to. May be empty if
+ *  Gets the shared VPC host project that this project links to. May be empty if
  *  no link exists.
  *
  *  @param project Project ID for this request.
@@ -10827,7 +10827,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get service resources (a.k.a service project) associated with this host
+ *  Gets service resources (a.k.a service project) associated with this host
  *  project.
  *
  *  Method: compute.projects.getXpnResources
@@ -10859,7 +10859,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
  *
- *  Get service resources (a.k.a service project) associated with this host
+ *  Gets service resources (a.k.a service project) associated with this host
  *  project.
  *
  *  @param project Project ID for this request.
@@ -10875,7 +10875,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all shared VPC host projects visible to the user in an organization.
+ *  Lists all shared VPC host projects visible to the user in an organization.
  *
  *  Method: compute.projects.listXpnHosts
  *
@@ -10906,7 +10906,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_XpnHostList.
  *
- *  List all shared VPC host projects visible to the user in an organization.
+ *  Lists all shared VPC host projects visible to the user in an organization.
  *
  *  @param object The @c GTLRCompute_ProjectsListXpnHostsRequest to include in
  *    the query.
@@ -11947,7 +11947,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified commitment resource. Get a list of available
+ *  Returns the specified commitment resource. Gets a list of available
  *  commitments by making a list() request.
  *
  *  Method: compute.regionCommitments.get
@@ -11973,7 +11973,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Commitment.
  *
- *  Returns the specified commitment resource. Get a list of available
+ *  Returns the specified commitment resource. Gets a list of available
  *  commitments by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -13321,7 +13321,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Region resource. Get a list of available regions by
+ *  Returns the specified Region resource. Gets a list of available regions by
  *  making a list() request.
  *
  *  Method: compute.regions.get
@@ -13344,7 +13344,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Region.
  *
- *  Returns the specified Region resource. Get a list of available regions by
+ *  Returns the specified Region resource. Gets a list of available regions by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -13573,7 +13573,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Router resource. Get a list of available routers by
+ *  Returns the specified Router resource. Gets a list of available routers by
  *  making a list() request.
  *
  *  Method: compute.routers.get
@@ -13599,7 +13599,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Router.
  *
- *  Returns the specified Router resource. Get a list of available routers by
+ *  Returns the specified Router resource. Gets a list of available routers by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -14001,7 +14001,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Route resource. Get a list of available routes by
+ *  Returns the specified Route resource. Gets a list of available routes by
  *  making a list() request.
  *
  *  Method: compute.routes.get
@@ -14024,7 +14024,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Route.
  *
- *  Returns the specified Route resource. Get a list of available routes by
+ *  Returns the specified Route resource. Gets a list of available routes by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -14224,7 +14224,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Snapshot resource. Get a list of available snapshots
+ *  Returns the specified Snapshot resource. Gets a list of available snapshots
  *  by making a list() request.
  *
  *  Method: compute.snapshots.get
@@ -14247,7 +14247,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Snapshot.
  *
- *  Returns the specified Snapshot resource. Get a list of available snapshots
+ *  Returns the specified Snapshot resource. Gets a list of available snapshots
  *  by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -14433,7 +14433,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified SslCertificate resource. Get a list of available SSL
+ *  Returns the specified SslCertificate resource. Gets a list of available SSL
  *  certificates by making a list() request.
  *
  *  Method: compute.sslCertificates.get
@@ -14456,7 +14456,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SslCertificate.
  *
- *  Returns the specified SslCertificate resource. Get a list of available SSL
+ *  Returns the specified SslCertificate resource. Gets a list of available SSL
  *  certificates by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -14658,7 +14658,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all of the ordered rules present in a single specified policy.
+ *  Lists all of the ordered rules present in a single specified policy.
  *
  *  Method: compute.sslPolicies.get
  *
@@ -14683,7 +14683,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SslPolicy.
  *
- *  List all of the ordered rules present in a single specified policy.
+ *  Lists all of the ordered rules present in a single specified policy.
  *
  *  @param project Project ID for this request.
  *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
@@ -14697,7 +14697,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified SSL policy resource. Get a list of available SSL
+ *  Returns the specified SSL policy resource. Gets a list of available SSL
  *  policies by making a list() request.
  *
  *  Method: compute.sslPolicies.insert
@@ -14730,7 +14730,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Returns the specified SSL policy resource. Get a list of available SSL
+ *  Returns the specified SSL policy resource. Gets a list of available SSL
  *  policies by making a list() request.
  *
  *  @param object The @c GTLRCompute_SslPolicy to include in the query.
@@ -14744,7 +14744,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all the SSL policies that have been configured for the specified
+ *  Lists all the SSL policies that have been configured for the specified
  *  project.
  *
  *  Method: compute.sslPolicies.list
@@ -14813,7 +14813,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SslPoliciesList.
  *
- *  List all the SSL policies that have been configured for the specified
+ *  Lists all the SSL policies that have been configured for the specified
  *  project.
  *
  *  @param project Project ID for this request.
@@ -15152,8 +15152,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified subnetwork. Get a list of available subnetworks list()
- *  request.
+ *  Returns the specified subnetwork. Gets a list of available subnetworks
+ *  list() request.
  *
  *  Method: compute.subnetworks.get
  *
@@ -15178,8 +15178,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Subnetwork.
  *
- *  Returns the specified subnetwork. Get a list of available subnetworks list()
- *  request.
+ *  Returns the specified subnetwork. Gets a list of available subnetworks
+ *  list() request.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15503,7 +15503,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified TargetHttpProxy resource. Get a list of available
+ *  Returns the specified TargetHttpProxy resource. Gets a list of available
  *  target HTTP proxies by making a list() request.
  *
  *  Method: compute.targetHttpProxies.get
@@ -15526,7 +15526,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxy.
  *
- *  Returns the specified TargetHttpProxy resource. Get a list of available
+ *  Returns the specified TargetHttpProxy resource. Gets a list of available
  *  target HTTP proxies by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -15770,7 +15770,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified TargetHttpsProxy resource. Get a list of available
+ *  Returns the specified TargetHttpsProxy resource. Gets a list of available
  *  target HTTPS proxies by making a list() request.
  *
  *  Method: compute.targetHttpsProxies.get
@@ -15793,7 +15793,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxy.
  *
- *  Returns the specified TargetHttpsProxy resource. Get a list of available
+ *  Returns the specified TargetHttpsProxy resource. Gets a list of available
  *  target HTTPS proxies by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -16242,7 +16242,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified TargetInstance resource. Get a list of available
+ *  Returns the specified TargetInstance resource. Gets a list of available
  *  target instances by making a list() request.
  *
  *  Method: compute.targetInstances.get
@@ -16272,7 +16272,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetInstance.
  *
- *  Returns the specified TargetInstance resource. Get a list of available
+ *  Returns the specified TargetInstance resource. Gets a list of available
  *  target instances by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -16682,7 +16682,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified target pool. Get a list of available target pools by
+ *  Returns the specified target pool. Gets a list of available target pools by
  *  making a list() request.
  *
  *  Method: compute.targetPools.get
@@ -16708,7 +16708,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetPool.
  *
- *  Returns the specified target pool. Get a list of available target pools by
+ *  Returns the specified target pool. Gets a list of available target pools by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -17129,7 +17129,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified TargetSslProxy resource. Get a list of available
+ *  Returns the specified TargetSslProxy resource. Gets a list of available
  *  target SSL proxies by making a list() request.
  *
  *  Method: compute.targetSslProxies.get
@@ -17152,7 +17152,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetSslProxy.
  *
- *  Returns the specified TargetSslProxy resource. Get a list of available
+ *  Returns the specified TargetSslProxy resource. Gets a list of available
  *  target SSL proxies by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -17569,7 +17569,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified TargetTcpProxy resource. Get a list of available
+ *  Returns the specified TargetTcpProxy resource. Gets a list of available
  *  target TCP proxies by making a list() request.
  *
  *  Method: compute.targetTcpProxies.get
@@ -17592,7 +17592,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetTcpProxy.
  *
- *  Returns the specified TargetTcpProxy resource. Get a list of available
+ *  Returns the specified TargetTcpProxy resource. Gets a list of available
  *  target TCP proxies by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -17977,8 +17977,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified target VPN gateway. Get a list of available target VPN
- *  gateways by making a list() request.
+ *  Returns the specified target VPN gateway. Gets a list of available target
+ *  VPN gateways by making a list() request.
  *
  *  Method: compute.targetVpnGateways.get
  *
@@ -18003,8 +18003,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGateway.
  *
- *  Returns the specified target VPN gateway. Get a list of available target VPN
- *  gateways by making a list() request.
+ *  Returns the specified target VPN gateway. Gets a list of available target
+ *  VPN gateways by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -18209,7 +18209,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified UrlMap resource. Get a list of available URL maps by
+ *  Returns the specified UrlMap resource. Gets a list of available URL maps by
  *  making a list() request.
  *
  *  Method: compute.urlMaps.get
@@ -18232,7 +18232,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_UrlMap.
  *
- *  Returns the specified UrlMap resource. Get a list of available URL maps by
+ *  Returns the specified UrlMap resource. Gets a list of available URL maps by
  *  making a list() request.
  *
  *  @param project Project ID for this request.
@@ -18704,7 +18704,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified VpnTunnel resource. Get a list of available VPN
+ *  Returns the specified VpnTunnel resource. Gets a list of available VPN
  *  tunnels by making a list() request.
  *
  *  Method: compute.vpnTunnels.get
@@ -18730,7 +18730,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_VpnTunnel.
  *
- *  Returns the specified VpnTunnel resource. Get a list of available VPN
+ *  Returns the specified VpnTunnel resource. Gets a list of available VPN
  *  tunnels by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -19068,8 +19068,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Zone resource. Get a list of available zones by making
- *  a list() request.
+ *  Returns the specified Zone resource. Gets a list of available zones by
+ *  making a list() request.
  *
  *  Method: compute.zones.get
  *
@@ -19095,8 +19095,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Zone.
  *
- *  Returns the specified Zone resource. Get a list of available zones by making
- *  a list() request.
+ *  Returns the specified Zone resource. Gets a list of available zones by
+ *  making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone resource to return.

@@ -54,6 +54,7 @@
 @class GTLRAndroidManagement_Status_Details_Item;
 @class GTLRAndroidManagement_StatusReportingSettings;
 @class GTLRAndroidManagement_SystemUpdate;
+@class GTLRAndroidManagement_TermsAndConditions;
 @class GTLRAndroidManagement_UserFacingMessage;
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 
@@ -1142,7 +1143,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  The default policy for all permissions requested by the app. If specified,
  *  this overrides the policy-level default_permission_policy which applies to
- *  all apps.
+ *  all apps. It does not override the permission_grants which applies to all
+ *  apps.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny
@@ -1220,7 +1222,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Explicit permission grants or denials for the app. These values override the
- *  default_permission_policy.
+ *  default_permission_policy and permission_grants which apply to all apps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
 
@@ -1772,9 +1774,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_Enterprise : GTLRObject
 
 /**
- *  Whether permissions for apps installed via policy are automatically
- *  approved. If enabled, you must display an app's permissions to the
- *  enterprise admin before setting the app to be installed in a policy.
+ *  Deprecated and unused.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1815,6 +1815,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  notifications are enabled.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Terms and conditions that must be accepted when provisioning a device for
+ *  this enterprise. A page of terms is generated for each value in this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TermsAndConditions *> *termsAndConditions;
 
 @end
 
@@ -3172,7 +3178,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Allows admins to toggle whether USB storge is enabled or disabled on user's
- *  devices. Next ID: 113
+ *  devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3539,6 +3545,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        "WINDOWED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A terms and conditions page to be accepted during provisioning.
+ */
+@interface GTLRAndroidManagement_TermsAndConditions : GTLRObject
+
+/**
+ *  A well-formatted HTML string. It will be parsed on the client with
+ *  android.text.Html#fromHtml.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *content;
+
+/** A short header which appears above the HTML content. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *header;
 
 @end
 

@@ -205,6 +205,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
+/** Value: "failedToInstall" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
 /** Value: "fatalException" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 /** Value: "incompleteRoboScriptExecution" */
@@ -1806,6 +1808,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
  *        "completeRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_FailedToInstall Value
+ *        "failedToInstall"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value
  *        "fatalException"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution

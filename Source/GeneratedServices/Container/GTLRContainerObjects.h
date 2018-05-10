@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Kubernetes Engine API (container/v1)
+//   Kubernetes Engine API (container/v1)
 // Description:
 //   The Google Kubernetes Engine API is used for building and managing
 //   container based applications, powered by the open source Kubernetes
@@ -636,10 +636,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** The authentication information for accessing the master endpoint. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
-/**
- *  Master authorized networks is a Beta feature.
- *  The configuration options for master authorized networks feature.
- */
+/** The configuration options for master authorized networks feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
 
 /**
@@ -812,7 +809,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
 /**
- *  Master authorized networks is a Beta feature.
  *  The desired configuration options for master authorized networks feature.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig;
@@ -882,8 +878,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The name (project, location, cluster id) of the cluster to complete IP
- *  rotation.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -960,9 +955,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The parent (project, location, cluster id) where the node pool will be
- *  created.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  created. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1316,7 +1310,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
- *  Master authorized networks is a Beta feature.
  *  Configuration options for the master authorized networks feature. Enabled
  *  master authorized networks will disallow all external traffic to access
  *  Kubernetes master through HTTPS except traffic from the given CIDR blocks,
@@ -2300,8 +2293,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The name (project, location, cluster id) of the cluster to set networking
- *  policy.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2490,8 +2482,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The name (project, location, cluster id) of the cluster to start IP
- *  rotation.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2501,6 +2492,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Whether to rotate credentials during IP rotation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rotateCredentials;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -2619,9 +2617,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  The name (project, location, cluster, node pool) of the node pool to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  The name (project, location, cluster, node pool) of the node pool to
+ *  update. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

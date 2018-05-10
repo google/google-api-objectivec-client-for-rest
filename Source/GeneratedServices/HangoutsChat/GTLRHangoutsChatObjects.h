@@ -4,7 +4,8 @@
 // API:
 //   Hangouts Chat API (chat/v1)
 // Description:
-//   Create bots and extend the new Hangouts Chat.
+//   Enables bots to fetch information and perform actions in the new Hangouts
+//   Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -833,6 +834,9 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
 
 /** Output only. Annotations associated with the text in this message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
+
+/** Plain-text body of the message with all bot mentions stripped out. */
+@property(nonatomic, copy, nullable) NSString *argumentText;
 
 /**
  *  Rich, formatted and interactive cards that can be used to display UI

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Analytics API (youtubeAnalytics/v1)
+//   YouTube Analytics API (youtubeAnalytics/v2)
 // Description:
 //   Retrieves your YouTube Analytics data.
 // Documentation:
-//   http://developers.google.com/youtube/analytics/
+//   http://developers.google.com/youtube/analytics
 
 #import "GTLRYouTubeAnalyticsQuery.h"
 
@@ -26,13 +26,13 @@
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"groupItems";
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/groupItems";
   GTLRYouTubeAnalyticsQuery_GroupItemsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:nil];
-  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRYouTubeAnalytics_EmptyResponse class];
   query.loggingName = @"youtubeAnalytics.groupItems.delete";
   return query;
 }
@@ -48,7 +48,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"groupItems";
+  NSString *pathURITemplate = @"v2/groupItems";
   GTLRYouTubeAnalyticsQuery_GroupItemsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -65,14 +65,13 @@
 
 @dynamic groupId, onBehalfOfContentOwner;
 
-+ (instancetype)queryWithGroupId:(NSString *)groupId {
-  NSString *pathURITemplate = @"groupItems";
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/groupItems";
   GTLRYouTubeAnalyticsQuery_GroupItemsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.groupId = groupId;
-  query.expectedObjectClass = [GTLRYouTubeAnalytics_GroupItemListResponse class];
+  query.expectedObjectClass = [GTLRYouTubeAnalytics_ListGroupItemsResponse class];
   query.loggingName = @"youtubeAnalytics.groupItems.list";
   return query;
 }
@@ -87,13 +86,13 @@
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"groups";
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/groups";
   GTLRYouTubeAnalyticsQuery_GroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:nil];
-  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRYouTubeAnalytics_EmptyResponse class];
   query.loggingName = @"youtubeAnalytics.groups.delete";
   return query;
 }
@@ -109,7 +108,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"groups";
+  NSString *pathURITemplate = @"v2/groups";
   GTLRYouTubeAnalyticsQuery_GroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -131,12 +130,12 @@
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"groups";
+  NSString *pathURITemplate = @"v2/groups";
   GTLRYouTubeAnalyticsQuery_GroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRYouTubeAnalytics_GroupListResponse class];
+  query.expectedObjectClass = [GTLRYouTubeAnalytics_ListGroupsResponse class];
   query.loggingName = @"youtubeAnalytics.groups.list";
   return query;
 }
@@ -152,7 +151,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"groups";
+  NSString *pathURITemplate = @"v2/groups";
   GTLRYouTubeAnalyticsQuery_GroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -171,31 +170,13 @@
          includeHistoricalChannelData, maxResults, metrics, sort, startDate,
          startIndex;
 
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"endDate" : @"end-date",
-    @"includeHistoricalChannelData" : @"include-historical-channel-data",
-    @"maxResults" : @"max-results",
-    @"startDate" : @"start-date",
-    @"startIndex" : @"start-index"
-  };
-  return map;
-}
-
-+ (instancetype)queryWithIds:(NSString *)ids
-                   startDate:(NSString *)startDate
-                     endDate:(NSString *)endDate
-                     metrics:(NSString *)metrics {
-  NSString *pathURITemplate = @"reports";
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/reports";
   GTLRYouTubeAnalyticsQuery_ReportsQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.ids = ids;
-  query.startDate = startDate;
-  query.endDate = endDate;
-  query.metrics = metrics;
-  query.expectedObjectClass = [GTLRYouTubeAnalytics_ResultTable class];
+  query.expectedObjectClass = [GTLRYouTubeAnalytics_QueryResponse class];
   query.loggingName = @"youtubeAnalytics.reports.query";
   return query;
 }

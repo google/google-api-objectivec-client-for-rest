@@ -4,9 +4,8 @@
 // API:
 //   Admin Directory API (admin/directory_v1)
 // Description:
-//   The Admin SDK Directory API lets you view and manage enterprise resources
-//   such as users and groups, administrative notifications, security features,
-//   and more.
+//   Manages enterprise resources such as users and groups, administrative
+//   notifications, security features, and more.
 // Documentation:
 //   https://developers.google.com/admin-sdk/directory/
 
@@ -678,7 +677,8 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_GroupsList
 
-@dynamic customer, domain, maxResults, pageToken, userKey;
+@dynamic customer, domain, maxResults, orderBy, pageToken, query, sortOrder,
+         userKey;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"groups";
@@ -838,7 +838,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_MembersList
 
-@dynamic groupKey, maxResults, pageToken, roles;
+@dynamic groupKey, includeDerivedMembership, maxResults, pageToken, roles;
 
 + (instancetype)queryWithGroupKey:(NSString *)groupKey {
   NSArray *pathParams = @[ @"groupKey" ];

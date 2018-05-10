@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Safe Browsing API (safebrowsing/v4)
+//   Safe Browsing API (safebrowsing/v4)
 // Description:
 //   Enables client applications to check web resources (most commonly URLs)
 //   against Google-generated lists of unsafe web resources.
@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Service for executing Google Safe Browsing API queries.
+ *  Service for executing Safe Browsing API queries.
  *
  *  Enables client applications to check web resources (most commonly URLs)
  *  against Google-generated lists of unsafe web resources.

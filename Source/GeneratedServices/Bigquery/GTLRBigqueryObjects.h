@@ -21,6 +21,7 @@
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
+@class GTLRBigquery_Clustering;
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
@@ -230,6 +231,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_Clustering
+ */
+@interface GTLRBigquery_Clustering : GTLRObject
+
+/**
+ *  [Repeated] One or more fields on which data should be clustered. Only
+ *  top-level, non-repeated, simple-type fields are supported. The order of the
+ *  fields will determine how clusters will be generated, so it is important.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
+
+@end
+
+
+/**
  *  GTLRBigquery_CsvOptions
  */
 @interface GTLRBigquery_CsvOptions : GTLRObject
@@ -379,8 +395,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  The geographic location where the dataset should reside. Possible values
- *  include EU and US. The default value is US.
+ *  The geographic location where the dataset should reside. The default value
+ *  is US. See details at
+ *  https://cloud.google.com/bigquery/docs/dataset-locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -670,7 +687,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *computeRatioMax;
 
 /**
- *  Stage end time in milliseconds.
+ *  Stage end time represented as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -759,7 +776,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *shuffleOutputBytesSpilled;
 
 /**
- *  Stage start time in milliseconds.
+ *  Stage start time represented as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1040,6 +1057,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
 
 /**
+ *  [Experimental] [Optional] Range of a sheet to query from. Only used when
+ *  non-empty. Typical format: !:
+ */
+@property(nonatomic, copy, nullable) NSString *range;
+
+/**
  *  [Optional] The number of rows at the top of a sheet that BigQuery will skip
  *  when reading the data. The default value is 0. This property is useful if
  *  you have header rows that should be skipped. When autodetect is on, behavior
@@ -1264,12 +1287,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *allowQuotedNewlines;
 
 /**
- *  Indicates if we should automatically infer the options and schema for CSV
- *  and JSON sources.
+ *  [Optional] Indicates if we should automatically infer the options and schema
+ *  for CSV and JSON sources.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
+
+/**
+ *  [Experimental] Clustering specification for the destination table. Must be
+ *  specified with time-based partitioning, data in the table will be first
+ *  partitioned and subsequently clustered.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
 /**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
@@ -1426,9 +1456,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
 
-/**
- *  If specified, configures time-based partitioning for the destination table.
- */
+/** Time-based partitioning specification for the destination table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
@@ -1462,6 +1490,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowLargeResults;
+
+/**
+ *  [Experimental] Clustering specification for the destination table. Must be
+ *  specified with time-based partitioning, data in the table will be first
+ *  partitioned and subsequently clustered.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
 /**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
@@ -1566,9 +1601,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery_TableDefinitions *tableDefinitions;
 
-/**
- *  If specified, configures time-based partitioning for the destination table.
- */
+/** Time-based partitioning specification for the destination table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
@@ -2419,19 +2452,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_QueryTimelineSample : GTLRObject
 
 /**
- *  Total number of active workers. This does not correspond directly to slot
- *  usage. This is the largest value observed since the last sample.
+ *  Total number of units currently being processed by workers. This does not
+ *  correspond directly to slot usage. This is the largest value observed since
+ *  the last sample.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *activeInputs;
+@property(nonatomic, strong, nullable) NSNumber *activeUnits;
 
 /**
  *  Total parallel units of work completed by this query.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *completedInputs;
+@property(nonatomic, strong, nullable) NSNumber *completedUnits;
 
 /**
  *  Milliseconds elapsed since the start of query execution.
@@ -2445,7 +2479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *pendingInputs;
+@property(nonatomic, strong, nullable) NSNumber *pendingUnits;
 
 /**
  *  Cumulative slot-ms consumed by the query.
@@ -2494,6 +2528,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRBigquery_Table
  */
 @interface GTLRBigquery_Table : GTLRObject
+
+/**
+ *  [Experimental] Clustering specification for the table. Must be specified
+ *  with time-based partitioning, data in the table will be first partitioned
+ *  and subsequently clustered.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
 /**
  *  [Output-only] The time when this table was created, in milliseconds since
@@ -2611,7 +2652,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Required] Reference describing the ID of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/** If specified, configures time-based partitioning for this table. */
+/** Time-based partitioning specification for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
@@ -2870,6 +2911,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBigquery_TableList_Tables_Item : GTLRObject
 
+/** [Experimental] Clustering specification for this table, if configured. */
+@property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
+
 /**
  *  The time when this table was created, in milliseconds since the epoch.
  *
@@ -2908,7 +2952,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** A reference uniquely identifying the table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/** The time-based partitioning for this table. */
+/**
+ *  The time-based partitioning specification for this table, if configured.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /** The type of table. Possible values are: TABLE, VIEW. */

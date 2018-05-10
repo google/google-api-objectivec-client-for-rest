@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service Control API (servicecontrol/v1)
+//   Service Control API (servicecontrol/v1)
 // Description:
 //   Google Service Control provides control plane functionality to managed
 //   services, such as logging, monitoring, and status checks.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeServiceControlCloudPlatform;
 //
 
 /**
- *  Service for executing Google Service Control API queries.
+ *  Service for executing Service Control API queries.
  *
  *  Google Service Control provides control plane functionality to managed
  *  services, such as logging, monitoring, and status checks.

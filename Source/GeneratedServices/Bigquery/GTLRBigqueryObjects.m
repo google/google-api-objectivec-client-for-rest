@@ -59,6 +59,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_Clustering
+//
+
+@implementation GTLRBigquery_Clustering
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_CsvOptions
 //
 
@@ -334,7 +352,7 @@
 //
 
 @implementation GTLRBigquery_GoogleSheetsOptions
-@dynamic skipLeadingRows;
+@dynamic range, skipLeadingRows;
 @end
 
 
@@ -423,9 +441,9 @@
 //
 
 @implementation GTLRBigquery_JobConfigurationLoad
-@dynamic allowJaggedRows, allowQuotedNewlines, autodetect, createDisposition,
-         destinationEncryptionConfiguration, destinationTable,
-         destinationTableProperties, encoding, fieldDelimiter,
+@dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
+         createDisposition, destinationEncryptionConfiguration,
+         destinationTable, destinationTableProperties, encoding, fieldDelimiter,
          ignoreUnknownValues, maxBadRecords, nullMarker, projectionFields,
          quote, schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
          skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
@@ -449,7 +467,7 @@
 //
 
 @implementation GTLRBigquery_JobConfigurationQuery
-@dynamic allowLargeResults, createDisposition, defaultDataset,
+@dynamic allowLargeResults, clustering, createDisposition, defaultDataset,
          destinationEncryptionConfiguration, destinationTable, flattenResults,
          maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
          priority, query, queryParameters, schemaUpdateOptions,
@@ -825,7 +843,7 @@
 //
 
 @implementation GTLRBigquery_QueryTimelineSample
-@dynamic activeInputs, completedInputs, elapsedMs, pendingInputs, totalSlotMs;
+@dynamic activeUnits, completedUnits, elapsedMs, pendingUnits, totalSlotMs;
 @end
 
 
@@ -845,11 +863,11 @@
 //
 
 @implementation GTLRBigquery_Table
-@dynamic creationTime, descriptionProperty, encryptionConfiguration, ETag,
-         expirationTime, externalDataConfiguration, friendlyName, identifier,
-         kind, labels, lastModifiedTime, location, numBytes, numLongTermBytes,
-         numRows, schema, selfLink, streamingBuffer, tableReference,
-         timePartitioning, type, view;
+@dynamic clustering, creationTime, descriptionProperty, encryptionConfiguration,
+         ETag, expirationTime, externalDataConfiguration, friendlyName,
+         identifier, kind, labels, lastModifiedTime, location, numBytes,
+         numLongTermBytes, numRows, schema, selfLink, streamingBuffer,
+         tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1027,8 +1045,8 @@
 //
 
 @implementation GTLRBigquery_TableList_Tables_Item
-@dynamic creationTime, expirationTime, friendlyName, identifier, kind, labels,
-         tableReference, timePartitioning, type, view;
+@dynamic clustering, creationTime, expirationTime, friendlyName, identifier,
+         kind, labels, tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

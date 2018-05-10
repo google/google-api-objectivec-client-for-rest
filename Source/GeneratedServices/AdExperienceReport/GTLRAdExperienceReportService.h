@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Ad Experience Report API (adexperiencereport/v1)
+//   Ad Experience Report API (adexperiencereport/v1)
 // Description:
 //   View Ad Experience Report data, and get a list of sites that have a
 //   significant number of annoying ads.
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAdExperienceReportXapiZoo;
 //
 
 /**
- *  Service for executing Google Ad Experience Report API queries.
+ *  Service for executing Ad Experience Report API queries.
  *
  *  View Ad Experience Report data, and get a list of sites that have a
  *  significant number of annoying ads.

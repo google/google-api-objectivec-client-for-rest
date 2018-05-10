@@ -228,7 +228,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_AutoscalingEvent
 @dynamic currentNumWorkers, descriptionProperty, eventType, targetNumWorkers,
-         time;
+         time, workerPool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1087,8 +1087,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_MetricUpdate
-@dynamic cumulative, distribution, internal, kind, meanCount, meanSum, name,
-         scalar, set, updateTime;
+@dynamic cumulative, distribution, gauge, internal, kind, meanCount, meanSum,
+         name, scalar, set, updateTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

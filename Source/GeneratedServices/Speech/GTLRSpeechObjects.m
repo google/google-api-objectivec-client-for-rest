@@ -220,5 +220,5 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_WordInfo
-@dynamic endTime, startTime, word;
+@dynamic endTime, speakerTag, startTime, word;
 @end

@@ -473,6 +473,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+
+/**
  *  The ID of the managing account. If this parameter is not the same as
  *  accountId, then this account must be a multi-client account and accountId
  *  must be the ID of a sub-account of this account.
@@ -507,6 +513,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery_AccountstatusesList : GTLRShoppingContentQuery
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForAccountstatusesListWithmerchantId:]
+
+/**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
 
 /**
  *  The maximum number of account statuses to return in the response, used for
@@ -847,6 +859,46 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  @param datafeedId The ID of the datafeed.
  *
  *  @returns GTLRShoppingContentQuery_DatafeedsDelete
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                         datafeedId:(unsigned long long)datafeedId;
+
+@end
+
+/**
+ *  Invokes a fetch for the datafeed in your Merchant Center account.
+ *
+ *  Method: content.datafeeds.fetchnow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_DatafeedsFetchnow : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForDatafeedsFetchnowWithmerchantId:datafeedId:]
+
+/** The ID of the datafeed to be fetched. */
+@property(nonatomic, assign) unsigned long long datafeedId;
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  The ID of the account that manages the datafeed. This account cannot be a
+ *  multi-client account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_DatafeedsFetchNowResponse.
+ *
+ *  Invokes a fetch for the datafeed in your Merchant Center account.
+ *
+ *  @param merchantId The ID of the account that manages the datafeed. This
+ *    account cannot be a multi-client account.
+ *  @param datafeedId The ID of the datafeed to be fetched.
+ *
+ *  @returns GTLRShoppingContentQuery_DatafeedsFetchnow
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                          datafeedId:(unsigned long long)datafeedId;
@@ -3021,6 +3073,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductstatusesGetWithmerchantId:productId:]
 
 /**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+
+/**
  *  Flag to include full product data in the result of this get request. The
  *  default value is false.
  */
@@ -3062,6 +3120,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery_ProductstatusesList : GTLRShoppingContentQuery
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForProductstatusesListWithmerchantId:]
+
+/**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
 
 /**
  *  Flag to include full product data in the results of the list request. The

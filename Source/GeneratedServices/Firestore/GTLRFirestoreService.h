@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Firestore API (firestore/v1beta1)
+//   Cloud Firestore API (firestore/v1beta1)
 // Documentation:
 //   https://cloud.google.com/firestore
 
@@ -45,7 +45,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFirestoreDatastore;
 //
 
 /**
- *  Service for executing Google Cloud Firestore API queries.
+ *  Service for executing Cloud Firestore API queries.
  */
 @interface GTLRFirestoreService : GTLRService
 

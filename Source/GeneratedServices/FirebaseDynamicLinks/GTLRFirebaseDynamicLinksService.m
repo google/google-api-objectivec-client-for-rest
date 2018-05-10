@@ -25,7 +25,7 @@ NSString * const kGTLRAuthScopeFirebaseDynamicLinksFirebase = @"https://www.goog
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://firebasedynamiclinks-ipv6.googleapis.com/";
+    self.rootURLString = @"https://firebasedynamiclinks.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

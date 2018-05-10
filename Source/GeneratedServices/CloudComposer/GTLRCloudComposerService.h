@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   TaskQueue API (taskqueue/v1beta2)
+//   Cloud Composer API (composer/v1beta1)
 // Description:
-//   Accesses a Google App Engine Pull Task Queue over REST.
+//   Manages Apache Airflow environments on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/appengine/docs/python/taskqueue/rest
+//   https://cloud.google.com/composer/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -26,37 +26,32 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
- *  Authorization scope: Manage your Tasks and Taskqueues
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/taskqueue"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTaskqueue;
-/**
- *  Authorization scope: Consume Tasks from your Taskqueues
- *
- *  Value "https://www.googleapis.com/auth/taskqueue.consumer"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTaskqueueConsumer;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudComposerCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRTaskqueueService
+//   GTLRCloudComposerService
 //
 
 /**
- *  Service for executing TaskQueue API queries.
+ *  Service for executing Cloud Composer API queries.
  *
- *  Accesses a Google App Engine Pull Task Queue over REST.
+ *  Manages Apache Airflow environments on Google Cloud Platform.
  */
-@interface GTLRTaskqueueService : GTLRService
+@interface GTLRCloudComposerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRTaskqueueQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudComposerQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

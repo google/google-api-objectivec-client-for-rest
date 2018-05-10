@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Dataproc API (dataproc/v1)
+//   Cloud Dataproc API (dataproc/v1)
 // Description:
 //   Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 // Documentation:
@@ -367,7 +367,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  expose to this instance. See Compute Engine AcceleratorTypes.Examples:
  *  https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
  *  projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
- *  nvidia-tesla-k80
+ *  nvidia-tesla-k80Auto Zone Exception: If you are using the Cloud Dataproc
+ *  Auto Zone Placement feature, you must use the short name of the accelerator
+ *  type resource, for example, nvidia-tesla-k80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
 
@@ -697,8 +699,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_DiagnoseClusterResults : GTLRObject
 
 /**
- *  Output only. The Google Cloud Storage URI of the diagnostic output. The
- *  output report is a plain text file with a summary of collected diagnostics.
+ *  Output only. The Cloud Storage URI of the diagnostic output. The output
+ *  report is a plain text file with a summary of collected diagnostics.
  */
 @property(nonatomic, copy, nullable) NSString *outputUri;
 
@@ -785,7 +787,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /**
  *  Optional. The service account of the instances. Defaults to the default
  *  Compute Engine service account. Custom service accounts need permissions
- *  equivalent to the folloing IAM roles:
+ *  equivalent to the following IAM roles:
  *  roles/logging.logWriter
  *  roles/storage.objectAdmin(see
  *  https://cloud.google.com/compute/docs/access/service-accounts#custom_service_accounts
@@ -795,9 +797,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Optional. The URIs of service account scopes to be included in Google
- *  Compute Engine instances. The following base set of scopes is always
- *  included:
+ *  Optional. The URIs of service account scopes to be included in Compute
+ *  Engine instances. The following base set of scopes is always included:
  *  https://www.googleapis.com/auth/cloud.useraccounts.readonly
  *  https://www.googleapis.com/auth/devstorage.read_write
  *  https://www.googleapis.com/auth/logging.writeIf no scopes are specified, the
@@ -1026,9 +1027,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
- *  Optional. The list of instance names. Cloud Dataproc derives the names from
- *  cluster_name, num_instances, and the instance group if not set by user
- *  (recommended practice is to let Cloud Dataproc derive the name).
+ *  Output only. The list of instance names. Cloud Dataproc derives the names
+ *  from cluster_name, num_instances, and the instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
 
@@ -1044,7 +1044,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
  *  projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
- *  n1-standard-2
+ *  n1-standard-2Auto Zone Exception: If you are using the Cloud Dataproc Auto
+ *  Zone Placement feature, you must use the short name of the machine type
+ *  resource, for example, n1-standard-2.
  */
 @property(nonatomic, copy, nullable) NSString *machineTypeUri;
 
@@ -1693,9 +1695,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_SoftwareConfig : GTLRObject
 
 /**
- *  Optional. The version of software inside the cluster. It must match the
- *  regular expression [0-9]+\\.[0-9]+. If unspecified, it defaults to the
- *  latest version (see Cloud Dataproc Versioning).
+ *  Optional. The version of software inside the cluster. It must be one of the
+ *  supported Cloud Dataproc Versions, such as "1.2" (including a subminor
+ *  version, such as "1.2.29"), or the "preview" version. If unspecified, it
+ *  defaults to the latest version.
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 

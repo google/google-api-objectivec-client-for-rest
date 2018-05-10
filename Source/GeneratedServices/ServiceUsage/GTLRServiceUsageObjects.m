@@ -50,6 +50,11 @@ NSString * const kGTLRServiceUsage_Field_Kind_TypeUint32   = @"TYPE_UINT32";
 NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64   = @"TYPE_UINT64";
 NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 
+// GTLRServiceUsage_GoogleApiServiceusageV1Service.state
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled = @"DISABLED";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRServiceUsage_LabelDescriptor.valueType
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Int64 = @"INT64";
@@ -241,6 +246,25 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_BatchEnableServicesResponse
+//
+
+@implementation GTLRServiceUsage_BatchEnableServicesResponse
+@dynamic failures, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failures" : [GTLRServiceUsage_EnableFailure class],
+    @"services" : [GTLRServiceUsage_GoogleApiServiceusageV1Service class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Billing
 //
 
@@ -392,6 +416,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_DisableServiceResponse
+//
+
+@implementation GTLRServiceUsage_DisableServiceResponse
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Documentation
 //
 
@@ -426,10 +460,30 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_EnableFailure
+//
+
+@implementation GTLRServiceUsage_EnableFailure
+@dynamic errorMessage, serviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_EnableServiceRequest
 //
 
 @implementation GTLRServiceUsage_EnableServiceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_EnableServiceResponse
+//
+
+@implementation GTLRServiceUsage_EnableServiceResponse
+@dynamic service;
 @end
 
 
@@ -550,6 +604,36 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
     @"monitoredResources" : [GTLRServiceUsage_MonitoredResourceDescriptor class],
     @"systemTypes" : [GTLRServiceUsage_Type class],
     @"types" : [GTLRServiceUsage_Type class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV1Service
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV1Service
+@dynamic config, name, parent, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig
+@dynamic apis, authentication, documentation, endpoints, name, quota, title,
+         usage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apis" : [GTLRServiceUsage_Api class],
+    @"endpoints" : [GTLRServiceUsage_Endpoint class]
   };
   return map;
 }

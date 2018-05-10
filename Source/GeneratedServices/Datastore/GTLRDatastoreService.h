@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Datastore API (datastore/v1)
+//   Cloud Datastore API (datastore/v1)
 // Description:
 //   Accesses the schemaless NoSQL database to provide fully managed, robust,
 //   scalable storage for your application.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDatastoreCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Datastore API queries.
+ *  Service for executing Cloud Datastore API queries.
  *
  *  Accesses the schemaless NoSQL database to provide fully managed, robust,
  *  scalable storage for your application.

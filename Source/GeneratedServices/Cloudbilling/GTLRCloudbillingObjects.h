@@ -187,10 +187,7 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUns
  */
 @interface GTLRCloudbilling_AuditConfig : GTLRObject
 
-/**
- *  The configuration for logging of each type of permission.
- *  Next ID: 4
- */
+/** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudbilling_AuditLogConfig *> *auditLogConfigs;
 
 /**

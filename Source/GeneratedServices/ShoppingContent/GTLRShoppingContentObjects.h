@@ -76,6 +76,7 @@
 @class GTLRShoppingContent_OrderAddress;
 @class GTLRShoppingContent_OrderCancellation;
 @class GTLRShoppingContent_OrderCustomer;
+@class GTLRShoppingContent_OrderCustomerMarketingRightsInfo;
 @class GTLRShoppingContent_OrderDeliveryDetails;
 @class GTLRShoppingContent_OrderLineItem;
 @class GTLRShoppingContent_OrderLineItemProduct;
@@ -108,6 +109,8 @@
 @class GTLRShoppingContent_PosCustomBatchRequestEntry;
 @class GTLRShoppingContent_PosCustomBatchResponseEntry;
 @class GTLRShoppingContent_PosInventory;
+@class GTLRShoppingContent_PosProviders;
+@class GTLRShoppingContent_PosProvidersPosProvider;
 @class GTLRShoppingContent_PosSale;
 @class GTLRShoppingContent_PosStore;
 @class GTLRShoppingContent_PostalCodeGroup;
@@ -141,6 +144,7 @@
 @class GTLRShoppingContent_Table;
 @class GTLRShoppingContent_TestOrder;
 @class GTLRShoppingContent_TestOrderCustomer;
+@class GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo;
 @class GTLRShoppingContent_TestOrderLineItem;
 @class GTLRShoppingContent_TestOrderLineItemProduct;
 @class GTLRShoppingContent_TestOrderPaymentMethod;
@@ -517,6 +521,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Country for which this issue is reported. */
 @property(nonatomic, copy, nullable) NSString *country;
 
+/** The destination the issue applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
 /** Additional details about the issue. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
@@ -543,6 +550,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Country for which this issue is reported. */
 @property(nonatomic, copy, nullable) NSString *country;
+
+/** The destination the issue applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /** A more detailed description of the issue. */
 @property(nonatomic, copy, nullable) NSString *detail;
@@ -611,6 +621,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
 
 /**
  *  The ID of the managing account.
@@ -1253,6 +1269,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A list of errors defined if and only if the request failed. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_DatafeedsFetchNowResponse
+ */
+@interface GTLRShoppingContent_DatafeedsFetchNowResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#datafeedsFetchNowResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -2227,6 +2257,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *method;
 
+/** The account ID by which this merchant is known to the POS provider. */
+@property(nonatomic, copy, nullable) NSString *posExternalAccountId;
+
+/**
+ *  The ID of POS provider. Required only for SetPosProvider.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *posProviderId;
+
 @end
 
 
@@ -2273,6 +2313,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The retrieved or updated Lia settings. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaSettings *liaSettings;
+
+/** The list of POS providers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PosProviders *> *posProviders;
 
 @end
 
@@ -2595,10 +2638,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  If set, this indicates the user explicitly chose to opt in or out of
- *  providing marketing rights to the merchant. If unset, this indicates the
- *  user has already made this choice in a previous purchase, and was thus not
- *  shown the marketing right opt in/out checkbox during the checkout flow.
+ *  Deprecated. Please use marketingRightsInfo instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2606,6 +2646,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
+
+/** Customer's marketing preferences. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomerMarketingRightsInfo *marketingRightsInfo;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderCustomerMarketingRightsInfo
+ */
+@interface GTLRShoppingContent_OrderCustomerMarketingRightsInfo : GTLRObject
+
+/**
+ *  Last known user selection regarding marketing preferences. In certain cases
+ *  this selection might not be known, so this field would be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *explicitMarketingPreference;
+
+/**
+ *  Timestamp when last time marketing preference was updated. Could be empty,
+ *  if user wasn't offered a selection yet.
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdatedTimestamp;
+
+/**
+ *  Email address that can be used for marketing purposes. This field is only
+ *  filled when explicitMarketingPreference is equal to 'granted'.
+ */
+@property(nonatomic, copy, nullable) NSString *marketingEmailAddress;
 
 @end
 
@@ -4455,7 +4524,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The store information to submit. Set this only if the method is insert. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PosStore *store;
 
-/** The store code. Required only to get/submit store information. */
+/** The store code. Set this only if the method is delete or get. */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /**
@@ -4659,6 +4728,41 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PosStore *> *resources;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_PosProviders
+ */
+@interface GTLRShoppingContent_PosProviders : GTLRObject
+
+/** Country code. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** A list of POS providers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PosProvidersPosProvider *> *posProviders;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_PosProvidersPosProvider
+ */
+@interface GTLRShoppingContent_PosProvidersPosProvider : GTLRObject
+
+/** The display name of Pos Provider. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The full name of this POS Provider. */
+@property(nonatomic, copy, nullable) NSString *fullName;
+
+/**
+ *  The ID of the account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *providerId;
 
 @end
 
@@ -5533,6 +5637,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_ProductStatusDataQualityIssue : GTLRObject
 
+/** The destination the issue applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
 /** A more detailed error string. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
@@ -5610,6 +5717,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
 
 /**
  *  includeAttributes
@@ -5720,8 +5833,21 @@ NS_ASSUME_NONNULL_BEGIN
 /** The error code of the issue. */
 @property(nonatomic, copy, nullable) NSString *code;
 
+/**
+ *  A short issue description in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** The destination the issue applies to. */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/** A detailed issue description in English. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** The URL of a web page to help with resolving this issue. */
+@property(nonatomic, copy, nullable) NSString *documentation;
 
 /** Whether the issue can be resolved by the merchant. */
 @property(nonatomic, copy, nullable) NSString *resolution;
@@ -5898,6 +6024,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_DeliveryTime *deliveryTime;
+
+/** Eligibility for this service. */
+@property(nonatomic, copy, nullable) NSString *eligibility;
 
 /**
  *  Minimum order value for this service. If set, indicates that customers will
@@ -6186,11 +6315,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  If set, this indicates the user explicitly chose to opt in or out of
- *  providing marketing rights to the merchant. If unset, this indicates the
- *  user has already made this choice in a previous purchase, and was thus not
- *  shown the marketing right opt in/out checkbox during the checkout flow.
- *  Optional.
+ *  Deprecated. Please use marketingRightsInfo instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6198,6 +6323,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
+
+/** Customer's marketing preferences. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo *marketingRightsInfo;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
+ */
+@interface GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo : GTLRObject
+
+/**
+ *  Last know user use selection regards marketing preferences. In certain cases
+ *  selection might not be known, so this field would be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *explicitMarketingPreference;
+
+/**
+ *  Timestamp when last time marketing preference was updated. Could be empty,
+ *  if user wasn't offered a selection yet.
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdatedTimestamp;
 
 @end
 

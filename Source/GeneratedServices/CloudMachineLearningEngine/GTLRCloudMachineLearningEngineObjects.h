@@ -80,6 +80,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
+
+/**
+ *  The default algorithm used by hyperparameter tuning service.
+ *
+ *  Value: "ALGORITHM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified;
+/**
+ *  Simple grid search within the feasible space. To use grid search,
+ *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *
+ *  Value: "GRID_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch;
+/**
+ *  Simple random search within the feasible space.
+ *
+ *  Value: "RANDOM_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
 
 /**
@@ -318,13 +341,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
 /**
  *  A single worker instance [with a
- *  GPU](/ml-engine/docs/how-tos/using-gpus).
+ *  GPU](/ml-engine/docs/tensorflow/using-gpus).
  *
  *  Value: "BASIC_GPU"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
 /**
- *  A single worker instance with a [Cloud TPU](/tpu)
+ *  A single worker instance with a
+ *  [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
+ *  The availability of Cloud TPU is in <i>Beta</i> launch stage.
  *
  *  Value: "BASIC_TPU"
  */
@@ -524,8 +549,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  nodes are always up, starting from the time the model is deployed, so the
  *  cost of operating this model will be at least
  *  `rate` * `min_nodes` * number of hours since last billing cycle,
- *  where `rate` is the cost per node-hour as documented in
- *  [pricing](https://cloud.google.com/ml-engine/pricing#prediction_pricing),
+ *  where `rate` is the cost per node-hour as documented in the
+ *  [pricing guide](/ml-engine/docs/pricing),
  *  even if no predictions are performed. There is additional cost for each
  *  prediction performed.
  *  Unlike manual scaling, if the load gets too heavy for the nodes
@@ -679,6 +704,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Represents a set of hyperparameters to optimize.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec : GTLRObject
+
+/**
+ *  Optional. The search algorithm specified for the hyperparameter
+ *  tuning job.
+ *  Uses the default CloudML Engine hyperparameter tuning
+ *  algorithm if unspecified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified
+ *        The default algorithm used by hyperparameter tuning service. (Value:
+ *        "ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch
+ *        Simple grid search within the feasible space. To use grid search,
+ *        all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *        (Value: "GRID_SEARCH")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch
+ *        Simple random search within the feasible space. (Value:
+ *        "RANDOM_SEARCH")
+ */
+@property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
  *  Optional. Indicates if the hyperparameter tuning job enables auto trial
@@ -993,8 +1038,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Optional. The list of regions where the model is going to be deployed.
  *  Currently only one region per model is supported.
  *  Defaults to 'us-central1' if nothing is set.
- *  See the <a href="/ml-engine/docs/regions">available regions</a> for
- *  ML Engine services.
+ *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
+ *  for ML Engine services.
  *  Note:
  *  * No matter where a model is deployed, it can always be accessed by
  *  users from anywhere, both for online and batch prediction.
@@ -1211,7 +1256,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Use this field if you want to use the default version for the specified
  *  model. The string must use the following format:
- *  `"projects/<var>[YOUR_PROJECT]</var>/models/<var>[YOUR_MODEL]</var>"`
+ *  `"projects/YOUR_PROJECT/models/YOUR_MODEL"`
  */
 @property(nonatomic, copy, nullable) NSString *modelName;
 
@@ -1220,8 +1265,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Required. The Google Compute Engine region to run the prediction job in.
- *  See the <a href="/ml-engine/docs/regions">available regions</a> for
- *  ML Engine services.
+ *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
+ *  for ML Engine services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -1255,7 +1300,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Use this field if you want to specify a version of the model to use. The
  *  string is formatted the same way as `model_version`, with the addition
  *  of the version information:
- *  `"projects/<var>[YOUR_PROJECT]</var>/models/<var>YOUR_MODEL/versions/<var>[YOUR_VERSION]</var>"`
+ *  `"projects/YOUR_PROJECT/models/YOUR_MODEL/versions/YOUR_VERSION"`
  */
 @property(nonatomic, copy, nullable) NSString *versionName;
 
@@ -1321,8 +1366,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  configuration
  *  file referenced from the --config command-line argument. For
  *  details, see the guide to
- *  <a href="/ml-engine/docs/training-jobs">submitting a training job</a>.
- *  Next ID: 22
+ *  <a href="/ml-engine/docs/tensorflow/training-jobs">submitting a training
+ *  job</a>.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
@@ -1376,8 +1421,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  <dd>
  *  A machine equivalent to <code suppresswarning="true">standard</code> that
  *  also includes a single NVIDIA Tesla K80 GPU. See more about
- *  <a href="/ml-engine/docs/how-tos/using-gpus">
- *  using GPUs for training your model</a>.
+ *  <a href="/ml-engine/docs/tensorflow/using-gpus">using GPUs to
+ *  train your model</a>.
  *  </dd>
  *  <dt>complex_model_m_gpu</dt>
  *  <dd>
@@ -1403,6 +1448,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  <code suppresswarning="true">complex_model_m</code> that also includes
  *  four NVIDIA Tesla P100 GPUs. The availability of these GPUs is in
  *  the Beta launch stage.
+ *  </dd>
+ *  <dt>standard_tpu</dt>
+ *  <dd>
+ *  A TPU VM including one Cloud TPU. The availability of Cloud TPU is in
+ *  <i>Beta</i> launch stage. See more about
+ *  <a href="/ml-engine/docs/tensorflow/using-tpus">using TPUs to train
+ *  your model</a>.
  *  </dd>
  *  </dl>
  *  You must set this value when `scaleTier` is set to `CUSTOM`.
@@ -1449,14 +1501,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Required. The Google Compute Engine region to run the training job in.
- *  See the <a href="/ml-engine/docs/regions">available regions</a> for
- *  ML Engine services.
+ *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
+ *  for ML Engine services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
  *  Optional. The Google Cloud ML runtime version to use for training. If not
- *  set, Google Cloud ML will choose the latest stable version.
+ *  set, Google Cloud ML will choose a stable version, which is defined in the
+ *  documentation of runtime version list.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
@@ -1472,9 +1525,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        (Value: "BASIC")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
  *        A single worker instance [with a
- *        GPU](/ml-engine/docs/how-tos/using-gpus). (Value: "BASIC_GPU")
+ *        GPU](/ml-engine/docs/tensorflow/using-gpus). (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu
- *        A single worker instance with a [Cloud TPU](/tpu) (Value: "BASIC_TPU")
+ *        A single worker instance with a
+ *        [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
+ *        The availability of Cloud TPU is in <i>Beta</i> launch stage. (Value:
+ *        "BASIC_TPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
@@ -1587,8 +1643,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Required. The Google Cloud Storage location of the trained model used to
  *  create the version. See the
- *  [overview of model
- *  deployment](/ml-engine/docs/concepts/deployment-overview) for more
+ *  [guide to model
+ *  deployment](/ml-engine/docs/tensorflow/deploying-models) for more
  *  information.
  *  When passing Version to
  *  [projects.models.versions.create](/ml-engine/reference/rest/v1/projects.models.versions/create)
@@ -1751,10 +1807,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig : GTLRObject
 
-/**
- *  The configuration for logging of each type of permission.
- *  Next ID: 4
- */
+/** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig *> *auditLogConfigs;
 
 /**
@@ -1826,7 +1879,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -1849,13 +1902,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -1864,7 +1917,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -1873,6 +1926,17 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */

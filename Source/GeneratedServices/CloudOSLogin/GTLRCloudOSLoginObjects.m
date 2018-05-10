@@ -11,6 +11,14 @@
 #import "GTLRCloudOSLoginObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCloudOSLogin_PosixAccount.operatingSystemType
+NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Linux = @"LINUX";
+NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified = @"OPERATING_SYSTEM_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"WINDOWS";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRCloudOSLogin_Empty
 //
@@ -67,8 +75,8 @@
 //
 
 @implementation GTLRCloudOSLogin_PosixAccount
-@dynamic accountId, gecos, gid, homeDirectory, primary, shell, systemId, uid,
-         username;
+@dynamic accountId, gecos, gid, homeDirectory, operatingSystemType, primary,
+         shell, systemId, uid, username;
 @end
 
 

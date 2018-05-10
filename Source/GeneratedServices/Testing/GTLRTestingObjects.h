@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Testing API (testing/v1)
+//   Cloud Testing API (testing/v1)
 // Description:
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
@@ -1263,7 +1263,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
+ *  month.
  *
  *  Uses NSNumber of intValue.
  */

@@ -61,42 +61,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSurveys_MobileAppPanel
-//
-
-@implementation GTLRSurveys_MobileAppPanel
-@dynamic country, isPublicPanel, language, mobileAppPanelId, name, owners;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"owners" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSurveys_MobileAppPanelsListResponse
-//
-
-@implementation GTLRSurveys_MobileAppPanelsListResponse
-@dynamic pageInfo, requestId, resources, tokenPagination;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRSurveys_MobileAppPanel class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSurveys_PageInfo
 //
 
@@ -193,8 +157,7 @@
 //
 
 @implementation GTLRSurveys_SurveyAudience
-@dynamic ages, country, countrySubdivision, gender, languages, mobileAppPanelId,
-         populationSource;
+@dynamic ages, country, countrySubdivision, gender, languages, populationSource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

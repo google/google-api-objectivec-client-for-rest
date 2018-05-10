@@ -463,7 +463,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 
 /**
  *  The BigQuery project id where the transfer configuration should be created.
- *  Must be in the format /projects/{project_id}/locations/{location_id}
+ *  Must be in the format projects/{project_id}/locations/{location_id}
  *  If specified location and location of the destination bigquery dataset
  *  do not match - the request will fail.
  */
@@ -478,7 +478,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *    the query.
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
- *    Must be in the format /projects/{project_id}/locations/{location_id}
+ *    Must be in the format projects/{project_id}/locations/{location_id}
  *    If specified location and location of the destination bigquery dataset
  *    do not match - the request will fail.
  *
@@ -970,7 +970,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 
 /**
  *  The BigQuery project id where the transfer configuration should be created.
- *  Must be in the format /projects/{project_id}/locations/{location_id}
+ *  Must be in the format projects/{project_id}/locations/{location_id}
  *  If specified location and location of the destination bigquery dataset
  *  do not match - the request will fail.
  */
@@ -985,7 +985,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *    the query.
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
- *    Must be in the format /projects/{project_id}/locations/{location_id}
+ *    Must be in the format projects/{project_id}/locations/{location_id}
  *    If specified location and location of the destination bigquery dataset
  *    do not match - the request will fail.
  *

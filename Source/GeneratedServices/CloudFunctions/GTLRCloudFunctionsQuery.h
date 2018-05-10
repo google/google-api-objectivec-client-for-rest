@@ -4,8 +4,7 @@
 // API:
 //   Google Cloud Functions API (cloudfunctions/v1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
 //   https://cloud.google.com/functions
 
@@ -290,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * Source file size should not exceed 100MB limit.
  *  When making a HTTP PUT request, these two headers need to be specified:
  *  * `content-type: application/zip`
- *  * `x-google-content-length-range: 0,104857600`
+ *  * `x-goog-content-length-range: 0,104857600`
  *
  *  Method: cloudfunctions.projects.locations.functions.generateUploadUrl
  *
@@ -322,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * Source file size should not exceed 100MB limit.
  *  When making a HTTP PUT request, these two headers need to be specified:
  *  * `content-type: application/zip`
- *  * `x-google-content-length-range: 0,104857600`
+ *  * `x-goog-content-length-range: 0,104857600`
  *
  *  @param object The @c GTLRCloudFunctions_GenerateUploadUrlRequest to include
  *    in the query.

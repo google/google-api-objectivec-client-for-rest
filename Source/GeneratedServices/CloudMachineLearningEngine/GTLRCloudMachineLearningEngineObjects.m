@@ -24,6 +24,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training = @"TRAINING";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified = @"ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch = @"GRID_SEARCH";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch = @"RANDOM_SEARCH";
+
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified = @"GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize = @"MAXIMIZE";
@@ -233,7 +238,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec
-@dynamic enableTrialEarlyStopping, goal, hyperparameterMetricTag,
+@dynamic algorithm, enableTrialEarlyStopping, goal, hyperparameterMetricTag,
          maxParallelTrials, maxTrials, params, resumePreviousJobId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

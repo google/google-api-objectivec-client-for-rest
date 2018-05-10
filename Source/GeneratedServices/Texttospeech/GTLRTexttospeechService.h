@@ -4,9 +4,10 @@
 // API:
 //   Cloud Text-to-Speech API (texttospeech/v1beta1)
 // Description:
-//   Cloud Text-to-Speech API.
+//   Synthesizes natural-sounding speech by applying powerful neural network
+//   models.
 // Documentation:
-//   http://cloud.google.com/speech/text-to-speech/
+//   http://cloud.google.com/text-to-speech/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -43,7 +44,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeTexttospeechCloudPlatform;
 /**
  *  Service for executing Cloud Text-to-Speech API queries.
  *
- *  Cloud Text-to-Speech API.
+ *  Synthesizes natural-sounding speech by applying powerful neural network
+ *  models.
  */
 @interface GTLRTexttospeechService : GTLRService
 

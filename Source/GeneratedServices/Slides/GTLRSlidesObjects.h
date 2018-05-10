@@ -1448,6 +1448,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector5;
  */
 GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightConnector1;
 /**
+ *  Straight line. Corresponds to ECMA-376 ST_ShapeType 'line'. This line
+ *  type is not a connector.
+ *
+ *  Value: "STRAIGHT_LINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightLine;
+/**
  *  An unspecified line type.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -4111,7 +4118,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at most 2 kB in length.
+ *  The provided URL can be at most 2 kB in length. The URL itself is saved
+ *  with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -4715,7 +4723,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  Creates an embedded Google Sheets chart.
  *  NOTE: Chart creation requires at least one of the spreadsheets.readonly,
- *  spreadsheets, drive.readonly, or drive OAuth scopes.
+ *  spreadsheets, drive.readonly, drive.file, or drive OAuth scopes.
  */
 @interface GTLRSlides_CreateSheetsChartRequest : GTLRObject
 
@@ -5598,7 +5606,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  A PageElement kind representing a
- *  line, curved connector, or bent connector.
+ *  non-connector line, straight connector, curved connector, or bent connector.
  */
 @interface GTLRSlides_Line : GTLRObject
 
@@ -5636,6 +5644,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Line_LineType_StraightConnector1 Straight connector 1
  *        form. Corresponds to ECMA-376 ST_ShapeType
  *        'straightConnector1'. (Value: "STRAIGHT_CONNECTOR_1")
+ *    @arg @c kGTLRSlides_Line_LineType_StraightLine Straight line. Corresponds
+ *        to ECMA-376 ST_ShapeType 'line'. This line
+ *        type is not a connector. (Value: "STRAIGHT_LINE")
  *    @arg @c kGTLRSlides_Line_LineType_TypeUnspecified An unspecified line
  *        type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -6711,6 +6722,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Replaces all shapes that match the given criteria with the provided image.
+ *  The images replacing the shapes are rectangular after being inserted into
+ *  the presentation and do not take on the forms of the shapes.
  */
 @interface GTLRSlides_ReplaceAllShapesWithImageRequest : GTLRObject
 
@@ -6753,7 +6766,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at most 2 kB in length.
+ *  The provided URL can be at most 2 kB in length. The URL itself is saved
+ *  with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
@@ -6946,7 +6960,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
  *  format.
- *  The provided URL can be at most 2 kB in length.
+ *  The provided URL can be at most 2 kB in length. The URL itself is saved
+ *  with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

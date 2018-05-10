@@ -56,8 +56,6 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#commentListResponse" : [GTLRYouTube_CommentListResponse class],
     @"youtube#commentThread" : [GTLRYouTube_CommentThread class],
     @"youtube#commentThreadListResponse" : [GTLRYouTube_CommentThreadListResponse class],
-    @"youtube#fanFundingEvent" : [GTLRYouTube_FanFundingEvent class],
-    @"youtube#fanFundingEventListResponse" : [GTLRYouTube_FanFundingEventListResponse class],
     @"youtube#guideCategory" : [GTLRYouTube_GuideCategory class],
     @"youtube#guideCategoryListResponse" : [GTLRYouTube_GuideCategoryListResponse class],
     @"youtube#i18nLanguage" : [GTLRYouTube_I18nLanguage class],

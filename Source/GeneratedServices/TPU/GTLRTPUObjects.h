@@ -111,6 +111,12 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Repairing;
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Restarting;
 /**
+ *  TPU node is currently starting.
+ *
+ *  Value: "STARTING"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Starting;
+/**
  *  TPU node state is not known/set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -123,6 +129,12 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
  *  Value: "STOPPED"
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
+/**
+ *  TPU node is currently stopping.
+ *
+ *  Value: "STOPPING"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
 
 /**
  *  A accelerator type that a Node can be configured with.
@@ -475,10 +487,14 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
  *        found in the `help_description` field. (Value: "REPAIRING")
  *    @arg @c kGTLRTPU_Node_State_Restarting TPU node is restarting. (Value:
  *        "RESTARTING")
+ *    @arg @c kGTLRTPU_Node_State_Starting TPU node is currently starting.
+ *        (Value: "STARTING")
  *    @arg @c kGTLRTPU_Node_State_StateUnspecified TPU node state is not
  *        known/set. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRTPU_Node_State_Stopped 7 - Reserved. Was SUSPENDED.
  *        TPU node is stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRTPU_Node_State_Stopping TPU node is currently stopping.
+ *        (Value: "STOPPING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

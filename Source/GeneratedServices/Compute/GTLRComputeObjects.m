@@ -2122,7 +2122,6 @@ NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable = @"UNREA
 NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls10 = @"TLS_1_0";
 NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls11 = @"TLS_1_1";
 NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls12 = @"TLS_1_2";
-NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls13 = @"TLS_1_3";
 
 // GTLRCompute_SslPolicy.profile
 NSString * const kGTLRCompute_SslPolicy_Profile_Compatible = @"COMPATIBLE";

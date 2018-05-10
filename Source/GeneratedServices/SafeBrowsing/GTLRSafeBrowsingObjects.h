@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Safe Browsing API (safebrowsing/v4)
+//   Safe Browsing API (safebrowsing/v4)
 // Description:
 //   Enables client applications to check web resources (most commonly URLs)
 //   against Google-generated lists of unsafe web resources.
@@ -239,6 +239,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Soci
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter;
 /**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious;
+/**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
@@ -457,6 +463,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Soc
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter;
 /**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious;
+/**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
@@ -627,6 +639,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngine
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter;
 /**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious;
+/**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
@@ -706,6 +724,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngi
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal;
 /** Value: "SUBRESOURCE_FILTER" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter;
+/** Value: "SUSPICIOUS" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious;
 /** Value: "THREAT_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
 /** Value: "UNWANTED_SOFTWARE" */
@@ -892,6 +912,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_S
  *  Value: "SUBRESOURCE_FILTER"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter;
+/**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
@@ -1086,6 +1112,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngi
  *  Value: "SUBRESOURCE_FILTER"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter;
+/**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
@@ -1454,6 +1486,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Interstitial
  *        will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious Entities
+ *        that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware
@@ -1599,6 +1633,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Interstitial
  *        will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious
+ *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware
@@ -1888,6 +1924,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        to be used for activating the subresource filter. Interstitial
  *        will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
+ *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious Entities that
+ *        are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware Unwanted
@@ -2013,6 +2051,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Interstitial
  *        will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious
+ *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware
@@ -2123,6 +2163,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Interstitial
  *        will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious Entities that
+ *        are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware Unwanted

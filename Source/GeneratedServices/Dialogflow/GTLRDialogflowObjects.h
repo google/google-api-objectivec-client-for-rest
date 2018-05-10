@@ -252,6 +252,66 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_
 
 /**
  *  Actions on Google.
+ *  When using Actions on Google, you can choose one of the specific
+ *  Intent.Message types that mention support for Actions on Google,
+ *  or you can use the advanced Intent.Message.payload field.
+ *  The payload field provides access to AoG features not available in the
+ *  specific message types.
+ *  If using the Intent.Message.payload field, it should have a structure
+ *  similar to the JSON message shown here. For more information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "expectUserResponse": true,
+ *  "isSsml": false,
+ *  "noInputPrompts": [],
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "displayText": "hi",
+ *  "textToSpeech": "hello"
+ *  }
+ *  }
+ *  ],
+ *  "suggestions": [
+ *  {
+ *  "title": "Say this"
+ *  },
+ *  {
+ *  "title": "or this"
+ *  }
+ *  ]
+ *  },
+ *  "systemIntent": {
+ *  "data": {
+ *  "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+ *  "listSelect": {
+ *  "items": [
+ *  {
+ *  "optionInfo": {
+ *  "key": "key1",
+ *  "synonyms": [
+ *  "key one"
+ *  ]
+ *  },
+ *  "title": "must not be empty, but unique"
+ *  },
+ *  {
+ *  "optionInfo": {
+ *  "key": "key2",
+ *  "synonyms": [
+ *  "key two"
+ *  ]
+ *  },
+ *  "title": "must not be empty, but unique"
+ *  }
+ *  ]
+ *  }
+ *  },
+ *  "intent": "actions.intent.OPTION"
+ *  }
+ *  }</pre>
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
@@ -328,6 +388,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentT
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata.state
+
+/**
+ *  The operation is done, either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done;
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Pending;
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Running;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
@@ -491,6 +579,66 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_Webho
 
 /**
  *  Actions on Google.
+ *  When using Actions on Google, you can choose one of the specific
+ *  Intent.Message types that mention support for Actions on Google,
+ *  or you can use the advanced Intent.Message.payload field.
+ *  The payload field provides access to AoG features not available in the
+ *  specific message types.
+ *  If using the Intent.Message.payload field, it should have a structure
+ *  similar to the JSON message shown here. For more information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "expectUserResponse": true,
+ *  "isSsml": false,
+ *  "noInputPrompts": [],
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "displayText": "hi",
+ *  "textToSpeech": "hello"
+ *  }
+ *  }
+ *  ],
+ *  "suggestions": [
+ *  {
+ *  "title": "Say this"
+ *  },
+ *  {
+ *  "title": "or this"
+ *  }
+ *  ]
+ *  },
+ *  "systemIntent": {
+ *  "data": {
+ *  "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+ *  "listSelect": {
+ *  "items": [
+ *  {
+ *  "optionInfo": {
+ *  "key": "key1",
+ *  "synonyms": [
+ *  "key one"
+ *  ]
+ *  },
+ *  "title": "must not be empty, but unique"
+ *  },
+ *  {
+ *  "optionInfo": {
+ *  "key": "key2",
+ *  "synonyms": [
+ *  "key two"
+ *  ]
+ *  },
+ *  "title": "must not be empty, but unique"
+ *  }
+ *  ]
+ *  }
+ *  },
+ *  "intent": "actions.intent.OPTION"
+ *  }
+ *  }</pre>
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
@@ -603,7 +751,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The URI of the agent's avatar.
- *  Avatars are used throughout API.AI console and in the self-hosted
+ *  Avatars are used throughout the Dialogflow console and in the self-hosted
  *  [Web Demo](https://dialogflow.com/docs/integrations/web-demo) integration.
  */
 @property(nonatomic, copy, nullable) NSString *avatarUri;
@@ -931,12 +1079,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  The Context ID is always converted to lowercase.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`. Note:
+ *  Environments and
+ *  users are under construction and will be available soon. The Context ID is
+ *  always converted to lowercase. If <Environment ID> is not specified, we
+ *  assume default 'draft' environment. If <User ID> is not specified, we
+ *  assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1166,7 +1316,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of rich messages corresponding to the
- *  `Response` field in API.AI console.
+ *  `Response` field in the Dialogflow console.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *messages;
 
@@ -1295,7 +1445,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Corresponds to the `Response` field in API.AI console.
+ *  Corresponds to the `Response` field in the Dialogflow console.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage : GTLRObject
 
@@ -1317,7 +1467,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** Displays a list card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelect *listSelect;
 
-/** Returns a response containing a custom payload. */
+/**
+ *  Returns a response containing a custom, platform-specific payload.
+ *  See the Intent.Message.Platform type for a description of the
+ *  structure that may be required for your platform.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Payload *payload;
 
 /**
@@ -1325,7 +1479,67 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle
- *        Actions on Google. (Value: "ACTIONS_ON_GOOGLE")
+ *        Actions on Google.
+ *        When using Actions on Google, you can choose one of the specific
+ *        Intent.Message types that mention support for Actions on Google,
+ *        or you can use the advanced Intent.Message.payload field.
+ *        The payload field provides access to AoG features not available in the
+ *        specific message types.
+ *        If using the Intent.Message.payload field, it should have a structure
+ *        similar to the JSON message shown here. For more information, see
+ *        [Actions on Google Webhook
+ *        Format](https://developers.google.com/actions/dialogflow/webhook)
+ *        <pre>{
+ *        "expectUserResponse": true,
+ *        "isSsml": false,
+ *        "noInputPrompts": [],
+ *        "richResponse": {
+ *        "items": [
+ *        {
+ *        "simpleResponse": {
+ *        "displayText": "hi",
+ *        "textToSpeech": "hello"
+ *        }
+ *        }
+ *        ],
+ *        "suggestions": [
+ *        {
+ *        "title": "Say this"
+ *        },
+ *        {
+ *        "title": "or this"
+ *        }
+ *        ]
+ *        },
+ *        "systemIntent": {
+ *        "data": {
+ *        "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+ *        "listSelect": {
+ *        "items": [
+ *        {
+ *        "optionInfo": {
+ *        "key": "key1",
+ *        "synonyms": [
+ *        "key one"
+ *        ]
+ *        },
+ *        "title": "must not be empty, but unique"
+ *        },
+ *        {
+ *        "optionInfo": {
+ *        "key": "key2",
+ *        "synonyms": [
+ *        "key two"
+ *        ]
+ *        },
+ *        "title": "must not be empty, but unique"
+ *        }
+ *        ]
+ *        }
+ *        },
+ *        "intent": "actions.intent.OPTION"
+ *        }
+ *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Kik
@@ -1361,7 +1575,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Returns a response containing a custom payload.
+ *  Returns a response containing a custom, platform-specific payload.
+ *  See the Intent.Message.Platform type for a description of the
+ *  structure that may be required for your platform.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1830,6 +2046,29 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Metadata in google::longrunning::Operation for Knowledge operations.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
+
+/**
+ *  Required. The current state of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done
+ *        The operation is done, either cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Pending
+ *        The operation has been created. (Value: "PENDING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Running
+ *        The operation is currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Represents the contents of the original request that was passed to
  *  the `[Streaming]DetectIntent` call.
  */
@@ -1843,8 +2082,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  The source of this request, e.g., `google`, `facebook`, `slack`. It is set
- *  by Dialogflow-owned servers. Possible values of this field correspond to
- *  Intent.Message.Platform.
+ *  by Dialogflow-owned servers.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -1944,10 +2182,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. The default of 0.0 is a sentinel value indicating that confidence
  *  was not set.
- *  You should not rely on this field as it isn't guaranteed to be accurate, or
- *  even set. In particular this field isn't set in Webhook calls and for
- *  StreamingDetectIntent since the streaming endpoint has separate confidence
- *  estimates per portion of the audio in StreamingRecognitionResult.
+ *  This field is not guaranteed to be accurate or set. In particular this
+ *  field isn't set for StreamingDetectIntent since the streaming endpoint has
+ *  separate confidence estimates per portion of the audio in
+ *  StreamingRecognitionResult.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2070,6 +2308,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
+ *  See the related `fulfillment_messages[i].payload field`, which may be used
+ *  as an alternative to this field.
+ *  This field can be used for Actions on Google responses.
+ *  It should have a structure similar to the JSON message shown here. For more
+ *  information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "google": {
+ *  "expectUserResponse": true,
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "textToSpeech": "this is a simple response"
+ *  }
+ *  }
+ *  ]
+ *  }
+ *  }
+ *  }</pre>
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload *payload;
 
@@ -2083,6 +2342,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
+ *  See the related `fulfillment_messages[i].payload field`, which may be used
+ *  as an alternative to this field.
+ *  This field can be used for Actions on Google responses.
+ *  It should have a structure similar to the JSON message shown here. For more
+ *  information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "google": {
+ *  "expectUserResponse": true,
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "textToSpeech": "this is a simple response"
+ *  }
+ *  }
+ *  ]
+ *  }
+ *  }
+ *  }</pre>
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2110,14 +2390,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  The Context ID is always converted to lowercase.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2479,15 +2752,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The collection of phrase hints which are used to boost accuracy
  *  of speech recognition.
- *  Refer to [Cloud Speech API documentation](/speech/docs/basics#phrase-hints)
+ *  Refer to
+ *  [Cloud Speech API
+ *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
  *  for more details.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phraseHints;
 
 /**
  *  Required. Sample rate (in Hertz) of the audio content sent in the query.
- *  Refer to [Cloud Speech API documentation](/speech/docs/basics) for more
- *  details.
+ *  Refer to
+ *  [Cloud Speech API
+ *  documentation](https://cloud.google.com/speech-to-text/docs/basics) for
+ *  more details.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2544,7 +2821,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of rich messages corresponding to the
- *  `Response` field in API.AI console.
+ *  `Response` field in the Dialogflow console.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *messages;
 
@@ -2667,7 +2944,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Corresponds to the `Response` field in API.AI console.
+ *  Corresponds to the `Response` field in the Dialogflow console.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage : GTLRObject
 
@@ -2689,7 +2966,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** The list card response for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageListSelect *listSelect;
 
-/** The response containing a custom payload. */
+/**
+ *  Returns a response containing a custom, platform-specific payload.
+ *  See the Intent.Message.Platform type for a description of the
+ *  structure that may be required for your platform.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Payload *payload;
 
 /**
@@ -2697,7 +2978,67 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle
- *        Actions on Google. (Value: "ACTIONS_ON_GOOGLE")
+ *        Actions on Google.
+ *        When using Actions on Google, you can choose one of the specific
+ *        Intent.Message types that mention support for Actions on Google,
+ *        or you can use the advanced Intent.Message.payload field.
+ *        The payload field provides access to AoG features not available in the
+ *        specific message types.
+ *        If using the Intent.Message.payload field, it should have a structure
+ *        similar to the JSON message shown here. For more information, see
+ *        [Actions on Google Webhook
+ *        Format](https://developers.google.com/actions/dialogflow/webhook)
+ *        <pre>{
+ *        "expectUserResponse": true,
+ *        "isSsml": false,
+ *        "noInputPrompts": [],
+ *        "richResponse": {
+ *        "items": [
+ *        {
+ *        "simpleResponse": {
+ *        "displayText": "hi",
+ *        "textToSpeech": "hello"
+ *        }
+ *        }
+ *        ],
+ *        "suggestions": [
+ *        {
+ *        "title": "Say this"
+ *        },
+ *        {
+ *        "title": "or this"
+ *        }
+ *        ]
+ *        },
+ *        "systemIntent": {
+ *        "data": {
+ *        "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+ *        "listSelect": {
+ *        "items": [
+ *        {
+ *        "optionInfo": {
+ *        "key": "key1",
+ *        "synonyms": [
+ *        "key one"
+ *        ]
+ *        },
+ *        "title": "must not be empty, but unique"
+ *        },
+ *        {
+ *        "optionInfo": {
+ *        "key": "key2",
+ *        "synonyms": [
+ *        "key two"
+ *        ]
+ *        },
+ *        "title": "must not be empty, but unique"
+ *        }
+ *        ]
+ *        }
+ *        },
+ *        "intent": "actions.intent.OPTION"
+ *        }
+ *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Kik
@@ -2733,7 +3074,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  The response containing a custom payload.
+ *  Returns a response containing a custom, platform-specific payload.
+ *  See the Intent.Message.Platform type for a description of the
+ *  structure that may be required for your platform.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3327,8 +3670,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  The source of this request, e.g., `google`, `facebook`, `slack`. It is set
- *  by Dialogflow-owned servers. Possible values of this field correspond to
- *  Intent.Message.Platform.
+ *  by Dialogflow-owned servers.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -3508,10 +3850,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. The default of 0.0 is a sentinel value indicating that confidence
  *  was not set.
- *  You should not rely on this field as it isn't guaranteed to be accurate, or
- *  even set. In particular this field isn't set in Webhook calls and for
- *  StreamingDetectIntent since the streaming endpoint has separate confidence
- *  estimates per portion of the audio in StreamingRecognitionResult.
+ *  This field is not guaranteed to be accurate or set. In particular this
+ *  field isn't set for StreamingDetectIntent since the streaming endpoint has
+ *  separate confidence estimates per portion of the audio in
+ *  StreamingRecognitionResult.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3676,12 +4018,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>sessions/<Session 
- ID>/entityTypes/<Entity Type Display Name>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3781,6 +4118,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
+ *  See the related `fulfillment_messages[i].payload field`, which may be used
+ *  as an alternative to this field.
+ *  This field can be used for Actions on Google responses.
+ *  It should have a structure similar to the JSON message shown here. For more
+ *  information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "google": {
+ *  "expectUserResponse": true,
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "textToSpeech": "this is a simple response"
+ *  }
+ *  }
+ *  ]
+ *  }
+ *  }
+ *  }</pre>
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload *payload;
 
@@ -3794,6 +4152,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
+ *  See the related `fulfillment_messages[i].payload field`, which may be used
+ *  as an alternative to this field.
+ *  This field can be used for Actions on Google responses.
+ *  It should have a structure similar to the JSON message shown here. For more
+ *  information, see
+ *  [Actions on Google Webhook
+ *  Format](https://developers.google.com/actions/dialogflow/webhook)
+ *  <pre>{
+ *  "google": {
+ *  "expectUserResponse": true,
+ *  "richResponse": {
+ *  "items": [
+ *  {
+ *  "simpleResponse": {
+ *  "textToSpeech": "this is a simple response"
+ *  }
+ *  }
+ *  ]
+ *  }
+ *  }
+ *  }</pre>
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

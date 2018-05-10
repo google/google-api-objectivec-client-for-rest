@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service Management API (servicemanagement/v1)
+//   Service Management API (servicemanagement/v1)
 // Description:
 //   Google Service Management allows service producers to publish their
 //   services on Google Cloud Platform so that they can be discovered and used
@@ -773,10 +773,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceManagement_AuditConfig : GTLRObject
 
-/**
- *  The configuration for logging of each type of permission.
- *  Next ID: 4
- */
+/** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_AuditLogConfig *> *auditLogConfigs;
 
 /**
@@ -875,12 +872,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_AuthenticationRule : GTLRObject
 
 /**
- *  Whether to allow requests without a credential. The credential can be
- *  an OAuth token, Google cookies (first-party auth) or EndUserCreds.
- *  For requests without credentials, if the service control environment is
- *  specified, each incoming request **must** be associated with a service
- *  consumer. This can be done by passing an API key that belongs to a consumer
- *  project.
+ *  If true, the service accepts API keys without any other credential.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1137,7 +1129,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -3337,13 +3329,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -3352,7 +3344,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -3361,6 +3353,17 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */

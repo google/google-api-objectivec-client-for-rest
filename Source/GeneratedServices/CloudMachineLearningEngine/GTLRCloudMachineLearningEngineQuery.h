@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get the service account information associated with your project. You need
- *  this information in order to grant the service account persmissions for
+ *  this information in order to grant the service account permissions for
  *  the Google Cloud Storage location where you put your model training code
  *  for training the model with Google Cloud Machine Learning.
  *
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse.
  *
  *  Get the service account information associated with your project. You need
- *  this information in order to grant the service account persmissions for
+ *  this information in order to grant the service account permissions for
  *  the Google Cloud Storage location where you put your model training code
  *  for training the model with Google Cloud Machine Learning.
  *
@@ -230,7 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  <p><code>gcloud ml-engine jobs list --filter='jobId:rnn*
  *  AND state:FAILED'</code>
  *  <p>For more examples, see the guide to
- *  <a href="/ml-engine/docs/monitor-training">monitoring jobs</a>.
+ *  <a href="/ml-engine/docs/tensorflow/monitor-training">monitoring jobs</a>.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

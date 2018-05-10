@@ -393,7 +393,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 /** The minimum interval for scheduler to schedule runs. */
 @property(nonatomic, strong, nullable) GTLRDuration *minimumScheduleInterval;
 
-/** Data source resource name. */
+/** Output only. Data source resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Data source parameters. */
@@ -417,8 +417,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) NSNumber *supportsCustomSchedule;
 
 /**
- *  Indicates whether the data source supports multiple transfers
- *  to different BigQuery targets.
+ *  Deprecated. This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -893,7 +892,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  When a new transfer configuration is created, the specified
  *  `destination_dataset_id` is created when needed and shared with the
  *  appropriate data source service account.
- *  Next id: 21
  */
 @interface GTLRBigQueryDataTransfer_TransferConfig : GTLRObject
 
@@ -1043,7 +1041,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 /**
  *  Represents a data transfer run.
- *  Next id: 27
  */
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
 

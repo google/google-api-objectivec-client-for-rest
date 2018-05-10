@@ -25,7 +25,7 @@ NSString * const kGTLRAuthScopeManufacturerCenterManufacturercenter = @"https://
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://content-manufacturers.googleapis.com/";
+    self.rootURLString = @"https://manufacturers.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

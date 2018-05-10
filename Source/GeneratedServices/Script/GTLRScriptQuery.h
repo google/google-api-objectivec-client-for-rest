@@ -4,7 +4,14 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects.
+//   An API for managing and executing Google Apps Script projects. <aside
+//   class="note"><b>Note</b>: In order to use this API in your apps, you must
+//   <a
+//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
+//   enable it for use</a>. To allow other apps to manage your scripts, you must
+//   <a
+//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
+//   grant them access</a>.</aside>
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -209,7 +216,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
 
 /**
  *  Optional field used to limit returned processes to those originating from
- *  projects with a specific project name.
+ *  projects with project names containing a specific string.
  */
 @property(nonatomic, copy, nullable) NSString *userProcessFilterProjectName;
 

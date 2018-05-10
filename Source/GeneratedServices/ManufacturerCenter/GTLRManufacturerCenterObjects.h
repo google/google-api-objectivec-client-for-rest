@@ -21,6 +21,7 @@
 @class GTLRManufacturerCenter_Attributes;
 @class GTLRManufacturerCenter_Capacity;
 @class GTLRManufacturerCenter_Count;
+@class GTLRManufacturerCenter_DestinationStatus;
 @class GTLRManufacturerCenter_FeatureDescription;
 @class GTLRManufacturerCenter_Image;
 @class GTLRManufacturerCenter_Issue;
@@ -37,6 +38,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRManufacturerCenter_DestinationStatus.status
+
+/**
+ *  The product is used for this destination.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Active;
+/**
+ *  The product is disapproved. Please look at the issues.
+ *
+ *  Value: "DISAPPROVED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Disapproved;
+/**
+ *  The decision is still pending.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Pending;
+/**
+ *  Unspecified status, never used.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Image.status
@@ -143,6 +172,31 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_TypeUnspecified;
 GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
 
 // ----------------------------------------------------------------------------
+// GTLRManufacturerCenter_Issue.resolution
+
+/**
+ *  The issue will be resolved automatically (for example image crawl or
+ *  Google review). No action is required now. Resolution might lead to
+ *  another issue (for example if crawl fails).
+ *
+ *  Value: "PENDING_PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_PendingProcessing;
+/**
+ *  Unspecified resolution, never used.
+ *
+ *  Value: "RESOLUTION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified;
+/**
+ *  The user who provided the data must act in order to resolve the issue
+ *  (for example by correcting some data).
+ *
+ *  Value: "USER_ACTION"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_UserAction;
+
+// ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Issue.severity
 
 /**
@@ -230,6 +284,9 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  */
 @property(nonatomic, copy, nullable) NSString *disclosureDate;
 
+/** A list of excluded destinations. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestination;
+
 /**
  *  The rich format description of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#featuredesc.
@@ -265,6 +322,9 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  *  https://support.google.com/manufacturers/answer/6124116#image.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Image *imageLink;
+
+/** A list of included destinations. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestination;
 
 /**
  *  The item group id of the product. For more information, see
@@ -423,6 +483,33 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 
 
 /**
+ *  The destination status.
+ */
+@interface GTLRManufacturerCenter_DestinationStatus : GTLRObject
+
+/** The name of the destination. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  The status of the destination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenter_DestinationStatus_Status_Active The
+ *        product is used for this destination. (Value: "ACTIVE")
+ *    @arg @c kGTLRManufacturerCenter_DestinationStatus_Status_Disapproved The
+ *        product is disapproved. Please look at the issues. (Value:
+ *        "DISAPPROVED")
+ *    @arg @c kGTLRManufacturerCenter_DestinationStatus_Status_Pending The
+ *        decision is still pending. (Value: "PENDING")
+ *    @arg @c kGTLRManufacturerCenter_DestinationStatus_Status_Unknown
+ *        Unspecified status, never used. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -536,6 +623,26 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** The destination this issue applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  What needs to happen to resolve the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenter_Issue_Resolution_PendingProcessing The
+ *        issue will be resolved automatically (for example image crawl or
+ *        Google review). No action is required now. Resolution might lead to
+ *        another issue (for example if crawl fails). (Value:
+ *        "PENDING_PROCESSING")
+ *    @arg @c kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified
+ *        Unspecified resolution, never used. (Value: "RESOLUTION_UNSPECIFIED")
+ *    @arg @c kGTLRManufacturerCenter_Issue_Resolution_UserAction The user who
+ *        provided the data must act in order to resolve the issue
+ *        (for example by correcting some data). (Value: "USER_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
 /**
  *  The severity of the issue.
  *
@@ -557,6 +664,9 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 
 /** The timestamp when this issue appeared. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/** Short title describing the nature of the issue. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The server-generated type of the issue, for example,
@@ -610,38 +720,43 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  */
 @interface GTLRManufacturerCenter_Product : GTLRObject
 
+/** Attributes of the product uploaded to the Manufacturer Center. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *attributes;
+
 /**
  *  The content language of the product as a two-letter ISO 639-1 language code
  *  (for example, en).
- *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
+
+/** The status of the destinations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_DestinationStatus *> *destinationStatuses;
 
 /**
  *  Final attributes of the product. The final attributes are obtained by
  *  overriding the uploaded attributes with the manually provided and deleted
  *  attributes. Google systems only process, evaluate, review, and/or use final
  *  attributes.
- *  \@OutputOnly
+ *  This field is deprecated and will be removed end of July 2018. Please use
+ *  attributes.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *finalAttributes;
 
-/**
- *  A server-generated list of issues associated with the product.
- *  \@OutputOnly
- */
+/** A server-generated list of issues associated with the product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Issue *> *issues;
 
 /**
  *  Names of the attributes of the product deleted manually via the
  *  Manufacturer Center UI.
- *  \@OutputOnly
+ *  This field is deprecated and will be removed end of July 2018. Please use
+ *  attributes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *manuallyDeletedAttributes;
 
 /**
  *  Attributes of the product provided manually via the Manufacturer Center UI.
- *  \@OutputOnly
+ *  This field is deprecated and will be removed end of July 2018. Please use
+ *  attributes.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *manuallyProvidedAttributes;
 
@@ -653,34 +768,32 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  *  ISO 639-1 language code (for example, en).
  *  `product_id` - The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
- *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent ID in the format `accounts/{account_id}`.
  *  `account_id` - The ID of the Manufacturer Center account.
- *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
- *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The target country of the product as a CLDR territory code (for example,
  *  US).
- *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
 /**
  *  Attributes of the product uploaded via the Manufacturer Center API or via
  *  feeds.
+ *  This field is deprecated and will be removed end of July 2018. Please use
+ *  attributes.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *uploadedAttributes;
 

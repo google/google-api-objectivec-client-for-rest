@@ -758,6 +758,13 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @interface GTLRDns_Quota : GTLRObject
 
 /**
+ *  Whether a black hole zone should suppress system zones for this project.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blackHoleHidesSystemZones;
+
+/**
  *  Maximum allowed number of DnsKeys per ManagedZone.
  *
  *  Uses NSNumber of intValue.

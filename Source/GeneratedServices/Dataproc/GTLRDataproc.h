@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Dataproc API (dataproc/v1)
+//   Cloud Dataproc API (dataproc/v1)
 // Description:
 //   Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 // Documentation:

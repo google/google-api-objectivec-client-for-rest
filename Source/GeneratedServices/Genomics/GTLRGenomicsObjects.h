@@ -950,7 +950,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -973,8 +973,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  A call set is a collection of variant calls, typically for one sample. It
  *  belongs to a variant set.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_CallSet : GTLRObject
 
@@ -1260,6 +1258,17 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  */
 @property(nonatomic, strong, nullable) NSNumber *exitStatus;
 
+/**
+ *  The tail end of any content written to standard error by the container.
+ *  To prevent this from being recorded if the action is known to emit
+ *  large amounts of debugging noise or sensitive information, set the
+ *  DISABLE_STANDARD_ERROR_CAPTURE flag.
+ *  Note that only a small amount of the end of the stream is captured here.
+ *  The entire stream is stored in the /google/logs directory mounted into
+ *  each action, and may be copied off the machine as described elsewhere.
+ */
+@property(nonatomic, copy, nullable) NSString *stderr;
+
 @end
 
 
@@ -1285,8 +1294,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 /**
  *  A Dataset is a collection of genomic data.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_Dataset : GTLRObject
 
@@ -2226,13 +2233,13 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -2241,7 +2248,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -2250,6 +2257,17 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -2404,8 +2422,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  which were read by the sequencer). A read is equivalent to a line in a SAM
  *  file. A read belongs to exactly one read group and exactly one
  *  read group set.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  ### Reverse-stranded reads
  *  Mapped reads (reads having a non-null `alignment`) can be aligned to either
  *  the forward or the reverse strand of their associated reference.
@@ -2717,8 +2733,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  * A read group set belongs to one dataset.
  *  * A read group belongs to one read group set.
  *  * A read belongs to one read group.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_ReadGroupSet : GTLRObject
 
@@ -2777,8 +2791,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  reference coordinate space for other genomic annotations. A single reference
  *  might represent the human chromosome 1 or mitochandrial DNA, for instance. A
  *  reference belongs to one or more reference sets.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_Reference : GTLRObject
 
@@ -2854,8 +2866,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  of the human genome. A reference set defines a common coordinate space for
  *  comparing reference-aligned experimental data. A reference set contains 1 or
  *  more references.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_ReferenceSet : GTLRObject
 
@@ -3816,8 +3826,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
  *  A variant represents a change in DNA sequence relative to a reference
  *  sequence. For example, a variant could represent a SNP or an insertion.
  *  Variants belong to a variant set.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Each of the calls on a variant represent a determination of genotype with
  *  respect to that variant. For example, a call might assign probability of
  *  0.32
@@ -4143,8 +4151,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  A variant set is a collection of call sets and variants. It contains summary
  *  statistics of those contents. A variant set belongs to a dataset.
- *  For more genomics resource definitions, see [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  */
 @interface GTLRGenomics_VariantSet : GTLRObject
 

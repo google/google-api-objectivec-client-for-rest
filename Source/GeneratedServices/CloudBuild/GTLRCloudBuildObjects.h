@@ -172,6 +172,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.sourceProvenanceHash
 
+/** Value: "MD5" */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5;
 /** Value: "NONE" */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None;
 /** Value: "SHA256" */
@@ -250,6 +252,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
 // GTLRCloudBuild_Hash.type
 
 /**
+ *  Use a md5 hash.
+ *
+ *  Value: "MD5"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Md5;
+/**
  *  No hash requested.
  *
  *  Value: "NONE"
@@ -279,6 +287,31 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /** Path globs used to match files in the build's workspace. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/**
+ *  Stores timing information for pushing all artifact objects.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *timing;
+
+@end
+
+
+/**
+ *  An artifact that was uploaded during a build. This
+ *  is a single record in the artifact manifest JSON file.
+ */
+@interface GTLRCloudBuild_ArtifactResult : GTLRObject
+
+/** The file hash of the artifact. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_FileHashes *> *fileHash;
+
+/**
+ *  The path of an artifact in a Google Cloud Storage bucket, with the
+ *  generation number. For example,
+ *  `gs://mybucket/path/to/output.jar#generation`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 @end
 
@@ -877,6 +910,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  The type of hash that was performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Hash_Type_Md5 Use a md5 hash. (Value: "MD5")
  *    @arg @c kGTLRCloudBuild_Hash_Type_None No hash requested. (Value: "NONE")
  *    @arg @c kGTLRCloudBuild_Hash_Type_Sha256 Use a sha256 hash. (Value:
  *        "SHA256")

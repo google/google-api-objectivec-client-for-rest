@@ -40,11 +40,14 @@
 @class GTLRServiceUsage_CustomHttpPattern;
 @class GTLRServiceUsage_Documentation;
 @class GTLRServiceUsage_DocumentationRule;
+@class GTLRServiceUsage_EnableFailure;
 @class GTLRServiceUsage_Endpoint;
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
 @class GTLRServiceUsage_Experimental;
 @class GTLRServiceUsage_Field;
+@class GTLRServiceUsage_GoogleApiServiceusageV1Service;
+@class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
 @class GTLRServiceUsage_LabelDescriptor;
@@ -273,6 +276,31 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64;
  *  Value: "TYPE_UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV1Service.state
+
+/**
+ *  The service cannot be used by this consumer. It has either been explicitly
+ *  disabled, or has never been enabled.
+ *
+ *  Value: "DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled;
+/**
+ *  The service has been explicitly enabled for use by this consumer.
+ *
+ *  Value: "ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled;
+/**
+ *  The default value, which indicates that the enabled state of the service
+ *  is unspecified or not meaningful. Currently, all consumers other than
+ *  projects (such as folders and organizations) are always in this state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_LabelDescriptor.valueType
@@ -584,12 +612,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_AuthenticationRule : GTLRObject
 
 /**
- *  Whether to allow requests without a credential. The credential can be
- *  an OAuth token, Google cookies (first-party auth) or EndUserCreds.
- *  For requests without credentials, if the service control environment is
- *  specified, each incoming request **must** be associated with a service
- *  consumer. This can be done by passing an API key that belongs to a consumer
- *  project.
+ *  If true, the service accepts API keys without any other credential.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -837,6 +860,25 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Response message for the `BatchEnableServices` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceUsage_BatchEnableServicesResponse : GTLRObject
+
+/**
+ *  If allow_partial_success is true, and one or more services could not be
+ *  enabled, this field contains the details about each failure.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_EnableFailure *> *failures;
+
+/** The new state of the services after enabling. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV1Service *> *services;
+
+@end
+
+
+/**
  *  Billing related configuration of the service.
  *  The following example shows how to configure monitored resources and metrics
  *  for billing:
@@ -1067,6 +1109,19 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Response message for the `DisableService` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceUsage_DisableServiceResponse : GTLRObject
+
+/** The new state of the service after disabling. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV1Service *service;
+
+@end
+
+
+/**
  *  `Documentation` provides the information for describing a service.
  *  Example:
  *  <pre><code>documentation:
@@ -1190,9 +1245,36 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  GTLRServiceUsage_EnableFailure
+ */
+@interface GTLRServiceUsage_EnableFailure : GTLRObject
+
+/** An error message describing why the service could not be enabled. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** The service id of a service that could not be enabled. */
+@property(nonatomic, copy, nullable) NSString *serviceId;
+
+@end
+
+
+/**
  *  Request message for the `EnableService` method.
  */
 @interface GTLRServiceUsage_EnableServiceRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `EnableService` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceUsage_EnableServiceResponse : GTLRObject
+
+/** The new state of the service after enabling. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV1Service *service;
+
 @end
 
 
@@ -1584,6 +1666,101 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  - name: google.protobuf.Int32
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Type *> *types;
+
+/** Configuration controlling usage of this service. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
+
+@end
+
+
+/**
+ *  A service that is available for use by the consumer.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV1Service : GTLRObject
+
+/**
+ *  The service configuration of the available service.
+ *  Some fields may be filtered out of the configuration in responses to
+ *  the `ListServices` method. These fields are present only in responses to
+ *  the `GetService` method.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig *config;
+
+/**
+ *  The resource name of the consumer and service.
+ *  A valid name would be:
+ *  - projects/123/services/serviceusage.googleapis.com
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The resource name of the consumer.
+ *  A valid name would be:
+ *  - projects/123
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Whether or not the service has been enabled for use by the consumer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled
+ *        The service cannot be used by this consumer. It has either been
+ *        explicitly
+ *        disabled, or has never been enabled. (Value: "DISABLED")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled The
+ *        service has been explicitly enabled for use by this consumer. (Value:
+ *        "ENABLED")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified
+ *        The default value, which indicates that the enabled state of the
+ *        service
+ *        is unspecified or not meaningful. Currently, all consumers other than
+ *        projects (such as folders and organizations) are always in this state.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The configuration of the service.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig : GTLRObject
+
+/**
+ *  A list of API interfaces exported by this service. Contains only the names,
+ *  versions, and method names of the interfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Api *> *apis;
+
+/** Auth configuration. Contains only the OAuth rules. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Authentication *authentication;
+
+/**
+ *  Additional API documentation. Contains only the summary and the
+ *  documentation URL.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Documentation *documentation;
+
+/**
+ *  Configuration for network endpoints. Contains only the names and aliases
+ *  of the endpoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
+
+/**
+ *  The DNS address at which this service is available.
+ *  An example DNS address would be:
+ *  `calendar.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Quota configuration. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Quota *quota;
+
+/** The product title for this service. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;

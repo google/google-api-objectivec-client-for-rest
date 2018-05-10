@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Pub/Sub API (pubsub/v1)
+//   Cloud Pub/Sub API (pubsub/v1)
 // Description:
 //   Provides reliable, many-to-many, asynchronous messaging between
 //   applications.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePubsubCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Pub/Sub API queries.
+ *  Service for executing Cloud Pub/Sub API queries.
  *
  *  Provides reliable, many-to-many, asynchronous messaging between
  *  applications.

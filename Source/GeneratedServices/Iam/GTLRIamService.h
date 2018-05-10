@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Identity and Access Management (IAM) API (iam/v1)
+//   Identity and Access Management (IAM) API (iam/v1)
 // Description:
 //   Manages identity and access control for Google Cloud Platform resources,
 //   including the creation of service accounts, which you can use to
@@ -43,8 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeIamCloudPlatform;
 //
 
 /**
- *  Service for executing Google Identity and Access Management (IAM) API
- *  queries.
+ *  Service for executing Identity and Access Management (IAM) API queries.
  *
  *  Manages identity and access control for Google Cloud Platform resources,
  *  including the creation of service accounts, which you can use to

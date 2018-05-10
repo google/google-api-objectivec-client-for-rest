@@ -4,8 +4,7 @@
 // API:
 //   Google Cloud Functions API (cloudfunctions/v1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
 //   https://cloud.google.com/functions
 
@@ -227,7 +226,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_Location
-@dynamic labels, locationId, metadata, name;
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 

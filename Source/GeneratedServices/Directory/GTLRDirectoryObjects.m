@@ -4,9 +4,8 @@
 // API:
 //   Admin Directory API (admin/directory_v1)
 // Description:
-//   The Admin SDK Directory API lets you view and manage enterprise resources
-//   such as users and groups, administrative notifications, security features,
-//   and more.
+//   Manages enterprise resources such as users and groups, administrative
+//   notifications, security features, and more.
 // Documentation:
 //   https://developers.google.com/admin-sdk/directory/
 
@@ -950,7 +949,7 @@
 //
 
 @implementation GTLRDirectory_Schema
-@dynamic ETag, fields, kind, schemaId, schemaName;
+@dynamic displayName, ETag, fields, kind, schemaId, schemaName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -972,8 +971,8 @@
 //
 
 @implementation GTLRDirectory_SchemaFieldSpec
-@dynamic ETag, fieldId, fieldName, fieldType, indexed, kind, multiValued,
-         numericIndexingSpec, readAccessType;
+@dynamic displayName, ETag, fieldId, fieldName, fieldType, indexed, kind,
+         multiValued, numericIndexingSpec, readAccessType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1328,8 +1327,8 @@
 //
 
 @implementation GTLRDirectory_UserPosixAccount
-@dynamic accountId, gecos, gid, homeDirectory, primary, shell, systemId, uid,
-         username;
+@dynamic accountId, gecos, gid, homeDirectory, operatingSystemType, primary,
+         shell, systemId, uid, username;
 @end
 
 

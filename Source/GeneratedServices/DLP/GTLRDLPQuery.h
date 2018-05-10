@@ -108,8 +108,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a de-identify template for re-using frequently used configuration
- *  for Deidentifying content, images, and storage.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration
+ *  for de-identifying content, images, and storage.
  *
  *  Method: dlp.organizations.deidentifyTemplates.create
  *
@@ -129,8 +129,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a de-identify template for re-using frequently used configuration
- *  for Deidentifying content, images, and storage.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration
+ *  for de-identifying content, images, and storage.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
@@ -147,7 +147,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a de-identify template.
+ *  Deletes a DeidentifyTemplate.
  *
  *  Method: dlp.organizations.deidentifyTemplates.delete
  *
@@ -168,7 +168,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a de-identify template.
+ *  Deletes a DeidentifyTemplate.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
@@ -182,7 +182,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a de-identify template.
+ *  Gets a DeidentifyTemplate.
  *
  *  Method: dlp.organizations.deidentifyTemplates.get
  *
@@ -203,7 +203,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a de-identify template.
+ *  Gets a DeidentifyTemplate.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists de-identify templates.
+ *  Lists DeidentifyTemplates.
  *
  *  Method: dlp.organizations.deidentifyTemplates.list
  *
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists de-identify templates.
+ *  Lists DeidentifyTemplates.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -266,7 +266,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the de-identify template.
+ *  Updates the DeidentifyTemplate.
  *
  *  Method: dlp.organizations.deidentifyTemplates.patch
  *
@@ -287,7 +287,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the de-identify template.
+ *  Updates the DeidentifyTemplate.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
@@ -305,7 +305,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an inspect template for re-using frequently used configuration
+ *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
  *
  *  Method: dlp.organizations.inspectTemplates.create
@@ -326,7 +326,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an inspect template for re-using frequently used configuration
+ *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -343,7 +343,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an inspect template.
+ *  Deletes an InspectTemplate.
  *
  *  Method: dlp.organizations.inspectTemplates.delete
  *
@@ -364,7 +364,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an inspect template.
+ *  Deletes an InspectTemplate.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
@@ -378,7 +378,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an inspect template.
+ *  Gets an InspectTemplate.
  *
  *  Method: dlp.organizations.inspectTemplates.get
  *
@@ -399,7 +399,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an inspect template.
+ *  Gets an InspectTemplate.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
@@ -413,7 +413,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists inspect templates.
+ *  Lists InspectTemplates.
  *
  *  Method: dlp.organizations.inspectTemplates.list
  *
@@ -445,7 +445,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists inspect templates.
+ *  Lists InspectTemplates.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -462,7 +462,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the inspect template.
+ *  Updates the InspectTemplate.
  *
  *  Method: dlp.organizations.inspectTemplates.patch
  *
@@ -483,7 +483,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the inspect template.
+ *  Updates the InspectTemplate.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
@@ -603,8 +603,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a de-identify template for re-using frequently used configuration
- *  for Deidentifying content, images, and storage.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration
+ *  for de-identifying content, images, and storage.
  *
  *  Method: dlp.projects.deidentifyTemplates.create
  *
@@ -624,8 +624,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a de-identify template for re-using frequently used configuration
- *  for Deidentifying content, images, and storage.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration
+ *  for de-identifying content, images, and storage.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
@@ -642,7 +642,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a de-identify template.
+ *  Deletes a DeidentifyTemplate.
  *
  *  Method: dlp.projects.deidentifyTemplates.delete
  *
@@ -663,7 +663,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a de-identify template.
+ *  Deletes a DeidentifyTemplate.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
@@ -677,7 +677,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a de-identify template.
+ *  Gets a DeidentifyTemplate.
  *
  *  Method: dlp.projects.deidentifyTemplates.get
  *
@@ -698,7 +698,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a de-identify template.
+ *  Gets a DeidentifyTemplate.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
@@ -712,7 +712,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists de-identify templates.
+ *  Lists DeidentifyTemplates.
  *
  *  Method: dlp.projects.deidentifyTemplates.list
  *
@@ -744,7 +744,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists de-identify templates.
+ *  Lists DeidentifyTemplates.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -761,7 +761,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the de-identify template.
+ *  Updates the DeidentifyTemplate.
  *
  *  Method: dlp.projects.deidentifyTemplates.patch
  *
@@ -782,7 +782,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the de-identify template.
+ *  Updates the DeidentifyTemplate.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
@@ -835,8 +835,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a new job to inspect storage or calculate risk metrics [How-to
- *  guide](/dlp/docs/compute-risk-analysis).
+ *  Creates a new job to inspect storage or calculate risk metrics.
+ *  [How-to guide](/dlp/docs/compute-risk-analysis).
  *
  *  Method: dlp.projects.dlpJobs.create
  *
@@ -853,8 +853,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Creates a new job to inspect storage or calculate risk metrics [How-to
- *  guide](/dlp/docs/compute-risk-analysis).
+ *  Creates a new job to inspect storage or calculate risk metrics.
+ *  [How-to guide](/dlp/docs/compute-risk-analysis).
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
@@ -1033,7 +1033,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an inspect template for re-using frequently used configuration
+ *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
  *
  *  Method: dlp.projects.inspectTemplates.create
@@ -1054,7 +1054,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an inspect template for re-using frequently used configuration
+ *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -1071,7 +1071,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an inspect template.
+ *  Deletes an InspectTemplate.
  *
  *  Method: dlp.projects.inspectTemplates.delete
  *
@@ -1092,7 +1092,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an inspect template.
+ *  Deletes an InspectTemplate.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
@@ -1106,7 +1106,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an inspect template.
+ *  Gets an InspectTemplate.
  *
  *  Method: dlp.projects.inspectTemplates.get
  *
@@ -1127,7 +1127,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an inspect template.
+ *  Gets an InspectTemplate.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
@@ -1141,7 +1141,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists inspect templates.
+ *  Lists InspectTemplates.
  *
  *  Method: dlp.projects.inspectTemplates.list
  *
@@ -1173,7 +1173,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists inspect templates.
+ *  Lists InspectTemplates.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -1190,7 +1190,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the inspect template.
+ *  Updates the InspectTemplate.
  *
  *  Method: dlp.projects.inspectTemplates.patch
  *
@@ -1211,7 +1211,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the inspect template.
+ *  Updates the InspectTemplate.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.

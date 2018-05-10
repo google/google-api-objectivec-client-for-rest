@@ -644,7 +644,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Update an existing ManagedZone. This method supports patch semantics.
+ *  Apply a partial update to an existing ManagedZone.
  *
  *  Method: dns.managedZones.patch
  *
@@ -675,7 +675,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Operation.
  *
- *  Update an existing ManagedZone. This method supports patch semantics.
+ *  Apply a partial update to an existing ManagedZone.
  *
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.

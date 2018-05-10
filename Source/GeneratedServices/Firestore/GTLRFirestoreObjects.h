@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Firestore API (firestore/v1beta1)
+//   Cloud Firestore API (firestore/v1beta1)
 // Documentation:
 //   https://cloud.google.com/firestore
 
@@ -1758,7 +1758,8 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  An array value.
- *  Cannot contain another array value.
+ *  Cannot directly contain another array value, though can contain an
+ *  map which contains another array.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *arrayValue;
 

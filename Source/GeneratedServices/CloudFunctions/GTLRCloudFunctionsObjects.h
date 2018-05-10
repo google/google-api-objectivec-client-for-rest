@@ -4,8 +4,7 @@
 // API:
 //   Google Cloud Functions API (cloudfunctions/v1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
 //   https://cloud.google.com/functions
 
@@ -514,6 +513,12 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  A resource that represents Google Cloud Platform location.
  */
 @interface GTLRCloudFunctions_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name.
+ *  For example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Cross-service attributes for the location. For example

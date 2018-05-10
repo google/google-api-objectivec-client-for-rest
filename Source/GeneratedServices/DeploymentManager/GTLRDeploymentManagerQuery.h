@@ -22,7 +22,7 @@
 @class GTLRDeploymentManager_Deployment;
 @class GTLRDeploymentManager_DeploymentsCancelPreviewRequest;
 @class GTLRDeploymentManager_DeploymentsStopRequest;
-@class GTLRDeploymentManager_Policy;
+@class GTLRDeploymentManager_GlobalSetPolicyRequest;
 @class GTLRDeploymentManager_TestPermissionsRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -468,13 +468,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
- *  @param object The @c GTLRDeploymentManager_Policy to include in the query.
+ *  @param object The @c GTLRDeploymentManager_GlobalSetPolicyRequest to include
+ *    in the query.
  *  @param project Project ID for this request.
  *  @param resource Name of the resource for this request.
  *
  *  @returns GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy
  */
-+ (instancetype)queryWithObject:(GTLRDeploymentManager_Policy *)object
++ (instancetype)queryWithObject:(GTLRDeploymentManager_GlobalSetPolicyRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
 

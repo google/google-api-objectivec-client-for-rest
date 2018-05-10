@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Pub/Sub API (pubsub/v1)
+//   Cloud Pub/Sub API (pubsub/v1)
 // Description:
 //   Provides reliable, many-to-many, asynchronous messaging between
 //   applications.
