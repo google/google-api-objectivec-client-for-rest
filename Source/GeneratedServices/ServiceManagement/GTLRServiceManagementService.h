@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service Management API (servicemanagement/v1)
+//   Service Management API (servicemanagement/v1)
 // Description:
 //   Google Service Management allows service producers to publish their
 //   services on Google Cloud Platform so that they can be discovered and used
@@ -61,7 +61,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeServiceManagementServiceManagementRea
 //
 
 /**
- *  Service for executing Google Service Management API queries.
+ *  Service for executing Service Management API queries.
  *
  *  Google Service Management allows service producers to publish their services
  *  on Google Cloud Platform so that they can be discovered and used by service

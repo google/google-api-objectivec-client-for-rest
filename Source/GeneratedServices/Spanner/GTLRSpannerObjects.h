@@ -99,14 +99,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
 // GTLRSpanner_ExecuteSqlRequest.queryMode
 
 /**
- *  The default mode where only the query result, without any information
- *  about the query plan is returned.
+ *  The default mode. Only the statement results are returned.
  *
  *  Value: "NORMAL"
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal;
 /**
- *  This mode returns only the query plan, without any result rows or
+ *  This mode returns only the query plan, without any results or
  *  execution statistics information.
  *
  *  Value: "PLAN"
@@ -114,7 +113,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal;
 GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan;
 /**
  *  This mode returns both the query plan and the execution statistics along
- *  with the result rows.
+ *  with the results.
  *
  *  Value: "PROFILE"
  */
@@ -230,6 +229,11 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Struct;
 /**
  *  Encoded as `string` in RFC 3339 timestamp format. The time zone
  *  must be present, and must be `"Z"`.
+ *  If the schema has the column option
+ *  `allow_commit_timestamp=true`, the placeholder string
+ *  `"spanner.commit_timestamp()"` can be used to instruct the system
+ *  to insert the commit timestamp associated with the transaction
+ *  commit.
  *
  *  Value: "TIMESTAMP"
  */
@@ -535,14 +539,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_ExecuteSqlRequest : GTLRObject
 
 /**
- *  The SQL query string can contain parameter placeholders. A parameter
+ *  The SQL string can contain parameter placeholders. A parameter
  *  placeholder consists of `'\@'` followed by the parameter
  *  name. Parameter names consist of any combination of letters,
  *  numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL query with unbound parameters.
+ *  It is an error to execute an SQL statement with unbound parameters.
  *  Parameter values are specified using `params`, which is a JSON
  *  object whose keys are parameter names, and whose values are the
  *  corresponding parameter values.
@@ -554,7 +558,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  from a JSON value. For example, values of type `BYTES` and values
  *  of type `STRING` both appear in params as JSON strings.
  *  In these cases, `param_types` can be used to specify the exact
- *  SQL type for some or all of the SQL query parameters. See the
+ *  SQL type for some or all of the SQL statement parameters. See the
  *  definition of Type for more information
  *  about SQL types.
  */
@@ -577,23 +581,22 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  be set to QueryMode.NORMAL.
  *
  *  Likely values:
- *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal The default mode
- *        where only the query result, without any information
- *        about the query plan is returned. (Value: "NORMAL")
+ *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal The default mode.
+ *        Only the statement results are returned. (Value: "NORMAL")
  *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan This mode returns
- *        only the query plan, without any result rows or
+ *        only the query plan, without any results or
  *        execution statistics information. (Value: "PLAN")
  *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile This mode returns
  *        both the query plan and the execution statistics along
- *        with the result rows. (Value: "PROFILE")
+ *        with the results. (Value: "PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *queryMode;
 
 /**
- *  If this request is resuming a previously interrupted SQL query
+ *  If this request is resuming a previously interrupted SQL statement
  *  execution, `resume_token` should be copied from the last
  *  PartialResultSet yielded before the interruption. Doing this
- *  enables the new SQL query execution to resume where the last one left
+ *  enables the new SQL statement execution to resume where the last one left
  *  off. The rest of the request parameters must exactly match the
  *  request that yielded this token.
  *
@@ -602,7 +605,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *resumeToken;
 
-/** Required. The SQL query string. */
+/** Required. The SQL string. */
 @property(nonatomic, copy, nullable) NSString *sql;
 
 /**
@@ -615,14 +618,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  The SQL query string can contain parameter placeholders. A parameter
+ *  The SQL string can contain parameter placeholders. A parameter
  *  placeholder consists of `'\@'` followed by the parameter
  *  name. Parameter names consist of any combination of letters,
  *  numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL query with unbound parameters.
+ *  It is an error to execute an SQL statement with unbound parameters.
  *  Parameter values are specified using `params`, which is a JSON
  *  object whose keys are parameter names, and whose values are the
  *  corresponding parameter values.
@@ -641,7 +644,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  from a JSON value. For example, values of type `BYTES` and values
  *  of type `STRING` both appear in params as JSON strings.
  *  In these cases, `param_types` can be used to specify the exact
- *  SQL type for some or all of the SQL query parameters. See the
+ *  SQL type for some or all of the SQL statement parameters. See the
  *  definition of Type for more information
  *  about SQL types.
  *
@@ -1262,7 +1265,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *resumeToken;
 
 /**
- *  Query plan and execution statistics for the query that produced this
+ *  Query plan and execution statistics for the statement that produced this
  *  streaming result set. These can be requested by setting
  *  ExecuteSqlRequest.query_mode and are sent
  *  only once with the last response in the stream.
@@ -1644,13 +1647,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -1659,7 +1662,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -1668,6 +1671,17 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -1905,8 +1919,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSArray *> *rows;
 
 /**
- *  Query plan and execution statistics for the query that produced this
- *  result set. These can be requested by setting
+ *  Query plan and execution statistics for the SQL statement that
+ *  produced this result set. These can be requested by setting
  *  ExecuteSqlRequest.query_mode.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ResultSetStats *stats;
@@ -2437,6 +2451,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  restriction also applies to in-progress reads and/or SQL queries whose
  *  timestamp become too old while executing. Reads and SQL queries with
  *  too-old read timestamps fail with the error `FAILED_PRECONDITION`.
+ *  ##
  */
 @interface GTLRSpanner_TransactionOptions : GTLRObject
 
@@ -2533,7 +2548,12 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        (Value: "STRUCT")
  *    @arg @c kGTLRSpanner_Type_Code_Timestamp Encoded as `string` in RFC 3339
  *        timestamp format. The time zone
- *        must be present, and must be `"Z"`. (Value: "TIMESTAMP")
+ *        must be present, and must be `"Z"`.
+ *        If the schema has the column option
+ *        `allow_commit_timestamp=true`, the placeholder string
+ *        `"spanner.commit_timestamp()"` can be used to instruct the system
+ *        to insert the commit timestamp associated with the transaction
+ *        commit. (Value: "TIMESTAMP")
  *    @arg @c kGTLRSpanner_Type_Code_TypeCodeUnspecified Not specified. (Value:
  *        "TYPE_CODE_UNSPECIFIED")
  */

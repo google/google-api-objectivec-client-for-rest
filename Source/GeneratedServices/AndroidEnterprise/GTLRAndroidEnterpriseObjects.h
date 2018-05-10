@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The Android Device Policy configuration of an enterprise.
+ *  Deprecated and unused.
  */
 @interface GTLRAndroidEnterprise_AndroidDevicePolicyConfig : GTLRObject
 
@@ -136,11 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  The state of Android Device Policy. "enabled" indicates that Android Device
- *  Policy is enabled for the enterprise and the EMM is allowed to manage
- *  devices with Android Device Policy, while "disabled" means that it cannot.
- */
+/** Deprecated and unused. */
 @property(nonatomic, copy, nullable) NSString *state;
 
 @end
@@ -1269,20 +1265,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maintenance window defining when apps running in the foreground should
- *  be updated. This feature is only supported on fully managed devices.
+ *  be updated.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_MaintenanceWindow *maintenanceWindow;
 
 /**
  *  The availability granted to the device for the specified products. "all"
  *  gives the device access to all products, regardless of approval status.
- *  "allApproved" entitles the device to access all products that are approved
- *  for the enterprise. "allApproved" and "all" do not enable automatic
- *  visibility of "alpha" or "beta" tracks. "whitelist" grants the device access
- *  the products specified in productPolicy[]. Only products that are approved
- *  or products that were previously approved (products with revoked approval)
- *  by the enterprise can be whitelisted. If no value is provided, the
- *  availability set at the user level is applied by default.
+ *  "all" does not enable automatic visibility of "alpha" or "beta" tracks.
+ *  "whitelist" grants the device access the products specified in
+ *  productPolicy[]. Only products that are approved or products that were
+ *  previously approved (products with revoked approval) by the enterprise can
+ *  be whitelisted. If no value is provided, the availability set at the user
+ *  level is applied by default.
  */
 @property(nonatomic, copy, nullable) NSString *productAvailabilityPolicy;
 

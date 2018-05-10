@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service Control API (servicecontrol/v1)
+//   Service Control API (servicecontrol/v1)
 // Description:
 //   Google Service Control provides control plane functionality to managed
 //   services, such as logging, monitoring, and status checks.
@@ -1625,7 +1625,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
-/** The resources that are involved in the operation. */
+/**
+ *  The resources that are involved in the operation.
+ *  The maximum supported number of entries in this field is 100.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ResourceInfo *> *resources;
 
 /** Required. Start time of the operation. */

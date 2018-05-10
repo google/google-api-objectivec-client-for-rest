@@ -4,9 +4,8 @@
 // API:
 //   Admin Directory API (admin/directory_v1)
 // Description:
-//   The Admin SDK Directory API lets you view and manage enterprise resources
-//   such as users and groups, administrative notifications, security features,
-//   and more.
+//   Manages enterprise resources such as users and groups, administrative
+//   notifications, security features, and more.
 // Documentation:
 //   https://developers.google.com/admin-sdk/directory/
 
@@ -1204,7 +1203,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve all groups in a domain (paginated)
+ *  Retrieve all groups of a domain or of a user given a userKey (paginated)
  *
  *  Method: directory.groups.list
  *
@@ -1231,19 +1230,45 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Maximum number of results to return. Default is 200 */
 @property(nonatomic, assign) NSInteger maxResults;
 
+/**
+ *  Column to use for sorting results
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByEmail Email of the group. (Value: "email")
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** Token to specify next page in the list */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Email or immutable ID of the user if only those groups are to be listed, the
- *  given user is a member of. If ID, it should match with id of user object
+ *  Query string search. Should be of the form "". Complete documentation is at
+ *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Whether to return results in ascending or descending order. Only of use when
+ *  orderBy is also used
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *sortOrder;
+
+/**
+ *  Email or immutable Id of the user if only those groups are to be listed, the
+ *  given user is a member of. If Id, it should match with id of user object
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Groups.
  *
- *  Retrieve all groups in a domain (paginated)
+ *  Retrieve all groups of a domain or of a user given a userKey (paginated)
  *
  *  @returns GTLRDirectoryQuery_GroupsList
  *
@@ -1488,6 +1513,9 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /** Email or immutable ID of the group */
 @property(nonatomic, copy, nullable) NSString *groupKey;
+
+/** Whether to list indirect memberships. Default: false. */
+@property(nonatomic, assign) BOOL includeDerivedMembership;
 
 /** Maximum number of results to return. Default is 200 */
 @property(nonatomic, assign) NSInteger maxResults;

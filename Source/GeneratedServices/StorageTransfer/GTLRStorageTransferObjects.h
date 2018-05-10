@@ -328,8 +328,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  An AwsS3Data can be a data source, but not a data sink.
- *  In an AwsS3Data, an object's name is the S3 object's key name.
+ *  An AwsS3Data resource can be a data source, but not a data sink.
+ *  In an AwsS3Data resource, an object's name is the S3 object's key name.
  */
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
@@ -373,7 +373,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
+ *  month.
  *
  *  Uses NSNumber of intValue.
  */
@@ -563,17 +564,16 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  In a GcsData, an object's name is the Google Cloud Storage object's name and
- *  its `lastModificationTime` refers to the object's updated time, which
- *  changes
- *  when the content or the metadata of the object is updated.
+ *  In a GcsData resource, an object's name is the Google Cloud Storage object's
+ *  name and its `lastModificationTime` refers to the object's updated time,
+ *  which changes when the content or the metadata of the object is updated.
  */
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
  *  Google Cloud Storage bucket name (see
  *  [Bucket Name
- *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
  *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
@@ -593,9 +593,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  An HttpData specifies a list of objects on the web to be transferred over
- *  HTTP. The information of the objects to be transferred is contained in a
- *  file referenced by a URL. The first line in the file must be
+ *  An HttpData resource specifies a list of objects on the web to be
+ *  transferred
+ *  over HTTP. The information of the objects to be transferred is contained in
+ *  a file referenced by a URL. The first line in the file must be
  *  "TsvHttpData-1.0", which specifies the format of the file. Subsequent lines
  *  specify the information of the list of objects, one object per list entry.
  *  Each entry has the following tab-delimited fields:
@@ -607,8 +608,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  URLs](https://cloud.google.com/storage/transfer/create-url-list).
  *  When transferring data based on a URL list, keep the following in mind:
  *  * When an object located at `http(s)://hostname:port/<URL-path>` is
- *  transferred
- *  to a data sink, the name of the object at the data sink is
+ *  transferred to a data sink, the name of the object at the data sink is
  *  `<hostname>/<URL-path>`.
  *  * If the specified size of an object does not match the actual size of the
  *  object fetched, the object will not be transferred.

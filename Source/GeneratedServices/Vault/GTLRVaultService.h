@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Vault API (vault/v1)
+//   G Suite Vault API (vault/v1)
 // Description:
 //   Archiving and eDiscovery for G Suite.
 // Documentation:
@@ -46,7 +46,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeVaultEdiscoveryReadonly;
 //
 
 /**
- *  Service for executing Google Vault API queries.
+ *  Service for executing G Suite Vault API queries.
  *
  *  Archiving and eDiscovery for G Suite.
  */

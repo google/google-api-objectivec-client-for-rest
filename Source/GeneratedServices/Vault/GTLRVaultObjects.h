@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Vault API (vault/v1)
+//   G Suite Vault API (vault/v1)
 // Description:
 //   Archiving and eDiscovery for G Suite.
 // Documentation:

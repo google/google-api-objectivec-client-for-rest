@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Safe Browsing API (safebrowsing/v4)
+//   Safe Browsing API (safebrowsing/v4)
 // Description:
 //   Enables client applications to check web resources (most commonly URLs)
 //   against Google-generated lists of unsafe web resources.
@@ -52,6 +52,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmf
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
@@ -93,6 +94,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarm
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
@@ -125,6 +127,7 @@ NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_PotentiallyHarmfulApplic
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
@@ -161,6 +164,7 @@ NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulAppl
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
@@ -197,6 +201,7 @@ NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHa
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
@@ -233,6 +238,7 @@ NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulAppl
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal = @"SOCIAL_ENGINEERING_INTERNAL";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 

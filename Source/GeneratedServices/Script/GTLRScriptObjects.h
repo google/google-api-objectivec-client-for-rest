@@ -4,7 +4,14 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects.
+//   An API for managing and executing Google Apps Script projects. <aside
+//   class="note"><b>Note</b>: In order to use this API in your apps, you must
+//   <a
+//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
+//   enable it for use</a>. To allow other apps to manage your scripts, you must
+//   <a
+//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
+//   grant them access</a>.</aside>
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -1275,9 +1282,9 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 @interface GTLRScript_Status : GTLRObject
 
 /**
- *  The status code. For this API, this value either: <ul> <li> 3, indicating an
- *  `INVALID_ARGUMENT` error, or</li> <li> 1, indicating a `CANCELLED`
- *  execution.</li> </ul>
+ *  The status code. For this API, this value either: <ul> <li> 10, indicating a
+ *  `SCRIPT_TIMEOUT` error,</li> <li> 3, indicating an `INVALID_ARGUMENT` error,
+ *  or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>
  *
  *  Uses NSNumber of intValue.
  */

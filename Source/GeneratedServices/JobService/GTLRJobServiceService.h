@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Prediction API (prediction/v1.6)
+//   Cloud Job Discovery (jobs/v2)
 // Description:
-//   Lets you access a cloud hosted machine learning service that makes it easy
-//   to build smart apps
+//   Cloud Job Discovery provides the capability to create, read, update, and
+//   delete job postings, as well as search jobs based on keywords and filters.
 // Documentation:
-//   https://developers.google.com/prediction/docs/developer-guide
+//   https://cloud.google.com/job-discovery/docs
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -30,54 +30,35 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Manage your data in the Google Prediction API
+ *  Authorization scope: Manage job postings
  *
- *  Value "https://www.googleapis.com/auth/prediction"
+ *  Value "https://www.googleapis.com/auth/jobs"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePrediction;
+GTLR_EXTERN NSString * const kGTLRAuthScopeJobService;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePredictionCloudPlatform;
-/**
- *  Authorization scope: Manage your data and permissions in Google Cloud
- *  Storage
- *
- *  Value "https://www.googleapis.com/auth/devstorage.full_control"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePredictionDevstorageFullControl;
-/**
- *  Authorization scope: View your data in Google Cloud Storage
- *
- *  Value "https://www.googleapis.com/auth/devstorage.read_only"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePredictionDevstorageReadOnly;
-/**
- *  Authorization scope: Manage your data in Google Cloud Storage
- *
- *  Value "https://www.googleapis.com/auth/devstorage.read_write"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePredictionDevstorageReadWrite;
+GTLR_EXTERN NSString * const kGTLRAuthScopeJobServiceCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRPredictionService
+//   GTLRJobServiceService
 //
 
 /**
- *  Service for executing Prediction API queries.
+ *  Service for executing Cloud Job Discovery queries.
  *
- *  Lets you access a cloud hosted machine learning service that makes it easy
- *  to build smart apps
+ *  Cloud Job Discovery provides the capability to create, read, update, and
+ *  delete job postings, as well as search jobs based on keywords and filters.
  */
-@interface GTLRPredictionService : GTLRService
+@interface GTLRJobServiceService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRPredictionQuery.h. The query can the be sent with GTLRService's execute
+// GTLRJobServiceQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v2)
+//   Google Play Developer API (androidpublisher/v3)
 // Description:
 //   Lets Android application developers access their Google Play accounts.
 // Documentation:
@@ -40,174 +40,6 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 @implementation GTLRAndroidPublisherQuery
 
 @dynamic fields;
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsDelete
-
-@dynamic apkVersionCode, editId, language, packageName;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                              editId:(NSString *)editId
-                      apkVersionCode:(NSInteger)apkVersionCode
-                            language:(NSString *)language {
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"language", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings/{language}";
-  GTLRAndroidPublisherQuery_EditsApklistingsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.language = language;
-  query.loggingName = @"androidpublisher.edits.apklistings.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsDeleteall
-
-@dynamic apkVersionCode, editId, packageName;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                              editId:(NSString *)editId
-                      apkVersionCode:(NSInteger)apkVersionCode {
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings";
-  GTLRAndroidPublisherQuery_EditsApklistingsDeleteall *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.loggingName = @"androidpublisher.edits.apklistings.deleteall";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsGet
-
-@dynamic apkVersionCode, editId, language, packageName;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                              editId:(NSString *)editId
-                      apkVersionCode:(NSInteger)apkVersionCode
-                            language:(NSString *)language {
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"language", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings/{language}";
-  GTLRAndroidPublisherQuery_EditsApklistingsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.language = language;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ApkListing class];
-  query.loggingName = @"androidpublisher.edits.apklistings.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsList
-
-@dynamic apkVersionCode, editId, packageName;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                              editId:(NSString *)editId
-                      apkVersionCode:(NSInteger)apkVersionCode {
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings";
-  GTLRAndroidPublisherQuery_EditsApklistingsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ApkListingsListResponse class];
-  query.loggingName = @"androidpublisher.edits.apklistings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsPatch
-
-@dynamic apkVersionCode, editId, language, packageName;
-
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_ApkListing *)object
-                    packageName:(NSString *)packageName
-                         editId:(NSString *)editId
-                 apkVersionCode:(NSInteger)apkVersionCode
-                       language:(NSString *)language {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"language", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings/{language}";
-  GTLRAndroidPublisherQuery_EditsApklistingsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.language = language;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ApkListing class];
-  query.loggingName = @"androidpublisher.edits.apklistings.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_EditsApklistingsUpdate
-
-@dynamic apkVersionCode, editId, language, packageName;
-
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_ApkListing *)object
-                    packageName:(NSString *)packageName
-                         editId:(NSString *)editId
-                 apkVersionCode:(NSInteger)apkVersionCode
-                       language:(NSString *)language {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"apkVersionCode", @"editId", @"language", @"packageName"
-  ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/listings/{language}";
-  GTLRAndroidPublisherQuery_EditsApklistingsUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.packageName = packageName;
-  query.editId = editId;
-  query.apkVersionCode = apkVersionCode;
-  query.language = language;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ApkListing class];
-  query.loggingName = @"androidpublisher.edits.apklistings.update";
-  return query;
-}
 
 @end
 
@@ -283,6 +115,54 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRAndroidPublisher_Apk class];
   query.loggingName = @"androidpublisher.edits.apks.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_EditsBundlesList
+
+@dynamic editId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId {
+  NSArray *pathParams = @[
+    @"editId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"{packageName}/edits/{editId}/bundles";
+  GTLRAndroidPublisherQuery_EditsBundlesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.editId = editId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BundlesListResponse class];
+  query.loggingName = @"androidpublisher.edits.bundles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_EditsBundlesUpload
+
+@dynamic editId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId
+                    uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  NSArray *pathParams = @[
+    @"editId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"{packageName}/edits/{editId}/bundles";
+  GTLRAndroidPublisherQuery_EditsBundlesUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.editId = editId;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Bundle class];
+  query.loggingName = @"androidpublisher.edits.bundles.upload";
   return query;
 }
 

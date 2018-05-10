@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
+//   Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
 //   Manages encryption for your cloud services the same way you do on-premises.
 //   You can generate, use, rotate, and destroy AES256 encryption keys.
@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudKMSCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Key Management Service (KMS) API queries.
+ *  Service for executing Cloud Key Management Service (KMS) API queries.
  *
  *  Manages encryption for your cloud services the same way you do on-premises.
  *  You can generate, use, rotate, and destroy AES256 encryption keys.

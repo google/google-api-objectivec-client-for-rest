@@ -4,7 +4,8 @@
 // API:
 //   Hangouts Chat API (chat/v1)
 // Description:
-//   Create bots and extend the new Hangouts Chat.
+//   Enables bots to fetch information and perform actions in the new Hangouts
+//   Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -15,106 +16,6 @@
 @implementation GTLRHangoutsChatQuery
 
 @dynamic fields;
-
-@end
-
-@implementation GTLRHangoutsChatQuery_DmsConversationsMessagesCreate
-
-@dynamic parent, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_DmsConversationsMessagesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.dms.conversations.messages.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_DmsMessagesCreate
-
-@dynamic parent, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_DmsMessagesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.dms.messages.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_RoomsConversationsMessagesCreate
-
-@dynamic parent, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_RoomsConversationsMessagesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.rooms.conversations.messages.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_RoomsMessagesCreate
-
-@dynamic parent, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_RoomsMessagesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.rooms.messages.create";
-  return query;
-}
 
 @end
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Kubernetes Engine API (container/v1)
+//   Kubernetes Engine API (container/v1)
 // Description:
 //   The Google Kubernetes Engine API is used for building and managing
 //   container based applications, powered by the open source Kubernetes
@@ -802,7 +802,7 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_StartIPRotationRequest
-@dynamic clusterId, name, projectId, zoneProperty;
+@dynamic clusterId, name, projectId, rotateCredentials, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

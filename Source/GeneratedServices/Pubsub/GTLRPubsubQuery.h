@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Pub/Sub API (pubsub/v1)
+//   Cloud Pub/Sub API (pubsub/v1)
 // Description:
 //   Provides reliable, many-to-many, asynchronous messaging between
 //   applications.
@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *  Creates a snapshot from the requested subscription.
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
@@ -87,6 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *  Creates a snapshot from the requested subscription.
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
@@ -122,6 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  are immediately dropped. After a snapshot is deleted, a new one may be
  *  created with the same name, but the new one has no association with the old
  *  snapshot or its subscription, unless the same subscription is specified.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.snapshots.delete
  *
@@ -146,6 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  are immediately dropped. After a snapshot is deleted, a new one may be
  *  created with the same name, but the new one has no association with the old
  *  snapshot or its subscription, unless the same subscription is specified.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param snapshot The name of the snapshot to delete.
  *    Format is `projects/{project}/snapshots/{snap}`.
@@ -158,6 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the configuration details of a snapshot.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.snapshots.get
  *
@@ -179,6 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
  *  Gets the configuration details of a snapshot.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param snapshot The name of the snapshot to get.
  *    Format is `projects/{project}/snapshots/{snap}`.
@@ -229,6 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the existing snapshots.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.snapshots.list
  *
@@ -260,6 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_ListSnapshotsResponse.
  *
  *  Lists the existing snapshots.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param project The name of the cloud project that snapshots belong to.
  *    Format is `projects/{project}`.
@@ -277,6 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an existing snapshot. Note that certain properties of a
  *  snapshot are not modifiable.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.snapshots.patch
  *
@@ -296,6 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an existing snapshot. Note that certain properties of a
  *  snapshot are not modifiable.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param object The @c GTLRPubsub_UpdateSnapshotRequest to include in the
  *    query.
@@ -834,6 +844,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
  *  whichever is provided in the request.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.subscriptions.seek
  *
@@ -853,6 +864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
  *  whichever is provided in the request.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param object The @c GTLRPubsub_SeekRequest to include in the query.
  *  @param subscription The subscription to affect.
@@ -1230,6 +1242,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the names of the snapshots on this topic.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.topics.snapshots.list
  *
@@ -1261,6 +1274,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_ListTopicSnapshotsResponse.
  *
  *  Lists the names of the snapshots on this topic.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param topic The name of the topic that snapshots are attached to.
  *    Format is `projects/{project}/topics/{topic}`.

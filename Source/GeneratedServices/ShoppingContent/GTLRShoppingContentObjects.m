@@ -197,7 +197,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatusAccountLevelIssue
-@dynamic country, detail, identifier, severity, title;
+@dynamic country, destination, detail, identifier, severity, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -212,8 +212,8 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatusDataQualityIssue
-@dynamic country, detail, displayedValue, exampleItems, identifier, lastChecked,
-         location, numItems, severity, submittedValue;
+@dynamic country, destination, detail, displayedValue, exampleItems, identifier,
+         lastChecked, location, numItems, severity, submittedValue;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -253,7 +253,15 @@
 //
 
 @implementation GTLRShoppingContent_AccountstatusesCustomBatchRequestEntry
-@dynamic accountId, batchId, merchantId, method;
+@dynamic accountId, batchId, destinations, merchantId, method;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -571,6 +579,16 @@
 
 @implementation GTLRShoppingContent_DatafeedsCustomBatchResponseEntry
 @dynamic batchId, datafeed, errors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_DatafeedsFetchNowResponse
+//
+
+@implementation GTLRShoppingContent_DatafeedsFetchNowResponse
+@dynamic kind;
 @end
 
 
@@ -1057,7 +1075,7 @@
 
 @implementation GTLRShoppingContent_LiasettingsCustomBatchRequestEntry
 @dynamic accountId, batchId, contactEmail, contactName, country, gmbEmail,
-         liaSettings, merchantId, method;
+         liaSettings, merchantId, method, posExternalAccountId, posProviderId;
 @end
 
 
@@ -1085,7 +1103,15 @@
 //
 
 @implementation GTLRShoppingContent_LiasettingsCustomBatchResponseEntry
-@dynamic batchId, errors, gmbAccounts, kind, liaSettings;
+@dynamic batchId, errors, gmbAccounts, kind, liaSettings, posProviders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"posProviders" : [GTLRShoppingContent_PosProviders class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1251,7 +1277,18 @@
 //
 
 @implementation GTLRShoppingContent_OrderCustomer
-@dynamic email, explicitMarketingPreference, fullName;
+@dynamic email, explicitMarketingPreference, fullName, marketingRightsInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderCustomerMarketingRightsInfo
+//
+
+@implementation GTLRShoppingContent_OrderCustomerMarketingRightsInfo
+@dynamic explicitMarketingPreference, lastUpdatedTimestamp,
+         marketingEmailAddress;
 @end
 
 
@@ -2138,6 +2175,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PosProviders
+//
+
+@implementation GTLRShoppingContent_PosProviders
+@dynamic country, posProviders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"posProviders" : [GTLRShoppingContent_PosProvidersPosProvider class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PosProvidersPosProvider
+//
+
+@implementation GTLRShoppingContent_PosProvidersPosProvider
+@dynamic displayName, fullName, providerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_PosSale
 //
 
@@ -2456,8 +2521,8 @@
 //
 
 @implementation GTLRShoppingContent_ProductStatusDataQualityIssue
-@dynamic detail, fetchStatus, identifier, location, severity, timestamp,
-         valueOnLandingPage, valueProvided;
+@dynamic destination, detail, fetchStatus, identifier, location, severity,
+         timestamp, valueOnLandingPage, valueProvided;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2500,7 +2565,16 @@
 //
 
 @implementation GTLRShoppingContent_ProductstatusesCustomBatchRequestEntry
-@dynamic batchId, includeAttributes, merchantId, method, productId;
+@dynamic batchId, destinations, includeAttributes, merchantId, method,
+         productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2560,7 +2634,13 @@
 //
 
 @implementation GTLRShoppingContent_ProductStatusItemLevelIssue
-@dynamic attributeName, code, destination, resolution, servability;
+@dynamic attributeName, code, descriptionProperty, destination, detail,
+         documentation, resolution, servability;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -2639,8 +2719,8 @@
 //
 
 @implementation GTLRShoppingContent_Service
-@dynamic active, currency, deliveryCountry, deliveryTime, minimumOrderValue,
-         name, rateGroups;
+@dynamic active, currency, deliveryCountry, deliveryTime, eligibility,
+         minimumOrderValue, name, rateGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2830,7 +2910,17 @@
 //
 
 @implementation GTLRShoppingContent_TestOrderCustomer
-@dynamic email, explicitMarketingPreference, fullName;
+@dynamic email, explicitMarketingPreference, fullName, marketingRightsInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
+//
+
+@implementation GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
+@dynamic explicitMarketingPreference, lastUpdatedTimestamp;
 @end
 
 

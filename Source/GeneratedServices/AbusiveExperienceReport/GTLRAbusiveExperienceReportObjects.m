@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Abusive Experience Report API (abusiveexperiencereport/v1)
+//   Abusive Experience Report API (abusiveexperiencereport/v1)
 // Description:
 //   View Abusive Experience Report data, and get a list of sites that have a
 //   significant number of abusive experiences.

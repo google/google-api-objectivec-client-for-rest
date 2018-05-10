@@ -676,24 +676,6 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @end
 
-@implementation GTLRYouTubeQuery_FanFundingEventsList
-
-@dynamic hl, maxResults, pageToken, part;
-
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"fanFundingEvents";
-  GTLRYouTubeQuery_FanFundingEventsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_FanFundingEventListResponse class];
-  query.loggingName = @"youtube.fanFundingEvents.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRYouTubeQuery_GuideCategoriesList
 
 @dynamic hl, identifier, part, regionCode;

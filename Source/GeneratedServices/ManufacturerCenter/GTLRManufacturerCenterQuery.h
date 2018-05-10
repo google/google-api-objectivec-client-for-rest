@@ -27,6 +27,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// include
+
+/** Value: "ATTRIBUTES" */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeAttributes;
+/** Value: "DESTINATION_STATUSES" */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeDestinationStatuses;
+/** Value: "ISSUES" */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeIssues;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Manufacturer Center query classes.
  */
@@ -107,6 +126,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManufacturerCenter queryForAccountsProductsGetWithparent:name:]
 
 /**
+ *  The information to be included in the response. Only sections listed here
+ *  will be returned.
+ *  If this parameter is not specified, ATTRIBUTES and ISSUES are returned.
+ *  This behavior is temporary and will be removed once all clients are ready
+ *  or at the latest end of July 2018. After that no sections will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRManufacturerCenterIncludeAttributes Value "ATTRIBUTES"
+ *    @arg @c kGTLRManufacturerCenterIncludeIssues Value "ISSUES"
+ *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Value
+ *        "DESTINATION_STATUSES"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *include;
+
+/**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
  *  `target_country` - The target country of the product as a CLDR territory
  *  code (for example, US).
@@ -162,6 +197,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRManufacturerCenterQuery_AccountsProductsList : GTLRManufacturerCenterQuery
 // Previous library name was
 //   +[GTLQueryManufacturerCenter queryForAccountsProductsListWithparent:]
+
+/**
+ *  The information to be included in the response. Only sections listed here
+ *  will be returned.
+ *  If this parameter is not specified, ATTRIBUTES and ISSUES are returned.
+ *  This behavior is temporary and will be removed once all clients are ready
+ *  or at the latest end of July 2018. After that no sections will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRManufacturerCenterIncludeAttributes Value "ATTRIBUTES"
+ *    @arg @c kGTLRManufacturerCenterIncludeIssues Value "ISSUES"
+ *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Value
+ *        "DESTINATION_STATUSES"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *include;
 
 /**
  *  Maximum number of product statuses to return in the response, used for

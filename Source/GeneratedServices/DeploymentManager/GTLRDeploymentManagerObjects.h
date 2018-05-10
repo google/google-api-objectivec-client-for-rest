@@ -41,6 +41,7 @@
 @class GTLRDeploymentManager_Operation_Error_Errors_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item_Data_Item;
+@class GTLRDeploymentManager_Policy;
 @class GTLRDeploymentManager_Resource;
 @class GTLRDeploymentManager_Resource_Warnings_Item;
 @class GTLRDeploymentManager_Resource_Warnings_Item_Data_Item;
@@ -151,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone who
  *  is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group. For
@@ -469,6 +470,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRDeploymentManager_GlobalSetPolicyRequest
+ */
+@interface GTLRDeploymentManager_GlobalSetPolicyRequest : GTLRObject
+
+/**
+ *  Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use
+ *  'policy' to specify bindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Binding *> *bindings;
+
+/**
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
+ *  'policy' to specify the etag.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  REQUIRED: The complete policy to be applied to the 'resource'. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is in general a
+ *  valid policy but certain services (like Projects) might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Policy *policy;
+
+@end
+
+
+/**
  *  GTLRDeploymentManager_ImportFile
  */
 @interface GTLRDeploymentManager_ImportFile : GTLRObject
@@ -636,7 +667,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDeploymentManager_Operation : GTLRObject
 
-/** [Output Only] Reserved for future use. */
+/**
+ *  [Output Only] The value of `requestId` if you provided it in the request.
+ *  Not present otherwise.
+ */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /** [Deprecated] This field is deprecated. */
@@ -896,15 +930,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups, Google domains, and service accounts. A `role` is a named list of
  *  permissions defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  { "bindings": [ { "role": "roles/owner", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com", ] }, { "role":
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com" ] }, { "role":
  *  "roles/viewer", "members": ["user:sean\@example.com"] } ] }
+ *  **YAML Example**
+ *  bindings: - members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner - members: - user:sean\@example.com role: roles/viewer
  *  For a description of IAM and its features, see the [IAM developer's
  *  guide](https://cloud.google.com/iam/docs).
  */

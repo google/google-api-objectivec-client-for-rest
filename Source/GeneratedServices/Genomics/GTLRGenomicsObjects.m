@@ -383,7 +383,7 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 //
 
 @implementation GTLRGenomics_ContainerStoppedEvent
-@dynamic actionId, exitStatus;
+@dynamic actionId, exitStatus, stderr;
 @end
 
 

@@ -128,6 +128,7 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsGuns
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsKnives = @"DANGEROUS_PRODUCTS_KNIVES";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsTobacco = @"DANGEROUS_PRODUCTS_TOBACCO";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsWeapons = @"DANGEROUS_PRODUCTS_WEAPONS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationExperience = @"DESTINATION_EXPERIENCE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteDoesNotAllowGoingBack = @"DESTINATION_SITE_DOES_NOT_ALLOW_GOING_BACK";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteNotCrawlableRobotsTxt = @"DESTINATION_SITE_NOT_CRAWLABLE_ROBOTS_TXT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlSiteNotCrawlable = @"DESTINATION_URL_SITE_NOT_CRAWLABLE";
@@ -170,9 +171,11 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfHttpCa
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MediaNotFunctional = @"MEDIA_NOT_FUNCTIONAL";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingClaimsInAd = @"MISLEADING_CLAIMS_IN_AD";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingPromotions = @"MISLEADING_PROMOTIONS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseByOmidScript = @"MISUSE_BY_OMID_SCRIPT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseOfPersonalInformation = @"MISUSE_OF_PERSONAL_INFORMATION";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCertificatesToAdvertiseInChina = @"NEED_CERTIFICATES_TO_ADVERTISE_IN_CHINA";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder = @"NO_BORDER";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor = @"NON_WHITELISTED_OMID_VENDOR";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe = @"NOT_FAMILY_SAFE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_OmissionOfRelevantInformation = @"OMISSION_OF_RELEVANT_INFORMATION";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PersonalLoans = @"PERSONAL_LOANS";
@@ -537,13 +540,14 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
 @dynamic absoluteDateRange, creativeId, dealId, environment, formats, name,
-         platforms, realtimeTimeRange, relativeDateRange, sellerNetworkIds,
-         timeSeriesGranularity;
+         platforms, publisherIdentifiers, realtimeTimeRange, relativeDateRange,
+         sellerNetworkIds, timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"formats" : [NSString class],
     @"platforms" : [NSString class],
+    @"publisherIdentifiers" : [NSString class],
     @"sellerNetworkIds" : [NSNumber class]
   };
   return map;

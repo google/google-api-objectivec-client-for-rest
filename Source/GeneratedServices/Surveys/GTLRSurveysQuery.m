@@ -17,67 +17,6 @@
 
 @end
 
-@implementation GTLRSurveysQuery_MobileapppanelsGet
-
-@dynamic panelId;
-
-+ (instancetype)queryWithPanelId:(NSString *)panelId {
-  NSArray *pathParams = @[ @"panelId" ];
-  NSString *pathURITemplate = @"mobileAppPanels/{panelId}";
-  GTLRSurveysQuery_MobileapppanelsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.panelId = panelId;
-  query.expectedObjectClass = [GTLRSurveys_MobileAppPanel class];
-  query.loggingName = @"surveys.mobileapppanels.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRSurveysQuery_MobileapppanelsList
-
-@dynamic maxResults, startIndex, token;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"mobileAppPanels";
-  GTLRSurveysQuery_MobileapppanelsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRSurveys_MobileAppPanelsListResponse class];
-  query.loggingName = @"surveys.mobileapppanels.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRSurveysQuery_MobileapppanelsUpdate
-
-@dynamic panelId;
-
-+ (instancetype)queryWithObject:(GTLRSurveys_MobileAppPanel *)object
-                        panelId:(NSString *)panelId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"panelId" ];
-  NSString *pathURITemplate = @"mobileAppPanels/{panelId}";
-  GTLRSurveysQuery_MobileapppanelsUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.panelId = panelId;
-  query.expectedObjectClass = [GTLRSurveys_MobileAppPanel class];
-  query.loggingName = @"surveys.mobileapppanels.update";
-  return query;
-}
-
-@end
-
 @implementation GTLRSurveysQuery_ResultsGet
 
 @dynamic surveyUrlId;

@@ -4,9 +4,8 @@
 // API:
 //   Admin Directory API (admin/directory_v1)
 // Description:
-//   The Admin SDK Directory API lets you view and manage enterprise resources
-//   such as users and groups, administrative notifications, security features,
-//   and more.
+//   Manages enterprise resources such as users and groups, administrative
+//   notifications, security features, and more.
 // Documentation:
 //   https://developers.google.com/admin-sdk/directory/
 
@@ -1799,6 +1798,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDirectory_Schema : GTLRObject
 
+/** Display name for the schema. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1821,6 +1823,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  JSON template for FieldSpec resource for Schemas in Directory API.
  */
 @interface GTLRDirectory_SchemaFieldSpec : GTLRObject
+
+/** Display Name of the field. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -2762,6 +2767,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The path to the home directory for this account. */
 @property(nonatomic, copy, nullable) NSString *homeDirectory;
+
+/** The operating system type for this account. */
+@property(nonatomic, copy, nullable) NSString *operatingSystemType;
 
 /**
  *  If this is user's primary account within the SystemId.

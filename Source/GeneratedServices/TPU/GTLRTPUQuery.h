@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  Method: tpu.projects.locations.get
  *
@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTPU_Location.
  *
- *  Get information about a location.
+ *  Gets information about a location.
  *
  *  @param name Resource name for the location.
  *

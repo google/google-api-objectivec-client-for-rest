@@ -721,7 +721,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -899,7 +899,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  tag is equal to `<my-tag>`. `<my-tag>` must be
  *  less than 500 characters.
  *  When `filter` is set to `tag_function=oldest_tag()`, only tasks which have
- *  the same tag as the task with the oldest schedule_time will be returned.
+ *  the same tag as the task with the oldest
+ *  schedule_time will be returned.
  *  Grammar Syntax:
  *  * `filter = "tag=" tag | "tag_function=" function`
  *  * `tag = string`
@@ -1139,13 +1140,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -1154,7 +1155,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -1163,6 +1164,17 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -1380,6 +1392,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  This message determines the maximum rate that tasks can be dispatched by a
  *  queue, regardless of whether the dispatch is a first task attempt or a
  *  retry.
+ *  Note: The debugging command, RunTask, will run a task
+ *  even if the queue has reached its RateLimits.
  */
 @interface GTLRCloudTasks_RateLimits : GTLRObject
 
@@ -1424,9 +1438,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  concurrent requests decreases.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  The maximum allowed value is 5,000. -1 indicates no limit.
+ *  The maximum allowed value is 5,000.
  *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget).
+ *  [pull queues](google.cloud.tasks.v2beta2.PullTarget) and always -1, which
+ *  indicates no limit. No other queue types can have `max_concurrent_tasks`
+ *  set to -1.
  *  This field has the same meaning as
  *  [max_concurrent_requests in
  *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#max_concurrent_requests).

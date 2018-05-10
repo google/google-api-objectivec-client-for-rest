@@ -568,7 +568,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Returns the Android Device Policy config resource.
+ *  Deprecated and unused.
  *
  *  Method: androidenterprise.enterprises.getAndroidDevicePolicyConfig
  *
@@ -585,7 +585,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Fetches a @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig.
  *
- *  Returns the Android Device Policy config resource.
+ *  Deprecated and unused.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -887,10 +887,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Sets the Android Device Policy config resource. EMM may use this method to
- *  enable or disable Android Device Policy support for the specified
- *  enterprise. To learn more about managing devices and apps with Android
- *  Device Policy, see the Android Management API.
+ *  Deprecated and unused.
  *
  *  Method: androidenterprise.enterprises.setAndroidDevicePolicyConfig
  *
@@ -907,10 +904,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Fetches a @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig.
  *
- *  Sets the Android Device Policy config resource. EMM may use this method to
- *  enable or disable Android Device Policy support for the specified
- *  enterprise. To learn more about managing devices and apps with Android
- *  Device Policy, see the Android Management API.
+ *  Deprecated and unused.
  *
  *  @param object The @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig to
  *    include in the query.

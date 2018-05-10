@@ -26,8 +26,10 @@ NSString * const kGTLRTPU_Node_State_Ready            = @"READY";
 NSString * const kGTLRTPU_Node_State_Reimaging        = @"REIMAGING";
 NSString * const kGTLRTPU_Node_State_Repairing        = @"REPAIRING";
 NSString * const kGTLRTPU_Node_State_Restarting       = @"RESTARTING";
+NSString * const kGTLRTPU_Node_State_Starting         = @"STARTING";
 NSString * const kGTLRTPU_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
+NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //

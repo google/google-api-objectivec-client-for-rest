@@ -1137,8 +1137,8 @@ NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_Bad
 //
 
 @implementation GTLRPartners_User
-@dynamic availableAdwordsManagerAccounts, certificationStatus, company,
-         companyVerificationEmail, examStatus, identifier, internalId,
+@dynamic afaInfoShared, availableAdwordsManagerAccounts, certificationStatus,
+         company, companyVerificationEmail, examStatus, identifier, internalId,
          lastAccessTime, primaryEmails, profile, publicProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

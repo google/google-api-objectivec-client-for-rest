@@ -780,7 +780,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  An EMM's DPC ([device policy controller](/android/work/dpc/build-dpc)).
+ *  An EMM's DPC ([device policy
+ *  controller](http://developer.android.com/work/dpc/build-dpc.html)).
  *  Zero-touch enrollment installs a DPC (listed in the `Configuration`) on a
  *  device to maintain the customer's mobile policies. All the DPCs listed by
  *  the

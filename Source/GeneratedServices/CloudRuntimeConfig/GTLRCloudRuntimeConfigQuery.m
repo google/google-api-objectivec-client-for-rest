@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Runtime Configuration API (runtimeconfig/v1)
+//   Cloud Runtime Configuration API (runtimeconfig/v1)
 // Description:
 //   The Runtime Configurator allows you to dynamically configure and expose
 //   variables through Google Cloud Platform. In addition, you can also set

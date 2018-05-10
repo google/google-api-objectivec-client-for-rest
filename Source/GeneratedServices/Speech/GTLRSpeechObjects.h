@@ -255,6 +255,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When enable_speaker_diarization is true, you will see all the words
+ *  from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_WordInfo *> *words;
 
@@ -553,6 +555,17 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  vary.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from '1' to diarization_speaker_count.
+ *  speaker_tag is set if enable_speaker_diarization = 'true' and only in the
+ *  top alternative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
 
 /**
  *  Output only. Time offset relative to the beginning of the audio,

@@ -423,46 +423,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountTreeRequest_AccountSettings : GTLRObject
 
 /**
- *  admobReporting
+ *  shareAnonymouslyWithOthers
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *admobReporting;
+@property(nonatomic, strong, nullable) NSNumber *shareAnonymouslyWithOthers;
 
 /**
- *  sharingWithGoogleAnySales
+ *  shareWithGoogleProducts
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySales;
+@property(nonatomic, strong, nullable) NSNumber *shareWithGoogleProducts;
 
 /**
- *  sharingWithGoogleProducts
+ *  shareWithSpecialists
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProducts;
+@property(nonatomic, strong, nullable) NSNumber *shareWithSpecialists;
 
 /**
- *  sharingWithGoogleSales
+ *  shareWithSupport
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSales;
-
-/**
- *  sharingWithGoogleSupport
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupport;
-
-/**
- *  sharingWithOthers
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithOthers;
+@property(nonatomic, strong, nullable) NSNumber *shareWithSupport;
 
 @end
 
@@ -497,46 +483,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountTreeResponse_AccountSettings : GTLRObject
 
 /**
- *  admobReporting
+ *  shareAnonymouslyWithOthers
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *admobReporting;
+@property(nonatomic, strong, nullable) NSNumber *shareAnonymouslyWithOthers;
 
 /**
- *  sharingWithGoogleAnySales
+ *  shareWithGoogleProducts
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySales;
+@property(nonatomic, strong, nullable) NSNumber *shareWithGoogleProducts;
 
 /**
- *  sharingWithGoogleProducts
+ *  shareWithSpecialists
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProducts;
+@property(nonatomic, strong, nullable) NSNumber *shareWithSpecialists;
 
 /**
- *  sharingWithGoogleSales
+ *  shareWithSupport
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSales;
-
-/**
- *  sharingWithGoogleSupport
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupport;
-
-/**
- *  sharingWithOthers
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithOthers;
+@property(nonatomic, strong, nullable) NSNumber *shareWithSupport;
 
 @end
 

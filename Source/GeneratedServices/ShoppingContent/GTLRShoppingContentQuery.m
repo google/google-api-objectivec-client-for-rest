@@ -249,7 +249,14 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_AccountstatusesGet
 
-@dynamic accountId, merchantId;
+@dynamic accountId, destinations, merchantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId {
@@ -272,7 +279,14 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_AccountstatusesList
 
-@dynamic maxResults, merchantId, pageToken;
+@dynamic destinations, maxResults, merchantId, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
@@ -479,6 +493,29 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
   query.merchantId = merchantId;
   query.datafeedId = datafeedId;
   query.loggingName = @"content.datafeeds.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_DatafeedsFetchnow
+
+@dynamic datafeedId, dryRun, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                         datafeedId:(unsigned long long)datafeedId {
+  NSArray *pathParams = @[
+    @"datafeedId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/datafeeds/{datafeedId}/fetchNow";
+  GTLRShoppingContentQuery_DatafeedsFetchnow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.datafeedId = datafeedId;
+  query.expectedObjectClass = [GTLRShoppingContent_DatafeedsFetchNowResponse class];
+  query.loggingName = @"content.datafeeds.fetchnow";
   return query;
 }
 
@@ -1797,7 +1834,14 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductstatusesGet
 
-@dynamic includeAttributes, merchantId, productId;
+@dynamic destinations, includeAttributes, merchantId, productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           productId:(NSString *)productId {
@@ -1820,8 +1864,15 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductstatusesList
 
-@dynamic includeAttributes, includeInvalidInsertedItems, maxResults, merchantId,
-         pageToken;
+@dynamic destinations, includeAttributes, includeInvalidInsertedItems,
+         maxResults, merchantId, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Service Management API (servicemanagement/v1)
+//   Service Management API (servicemanagement/v1)
 // Description:
 //   Google Service Management allows service producers to publish their
 //   services on Google Cloud Platform so that they can be discovered and used
@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeServiceManagementServiceManagementReadonly = @"ht
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://content-servicemanagement.googleapis.com/";
+    self.rootURLString = @"https://servicemanagement.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

@@ -23,6 +23,8 @@
 @class GTLRSheets_AddChartRequest;
 @class GTLRSheets_AddChartResponse;
 @class GTLRSheets_AddConditionalFormatRuleRequest;
+@class GTLRSheets_AddDimensionGroupRequest;
+@class GTLRSheets_AddDimensionGroupResponse;
 @class GTLRSheets_AddFilterViewRequest;
 @class GTLRSheets_AddFilterViewResponse;
 @class GTLRSheets_AddNamedRangeRequest;
@@ -68,11 +70,14 @@
 @class GTLRSheets_DataFilter;
 @class GTLRSheets_DataFilterValueRange;
 @class GTLRSheets_DataValidationRule;
+@class GTLRSheets_DateTimeRule;
 @class GTLRSheets_DeleteBandingRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleResponse;
 @class GTLRSheets_DeleteDeveloperMetadataRequest;
 @class GTLRSheets_DeleteDeveloperMetadataResponse;
+@class GTLRSheets_DeleteDimensionGroupRequest;
+@class GTLRSheets_DeleteDimensionGroupResponse;
 @class GTLRSheets_DeleteDimensionRequest;
 @class GTLRSheets_DeleteEmbeddedObjectRequest;
 @class GTLRSheets_DeleteFilterViewRequest;
@@ -83,6 +88,7 @@
 @class GTLRSheets_DeveloperMetadata;
 @class GTLRSheets_DeveloperMetadataLocation;
 @class GTLRSheets_DeveloperMetadataLookup;
+@class GTLRSheets_DimensionGroup;
 @class GTLRSheets_DimensionProperties;
 @class GTLRSheets_DimensionRange;
 @class GTLRSheets_DuplicateFilterViewRequest;
@@ -164,6 +170,7 @@
 @class GTLRSheets_UpdateConditionalFormatRuleResponse;
 @class GTLRSheets_UpdateDeveloperMetadataRequest;
 @class GTLRSheets_UpdateDeveloperMetadataResponse;
+@class GTLRSheets_UpdateDimensionGroupRequest;
 @class GTLRSheets_UpdateDimensionPropertiesRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionResponse;
@@ -734,6 +741,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOpti
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Blank;
 /**
+ *  The cell's value must be TRUE/FALSE or in the list of condition values.
+ *  Supported by data validation.
+ *  Renders as a cell checkbox.
+ *  Supports zero, one or two ConditionValue. No
+ *  values indicates the cell must be TRUE or FALSE, where TRUE renders as
+ *  checked and FALSE renders as unchecked. One value indicates the cell
+ *  will render as checked when it contains that value and unchecked when it
+ *  is blank. Two values indicate that the cell will render as checked when
+ *  it contains the first value and unchecked when it contains the second
+ *  value. For example, ["Yes",""No"] indicates that the cell will render a
+ *  checked box when it has the value "Yes" and an unchecked box when it has
+ *  the value "No".
+ *
+ *  Value: "BOOLEAN"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Boolean;
+/**
  *  The default value, do not use.
  *
  *  Value: "CONDITION_TYPE_UNSPECIFIED"
@@ -888,7 +912,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotBetween;
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotEq;
 /**
- *  The cell's value must in the list of condition values.
+ *  The cell's value must be in the list of condition values.
  *  Supported by data validation.
  *  Supports any number of condition values,
  *  one per item in the list.
@@ -1429,6 +1453,112 @@ GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Dim
  *  Value: "ROWS"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DateTimeRule.type
+
+/**
+ *  The default type, do not use.
+ *
+ *  Value: "DATE_TIME_RULE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DateTimeRuleTypeUnspecified;
+/**
+ *  Group dates by day and month, e.g. 22-Nov. The month will be translated
+ *  based on the spreadsheet locale.
+ *
+ *  Value: "DAY_MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayMonth;
+/**
+ *  Group dates by day of month, from 1 to 31
+ *
+ *  Value: "DAY_OF_MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfMonth;
+/**
+ *  Group dates by day of week, e.g. Sunday. The days of the week will be
+ *  translated based on the spreadsheet locale.
+ *
+ *  Value: "DAY_OF_WEEK"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfWeek;
+/**
+ *  Group dates by day of year, from 1 to 366. Note that dates after Feb. 29
+ *  fall in different buckets in leap years than in non-leap years.
+ *
+ *  Value: "DAY_OF_YEAR"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfYear;
+/**
+ *  Group dates by hour using a 24-hour system, from 0 to 23
+ *
+ *  Value: "HOUR"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Hour;
+/**
+ *  Group dates by hour and minute using a 24-hour system, e.g. 19:45
+ *
+ *  Value: "HOUR_MINUTE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinute;
+/**
+ *  Group dates by hour and minute using a 12-hour system, e.g. 7:45 PM. The
+ *  AM/PM designation will be translated based on the spreadsheet locale.
+ *
+ *  Value: "HOUR_MINUTE_AMPM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinuteAmpm;
+/**
+ *  Group dates by minute, from 0 to 59
+ *
+ *  Value: "MINUTE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Minute;
+/**
+ *  Group dates by month, e.g. Nov. The month will be translated based on the
+ *  spreadsheet locale.
+ *
+ *  Value: "MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Month;
+/**
+ *  Group dates by quarter, e.g. Q1 (which represents Jan-Mar)
+ *
+ *  Value: "QUARTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Quarter;
+/**
+ *  Group dates by second, from 0 to 59
+ *
+ *  Value: "SECOND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Second;
+/**
+ *  Group dates by year, e.g. 2008
+ *
+ *  Value: "YEAR"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Year;
+/**
+ *  Group dates by year and month, e.g. 2008-Nov. The month will be
+ *  translated based on the spreadsheet locale.
+ *
+ *  Value: "YEAR_MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonth;
+/**
+ *  Group dates by year, month, and day, e.g. 2008-11-22
+ *
+ *  Value: "YEAR_MONTH_DAY"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonthDay;
+/**
+ *  Group dates by year and quarter, e.g. 2008 Q4
+ *
+ *  Value: "YEAR_QUARTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearQuarter;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeleteRangeRequest.shiftDimension
@@ -2513,6 +2643,42 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Creates a group over the specified range.
+ *  If the requested range is a superset of the range of an existing group G,
+ *  then the depth of G will be incremented and this new group G' will have the
+ *  depth of that group. For example, a group [C:D, depth 1] + [B:E] results in
+ *  groups [B:E, depth 1] and [C:D, depth 2].
+ *  If the requested range is a subset of the range of an existing group G,
+ *  then the depth of the new group G' will be one greater than the depth of G.
+ *  For example, a group [B:E, depth 1] + [C:D] results in groups [B:E, depth 1]
+ *  and [C:D, depth 2].
+ *  If the requested range starts before and ends within, or starts within and
+ *  ends after, the range of an existing group G, then the range of the existing
+ *  group G will become the union of the ranges, and the new group G' will have
+ *  depth one greater than the depth of G and range as the intersection of the
+ *  ranges. For example, a group [B:D, depth 1] + [C:E] results in groups [B:E,
+ *  depth 1] and [C:D, depth 2].
+ */
+@interface GTLRSheets_AddDimensionGroupRequest : GTLRObject
+
+/** The range over which to create a group. */
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
+
+@end
+
+
+/**
+ *  The result of adding a group.
+ */
+@interface GTLRSheets_AddDimensionGroupResponse : GTLRObject
+
+/** All groups of a dimension after adding a group to that dimension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *dimensionGroups;
+
+@end
+
+
+/**
  *  Adds a filter view.
  */
 @interface GTLRSheets_AddFilterViewRequest : GTLRObject
@@ -2900,6 +3066,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  one for the "Open Price", "High Price", "Low Price" and "Close Price".
  */
 @interface GTLRSheets_BasicChartSeries : GTLRObject
+
+/**
+ *  The color for elements (i.e. bars, lines, points) associated with this
+ *  series. If empty, a default color will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
 
 /**
  *  The line style of this series. Valid only if the
@@ -3694,6 +3866,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *        empty.
  *        Supported by conditional formatting and filters.
  *        Requires no ConditionValues. (Value: "BLANK")
+ *    @arg @c kGTLRSheets_BooleanCondition_Type_Boolean The cell's value must be
+ *        TRUE/FALSE or in the list of condition values.
+ *        Supported by data validation.
+ *        Renders as a cell checkbox.
+ *        Supports zero, one or two ConditionValue. No
+ *        values indicates the cell must be TRUE or FALSE, where TRUE renders as
+ *        checked and FALSE renders as unchecked. One value indicates the cell
+ *        will render as checked when it contains that value and unchecked when
+ *        it
+ *        is blank. Two values indicate that the cell will render as checked
+ *        when
+ *        it contains the first value and unchecked when it contains the second
+ *        value. For example, ["Yes",""No"] indicates that the cell will render
+ *        a
+ *        checked box when it has the value "Yes" and an unchecked box when it
+ *        has
+ *        the value "No". (Value: "BOOLEAN")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified The
  *        default value, do not use. (Value: "CONDITION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_CustomFormula The condition's
@@ -3773,7 +3962,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *        Supported by data validation, conditional formatting and filters.
  *        Requires a single ConditionValue. (Value: "NUMBER_NOT_EQ")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_OneOfList The cell's value must
- *        in the list of condition values.
+ *        be in the list of condition values.
  *        Supported by data validation.
  *        Supports any number of condition values,
  *        one per item in the list.
@@ -4330,7 +4519,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  with length 1.
  *  The domain (if it exists) & all series must have the same number
  *  of source ranges. If using more than one source range, then the source
- *  range at a given offset must be contiguous across the domain and series.
+ *  range at a given offset must be in order and contiguous across the domain
+ *  and series.
  *  For example, these are valid configurations:
  *  domain sources: A1:A5
  *  series1 sources: B1:B5
@@ -4697,7 +4887,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /**
  *  A value the condition is based on.
  *  The value will be parsed as if the user typed into a cell.
- *  Formulas are supported (and must begin with an `=`).
+ *  Formulas are supported (and must begin with an `=` or a '+').
  */
 @property(nonatomic, copy, nullable) NSString *userEnteredValue;
 
@@ -4916,6 +5106,81 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Allows you to organize the date-time values in a source data column into
+ *  buckets based on selected parts of their date or time values. For example,
+ *  consider a pivot table showing sales transactions by date:
+ *  +----------+--------------+
+ *  | Date | SUM of Sales |
+ *  +----------+--------------+
+ *  | 1/1/2017 | $621.14 |
+ *  | 2/3/2017 | $708.84 |
+ *  | 5/8/2017 | $326.84 |
+ *  ...
+ *  +----------+--------------+
+ *  Applying a date-time group rule with a DateTimeRuleType of YEAR_MONTH
+ *  results in the following pivot table.
+ *  +--------------+--------------+
+ *  | Grouped Date | SUM of Sales |
+ *  +--------------+--------------+
+ *  | 2017-Jan | $53,731.78 |
+ *  | 2017-Feb | $83,475.32 |
+ *  | 2017-Mar | $94,385.05 |
+ *  ...
+ *  +--------------+--------------+
+ */
+@interface GTLRSheets_DateTimeRule : GTLRObject
+
+/**
+ *  The type of date-time grouping to apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_DateTimeRuleTypeUnspecified The
+ *        default type, do not use. (Value: "DATE_TIME_RULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_DayMonth Group dates by day and
+ *        month, e.g. 22-Nov. The month will be translated
+ *        based on the spreadsheet locale. (Value: "DAY_MONTH")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_DayOfMonth Group dates by day of
+ *        month, from 1 to 31 (Value: "DAY_OF_MONTH")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_DayOfWeek Group dates by day of
+ *        week, e.g. Sunday. The days of the week will be
+ *        translated based on the spreadsheet locale. (Value: "DAY_OF_WEEK")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_DayOfYear Group dates by day of
+ *        year, from 1 to 366. Note that dates after Feb. 29
+ *        fall in different buckets in leap years than in non-leap years.
+ *        (Value: "DAY_OF_YEAR")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Hour Group dates by hour using a
+ *        24-hour system, from 0 to 23 (Value: "HOUR")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_HourMinute Group dates by hour and
+ *        minute using a 24-hour system, e.g. 19:45 (Value: "HOUR_MINUTE")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_HourMinuteAmpm Group dates by hour
+ *        and minute using a 12-hour system, e.g. 7:45 PM. The
+ *        AM/PM designation will be translated based on the spreadsheet locale.
+ *        (Value: "HOUR_MINUTE_AMPM")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Minute Group dates by minute, from 0
+ *        to 59 (Value: "MINUTE")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Month Group dates by month, e.g.
+ *        Nov. The month will be translated based on the
+ *        spreadsheet locale. (Value: "MONTH")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Quarter Group dates by quarter, e.g.
+ *        Q1 (which represents Jan-Mar) (Value: "QUARTER")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Second Group dates by second, from 0
+ *        to 59 (Value: "SECOND")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_Year Group dates by year, e.g. 2008
+ *        (Value: "YEAR")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_YearMonth Group dates by year and
+ *        month, e.g. 2008-Nov. The month will be
+ *        translated based on the spreadsheet locale. (Value: "YEAR_MONTH")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_YearMonthDay Group dates by year,
+ *        month, and day, e.g. 2008-11-22 (Value: "YEAR_MONTH_DAY")
+ *    @arg @c kGTLRSheets_DateTimeRule_Type_YearQuarter Group dates by year and
+ *        quarter, e.g. 2008 Q4 (Value: "YEAR_QUARTER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Removes the banded range with the given ID from the spreadsheet.
  */
 @interface GTLRSheets_DeleteBandingRequest : GTLRObject
@@ -4985,6 +5250,32 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The metadata that was deleted. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DeveloperMetadata *> *deletedDeveloperMetadata;
+
+@end
+
+
+/**
+ *  Deletes a group over the specified range by decrementing the depth of the
+ *  dimensions in the range.
+ *  For example, assume the sheet has a depth-1 group over B:E and a depth-2
+ *  group over C:D. Deleting a group over D:E would leave the sheet with a
+ *  depth-1 group over B:D and a depth-2 group over C:C.
+ */
+@interface GTLRSheets_DeleteDimensionGroupRequest : GTLRObject
+
+/** The range of the group to be deleted. */
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
+
+@end
+
+
+/**
+ *  The result of deleting a group.
+ */
+@interface GTLRSheets_DeleteDimensionGroupResponse : GTLRObject
+
+/** All groups of a dimension after deleting a group from that dimension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *dimensionGroups;
 
 @end
 
@@ -5324,6 +5615,40 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *        project that created the metadata. (Value: "PROJECT")
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
+
+@end
+
+
+/**
+ *  A group over an interval of rows or columns on a sheet, which can contain or
+ *  be contained within other groups. A group can be collapsed or expanded as a
+ *  unit on the sheet.
+ */
+@interface GTLRSheets_DimensionGroup : GTLRObject
+
+/**
+ *  True if this group is collapsed. A collapsed group will remain collapsed if
+ *  an overlapping group at a shallower depth is expanded.
+ *  collapsed == true does not imply that all dimensions within the group are
+ *  hidden, since a dimension's visibility can change independently from this
+ *  group property. However, when this property is updated, all dimensions
+ *  within it will be set to hidden if collapsed == true, or set to visible if
+ *  collapsed == false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collapsed;
+
+/**
+ *  The depth of the group, representing how many groups have a range that
+ *  wholly contains the range of this group.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/** The range over which this group exists. */
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
 
 @end
 
@@ -5947,6 +6272,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) NSNumber *columnCount;
 
 /**
+ *  True if the column grouping control toggle is shown after the group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnGroupControlAfter;
+
+/**
  *  The number of columns that are frozen in the grid.
  *
  *  Uses NSNumber of intValue.
@@ -5973,6 +6305,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/**
+ *  True if the row grouping control toggle is shown after the group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowGroupControlAfter;
 
 @end
 
@@ -6152,23 +6491,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @interface GTLRSheets_HistogramRule : GTLRObject
 
 /**
- *  Optional. The maximum value at which items will be placed into buckets
+ *  The maximum value at which items will be placed into buckets
  *  of constant size. Values above end will be lumped into a single bucket.
+ *  This field is optional.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *end;
 
 /**
- *  Required. The size of the buckets that will be created. Must be positive.
+ *  The size of the buckets that will be created. Must be positive.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *interval;
 
 /**
- *  Optional. The minimum value at which items will be placed into buckets
+ *  The minimum value at which items will be placed into buckets
  *  of constant size. Values below start will be lumped into a single bucket.
+ *  This field is optional.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -6924,6 +7265,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @interface GTLRSheets_PivotGroupRule : GTLRObject
 
+/** A DateTimeRule. */
+@property(nonatomic, strong, nullable) GTLRSheets_DateTimeRule *dateTimeRule;
+
 /** A HistogramRule. */
 @property(nonatomic, strong, nullable) GTLRSheets_HistogramRule *histogramRule;
 
@@ -7271,6 +7615,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** Adds a new conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddConditionalFormatRuleRequest *addConditionalFormatRule;
 
+/** Creates a group over the specified range. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddDimensionGroupRequest *addDimensionGroup;
+
 /** Adds a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddFilterViewRequest *addFilterView;
 
@@ -7321,6 +7668,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** Deletes rows or columns in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionRequest *deleteDimension;
+
+/** Deletes a group over the specified range. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionGroupRequest *deleteDimensionGroup;
 
 /** Deletes an embedded object (e.g, chart, image) in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteEmbeddedObjectRequest *deleteEmbeddedObject;
@@ -7403,6 +7753,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** Updates an existing developer metadata entry */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateDeveloperMetadataRequest *updateDeveloperMetadata;
 
+/** Updates the state of the specified group. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateDimensionGroupRequest *updateDimensionGroup;
+
 /** Updates dimensions' properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateDimensionPropertiesRequest *updateDimensionProperties;
 
@@ -7438,6 +7791,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** A reply from adding a chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddChartResponse *addChart;
 
+/** A reply from adding a dimension group. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddDimensionGroupResponse *addDimensionGroup;
+
 /** A reply from adding a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddFilterViewResponse *addFilterView;
 
@@ -7458,6 +7814,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** A reply from deleting a developer metadata entry. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteDeveloperMetadataResponse *deleteDeveloperMetadata;
+
+/** A reply from deleting a dimension group. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionGroupResponse *deleteDimensionGroup;
 
 /** A reply from duplicating a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewResponse *duplicateFilterView;
@@ -7561,6 +7920,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** The specifications of every chart on this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_EmbeddedChart *> *charts;
 
+/**
+ *  All column groups on this sheet, ordered by increasing range start index,
+ *  then by group depth.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *columnGroups;
+
 /** The conditional format rules in this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_ConditionalFormatRule *> *conditionalFormats;
 
@@ -7590,6 +7955,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The protected ranges in this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_ProtectedRange *> *protectedRanges;
+
+/**
+ *  All row groups on this sheet, ordered by increasing range start index, then
+ *  by group depth.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *rowGroups;
 
 @end
 
@@ -8383,6 +8754,29 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Updates the state of the specified group.
+ */
+@interface GTLRSheets_UpdateDimensionGroupRequest : GTLRObject
+
+/**
+ *  The group whose state should be updated. The range and depth of the group
+ *  should specify a valid group on the sheet, and all other fields updated.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionGroup *dimensionGroup;
+
+/**
+ *  The fields that should be updated. At least one field must be specified.
+ *  The root `dimensionGroup` is implied and should not be specified.
+ *  A single `"*"` can be used as short-hand for listing every field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+
+/**
  *  Updates properties of dimensions within the specified range.
  */
 @interface GTLRSheets_UpdateDimensionPropertiesRequest : GTLRObject
@@ -8731,9 +9125,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  subtotal. Otherwise, the subtotal appears after the data point with
  *  this index. A series can have multiple subtotals at arbitrary indices,
  *  but subtotals do not affect the indices of the data points. For
- *  example, if a series has 3 data points, their indices will always be 0,
- *  1, and 2, regardless of how many subtotals exist on the series or what
- *  data points they are associated with.
+ *  example, if a series has three data points, their indices will always
+ *  be 0, 1, and 2, regardless of how many subtotals exist on the series or
+ *  what data points they are associated with.
  *
  *  Uses NSNumber of intValue.
  */

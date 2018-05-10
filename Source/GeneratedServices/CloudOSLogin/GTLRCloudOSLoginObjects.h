@@ -30,6 +30,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudOSLogin_PosixAccount.operatingSystemType
+
+/**
+ *  Linux user account information.
+ *
+ *  Value: "LINUX"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Linux;
+/**
+ *  The operating system type associated with the user account information is
+ *  unspecified.
+ *
+ *  Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified;
+/**
+ *  Windows user account information.
+ *
+ *  Value: "WINDOWS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows;
+
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
@@ -104,6 +130,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The path to the home directory for this account. */
 @property(nonatomic, copy, nullable) NSString *homeDirectory;
+
+/**
+ *  The operating system type where this account applies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Linux Linux
+ *        user account information. (Value: "LINUX")
+ *    @arg @c kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified
+ *        The operating system type associated with the user account information
+ *        is
+ *        unspecified. (Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows Windows
+ *        user account information. (Value: "WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *operatingSystemType;
 
 /**
  *  Only one POSIX account can be marked as primary.

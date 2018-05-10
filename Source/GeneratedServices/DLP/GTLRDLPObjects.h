@@ -23,51 +23,6 @@
 @class GTLRDLP_GooglePrivacyDlpV2Action;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable;
-@class GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable;
-@class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions;
-@class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath;
-@class GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType;
-@class GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions;
-@class GTLRDLP_GooglePrivacyDlpV2beta1Dictionary;
-@class GTLRDLP_GooglePrivacyDlpV2beta1EntityId;
-@class GTLRDLP_GooglePrivacyDlpV2beta1FieldId;
-@class GTLRDLP_GooglePrivacyDlpV2beta1FileSet;
-@class GTLRDLP_GooglePrivacyDlpV2beta1InfoType;
-@class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit;
-@class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics;
-@class GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KindExpression;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues;
-@class GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult;
-@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass;
-@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket;
-@class GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult;
-@class GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult;
-@class GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1PartitionId;
-@class GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric;
-@class GTLRDLP_GooglePrivacyDlpV2beta1Projection;
-@class GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference;
-@class GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField;
-@class GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig;
-@class GTLRDLP_GooglePrivacyDlpV2beta1SurrogateType;
-@class GTLRDLP_GooglePrivacyDlpV2beta1TaggedField;
-@class GTLRDLP_GooglePrivacyDlpV2beta1Value;
-@class GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency;
-@class GTLRDLP_GooglePrivacyDlpV2beta1WordList;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryKey;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryOptions;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryTable;
@@ -81,6 +36,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CharsToIgnore;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStoragePath;
 @class GTLRDLP_GooglePrivacyDlpV2Color;
 @class GTLRDLP_GooglePrivacyDlpV2Condition;
 @class GTLRDLP_GooglePrivacyDlpV2Conditions;
@@ -100,6 +56,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Dictionary;
 @class GTLRDLP_GooglePrivacyDlpV2DlpJob;
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
+@class GTLRDLP_GooglePrivacyDlpV2EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2Error;
 @class GTLRDLP_GooglePrivacyDlpV2Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2FieldId;
@@ -148,6 +105,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2PrivacyMetric;
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
+@class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdField;
 @class GTLRDLP_GooglePrivacyDlpV2QuoteInfo;
@@ -199,38 +157,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig.minLikelihood
-
-/**
- *  Default value; information with all likelihoods is included.
- *
- *  Value: "LIKELIHOOD_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_LikelihoodUnspecified;
-/** Value: "LIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Likely;
-/**
- *  Some matching elements.
- *
- *  Value: "POSSIBLE"
- */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Possible;
-/** Value: "UNLIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Unlikely;
-/**
- *  Many matching elements.
- *
- *  Value: "VERY_LIKELY"
- */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryLikely;
-/**
- *  Few matching elements.
- *
- *  Value: "VERY_UNLIKELY"
- */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
@@ -806,6 +732,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
+/** Publish summary to Cloud Security Command Center (Alpha). */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc *publishSummaryToCscc;
+
 /** Publish a notification to a pubsub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToPubSub *pubSub;
 
@@ -836,13 +765,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  An auxiliary table contains statistical information on the relative
- *  frequency of different quasi-identifiers values. It has one or several
- *  quasi-identifiers columns, and one column that indicates the relative
- *  frequency of each quasi-identifier tuple.
- *  If a tuple is present in the data but not in the auxiliary table, the
- *  corresponding relative frequency is assumed to be zero (and thus, the
- *  tuple is highly reidentifiable).
+ *  GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable : GTLRObject
 
@@ -858,1082 +781,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** Auxiliary table location. [required] */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
-
-@end
-
-
-/**
- *  An auxiliary table contains statistical information on the relative
- *  frequency of different quasi-identifiers values. It has one or several
- *  quasi-identifiers columns, and one column that indicates the relative
- *  frequency of each quasi-identifier tuple.
- *  If a tuple is present in the data but not in the auxiliary table, the
- *  corresponding relative frequency is assumed to be zero (and thus, the
- *  tuple is highly reidentifiable).
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable : GTLRObject
-
-/** Quasi-identifier columns. [required] */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField *> *quasiIds;
-
-/**
- *  The relative frequency column must contain a floating-point number
- *  between 0 and 1 (inclusive). Null values are assumed to be zero.
- *  [required]
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *relativeFrequency;
-
-/** Auxiliary table location. [required] */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *table;
-
-@end
-
-
-/**
- *  Options defining BigQuery table and row identifiers.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions : GTLRObject
-
-/**
- *  References to fields uniquely identifying rows within the table.
- *  Nested fields in the format, like `person.birthdate.year`, are allowed.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *identifyingFields;
-
-/** Complete BigQuery table reference. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *tableReference;
-
-@end
-
-
-/**
- *  Message defining the location of a BigQuery table. A table is uniquely
- *  identified by its project_id, dataset_id, and table_name. Within a query
- *  a table is often referenced with a string in the format of:
- *  `<project_id>:<dataset_id>.<table_id>` or
- *  `<project_id>.<dataset_id>.<table_id>`.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable : GTLRObject
-
-/** Dataset ID of the table. */
-@property(nonatomic, copy, nullable) NSString *datasetId;
-
-/**
- *  The Google Cloud Platform project ID of the project containing the table.
- *  If omitted, project ID is inferred from the API call.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Name of the table. */
-@property(nonatomic, copy, nullable) NSString *tableId;
-
-@end
-
-
-/**
- *  Compute numerical stats over an individual column, including
- *  number of distinct values and value count distribution.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig : GTLRObject
-
-/**
- *  Field to compute categorical stats on. All column types are
- *  supported except for arrays and structs. However, it may be more
- *  informative to use NumericalStats when the field type is supported,
- *  depending on the data.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
-
-@end
-
-
-/**
- *  Histogram bucket of value frequencies in the column.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket : GTLRObject
-
-/**
- *  Total number of records in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bucketSize;
-
-/**
- *  Sample of value frequencies in this bucket. The total number of
- *  values returned per bucket is capped at 20.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency *> *bucketValues;
-
-/**
- *  Lower bound on the value frequency of the values in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *valueFrequencyLowerBound;
-
-/**
- *  Upper bound on the value frequency of the values in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *valueFrequencyUpperBound;
-
-@end
-
-
-/**
- *  Result of the categorical stats computation.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult : GTLRObject
-
-/** Histogram of value frequencies in the column. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsHistogramBucket *> *valueFrequencyHistogramBuckets;
-
-@end
-
-
-/**
- *  Options defining a file or a set of files (path ending with *) within
- *  a Google Cloud Storage bucket.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FileSet *fileSet;
-
-@end
-
-
-/**
- *  A location in Cloud Storage.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath : GTLRObject
-
-/** The url, in the format of `gs://bucket/<path>`. */
-@property(nonatomic, copy, nullable) NSString *path;
-
-@end
-
-
-/**
- *  Custom information type provided by the user. Used to find domain-specific
- *  sensitive information configurable to the data in question.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType : GTLRObject
-
-/** Dictionary-based custom info type. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Dictionary *dictionary;
-
-/**
- *  Info type configuration. All custom info types must have configurations
- *  that do not conflict with built-in info types or other custom info types.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
-
-/** Surrogate info type. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1SurrogateType *surrogateType;
-
-@end
-
-
-/**
- *  Options defining a data set within Google Cloud Datastore.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions : GTLRObject
-
-/** The kind to process. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KindExpression *kind;
-
-/**
- *  A partition ID identifies a grouping of entities. The grouping is always
- *  by project and namespace, however the namespace ID may be empty.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PartitionId *partitionId;
-
-/**
- *  Properties to scan. If none are specified, all properties will be scanned
- *  by default.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Projection *> *projection;
-
-@end
-
-
-/**
- *  Custom information type based on a dictionary of words or phrases. This can
- *  be used to match sensitive information specific to the data, such as a list
- *  of employee IDs or job titles.
- *  Dictionary words are case-insensitive and all characters other than letters
- *  and digits in the unicode [Basic Multilingual
- *  Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane)
- *  will be replaced with whitespace when scanning for matches, so the
- *  dictionary phrase "Sam Johnson" will match all three phrases "sam johnson",
- *  "Sam, Johnson", and "Sam (Johnson)". Additionally, the characters
- *  surrounding any match must be of a different type than the adjacent
- *  characters within the word, so letters must be next to non-letters and
- *  digits next to non-digits. For example, the dictionary word "jen" will
- *  match the first three letters of the text "jen123" but will return no
- *  matches for "jennifer".
- *  Dictionary words containing a large number of characters that are not
- *  letters or digits may result in unexpected findings because such characters
- *  are treated as whitespace.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1Dictionary : GTLRObject
-
-/** List of words or phrases to search for. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1WordList *wordList;
-
-@end
-
-
-/**
- *  An entity in a dataset is a field or set of fields that correspond to a
- *  single person. For example, in medical records the `EntityId` might be
- *  a patient identifier, or for financial records it might be an account
- *  identifier. This message is used when generalizations or analysis must be
- *  consistent across multiple rows pertaining to the same entity.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1EntityId : GTLRObject
-
-/** Composite key indicating which field contains the entity identifier. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
-
-@end
-
-
-/**
- *  General identifier of a data field in a storage service.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1FieldId : GTLRObject
-
-/** Name describing the field. */
-@property(nonatomic, copy, nullable) NSString *columnName;
-
-@end
-
-
-/**
- *  Set of files to scan.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1FileSet : GTLRObject
-
-/**
- *  The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
- *  path is allowed.
- */
-@property(nonatomic, copy, nullable) NSString *url;
-
-@end
-
-
-/**
- *  Type of information detected by the API.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoType : GTLRObject
-
-/** Name of the information type. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Max findings configuration per info type, per content item or long running
- *  operation.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit : GTLRObject
-
-/**
- *  Type of information the findings limit applies to. Only one limit per
- *  info_type should be provided. If InfoTypeLimit does not have an
- *  info_type, the DLP API applies the limit against all info_types that are
- *  found but not specified in another InfoTypeLimit.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
-
-/**
- *  Max findings limit for the given infoType.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxFindings;
-
-@end
-
-
-/**
- *  Statistics regarding a specific InfoType.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics : GTLRObject
-
-/**
- *  Number of findings for this info type.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/** The type of finding this stat is for. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
-
-@end
-
-
-/**
- *  Configuration description of the scanning process.
- *  When used with redactContent only info_types and min_likelihood are
- *  currently
- *  used.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig : GTLRObject
-
-/** Custom info types provided by the user. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1CustomInfoType *> *customInfoTypes;
-
-/**
- *  When true, excludes type information of the findings.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *excludeTypes;
-
-/**
- *  When true, a contextual quote from the data that triggered a finding is
- *  included in the response; see Finding.quote.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *includeQuote;
-
-/** Configuration of findings limit given for specified info types. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit *> *infoTypeLimits;
-
-/**
- *  Restricts what info_types to look for. The values must correspond to
- *  InfoType values returned by ListInfoTypes or found in documentation.
- *  Empty info_types runs all enabled detectors.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoType *> *infoTypes;
-
-/**
- *  Limits the number of findings per content item or long running operation.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxFindings;
-
-/**
- *  Only returns findings equal or above this threshold.
- *
- *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_LikelihoodUnspecified
- *        Default value; information with all likelihoods is included. (Value:
- *        "LIKELIHOOD_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Likely
- *        Value "LIKELY"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Possible
- *        Some matching elements. (Value: "POSSIBLE")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Unlikely
- *        Value "UNLIKELY"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryLikely
- *        Many matching elements. (Value: "VERY_LIKELY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryUnlikely
- *        Few matching elements. (Value: "VERY_UNLIKELY")
- */
-@property(nonatomic, copy, nullable) NSString *minLikelihood;
-
-@end
-
-
-/**
- *  Metadata returned within GetOperation for an inspect request.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationMetadata : GTLRObject
-
-/** The time which this request was started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics *> *infoTypeStats;
-
-/**
- *  Total size in bytes that were processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *processedBytes;
-
-/** The inspect config used to create the Operation. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig *requestInspectConfig;
-
-/** Optional location to store findings. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig *requestOutputConfig;
-
-/** The storage config used to create the Operation. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig *requestStorageConfig;
-
-/**
- *  Estimate of the number of bytes to process.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalEstimatedBytes;
-
-@end
-
-
-/**
- *  The operational data.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationResult : GTLRObject
-
-/**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `inspect/results/{id}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  k-anonymity metric, used for analysis of reidentification risk.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig : GTLRObject
-
-/**
- *  Optional message indicating that each distinct entity_id should not
- *  contribute to the k-anonymity count more than once per equivalence class.
- *  If an entity_id appears on several rows with different quasi-identifier
- *  tuples, it will contribute to each count exactly once.
- *  This can lead to unexpected results. Consider a table where ID 1 is
- *  associated to quasi-identifier "foo", ID 2 to "bar", and ID 3 to *both*
- *  quasi-identifiers "foo" and "bar" (on separate rows), and where this ID
- *  is used as entity_id. Then, the anonymity value associated to ID 3 will
- *  be 2, even if it is the only ID to be associated to both values "foo" and
- *  "bar".
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1EntityId *entityId;
-
-/**
- *  Set of fields to compute k-anonymity over. When multiple fields are
- *  specified, they are considered a single composite key. Structs and
- *  repeated data types are not supported; however, nested fields are
- *  supported so long as they are not structs themselves or nested within
- *  a repeated field.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *quasiIds;
-
-@end
-
-
-/**
- *  The set of columns' values that share the same k-anonymity value.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass : GTLRObject
-
-/**
- *  Size of the equivalence class, for example number of rows with the
- *  above set of values.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSize;
-
-/**
- *  Set of values defining the equivalence class. One value per
- *  quasi-identifier column in the original KAnonymity metric message.
- *  The order is always the same as the original request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
-
-@end
-
-
-/**
- *  Histogram bucket of equivalence class sizes in the table.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket : GTLRObject
-
-/**
- *  Total number of records in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bucketSize;
-
-/**
- *  Sample of equivalence classes in this bucket. The total number of
- *  classes returned per bucket is capped at 20.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityEquivalenceClass *> *bucketValues;
-
-/**
- *  Lower bound on the size of the equivalence classes in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSizeLowerBound;
-
-/**
- *  Upper bound on the size of the equivalence classes in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSizeUpperBound;
-
-@end
-
-
-/**
- *  Result of the k-anonymity computation.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult : GTLRObject
-
-/** Histogram of k-anonymity equivalence classes. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityHistogramBucket *> *equivalenceClassHistogramBuckets;
-
-@end
-
-
-/**
- *  A representation of a Datastore kind.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KindExpression : GTLRObject
-
-/** The name of the kind. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Reidentifiability metric. This corresponds to a risk model similar to what
- *  is called "journalist risk" in the literature, except the attack dataset is
- *  statistically modeled instead of being perfectly known. This can be done
- *  using publicly available data (like the US Census), or using a custom
- *  statistical model (indicated as one or several BigQuery tables), or by
- *  extrapolating from the distribution of values in the input dataset.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig : GTLRObject
-
-/**
- *  Several auxiliary tables can be used in the analysis. Each custom_tag
- *  used to tag a quasi-identifiers column must appear in exactly one column
- *  of one auxiliary table.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1AuxiliaryTable *> *auxiliaryTables;
-
-/**
- *  Fields considered to be quasi-identifiers. No two columns can have the
- *  same tag. [required]
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1TaggedField *> *quasiIds;
-
-/**
- *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
- *  Required if no column is tagged with a region-specific InfoType (like
- *  US_ZIP_5) or a region code.
- */
-@property(nonatomic, copy, nullable) NSString *regionCode;
-
-@end
-
-
-/**
- *  A KMapEstimationHistogramBucket message with the following values:
- *  min_anonymity: 3
- *  max_anonymity: 5
- *  frequency: 42
- *  means that there are 42 records whose quasi-identifier values correspond
- *  to 3, 4 or 5 people in the overlying population. An important particular
- *  case is when min_anonymity = max_anonymity = 1: the frequency field then
- *  corresponds to the number of uniquely identifiable records.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket : GTLRObject
-
-/**
- *  Number of records within these anonymity bounds.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bucketSize;
-
-/**
- *  Sample of quasi-identifier tuple values in this bucket. The total
- *  number of classes returned per bucket is capped at 20.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues *> *bucketValues;
-
-/**
- *  Always greater than or equal to min_anonymity.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxAnonymity;
-
-/**
- *  Always positive.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minAnonymity;
-
-@end
-
-
-/**
- *  A tuple of values for the quasi-identifier columns.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues : GTLRObject
-
-/**
- *  The estimated anonymity for these quasi-identifier values.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *estimatedAnonymity;
-
-/** The quasi-identifier values. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
-
-@end
-
-
-/**
- *  Result of the reidentifiability analysis. Note that these results are an
- *  estimation, not exact values.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult : GTLRObject
-
-/**
- *  The intervals [min_anonymity, max_anonymity] do not overlap. If a value
- *  doesn't correspond to any such interval, the associated frequency is
- *  zero. For example, the following records:
- *  {min_anonymity: 1, max_anonymity: 1, frequency: 17}
- *  {min_anonymity: 2, max_anonymity: 3, frequency: 42}
- *  {min_anonymity: 5, max_anonymity: 10, frequency: 99}
- *  mean that there are no record with an estimated anonymity of 4, 5, or
- *  larger than 10.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket *> *kMapEstimationHistogram;
-
-@end
-
-
-/**
- *  l-diversity metric, used for analysis of reidentification risk.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig : GTLRObject
-
-/**
- *  Set of quasi-identifiers indicating how equivalence classes are
- *  defined for the l-diversity computation. When multiple fields are
- *  specified, they are considered a single composite key.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *quasiIds;
-
-/** Sensitive field for computing the l-value. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *sensitiveAttribute;
-
-@end
-
-
-/**
- *  The set of columns' values that share the same l-diversity value.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass : GTLRObject
-
-/**
- *  Size of the k-anonymity equivalence class.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *equivalenceClassSize;
-
-/**
- *  Number of distinct sensitive values in this equivalence class.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numDistinctSensitiveValues;
-
-/**
- *  Quasi-identifier values defining the k-anonymity equivalence
- *  class. The order is always the same as the original request.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quasiIdsValues;
-
-/** Estimated frequencies of top sensitive values. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency *> *topSensitiveValues;
-
-@end
-
-
-/**
- *  Histogram bucket of sensitive value frequencies in the table.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket : GTLRObject
-
-/**
- *  Total number of records in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bucketSize;
-
-/**
- *  Sample of equivalence classes in this bucket. The total number of
- *  classes returned per bucket is capped at 20.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1LDiversityEquivalenceClass *> *bucketValues;
-
-/**
- *  Lower bound on the sensitive value frequencies of the equivalence
- *  classes in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sensitiveValueFrequencyLowerBound;
-
-/**
- *  Upper bound on the sensitive value frequencies of the equivalence
- *  classes in this bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sensitiveValueFrequencyUpperBound;
-
-@end
-
-
-/**
- *  Result of the l-diversity computation.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult : GTLRObject
-
-/** Histogram of l-diversity equivalence class sensitive value frequencies. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1LDiversityHistogramBucket *> *sensitiveValueFrequencyHistogramBuckets;
-
-@end
-
-
-/**
- *  Compute numerical stats over an individual column, including
- *  min, max, and quantiles.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig : GTLRObject
-
-/**
- *  Field to compute numerical stats on. Supported types are
- *  integer, float, date, datetime, timestamp, time.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
-
-@end
-
-
-/**
- *  Result of the numerical stats computation.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult : GTLRObject
-
-/** Maximum value appearing in the column. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *maxValue;
-
-/** Minimum value appearing in the column. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *minValue;
-
-/**
- *  List of 99 values that partition the set of field values into 100 equal
- *  sized buckets.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *quantileValues;
-
-@end
-
-
-/**
- *  Cloud repository for storing output.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig : GTLRObject
-
-/**
- *  The path to a Google Cloud Storage location to store output.
- *  The bucket must already exist and
- *  the Google APIs service account for DLP must have write permission to
- *  write to the given bucket.
- *  Results are split over multiple csv files with each file name matching
- *  the pattern "[operation_id]_[count].csv", for example
- *  `3094877188788974909_1.csv`. The `operation_id` matches the
- *  identifier for the Operation, and the `count` is a counter used for
- *  tracking the number of files written.
- *  The CSV file(s) contain the following columns regardless of storage type
- *  scanned:
- *  - id
- *  - info_type
- *  - likelihood
- *  - byte size of finding
- *  - quote
- *  - timestamp
- *  For Cloud Storage the next columns are:
- *  - file_path
- *  - start_offset
- *  For Cloud Datastore the next columns are:
- *  - project_id
- *  - namespace_id
- *  - path
- *  - column_name
- *  - offset
- *  For BigQuery the next columns are:
- *  - row_number
- *  - project_id
- *  - dataset_id
- *  - table_id
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath *storagePath;
-
-/** Store findings in a new table in the dataset. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *table;
-
-@end
-
-
-/**
- *  Datastore partition ID.
- *  A partition ID identifies a grouping of entities. The grouping is always
- *  by project and namespace, however the namespace ID may be empty.
- *  A partition ID contains several dimensions:
- *  project ID and namespace ID.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1PartitionId : GTLRObject
-
-/** If not empty, the ID of the namespace to which the entities belong. */
-@property(nonatomic, copy, nullable) NSString *namespaceId;
-
-/** The ID of the project to which the entities belong. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-@end
-
-
-/**
- *  Privacy metric to compute for reidentification risk analysis.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsConfig *categoricalStatsConfig;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityConfig *kAnonymityConfig;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationConfig *kMapEstimationConfig;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityConfig *lDiversityConfig;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsConfig *numericalStatsConfig;
-
-@end
-
-
-/**
- *  A representation of a Datastore property in a projection.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1Projection : GTLRObject
-
-/** The property to project. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference *property;
-
-@end
-
-
-/**
- *  A reference to a property relative to the Datastore kind expressions.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference : GTLRObject
-
-/**
- *  The name of the property.
- *  If name includes "."s, it may be interpreted as a property name path.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  A quasi-identifier column has a custom_tag, used to know which column
- *  in the data corresponds to which column in the statistical model.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1QuasiIdField : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *customTag;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
-
-@end
-
-
-/**
- *  Metadata returned within the
- *  [`riskAnalysis.operations.get`](/dlp/docs/reference/rest/v2beta1/riskAnalysis.operations/get)
- *  for risk analysis.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationMetadata : GTLRObject
-
-/** The time which this request was started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Privacy metric to compute. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1PrivacyMetric *requestedPrivacyMetric;
-
-/** Input dataset to compute metrics over. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *requestedSourceTable;
-
-@end
-
-
-/**
- *  Result of a risk analysis
- *  [`Operation`](/dlp/docs/reference/rest/v2beta1/inspect.operations)
- *  request.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1RiskAnalysisOperationResult : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CategoricalStatsResult *categoricalStatsResult;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KAnonymityResult *kAnonymityResult;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1KMapEstimationResult *kMapEstimationResult;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1LDiversityResult *lDiversityResult;
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1NumericalStatsResult *numericalStatsResult;
-
-@end
-
-
-/**
- *  Shared message indicating Cloud storage type.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig : GTLRObject
-
-/** BigQuery options specification. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions *bigQueryOptions;
-
-/** Google Cloud Storage options specification. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions *cloudStorageOptions;
-
-/** Google Cloud Datastore options specification. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions *datastoreOptions;
-
-@end
-
-
-/**
- *  Message for detecting output from deidentification transformations
- *  such as
- *  [`CryptoReplaceFfxFpeConfig`](/dlp/docs/reference/rest/v2beta1/content/deidentify#CryptoReplaceFfxFpeConfig).
- *  These types of transformations are
- *  those that perform pseudonymization, thereby producing a "surrogate" as
- *  output. This should be used in conjunction with a field on the
- *  transformation such as `surrogate_info_type`. This custom info type does
- *  not support the use of `detection_rules`.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1SurrogateType : GTLRObject
-@end
-
-
-/**
- *  A column with a semantic tag attached.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1TaggedField : GTLRObject
-
-/**
- *  A column can be tagged with a custom tag. In this case, the user must
- *  indicate an auxiliary table that contains statistical information on
- *  the possible values of this column (below).
- */
-@property(nonatomic, copy, nullable) NSString *customTag;
-
-/** Identifies the column. [required] */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1FieldId *field;
-
-/**
- *  If no semantic tag is indicated, we infer the statistical model from
- *  the distribution of values in the input data
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *inferred;
-
-/**
- *  A column can be tagged with a InfoType to use the relevant public
- *  dataset as a statistical model of population, if available. We
- *  currently support US ZIP codes, region codes, ages and genders.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
-
-@end
-
-
-/**
- *  Set of primitive values supported by the system.
- *  Note that for the purposes of inspection or transformation, the number
- *  of bytes considered to comprise a 'Value' is based on its representation
- *  as a UTF-8 encoded string. For example, if 'integer_value' is set to
- *  123456789, the number of bytes would be counted as 9, even though an
- *  int64 only holds up to 8 bytes of data.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1Value : GTLRObject
-
-/**
- *  booleanValue
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *booleanValue;
-
-@property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeDate *dateValue;
-
-/**
- *  floatValue
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *floatValue;
-
-/**
- *  integerValue
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *integerValue;
-
-@property(nonatomic, copy, nullable) NSString *stringValue;
-@property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
-@property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeTimeOfDay *timeValue;
-
-@end
-
-
-/**
- *  A value of a field, including its frequency.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1ValueFrequency : GTLRObject
-
-/**
- *  How many times the value is contained in the field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/** A value contained in the field in question. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Value *value;
-
-@end
-
-
-/**
- *  Message defining a list of words or phrases to search for in the data.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2beta1WordList : GTLRObject
-
-/**
- *  Words or phrases defining the dictionary. The dictionary must contain
- *  at least one phrase and every phrase must contain at least 2 characters
- *  that are letters or digits. [required]
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *words;
 
 @end
 
@@ -1967,6 +814,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Nested fields in the format, like `person.birthdate.year`, are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
+
+/**
+ *  Max number of rows to scan. If the table has more rows than this value, the
+ *  rest of the rows are omitted. If not set, or if set to 0, all rows will be
+ *  scanned. Cannot be used in conjunction with TimespanConfig.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowsLimit;
 
 /** Complete BigQuery table reference. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *tableReference;
@@ -2294,6 +1150,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  are applied.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
+
+@end
+
+
+/**
+ *  Message representing a single file or path in Cloud Storage.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStoragePath : GTLRObject
+
+/**
+ *  A url representing a file or path (no wildcards) in Cloud Storage.
+ *  Example: gs://[BUCKET_NAME]/dictionary.txt
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -2966,6 +1836,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Dictionary : GTLRObject
 
+/**
+ *  Newline-delimited file of words in Cloud Storage. Only a single file
+ *  is accepted.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStoragePath *cloudStoragePath;
+
 /** List of words or phrases to search for. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2WordList *wordList;
 
@@ -3051,6 +1927,21 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fileOffset;
+
+@end
+
+
+/**
+ *  An entity in a dataset is a field or set of fields that correspond to a
+ *  single person. For example, in medical records the `EntityId` might be a
+ *  patient identifier, or for financial records it might be an account
+ *  identifier. This message is used when generalizations or analysis must take
+ *  into account that multiple rows correspond to the same entity.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2EntityId : GTLRObject
+
+/** Composite key indicating which field contains the entity identifier. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 @end
 
@@ -3731,6 +2622,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig : GTLRObject
 
 /**
+ *  Optional message indicating that multiple rows might be associated to a
+ *  single individual. If the same entity_id is associated to multiple
+ *  quasi-identifier tuples over distict rows, we consider the entire
+ *  collection of tuples as the composite quasi-identifier. This collection
+ *  is a multiset: the order in which the different tuples appear in the
+ *  dataset is ignored, but their frequency is taken into account.
+ *  Important note: a maximum of 1000 rows can be associated to a single
+ *  entity ID. If more rows are associated with the same entity ID, some
+ *  might be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2EntityId *entityId;
+
+/**
  *  Set of fields to compute k-anonymity over. When multiple fields are
  *  specified, they are considered a single composite key. Structs and
  *  repeated data types are not supported; however, nested fields are
@@ -3866,6 +2770,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  using publicly available data (like the US Census), or using a custom
  *  statistical model (indicated as one or several BigQuery tables), or by
  *  extrapolating from the distribution of values in the input dataset.
+ *  A column with a semantic tag attached.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig : GTLRObject
 
@@ -4491,8 +3396,24 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Publish the result summary of a DlpJob to the Cloud Security
+ *  Command Center (CSCC Alpha).
+ *  This action is only available for projects which are parts of
+ *  an organization and whitelisted for the alpha Cloud Security Command
+ *  Center.
+ *  The action will publish count of finding instances and their info types.
+ *  The summary of findings will be persisted in CSCC and are governed by CSCC
+ *  service-specific policy, see https://cloud.google.com/terms/service-terms
+ *  Only a single instance of this action can be specified.
+ *  Compatible with: Inspect
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc : GTLRObject
+@end
+
+
+/**
  *  Publish the results of a DlpJob to a pub sub channel.
- *  Compatible with: Inpect, Risk
+ *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToPubSub : GTLRObject
 
@@ -4770,7 +3691,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *jobConfig;
 
 /**
- *  If run with an inspect template, a snapshot of it's state at the time of
+ *  If run with an InspectTemplate, a snapshot of its state at the time of
  *  this run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *snapshotInspectTemplate;
@@ -4838,7 +3759,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  If set, the detailed findings will be persisted to the specified
- *  OutputStorageConfig. Compatible with: Inspect
+ *  OutputStorageConfig. Only a single instance of this action can be
+ *  specified.
+ *  Compatible with: Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SaveFindings : GTLRObject
 
@@ -4959,7 +3882,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  A column with a semantic tag attached.
+ *  GTLRDLP_GooglePrivacyDlpV2TaggedField
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TaggedField : GTLRObject
 
@@ -5445,7 +4368,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
+ *  month.
  *
  *  Uses NSNumber of intValue.
  */

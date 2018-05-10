@@ -38,6 +38,7 @@ NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified 
 NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
 
 // GTLRCloudBuild_BuildOptions.sourceProvenanceHash
+NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None = @"NONE";
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
 
@@ -56,6 +57,7 @@ NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout      = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Working      = @"WORKING";
 
 // GTLRCloudBuild_Hash.type
+NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
@@ -65,11 +67,29 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_ArtifactObjects
-@dynamic location, paths;
+@dynamic location, paths, timing;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"paths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ArtifactResult
+//
+
+@implementation GTLRCloudBuild_ArtifactResult
+@dynamic fileHash, location;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileHash" : [GTLRCloudBuild_FileHashes class]
   };
   return map;
 }

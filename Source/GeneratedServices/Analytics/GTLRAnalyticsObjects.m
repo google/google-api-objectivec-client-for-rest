@@ -161,8 +161,8 @@
 //
 
 @implementation GTLRAnalytics_AccountTreeRequest_AccountSettings
-@dynamic admobReporting, sharingWithGoogleAnySales, sharingWithGoogleProducts,
-         sharingWithGoogleSales, sharingWithGoogleSupport, sharingWithOthers;
+@dynamic shareAnonymouslyWithOthers, shareWithGoogleProducts,
+         shareWithSpecialists, shareWithSupport;
 @end
 
 
@@ -182,8 +182,8 @@
 //
 
 @implementation GTLRAnalytics_AccountTreeResponse_AccountSettings
-@dynamic admobReporting, sharingWithGoogleAnySales, sharingWithGoogleProducts,
-         sharingWithGoogleSales, sharingWithGoogleSupport, sharingWithOthers;
+@dynamic shareAnonymouslyWithOthers, shareWithGoogleProducts,
+         shareWithSpecialists, shareWithSupport;
 @end
 
 

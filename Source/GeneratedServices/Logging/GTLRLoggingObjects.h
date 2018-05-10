@@ -39,6 +39,9 @@
 @class GTLRLogging_MonitoredResource;
 @class GTLRLogging_MonitoredResource_Labels;
 @class GTLRLogging_MonitoredResourceDescriptor;
+@class GTLRLogging_MonitoredResourceMetadata;
+@class GTLRLogging_MonitoredResourceMetadata_SystemLabels;
+@class GTLRLogging_MonitoredResourceMetadata_UserLabels;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
@@ -867,6 +870,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
+ *  Output only. Additional metadata about the monitored resource. Only
+ *  k8s_container, k8s_pod, and k8s_node MonitoredResources have this field
+ *  populated.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata *metadata;
+
+/**
  *  Optional. Information about an operation associated with the log entry, if
  *  applicable.
  */
@@ -939,11 +949,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  *  Optional. The time the event described by the log entry occurred. This time
  *  is used to compute the log entry's age and to enforce the logs retention
  *  period. If this field is omitted in a new log entry, then Stackdriver
- *  Logging assigns it the current time.Incoming log entries should have
- *  timestamps that are no more than the logs retention period in the past, and
- *  no more than 24 hours in the future. Log entries outside those time
- *  boundaries will not be available when calling entries.list, but those log
- *  entries can still be exported with LogSinks.
+ *  Logging assigns it the current time. Timestamps have nanosecond accuracy,
+ *  but trailing zeros in the fractional seconds might be omitted when the
+ *  timestamp is displayed.Incoming log entries should have timestamps that are
+ *  no more than the logs retention period in the past, and no more than 24
+ *  hours in the future. Log entries outside those time boundaries will not be
+ *  available when calling entries.list, but those log entries can still be
+ *  exported with LogSinks.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
@@ -1619,6 +1631,67 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  Auxiliary metadata for a MonitoredResource object. MonitoredResource objects
+ *  contain the minimum set of information to uniquely identify a monitored
+ *  resource instance. There is some other useful auxiliary metadata. Google
+ *  Stackdriver Monitoring & Logging uses an ingestion pipeline to extract
+ *  metadata for cloud resources of all types , and stores the metadata in this
+ *  message.
+ */
+@interface GTLRLogging_MonitoredResourceMetadata : GTLRObject
+
+/**
+ *  Output only. Values for predefined system metadata labels. System labels are
+ *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
+ *  what system labels are useful and how to obtain their values. Some examples:
+ *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
+ *  label values can be only strings, Boolean values, or a list of strings. For
+ *  example:
+ *  { "name": "my-test-instance",
+ *  "security_group": ["a", "b", "c"],
+ *  "spot_instance": false }
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata_SystemLabels *systemLabels;
+
+/** Output only. A map of user-defined metadata labels. */
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Output only. Values for predefined system metadata labels. System labels are
+ *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
+ *  what system labels are useful and how to obtain their values. Some examples:
+ *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
+ *  label values can be only strings, Boolean values, or a list of strings. For
+ *  example:
+ *  { "name": "my-test-instance",
+ *  "security_group": ["a", "b", "c"],
+ *  "spot_instance": false }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_MonitoredResourceMetadata_SystemLabels : GTLRObject
+@end
+
+
+/**
+ *  Output only. A map of user-defined metadata labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRLogging_MonitoredResourceMetadata_UserLabels : GTLRObject
 @end
 
 

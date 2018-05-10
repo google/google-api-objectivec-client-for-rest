@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Pub/Sub API (pubsub/v1)
+//   Cloud Pub/Sub API (pubsub/v1)
 // Description:
 //   Provides reliable, many-to-many, asynchronous messaging between
 //   applications.
@@ -175,6 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response for the `ListTopicSnapshots` method.
+ *  [ALPHA] This method is a part of a closed Alpha API.
  */
 @interface GTLRPubsub_ListTopicSnapshotsResponse : GTLRObject
 
@@ -327,13 +328,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
  *  `members` to a `role`, where the members can be user accounts, Google
  *  groups,
  *  Google domains, and service accounts. A `role` is a named list of
  *  permissions
  *  defined by IAM.
- *  **Example**
+ *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
@@ -342,7 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
@@ -351,6 +352,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  }
  *  ]
  *  }
+ *  **YAML Example**
+ *  bindings:
+ *  - members:
+ *  - user:mike\@example.com
+ *  - group:admins\@example.com
+ *  - domain:google.com
+ *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner
+ *  - members:
+ *  - user:sean\@example.com
+ *  role: roles/viewer
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -649,6 +661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  of acknowledged messages, and thus configures how far back in time a `Seek`
  *  can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10
  *  minutes.
+ *  [ALPHA] This field is a part of a closed Alpha API.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
@@ -674,6 +687,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
  *  window.
+ *  [ALPHA] This field is a part of a closed Alpha API.
  *
  *  Uses NSNumber of boolValue.
  */

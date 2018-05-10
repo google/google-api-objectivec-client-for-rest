@@ -999,584 +999,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
- *  Creates a context.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.contexts.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsContextsCreateWithObject:parent:]
-
-/**
- *  Required. The session to create a context for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
- *
- *  Creates a context.
- *
- *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
- *    include in the query.
- *  @param parent Required. The session to create a context for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsCreate
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes the specified context.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.contexts.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsContextsDeleteWithname:]
-
-/**
- *  Required. The name of the context to delete. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *  or `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are under
- *  construction and will
- *  be available soon. If <Runtime ID> is not specified, we assume default
- *  'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
- *
- *  Deletes the specified context.
- *
- *  @param name Required. The name of the context to delete. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *    or `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are
- *    under construction and will
- *    be available soon. If <Runtime ID> is not specified, we assume default
- *    'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieves the specified context.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.contexts.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsContextsGetWithname:]
-
-/**
- *  Required. The name of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *  or `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are under
- *  construction and will
- *  be available soon. If <Runtime ID> is not specified, we assume default
- *  'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
- *
- *  Retrieves the specified context.
- *
- *  @param name Required. The name of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *    or `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are
- *    under construction and will
- *    be available soon. If <Runtime ID> is not specified, we assume default
- *    'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the list of all contexts in the specified session.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.contexts.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsContextsListWithparent:]
-
-/**
- *  Optional. The maximum number of items to return in a single page. By
- *  default 100 and at most 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. The next_page_token value returned from a previous list request.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The session to list all contexts from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2ListContextsResponse.
- *
- *  Returns the list of all contexts in the specified session.
- *
- *  @param parent Required. The session to list all contexts from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates the specified context.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.contexts.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsContextsPatchWithObject:name:]
-
-/**
- *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  The Context ID is always converted to lowercase.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The mask to control which fields get updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
- *
- *  Updates the specified context.
- *
- *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
- *    include in the query.
- *  @param name Required. The unique identifier of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *    or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    The Context ID is always converted to lowercase.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsContextsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Deletes all active contexts in the specified session.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.deleteContexts
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDeleteContexts : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsDeleteContextsWithparent:]
-
-/**
- *  Required. The name of the session to delete all contexts from. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project 
- ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are
- *  under construction and will be available soon. If <Runtime ID> is not
- *  specified we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
- *
- *  Deletes all active contexts in the specified session.
- *
- *  @param parent Required. The name of the session to delete all contexts from.
- *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project 
- ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>`. Note: Runtimes are
- *    under construction and will be available soon. If <Runtime ID> is not
- *    specified we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDeleteContexts
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Processes a natural language query and returns structured, actionable data
- *  as a result. This method is not idempotent, because it may cause contexts
- *  and session entity types to be updated, which in turn might affect
- *  results of future queries.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.detectIntent
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDetectIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsDetectIntentWithObject:session:]
-
-/**
- *  Required. The name of the session this query is sent to. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *  It's up to the API caller to choose an appropriate session ID. It can be
- *  a random number or some type of user identifier (preferably hashed).
- *  The length of the session ID must not exceed 36 bytes.
- */
-@property(nonatomic, copy, nullable) NSString *session;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse.
- *
- *  Processes a natural language query and returns structured, actionable data
- *  as a result. This method is not idempotent, because it may cause contexts
- *  and session entity types to be updated, which in turn might affect
- *  results of future queries.
- *
- *  @param object The @c
- *    GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest to include in
- *    the query.
- *  @param session Required. The name of the session this query is sent to.
- *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *    It's up to the API caller to choose an appropriate session ID. It can be
- *    a random number or some type of user identifier (preferably hashed).
- *    The length of the session ID must not exceed 36 bytes.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsDetectIntent
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest *)object
-                        session:(NSString *)session;
-
-@end
-
-/**
- *  Creates a session entity type.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.entityTypes.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsEntityTypesCreateWithObject:parent:]
-
-/**
- *  Required. The session to create a session entity type for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
- *
- *  Creates a session entity type.
- *
- *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
- *    to include in the query.
- *  @param parent Required. The session to create a session entity type for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesCreate
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes the specified session entity type.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.entityTypes.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsEntityTypesDeleteWithname:]
-
-/**
- *  Required. The name of the entity type to delete. Format:
- *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *  Runtimes are under construction and will be available soon. If <Runtime ID>
- *  is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
- *
- *  Deletes the specified session entity type.
- *
- *  @param name Required. The name of the entity type to delete. Format:
- *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *    Runtimes are under construction and will be available soon. If
- *    <Runtime ID>
- *    is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieves the specified session entity type.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.entityTypes.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsEntityTypesGetWithname:]
-
-/**
- *  Required. The name of the session entity type. Format:
- *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *  Runtimes are under construction and will be available soon. If <Runtime ID>
- *  is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
- *
- *  Retrieves the specified session entity type.
- *
- *  @param name Required. The name of the session entity type. Format:
- *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *    Runtimes are under construction and will be available soon. If
- *    <Runtime ID>
- *    is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the list of all session entity types in the specified session.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.entityTypes.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsEntityTypesListWithparent:]
-
-/**
- *  Optional. The maximum number of items to return in a single page. By
- *  default 100 and at most 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. The next_page_token value returned from a previous list request.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The session to list all session entity types from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRDialogflow_GoogleCloudDialogflowV2ListSessionEntityTypesResponse.
- *
- *  Returns the list of all session entity types in the specified session.
- *
- *  @param parent Required. The session to list all session entity types from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates the specified session entity type.
- *
- *  Method: dialogflow.projects.agent.runtimes.sessions.entityTypes.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentRuntimesSessionsEntityTypesPatchWithObject:name:]
-
-/**
- *  Required. The unique identifier of this session entity type. Format:
- *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>sessions/<Session 
- ID>/entityTypes/<Entity Type Display Name>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The mask to control which fields get updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
- *
- *  Updates the specified session entity type.
- *
- *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
- *    to include in the query.
- *  @param name Required. The unique identifier of this session entity type.
- *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>`, or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>sessions/<Session 
- ID>/entityTypes/<Entity Type Display Name>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *
- *  @returns GTLRDialogflowQuery_ProjectsAgentRuntimesSessionsEntityTypesPatch
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Returns the list of agents.
  *  Since there is at most one conversational agent per project, this method is
  *  useful primarily for listing all agents across projects the caller has
@@ -1647,10 +1069,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to create a context for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1662,10 +1081,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
  *    include in the query.
  *  @param parent Required. The session to create a context for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsCreate
  */
@@ -1688,13 +1104,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the context to delete. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *  or `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are under
- *  construction and will
- *  be available soon. If <Runtime ID> is not specified, we assume default
- *  'sandbox' runtime.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1704,13 +1114,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Deletes the specified context.
  *
  *  @param name Required. The name of the context to delete. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *    or `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are
- *    under construction and will
- *    be available soon. If <Runtime ID> is not specified, we assume default
- *    'sandbox' runtime.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsDelete
  */
@@ -1732,13 +1136,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *  or `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are under
- *  construction and will
- *  be available soon. If <Runtime ID> is not specified, we assume default
- *  'sandbox' runtime.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1748,13 +1146,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Retrieves the specified context.
  *
  *  @param name Required. The name of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
- *    or `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`. Note: Runtimes are
- *    under construction and will
- *    be available soon. If <Runtime ID> is not specified, we assume default
- *    'sandbox' runtime.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsGet
  */
@@ -1787,10 +1179,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to list all contexts from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1800,10 +1189,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Returns the list of all contexts in the specified session.
  *
  *  @param parent Required. The session to list all contexts from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsList
  *
@@ -1829,14 +1215,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  The Context ID is always converted to lowercase.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1855,14 +1234,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
  *    include in the query.
  *  @param name Required. The unique identifier of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *    or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session 
- ID>/contexts/<Context ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    The Context ID is always converted to lowercase.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch
  */
@@ -1885,12 +1257,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the session to delete all contexts from. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project 
- ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are
- *  under construction and will be available soon. If <Runtime ID> is not
- *  specified we assume default 'sandbox' runtime.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1901,12 +1268,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param parent Required. The name of the session to delete all contexts from.
  *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project 
- ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>`. Note: Runtimes are
- *    under construction and will be available soon. If <Runtime ID> is not
- *    specified we assume default 'sandbox' runtime.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsDeleteContexts
  */
@@ -1931,13 +1293,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the session this query is sent to. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *  It's up to the API caller to choose an appropriate session ID. It can be
- *  a random number or some type of user identifier (preferably hashed).
- *  The length of the session ID must not exceed 36 bytes.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>`. It's up to the API
+ *  caller to choose an appropriate session ID. It can be a random number or
+ *  some type of user identifier (preferably hashed). The length of the session
+ *  ID must not exceed 36 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -1954,13 +1313,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    the query.
  *  @param session Required. The name of the session this query is sent to.
  *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
- *    It's up to the API caller to choose an appropriate session ID. It can be
- *    a random number or some type of user identifier (preferably hashed).
- *    The length of the session ID must not exceed 36 bytes.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>`. It's up to the API
+ *    caller to choose an appropriate session ID. It can be a random number or
+ *    some type of user identifier (preferably hashed). The length of the
+ *    session
+ *    ID must not exceed 36 bytes.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent
  */
@@ -1983,10 +1340,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to create a session entity type for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1998,10 +1352,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
  *    to include in the query.
  *  @param parent Required. The session to create a session entity type for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesCreate
  */
@@ -2026,11 +1377,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The name of the entity type to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *  Runtimes are under construction and will be available soon. If <Runtime ID>
- *  is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2042,12 +1389,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *    Runtimes are under construction and will be available soon. If
- *    <Runtime ID>
- *    is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesDelete
  */
@@ -2071,11 +1413,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The name of the session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *  Runtimes are under construction and will be available soon. If <Runtime ID>
- *  is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2087,12 +1425,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the session entity type. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>/sessions/<Session ID>/entityTypes/<Entity Type Display Name>`. Note:
- *    Runtimes are under construction and will be available soon. If
- *    <Runtime ID>
- *    is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesGet
  */
@@ -2125,10 +1458,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to list all session entity types from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2139,10 +1469,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Returns the list of all session entity types in the specified session.
  *
  *  @param parent Required. The session to list all session entity types from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project ID>/agent/runtimes/<Runtime ID>/sessions/<Session ID>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesList
  *
@@ -2170,12 +1497,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
- *  `projects/<Project ID>/agent/runtimes/<Runtime
- *  ID>sessions/<Session 
- ID>/entityTypes/<Entity Type Display Name>`.
- *  Note: Runtimes are under construction and will be available soon.
- *  If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2197,12 +1519,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>`, or
- *    `projects/<Project ID>/agent/runtimes/<Runtime
- *    ID>sessions/<Session 
- ID>/entityTypes/<Entity Type Display Name>`.
- *    Note: Runtimes are under construction and will be available soon.
- *    If <Runtime ID> is not specified, we assume default 'sandbox' runtime.
+ Display Name>`.
  *
  *  @returns GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesPatch
  */

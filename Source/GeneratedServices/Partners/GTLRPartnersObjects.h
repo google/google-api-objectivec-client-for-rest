@@ -3022,7 +3022,8 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
+ *  month.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4675,6 +4676,14 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *  A resource representing a user of the Partners platform.
  */
 @interface GTLRPartners_User : GTLRObject
+
+/**
+ *  Whether or not the user has opted to share their Academy for Ads info with
+ *  Google Partners.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *afaInfoShared;
 
 /**
  *  This is the list of AdWords Manager Accounts the user has edit access to.

@@ -232,6 +232,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_GlobalSetPolicyRequest
+//
+
+@implementation GTLRDeploymentManager_GlobalSetPolicyRequest
+@dynamic bindings, ETag, policy;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRDeploymentManager_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_ImportFile
 //
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Kubernetes Engine API (container/v1)
+//   Kubernetes Engine API (container/v1)
 // Description:
 //   The Google Kubernetes Engine API is used for building and managing
 //   container based applications, powered by the open source Kubernetes
@@ -73,8 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to complete IP
- *  rotation.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -86,8 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CompleteIPRotationRequest to include in
  *    the query.
  *  @param name The name (project, location, cluster id) of the cluster to
- *    complete IP rotation.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    complete IP
+ *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
+ *    *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
  */
@@ -341,9 +341,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pool will be
- *  created.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  created. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -355,9 +354,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CreateNodePoolRequest to include in the
  *    query.
  *  @param parent The parent (project, location, cluster id) where the node pool
- *    will be created.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    will be
+ *    created. Specified in the format
+ *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
  */
@@ -386,9 +385,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
- *  delete.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  delete. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -421,9 +419,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a node pool from a cluster.
  *
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to delete.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    pool to
+ *    delete. Specified in the format
+ *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
  */
@@ -450,9 +448,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster, node pool id) of the node pool to get.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  The name (project, location, cluster, node pool id) of the node pool to
+ *  get. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -485,9 +483,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves the node pool requested.
  *
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to get.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    pool to
+ *    get. Specified in the format
+ *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet
  */
@@ -515,8 +513,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pools will be
- *  listed.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -543,8 +540,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the node pools for a cluster.
  *
  *  @param parent The parent (project, location, cluster id) where the node
- *    pools will be listed.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    pools will be
+ *    listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList
  */
@@ -723,9 +720,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsUpdateWithObject:name:]
 
 /**
- *  The name (project, location, cluster, node pool) of the node pool to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  The name (project, location, cluster, node pool) of the node pool to
+ *  update. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -737,9 +734,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster, node pool) of the node
- *    pool to update.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    pool to
+ *    update. Specified in the format
+ *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate
  */
@@ -1020,8 +1017,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to set networking
- *  policy.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1033,8 +1029,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNetworkPolicyRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to set
- *    networking policy.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    networking
+ *    policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy
  */
@@ -1092,8 +1088,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to start IP
- *  rotation.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1105,8 +1100,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to start
- *    IP rotation.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    IP
+ *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
+ *    *'.
  *
  *  @returns GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
  */
@@ -1353,9 +1349,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available)
- *  to return operations for, or `-` for all zones.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](/compute/docs/zones#available) to return operations for, or `-` for
+ *  all zones. This field has been deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2236,9 +2231,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
- *  delete.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  delete. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2311,9 +2305,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster, node pool id) of the node pool to get.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  The name (project, location, cluster, node pool id) of the node pool to
+ *  get. Specified in the format
+ *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2387,8 +2381,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pools will be
- *  listed.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3292,9 +3285,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available)
- *  to return operations for, or `-` for all zones.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](/compute/docs/zones#available) to return operations for, or `-` for
+ *  all zones. This field has been deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3310,9 +3302,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available)
- *    to return operations for, or `-` for all zones.
- *    This field has been deprecated and replaced by the parent field.
+ *    [zone](/compute/docs/zones#available) to return operations for, or `-` for
+ *    all zones. This field has been deprecated and replaced by the parent
+ *    field.
  *
  *  @returns GTLRContainerQuery_ProjectsZonesOperationsList
  */

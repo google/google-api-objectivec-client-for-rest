@@ -301,9 +301,9 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
 //
 
 @implementation GTLRLogging_LogEntry
-@dynamic httpRequest, insertId, jsonPayload, labels, logName, operation,
-         protoPayload, receiveTimestamp, resource, severity, sourceLocation,
-         spanId, textPayload, timestamp, trace;
+@dynamic httpRequest, insertId, jsonPayload, labels, logName, metadata,
+         operation, protoPayload, receiveTimestamp, resource, severity,
+         sourceLocation, spanId, textPayload, timestamp, trace;
 @end
 
 
@@ -504,6 +504,44 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
     @"labels" : [GTLRLogging_LabelDescriptor class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_MonitoredResourceMetadata
+//
+
+@implementation GTLRLogging_MonitoredResourceMetadata
+@dynamic systemLabels, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_MonitoredResourceMetadata_SystemLabels
+//
+
+@implementation GTLRLogging_MonitoredResourceMetadata_SystemLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_MonitoredResourceMetadata_UserLabels
+//
+
+@implementation GTLRLogging_MonitoredResourceMetadata_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

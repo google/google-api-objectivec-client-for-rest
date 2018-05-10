@@ -18,6 +18,26 @@
 
 @end
 
+@implementation GTLRFirebaseDynamicLinksQuery_ManagedShortLinksCreate
+
++ (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/managedShortLinks:create";
+  GTLRFirebaseDynamicLinksQuery_ManagedShortLinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRFirebaseDynamicLinks_CreateManagedShortLinkResponse class];
+  query.loggingName = @"firebasedynamiclinks.managedShortLinks.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseDynamicLinksQuery_ShortLinksCreate
 
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest *)object {

@@ -89,10 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorage_ObjectAccessControl *> *defaultObjectAcl;
 
-/**
- *  Encryption configuration used by default for newly inserted objects, when no
- *  encryption config is specified.
- */
+/** Encryption configuration for a bucket. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption *encryption;
 
 /** HTTP 1.1 Entity tag for the bucket. */
@@ -247,15 +244,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Encryption configuration used by default for newly inserted objects, when no
- *  encryption config is specified.
+ *  Encryption configuration for a bucket.
  */
 @interface GTLRStorage_Bucket_Encryption : GTLRObject
 
 /**
  *  A Cloud KMS key that will be used to encrypt objects inserted into this
- *  bucket, if no encryption method is specified. Limited availability; usable
- *  only by enabled projects.
+ *  bucket, if no encryption method is specified.
  */
 @property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
 

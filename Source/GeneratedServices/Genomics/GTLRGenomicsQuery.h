@@ -501,9 +501,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.callsets.create
  *
@@ -519,9 +516,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_CallSet.
  *
  *  Creates a new call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_CallSet to include in the query.
  *
@@ -533,9 +527,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.callsets.delete
  *
@@ -554,9 +545,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Empty.
  *
  *  Deletes a call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param callSetId The ID of the call set to be deleted.
  *
@@ -568,9 +556,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a call set by ID.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.callsets.get
  *
@@ -590,9 +575,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_CallSet.
  *
  *  Gets a call set by ID.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param callSetId The ID of the call set.
  *
@@ -604,9 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  Method: genomics.callsets.patch
@@ -636,9 +615,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_CallSet.
  *
  *  Updates a call set.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRGenomics_CallSet to include in the query.
@@ -653,9 +629,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a list of call sets matching the criteria.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchCallSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L178).
  *
@@ -674,9 +647,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchCallSetsResponse.
  *
  *  Gets a list of call sets matching the criteria.
- *  For the definitions of call sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchCallSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L178).
  *
@@ -691,9 +661,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new dataset.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.create
  *
@@ -709,9 +676,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Dataset.
  *
  *  Creates a new dataset.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_Dataset to include in the query.
  *
@@ -728,9 +692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  the
  *  datasets.undelete
  *  operation.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.delete
  *
@@ -754,9 +715,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  the
  *  datasets.undelete
  *  operation.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param datasetId The ID of the dataset to be deleted.
  *
@@ -768,9 +726,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a dataset by ID.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.get
  *
@@ -790,9 +745,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Dataset.
  *
  *  Gets a dataset by ID.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param datasetId The ID of the dataset.
  *
@@ -807,9 +759,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  policy or resource does not exist.
  *  See <a href="/iam/docs/managing-policies#getting_a_policy">Getting a
  *  Policy</a> for more information.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.getIamPolicy
  *
@@ -834,9 +783,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  policy or resource does not exist.
  *  See <a href="/iam/docs/managing-policies#getting_a_policy">Getting a
  *  Policy</a> for more information.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_GetIamPolicyRequest to include in the
  *    query.
@@ -853,9 +799,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists datasets within a project.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.list
  *
@@ -888,9 +831,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ListDatasetsResponse.
  *
  *  Lists datasets within a project.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @returns GTLRGenomicsQuery_DatasetsList
  *
@@ -904,9 +844,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a dataset.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  Method: genomics.datasets.patch
@@ -936,9 +873,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Dataset.
  *
  *  Updates a dataset.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRGenomics_Dataset to include in the query.
@@ -954,9 +888,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified dataset. Replaces any
  *  existing policy.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  See <a href="/iam/docs/managing-policies#setting_a_policy">Setting a
  *  Policy</a> for more information.
  *
@@ -981,9 +912,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified dataset. Replaces any
  *  existing policy.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  See <a href="/iam/docs/managing-policies#setting_a_policy">Setting a
  *  Policy</a> for more information.
  *
@@ -1004,9 +932,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  See <a href="/iam/docs/managing-policies#testing_permissions">Testing
  *  Permissions</a> for more information.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.datasets.testIamPermissions
  *
@@ -1030,9 +955,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  See <a href="/iam/docs/managing-policies#testing_permissions">Testing
  *  Permissions</a> for more information.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_TestIamPermissionsRequest to include in
  *    the query.
@@ -1049,9 +971,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Undeletes a dataset by restoring a dataset which was deleted via this API.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This operation is only possible for a week after the deletion occurred.
  *
  *  Method: genomics.datasets.undelete
@@ -1071,9 +990,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Dataset.
  *
  *  Undeletes a dataset by restoring a dataset which was deleted via this API.
- *  For the definitions of datasets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This operation is only possible for a week after the deletion occurred.
  *
  *  @param object The @c GTLRGenomics_UndeleteDatasetRequest to include in the
@@ -1234,9 +1150,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists fixed width coverage buckets for a read group set, each of which
  *  correspond to a range of a reference sequence. Each bucket summarizes
  *  coverage information across its corresponding genomic range.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Coverage is defined as the number of reads which are aligned to a given
  *  base in the reference sequence. Coverage buckets are available at several
  *  precomputed bucket widths, enabling retrieval of various coverage 'zoom
@@ -1308,9 +1221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists fixed width coverage buckets for a read group set, each of which
  *  correspond to a range of a reference sequence. Each bucket summarizes
  *  coverage information across its corresponding genomic range.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Coverage is defined as the number of reads which are aligned to a given
  *  base in the reference sequence. Coverage buckets are available at several
  *  precomputed bucket widths, enabling retrieval of various coverage 'zoom
@@ -1332,9 +1242,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a read group set.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.readgroupsets.delete
  *
@@ -1356,9 +1263,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Empty.
  *
  *  Deletes a read group set.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param readGroupSetId The ID of the read group set to be deleted. The caller
  *    must have WRITE
@@ -1372,9 +1276,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Exports a read group set to a BAM file in Google Cloud Storage.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Note that currently there may be some differences between exported BAM
  *  files and the original BAM file at the time of import. See
  *  ImportReadGroupSets
@@ -1401,9 +1302,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Operation.
  *
  *  Exports a read group set to a BAM file in Google Cloud Storage.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Note that currently there may be some differences between exported BAM
  *  files and the original BAM file at the time of import. See
  *  ImportReadGroupSets
@@ -1424,9 +1322,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a read group set by ID.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.readgroupsets.get
  *
@@ -1446,9 +1341,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ReadGroupSet.
  *
  *  Gets a read group set by ID.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param readGroupSetId The ID of the read group set.
  *
@@ -1461,9 +1353,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates read group sets by asynchronously importing the provided
  *  information.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The caller must have WRITE permissions to the dataset.
  *  ## Notes on [BAM](https://samtools.github.io/hts-specs/SAMv1.pdf) import
  *  - Tags will be converted to strings - tag types are not preserved
@@ -1490,9 +1379,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates read group sets by asynchronously importing the provided
  *  information.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The caller must have WRITE permissions to the dataset.
  *  ## Notes on [BAM](https://samtools.github.io/hts-specs/SAMv1.pdf) import
  *  - Tags will be converted to strings - tag types are not preserved
@@ -1514,9 +1400,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a read group set.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  Method: genomics.readgroupsets.patch
@@ -1550,9 +1433,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ReadGroupSet.
  *
  *  Updates a read group set.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRGenomics_ReadGroupSet to include in the query.
@@ -1569,9 +1449,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Searches for read group sets matching the criteria.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReadGroupSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/readmethods.avdl#L135).
  *
@@ -1590,9 +1467,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchReadGroupSetsResponse.
  *
  *  Searches for read group sets matching the criteria.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReadGroupSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/readmethods.avdl#L135).
  *
@@ -1607,9 +1481,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a list of reads for one or more read group sets.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Reads search operates over a genomic coordinate space of reference sequence
  *  & position defined over the reference sequences to which the requested
  *  read group sets are aligned.
@@ -1641,9 +1512,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchReadsResponse.
  *
  *  Gets a list of reads for one or more read group sets.
- *  For the definitions of read group sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Reads search operates over a genomic coordinate space of reference sequence
  *  & position defined over the reference sequences to which the requested
  *  read group sets are aligned.
@@ -1671,9 +1539,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the bases in a reference, optionally restricted to a range.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReferenceBases](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L221).
  *
@@ -1718,9 +1583,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ListBasesResponse.
  *
  *  Lists the bases in a reference, optionally restricted to a range.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReferenceBases](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L221).
  *
@@ -1734,9 +1596,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a reference set.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReferenceSet](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L83).
  *
@@ -1758,9 +1617,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ReferenceSet.
  *
  *  Gets a reference set.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReferenceSet](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L83).
  *
@@ -1774,9 +1630,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Searches for reference sets which match the given criteria.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReferenceSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L71)
  *
@@ -1795,9 +1648,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchReferenceSetsResponse.
  *
  *  Searches for reference sets which match the given criteria.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReferenceSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L71)
  *
@@ -1812,9 +1662,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a reference.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReference](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L158).
  *
@@ -1836,9 +1683,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Reference.
  *
  *  Gets a reference.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.getReference](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L158).
  *
@@ -1852,9 +1696,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Searches for references which match the given criteria.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReferences](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L146).
  *
@@ -1873,9 +1714,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchReferencesResponse.
  *
  *  Searches for references which match the given criteria.
- *  For the definitions of references and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchReferences](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L146).
  *
@@ -1890,9 +1728,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variants.create
  *
@@ -1908,9 +1743,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Variant.
  *
  *  Creates a new variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_Variant to include in the query.
  *
@@ -1922,9 +1754,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variants.delete
  *
@@ -1943,9 +1772,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Empty.
  *
  *  Deletes a variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param variantId The ID of the variant to be deleted.
  *
@@ -1957,9 +1783,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new variant set.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The provided variant set must have a valid `datasetId` set - all other
  *  fields are optional. Note that the `id` field will be ignored, as this is
  *  assigned by the server.
@@ -1978,9 +1801,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_VariantSet.
  *
  *  Creates a new variant set.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The provided variant set must have a valid `datasetId` set - all other
  *  fields are optional. Note that the `id` field will be ignored, as this is
  *  assigned by the server.
@@ -1996,9 +1816,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes a variant set including all variants, call sets, and calls within.
  *  This is not reversible.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variantsets.delete
  *
@@ -2018,9 +1835,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a variant set including all variants, call sets, and calls within.
  *  This is not reversible.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param variantSetId The ID of the variant set to be deleted.
  *
@@ -2032,9 +1846,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Exports variant set data to an external destination.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variantsets.export
  *
@@ -2057,9 +1868,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Operation.
  *
  *  Exports variant set data to an external destination.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_ExportVariantSetRequest to include in the
  *    query.
@@ -2076,9 +1884,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a variant set by ID.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variantsets.get
  *
@@ -2098,9 +1903,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_VariantSet.
  *
  *  Gets a variant set by ID.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param variantSetId Required. The ID of the variant set.
  *
@@ -2112,9 +1914,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a variant set using patch semantics.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variantsets.patch
  *
@@ -2145,9 +1944,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_VariantSet.
  *
  *  Updates a variant set using patch semantics.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param object The @c GTLRGenomics_VariantSet to include in the query.
  *  @param variantSetId The ID of the variant to be updated (must already
@@ -2162,9 +1958,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a list of all variant sets matching search criteria.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchVariantSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L49).
  *
@@ -2183,9 +1976,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchVariantSetsResponse.
  *
  *  Returns a list of all variant sets matching search criteria.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchVariantSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L49).
  *
@@ -2200,9 +1990,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a variant by ID.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  Method: genomics.variants.get
  *
@@ -2222,9 +2009,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Variant.
  *
  *  Gets a variant by ID.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *
  *  @param variantId The ID of the variant.
  *
@@ -2236,9 +2020,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates variant data by asynchronously importing the provided information.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The variants for import will be merged with any existing variant that
  *  matches its reference sequence, start, end, reference bases, and
  *  alternative bases. If no such variant exists, a new one will be created.
@@ -2266,9 +2047,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Operation.
  *
  *  Creates variant data by asynchronously importing the provided information.
- *  For the definitions of variant sets and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  The variants for import will be merged with any existing variant that
  *  matches its reference sequence, start, end, reference bases, and
  *  alternative bases. If no such variant exists, a new one will be created.
@@ -2292,9 +2070,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Merges the given variants with existing variants.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Each variant will be
  *  merged with an existing variant that matches its reference sequence,
  *  start, end, reference bases, and alternative bases. If no such variant
@@ -2388,9 +2163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Empty.
  *
  *  Merges the given variants with existing variants.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Each variant will be
  *  merged with an existing variant that matches its reference sequence,
  *  start, end, reference bases, and alternative bases. If no such variant
@@ -2481,9 +2253,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics. Returns the modified variant without
  *  its calls.
  *
@@ -2514,9 +2283,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_Variant.
  *
  *  Updates a variant.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  This method supports patch semantics. Returns the modified variant without
  *  its calls.
  *
@@ -2532,9 +2298,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a list of variants matching the criteria.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchVariants](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L126).
  *
@@ -2553,9 +2316,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_SearchVariantsResponse.
  *
  *  Gets a list of variants matching the criteria.
- *  For the definitions of variants and other genomics resources, see
- *  [Fundamentals of Google
- *  Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
  *  Implements
  *  [GlobalAllianceApi.searchVariants](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/variantmethods.avdl#L126).
  *

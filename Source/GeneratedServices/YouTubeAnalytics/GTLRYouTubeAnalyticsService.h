@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Analytics API (youtubeAnalytics/v1)
+//   YouTube Analytics API (youtubeAnalytics/v2)
 // Description:
 //   Retrieves your YouTube Analytics data.
 // Documentation:
-//   http://developers.google.com/youtube/analytics/
+//   http://developers.google.com/youtube/analytics
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

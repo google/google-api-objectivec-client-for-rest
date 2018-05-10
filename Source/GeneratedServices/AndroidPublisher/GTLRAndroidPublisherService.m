@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v2)
+//   Google Play Developer API (androidpublisher/v3)
 // Description:
 //   Lets Android application developers access their Google Play accounts.
 // Documentation:
@@ -26,10 +26,10 @@ NSString * const kGTLRAuthScopeAndroidPublisher = @"https://www.googleapis.com/a
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"androidpublisher/v2/applications/";
+    self.servicePath = @"androidpublisher/v3/applications/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/androidpublisher/v2";
+    self.batchPath = @"batch/androidpublisher/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -37,8 +37,8 @@ NSString * const kGTLRAuthScopeAndroidPublisher = @"https://www.googleapis.com/a
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"androidpublisher#apkListingsListResponse" : [GTLRAndroidPublisher_ApkListingsListResponse class],
     @"androidpublisher#apksListResponse" : [GTLRAndroidPublisher_ApksListResponse class],
+    @"androidpublisher#bundlesListResponse" : [GTLRAndroidPublisher_BundlesListResponse class],
     @"androidpublisher#inappproductsListResponse" : [GTLRAndroidPublisher_InappproductsListResponse class],
     @"androidpublisher#listingsListResponse" : [GTLRAndroidPublisher_ListingsListResponse class],
     @"androidpublisher#productPurchase" : [GTLRAndroidPublisher_ProductPurchase class],

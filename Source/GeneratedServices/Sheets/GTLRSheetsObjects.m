@@ -113,6 +113,7 @@ NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_UserEnter
 
 // GTLRSheets_BooleanCondition.type
 NSString * const kGTLRSheets_BooleanCondition_Type_Blank       = @"BLANK";
+NSString * const kGTLRSheets_BooleanCondition_Type_Boolean     = @"BOOLEAN";
 NSString * const kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified = @"CONDITION_TYPE_UNSPECIFIED";
 NSString * const kGTLRSheets_BooleanCondition_Type_CustomFormula = @"CUSTOM_FORMULA";
 NSString * const kGTLRSheets_BooleanCondition_Type_DateAfter   = @"DATE_AFTER";
@@ -232,6 +233,24 @@ NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues = @"PASTE_VAL
 NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Columns = @"COLUMNS";
 NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows = @"ROWS";
+
+// GTLRSheets_DateTimeRule.type
+NSString * const kGTLRSheets_DateTimeRule_Type_DateTimeRuleTypeUnspecified = @"DATE_TIME_RULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_DateTimeRule_Type_DayMonth        = @"DAY_MONTH";
+NSString * const kGTLRSheets_DateTimeRule_Type_DayOfMonth      = @"DAY_OF_MONTH";
+NSString * const kGTLRSheets_DateTimeRule_Type_DayOfWeek       = @"DAY_OF_WEEK";
+NSString * const kGTLRSheets_DateTimeRule_Type_DayOfYear       = @"DAY_OF_YEAR";
+NSString * const kGTLRSheets_DateTimeRule_Type_Hour            = @"HOUR";
+NSString * const kGTLRSheets_DateTimeRule_Type_HourMinute      = @"HOUR_MINUTE";
+NSString * const kGTLRSheets_DateTimeRule_Type_HourMinuteAmpm  = @"HOUR_MINUTE_AMPM";
+NSString * const kGTLRSheets_DateTimeRule_Type_Minute          = @"MINUTE";
+NSString * const kGTLRSheets_DateTimeRule_Type_Month           = @"MONTH";
+NSString * const kGTLRSheets_DateTimeRule_Type_Quarter         = @"QUARTER";
+NSString * const kGTLRSheets_DateTimeRule_Type_Second          = @"SECOND";
+NSString * const kGTLRSheets_DateTimeRule_Type_Year            = @"YEAR";
+NSString * const kGTLRSheets_DateTimeRule_Type_YearMonth       = @"YEAR_MONTH";
+NSString * const kGTLRSheets_DateTimeRule_Type_YearMonthDay    = @"YEAR_MONTH_DAY";
+NSString * const kGTLRSheets_DateTimeRule_Type_YearQuarter     = @"YEAR_QUARTER";
 
 // GTLRSheets_DeleteRangeRequest.shiftDimension
 NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns = @"COLUMNS";
@@ -487,6 +506,34 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_AddDimensionGroupRequest
+//
+
+@implementation GTLRSheets_AddDimensionGroupRequest
+@dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_AddDimensionGroupResponse
+//
+
+@implementation GTLRSheets_AddDimensionGroupResponse
+@dynamic dimensionGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionGroups" : [GTLRSheets_DimensionGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_AddFilterViewRequest
 //
 
@@ -669,7 +716,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BasicChartSeries
-@dynamic lineStyle, series, targetAxis, type;
+@dynamic color, lineStyle, series, targetAxis, type;
 @end
 
 
@@ -1304,6 +1351,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_DateTimeRule
+//
+
+@implementation GTLRSheets_DateTimeRule
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_DeleteBandingRequest
 //
 
@@ -1353,6 +1410,34 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"deletedDeveloperMetadata" : [GTLRSheets_DeveloperMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteDimensionGroupRequest
+//
+
+@implementation GTLRSheets_DeleteDimensionGroupRequest
+@dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteDimensionGroupResponse
+//
+
+@implementation GTLRSheets_DeleteDimensionGroupResponse
+@dynamic dimensionGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionGroups" : [GTLRSheets_DimensionGroup class]
   };
   return map;
 }
@@ -1458,6 +1543,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @implementation GTLRSheets_DeveloperMetadataLookup
 @dynamic locationMatchingStrategy, locationType, metadataId, metadataKey,
          metadataLocation, metadataValue, visibility;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DimensionGroup
+//
+
+@implementation GTLRSheets_DimensionGroup
+@dynamic collapsed, depth, range;
 @end
 
 
@@ -1724,8 +1819,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_GridProperties
-@dynamic columnCount, frozenColumnCount, frozenRowCount, hideGridlines,
-         rowCount;
+@dynamic columnCount, columnGroupControlAfter, frozenColumnCount,
+         frozenRowCount, hideGridlines, rowCount, rowGroupControlAfter;
 @end
 
 
@@ -2033,7 +2128,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_PivotGroupRule
-@dynamic histogramRule, manualRule;
+@dynamic dateTimeRule, histogramRule, manualRule;
 @end
 
 
@@ -2159,21 +2254,22 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Request
-@dynamic addBanding, addChart, addConditionalFormatRule, addFilterView,
-         addNamedRange, addProtectedRange, addSheet, appendCells,
+@dynamic addBanding, addChart, addConditionalFormatRule, addDimensionGroup,
+         addFilterView, addNamedRange, addProtectedRange, addSheet, appendCells,
          appendDimension, autoFill, autoResizeDimensions, clearBasicFilter,
          copyPaste, createDeveloperMetadata, cutPaste, deleteBanding,
          deleteConditionalFormatRule, deleteDeveloperMetadata, deleteDimension,
-         deleteEmbeddedObject, deleteFilterView, deleteNamedRange,
-         deleteProtectedRange, deleteRange, deleteSheet, duplicateFilterView,
-         duplicateSheet, findReplace, insertDimension, insertRange, mergeCells,
-         moveDimension, pasteData, randomizeRange, repeatCell, setBasicFilter,
-         setDataValidation, sortRange, textToColumns, unmergeCells,
-         updateBanding, updateBorders, updateCells, updateChartSpec,
-         updateConditionalFormatRule, updateDeveloperMetadata,
-         updateDimensionProperties, updateEmbeddedObjectPosition,
-         updateFilterView, updateNamedRange, updateProtectedRange,
-         updateSheetProperties, updateSpreadsheetProperties;
+         deleteDimensionGroup, deleteEmbeddedObject, deleteFilterView,
+         deleteNamedRange, deleteProtectedRange, deleteRange, deleteSheet,
+         duplicateFilterView, duplicateSheet, findReplace, insertDimension,
+         insertRange, mergeCells, moveDimension, pasteData, randomizeRange,
+         repeatCell, setBasicFilter, setDataValidation, sortRange,
+         textToColumns, unmergeCells, updateBanding, updateBorders, updateCells,
+         updateChartSpec, updateConditionalFormatRule, updateDeveloperMetadata,
+         updateDimensionGroup, updateDimensionProperties,
+         updateEmbeddedObjectPosition, updateFilterView, updateNamedRange,
+         updateProtectedRange, updateSheetProperties,
+         updateSpreadsheetProperties;
 @end
 
 
@@ -2183,10 +2279,11 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Response
-@dynamic addBanding, addChart, addFilterView, addNamedRange, addProtectedRange,
-         addSheet, createDeveloperMetadata, deleteConditionalFormatRule,
-         deleteDeveloperMetadata, duplicateFilterView, duplicateSheet,
-         findReplace, updateConditionalFormatRule, updateDeveloperMetadata,
+@dynamic addBanding, addChart, addDimensionGroup, addFilterView, addNamedRange,
+         addProtectedRange, addSheet, createDeveloperMetadata,
+         deleteConditionalFormatRule, deleteDeveloperMetadata,
+         deleteDimensionGroup, duplicateFilterView, duplicateSheet, findReplace,
+         updateConditionalFormatRule, updateDeveloperMetadata,
          updateEmbeddedObjectPosition;
 @end
 
@@ -2271,19 +2368,22 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Sheet
-@dynamic bandedRanges, basicFilter, charts, conditionalFormats, data,
-         developerMetadata, filterViews, merges, properties, protectedRanges;
+@dynamic bandedRanges, basicFilter, charts, columnGroups, conditionalFormats,
+         data, developerMetadata, filterViews, merges, properties,
+         protectedRanges, rowGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bandedRanges" : [GTLRSheets_BandedRange class],
     @"charts" : [GTLRSheets_EmbeddedChart class],
+    @"columnGroups" : [GTLRSheets_DimensionGroup class],
     @"conditionalFormats" : [GTLRSheets_ConditionalFormatRule class],
     @"data" : [GTLRSheets_GridData class],
     @"developerMetadata" : [GTLRSheets_DeveloperMetadata class],
     @"filterViews" : [GTLRSheets_FilterView class],
     @"merges" : [GTLRSheets_GridRange class],
-    @"protectedRanges" : [GTLRSheets_ProtectedRange class]
+    @"protectedRanges" : [GTLRSheets_ProtectedRange class],
+    @"rowGroups" : [GTLRSheets_DimensionGroup class]
   };
   return map;
 }
@@ -2555,6 +2655,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_UpdateDimensionGroupRequest
+//
+
+@implementation GTLRSheets_UpdateDimensionGroupRequest
+@dynamic dimensionGroup, fields;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Dataproc API (dataproc/v1)
+//   Cloud Dataproc API (dataproc/v1)
 // Description:
 //   Manages Hadoop-based clusters and jobs on Google Cloud Platform.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDataprocCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Dataproc API queries.
+ *  Service for executing Cloud Dataproc API queries.
  *
  *  Manages Hadoop-based clusters and jobs on Google Cloud Platform.
  */

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Analytics API (youtubeAnalytics/v1)
+//   YouTube Analytics API (youtubeAnalytics/v2)
 // Description:
 //   Retrieves your YouTube Analytics data.
 // Documentation:
-//   http://developers.google.com/youtube/analytics/
+//   http://developers.google.com/youtube/analytics
 
 #import "GTLRYouTubeAnalytics.h"
 
@@ -29,22 +29,11 @@ NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly = @"https://w
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"youtube/analytics/v1/";
-    self.batchPath = @"batch/youtubeAnalytics/v1";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
+    self.rootURLString = @"https://youtubeanalytics.googleapis.com/";
+    self.batchPath = @"batch";
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"youtube#group" : [GTLRYouTubeAnalytics_Group class],
-    @"youtube#groupItem" : [GTLRYouTubeAnalytics_GroupItem class],
-    @"youtube#groupItemListResponse" : [GTLRYouTubeAnalytics_GroupItemListResponse class],
-    @"youtube#groupListResponse" : [GTLRYouTubeAnalytics_GroupListResponse class],
-    @"youtubeAnalytics#resultTable" : [GTLRYouTubeAnalytics_ResultTable class],
-  };
 }
 
 @end

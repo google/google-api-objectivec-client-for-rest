@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Testing API (testing/v1)
+//   Cloud Testing API (testing/v1)
 // Description:
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeTestingCloudPlatformReadOnly;
 //
 
 /**
- *  Service for executing Google Cloud Testing API queries.
+ *  Service for executing Cloud Testing API queries.
  *
  *  Allows developers to run automated tests for their mobile applications on
  *  Google infrastructure.

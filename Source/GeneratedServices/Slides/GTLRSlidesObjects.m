@@ -226,6 +226,7 @@ NSString * const kGTLRSlides_Line_LineType_CurvedConnector3   = @"CURVED_CONNECT
 NSString * const kGTLRSlides_Line_LineType_CurvedConnector4   = @"CURVED_CONNECTOR_4";
 NSString * const kGTLRSlides_Line_LineType_CurvedConnector5   = @"CURVED_CONNECTOR_5";
 NSString * const kGTLRSlides_Line_LineType_StraightConnector1 = @"STRAIGHT_CONNECTOR_1";
+NSString * const kGTLRSlides_Line_LineType_StraightLine       = @"STRAIGHT_LINE";
 NSString * const kGTLRSlides_Line_LineType_TypeUnspecified    = @"TYPE_UNSPECIFIED";
 
 // GTLRSlides_LineProperties.dashStyle
