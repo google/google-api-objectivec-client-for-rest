@@ -11,7 +11,7 @@ In order to use the example projects in this folder, you will need to ensure tha
 
 ## How to download Git Submodules
 You can download Git Submodules using the following command:
-[Credit: Stackoverflow Question] (http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
+[Credit: Stackoverflow Question](http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
 
 
 ```
