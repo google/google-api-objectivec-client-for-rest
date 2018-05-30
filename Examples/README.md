@@ -11,7 +11,7 @@ In order to use the example projects in this folder, you will need to ensure tha
 
 ## How to download Git Submodules
 You can download Git Submodules using the following command:
-[Credit: Stackoverflow Question] (http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
+[Credit: Stackoverflow Question](http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
 
 
 ```
@@ -32,7 +32,7 @@ git submodule update --recursive
 These example apps need an oAuth2 Client key, which you can obtain from the [Google Developer Console](https://console.developers.google.com/).
 
 ### To obtain an oAuth2 client Key:
-1. Visit the [Google Developer Console](https://console.developers.google.com/
+1. Visit the [Google Developer Console](https://console.developers.google.com/)
 2. Click Credentials on the left hand navigation pane
 3. Click the `Create Credentials Button` and select `oAuth Client id` from the resulting dropdown menu.
 4. Select the `IOS` radio button
