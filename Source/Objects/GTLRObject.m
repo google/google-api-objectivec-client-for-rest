@@ -400,9 +400,9 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
         // We only want dynamic properties; their attributes contain ",D".
         const char *attr = property_getAttributes(*prop);
         const char *dynamicMarker = strstr(attr, ",D");
-        if (dynamicMarker &&
+        if (propName && dynamicMarker &&
             (dynamicMarker[2] == 0 || dynamicMarker[2] == ',' )) {
-          [array addObject:@(propName)];
+          [array addObject:(id _Nonnull)@(propName)];
         }
       }
       free(properties);
