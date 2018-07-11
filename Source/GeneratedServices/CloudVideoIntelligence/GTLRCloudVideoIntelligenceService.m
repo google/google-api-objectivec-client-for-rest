@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform = @"https://w
     // From discovery.
     self.rootURLString = @"https://videointelligence.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

@@ -65,6 +65,35 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidProvisioningPartner_Company.termsStatus
+
+/**
+ *  One (or more) of the company's users has accepted the ToS.
+ *
+ *  Value: "TERMS_STATUS_ACCEPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted;
+/**
+ *  None of the company's users have accepted the ToS.
+ *
+ *  Value: "TERMS_STATUS_NOT_ACCEPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusNotAccepted;
+/**
+ *  None of the company's users has accepted the current ToS but at least one
+ *  user accepted a previous ToS.
+ *
+ *  Value: "TERMS_STATUS_STALE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale;
+/**
+ *  Default value. This value should never be set if the enum is present.
+ *
+ *  Value: "TERMS_STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 
 /**
@@ -330,6 +359,28 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  delete, and edit your organization's portal users.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
+
+/**
+ *  Output only. Whether any user from the company has accepted the latest
+ *  Terms of Service (ToS). See
+ *  TermsStatus.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted
+ *        One (or more) of the company's users has accepted the ToS. (Value:
+ *        "TERMS_STATUS_ACCEPTED")
+ *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusNotAccepted
+ *        None of the company's users have accepted the ToS. (Value:
+ *        "TERMS_STATUS_NOT_ACCEPTED")
+ *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale
+ *        None of the company's users has accepted the current ToS but at least
+ *        one
+ *        user accepted a previous ToS. (Value: "TERMS_STATUS_STALE")
+ *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified
+ *        Default value. This value should never be set if the enum is present.
+ *        (Value: "TERMS_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *termsStatus;
 
 @end
 

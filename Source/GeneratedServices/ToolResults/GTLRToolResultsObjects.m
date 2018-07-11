@@ -69,9 +69,15 @@ NSString * const kGTLRToolResults_Step_State_InProgress   = @"inProgress";
 NSString * const kGTLRToolResults_Step_State_Pending      = @"pending";
 NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
+// GTLRToolResults_TestIssue.category
+NSString * const kGTLRToolResults_TestIssue_Category_Common    = @"common";
+NSString * const kGTLRToolResults_TestIssue_Category_Robo      = @"robo";
+NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory = @"unspecifiedCategory";
+
 // GTLRToolResults_TestIssue.severity
 NSString * const kGTLRToolResults_TestIssue_Severity_Info      = @"info";
 NSString * const kGTLRToolResults_TestIssue_Severity_Severe    = @"severe";
+NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion = @"suggestion";
 NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity = @"unspecifiedSeverity";
 NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
 
@@ -731,7 +737,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedR
 //
 
 @implementation GTLRToolResults_TestIssue
-@dynamic errorMessage, severity, stackTrace, type, warning;
+@dynamic category, errorMessage, severity, stackTrace, type, warning;
 @end
 
 

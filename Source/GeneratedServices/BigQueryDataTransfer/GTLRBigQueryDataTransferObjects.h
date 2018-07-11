@@ -144,7 +144,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_
  */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage;
 /**
- *  Record parameter.
+ *  Deprecated. This field has no effect.
  *
  *  Value: "RECORD"
  */
@@ -321,10 +321,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  */
 @property(nonatomic, copy, nullable) NSString *authorizationType;
 
-/**
- *  Data source client id which should be used to receive refresh token.
- *  When not supplied, no offline credentials are populated for data transfer.
- */
+/** Data source client id which should be used to receive refresh token. */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
@@ -400,10 +397,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_DataSourceParameter *> *parameters;
 
 /**
- *  Api auth scopes for which refresh token needs to be obtained. Only valid
- *  when `client_id` is specified. Ignored otherwise. These are scopes needed
- *  by a data source to prepare data and ingest them into BigQuery,
- *  e.g., https://www.googleapis.com/auth/bigquery
+ *  Api auth scopes for which refresh token needs to be obtained. These are
+ *  scopes needed by a data source to prepare data and ingest them into
+ *  BigQuery, e.g., https://www.googleapis.com/auth/bigquery
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
@@ -440,7 +436,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 /**
  *  The number of seconds to wait for an update from the data source
- *  before BigQuery marks the transfer as failed.
+ *  before the Data Transfer Service marks the transfer as FAILED.
  *
  *  Uses NSNumber of intValue.
  */
@@ -472,7 +468,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 /** Parameter display name in the user interface. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** When parameter is a record, describes child fields. */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_DataSourceParameter *> *fields;
 
 /**
@@ -500,15 +496,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, copy, nullable) NSString *paramId;
 
 /**
- *  If set to true, schema should be taken from the parent with the same
- *  parameter_id. Only applicable when parameter type is RECORD.
+ *  Deprecated. This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recurse;
 
 /**
- *  Can parameter have multiple values.
+ *  Deprecated. This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -534,8 +529,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *        Will be serialized to json as string. (Value: "INTEGER")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage Page
  *        ID for a Google+ Page. (Value: "PLUS_PAGE")
- *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record Record
- *        parameter. (Value: "RECORD")
+ *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record
+ *        Deprecated. This field has no effect. (Value: "RECORD")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_String String
  *        parameter. (Value: "STRING")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified
@@ -1081,7 +1076,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  created as part of a regular schedule. For batch transfer runs that are
  *  scheduled manually, this is empty.
  *  NOTE: the system might choose to delay the schedule depending on the
- *  current load, so `schedule_time` doesn't always matches this.
+ *  current load, so `schedule_time` doesn't always match this.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 

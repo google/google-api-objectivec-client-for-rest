@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeServiceUserServiceManagement    = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://serviceuser.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

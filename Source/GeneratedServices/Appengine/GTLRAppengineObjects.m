@@ -38,6 +38,11 @@ NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled = @"SYS
 NSString * const kGTLRAppengine_Application_ServingStatus_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled = @"USER_DISABLED";
 
+// GTLRAppengine_EndpointsApiService.rolloutStrategy
+NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed = @"FIXED";
+NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed = @"MANAGED";
+NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_UnspecifiedRolloutStrategy = @"UNSPECIFIED_ROLLOUT_STRATEGY";
+
 // GTLRAppengine_ErrorHandler.errorCode
 NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDefault = @"ERROR_CODE_DEFAULT";
 NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDosApiDenial = @"ERROR_CODE_DOS_API_DENIAL";
@@ -55,11 +60,25 @@ NSString * const kGTLRAppengine_Instance_Availability_Dynamic  = @"DYNAMIC";
 NSString * const kGTLRAppengine_Instance_Availability_Resident = @"RESIDENT";
 NSString * const kGTLRAppengine_Instance_Availability_Unspecified = @"UNSPECIFIED";
 
+// GTLRAppengine_ManagedCertificate.status
+NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPermanent = @"FAILED_PERMANENT";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking = @"FAILED_RETRYING_CAA_CHECKING";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden = @"FAILED_RETRYING_CAA_FORBIDDEN";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible = @"FAILED_RETRYING_NOT_VISIBLE";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspecified = @"MANAGEMENT_STATUS_UNSPECIFIED";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok   = @"OK";
+NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending = @"PENDING";
+
 // GTLRAppengine_ResourceRecord.type
 NSString * const kGTLRAppengine_ResourceRecord_Type_A          = @"A";
 NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa       = @"AAAA";
 NSString * const kGTLRAppengine_ResourceRecord_Type_Cname      = @"CNAME";
 NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified = @"RECORD_TYPE_UNSPECIFIED";
+
+// GTLRAppengine_SslSettings.sslManagementType
+NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automatic = @"AUTOMATIC";
+NSString * const kGTLRAppengine_SslSettings_SslManagementType_Manual = @"MANUAL";
+NSString * const kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified = @"SSL_MANAGEMENT_TYPE_UNSPECIFIED";
 
 // GTLRAppengine_TrafficSplit.shardBy
 NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Cookie    = @"COOKIE";
@@ -159,7 +178,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_AuthorizedCertificate
 @dynamic certificateRawData, displayName, domainMappingsCount, domainNames,
-         expireTime, identifier, name, visibleDomainMappings;
+         expireTime, identifier, managedCertificate, name,
+         visibleDomainMappings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -402,7 +422,17 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_EndpointsApiService
-@dynamic configId, name;
+@dynamic configId, name, rolloutStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Entrypoint
+//
+
+@implementation GTLRAppengine_Entrypoint
+@dynamic shell;
 @end
 
 
@@ -758,6 +788,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_ManagedCertificate
+//
+
+@implementation GTLRAppengine_ManagedCertificate
+@dynamic lastRenewalTime, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ManualScaling
 //
 
@@ -999,7 +1039,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_SslSettings
-@dynamic certificateId;
+@dynamic certificateId, pendingManagedCertificateId, sslManagementType;
 @end
 
 
@@ -1124,11 +1164,12 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 @implementation GTLRAppengine_Version
 @dynamic apiConfig, automaticScaling, basicScaling, betaSettings, createdBy,
          createTime, defaultExpiration, deployment, diskUsageBytes,
-         endpointsApiService, env, envVariables, errorHandlers, handlers,
-         healthCheck, identifier, inboundServices, instanceClass, libraries,
-         livenessCheck, manualScaling, name, network, nobuildFilesRegex,
-         readinessCheck, resources, runtime, runtimeApiVersion, runtimeChannel,
-         servingStatus, threadsafe, versionUrl, vm, zones;
+         endpointsApiService, entrypoint, env, envVariables, errorHandlers,
+         handlers, healthCheck, identifier, inboundServices, instanceClass,
+         libraries, livenessCheck, manualScaling, name, network,
+         nobuildFilesRegex, readinessCheck, resources, runtime,
+         runtimeApiVersion, runtimeChannel, servingStatus, threadsafe,
+         versionUrl, vm, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -7,7 +7,7 @@
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
 // Documentation:
-//   http://cloud.google.com/text-to-speech/
+//   https://cloud.google.com/text-to-speech/
 
 #import "GTLRTexttospeech.h"
 
@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeTexttospeechCloudPlatform = @"https://www.googlea
     // From discovery.
     self.rootURLString = @"https://texttospeech.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

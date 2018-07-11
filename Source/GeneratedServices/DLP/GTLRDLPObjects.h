@@ -52,6 +52,10 @@
 @class GTLRDLP_GooglePrivacyDlpV2DateTime;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate;
+@class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig;
+@class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket;
+@class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationQuasiIdValues;
+@class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult;
 @class GTLRDLP_GooglePrivacyDlpV2DetectionRule;
 @class GTLRDLP_GooglePrivacyDlpV2Dictionary;
 @class GTLRDLP_GooglePrivacyDlpV2DlpJob;
@@ -107,6 +111,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
+@class GTLRDLP_GooglePrivacyDlpV2QuasiId;
+@class GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdField;
 @class GTLRDLP_GooglePrivacyDlpV2QuoteInfo;
 @class GTLRDLP_GooglePrivacyDlpV2Range;
@@ -125,6 +131,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Row;
 @class GTLRDLP_GooglePrivacyDlpV2SaveFindings;
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
+@class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2SurrogateType;
@@ -157,6 +164,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2BigQueryOptions.sampleMethod
+
+/**
+ *  Randomly pick the row to start scanning. The scanned rows are contiguous.
+ *
+ *  Value: "RANDOM_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart;
+/** Value: "SAMPLE_METHOD_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified;
+/**
+ *  Scan from the top (default).
+ *
+ *  Value: "TOP"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
@@ -221,6 +246,25 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_File
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /** Value: "TEXT_FILE" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
+
+/**
+ *  For each file larger than bytes_limit_per_file, randomly pick the offset
+ *  to start scanning. The scanned bytes are contiguous.
+ *
+ *  Value: "RANDOM_START"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart;
+/** Value: "SAMPLE_METHOD_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified;
+/**
+ *  Scan from the top (default).
+ *
+ *  Value: "TOP"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
@@ -304,7 +348,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfi
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.likelihood
 
 /**
- *  Default value; information with all likelihoods is included.
+ *  Default value; same as POSSIBLE.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -450,7 +494,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOpera
 // GTLRDLP_GooglePrivacyDlpV2Finding.likelihood
 
 /**
- *  Default value; information with all likelihoods is included.
+ *  Default value; same as POSSIBLE.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -502,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOpt
 // GTLRDLP_GooglePrivacyDlpV2InspectConfig.minLikelihood
 
 /**
- *  Default value; information with all likelihoods is included.
+ *  Default value; same as POSSIBLE.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -558,7 +602,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Status
 // GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment.fixedLikelihood
 
 /**
- *  Default value; information with all likelihoods is included.
+ *  Default value; same as POSSIBLE.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -729,6 +773,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  A task to execute on the completion of a job.
+ *  See https://cloud.google.com/dlp/docs/concepts-actions to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
@@ -750,6 +795,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult *categoricalStatsResult;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult *deltaPresenceEstimationResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KAnonymityResult *kAnonymityResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult *kMapEstimationResult;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LDiversityResult *lDiversityResult;
@@ -765,7 +811,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable
+ *  An auxiliary table contains statistical information on the relative
+ *  frequency of different quasi-identifiers values. It has one or several
+ *  quasi-identifiers columns, and one column that indicates the relative
+ *  frequency of each quasi-identifier tuple.
+ *  If a tuple is present in the data but not in the auxiliary table, the
+ *  corresponding relative frequency is assumed to be zero (and thus, the
+ *  tuple is highly reidentifiable).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable : GTLRObject
 
@@ -823,6 +875,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowsLimit;
+
+/**
+ *  sampleMethod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart
+ *        Randomly pick the row to start scanning. The scanned rows are
+ *        contiguous. (Value: "RANDOM_START")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified
+ *        Value "SAMPLE_METHOD_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top Scan
+ *        from the top (default). (Value: "TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *sampleMethod;
 
 /** Complete BigQuery table reference. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *tableReference;
@@ -924,6 +990,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  will first attempt converting the type of the data to be transformed to
  *  match
  *  the type of the bound before comparing.
+ *  See https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BucketingConfig : GTLRObject
 
@@ -1145,11 +1212,36 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileSet *fileSet;
 
 /**
+ *  Limits the number of files to scan to this percentage of the input FileSet.
+ *  Number of files scanned is rounded down. Must be between 0 and 100,
+ *  inclusively. Both 0 and 100 means no limit. Defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesLimitPercent;
+
+/**
  *  List of file type groups to include in the scan.
  *  If empty, all files are scanned and available data format processors
  *  are applied.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
+
+/**
+ *  sampleMethod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart
+ *        For each file larger than bytes_limit_per_file, randomly pick the
+ *        offset
+ *        to start scanning. The scanned bytes are contiguous. (Value:
+ *        "RANDOM_START")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified
+ *        Value "SAMPLE_METHOD_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top
+ *        Scan from the top (default). (Value: "TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *sampleMethod;
 
 @end
 
@@ -1268,7 +1360,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /** Content data to inspect or redact. Replaces `type` and `data`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ByteContentItem *byteItem;
 
-/** Structured content for inspection. */
+/**
+ *  Structured content for inspection. See
+ *  https://cloud.google.com/dlp/docs/inspecting-text#inspecting_a_table to
+ *  learn more.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Table *table;
 
 /** String data to inspect or redact. */
@@ -1437,7 +1533,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  replaced with the same surrogate.
  *  Identifiers must be at least two characters long.
  *  In the case that the identifier is the empty string, it will be skipped.
- *  See [Pseudonymization](/dlp/docs/pseudonymization) for example usage.
+ *  See https://cloud.google.com/dlp/docs/pseudonymization to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
 
@@ -1472,8 +1568,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The tweak is constructed as a sequence of bytes in big endian byte order
  *  such that:
  *  - a 64 bit integer is encoded followed by a single byte of value 1
- *  - a string is encoded in UTF-8 format followed by a single byte of value
- *  å 2
+ *  - a string is encoded in UTF-8 format followed by a single byte of value 2
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
@@ -1534,30 +1629,29 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2CustomInfoType : GTLRObject
 
 /**
- *  Set of detection rules to apply to all findings of this custom info type.
+ *  Set of detection rules to apply to all findings of this CustomInfoType.
  *  Rules are applied in order that they are specified. Not supported for the
- *  `surrogate_type` custom info type.
+ *  `surrogate_type` CustomInfoType.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DetectionRule *> *detectionRules;
 
-/** Dictionary-based custom info type. */
+/** A list of phrases to detect as a CustomInfoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
 
 /**
- *  Info type configuration. All custom info types must have configurations
- *  that do not conflict with built-in info types or other custom info types.
+ *  All CustomInfoTypes must have a name
+ *  that does not conflict with built-in InfoTypes or other CustomInfoTypes.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
 /**
- *  Likelihood to return for this custom info type. This base value can be
+ *  Likelihood to return for this CustomInfoType. This base value can be
  *  altered by a detection rule if the finding meets the criteria specified by
  *  the rule. Defaults to `VERY_LIKELY` if not specified.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified
- *        Default value; information with all likelihoods is included. (Value:
- *        "LIKELIHOOD_UNSPECIFIED")
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely Value
  *        "LIKELY"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible Some
@@ -1571,10 +1665,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *likelihood;
 
-/** Regex-based custom info type. */
+/** Regular expression based CustomInfoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
 
-/** Surrogate info type. */
+/**
+ *  Message for detecting output from deidentification transformations that
+ *  support reversing.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SurrogateType *surrogateType;
 
 @end
@@ -1610,7 +1707,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Shifts dates by random number of days, with option to be consistent for the
- *  same context.
+ *  same context. See https://cloud.google.com/dlp/docs/concepts-date-shifting
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DateShiftConfig : GTLRObject
 
@@ -1769,6 +1867,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  The DeidentifyTemplates contains instructions on how to deidentify content.
+ *  See https://cloud.google.com/dlp/docs/concepts-templates to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate : GTLRObject
 
@@ -1803,7 +1902,134 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Rule for modifying a custom info type to alter behavior under certain
+ *  δ-presence metric, used to estimate how likely it is for an attacker to
+ *  figure out that one given individual appears in a de-identified dataset.
+ *  Similarly to the k-map metric, we cannot compute δ-presence exactly without
+ *  knowing the attack dataset, so we use a statistical model instead.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig : GTLRObject
+
+/**
+ *  Several auxiliary tables can be used in the analysis. Each custom_tag
+ *  used to tag a quasi-identifiers field must appear in exactly one
+ *  field of one auxiliary table.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StatisticalTable *> *auxiliaryTables;
+
+/**
+ *  Fields considered to be quasi-identifiers. No two fields can have the
+ *  same tag. [required]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiId *> *quasiIds;
+
+/**
+ *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
+ *  Required if no column is tagged with a region-specific InfoType (like
+ *  US_ZIP_5) or a region code.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  A DeltaPresenceEstimationHistogramBucket message with the following
+ *  values:
+ *  min_probability: 0.1
+ *  max_probability: 0.2
+ *  frequency: 42
+ *  means that there are 42 records for which δ is in [0.1, 0.2). An
+ *  important particular case is when min_probability = max_probability = 1:
+ *  then, every individual who shares this quasi-identifier combination is in
+ *  the dataset.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket : GTLRObject
+
+/**
+ *  Number of records within these probability bounds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  Total number of distinct quasi-identifier tuple values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
+
+/**
+ *  Sample of quasi-identifier tuple values in this bucket. The total
+ *  number of classes returned per bucket is capped at 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationQuasiIdValues *> *bucketValues;
+
+/**
+ *  Always greater than or equal to min_probability.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxProbability;
+
+/**
+ *  Between 0 and 1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minProbability;
+
+@end
+
+
+/**
+ *  A tuple of values for the quasi-identifier columns.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationQuasiIdValues : GTLRObject
+
+/**
+ *  The estimated probability that a given individual sharing these
+ *  quasi-identifier values is in the dataset. This value, typically called
+ *  δ, is the ratio between the number of records in the dataset with these
+ *  quasi-identifier values, and the total number of individuals (inside
+ *  *and* outside the dataset) with these quasi-identifier values.
+ *  For example, if there are 15 individuals in the dataset who share the
+ *  same quasi-identifier values, and an estimated 100 people in the entire
+ *  population with these values, then δ is 0.15.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedProbability;
+
+/** The quasi-identifier values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Value *> *quasiIdsValues;
+
+@end
+
+
+/**
+ *  Result of the δ-presence computation. Note that these results are an
+ *  estimation, not exact values.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult : GTLRObject
+
+/**
+ *  The intervals [min_probability, max_probability) do not overlap. If a
+ *  value doesn't correspond to any such interval, the associated frequency
+ *  is zero. For example, the following records:
+ *  {min_probability: 0, max_probability: 0.1, frequency: 17}
+ *  {min_probability: 0.2, max_probability: 0.3, frequency: 42}
+ *  {min_probability: 0.3, max_probability: 0.4, frequency: 99}
+ *  mean that there are no record with an estimated probability in [0.1, 0.2)
+ *  nor larger or equal to 0.4.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket *> *deltaPresenceEstimationHistogram;
+
+@end
+
+
+/**
+ *  Rule for modifying a CustomInfoType to alter behavior under certain
  *  circumstances, depending on the specific details of the rule. Not supported
  *  for the `surrogate_type` custom info type.
  */
@@ -2049,17 +2275,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  The type of content that might have been found.
- *  Provided if requested by the `InspectConfig`.
+ *  Provided if `excluded_types` is false.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
 /**
- *  Estimate of how likely it is that the `info_type` is correct.
+ *  Confidence of how likely it is that the `info_type` is correct.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified
- *        Default value; information with all likelihoods is included. (Value:
- *        "LIKELIHOOD_UNSPECIFIED")
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely Value
  *        "LIKELY"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible Some
@@ -2079,7 +2304,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The content that was found. Even if the content is not textual, it
  *  may be converted to a textual representation here.
- *  Provided if requested by the `InspectConfig` and the finding is
+ *  Provided if `include_quote` is true and the finding is
  *  less than or equal to 4096 bytes long. If the finding exceeds 4096 bytes
  *  in length, the quote may be omitted.
  */
@@ -2138,6 +2363,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  If the bound Value type differs from the type of data
  *  being transformed, we will first attempt converting the type of the data to
  *  be transformed to match the type of the bound before comparing.
+ *  See https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
 
@@ -2170,12 +2396,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Detection rule that adjusts the likelihood of findings within a certain
+ *  The rule that adjusts the likelihood of findings within a certain
  *  proximity of hotwords.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HotwordRule : GTLRObject
 
-/** Regex pattern defining what qualifies as a hotword. */
+/** Regular expression pattern defining what qualifies as a hotword. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *hotwordRegex;
 
 /** Likelihood adjustment to apply to all matching findings. */
@@ -2224,7 +2450,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  If true, all text found in the image, regardless whether it matches an
- *  info_type, is redacted.
+ *  info_type, is redacted. Only one should be provided.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2244,7 +2470,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoType : GTLRObject
 
-/** Name of the information type. */
+/**
+ *  Name of the information type. Either a name of your choosing when
+ *  creating a CustomInfoType, or one of the names listed
+ *  at https://cloud.google.com/dlp/docs/infotypes-reference when specifying
+ *  a built-in type.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2316,8 +2547,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation : GTLRObject
 
 /**
- *  InfoTypes to apply the transformation to. Empty list will match all
- *  available infoTypes for this transformation.
+ *  InfoTypes to apply the transformation to. An empty list will cause
+ *  this transformation to apply to all findings that correspond to
+ *  infoTypes that were requested in `InspectConfig`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -2358,7 +2590,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contentOptions;
 
-/** Custom infoTypes provided by the user. */
+/**
+ *  CustomInfoTypes provided by the user. See
+ *  https://cloud.google.com/dlp/docs/creating-custom-infotypes to learn more.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2CustomInfoType *> *customInfoTypes;
 
 /**
@@ -2378,7 +2613,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Restricts what info_types to look for. The values must correspond to
- *  InfoType values returned by ListInfoTypes or found in documentation.
+ *  InfoType values returned by ListInfoTypes or listed at
+ *  https://cloud.google.com/dlp/docs/infotypes-reference.
+ *  When no InfoTypes or CustomInfoTypes are specified in a request, the
+ *  system may automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -2387,11 +2626,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Only returns findings equal or above this threshold. The default is
  *  POSSIBLE.
+ *  See https://cloud.google.com/dlp/docs/likelihood to learn more.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified
- *        Default value; information with all likelihoods is included. (Value:
- *        "LIKELIHOOD_UNSPECIFIED")
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely
  *        Value "LIKELY"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible
@@ -2512,7 +2751,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The inspectTemplate contains a configuration (set of types of sensitive data
  *  to be detected) to be used anywhere you otherwise would normally specify
- *  InspectConfig.
+ *  InspectConfig. See https://cloud.google.com/dlp/docs/concepts-templates
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
 
@@ -2550,6 +2790,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Contains a configuration to make dlp api calls on a repeating basis.
+ *  See https://cloud.google.com/dlp/docs/concepts-job-triggers to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobTrigger : GTLRObject
 
@@ -3024,8 +3265,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified
- *        Default value; information with all likelihoods is included. (Value:
- *        "LIKELIHOOD_UNSPECIFIED")
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely
  *        Value "LIKELY"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible
@@ -3244,10 +3484,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig : GTLRObject
 
 /**
- *  Schema used for writing the findings. Columns are derived from the
- *  `Finding` object. If appending to an existing table, any columns from the
- *  predefined schema that are missing will be added. No columns in the
- *  existing table will be deleted.
+ *  Schema used for writing the findings for Inspect jobs. This field is only
+ *  used for Inspect and must be unspecified for Risk jobs. Columns are derived
+ *  from the `Finding` object. If appending to an existing table, any columns
+ *  from the predefined schema that are missing will be added. No columns in
+ *  the existing table will be deleted.
  *  If unspecified, then all available columns will be used for a new table,
  *  and no changes will be made to an existing table.
  *
@@ -3273,11 +3514,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Store findings in an existing table or a new table in an existing
- *  dataset. Each column in an existing table must have the same name, type,
- *  and mode of a field in the `Finding` object. If table_id is not set a new
- *  one will be generated for you with the following format:
+ *  dataset. If table_id is not set a new one will be generated
+ *  for you with the following format:
  *  dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
  *  generating the date details.
+ *  For Inspect, each column in an existing output table must have the same
+ *  name, type, and mode of a field in the `Finding` object.
+ *  For Risk, an existing output table should be the output of a previous
+ *  Risk analysis job run on the same source table, with the same privacy
+ *  metric and quasi-identifiers. Risk jobs that analyze the same table but
+ *  compute a different privacy metric, or use different sets of
+ *  quasi-identifiers, cannot store their results in the same table.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
@@ -3364,6 +3611,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2PrivacyMetric : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CategoricalStatsConfig *categoricalStatsConfig;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig *deltaPresenceEstimationConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig *kAnonymityConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig *kMapEstimationConfig;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LDiversityConfig *lDiversityConfig;
@@ -3424,6 +3672,51 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Format is projects/{project}/topics/{topic}.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  A column with a semantic tag attached.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2QuasiId : GTLRObject
+
+/**
+ *  A column can be tagged with a custom tag. In this case, the user must
+ *  indicate an auxiliary table that contains statistical information on
+ *  the possible values of this column (below).
+ */
+@property(nonatomic, copy, nullable) NSString *customTag;
+
+/** Identifies the column. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
+
+/**
+ *  If no semantic tag is indicated, we infer the statistical model from
+ *  the distribution of values in the input data
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *inferred;
+
+/**
+ *  A column can be tagged with a InfoType to use the relevant public
+ *  dataset as a statistical model of population, if available. We
+ *  currently support US ZIP codes, region codes, ages and genders.
+ *  To programmatically obtain the list of supported InfoTypes, use
+ *  ListInfoTypes with the supported_by=RISK_ANALYSIS filter.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+@end
+
+
+/**
+ *  A quasi-identifier column has a custom_tag, used to know which column
+ *  in the data corresponds to which column in the statistical model.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *customTag;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 @end
 
@@ -3555,8 +3848,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Request to search for potentially sensitive info in a list of items
- *  and replace it with a default or provided content.
+ *  Request to search for potentially sensitive info in an image and redact it
+ *  by covering it with a colored rectangle.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RedactImageRequest : GTLRObject
 
@@ -3565,6 +3858,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** The configuration for specifying what content to redact from images. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig *> *imageRedactionConfigs;
+
+/**
+ *  Whether the response should include findings along with the redacted
+ *  image.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeFindings;
 
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
@@ -3583,6 +3884,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  in the image.
  */
 @property(nonatomic, copy, nullable) NSString *extractedText;
+
+/** The findings. Populated when include_findings in the request is true. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectResult *inspectResult;
 
 /**
  *  The redacted image. The type will be the same as the original image.
@@ -3728,7 +4032,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Configuration for a risk analysis job.
+ *  Configuration for a risk analysis job. See
+ *  https://cloud.google.com/dlp/docs/concepts-risk-analysis to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig : GTLRObject
 
@@ -3761,7 +4066,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  If set, the detailed findings will be persisted to the specified
  *  OutputStorageConfig. Only a single instance of this action can be
  *  specified.
- *  Compatible with: Inspect
+ *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SaveFindings : GTLRObject
 
@@ -3777,13 +4082,40 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  With this option a job is started a regular periodic basis. For
- *  example: every 10 minutes.
+ *  example: every day (86400 seconds).
  *  A scheduled start time will be skipped if the previous
  *  execution has not ended when its scheduled time occurs.
  *  This value must be set to a time duration greater than or equal
- *  to 60 minutes and can be no longer than 60 days.
+ *  to 1 day and can be no longer than 60 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *recurrencePeriodDuration;
+
+@end
+
+
+/**
+ *  An auxiliary table containing statistical information on the relative
+ *  frequency of different quasi-identifiers values. It has one or several
+ *  quasi-identifiers columns, and one column that indicates the relative
+ *  frequency of each quasi-identifier tuple.
+ *  If a tuple is present in the data but not in the auxiliary table, the
+ *  corresponding relative frequency is assumed to be zero (and thus, the
+ *  tuple is highly reidentifiable).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StatisticalTable : GTLRObject
+
+/** Quasi-identifier columns. [required] */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField *> *quasiIds;
+
+/**
+ *  The relative frequency column must contain a floating-point number
+ *  between 0 and 1 (inclusive). Null values are assumed to be zero.
+ *  [required]
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *relativeFrequency;
+
+/** Auxiliary table location. [required] */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
 @end
 
@@ -3848,7 +4180,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  These types of transformations are
  *  those that perform pseudonymization, thereby producing a "surrogate" as
  *  output. This should be used in conjunction with a field on the
- *  transformation such as `surrogate_info_type`. This custom info type does
+ *  transformation such as `surrogate_info_type`. This CustomInfoType does
  *  not support the use of `detection_rules`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SurrogateType : GTLRObject
@@ -3857,6 +4189,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
+ *  See https://cloud.google.com/dlp/docs/inspecting-text#inspecting_a_table to
+ *  learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Table : GTLRObject
 

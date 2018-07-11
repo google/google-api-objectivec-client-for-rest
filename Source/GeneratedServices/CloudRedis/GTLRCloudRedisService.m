@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeCloudRedisCloudPlatform = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://redis.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

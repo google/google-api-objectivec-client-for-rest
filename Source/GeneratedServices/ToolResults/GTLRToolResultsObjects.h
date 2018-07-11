@@ -185,12 +185,24 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_Pending;
 GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 // ----------------------------------------------------------------------------
+// GTLRToolResults_TestIssue.category
+
+/** Value: "common" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Common;
+/** Value: "robo" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Robo;
+/** Value: "unspecifiedCategory" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory;
+
+// ----------------------------------------------------------------------------
 // GTLRToolResults_TestIssue.severity
 
 /** Value: "info" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Info;
 /** Value: "severe" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Severe;
+/** Value: "suggestion" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion;
 /** Value: "unspecifiedSeverity" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity;
 /** Value: "warning" */
@@ -1781,6 +1793,17 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  */
 @interface GTLRToolResults_TestIssue : GTLRObject
 
+/**
+ *  Category of issue. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_TestIssue_Category_Common Value "common"
+ *    @arg @c kGTLRToolResults_TestIssue_Category_Robo Value "robo"
+ *    @arg @c kGTLRToolResults_TestIssue_Category_UnspecifiedCategory Value
+ *        "unspecifiedCategory"
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
 /** A brief human-readable message describing the issue. Required. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
@@ -1790,6 +1813,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Info Value "info"
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Severe Value "severe"
+ *    @arg @c kGTLRToolResults_TestIssue_Severity_Suggestion Value "suggestion"
  *    @arg @c kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity Value
  *        "unspecifiedSeverity"
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Warning Value "warning"

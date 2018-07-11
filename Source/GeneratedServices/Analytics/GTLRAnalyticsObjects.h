@@ -95,6 +95,7 @@
 @class GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails;
 @class GTLRAnalytics_UnsampledReport_DriveDownloadDetails;
 @class GTLRAnalytics_Upload;
+@class GTLRAnalytics_UserDeletionRequest_Id;
 @class GTLRAnalytics_UserRef;
 @class GTLRAnalytics_Webproperty;
 @class GTLRAnalytics_Webproperty_ChildLink;
@@ -4054,6 +4055,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for a user deletion request resource.
+ */
+@interface GTLRAnalytics_UserDeletionRequest : GTLRObject
+
+/**
+ *  This marks the point in time for which all user data before should be
+ *  deleted
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deletionRequestTime;
+
+/** Firebase Project Id */
+@property(nonatomic, copy, nullable) NSString *firebaseProjectId;
+
+/**
+ *  User ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, strong, nullable) GTLRAnalytics_UserDeletionRequest_Id *identifier;
+
+/** Value is "analytics#userDeletionRequest". */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Web property ID of the form UA-XXXXX-YY. */
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
+
+@end
+
+
+/**
+ *  User ID.
+ */
+@interface GTLRAnalytics_UserDeletionRequest_Id : GTLRObject
+
+/** Type of user */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The User's id */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  JSON template for a user reference.
  */
 @interface GTLRAnalytics_UserRef : GTLRObject
@@ -4148,6 +4193,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Time this web property was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
+
+/**
+ *  Set to true to reset the retention period of the user identifier with each
+ *  new event from that user (thus setting the expiration date to current time
+ *  plus retention period).
+ *  Set to false to delete data associated with the user identifer automatically
+ *  after the rentention period.
+ *  This property cannot be set on insert.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataRetentionResetOnNewActivity;
+
+/**
+ *  The length of time for which user and event data is retained.
+ *  This property cannot be set on insert.
+ */
+@property(nonatomic, copy, nullable) NSString *dataRetentionTtl;
 
 /**
  *  Default view (profile) ID.

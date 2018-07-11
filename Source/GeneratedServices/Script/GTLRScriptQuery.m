@@ -4,14 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects. <aside
-//   class="note"><b>Note</b>: In order to use this API in your apps, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
-//   enable it for use</a>. To allow other apps to manage your scripts, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
-//   grant them access</a>.</aside>
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -42,7 +35,9 @@ NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown = @"UNKNOWN";
 NSString * const kGTLRScriptScriptProcessFilterTypesAddOn      = @"ADD_ON";
 NSString * const kGTLRScriptScriptProcessFilterTypesEditor     = @"EDITOR";
 NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi = @"EXECUTION_API";
+NSString * const kGTLRScriptScriptProcessFilterTypesMenu       = @"MENU";
 NSString * const kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified = @"PROCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRScriptScriptProcessFilterTypesSimpleTrigger = @"SIMPLE_TRIGGER";
 NSString * const kGTLRScriptScriptProcessFilterTypesTimeDriven = @"TIME_DRIVEN";
 NSString * const kGTLRScriptScriptProcessFilterTypesTrigger    = @"TRIGGER";
 NSString * const kGTLRScriptScriptProcessFilterTypesWebapp     = @"WEBAPP";
@@ -69,7 +64,9 @@ NSString * const kGTLRScriptUserProcessFilterStatusesUnknown   = @"UNKNOWN";
 NSString * const kGTLRScriptUserProcessFilterTypesAddOn        = @"ADD_ON";
 NSString * const kGTLRScriptUserProcessFilterTypesEditor       = @"EDITOR";
 NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi = @"EXECUTION_API";
+NSString * const kGTLRScriptUserProcessFilterTypesMenu         = @"MENU";
 NSString * const kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified = @"PROCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRScriptUserProcessFilterTypesSimpleTrigger = @"SIMPLE_TRIGGER";
 NSString * const kGTLRScriptUserProcessFilterTypesTimeDriven   = @"TIME_DRIVEN";
 NSString * const kGTLRScriptUserProcessFilterTypesTrigger      = @"TRIGGER";
 NSString * const kGTLRScriptUserProcessFilterTypesWebapp       = @"WEBAPP";

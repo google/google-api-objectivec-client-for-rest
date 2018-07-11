@@ -106,10 +106,10 @@
 //
 
 @implementation GTLRCivicInfo_Contest
-@dynamic ballotPlacement, candidates, district, electorateSpecifications,
-         identifier, level, numberElected, numberVotingFor, office,
-         primaryParty, referendumBallotResponses, referendumBrief,
-         referendumConStatement, referendumEffectOfAbstain,
+@dynamic ballotPlacement, ballotTitle, candidates, district,
+         electorateSpecifications, identifier, level, numberElected,
+         numberVotingFor, office, primaryParty, referendumBallotResponses,
+         referendumBrief, referendumConStatement, referendumEffectOfAbstain,
          referendumPassageThreshold, referendumProStatement, referendumSubtitle,
          referendumText, referendumTitle, referendumUrl, roles, sources,
          special, type;
@@ -358,16 +358,11 @@
 
 @implementation GTLRCivicInfo_PostalAddress
 @dynamic addressLines, administrativeAreaName, countryName, countryNameCode,
-         dependentLocalityName, dependentThoroughfareLeadingType,
-         dependentThoroughfareName, dependentThoroughfarePostDirection,
-         dependentThoroughfarePreDirection, dependentThoroughfaresConnector,
-         dependentThoroughfaresIndicator, dependentThoroughfaresType,
-         dependentThoroughfareTrailingType, firmName, isDisputed, languageCode,
-         localityName, postalCodeNumber, postalCodeNumberExtension,
-         postBoxNumber, premiseName, recipientName, sortingCode,
-         subAdministrativeAreaName, subPremiseName, thoroughfareLeadingType,
-         thoroughfareName, thoroughfareNumber, thoroughfarePostDirection,
-         thoroughfarePreDirection, thoroughfareTrailingType;
+         dependentLocalityName, dependentThoroughfareName, firmName, isDisputed,
+         languageCode, localityName, postalCodeNumber,
+         postalCodeNumberExtension, postBoxNumber, premiseName, recipientName,
+         sortingCode, subAdministrativeAreaName, subPremiseName,
+         thoroughfareName, thoroughfareNumber;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

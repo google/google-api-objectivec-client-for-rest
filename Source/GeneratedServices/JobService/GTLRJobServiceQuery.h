@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
  *  Optional.
  *  The requisition ID, also known as posting ID, assigned by the company
  *  to the job.
- *  The number of allowable characters is 225.
+ *  The maximum number of allowable characters is 225.
  */
 @property(nonatomic, copy, nullable) NSString *jobRequisitionId;
 
@@ -369,7 +369,7 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 @end
 
 /**
- *  Deletes a list of Jobs by filter.
+ *  Deletes a list of Job postings by filter.
  *
  *  Method: jobs.jobs.batchDelete
  *
@@ -384,7 +384,7 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 /**
  *  Fetches a @c GTLRJobService_Empty.
  *
- *  Deletes a list of Jobs by filter.
+ *  Deletes a list of Job postings by filter.
  *
  *  @param object The @c GTLRJobService_BatchDeleteJobsRequest to include in the
  *    query.
@@ -397,6 +397,8 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 
 /**
  *  Creates a new job.
+ *  Typically, the job becomes searchable within 10 seconds, but it may take
+ *  up to 5 minutes.
  *
  *  Method: jobs.jobs.create
  *
@@ -412,6 +414,8 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
  *  Fetches a @c GTLRJobService_Job.
  *
  *  Creates a new job.
+ *  Typically, the job becomes searchable within 10 seconds, but it may take
+ *  up to 5 minutes.
  *
  *  @param object The @c GTLRJobService_CreateJobRequest to include in the
  *    query.
@@ -423,9 +427,9 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 @end
 
 /**
- *  Deletes the specified job. You can specify whether to synchronously wait
- *  for validation, indexing, and general processing to be completed before
- *  the response is returned.
+ *  Deletes the specified job.
+ *  Typically, the job becomes unsearchable within 10 seconds, but it may take
+ *  up to 5 minutes.
  *
  *  Method: jobs.jobs.delete
  *
@@ -455,9 +459,9 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 /**
  *  Fetches a @c GTLRJobService_Empty.
  *
- *  Deletes the specified job. You can specify whether to synchronously wait
- *  for validation, indexing, and general processing to be completed before
- *  the response is returned.
+ *  Deletes the specified job.
+ *  Typically, the job becomes unsearchable within 10 seconds, but it may take
+ *  up to 5 minutes.
  *
  *  @param name Required.
  *    The resource name of the job to be deleted, such as "jobs/11111111".
@@ -503,7 +507,7 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 
 /**
  *  Retrieves the specified job, whose status is OPEN or recently EXPIRED
- *  in 60 days.
+ *  within the last 90 days.
  *
  *  Method: jobs.jobs.get
  *
@@ -525,7 +529,7 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
  *  Fetches a @c GTLRJobService_Job.
  *
  *  Retrieves the specified job, whose status is OPEN or recently EXPIRED
- *  in 60 days.
+ *  within the last 90 days.
  *
  *  @param name Required.
  *    The resource name of the job to retrieve, such as "jobs/11111111".
@@ -649,12 +653,9 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 @end
 
 /**
- *  Updates the specified job. You can specify whether to synchronously wait
- *  for validation, indexing, and general processing to be completed before
- *  the response is returned.
- *  If this call is executed synchronously, the returned job
- *  is guaranteed to be fully processed and complete upon response.
- *  The `companyName` and `distributorCompanyId` job fields cannot be updated.
+ *  Updates specified job.
+ *  Typically, updated contents become visible in search results within 10
+ *  seconds, but it may take up to 5 minutes.
  *
  *  Method: jobs.jobs.patch
  *
@@ -677,12 +678,9 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 /**
  *  Fetches a @c GTLRJobService_Job.
  *
- *  Updates the specified job. You can specify whether to synchronously wait
- *  for validation, indexing, and general processing to be completed before
- *  the response is returned.
- *  If this call is executed synchronously, the returned job
- *  is guaranteed to be fully processed and complete upon response.
- *  The `companyName` and `distributorCompanyId` job fields cannot be updated.
+ *  Updates specified job.
+ *  Typically, updated contents become visible in search results within 10
+ *  seconds, but it may take up to 5 minutes.
  *
  *  @param object The @c GTLRJobService_UpdateJobRequest to include in the
  *    query.
@@ -733,9 +731,10 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
 
 /**
  *  Searches for jobs using the provided SearchJobsRequest.
- *  This call is intended to use for large, periodic tasks such as
- *  email alert processing, and has different algorithmic adjustments that are
- *  targeted to passive job seekers.
+ *  This API call is intended for the use case of targeting passive job
+ *  seekers (for example, job seekers who have signed up to receive email
+ *  alerts about potential job opportunities), and has different algorithmic
+ *  adjustments that are targeted to passive job seekers.
  *  This call constrains the visibility of jobs
  *  present in the database, and only returns jobs the caller has
  *  permission to search against.
@@ -754,9 +753,10 @@ GTLR_EXTERN NSString * const kGTLRJobServiceTypeJobTitle;
  *  Fetches a @c GTLRJobService_SearchJobsResponse.
  *
  *  Searches for jobs using the provided SearchJobsRequest.
- *  This call is intended to use for large, periodic tasks such as
- *  email alert processing, and has different algorithmic adjustments that are
- *  targeted to passive job seekers.
+ *  This API call is intended for the use case of targeting passive job
+ *  seekers (for example, job seekers who have signed up to receive email
+ *  alerts about potential job opportunities), and has different algorithmic
+ *  adjustments that are targeted to passive job seekers.
  *  This call constrains the visibility of jobs
  *  present in the database, and only returns jobs the caller has
  *  permission to search against.

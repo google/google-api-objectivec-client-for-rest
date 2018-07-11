@@ -7,7 +7,7 @@
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   http://cloud.google.com/debugger
+//   https://cloud.google.com/debugger
 
 #import "GTLRCloudDebuggerObjects.h"
 #import "GTLRCloudDebuggerQuery.h"

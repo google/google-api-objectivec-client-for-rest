@@ -7,7 +7,7 @@
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
 // Documentation:
-//   http://cloud.google.com/text-to-speech/
+//   https://cloud.google.com/text-to-speech/
 
 #import "GTLRTexttospeechObjects.h"
 
@@ -38,7 +38,16 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AudioConfig
-@dynamic audioEncoding, pitch, sampleRateHertz, speakingRate, volumeGainDb;
+@dynamic audioEncoding, effectsProfileId, pitch, sampleRateHertz, speakingRate,
+         volumeGainDb;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectsProfileId" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

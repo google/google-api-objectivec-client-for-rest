@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeAndroidManagement = @"https://www.googleapis.com/
     // From discovery.
     self.rootURLString = @"https://androidmanagement.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

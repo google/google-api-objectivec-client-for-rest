@@ -20,6 +20,7 @@
 NSString * const kGTLRTestingEnvironmentTypeAndroid            = @"ANDROID";
 NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration = @"NETWORK_CONFIGURATION";
+NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFTWARE";
 
 // ----------------------------------------------------------------------------
 // Query Classes

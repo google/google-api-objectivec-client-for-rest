@@ -74,6 +74,14 @@ NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRServiceUser_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceUser_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRServiceUser_Step.status
 NSString * const kGTLRServiceUser_Step_Status_Cancelled        = @"CANCELLED";
 NSString * const kGTLRServiceUser_Step_Status_Done             = @"DONE";
@@ -131,7 +139,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_AuthenticationRule
-@dynamic allowWithoutCredential, customAuth, oauth, requirements, selector;
+@dynamic allowWithoutCredential, oauth, requirements, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -289,16 +297,6 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_Control
 @dynamic environment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUser_CustomAuthRequirements
-//
-
-@implementation GTLRServiceUser_CustomAuthRequirements
-@dynamic provider;
 @end
 
 
@@ -683,8 +681,8 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -697,6 +695,16 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_MetricDescriptorMetadata
+//
+
+@implementation GTLRServiceUser_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 

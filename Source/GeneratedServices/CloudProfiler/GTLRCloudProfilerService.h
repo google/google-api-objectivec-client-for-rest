@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Compute Engine Instance Groups API (resourceviews/v1beta2)
+//   Stackdriver Profiler API (cloudprofiler/v2)
 // Description:
-//   The Resource View API allows users to create and manage logical sets of
-//   Google Compute Engine instances.
+//   Allows Google services manage the continuous profiling information.
 // Documentation:
-//   https://developers.google.com/compute/
+//   https://cloud.google.com/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -35,56 +34,36 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerCloudPlatform;
 /**
- *  Authorization scope: View your data across Google Cloud Platform services
+ *  Authorization scope: View and write monitoring data for all of your Google
+ *  and third-party Cloud and API projects
  *
- *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ *  Value "https://www.googleapis.com/auth/monitoring"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsCloudPlatformReadOnly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoring;
 /**
- *  Authorization scope: View and manage your Google Compute Engine resources
+ *  Authorization scope: Publish metric data to your Google Cloud projects
  *
- *  Value "https://www.googleapis.com/auth/compute"
+ *  Value "https://www.googleapis.com/auth/monitoring.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsCompute;
-/**
- *  Authorization scope: View your Google Compute Engine resources
- *
- *  Value "https://www.googleapis.com/auth/compute.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsComputeReadonly;
-/**
- *  Authorization scope: View and manage your Google Cloud Platform management
- *  resources and deployment status information
- *
- *  Value "https://www.googleapis.com/auth/ndev.cloudman"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsNdevCloudman;
-/**
- *  Authorization scope: View your Google Cloud Platform management resources
- *  and deployment status information
- *
- *  Value "https://www.googleapis.com/auth/ndev.cloudman.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResourceviewsNdevCloudmanReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoringWrite;
 
 // ----------------------------------------------------------------------------
-//   GTLRResourceviewsService
+//   GTLRCloudProfilerService
 //
 
 /**
- *  Service for executing Google Compute Engine Instance Groups API queries.
+ *  Service for executing Stackdriver Profiler API queries.
  *
- *  The Resource View API allows users to create and manage logical sets of
- *  Google Compute Engine instances.
+ *  Allows Google services manage the continuous profiling information.
  */
-@interface GTLRResourceviewsService : GTLRService
+@interface GTLRCloudProfilerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRResourceviewsQuery.h. The query can the be sent with GTLRService's
+// GTLRCloudProfilerQuery.h. The query can the be sent with GTLRService's
 // execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

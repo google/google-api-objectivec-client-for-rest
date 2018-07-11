@@ -13,6 +13,18 @@
 
 #import "GTLRAndroidManagementObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// wipeDataFlags
+NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData = @"PRESERVE_RESET_PROTECTION_DATA";
+NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified = @"WIPE_DATA_FLAG_UNSPECIFIED";
+NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE_EXTERNAL_STORAGE";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRAndroidManagementQuery
 
 @dynamic fields;
@@ -62,7 +74,14 @@
 
 @implementation GTLRAndroidManagementQuery_EnterprisesDevicesDelete
 
-@dynamic name;
+@dynamic name, wipeDataFlags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wipeDataFlags" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

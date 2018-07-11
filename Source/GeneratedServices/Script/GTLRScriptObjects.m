@@ -4,14 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects. <aside
-//   class="note"><b>Note</b>: In order to use this API in your apps, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
-//   enable it for use</a>. To allow other apps to manage your scripts, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
-//   grant them access</a>.</aside>
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -59,7 +52,9 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown =
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn = @"ADD_ON";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Editor = @"EDITOR";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi = @"EXECUTION_API";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu = @"MENU";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified = @"PROCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger = @"SIMPLE_TRIGGER";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven = @"TIME_DRIVEN";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Trigger = @"TRIGGER";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Webapp = @"WEBAPP";

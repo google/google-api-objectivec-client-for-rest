@@ -2108,7 +2108,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  An instruction to Classroom to send notifications from the `feed` to the
- *  provided `destination`.
+ *  provided destination.
  */
 @interface GTLRClassroom_Registration : GTLRObject
 
@@ -2123,7 +2123,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Specification for the class of notifications that Classroom should deliver
- *  to the `destination`.
+ *  to the destination.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Feed *feed;
 

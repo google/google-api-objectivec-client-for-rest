@@ -1270,6 +1270,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_No
 // GTLRSlides_CreateVideoRequest.source
 
 /**
+ *  The video source is Google Drive.
+ *
+ *  Value: "DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Drive;
+/**
  *  The video source is unspecified.
  *
  *  Value: "SOURCE_UNSPECIFIED"
@@ -3874,6 +3880,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_Bord
 // GTLRSlides_Video.source
 
 /**
+ *  The video source is Google Drive.
+ *
+ *  Value: "DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Drive;
+/**
  *  The video source is unspecified.
  *
  *  Value: "SOURCE_UNSPECIFIED"
@@ -4901,6 +4913,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Creates a video.
+ *  NOTE: Creating a video from Google Drive requires that the requesting app
+ *  have at least one of the drive, drive.readonly, or drive.file OAuth scopes.
  */
 @interface GTLRSlides_CreateVideoRequest : GTLRObject
 
@@ -4919,7 +4933,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The video source's unique identifier for this video.
  *  e.g. For YouTube video https://www.youtube.com/watch?v=7U3axjORYZ0,
- *  the ID is 7U3axjORYZ0.
+ *  the ID is 7U3axjORYZ0. For a Google Drive video
+ *  https://drive.google.com/file/d/1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q the ID
+ *  is 1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4941,6 +4957,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The video source.
  *
  *  Likely values:
+ *    @arg @c kGTLRSlides_CreateVideoRequest_Source_Drive The video source is
+ *        Google Drive. (Value: "DRIVE")
  *    @arg @c kGTLRSlides_CreateVideoRequest_Source_SourceUnspecified The video
  *        source is unspecified. (Value: "SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_CreateVideoRequest_Source_Youtube The video source is
@@ -6411,7 +6429,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *spaceAbove;
 
 /**
- *  The amount of extra space above the paragraph. If unset, the value is
+ *  The amount of extra space below the paragraph. If unset, the value is
  *  inherited from the parent.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *spaceBelow;
@@ -7870,10 +7888,16 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_SlideProperties : GTLRObject
 
-/** The object ID of the layout that this slide is based on. */
+/**
+ *  The object ID of the layout that this slide is based on. This property is
+ *  read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *layoutObjectId;
 
-/** The object ID of the master that this slide is based on. */
+/**
+ *  The object ID of the master that this slide is based on. This property is
+ *  read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *masterObjectId;
 
 /**
@@ -7885,7 +7909,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  notes for this slide. The ID of this shape is identified by the
  *  speakerNotesObjectId field.
  *  The notes page is read-only except for the text content and styles of the
- *  speaker notes shape.
+ *  speaker notes shape. This property is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Page *notesPage;
 
@@ -9201,6 +9225,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The video source.
  *
  *  Likely values:
+ *    @arg @c kGTLRSlides_Video_Source_Drive The video source is Google Drive.
+ *        (Value: "DRIVE")
  *    @arg @c kGTLRSlides_Video_Source_SourceUnspecified The video source is
  *        unspecified. (Value: "SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_Video_Source_Youtube The video source is YouTube.
@@ -9209,8 +9235,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  An URL to a video. The URL is valid as long as the source video
- *  exists and sharing settings do not change.
+ *  An URL to a video. The URL is valid as long as the source video exists and
+ *  sharing settings do not change.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

@@ -28,6 +28,7 @@
 @class GTLRSQLAdmin_InstancesFailoverRequest;
 @class GTLRSQLAdmin_InstancesImportRequest;
 @class GTLRSQLAdmin_InstancesRestoreBackupRequest;
+@class GTLRSQLAdmin_InstancesRotateServerCaRequest;
 @class GTLRSQLAdmin_InstancesTruncateLogRequest;
 @class GTLRSQLAdmin_SslCertsCreateEphemeralRequest;
 @class GTLRSQLAdmin_SslCertsInsertRequest;
@@ -359,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Project ID of the project for which to list Cloud SQL instances. */
+/** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -367,8 +368,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists databases in the specified Cloud SQL instance.
  *
- *  @param project Project ID of the project for which to list Cloud SQL
- *    instances.
+ *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_DatabasesList
@@ -495,8 +495,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Cloud SQL instance as a clone of the source instance. The API is
- *  not ready for Second Generation instances yet.
+ *  Add a new trusted Certificate Authority (CA) version for the specified
+ *  instance. Required to prepare for a certificate rotation. If a CA version
+ *  was previously added but never used in a certificate rotation, this
+ *  operation replaces that version. There cannot be more than one CA version
+ *  waiting to be rotated in.
+ *
+ *  Method: sql.instances.addServerCa
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAddServerCa : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForInstancesAddServerCaWithproject:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Add a new trusted Certificate Authority (CA) version for the specified
+ *  instance. Required to prepare for a certificate rotation. If a CA version
+ *  was previously added but never used in a certificate rotation, this
+ *  operation replaces that version. There cannot be more than one CA version
+ *  waiting to be rotated in.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAddServerCa
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Creates a Cloud SQL instance as a clone of the source instance.
  *
  *  Method: sql.instances.clone
  *
@@ -520,8 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a Cloud SQL instance as a clone of the source instance. The API is
- *  not ready for Second Generation instances yet.
+ *  Creates a Cloud SQL instance as a clone of the source instance.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesCloneRequest to include in the
  *    query.
@@ -574,7 +614,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Reserved for future use.
+ *  Demotes the stand-alone instance to be a Cloud SQL read replica for an
+ *  external database server.
  *
  *  Method: sql.instances.demoteMaster
  *
@@ -595,7 +636,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Reserved for future use.
+ *  Demotes the stand-alone instance to be a Cloud SQL read replica for an
+ *  external database server.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesDemoteMasterRequest to include in
  *    the query.
@@ -845,6 +887,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all of the trusted Certificate Authorities (CAs) for the specified
+ *  instance. There can be up to three CAs listed: the CA that was used to sign
+ *  the certificate that is currently in use, a CA that has been added but not
+ *  yet used to sign a certificate, and a CA used to sign a certificate that has
+ *  previously rotated out.
+ *
+ *  Method: sql.instances.listServerCas
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesListServerCas : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForInstancesListServerCasWithproject:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_InstancesListServerCasResponse.
+ *
+ *  Lists all of the trusted Certificate Authorities (CAs) for the specified
+ *  instance. There can be up to three CAs listed: the CA that was used to sign
+ *  the certificate that is currently in use, a CA that has been added but not
+ *  yet used to sign a certificate, and a CA used to sign a certificate that has
+ *  previously rotated out.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesListServerCas
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Updates settings of a Cloud SQL instance. Caution: This is not a partial
  *  update, so you must include values for all the settings that you want to
  *  retain. For partial updates, use patch.. This method supports patch
@@ -922,9 +1006,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes all client certificates and generates a new server SSL certificate
- *  for the instance. The changes will not take effect until the instance is
- *  restarted. Existing instances without a server certificate will need to call
- *  this once to set a server certificate.
+ *  for the instance.
  *
  *  Method: sql.instances.resetSslConfig
  *
@@ -946,9 +1028,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Deletes all client certificates and generates a new server SSL certificate
- *  for the instance. The changes will not take effect until the instance is
- *  restarted. Existing instances without a server certificate will need to call
- *  this once to set a server certificate.
+ *  for the instance.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -1027,6 +1107,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSQLAdminQuery_InstancesRestoreBackup
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRestoreBackupRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Rotates the server certificate to one signed by the Certificate Authority
+ *  (CA) version previously added with the addServerCA method.
+ *
+ *  Method: sql.instances.rotateServerCa
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesRotateServerCa : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForInstancesRotateServerCaWithObject:project:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Rotates the server certificate to one signed by the Certificate Authority
+ *  (CA) version previously added with the addServerCA method.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCaRequest to include
+ *    in the query.
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesRotateServerCa
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCaRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
@@ -1304,8 +1423,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the SSL certificate. The change will not take effect until the
- *  instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the certificate
+ *  remains valid until the instance is restarted.
  *
  *  Method: sql.sslCerts.delete
  *
@@ -1320,7 +1439,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Project ID of the project that contains the instance to be deleted. */
+/** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /** Sha1 FingerPrint. */
@@ -1329,11 +1448,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Deletes the SSL certificate. The change will not take effect until the
- *  instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the certificate
+ *  remains valid until the instance is restarted.
  *
- *  @param project Project ID of the project that contains the instance to be
- *    deleted.
+ *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *  @param sha1Fingerprint Sha1 FingerPrint.
  *
@@ -1406,10 +1524,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/**
- *  Project ID of the project to which the newly created Cloud SQL instances
- *  should belong.
- */
+/** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -1421,8 +1536,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSQLAdmin_SslCertsInsertRequest to include in the
  *    query.
- *  @param project Project ID of the project to which the newly created Cloud
- *    SQL instances should belong.
+ *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_SslCertsInsert
@@ -1449,7 +1563,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Project ID of the project for which to list Cloud SQL instances. */
+/** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -1457,8 +1571,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all of the current SSL certificates for the instance.
  *
- *  @param project Project ID of the project for which to list Cloud SQL
- *    instances.
+ *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_SslCertsList
@@ -1469,8 +1582,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all available service tiers for Google Cloud SQL, for example D1, D2.
- *  For related information, see Pricing.
+ *  Lists all available machine types (tiers) for Cloud SQL, for example,
+ *  db-n1-standard-1. For related information, see Pricing.
  *
  *  Method: sql.tiers.list
  *
@@ -1488,8 +1601,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
- *  Lists all available service tiers for Google Cloud SQL, for example D1, D2.
- *  For related information, see Pricing.
+ *  Lists all available machine types (tiers) for Cloud SQL, for example,
+ *  db-n1-standard-1. For related information, see Pricing.
  *
  *  @param project Project ID of the project for which to list tiers.
  *

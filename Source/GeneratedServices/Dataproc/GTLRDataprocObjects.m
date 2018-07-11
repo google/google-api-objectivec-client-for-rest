@@ -61,6 +61,20 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off 
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace = @"TRACE";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
+// GTLRDataproc_WorkflowMetadata.state
+NSString * const kGTLRDataproc_WorkflowMetadata_State_Done    = @"DONE";
+NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending = @"PENDING";
+NSString * const kGTLRDataproc_WorkflowMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDataproc_WorkflowMetadata_State_Unknown = @"UNKNOWN";
+
+// GTLRDataproc_WorkflowNode.state
+NSString * const kGTLRDataproc_WorkflowNode_State_Blocked      = @"BLOCKED";
+NSString * const kGTLRDataproc_WorkflowNode_State_Completed    = @"COMPLETED";
+NSString * const kGTLRDataproc_WorkflowNode_State_Failed       = @"FAILED";
+NSString * const kGTLRDataproc_WorkflowNode_State_NodeStateUnspecified = @"NODE_STATE_UNSPECIFIED";
+NSString * const kGTLRDataproc_WorkflowNode_State_Runnable     = @"RUNNABLE";
+NSString * const kGTLRDataproc_WorkflowNode_State_Running      = @"RUNNING";
+
 // GTLRDataproc_YarnApplication.state
 NSString * const kGTLRDataproc_YarnApplication_State_Accepted  = @"ACCEPTED";
 NSString * const kGTLRDataproc_YarnApplication_State_Failed    = @"FAILED";
@@ -183,6 +197,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ClusterOperation
+//
+
+@implementation GTLRDataproc_ClusterOperation
+@dynamic done, error, operationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ClusterOperationMetadata
 //
 
@@ -264,7 +288,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiskConfig
-@dynamic bootDiskSizeGb, numLocalSsds;
+@dynamic bootDiskSizeGb, bootDiskType, numLocalSsds;
 @end
 
 
@@ -885,6 +909,72 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_SubmitJobRequest
 @dynamic job, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowGraph
+//
+
+@implementation GTLRDataproc_WorkflowGraph
+@dynamic nodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [GTLRDataproc_WorkflowNode class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowMetadata
+//
+
+@implementation GTLRDataproc_WorkflowMetadata
+@dynamic clusterName, createCluster, deleteCluster, graph, parameters, state,
+         templateProperty, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"templateProperty" : @"template" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowMetadata_Parameters
+//
+
+@implementation GTLRDataproc_WorkflowMetadata_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowNode
+//
+
+@implementation GTLRDataproc_WorkflowNode
+@dynamic error, jobId, prerequisiteStepIds, state, stepId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"prerequisiteStepIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeCloudTraceTraceAppend   = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://cloudtrace.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

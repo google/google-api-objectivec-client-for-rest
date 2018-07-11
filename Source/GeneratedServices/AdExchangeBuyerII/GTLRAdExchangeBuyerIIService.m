@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer = @"https://www.
     // From discovery.
     self.rootURLString = @"https://adexchangebuyer.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

@@ -396,7 +396,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRFirestore_Index *)object
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1beta1Index *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -410,7 +410,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirestore_Operation class];
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
   query.loggingName = @"firestore.projects.databases.indexes.create";
   return query;
 }
@@ -448,7 +448,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirestore_Index class];
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1beta1Index class];
   query.loggingName = @"firestore.projects.databases.indexes.get";
   return query;
 }
@@ -467,7 +467,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirestore_ListIndexesResponse class];
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse class];
   query.loggingName = @"firestore.projects.databases.indexes.list";
   return query;
 }

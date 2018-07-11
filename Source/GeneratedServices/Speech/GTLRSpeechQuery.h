@@ -6,7 +6,7 @@
 // Description:
 //   Converts audio to text by applying powerful neural network models.
 // Documentation:
-//   https://cloud.google.com/speech/
+//   https://cloud.google.com/speech-to-text/docs/quickstart-protocol
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

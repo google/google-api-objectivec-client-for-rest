@@ -6,7 +6,7 @@
 // Description:
 //   Retrieves your YouTube Analytics data.
 // Documentation:
-//   http://developers.google.com/youtube/analytics
+//   https://developers.google.com/youtube/analytics
 
 #import "GTLRYouTubeAnalytics.h"
 
@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly = @"https://w
     // From discovery.
     self.rootURLString = @"https://youtubeanalytics.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

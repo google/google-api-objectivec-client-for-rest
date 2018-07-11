@@ -4,8 +4,7 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Manages the execution of large numbers of distributed requests. Cloud Tasks
-//   is in Alpha.
+//   Manages the execution of large numbers of distributed requests.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -423,6 +422,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPatchWithObject:name:]
 
 /**
+ *  Caller-specified and required in CreateQueue,
+ *  after which it becomes output only.
  *  The queue name.
  *  The queue name must have the following format:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
@@ -437,8 +438,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  For more information, see https://cloud.google.com/about/locations/.
  *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *  hyphens (-). The maximum length is 100 characters.
- *  Caller-specified and required in CreateQueue,
- *  after which it becomes output only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -467,7 +466,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  before using this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
- *  @param name The queue name.
+ *  @param name Caller-specified and required in CreateQueue,
+ *    after which it becomes output only.
+ *    The queue name.
  *    The queue name must have the following format:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *    * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
@@ -481,8 +482,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    For more information, see https://cloud.google.com/about/locations/.
  *    * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *    hyphens (-). The maximum length is 100 characters.
- *    Caller-specified and required in CreateQueue,
- *    after which it becomes output only.
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPatch
  */
@@ -698,10 +697,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  by a later LeaseTasks,
  *  GetTask, or
  *  ListTasks.
- *  To acknowledge multiple tasks at the same time, use
- *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
- *  or the batching documentation for your client library, for example
- *  https://developers.google.com/api-client-library/python/guide/batch.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.acknowledge
  *
@@ -733,10 +728,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  by a later LeaseTasks,
  *  GetTask, or
  *  ListTasks.
- *  To acknowledge multiple tasks at the same time, use
- *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
- *  or the batching documentation for your client library, for example
- *  https://developers.google.com/api-client-library/python/guide/batch.
  *
  *  @param object The @c GTLRCloudTasks_AcknowledgeTaskRequest to include in the
  *    query.
@@ -798,10 +789,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Creates a task and adds it to a queue.
- *  To add multiple tasks at the same time, use
- *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
- *  or the batching documentation for your client library, for example
- *  https://developers.google.com/api-client-library/python/guide/batch.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
  *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
  *  the maximum task size is 100KB.
@@ -829,10 +816,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Task.
  *
  *  Creates a task and adds it to a queue.
- *  To add multiple tasks at the same time, use
- *  [HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
- *  or the batching documentation for your client library, for example
- *  https://developers.google.com/api-client-library/python/guide/batch.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
  *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
  *  the maximum task size is 100KB.
@@ -1035,14 +1018,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList : GTLRCloudTasksQuery
 // Previous library name was
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksListWithparent:]
-
-/**
- *  Sort order used for the query. The only fields supported for sorting
- *  are `schedule_time` and `pull_message.tag`. All results will be
- *  returned in approximately ascending order. The default ordering is by
- *  `schedule_time`.
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Requested page size. Fewer tasks than requested might be returned.

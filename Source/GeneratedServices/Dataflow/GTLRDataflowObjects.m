@@ -137,6 +137,13 @@ NSString * const kGTLRDataflow_NameAndKind_Kind_Or           = @"OR";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Set          = @"SET";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
+// GTLRDataflow_SdkVersion.sdkSupportStatus
+NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated = @"DEPRECATED";
+NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale = @"STALE";
+NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported = @"SUPPORTED";
+NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported = @"UNSUPPORTED";
+
 // GTLRDataflow_SourceSplitResponse.outcome
 NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened = @"SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED";
 NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown = @"SOURCE_SPLIT_OUTCOME_UNKNOWN";
@@ -244,6 +251,26 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_AutoscalingSettings
 @dynamic algorithm, maxNumWorkers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_BigQueryIODetails
+//
+
+@implementation GTLRDataflow_BigQueryIODetails
+@dynamic dataset, projectId, query, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_BigTableIODetails
+//
+
+@implementation GTLRDataflow_BigTableIODetails
+@dynamic instanceId, projectId, tableId;
 @end
 
 
@@ -411,6 +438,21 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
     @"dataDisks" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_DatastoreIODetails
+//
+
+@implementation GTLRDataflow_DatastoreIODetails
+@dynamic namespaceProperty, projectId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
 }
 
 @end
@@ -603,6 +645,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_FileIODetails
+//
+
+@implementation GTLRDataflow_FileIODetails
+@dynamic filePattern;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_FlattenInstruction
 //
 
@@ -775,8 +827,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_Job
 @dynamic clientRequestId, createTime, currentState, currentStateTime,
-         environment, executionInfo, identifier, labels, location, name,
-         pipelineDescription, projectId, replacedByJobId, replaceJobId,
+         environment, executionInfo, identifier, jobMetadata, labels, location,
+         name, pipelineDescription, projectId, replacedByJobId, replaceJobId,
          requestedState, stageStates, steps, tempFiles, transformNameMapping,
          type;
 
@@ -876,6 +928,30 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_JobMetadata
+//
+
+@implementation GTLRDataflow_JobMetadata
+@dynamic bigqueryDetails, bigTableDetails, datastoreDetails, fileDetails,
+         pubsubDetails, sdkVersion, spannerDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bigqueryDetails" : [GTLRDataflow_BigQueryIODetails class],
+    @"bigTableDetails" : [GTLRDataflow_BigTableIODetails class],
+    @"datastoreDetails" : [GTLRDataflow_DatastoreIODetails class],
+    @"fileDetails" : [GTLRDataflow_FileIODetails class],
+    @"pubsubDetails" : [GTLRDataflow_PubSubIODetails class],
+    @"spannerDetails" : [GTLRDataflow_SpannerIODetails class]
+  };
+  return map;
 }
 
 @end
@@ -1305,6 +1381,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_PubSubIODetails
+//
+
+@implementation GTLRDataflow_PubSubIODetails
+@dynamic subscription, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_PubsubLocation
 //
 
@@ -1418,6 +1504,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SdkVersion
+//
+
+@implementation GTLRDataflow_SdkVersion
+@dynamic sdkSupportStatus, version, versionDisplayName;
 @end
 
 
@@ -1765,6 +1861,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_SourceSplitShard
 @dynamic derivationMode, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SpannerIODetails
+//
+
+@implementation GTLRDataflow_SpannerIODetails
+@dynamic databaseId, instanceId, projectId;
 @end
 
 

@@ -33,6 +33,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// wipeDataFlags
+
+/** Value: "PRESERVE_RESET_PROTECTION_DATA" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData;
+/** Value: "WIPE_DATA_FLAG_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
+/** Value: "WIPE_EXTERNAL_STORAGE" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Android Management query classes.
  */
@@ -136,6 +153,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  enterprises/{enterpriseId}/devices/{deviceId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional flags that control the device wiping behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified Value
+ *        "WIPE_DATA_FLAG_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData
+ *        Value "PRESERVE_RESET_PROTECTION_DATA"
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage Value
+ *        "WIPE_EXTERNAL_STORAGE"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.

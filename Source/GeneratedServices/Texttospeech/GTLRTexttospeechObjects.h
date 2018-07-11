@@ -7,7 +7,7 @@
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
 // Documentation:
-//   http://cloud.google.com/text-to-speech/
+//   https://cloud.google.com/text-to-speech/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -158,6 +158,13 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_S
  *        "OGG_OPUS")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
+
+/**
+ *  An identifier which selects 'audio effects' profiles that are applied on
+ *  (post synthesized) text to speech.
+ *  Effects are applied on top of each other in the order they are given.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectsProfileId;
 
 /**
  *  Optional speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20

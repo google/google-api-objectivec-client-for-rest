@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -36,12 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeServiceConsumerManagementCloudPlatform;
-/**
- *  Authorization scope: Manage your Google API service configuration
- *
- *  Value "https://www.googleapis.com/auth/service.management"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceConsumerManagementServiceManagement;
 
 // ----------------------------------------------------------------------------
 //   GTLRServiceConsumerManagementService

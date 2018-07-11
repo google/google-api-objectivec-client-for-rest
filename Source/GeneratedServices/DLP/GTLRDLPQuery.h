@@ -69,8 +69,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Returns a list of the sensitive information types that the DLP API
- *  supports. For more information, see [Listing supported predefined
- *  infoTypes](/dlp/docs/listing-infotypes).
+ *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
+ *  learn more.
  *
  *  Method: dlp.infoTypes.list
  *
@@ -98,8 +98,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
  *  Returns a list of the sensitive information types that the DLP API
- *  supports. For more information, see [Listing supported predefined
- *  infoTypes](/dlp/docs/listing-infotypes).
+ *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
+ *  learn more.
  *
  *  @return GTLRDLPQuery_InfoTypesList
  */
@@ -110,6 +110,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for re-using frequently used configuration
  *  for de-identifying content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.create
  *
@@ -131,6 +133,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for re-using frequently used configuration
  *  for de-identifying content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
@@ -148,6 +152,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.delete
  *
@@ -169,6 +175,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
@@ -183,6 +191,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.get
  *
@@ -204,6 +214,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
@@ -218,6 +230,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.list
  *
@@ -250,6 +264,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -267,6 +283,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.patch
  *
@@ -288,6 +306,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
@@ -307,6 +327,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.create
  *
@@ -328,6 +349,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
@@ -344,6 +366,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.delete
  *
@@ -365,6 +388,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
@@ -379,6 +403,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.get
  *
@@ -400,6 +425,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
@@ -414,6 +440,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.list
  *
@@ -446,6 +473,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -463,6 +491,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.patch
  *
@@ -484,6 +513,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
@@ -502,7 +532,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  De-identifies potentially sensitive info from a ContentItem.
  *  This method has limits on input size and output size.
- *  [How-to guide](/dlp/docs/deidentify-sensitive-data)
+ *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.content.deidentify
  *
@@ -521,7 +555,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  De-identifies potentially sensitive info from a ContentItem.
  *  This method has limits on input size and output size.
- *  [How-to guide](/dlp/docs/deidentify-sensitive-data)
+ *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
@@ -537,8 +575,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Finds potentially sensitive info in content.
  *  This method has limits on input size, processing time, and output size.
- *  [How-to guide for text](/dlp/docs/inspecting-text), [How-to guide for
- *  images](/dlp/docs/inspecting-images)
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
+ *  and https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  Method: dlp.projects.content.inspect
  *
@@ -557,8 +598,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Finds potentially sensitive info in content.
  *  This method has limits on input size, processing time, and output size.
- *  [How-to guide for text](/dlp/docs/inspecting-text), [How-to guide for
- *  images](/dlp/docs/inspecting-images)
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
+ *  and https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
@@ -573,6 +617,9 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Re-identifies content that has been de-identified.
+ *  See
+ *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  to learn more.
  *
  *  Method: dlp.projects.content.reidentify
  *
@@ -590,6 +637,9 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
  *
  *  Re-identifies content that has been de-identified.
+ *  See
+ *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
@@ -605,6 +655,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for re-using frequently used configuration
  *  for de-identifying content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.projects.deidentifyTemplates.create
  *
@@ -626,6 +678,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for re-using frequently used configuration
  *  for de-identifying content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
@@ -643,6 +697,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.projects.deidentifyTemplates.delete
  *
@@ -664,6 +720,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    deleted,
@@ -678,6 +736,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.projects.deidentifyTemplates.get
  *
@@ -699,6 +759,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param name Resource name of the organization and deidentify template to be
  *    read, for
@@ -713,6 +775,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.projects.deidentifyTemplates.list
  *
@@ -745,6 +809,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -762,6 +828,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  Method: dlp.projects.deidentifyTemplates.patch
  *
@@ -783,6 +851,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
+ *  more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
@@ -803,6 +873,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Starts asynchronous cancellation on a long-running DlpJob. The server
  *  makes a best effort to cancel the DlpJob, but success is not
  *  guaranteed.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.cancel
  *
@@ -822,6 +894,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Starts asynchronous cancellation on a long-running DlpJob. The server
  *  makes a best effort to cancel the DlpJob, but success is not
  *  guaranteed.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest to
  *    include in the query.
@@ -836,7 +910,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a new job to inspect storage or calculate risk metrics.
- *  [How-to guide](/dlp/docs/compute-risk-analysis).
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.dlpJobs.create
  *
@@ -854,7 +932,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Creates a new job to inspect storage or calculate risk metrics.
- *  [How-to guide](/dlp/docs/compute-risk-analysis).
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
@@ -871,6 +953,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is
  *  no longer interested in the DlpJob result. The job will be cancelled if
  *  possible.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.delete
  *
@@ -890,6 +974,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is
  *  no longer interested in the DlpJob result. The job will be cancelled if
  *  possible.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name The name of the DlpJob resource to be deleted.
  *
@@ -901,6 +987,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets the latest state of a long-running DlpJob.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.get
  *
@@ -918,6 +1006,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Gets the latest state of a long-running DlpJob.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name The name of the DlpJob resource.
  *
@@ -929,6 +1019,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DlpJobs that match the specified filter in the request.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.list
  *
@@ -984,6 +1076,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
  *  Lists DlpJobs that match the specified filter in the request.
+ *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param parent The parent resource name, for example projects/my-project-id.
  *
@@ -1000,7 +1094,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Redacts potentially sensitive info from an image.
  *  This method has limits on input size, processing time, and output size.
- *  [How-to guide](/dlp/docs/redacting-sensitive-data-images)
+ *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.image.redact
  *
@@ -1019,7 +1117,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Redacts potentially sensitive info from an image.
  *  This method has limits on input size, processing time, and output size.
- *  [How-to guide](/dlp/docs/redacting-sensitive-data-images)
+ *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
@@ -1035,6 +1137,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.create
  *
@@ -1056,6 +1159,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for re-using frequently used configuration
  *  for inspecting content, images, and storage.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
@@ -1072,6 +1176,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.delete
  *
@@ -1093,6 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    deleted, for
@@ -1107,6 +1213,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.get
  *
@@ -1128,6 +1235,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Resource name of the organization and inspectTemplate to be
  *    read, for
@@ -1142,6 +1250,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.list
  *
@@ -1174,6 +1283,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param parent The parent resource name, for example projects/my-project-id
  *    or
@@ -1191,6 +1301,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.patch
  *
@@ -1212,6 +1323,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate.
+ *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
@@ -1230,6 +1342,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.create
  *
@@ -1248,6 +1361,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
@@ -1262,6 +1376,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.delete
  *
@@ -1282,6 +1397,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Resource name of the project and the triggeredJob, for example
  *    `projects/dlp-test-project/jobTriggers/53234423`.
@@ -1294,6 +1410,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.get
  *
@@ -1314,6 +1431,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Gets a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Resource name of the project and the triggeredJob, for example
  *    `projects/dlp-test-project/jobTriggers/53234423`.
@@ -1326,6 +1444,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists job triggers.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.list
  *
@@ -1338,15 +1457,14 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Optional comma separated list of triggeredJob fields to order by,
- *  followed by 'asc/desc' postfix, i.e.
- *  `"create_time asc,name desc,schedule_mode asc"`. This list is
- *  case-insensitive.
- *  Example: `"name asc,schedule_mode desc, status desc"`
- *  Supported filters keys and values are:
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc,update_time, create_time desc`
+ *  Supported fields are:
  *  - `create_time`: corresponds to time the triggeredJob was created.
  *  - `update_time`: corresponds to time the triggeredJob was last updated.
- *  - `name`: corresponds to JobTrigger's display name.
- *  - `status`: corresponds to the triggeredJob status.
+ *  - `name`: corresponds to JobTrigger's name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1355,20 +1473,22 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Optional page token to continue retrieval. Comes from previous call
- *  to ListJobTriggers. `order_by` and `filter` should not change for
- *  subsequent calls, but can be omitted if token is specified.
+ *  to ListJobTriggers. `order_by` field must not
+ *  change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The parent resource name, for example projects/my-project-id. */
+/** The parent resource name, for example `projects/my-project-id`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
  *  Lists job triggers.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent The parent resource name, for example
+ *    `projects/my-project-id`.
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersList
  *
@@ -1382,6 +1502,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.patch
  *
@@ -1402,6 +1523,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Updates a job trigger.
+ *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
  *    include in the query.

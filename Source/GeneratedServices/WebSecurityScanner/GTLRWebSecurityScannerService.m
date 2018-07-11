@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeWebSecurityScannerCloudPlatform = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://websecurityscanner.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

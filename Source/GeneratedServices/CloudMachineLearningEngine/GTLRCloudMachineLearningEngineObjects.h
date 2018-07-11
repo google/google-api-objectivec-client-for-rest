@@ -28,15 +28,19 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1Binding;
@@ -66,6 +70,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
 /** Value: "NVIDIA_TESLA_P100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
+/** Value: "NVIDIA_TESLA_V100" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -349,7 +355,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  A single worker instance with a
  *  [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
- *  The availability of Cloud TPU is in <i>Beta</i> launch stage.
  *
  *  Value: "BASIC_TPU"
  */
@@ -394,13 +399,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
 
-/** Value: "FRAMEWORK_UNSPECIFIED" */
+/**
+ *  Unspecified framework. Defaults to TensorFlow.
+ *
+ *  Value: "FRAMEWORK_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified;
-/** Value: "SCIKIT_LEARN" */
+/**
+ *  Scikit-learn framework.
+ *
+ *  Value: "SCIKIT_LEARN"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn;
-/** Value: "TENSORFLOW" */
+/**
+ *  Tensorflow framework.
+ *
+ *  Value: "TENSORFLOW"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow;
-/** Value: "XGBOOST" */
+/**
+ *  XGBoost framework.
+ *
+ *  Value: "XGBOOST"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost;
 
 // ----------------------------------------------------------------------------
@@ -546,8 +567,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The minimum number of nodes to allocate for this model. These
- *  nodes are always up, starting from the time the model is deployed, so the
- *  cost of operating this model will be at least
+ *  nodes are always up, starting from the time the model is deployed.
+ *  Therefore, the cost of operating this model will be at least
  *  `rate` * `min_nodes` * number of hours since last billing cycle,
  *  where `rate` is the cost per node-hour as documented in the
  *  [pricing guide](/ml-engine/docs/pricing),
@@ -561,6 +582,21 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  If not specified, `min_nodes` defaults to 0, in which case, when traffic
  *  to a model stops (and after a cool-down period), nodes will be shut down
  *  and no charges will be incurred until traffic to the model resumes.
+ *  You can set `min_nodes` when creating the model version, and you can also
+ *  update `min_nodes` for an existing version:
+ *  <pre>
+ *  update_body.json:
+ *  {
+ *  'autoScaling': {
+ *  'minNodes': 5
+ *  }
+ *  }
+ *  </pre>
+ *  HTTP request:
+ *  <pre>
+ *  PATCH https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
+ *  *}?update_mask=autoScaling.minNodes -d \@./update_body.json
+ *  </pre>
  *
  *  Uses NSNumber of intValue.
  */
@@ -807,8 +843,31 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Output only. The details of a failure or a cancellation. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
+/**
+ *  `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a job from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform job updates in order to avoid race
+ *  conditions: An `etag` is returned in the response to `GetJob`, and
+ *  systems are expected to put that etag in the request to `UpdateJob` to
+ *  ensure that their change will be applied to the same version of the job.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 /** Required. The user-specified id of the job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  Optional. One or more labels that you can add, to organize your jobs.
+ *  Each label is a key-value pair, where both the key and the value are
+ *  arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels *labels;
 
 /** Input parameters to create a prediction job. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput *predictionInput;
@@ -855,6 +914,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** The current training job result. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput *trainingOutput;
 
+@end
+
+
+/**
+ *  Optional. One or more labels that you can add, to organize your jobs.
+ *  Each label is a key-value pair, where both the key and the value are
+ *  arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels : GTLRObject
 @end
 
 
@@ -1021,6 +1096,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a model from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform model updates in order to avoid race
+ *  conditions: An `etag` is returned in the response to `GetModel`, and
+ *  systems are expected to put that etag in the request to `UpdateModel` to
+ *  ensure that their change will be applied to the model as intended.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. One or more labels that you can add, to organize your models.
+ *  Each label is a key-value pair, where both the key and the value are
+ *  arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels *labels;
+
+/**
  *  Required. The name specified for the model when it was created.
  *  The model name must be unique within the project it is created in.
  */
@@ -1053,6 +1151,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  Optional. One or more labels that you can add, to organize your models.
+ *  Each label is a key-value pair, where both the key and the value are
+ *  arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels : GTLRObject
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata : GTLRObject
@@ -1069,6 +1183,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isCancellationRequested;
+
+/**
+ *  The user labels, inherited from the model or the model version being
+ *  operated on.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels *labels;
 
 /** Contains the name of the model associated with the operation. */
 @property(nonatomic, copy, nullable) NSString *modelName;
@@ -1107,6 +1227,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Contains the version associated with the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *version;
 
+@end
+
+
+/**
+ *  The user labels, inherited from the model or the model version being
+ *  operated on.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels : GTLRObject
 @end
 
 
@@ -1410,49 +1543,45 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  <dt>complex_model_m</dt>
  *  <dd>
  *  A machine with roughly twice the number of cores and roughly double the
- *  memory of <code suppresswarning="true">complex_model_s</code>.
+ *  memory of <i>complex_model_s</i>.
  *  </dd>
  *  <dt>complex_model_l</dt>
  *  <dd>
  *  A machine with roughly twice the number of cores and roughly double the
- *  memory of <code suppresswarning="true">complex_model_m</code>.
+ *  memory of <i>complex_model_m</i>.
  *  </dd>
  *  <dt>standard_gpu</dt>
  *  <dd>
- *  A machine equivalent to <code suppresswarning="true">standard</code> that
+ *  A machine equivalent to <i>standard</i> that
  *  also includes a single NVIDIA Tesla K80 GPU. See more about
  *  <a href="/ml-engine/docs/tensorflow/using-gpus">using GPUs to
  *  train your model</a>.
  *  </dd>
  *  <dt>complex_model_m_gpu</dt>
  *  <dd>
- *  A machine equivalent to
- *  <code suppresswarning="true">complex_model_m</code> that also includes
+ *  A machine equivalent to <i>complex_model_m</i> that also includes
  *  four NVIDIA Tesla K80 GPUs.
  *  </dd>
  *  <dt>complex_model_l_gpu</dt>
  *  <dd>
- *  A machine equivalent to
- *  <code suppresswarning="true">complex_model_l</code> that also includes
+ *  A machine equivalent to <i>complex_model_l</i> that also includes
  *  eight NVIDIA Tesla K80 GPUs.
  *  </dd>
  *  <dt>standard_p100</dt>
  *  <dd>
- *  A machine equivalent to <code suppresswarning="true">standard</code> that
+ *  A machine equivalent to <i>standard</i> that
  *  also includes a single NVIDIA Tesla P100 GPU. The availability of these
- *  GPUs is in the Beta launch stage.
+ *  GPUs is in the <i>Beta</i> launch stage.
  *  </dd>
  *  <dt>complex_model_m_p100</dt>
  *  <dd>
- *  A machine equivalent to
- *  <code suppresswarning="true">complex_model_m</code> that also includes
+ *  A machine equivalent to <i>complex_model_m</i> that also includes
  *  four NVIDIA Tesla P100 GPUs. The availability of these GPUs is in
- *  the Beta launch stage.
+ *  the <i>Beta</i> launch stage.
  *  </dd>
- *  <dt>standard_tpu</dt>
+ *  <dt>cloud_tpu</dt>
  *  <dd>
- *  A TPU VM including one Cloud TPU. The availability of Cloud TPU is in
- *  <i>Beta</i> launch stage. See more about
+ *  A TPU VM including one Cloud TPU. See more about
  *  <a href="/ml-engine/docs/tensorflow/using-tpus">using TPUs to train
  *  your model</a>.
  *  </dd>
@@ -1528,8 +1657,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        GPU](/ml-engine/docs/tensorflow/using-gpus). (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu
  *        A single worker instance with a
- *        [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
- *        The availability of Cloud TPU is in <i>Beta</i> launch stage. (Value:
+ *        [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus). (Value:
  *        "BASIC_TPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
@@ -1666,6 +1794,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
+ *  `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a model from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform model updates in order to avoid race
+ *  conditions: An `etag` is returned in the response to `GetVersion`, and
+ *  systems are expected to put that etag in the request to `UpdateVersion` to
+ *  ensure that their change will be applied to the model as intended.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Optional. The machine learning framework Cloud ML Engine uses to train
  *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
  *  and `XGBOOST`. If you do not specify a framework, Cloud ML Engine uses
@@ -1674,13 +1816,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
- *        Value "FRAMEWORK_UNSPECIFIED"
+ *        Unspecified framework. Defaults to TensorFlow. (Value:
+ *        "FRAMEWORK_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn
- *        Value "SCIKIT_LEARN"
+ *        Scikit-learn framework. (Value: "SCIKIT_LEARN")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow
- *        Value "TENSORFLOW"
+ *        Tensorflow framework. (Value: "TENSORFLOW")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost
- *        Value "XGBOOST"
+ *        XGBoost framework. (Value: "XGBOOST")
  */
 @property(nonatomic, copy, nullable) NSString *framework;
 
@@ -1694,8 +1837,30 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, strong, nullable) NSNumber *isDefault;
 
+/**
+ *  Optional. One or more labels that you can add, to organize your model
+ *  versions. Each label is a key-value pair, where both the key and the value
+ *  are arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels *labels;
+
 /** Output only. The time the version was last used for prediction. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
+
+/**
+ *  Optional. The type of machine on which to serve the model. Currently only
+ *  applies to online prediction service.
+ *  The following are currently supported and will be deprecated in
+ *  Beta release.
+ *  mls1-highmem-1 1 core 2 Gb RAM
+ *  mls1-highcpu-4 4 core 2 Gb RAM
+ *  The following are available in Beta:
+ *  mls1-c1-m2 1 core 2 Gb RAM Default
+ *  mls1-c4-m2 4 core 2 Gb RAM
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
  *  Manually select the number of nodes to use for serving the
@@ -1753,6 +1918,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Optional. One or more labels that you can add, to organize your model
+ *  versions. Each label is a key-value pair, where both the key and the value
+ *  are arbitrary strings that you supply.
+ *  For more information, see the documentation on
+ *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels : GTLRObject
 @end
 
 
@@ -1892,7 +2073,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

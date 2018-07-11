@@ -64,6 +64,14 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRLogging_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRLogging_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRLogging_BucketOptions
@@ -446,8 +454,8 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
 //
 
 @implementation GTLRLogging_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -460,6 +468,16 @@ NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_MetricDescriptorMetadata
+//
+
+@implementation GTLRLogging_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 

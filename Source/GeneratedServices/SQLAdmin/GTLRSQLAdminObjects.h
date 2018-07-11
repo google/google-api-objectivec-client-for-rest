@@ -49,6 +49,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_RestoreBackupContext;
+@class GTLRSQLAdmin_RotateServerCaContext;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
 @class GTLRSQLAdmin_SslCert;
@@ -253,9 +254,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_CloneContext : GTLRObject
 
 /**
- *  Binary log coordinates, if specified, indentify the the position up to which
- *  the source instance should be cloned. If not specified, the source instance
- *  is cloned up to the most recent binary log coordintes.
+ *  Binary log coordinates, if specified, identify the position up to which the
+ *  source instance should be cloned. If not specified, the source instance is
+ *  cloned up to the most recent binary log coordinates.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BinLogCoordinates *binLogCoordinates;
 
@@ -934,12 +935,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Instances ListServerCas response.
+ */
+@interface GTLRSQLAdmin_InstancesListServerCasResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *activeVersion;
+
+/** List of server CA certificates for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *certs;
+
+/** This is always sql#instancesListServerCas. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  Database instance restore backup request.
  */
 @interface GTLRSQLAdmin_InstancesRestoreBackupRequest : GTLRObject
 
 /** Parameters required to perform the restore backup operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
+
+@end
+
+
+/**
+ *  Rotate Server CA request.
+ */
+@interface GTLRSQLAdmin_InstancesRotateServerCaRequest : GTLRObject
+
+/** Contains details about the rotate server CA operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_RotateServerCaContext *rotateServerCaContext;
 
 @end
 
@@ -973,6 +1001,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ipv4Enabled;
+
+/** Reserved for future use. */
+@property(nonatomic, copy, nullable) NSString *privateNetwork;
 
 /**
  *  Whether SSL connections over IP should be enforced or not.
@@ -1147,10 +1178,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An Operations resource contains information about database instance
- *  operations such as create, delete, and restart. Operations resources are
- *  created in response to operations that were initiated; you never create them
- *  directly.
+ *  An Operation resource. For successful operations that return an Operation
+ *  resource, only the fields relevant to the operation are populated in the
+ *  resource.
  */
 @interface GTLRSQLAdmin_Operation : GTLRObject
 
@@ -1335,6 +1365,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** This is always sql#restoreBackupContext. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Instance rotate server CA context.
+ */
+@interface GTLRSQLAdmin_RotateServerCaContext : GTLRObject
+
+/** This is always sql#rotateServerCaContext. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fingerprint of the next version to be rotated to. If left unspecified,
+ *  will be rotated to the most recently added server CA version.
+ */
+@property(nonatomic, copy, nullable) NSString *nextVersion;
 
 @end
 
@@ -1580,8 +1627,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  User supplied name. Must be a distinct name from the other certificates for
- *  this instance. New certificates will not be usable until the instance is
- *  restarted.
+ *  this instance.
  */
 @property(nonatomic, copy, nullable) NSString *commonName;
 
@@ -1663,8 +1709,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /**
- *  An identifier for the service tier, for example D1, D2 etc. For related
- *  information, see Pricing.
+ *  An identifier for the machine type, for example, db-n1-standard-1. For
+ *  related information, see Pricing.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 

@@ -51,6 +51,7 @@
 @class GTLRTesting_NetworkConfigurationCatalog;
 @class GTLRTesting_ObbFile;
 @class GTLRTesting_Orientation;
+@class GTLRTesting_ProvidedSoftwareCatalog;
 @class GTLRTesting_RegularFile;
 @class GTLRTesting_ResultStorage;
 @class GTLRTesting_RoboDirective;
@@ -85,11 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNotUseOrchestrator;
 /**
- *  This means that the server should choose the mode. And test will be run
- *  without orchestrator.
- *  Using orchestrator is highly encouraged because of all the benefits it
- *  offers. And in the future, all instrumentation tests will be run with
- *  orchestrator by default if preference unspecified.
+ *  Default value: the server will choose the mode. Currently implies that
+ *  the test will run without the orchestrator. In the future,
+ *  all instrumentation tests will be run with the orchestrator.
+ *  Using the orchestrator is highly encouraged because of all the benefits it
+ *  offers.
  *
  *  Value: "ORCHESTRATOR_OPTION_UNSPECIFIED"
  */
@@ -356,6 +357,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Forbid
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible;
 /**
+ *  Either the provided input APK path was malformed,
+ *  the APK file does not exist, or the user does not have permission to
+ *  access the APK file.
+ *
+ *  Value: "INVALID_INPUT_APK"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk;
+/**
  *  Do not use. For proto versioning only.
  *
  *  Value: "INVALID_MATRIX_DETAILS_UNSPECIFIED"
@@ -373,6 +382,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *  Value: "MALFORMED_APK"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
+/**
+ *  The input IPA could not be parsed.
+ *  NOT USED
+ *
+ *  Value: "MALFORMED_IPA"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa;
 /**
  *  The input test APK could not be parsed.
  *
@@ -655,10 +671,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidInstrumentationTest : GTLRObject
 
-/**
- *  The APK for the application under test.
- *  Required
- */
+/** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
 
 /**
@@ -679,20 +692,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  See
  *  <https://developer.android.com/training/testing/junit-runner.html#using-android-test-orchestrator>
  *  for more information about Android Test Orchestrator.
- *  Optional, if empty, test will be run without orchestrator.
+ *  Optional. If not set, the test will be run without the orchestrator.
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNotUseOrchestrator
  *        Run test without using orchestrator. (Value:
  *        "DO_NOT_USE_ORCHESTRATOR")
  *    @arg @c kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified
- *        This means that the server should choose the mode. And test will be
- *        run
- *        without orchestrator.
- *        Using orchestrator is highly encouraged because of all the benefits it
- *        offers. And in the future, all instrumentation tests will be run with
- *        orchestrator by default if preference unspecified. (Value:
- *        "ORCHESTRATOR_OPTION_UNSPECIFIED")
+ *        Default value: the server will choose the mode. Currently implies that
+ *        the test will run without the orchestrator. In the future,
+ *        all instrumentation tests will be run with the orchestrator.
+ *        Using the orchestrator is highly encouraged because of all the
+ *        benefits it
+ *        offers. (Value: "ORCHESTRATOR_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator
  *        Run test using orchestrator.
  *        ** Only compatible with AndroidJUnitRunner version 1.0 or higher! **
@@ -893,10 +905,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidRoboTest : GTLRObject
 
-/**
- *  The APK for the application under test.
- *  Required
- */
+/** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
 
 /**
@@ -983,10 +992,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidTestLoop : GTLRObject
 
-/**
- *  The APK for the application under test.
- *  Required
- */
+/** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
 
 /**
@@ -1568,6 +1574,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  The currently provided software environment on the devices under test.
+ */
+@interface GTLRTesting_ProvidedSoftwareCatalog : GTLRObject
+
+/**
+ *  A string representing the current version of Android Test Orchestrator that
+ *  is provided by TestExecutionService. Example: "1.0.2 beta"
+ */
+@property(nonatomic, copy, nullable) NSString *orchestratorVersion;
+
+@end
+
+
+/**
  *  A file or directory to install on the device before the test starts
  */
 @interface GTLRTesting_RegularFile : GTLRObject
@@ -1750,6 +1770,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Supported network configurations */
 @property(nonatomic, strong, nullable) GTLRTesting_NetworkConfigurationCatalog *networkConfigurationCatalog;
 
+/** The software test environment provided by TestExecutionService. */
+@property(nonatomic, strong, nullable) GTLRTesting_ProvidedSoftwareCatalog *softwareCatalog;
+
 @end
 
 
@@ -1905,6 +1928,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        Orchestrator can be disabled by using DO_NOT_USE_ORCHESTRATOR
  *        OrchestratorOption. (Value:
  *        "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk
+ *        Either the provided input APK path was malformed,
+ *        the APK file does not exist, or the user does not have permission to
+ *        access the APK file. (Value: "INVALID_INPUT_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified
  *        Do not use. For proto versioning only. (Value:
  *        "INVALID_MATRIX_DETAILS_UNSPECIFIED")
@@ -1913,6 +1940,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "INVALID_ROBO_DIRECTIVES")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk The
  *        input app APK could not be parsed. (Value: "MALFORMED_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa The
+ *        input IPA could not be parsed.
+ *        NOT USED (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk APK

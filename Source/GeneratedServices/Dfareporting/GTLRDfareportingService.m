@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -28,10 +28,10 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"dfareporting/v3.0/";
+    self.servicePath = @"dfareporting/v3.1/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/dfareporting/v3.0";
+    self.batchPath = @"batch/dfareporting/v3.1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -94,6 +94,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#customFloodlightVariable" : [GTLRDfareporting_CustomFloodlightVariable class],
     @"dfareporting#customRichMediaEvents" : [GTLRDfareporting_CustomRichMediaEvents class],
     @"dfareporting#dateRange" : [GTLRDfareporting_DateRange class],
+    @"dfareporting#deepLink" : [GTLRDfareporting_DeepLink class],
     @"dfareporting#dimension" : [GTLRDfareporting_Dimension class],
     @"dfareporting#dimensionFilter" : [GTLRDfareporting_DimensionFilter class],
     @"dfareporting#dimensionValue" : [GTLRDfareporting_DimensionValue class],
@@ -126,6 +127,8 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#metric" : [GTLRDfareporting_Metric class],
     @"dfareporting#metro" : [GTLRDfareporting_Metro class],
     @"dfareporting#metrosListResponse" : [GTLRDfareporting_MetrosListResponse class],
+    @"dfareporting#mobileApp" : [GTLRDfareporting_MobileApp class],
+    @"dfareporting#mobileAppsListResponse" : [GTLRDfareporting_MobileAppsListResponse class],
     @"dfareporting#mobileCarrier" : [GTLRDfareporting_MobileCarrier class],
     @"dfareporting#mobileCarriersListResponse" : [GTLRDfareporting_MobileCarriersListResponse class],
     @"dfareporting#objectFilter" : [GTLRDfareporting_ObjectFilter class],

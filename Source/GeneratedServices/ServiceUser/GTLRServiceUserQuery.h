@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Service User implementation accepts the following forms for consumer:
  *  - "project:<project_id>"
  *  A valid path would be:
- *  - /v1/projects/my-project/services/servicemanagement.googleapis.com:disable
+ *  - projects/my-project/services/servicemanagement.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -80,8 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    The Service User implementation accepts the following forms for consumer:
  *    - "project:<project_id>"
  *    A valid path would be:
- *    -
- *    /v1/projects/my-project/services/servicemanagement.googleapis.com:disable
+ *    - projects/my-project/services/servicemanagement.googleapis.com
  *
  *  @return GTLRServiceUserQuery_ProjectsServicesDisable
  */
@@ -109,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Name of the consumer and the service to enable for that consumer.
  *  A valid path would be:
- *  - /v1/projects/my-project/services/servicemanagement.googleapis.com:enable
+ *  - projects/my-project/services/servicemanagement.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -126,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Name of the consumer and the service to enable for that
  *    consumer.
  *    A valid path would be:
- *    - /v1/projects/my-project/services/servicemanagement.googleapis.com:enable
+ *    - projects/my-project/services/servicemanagement.googleapis.com
  *
  *  @return GTLRServiceUserQuery_ProjectsServicesEnable
  */

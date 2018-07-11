@@ -1755,38 +1755,37 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Updates the specified Version resource. You can specify the following fields
  *  depending on the App Engine environment and type of scaling that the version
- *  resource uses:
- *  serving_status
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status):
- *  For Version resources that use basic scaling, manual scaling, or run in the
- *  App Engine flexible environment.
+ *  resource uses:Standard environment
  *  instance_class
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class):
- *  For Version resources that run in the App Engine standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+ *  scaling in the standard environment:
  *  automatic_scaling.min_idle_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_idle_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automaticScaling.standard_scheduler_settings.max_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.min_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_cpu_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
+ *  scaling or manual scaling in the standard environment:
+ *  serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+ *  environment
+ *  serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+ *  scaling in the flexible environment:
  *  automatic_scaling.min_total_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_total_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cool_down_period_sec
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cpu_utilization.target_utilization
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *
  *  Method: appengine.apps.services.versions.patch
  *
@@ -1821,38 +1820,37 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Updates the specified Version resource. You can specify the following fields
  *  depending on the App Engine environment and type of scaling that the version
- *  resource uses:
- *  serving_status
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status):
- *  For Version resources that use basic scaling, manual scaling, or run in the
- *  App Engine flexible environment.
+ *  resource uses:Standard environment
  *  instance_class
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class):
- *  For Version resources that run in the App Engine standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+ *  scaling in the standard environment:
  *  automatic_scaling.min_idle_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_idle_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  standard environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+ *  automaticScaling.standard_scheduler_settings.max_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.min_instances
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_cpu_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+ *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
+ *  scaling or manual scaling in the standard environment:
+ *  serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+ *  environment
+ *  serving_status
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+ *  scaling in the flexible environment:
  *  automatic_scaling.min_total_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_total_instances
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cool_down_period_sec
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cpu_utilization.target_utilization
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling):
- *  For Version resources that use automatic scaling and run in the App Engine
- *  flexible environment.
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *
  *  @param object The @c GTLRAppengine_Version to include in the query.
  *  @param appsId Part of `name`. Name of the resource to update. Example:

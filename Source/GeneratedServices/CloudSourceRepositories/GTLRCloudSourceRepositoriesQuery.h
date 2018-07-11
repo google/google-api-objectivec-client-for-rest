@@ -21,6 +21,8 @@
 @class GTLRCloudSourceRepositories_Repo;
 @class GTLRCloudSourceRepositories_SetIamPolicyRequest;
 @class GTLRCloudSourceRepositories_TestIamPermissionsRequest;
+@class GTLRCloudSourceRepositories_UpdateProjectConfigRequest;
+@class GTLRCloudSourceRepositories_UpdateRepoRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -40,6 +42,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the Cloud Source Repositories configuration of the project.
+ *
+ *  Method: sourcerepo.projects.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ */
+@interface GTLRCloudSourceRepositoriesQuery_ProjectsGetConfig : GTLRCloudSourceRepositoriesQuery
+// Previous library name was
+//   +[GTLQueryCloudSourceRepositories queryForProjectsGetConfigWithname:]
+
+/**
+ *  The name of the requested project. Values are of the form
+ *  `projects/<project>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSourceRepositories_ProjectConfig.
+ *
+ *  Returns the Cloud Source Repositories configuration of the project.
+ *
+ *  @param name The name of the requested project. Values are of the form
+ *    `projects/<project>`.
+ *
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a repo in the given project with the given name.
  *  If the named repository already exists, `CreateRepo` returns
  *  `ALREADY_EXISTS`.
@@ -49,8 +83,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -90,8 +122,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposDelete : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -248,6 +278,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates information about a repo.
+ *
+ *  Method: sourcerepo.projects.repos.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ */
+@interface GTLRCloudSourceRepositoriesQuery_ProjectsReposPatch : GTLRCloudSourceRepositoriesQuery
+// Previous library name was
+//   +[GTLQueryCloudSourceRepositories queryForProjectsReposPatchWithObject:name:]
+
+/**
+ *  The name of the requested repository. Values are of the form
+ *  `projects/<project>/repos/<repo>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSourceRepositories_Repo.
+ *
+ *  Updates information about a repo.
+ *
+ *  @param object The @c GTLRCloudSourceRepositories_UpdateRepoRequest to
+ *    include in the query.
+ *  @param name The name of the requested repository. Values are of the form
+ *    `projects/<project>/repos/<repo>`.
+ *
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_UpdateRepoRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
@@ -256,8 +321,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
- *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -328,6 +391,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudSourceRepositories_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates the Cloud Source Repositories configuration of the project.
+ *
+ *  Method: sourcerepo.projects.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ */
+@interface GTLRCloudSourceRepositoriesQuery_ProjectsUpdateConfig : GTLRCloudSourceRepositoriesQuery
+// Previous library name was
+//   +[GTLQueryCloudSourceRepositories queryForProjectsUpdateConfigWithObject:name:]
+
+/**
+ *  The name of the requested project. Values are of the form
+ *  `projects/<project>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSourceRepositories_ProjectConfig.
+ *
+ *  Updates the Cloud Source Repositories configuration of the project.
+ *
+ *  @param object The @c GTLRCloudSourceRepositories_UpdateProjectConfigRequest
+ *    to include in the query.
+ *  @param name The name of the requested project. Values are of the form
+ *    `projects/<project>`.
+ *
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_UpdateProjectConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 

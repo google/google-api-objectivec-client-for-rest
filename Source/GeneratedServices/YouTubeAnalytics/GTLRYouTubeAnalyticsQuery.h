@@ -6,7 +6,7 @@
 // Description:
 //   Retrieves your YouTube Analytics data.
 // Documentation:
-//   http://developers.google.com/youtube/analytics
+//   https://developers.google.com/youtube/analytics
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

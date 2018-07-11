@@ -963,7 +963,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

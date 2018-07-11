@@ -32,6 +32,7 @@
 @class GTLRAnalytics_ProfileFilterLink;
 @class GTLRAnalytics_RemarketingAudience;
 @class GTLRAnalytics_UnsampledReport;
+@class GTLRAnalytics_UserDeletionRequest;
 @class GTLRAnalytics_Webproperty;
 
 // Generated comments include content from the discovery document; avoid them
@@ -3847,6 +3848,32 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *  @return GTLRAnalyticsQuery_ProvisioningCreateAccountTree
  */
 + (instancetype)queryWithObject:(GTLRAnalytics_AccountTreeRequest *)object;
+
+@end
+
+/**
+ *  Insert or update a user deletion requests.
+ *
+ *  Method: analytics.userDeletion.userDeletionRequest.upsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsUserDeletion
+ */
+@interface GTLRAnalyticsQuery_UserDeletionUserDeletionRequestUpsert : GTLRAnalyticsQuery
+// Previous library name was
+//   +[GTLQueryAnalytics queryForUserDeletionUserDeletionRequestUpsertWithObject:]
+
+/**
+ *  Fetches a @c GTLRAnalytics_UserDeletionRequest.
+ *
+ *  Insert or update a user deletion requests.
+ *
+ *  @param object The @c GTLRAnalytics_UserDeletionRequest to include in the
+ *    query.
+ *
+ *  @return GTLRAnalyticsQuery_UserDeletionUserDeletionRequestUpsert
+ */
++ (instancetype)queryWithObject:(GTLRAnalytics_UserDeletionRequest *)object;
 
 @end
 

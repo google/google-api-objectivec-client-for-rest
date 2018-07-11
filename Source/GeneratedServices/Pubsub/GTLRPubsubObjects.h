@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRPubsub_Binding;
+@class GTLRPubsub_CreateSnapshotRequest_Labels;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
 @class GTLRPubsub_Policy;
@@ -27,8 +28,11 @@
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
 @class GTLRPubsub_Snapshot;
+@class GTLRPubsub_Snapshot_Labels;
 @class GTLRPubsub_Subscription;
+@class GTLRPubsub_Subscription_Labels;
 @class GTLRPubsub_Topic;
+@class GTLRPubsub_Topic_Labels;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -64,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  account. For example, `alice\@gmail.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -85,9 +89,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the `CreateSnapshot` method.
+ *  Request for the `CreateSnapshot` method.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in
+ *  backward-incompatible ways and is not recommended for production use.
+ *  It is not subject to any SLA or deprecation policy.
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
+
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
  *  The subscription whose backlog the snapshot retains.
@@ -106,6 +117,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_CreateSnapshotRequest_Labels : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -119,7 +142,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response for the `ListSnapshots` method.
+ *  Response for the `ListSnapshots` method.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "snapshots" property. If returned as the result of a query, it
@@ -174,8 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response for the `ListTopicSnapshots` method.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Response for the `ListTopicSnapshots` method.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  */
 @interface GTLRPubsub_ListTopicSnapshotsResponse : GTLRObject
 
@@ -460,10 +488,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_PullResponse : GTLRObject
 
 /**
- *  Received Pub/Sub messages. The Pub/Sub system will return zero messages if
- *  there are no more available in the backlog. The Pub/Sub system may return
- *  fewer than the `maxMessages` requested even if there are more messages
- *  available in the backlog.
+ *  Received Pub/Sub messages. The list will be empty if there are no more
+ *  messages available in the backlog. For JSON, the response can be entirely
+ *  empty. The Pub/Sub system may return fewer than the `maxMessages` requested
+ *  even if there are more messages available in the backlog.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_ReceivedMessage *> *receivedMessages;
 
@@ -546,7 +574,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the `Seek` method.
+ *  Request for the `Seek` method.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  */
 @interface GTLRPubsub_SeekRequest : GTLRObject
 
@@ -599,7 +630,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A snapshot resource.
+ *  A snapshot resource.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  */
 @interface GTLRPubsub_Snapshot : GTLRObject
 
@@ -617,12 +651,27 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Snapshot_Labels *labels;
+
 /** The name of the snapshot. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The name of the topic from which this snapshot is retaining messages. */
 @property(nonatomic, copy, nullable) NSString *topic;
 
+@end
+
+
+/**
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_Snapshot_Labels : GTLRObject
 @end
 
 
@@ -654,14 +703,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Labels *labels;
+
 /**
  *  How long to retain unacknowledged messages in the subscription's backlog,
  *  from the moment a message is published.
  *  If `retain_acked_messages` is true, then this also configures the retention
  *  of acknowledged messages, and thus configures how far back in time a `Seek`
  *  can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10
- *  minutes.
- *  [ALPHA] This field is a part of a closed Alpha API.
+ *  minutes.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
@@ -686,8 +740,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Indicates whether to retain acknowledged messages. If true, then
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
- *  window.
- *  [ALPHA] This field is a part of a closed Alpha API.
+ *  window.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -701,6 +757,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
+@end
+
+
+/**
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_Subscription_Labels : GTLRObject
 @end
 
 
@@ -739,6 +807,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_Topic : GTLRObject
 
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
+
 /**
  *  The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
@@ -753,11 +824,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the UpdateSnapshot method.
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_Topic_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request for the UpdateSnapshot method.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  */
 @interface GTLRPubsub_UpdateSnapshotRequest : GTLRObject
 
-/** The updated snpashot object. */
+/** The updated snapshot object. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot *snapshot;
 
 /**
@@ -782,6 +868,28 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Indicates which fields in the provided subscription to update.
  *  Must be specified and non-empty.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request for the UpdateTopic method.
+ */
+@interface GTLRPubsub_UpdateTopicRequest : GTLRObject
+
+/** The updated topic object. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Topic *topic;
+
+/**
+ *  Indicates which fields in the provided topic to update. Must be specified
+ *  and non-empty. Note that if `update_mask` contains
+ *  "message_storage_policy" then the new value will be determined based on the
+ *  policy configured at the project or organization level. The
+ *  `message_storage_policy` must not be set in the `topic` provided above.
  *
  *  String format is a comma-separated list of fields.
  */

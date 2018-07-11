@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeTestingCloudPlatformReadOnly = @"https://www.goog
     // From discovery.
     self.rootURLString = @"https://testing.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

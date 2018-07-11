@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -112,6 +112,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesAppInterstitial;
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplay;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamVideo;
 
@@ -126,8 +128,20 @@ GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityAppInterstitial;
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplay;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamVideo;
+
+// ----------------------------------------------------------------------------
+// directories
+
+/** Value: "APPLE_APP_STORE" */
+GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesAppleAppStore;
+/** Value: "GOOGLE_PLAY_STORE" */
+GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesGooglePlayStore;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesUnknown;
 
 // ----------------------------------------------------------------------------
 // eventTagTypes
@@ -386,6 +400,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesFlashInpage;
 GTLR_EXTERN NSString * const kGTLRDfareportingTypesHtml5Banner;
 /** Value: "IMAGE" */
 GTLR_EXTERN NSString * const kGTLRDfareportingTypesImage;
+/** Value: "INSTREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareportingTypesInstreamAudio;
 /** Value: "INSTREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareportingTypesInstreamVideo;
 /** Value: "INSTREAM_VIDEO_REDIRECT" */
@@ -1146,6 +1162,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingCompatibilityDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilityDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
+ *    @arg @c kGTLRDfareportingCompatibilityInStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  *    @arg @c kGTLRDfareportingCompatibilityInStreamVideo Value
  *        "IN_STREAM_VIDEO"
  */
@@ -4279,6 +4297,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingTypesFlashInpage Value "FLASH_INPAGE"
  *    @arg @c kGTLRDfareportingTypesHtml5Banner Value "HTML5_BANNER"
  *    @arg @c kGTLRDfareportingTypesImage Value "IMAGE"
+ *    @arg @c kGTLRDfareportingTypesInstreamAudio Value "INSTREAM_AUDIO"
  *    @arg @c kGTLRDfareportingTypesInstreamVideo Value "INSTREAM_VIDEO"
  *    @arg @c kGTLRDfareportingTypesInstreamVideoRedirect Value
  *        "INSTREAM_VIDEO_REDIRECT"
@@ -6298,6 +6317,110 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Gets one mobile app by ID.
+ *
+ *  Method: dfareporting.mobileApps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_MobileAppsGet : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForMobileAppsGetWithprofileId:identifier:]
+
+/**
+ *  Mobile app ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_MobileApp.
+ *
+ *  Gets one mobile app by ID.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param identifier Mobile app ID.
+ *
+ *  @return GTLRDfareportingQuery_MobileAppsGet
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Retrieves list of available mobile apps.
+ *
+ *  Method: dfareporting.mobileApps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_MobileAppsList : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForMobileAppsListWithprofileId:]
+
+/**
+ *  Select only apps from these directories.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingDirectoriesAppleAppStore Value "APPLE_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesGooglePlayStore Value
+ *        "GOOGLE_PLAY_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesUnknown Value "UNKNOWN"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *directories;
+
+/** Select only apps with these IDs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
+
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 0..1000).
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/** Value of the nextPageToken from the previous result page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Allows searching for objects by name or ID. Wildcards (*) are allowed. For
+ *  example, "app*2015" will return objects with names like "app Jan 2018", "app
+ *  Jan 2018", or simply "app 2018". Most of the searches also add wildcards
+ *  implicitly at the start and the end of the search string. For example, a
+ *  search string of "app" will match objects with name "my app", "app 2018", or
+ *  simply "app".
+ */
+@property(nonatomic, copy, nullable) NSString *searchString;
+
+/**
+ *  Fetches a @c GTLRDfareporting_MobileAppsListResponse.
+ *
+ *  Retrieves list of available mobile apps.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_MobileAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
  *  Gets one mobile carrier by ID.
  *
  *  Method: dfareporting.mobileCarriers.get
@@ -7314,6 +7437,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
+ *    @arg @c kGTLRDfareportingCompatibilitiesInStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  *    @arg @c kGTLRDfareportingCompatibilitiesInStreamVideo Value
  *        "IN_STREAM_VIDEO"
  */
@@ -9222,7 +9347,10 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Retrieves a list of sizes, possibly filtered.
+ *  Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally
+ *  unique and may include values not currently in use by your account. Due to
+ *  this, the list of sizes returned by this method may differ from the list
+ *  seen in the Trafficking UI.
  *
  *  Method: dfareporting.sizes.list
  *
@@ -9263,7 +9391,10 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_SizesListResponse.
  *
- *  Retrieves a list of sizes, possibly filtered.
+ *  Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally
+ *  unique and may include values not currently in use by your account. Due to
+ *  this, the list of sizes returned by this method may differ from the list
+ *  seen in the Trafficking UI.
  *
  *  @param profileId User profile ID associated with this request.
  *

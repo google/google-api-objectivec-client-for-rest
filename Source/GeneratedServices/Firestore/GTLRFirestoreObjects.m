@@ -16,6 +16,7 @@ NSString * const kGTLRFirestore_CompositeFilter_Op_And         = @"AND";
 NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRFirestore_FieldFilter.op
+NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains   = @"ARRAY_CONTAINS";
 NSString * const kGTLRFirestore_FieldFilter_Op_Equal           = @"EQUAL";
 NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan     = @"GREATER_THAN";
 NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual = @"GREATER_THAN_OR_EQUAL";
@@ -27,16 +28,17 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
-// GTLRFirestore_Index.state
-NSString * const kGTLRFirestore_Index_State_Creating         = @"CREATING";
-NSString * const kGTLRFirestore_Index_State_Error            = @"ERROR";
-NSString * const kGTLRFirestore_Index_State_Ready            = @"READY";
-NSString * const kGTLRFirestore_Index_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta1Index.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Creating = @"CREATING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Error = @"ERROR";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Ready = @"READY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRFirestore_IndexField.mode
-NSString * const kGTLRFirestore_IndexField_Mode_Ascending      = @"ASCENDING";
-NSString * const kGTLRFirestore_IndexField_Mode_Descending     = @"DESCENDING";
-NSString * const kGTLRFirestore_IndexField_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField.mode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ArrayContains = @"ARRAY_CONTAINS";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Ascending = @"ASCENDING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Descending = @"DESCENDING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // GTLRFirestore_Order.direction
 NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
@@ -384,7 +386,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_FieldTransform
-@dynamic fieldPath, setToServerValue;
+@dynamic appendMissingElements, fieldPath, removeAllFromArray, setToServerValue;
 @end
 
 
@@ -400,15 +402,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_Index
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1Index
 //
 
-@implementation GTLRFirestore_Index
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1Index
 @dynamic collectionId, fields, name, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRFirestore_IndexField class]
+    @"fields" : [GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField class]
   };
   return map;
 }
@@ -418,11 +420,71 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_IndexField
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField
 //
 
-@implementation GTLRFirestore_IndexField
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField
 @dynamic fieldPath, mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse
+@dynamic indexes, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexes" : [GTLRFirestore_GoogleFirestoreAdminV1beta1Index class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"indexes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleLongrunningOperation
+//
+
+@implementation GTLRFirestore_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleLongrunningOperation_Metadata
+//
+
+@implementation GTLRFirestore_GoogleLongrunningOperation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleLongrunningOperation_Response
+//
+
+@implementation GTLRFirestore_GoogleLongrunningOperation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -522,28 +584,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ListIndexesResponse
-//
-
-@implementation GTLRFirestore_ListIndexesResponse
-@dynamic indexes, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"indexes" : [GTLRFirestore_Index class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"indexes";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirestore_MapValue
 //
 
@@ -561,44 +601,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 + (Class)classForAdditionalProperties {
   return [GTLRFirestore_Value class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Operation
-//
-
-@implementation GTLRFirestore_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Operation_Metadata
-//
-
-@implementation GTLRFirestore_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Operation_Response
-//
-
-@implementation GTLRFirestore_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
 }
 
 @end

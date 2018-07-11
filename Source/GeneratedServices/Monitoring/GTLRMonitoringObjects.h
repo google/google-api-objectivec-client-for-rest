@@ -34,6 +34,8 @@
 @class GTLRMonitoring_ContentMatcher;
 @class GTLRMonitoring_Distribution;
 @class GTLRMonitoring_Documentation;
+@class GTLRMonitoring_Exemplar;
+@class GTLRMonitoring_Exemplar_Attachments_Item;
 @class GTLRMonitoring_Explicit;
 @class GTLRMonitoring_Exponential;
 @class GTLRMonitoring_Field;
@@ -47,6 +49,7 @@
 @class GTLRMonitoring_Metric_Labels;
 @class GTLRMonitoring_MetricAbsence;
 @class GTLRMonitoring_MetricDescriptor;
+@class GTLRMonitoring_MetricDescriptorMetadata;
 @class GTLRMonitoring_MetricThreshold;
 @class GTLRMonitoring_MonitoredResource;
 @class GTLRMonitoring_MonitoredResource_Labels;
@@ -707,6 +710,66 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_String;
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_MetricDescriptorMetadata.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
+ *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
+ *  documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricThreshold.comparison
@@ -1677,6 +1740,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
+/** Must be in increasing order of value field. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Exemplar *> *exemplars;
+
 /**
  *  The arithmetic mean of the values in the population. If count is zero then
  *  this field must be zero.
@@ -1739,6 +1805,51 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  The JSON representation for Empty is empty JSON object {}.
  */
 @interface GTLRMonitoring_Empty : GTLRObject
+@end
+
+
+/**
+ *  Exemplars are example points that may be used to annotate aggregated
+ *  distribution values. They are metadata that gives information about a
+ *  particular value added to a Distribution bucket, such as a trace ID that was
+ *  active when a value was added. They may contain further information, such as
+ *  a example values and timestamps, origin, etc.
+ */
+@interface GTLRMonitoring_Exemplar : GTLRObject
+
+/**
+ *  Contextual information about the example value. Examples are:Trace ID:
+ *  type.googleapis.com/google.devtools.cloudtrace.v1.TraceLiteral string:
+ *  type.googleapis.com/google.protobuf.StringValueLabels dropped during
+ *  aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may
+ *  be only a single attachment of any given message type in a single exemplar,
+ *  and this is enforced by the system.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Exemplar_Attachments_Item *> *attachments;
+
+/** The observation (sampling) time of the above value. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Value of the exemplar point. This value determines to which bucket the
+ *  exemplar belongs.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  GTLRMonitoring_Exemplar_Attachments_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRMonitoring_Exemplar_Attachments_Item : GTLRObject
 @end
 
 
@@ -2389,13 +2500,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  The ListTimeSeries response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "timeSeries" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRMonitoring_ListTimeSeriesResponse : GTLRCollectionObject
+@interface GTLRMonitoring_ListTimeSeriesResponse : GTLRObject
+
+/**
+ *  Query execution errors that may have caused the time series data returned to
+ *  be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Status *> *executionErrors;
 
 /**
  *  If there are more results than have been returned, then this field is set to
@@ -2404,12 +2516,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  One or more time series that match the filter included in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** One or more time series that match the filter included in the request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
 
 @end
@@ -2599,6 +2706,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
+/** Optional. Metadata which can be used to guide usage of the metric. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MetricDescriptorMetadata *metadata;
+
 /**
  *  Whether the metric records instantaneous values, changes to a value, etc.
  *  Some combinations of metric_kind and value_type might not be supported.
@@ -2632,11 +2742,54 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Optional. The unit in which the metric value is reported. For example, kBy/s
- *  means kilobytes/sec, and 1 is the dimensionless unit. The supported units
- *  are a subset of The Unified Code for Units of Measure standard
- *  (http://unitsofmeasure.org/ucum.html).<br><br> This field is part of the
- *  metric's documentation, but it is ignored by Stackdriver.
+ *  The unit in which the metric value is reported. It is only applicable if the
+ *  value_type is INT64, DOUBLE, or DISTRIBUTION. The supported units are a
+ *  subset of The Unified Code for Units of Measure
+ *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
+ *  bit bit
+ *  By byte
+ *  s second
+ *  min minute
+ *  h hour
+ *  d dayPrefixes (PREFIX)
+ *  k kilo (10**3)
+ *  M mega (10**6)
+ *  G giga (10**9)
+ *  T tera (10**12)
+ *  P peta (10**15)
+ *  E exa (10**18)
+ *  Z zetta (10**21)
+ *  Y yotta (10**24)
+ *  m milli (10**-3)
+ *  u micro (10**-6)
+ *  n nano (10**-9)
+ *  p pico (10**-12)
+ *  f femto (10**-15)
+ *  a atto (10**-18)
+ *  z zepto (10**-21)
+ *  y yocto (10**-24)
+ *  Ki kibi (2**10)
+ *  Mi mebi (2**20)
+ *  Gi gibi (2**30)
+ *  Ti tebi (2**40)GrammarThe grammar also includes these connectors:
+ *  / division (as an infix operator, e.g. 1/s).
+ *  . multiplication (as an infix operator, e.g. GBy.d)The grammar for a unit is
+ *  as follows:
+ *  Expression = Component { "." Component } { "/" Component } ;
+ *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
+ *  | Annotation
+ *  | "1"
+ *  ;
+ *  Annotation = "{" NAME "}" ;
+ *  Notes:
+ *  Annotation is just a comment if it follows a UNIT and is equivalent to 1 if
+ *  it is used alone. For examples, {requests}/s == 1/s, By{transmitted}/s ==
+ *  By/s.
+ *  NAME is a sequence of non-blank printable ASCII characters not containing
+ *  '{' or '}'.
+ *  1 represents dimensionless value 1, such as in 1/s.
+ *  % represents dimensionless value 1/100, and annotates values giving a
+ *  percentage.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -2663,6 +2816,70 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *        not use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Additional annotations that can be used to guide the usage of a metric.
+ */
+@interface GTLRMonitoring_MetricDescriptorMetadata : GTLRObject
+
+/**
+ *  The delay of data points caused by ingestion. Data points older than this
+ *  age are guaranteed to be ingested and available to be read, excluding data
+ *  loss due to errors.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
+
+/**
+ *  The launch stage of the metric definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha Alpha
+ *        is a limited availability test for releases before they are cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved and we are in the process of verifying functionality. Alpha
+ *        customers need to apply for access, agree to applicable terms, and
+ *        have their projects whitelisted. Alpha releases don’t have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta Beta is
+ *        the point at which we are ready to open a release for any customer to
+ *        use. There are no SLA or technical support obligations in a Beta
+ *        release. Products will be complete from a feature perspective, but may
+ *        have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the “Deprecation Policy” section of our Terms of
+ *        Service (https://cloud.google.com/terms/) and the Google Cloud
+ *        Platform Subject to the Deprecation Policy
+ *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
+ *        "DEPRECATED")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The sampling period of metric data points. For metrics which are written
+ *  periodically, consecutive data points are stored at this time interval,
+ *  excluding data loss due to errors. Metrics with a higher granularity have a
+ *  smaller sampling period.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
 @end
 
@@ -2741,13 +2958,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  The amount of time that a time series must violate the threshold to be
  *  considered failing. Currently, only values that are a multiple of a
- *  minute--e.g. 60, 120, or 300 seconds--are supported. If an invalid value is
- *  given, an error will be returned. The Duration.nanos field is ignored. When
- *  choosing a duration, it is useful to keep in mind the frequency of the
- *  underlying time series data (which may also be affected by any alignments
- *  specified in the aggregation field); a good duration is long enough so that
- *  a single outlier does not generate spurious alerts, but short enough that
- *  unhealthy states are detected and alerted on quickly.
+ *  minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value
+ *  is given, an error will be returned. When choosing a duration, it is useful
+ *  to keep in mind the frequency of the underlying time series data (which may
+ *  also be affected by any alignments specified in the aggregations field); a
+ *  good duration is long enough so that a single outlier does not generate
+ *  spurious alerts, but short enough that unhealthy states are detected and
+ *  alerted on quickly.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 

@@ -76,6 +76,11 @@ NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_
 NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence = @"UNKNOWN_ATTRIBUTION_CONFIDENCE";
 NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak = @"WEAK";
 
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.requestIpVersion
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV4 = @"IP_V4";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV6 = @"IP_V6";
+NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_UnknownIpVersion = @"UNKNOWN_IP_VERSION";
+
 // GTLRFirebaseDynamicLinks_ManagedShortLink.flaggedAttribute
 NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_Spam = @"SPAM";
 NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_UnspecifiedAttribute = @"UNSPECIFIED_ATTRIBUTE";
@@ -259,8 +264,8 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 @implementation GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse
 @dynamic appMinimumVersion, attributionConfidence, deepLink,
          externalBrowserDestinationLink, fallbackLink, invitationId,
-         isStrongMatchExecutable, matchMessage, requestedLink, resolvedLink,
-         utmCampaign, utmMedium, utmSource;
+         isStrongMatchExecutable, matchMessage, requestedLink, requestIpVersion,
+         resolvedLink, utmCampaign, utmMedium, utmSource;
 @end
 
 

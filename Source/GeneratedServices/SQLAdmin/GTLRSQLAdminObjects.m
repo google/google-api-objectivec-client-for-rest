@@ -394,11 +394,39 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InstancesListServerCasResponse
+//
+
+@implementation GTLRSQLAdmin_InstancesListServerCasResponse
+@dynamic activeVersion, certs, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certs" : [GTLRSQLAdmin_SslCert class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesRestoreBackupRequest
 //
 
 @implementation GTLRSQLAdmin_InstancesRestoreBackupRequest
 @dynamic restoreBackupContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstancesRotateServerCaRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesRotateServerCaRequest
+@dynamic rotateServerCaContext;
 @end
 
 
@@ -418,7 +446,7 @@
 //
 
 @implementation GTLRSQLAdmin_IpConfiguration
-@dynamic authorizedNetworks, ipv4Enabled, requireSsl;
+@dynamic authorizedNetworks, ipv4Enabled, privateNetwork, requireSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -562,6 +590,16 @@
 
 @implementation GTLRSQLAdmin_RestoreBackupContext
 @dynamic backupRunId, instanceId, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_RotateServerCaContext
+//
+
+@implementation GTLRSQLAdmin_RotateServerCaContext
+@dynamic kind, nextVersion;
 @end
 
 

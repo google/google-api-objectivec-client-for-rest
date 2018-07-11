@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Container Builder API (cloudbuild/v1)
+//   Cloud Container Builder (cloudbuild/v1)
 // Description:
 //   Builds container images in the cloud.
 // Documentation:
@@ -289,8 +289,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
 /**
- *  Stores timing information for pushing all artifact objects.
- *  \@OutputOnly
+ *  Output only. Stores timing information for pushing all artifact objects.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *timing;
 
@@ -372,29 +371,25 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Artifacts *artifacts;
 
 /**
- *  The ID of the `BuildTrigger` that triggered this build, if it was
- *  triggered automatically.
- *  \@OutputOnly
+ *  Output only. The ID of the `BuildTrigger` that triggered this build, if it
+ *  was triggered automatically.
  */
 @property(nonatomic, copy, nullable) NSString *buildTriggerId;
 
 /**
- *  Time at which the request to create the build was received.
- *  \@OutputOnly
+ *  Output only. Time at which the request to create the build was received.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Time at which execution of the build was finished.
+ *  Output only. Time at which execution of the build was finished.
  *  The difference between finish_time and start_time is the duration of the
  *  build's execution.
- *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
 /**
- *  Unique identifier of the build.
- *  \@OutputOnly
+ *  Output only. Unique identifier of the build.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -419,25 +414,16 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *logsBucket;
 
-/**
- *  URL to logs for this build in Google Cloud Console.
- *  \@OutputOnly
- */
+/** Output only. URL to logs for this build in Google Cloud Console. */
 @property(nonatomic, copy, nullable) NSString *logUrl;
 
 /** Special options for this build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildOptions *options;
 
-/**
- *  ID of the project.
- *  \@OutputOnly.
- */
+/** Output only. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  Results of the build.
- *  \@OutputOnly
- */
+/** Output only. Results of the build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Results *results;
 
 /** Secrets to decrypt using Cloud Key Management Service. */
@@ -446,21 +432,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** The location of the source files to build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Source *source;
 
-/**
- *  A permanent fixed identifier for source.
- *  \@OutputOnly
- */
+/** Output only. A permanent fixed identifier for source. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance *sourceProvenance;
 
-/**
- *  Time at which execution of the build was started.
- *  \@OutputOnly
- */
+/** Output only. Time at which execution of the build was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Status of the build.
- *  \@OutputOnly
+ *  Output only. Status of the build.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_Build_Status_Cancelled Build or step was canceled
@@ -482,10 +461,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/**
- *  Customer-readable message about the current status.
- *  \@OutputOnly
- */
+/** Output only. Customer-readable message about the current status. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /** Required. The operations to be performed on the workspace. */
@@ -506,13 +482,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 /**
- *  Stores timing information for phases of the build. Valid keys are:
+ *  Output only. Stores timing information for phases of the build. Valid keys
+ *  are:
  *  * BUILD: time to execute all build steps
  *  * PUSH: time to push all specified images.
  *  * FETCHSOURCE: time to fetch source.
  *  If the build does not specify source or images,
  *  these keys will not be included.
- *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build_Timing *timing;
 
@@ -532,13 +508,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
- *  Stores timing information for phases of the build. Valid keys are:
+ *  Output only. Stores timing information for phases of the build. Valid keys
+ *  are:
  *  * BUILD: time to execute all build steps
  *  * PUSH: time to push all specified images.
  *  * FETCHSOURCE: time to fetch source.
  *  If the build does not specify source or images,
  *  these keys will not be included.
- *  \@OutputOnly
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudBuild_TimeSpan. Use @c -additionalJSONKeys and @c
@@ -710,10 +686,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
 
 /**
- *  Status of the build step. At this time, build step status is only updated
- *  on build completion; step status is not updated in real-time as the build
- *  progresses.
- *  \@OutputOnly
+ *  Output only. Status of the build step. At this time, build step status is
+ *  only updated on build completion; step status is not updated in real-time
+ *  as the build progresses.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildStep_Status_Cancelled Build or step was
@@ -742,10 +717,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
-/**
- *  Stores timing information for executing this build step.
- *  \@OutputOnly
- */
+/** Output only. Stores timing information for executing this build step. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *timing;
 
 /**
@@ -779,10 +751,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** Contents of the build template. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
 
-/**
- *  Time when the trigger was created.
- *  \@OutputOnly
- */
+/** Output only. Time when the trigger was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -806,8 +775,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *filename;
 
 /**
- *  Unique identifier of the trigger.
- *  \@OutputOnly
+ *  Output only. Unique identifier of the trigger.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -853,10 +821,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Stores timing information for pushing the specified image.
- *  \@OutputOnly
- */
+/** Output only. Stores timing information for pushing the specified image. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
 
 @end
@@ -1203,14 +1168,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_SourceProvenance : GTLRObject
 
 /**
- *  Hash(es) of the build source, which can be used to verify that the original
- *  source integrity was maintained in the build. Note that `FileHashes` will
- *  only be populated if `BuildOptions` has requested a `SourceProvenanceHash`.
+ *  Output only. Hash(es) of the build source, which can be used to verify that
+ *  the originalsource integrity was maintained in the build. Note that
+ *  `FileHashes` willonly be populated if `BuildOptions` has requested a
+ *  `SourceProvenanceHash`.
  *  The keys to this map are file paths used as build source and the values
  *  contain the hash values for those files.
  *  If the build source came in a single package such as a gzipped tarfile
  *  (`.tar.gz`), the `FileHash` will be for the single path to that file.
- *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance_FileHashes *fileHashes;
 
@@ -1230,14 +1195,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
- *  Hash(es) of the build source, which can be used to verify that the original
- *  source integrity was maintained in the build. Note that `FileHashes` will
- *  only be populated if `BuildOptions` has requested a `SourceProvenanceHash`.
+ *  Output only. Hash(es) of the build source, which can be used to verify that
+ *  the originalsource integrity was maintained in the build. Note that
+ *  `FileHashes` willonly be populated if `BuildOptions` has requested a
+ *  `SourceProvenanceHash`.
  *  The keys to this map are file paths used as build source and the values
  *  contain the hash values for those files.
  *  If the build source came in a single package such as a gzipped tarfile
  *  (`.tar.gz`), the `FileHash` will be for the single path to that file.
- *  \@OutputOnly
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudBuild_FileHashes. Use @c -additionalJSONKeys and @c

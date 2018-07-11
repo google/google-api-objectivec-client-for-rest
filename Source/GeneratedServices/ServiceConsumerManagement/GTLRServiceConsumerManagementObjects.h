@@ -34,7 +34,6 @@
 @class GTLRServiceConsumerManagement_Context;
 @class GTLRServiceConsumerManagement_ContextRule;
 @class GTLRServiceConsumerManagement_Control;
-@class GTLRServiceConsumerManagement_CustomAuthRequirements;
 @class GTLRServiceConsumerManagement_CustomError;
 @class GTLRServiceConsumerManagement_CustomErrorRule;
 @class GTLRServiceConsumerManagement_CustomHttpPattern;
@@ -55,6 +54,7 @@
 @class GTLRServiceConsumerManagement_MediaUpload;
 @class GTLRServiceConsumerManagement_Method;
 @class GTLRServiceConsumerManagement_MetricDescriptor;
+@class GTLRServiceConsumerManagement_MetricDescriptorMetadata;
 @class GTLRServiceConsumerManagement_MetricRule;
 @class GTLRServiceConsumerManagement_MetricRule_MetricCosts;
 @class GTLRServiceConsumerManagement_Mixin;
@@ -397,6 +397,67 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_Val
 GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_MetricDescriptorMetadata.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved
+ *  and we are in the process of verifying functionality. Alpha customers
+ *  need to apply for access, agree to applicable terms, and have their
+ *  projects whitelisted. Alpha releases don’t have to be feature complete,
+ *  no SLAs are provided, and there are no technical support obligations, but
+ *  they will be far enough along that customers can actually use them in
+ *  test environments or for limited-use tests -- just like they would in
+ *  normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any
+ *  customer to use. There are no SLA or technical support obligations in a
+ *  Beta release. Products will be complete from a feature perspective, but
+ *  may have some open outstanding issues. Beta releases are suitable for
+ *  limited production use cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/)
+ *  and the [Google Cloud Platform Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use
+ *  these features, you must sign up in advance and sign a Trusted Tester
+ *  agreement (which includes confidentiality provisions). These features may
+ *  be unstable, changed in backward-incompatible ways, and are not
+ *  guaranteed to be released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and
+ *  fully qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_TenantResource.status
 
 /**
@@ -579,9 +640,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowWithoutCredential;
-
-/** Configuration for custom authentication. */
-@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CustomAuthRequirements *customAuth;
 
 /** The requirements for OAuth credentials. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_OAuthRequirements *oauth;
@@ -981,21 +1039,6 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  identifier is identical or empty, otherwise the call will fail.
  */
 @property(nonatomic, copy, nullable) NSString *tenancyUnitId;
-
-@end
-
-
-/**
- *  Configuration for a custom authentication provider.
- */
-@interface GTLRServiceConsumerManagement_CustomAuthRequirements : GTLRObject
-
-/**
- *  A configuration string containing connection information for the
- *  authentication provider, typically formatted as a SmartService string
- *  (go/smartservice).
- */
-@property(nonatomic, copy, nullable) NSString *provider;
 
 @end
 
@@ -2141,6 +2184,9 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_LabelDescriptor *> *labels;
 
+/** Optional. Metadata which can be used to guide usage of the metric. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_MetricDescriptorMetadata *metadata;
+
 /**
  *  Whether the metric records instantaneous values, changes to a value, etc.
  *  Some combinations of `metric_kind` and `value_type` might not be supported.
@@ -2256,6 +2302,78 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *        Do not use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Additional annotations that can be used to guide the usage of a metric.
+ */
+@interface GTLRServiceConsumerManagement_MetricDescriptorMetadata : GTLRObject
+
+/**
+ *  The delay of data points caused by ingestion. Data points older than this
+ *  age are guaranteed to be ingested and available to be read, excluding
+ *  data loss due to errors.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
+
+/**
+ *  The launch stage of the metric definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects whitelisted. Alpha releases don’t have to be feature
+ *        complete,
+ *        no SLAs are provided, and there are no technical support obligations,
+ *        but
+ *        they will be far enough along that customers can actually use them in
+ *        test environments or for limited-use tests -- just like they would in
+ *        normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a
+ *        Beta release. Products will be complete from a feature perspective,
+ *        but
+ *        may have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more
+ *        information, see the “Deprecation Policy” section of our [Terms of
+ *        Service](https://cloud.google.com/terms/)
+ *        and the [Google Cloud Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may
+ *        be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The sampling period of metric data points. For metrics which are written
+ *  periodically, consecutive data points are stored at this time interval,
+ *  excluding data loss due to errors. Metrics with a higher granularity have
+ *  a smaller sampling period.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
 @end
 

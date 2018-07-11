@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Reporting API (analyticsreporting/v4)
+//   Analytics Reporting API (analyticsreporting/v4)
 // Description:
 //   Accesses Analytics report data.
 // Documentation:

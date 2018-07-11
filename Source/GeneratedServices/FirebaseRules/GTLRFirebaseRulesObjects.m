@@ -256,12 +256,13 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_TestResult
-@dynamic debugMessages, errorPosition, functionCalls, state;
+@dynamic debugMessages, errorPosition, functionCalls, state, visitedExpressions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"debugMessages" : [NSString class],
-    @"functionCalls" : [GTLRFirebaseRules_FunctionCall class]
+    @"functionCalls" : [GTLRFirebaseRules_FunctionCall class],
+    @"visitedExpressions" : [GTLRFirebaseRules_VisitedExpression class]
   };
   return map;
 }
@@ -328,4 +329,14 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
   return @{ @"releaseProperty" : @"release" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_VisitedExpression
+//
+
+@implementation GTLRFirebaseRules_VisitedExpression
+@dynamic sourcePosition, value;
 @end

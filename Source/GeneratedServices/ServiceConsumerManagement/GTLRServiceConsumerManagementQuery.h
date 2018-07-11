@@ -57,7 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
- *    @c kGTLRAuthScopeServiceConsumerManagementServiceManagement
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsCancel : GTLRServiceConsumerManagementQuery
 // Previous library name was
@@ -101,7 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
- *    @c kGTLRAuthScopeServiceConsumerManagementServiceManagement
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsDelete : GTLRServiceConsumerManagementQuery
 // Previous library name was
@@ -135,7 +133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
- *    @c kGTLRAuthScopeServiceConsumerManagementServiceManagement
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsGet : GTLRServiceConsumerManagementQuery
 // Previous library name was
@@ -174,7 +171,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
- *    @c kGTLRAuthScopeServiceConsumerManagementServiceManagement
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsList : GTLRServiceConsumerManagementQuery
 // Previous library name was

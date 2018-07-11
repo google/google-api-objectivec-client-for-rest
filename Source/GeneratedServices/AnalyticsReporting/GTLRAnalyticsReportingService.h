@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Reporting API (analyticsreporting/v4)
+//   Analytics Reporting API (analyticsreporting/v4)
 // Description:
 //   Accesses Analytics report data.
 // Documentation:
@@ -46,7 +46,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly;
 //
 
 /**
- *  Service for executing Google Analytics Reporting API queries.
+ *  Service for executing Analytics Reporting API queries.
  *
  *  Accesses Analytics report data.
  */

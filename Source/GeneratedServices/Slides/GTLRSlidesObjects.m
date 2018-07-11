@@ -194,6 +194,7 @@ NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_Linked = @"LIN
 NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_NotLinkedImage = @"NOT_LINKED_IMAGE";
 
 // GTLRSlides_CreateVideoRequest.source
+NSString * const kGTLRSlides_CreateVideoRequest_Source_Drive   = @"DRIVE";
 NSString * const kGTLRSlides_CreateVideoRequest_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 NSString * const kGTLRSlides_CreateVideoRequest_Source_Youtube = @"YOUTUBE";
 
@@ -644,6 +645,7 @@ NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_R
 NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Top = @"TOP";
 
 // GTLRSlides_Video.source
+NSString * const kGTLRSlides_Video_Source_Drive             = @"DRIVE";
 NSString * const kGTLRSlides_Video_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 

@@ -919,7 +919,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_TeamdrivesUpdate
 
-@dynamic teamDriveId;
+@dynamic teamDriveId, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_TeamDrive *)object
                     teamDriveId:(NSString *)teamDriveId {

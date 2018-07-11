@@ -112,6 +112,14 @@ NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRMonitoring_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRMonitoring_MetricThreshold.comparison
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq = @"COMPARISON_EQ";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGe = @"COMPARISON_GE";
@@ -392,11 +400,13 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_Distribution
-@dynamic bucketCounts, bucketOptions, count, mean, range, sumOfSquaredDeviation;
+@dynamic bucketCounts, bucketOptions, count, exemplars, mean, range,
+         sumOfSquaredDeviation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class]
+    @"bucketCounts" : [NSNumber class],
+    @"exemplars" : [GTLRMonitoring_Exemplar class]
   };
   return map;
 }
@@ -420,6 +430,38 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Exemplar
+//
+
+@implementation GTLRMonitoring_Exemplar
+@dynamic attachments, timestamp, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [GTLRMonitoring_Exemplar_Attachments_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Exemplar_Attachments_Item
+//
+
+@implementation GTLRMonitoring_Exemplar_Attachments_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -725,17 +767,14 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_ListTimeSeriesResponse
-@dynamic nextPageToken, timeSeries;
+@dynamic executionErrors, nextPageToken, timeSeries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"executionErrors" : [GTLRMonitoring_Status class],
     @"timeSeries" : [GTLRMonitoring_TimeSeries class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"timeSeries";
 }
 
 @end
@@ -833,8 +872,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -847,6 +886,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_MetricDescriptorMetadata
+//
+
+@implementation GTLRMonitoring_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 

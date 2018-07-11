@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Functions API queries.
+ *  Service for executing Cloud Functions API queries.
  *
  *  Manages lightweight user-provided functions executed in response to events.
  */

@@ -256,6 +256,13 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBre
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_SureSpace = @"SURE_SPACE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Unknown = @"UNKNOWN";
 
+// GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata.state
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Processing = @"PROCESSING";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Successful = @"SUCCESSFUL";
+
 // GTLRVision_Landmark.type
 NSString * const kGTLRVision_Landmark_Type_ChinGnathion        = @"CHIN_GNATHION";
 NSString * const kGTLRVision_Landmark_Type_ChinLeftGonion      = @"CHIN_LEFT_GONION";
@@ -292,6 +299,13 @@ NSString * const kGTLRVision_Landmark_Type_RightOfLeftEyebrow  = @"RIGHT_OF_LEFT
 NSString * const kGTLRVision_Landmark_Type_RightOfRightEyebrow = @"RIGHT_OF_RIGHT_EYEBROW";
 NSString * const kGTLRVision_Landmark_Type_UnknownLandmark     = @"UNKNOWN_LANDMARK";
 NSString * const kGTLRVision_Landmark_Type_UpperLip            = @"UPPER_LIP";
+
+// GTLRVision_OperationMetadata.state
+NSString * const kGTLRVision_OperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVision_OperationMetadata_State_Created   = @"CREATED";
+NSString * const kGTLRVision_OperationMetadata_State_Done      = @"DONE";
+NSString * const kGTLRVision_OperationMetadata_State_Running   = @"RUNNING";
+NSString * const kGTLRVision_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRVision_SafeSearchAnnotation.adult
 NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Likely = @"LIKELY";
@@ -335,6 +349,24 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_AnnotateFileResponse
+//
+
+@implementation GTLRVision_AnnotateFileResponse
+@dynamic inputConfig, responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRVision_AnnotateImageResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_AnnotateImageRequest
 //
 
@@ -357,9 +389,10 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_AnnotateImageResponse
-@dynamic cropHintsAnnotation, error, faceAnnotations, fullTextAnnotation,
-         imagePropertiesAnnotation, labelAnnotations, landmarkAnnotations,
-         logoAnnotations, safeSearchAnnotation, textAnnotations, webDetection;
+@dynamic context, cropHintsAnnotation, error, faceAnnotations,
+         fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
+         landmarkAnnotations, logoAnnotations, safeSearchAnnotation,
+         textAnnotations, webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -368,6 +401,70 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
     @"landmarkAnnotations" : [GTLRVision_EntityAnnotation class],
     @"logoAnnotations" : [GTLRVision_EntityAnnotation class],
     @"textAnnotations" : [GTLRVision_EntityAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncAnnotateFileRequest
+//
+
+@implementation GTLRVision_AsyncAnnotateFileRequest
+@dynamic features, imageContext, inputConfig, outputConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [GTLRVision_Feature class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncAnnotateFileResponse
+//
+
+@implementation GTLRVision_AsyncAnnotateFileResponse
+@dynamic outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncBatchAnnotateFilesRequest
+//
+
+@implementation GTLRVision_AsyncBatchAnnotateFilesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRVision_AsyncAnnotateFileRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncBatchAnnotateFilesResponse
+//
+
+@implementation GTLRVision_AsyncBatchAnnotateFilesResponse
+@dynamic responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRVision_AsyncAnnotateFileResponse class]
   };
   return map;
 }
@@ -435,10 +532,11 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_BoundingPoly
-@dynamic vertices;
+@dynamic normalizedVertices, vertices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"normalizedVertices" : [GTLRVision_NormalizedVertex class],
     @"vertices" : [GTLRVision_Vertex class]
   };
   return map;
@@ -622,6 +720,26 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_Feature
 @dynamic maxResults, model, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GcsDestination
+//
+
+@implementation GTLRVision_GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GcsSource
+//
+
+@implementation GTLRVision_GcsSource
+@dynamic uri;
 @end
 
 
@@ -1175,11 +1293,107 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata
+@dynamic endTime, state, submitTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly
+@dynamic normalizedVertices, vertices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"normalizedVertices" : [GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex class],
+    @"vertices" : [GTLRVision_GoogleCloudVisionV1p3beta1Vertex class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1ImportProductSetsResponse
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1ImportProductSetsResponse
+@dynamic referenceImages, statuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceImages" : [GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage class],
+    @"statuses" : [GTLRVision_Status class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex
+@dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage
+@dynamic boundingPolys, name, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundingPolys" : [GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1Vertex
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1Vertex
+@dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Image
 //
 
 @implementation GTLRVision_Image
 @dynamic content, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ImageAnnotationContext
+//
+
+@implementation GTLRVision_ImageAnnotationContext
+@dynamic pageNumber, uri;
 @end
 
 
@@ -1218,6 +1432,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_ImageSource
 @dynamic gcsImageUri, imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_InputConfig
+//
+
+@implementation GTLRVision_InputConfig
+@dynamic gcsSource, mimeType;
 @end
 
 
@@ -1285,6 +1509,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_NormalizedVertex
+//
+
+@implementation GTLRVision_NormalizedVertex
+@dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Operation
 //
 
@@ -1318,6 +1552,26 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_OperationMetadata
+//
+
+@implementation GTLRVision_OperationMetadata
+@dynamic createTime, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_OutputConfig
+//
+
+@implementation GTLRVision_OutputConfig
+@dynamic batchSize, gcsDestination;
 @end
 
 

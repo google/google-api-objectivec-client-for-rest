@@ -92,9 +92,9 @@
 //
 
 @implementation GTLRBigquery_Dataset
-@dynamic access, creationTime, datasetReference, defaultTableExpirationMs,
-         descriptionProperty, ETag, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, selfLink;
+@dynamic access, creationTime, datasetReference, defaultPartitionExpirationMs,
+         defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
+         identifier, kind, labels, lastModifiedTime, location, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -358,6 +358,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_IterationResult
+//
+
+@implementation GTLRBigquery_IterationResult
+@dynamic durationMs, evalLoss, index, learnRate, trainingLoss;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Job
 //
 
@@ -593,21 +603,33 @@
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
-         estimatedBytesProcessed, numDmlAffectedRows, queryPlan,
-         referencedTables, schema, statementType, timeline, totalBytesBilled,
-         totalBytesProcessed, totalPartitionsProcessed, totalSlotMs,
-         undeclaredQueryParameters;
+         estimatedBytesProcessed, modelTrainingCurrentIteration,
+         modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
+         referencedTables, reservationUsage, schema, statementType, timeline,
+         totalBytesBilled, totalBytesProcessed, totalPartitionsProcessed,
+         totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
+    @"reservationUsage" : [GTLRBigquery_JobStatistics2_ReservationUsage_Item class],
     @"timeline" : [GTLRBigquery_QueryTimelineSample class],
     @"undeclaredQueryParameters" : [GTLRBigquery_QueryParameter class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_JobStatistics2_ReservationUsage_Item
+//
+
+@implementation GTLRBigquery_JobStatistics2_ReservationUsage_Item
+@dynamic name, slotMs;
 @end
 
 
@@ -666,6 +688,42 @@
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ModelDefinition
+//
+
+@implementation GTLRBigquery_ModelDefinition
+@dynamic modelOptions, trainingRuns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trainingRuns" : [GTLRBigquery_TrainingRun class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ModelDefinition_ModelOptions
+//
+
+@implementation GTLRBigquery_ModelDefinition_ModelOptions
+@dynamic labels, lossType, modelType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -865,7 +923,7 @@
 @implementation GTLRBigquery_Table
 @dynamic clustering, creationTime, descriptionProperty, encryptionConfiguration,
          ETag, expirationTime, externalDataConfiguration, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, numBytes,
+         identifier, kind, labels, lastModifiedTime, location, model, numBytes,
          numLongTermBytes, numRows, schema, selfLink, streamingBuffer,
          tableReference, timePartitioning, type, view;
 
@@ -1132,6 +1190,35 @@
 
 @implementation GTLRBigquery_TimePartitioning
 @dynamic expirationMs, field, requirePartitionFilter, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TrainingRun
+//
+
+@implementation GTLRBigquery_TrainingRun
+@dynamic iterationResults, startTime, state, trainingOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iterationResults" : [GTLRBigquery_IterationResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TrainingRun_TrainingOptions
+//
+
+@implementation GTLRBigquery_TrainingRun_TrainingOptions
+@dynamic earlyStop, l1Reg, l2Reg, learnRate, learnRateStrategy,
+         lineSearchInitLearnRate, maxIteration, minRelProgress, warmStart;
 @end
 
 

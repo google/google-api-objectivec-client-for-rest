@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeClouderrorreportingCloudPlatform = @"https://www.
     // From discovery.
     self.rootURLString = @"https://clouderrorreporting.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

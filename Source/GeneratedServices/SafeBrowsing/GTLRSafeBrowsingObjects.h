@@ -251,6 +251,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Susp
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified;
 /**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_TrickToBill;
+/**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
@@ -475,6 +481,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Sus
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified;
 /**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_TrickToBill;
+/**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
@@ -651,6 +663,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious;
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified;
 /**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_TrickToBill;
+/**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
@@ -728,6 +746,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Subresourc
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious;
 /** Value: "THREAT_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
+/** Value: "TRICK_TO_BILL" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_TrickToBill;
 /** Value: "UNWANTED_SOFTWARE" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware;
 
@@ -924,6 +944,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_S
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified;
+/**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
@@ -1124,6 +1150,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified;
+/**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
@@ -1490,6 +1522,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_TrickToBill
+ *        Trick-to-bill threat list. (Value: "TRICK_TO_BILL")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware
  *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
@@ -1637,6 +1671,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_TrickToBill
+ *        Trick-to-bill threat list. (Value: "TRICK_TO_BILL")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware
  *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
@@ -1928,6 +1964,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_TrickToBill Trick-to-bill
+ *        threat list. (Value: "TRICK_TO_BILL")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware Unwanted
  *        software threat type. (Value: "UNWANTED_SOFTWARE")
  */
@@ -2055,6 +2093,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_TrickToBill
+ *        Trick-to-bill threat list. (Value: "TRICK_TO_BILL")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware
  *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
@@ -2167,6 +2207,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        are suspected to present a threat. (Value: "SUSPICIOUS")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_TrickToBill Trick-to-bill
+ *        threat list. (Value: "TRICK_TO_BILL")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware Unwanted
  *        software threat type. (Value: "UNWANTED_SOFTWARE")
  */

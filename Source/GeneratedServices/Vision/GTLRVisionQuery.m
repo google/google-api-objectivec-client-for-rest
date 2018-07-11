@@ -20,6 +20,26 @@
 
 @end
 
+@implementation GTLRVisionQuery_FilesAsyncBatchAnnotate
+
++ (instancetype)queryWithObject:(GTLRVision_AsyncBatchAnnotateFilesRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/files:asyncBatchAnnotate";
+  GTLRVisionQuery_FilesAsyncBatchAnnotate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRVision_Operation class];
+  query.loggingName = @"vision.files.asyncBatchAnnotate";
+  return query;
+}
+
+@end
+
 @implementation GTLRVisionQuery_ImagesAnnotate
 
 + (instancetype)queryWithObject:(GTLRVision_BatchAnnotateImagesRequest *)object {

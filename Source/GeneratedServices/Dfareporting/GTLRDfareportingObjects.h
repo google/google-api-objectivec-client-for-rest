@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -66,6 +66,7 @@
 @class GTLRDfareporting_CustomRichMediaEvents;
 @class GTLRDfareporting_DateRange;
 @class GTLRDfareporting_DayPartTargeting;
+@class GTLRDfareporting_DeepLink;
 @class GTLRDfareporting_DefaultClickThroughEventTagProperties;
 @class GTLRDfareporting_DeliverySchedule;
 @class GTLRDfareporting_DfpSettings;
@@ -105,6 +106,7 @@
 @class GTLRDfareporting_LookbackConfiguration;
 @class GTLRDfareporting_Metric;
 @class GTLRDfareporting_Metro;
+@class GTLRDfareporting_MobileApp;
 @class GTLRDfareporting_MobileCarrier;
 @class GTLRDfareporting_ObjectFilter;
 @class GTLRDfareporting_OffsetPosition;
@@ -280,6 +282,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_AppInterstitial;
 GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_DisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamVideo;
 
@@ -306,6 +310,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_AppInterstit
 GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo;
 
@@ -514,6 +520,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_AppInterst
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_DisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamVideo;
 
@@ -538,6 +546,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_FlashInpage;
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Html5Banner;
 /** Value: "IMAGE" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Image;
+/** Value: "INSTREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamAudio;
 /** Value: "INSTREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamVideo;
 /** Value: "INSTREAM_VIDEO_REDIRECT" */
@@ -818,10 +828,14 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AlternateVideo
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_BackupImage;
 /** Value: "OTHER" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Other;
+/** Value: "PARENT_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentAudio;
 /** Value: "PARENT_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentVideo;
 /** Value: "PRIMARY" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Primary;
+/** Value: "TRANSCODED_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedAudio;
 /** Value: "TRANSCODED_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedVideo;
 
@@ -846,6 +860,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Window;
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAssetId.type
 
+/** Value: "AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Audio;
 /** Value: "FLASH" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Flash;
 /** Value: "HTML" */
@@ -1504,6 +1520,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityTy
 GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAccount;
 /** Value: "DCM_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAdvertiser;
+/** Value: "DFP_NETWORK_CODE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DfpNetworkCode;
 /** Value: "ENCRYPTION_ENTITY_TYPE_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_EncryptionEntityTypeUnknown;
 
@@ -1892,6 +1910,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ListMembe
 GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ReferrerTerm;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_MobileApp.directory
+
+/** Value: "APPLE_APP_STORE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AppleAppStore;
+/** Value: "GOOGLE_PLAY_STORE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_GooglePlayStore;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_ObjectFilter.status
 
 /** Value: "ALL" */
@@ -1930,6 +1958,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_AppInters
 GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_DisplayInterstitial;
+/** Value: "IN_STREAM_AUDIO" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamVideo;
 
@@ -3164,7 +3194,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *subaccountId;
 
 /**
- *  Trafficker type of this user profile.
+ *  Trafficker type of this user profile. This is a read-only field.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_AccountUserProfile_TraffickerType_ExternalTrafficker
@@ -3347,6 +3377,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *    @arg @c kGTLRDfareporting_Ad_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_Ad_Compatibility_DisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_Ad_Compatibility_InStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  *    @arg @c kGTLRDfareporting_Ad_Compatibility_InStreamVideo Value
  *        "IN_STREAM_VIDEO"
  */
@@ -3633,6 +3665,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo Value
  *        "IN_STREAM_VIDEO"
  */
@@ -5300,10 +5334,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *commercialId;
 
 /**
- *  List of companion creatives assigned to an in-Stream videocreative.
+ *  List of companion creatives assigned to an in-Stream video creative.
  *  Acceptable values include IDs of existing flash and image creatives.
- *  Applicable to the following creative types: all VPAID and all INSTREAM_VIDEO
- *  with dynamicAssetSelection set to false.
+ *  Applicable to the following creative types: all VPAID, all INSTREAM_AUDIO
+ *  and all INSTREAM_VIDEO with dynamicAssetSelection set to false.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5317,11 +5351,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Only pre-existing creatives may have these compatibilities since new
  *  creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead.
  *  IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with
- *  the VAST standard. Applicable to all creative types.
+ *  the VAST standard. IN_STREAM_AUDIO refers to rendering in in-stream audio
+ *  ads developed with the VAST standard. Applicable to all creative types.
  *  Acceptable values are:
  *  - "APP"
  *  - "APP_INTERSTITIAL"
  *  - "IN_STREAM_VIDEO"
+ *  - "IN_STREAM_AUDIO"
  *  - "DISPLAY"
  *  - "DISPLAY_INTERSTITIAL"
  */
@@ -5453,6 +5489,21 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *latestTraffickedCreativeId;
+
+/**
+ *  Description of the audio or video ad. Applicable to the following creative
+ *  types: all INSTREAM_VIDEO, INSTREAM_AUDIO, and all VPAID.
+ */
+@property(nonatomic, copy, nullable) NSString *mediaDescription;
+
+/**
+ *  Creative audio or video duration in seconds. This is a read-only field.
+ *  Applicable to the following creative types: INSTREAM_VIDEO, INSTREAM_AUDIO,
+ *  all RICH_MEDIA, and all VPAID.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mediaDuration;
 
 /**
  *  Name of the creative. This is a required field and must be less than 256
@@ -5613,8 +5664,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *thirdPartyRichMediaImpressionsUrl;
 
 /**
- *  Third-party URLs for tracking in-stream video creative events. Applicable to
- *  the following creative types: all INSTREAM_VIDEO and all VPAID.
+ *  Third-party URLs for tracking in-stream creative events. Applicable to the
+ *  following creative types: all INSTREAM_VIDEO, all INSTREAM_AUDIO, and all
+ *  VPAID.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ThirdPartyTrackingUrl *> *thirdPartyUrls;
 
@@ -5656,6 +5708,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *    @arg @c kGTLRDfareporting_Creative_Type_FlashInpage Value "FLASH_INPAGE"
  *    @arg @c kGTLRDfareporting_Creative_Type_Html5Banner Value "HTML5_BANNER"
  *    @arg @c kGTLRDfareporting_Creative_Type_Image Value "IMAGE"
+ *    @arg @c kGTLRDfareporting_Creative_Type_InstreamAudio Value
+ *        "INSTREAM_AUDIO"
  *    @arg @c kGTLRDfareporting_Creative_Type_InstreamVideo Value
  *        "INSTREAM_VIDEO"
  *    @arg @c kGTLRDfareporting_Creative_Type_InstreamVideoRedirect Value
@@ -5690,7 +5744,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  A Universal Ad ID as per the VAST 4.0 spec. Applicable to the following
- *  creative types: INSTREAM_VIDEO and VPAID.
+ *  creative types: INSTREAM_AUDIO and INSTREAM_VIDEO and VPAID.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_UniversalAdId *universalAdId;
 
@@ -5706,20 +5760,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
-
-/**
- *  Description of the video ad. Applicable to the following creative types: all
- *  INSTREAM_VIDEO and all VPAID.
- */
-@property(nonatomic, copy, nullable) NSString *videoDescription;
-
-/**
- *  Creative video duration in seconds. This is a read-only field. Applicable to
- *  the following creative types: INSTREAM_VIDEO, all RICH_MEDIA, and all VPAID.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoDuration;
 
 @end
 
@@ -5739,9 +5779,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *actionScript3;
 
 /**
- *  Whether the video asset is active. This is a read-only field for
+ *  Whether the video or audio asset is active. This is a read-only field for
  *  VPAID_NON_LINEAR_VIDEO assets. Applicable to the following creative types:
- *  INSTREAM_VIDEO and all VPAID.
+ *  INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5794,8 +5834,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) GTLRDfareporting_CreativeCustomEvent *backupImageExit;
 
 /**
- *  Detected bit-rate for video asset. This is a read-only field. Applicable to
- *  the following creative types: INSTREAM_VIDEO and all VPAID.
+ *  Detected bit-rate for audio or video asset. This is a read-only field.
+ *  Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO
+ *  and all VPAID.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5884,8 +5925,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  Duration in seconds for which an asset will be displayed. Applicable to the
- *  following creative types: INSTREAM_VIDEO and VPAID_LINEAR_VIDEO. Value must
- *  be greater than or equal to 1.
+ *  following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and
+ *  VPAID_LINEAR_VIDEO. Value must be greater than or equal to 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5971,8 +6012,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *idDimensionValue;
 
 /**
- *  Detected MIME type for video asset. This is a read-only field. Applicable to
- *  the following creative types: INSTREAM_VIDEO and all VPAID.
+ *  Detected duration for audio or video asset. This is a read-only field.
+ *  Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO
+ *  and all VPAID.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mediaDuration;
+
+/**
+ *  Detected MIME type for audio or video asset. This is a read-only field.
+ *  Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO
+ *  and all VPAID.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -6090,6 +6141,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  ALTERNATE_VIDEO assets that are marked active serve as backup in case the
  *  VPAID creative cannot be served. Only PARENT_VIDEO assets can be added or
  *  removed for an INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative.
+ *  PARENT_AUDIO refers to audios uploaded by the user in DCM and is applicable
+ *  to INSTREAM_AUDIO creatives.
+ *  TRANSCODED_AUDIO refers to audios transcoded by DCM from PARENT_AUDIO assets
+ *  and is applicable to INSTREAM_AUDIO creatives.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash Value
@@ -6101,9 +6156,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_BackupImage Value
  *        "BACKUP_IMAGE"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_Other Value "OTHER"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_ParentAudio Value
+ *        "PARENT_AUDIO"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_ParentVideo Value
  *        "PARENT_VIDEO"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_Primary Value "PRIMARY"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_TranscodedAudio Value
+ *        "TRANSCODED_AUDIO"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_TranscodedVideo Value
  *        "TRANSCODED_VIDEO"
  */
@@ -6163,14 +6222,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *verticallyLocked;
 
 /**
- *  Detected video duration for video asset. This is a read-only field.
- *  Applicable to the following creative types: INSTREAM_VIDEO and all VPAID.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoDuration;
-
-/**
  *  Window mode options for flash assets. Applicable to the following creative
  *  types: FLASH_INPAGE, RICH_MEDIA_DISPLAY_EXPANDING, RICH_MEDIA_IM_EXPAND,
  *  RICH_MEDIA_DISPLAY_BANNER, and RICH_MEDIA_INPAGE_FLOATING.
@@ -6227,6 +6278,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  longer supported for new uploads. All image assets should use HTML_IMAGE.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_CreativeAssetId_Type_Audio Value "AUDIO"
  *    @arg @c kGTLRDfareporting_CreativeAssetId_Type_Flash Value "FLASH"
  *    @arg @c kGTLRDfareporting_CreativeAssetId_Type_Html Value "HTML"
  *    @arg @c kGTLRDfareporting_CreativeAssetId_Type_HtmlImage Value
@@ -7303,6 +7355,40 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
+ *  Contains information about a landing page deep link.
+ */
+@interface GTLRDfareporting_DeepLink : GTLRObject
+
+/** The URL of the mobile app being linked to. */
+@property(nonatomic, copy, nullable) NSString *appUrl;
+
+/**
+ *  The fallback URL. This URL will be served to users who do not have the
+ *  mobile app installed.
+ */
+@property(nonatomic, copy, nullable) NSString *fallbackUrl;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#deepLink".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The mobile app targeted by this deep link. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_MobileApp *mobileApp;
+
+/**
+ *  Ads served to users on these remarketing lists will use this deep link.
+ *  Applicable when mobileApp.directory is APPLE_APP_STORE.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *remarketingListIds;
+
+@end
+
+
+/**
  *  Properties of inheriting and overriding the default click-through event tag.
  *  A campaign may override the event tag defined at the advertiser level, and
  *  an ad may also override the campaign's setting further.
@@ -8035,6 +8121,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *        Value "DCM_ACCOUNT"
  *    @arg @c kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAdvertiser
  *        Value "DCM_ADVERTISER"
+ *    @arg @c kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DfpNetworkCode
+ *        Value "DFP_NETWORK_CODE"
  *    @arg @c kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_EncryptionEntityTypeUnknown
  *        Value "ENCRYPTION_ENTITY_TYPE_UNKNOWN"
  */
@@ -9424,6 +9512,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *archived;
 
+/** Links that will direct the user to a mobile app, if installed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DeepLink *> *deepLinks;
+
 /**
  *  ID of this landing page. This is a read-only, auto-generated field.
  *
@@ -9782,6 +9873,75 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /** Metro collection. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Metro *> *metros;
+
+@end
+
+
+/**
+ *  Contains information about a mobile app. Used as a landing page deep link.
+ */
+@interface GTLRDfareporting_MobileApp : GTLRObject
+
+/**
+ *  Mobile app directory.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_AppleAppStore Value
+ *        "APPLE_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_GooglePlayStore Value
+ *        "GOOGLE_PLAY_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_Unknown Value "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *directory;
+
+/**
+ *  ID of this mobile app.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#mobileApp".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Publisher name. */
+@property(nonatomic, copy, nullable) NSString *publisherName;
+
+/** Title of this mobile app. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Mobile app List Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mobileApps" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDfareporting_MobileAppsListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#mobileAppsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Mobile apps collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_MobileApp *> *mobileApps;
+
+/** Pagination token to be used for the next list operation. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -10498,6 +10658,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *    @arg @c kGTLRDfareporting_Placement_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_Placement_Compatibility_DisplayInterstitial
  *        Value "DISPLAY_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_Placement_Compatibility_InStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  *    @arg @c kGTLRDfareporting_Placement_Compatibility_InStreamVideo Value
  *        "IN_STREAM_VIDEO"
  */
@@ -13671,7 +13833,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @interface GTLRDfareporting_ThirdPartyTrackingUrl : GTLRObject
 
 /**
- *  Third-party URL type for in-stream video creatives.
+ *  Third-party URL type for in-stream video and in-stream audio creatives.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_ClickTracking
@@ -13745,7 +13907,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  A Universal Ad ID as per the VAST 4.0 spec. Applicable to the following
- *  creative types: INSTREAM_VIDEO and VPAID.
+ *  creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and VPAID.
  */
 @interface GTLRDfareporting_UniversalAdId : GTLRObject
 

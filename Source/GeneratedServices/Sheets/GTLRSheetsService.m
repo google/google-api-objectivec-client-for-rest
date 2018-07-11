@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeSheetsSpreadsheetsReadonly = @"https://www.google
     // From discovery.
     self.rootURLString = @"https://sheets.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

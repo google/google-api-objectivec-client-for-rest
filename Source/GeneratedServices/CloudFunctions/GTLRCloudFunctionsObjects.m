@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
@@ -59,13 +59,28 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, descriptionProperty, entryPoint, eventTrigger,
-         httpsTrigger, labels, name, serviceAccountEmail, sourceArchiveUrl,
+@dynamic availableMemoryMb, descriptionProperty, entryPoint,
+         environmentVariables, eventTrigger, httpsTrigger, labels, maxInstances,
+         name, network, runtime, serviceAccountEmail, sourceArchiveUrl,
          sourceRepository, sourceUploadUrl, status, timeout, updateTime,
          versionId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CloudFunction_EnvironmentVariables
+//
+
+@implementation GTLRCloudFunctions_CloudFunction_EnvironmentVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly = @"htt
     // From discovery.
     self.rootURLString = @"https://cloudresourcemanager.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeSpannerData          = @"https://www.googleapis.c
     // From discovery.
     self.rootURLString = @"https://spanner.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

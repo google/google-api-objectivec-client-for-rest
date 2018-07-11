@@ -1016,7 +1016,8 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
  *  FORMATTED_VALUE.
- *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  The default dateTime render option is
+ *  DateTimeRenderOption.SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Value

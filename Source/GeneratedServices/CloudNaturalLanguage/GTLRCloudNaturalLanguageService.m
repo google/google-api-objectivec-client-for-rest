@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudPlatform = @"https://www
     // From discovery.
     self.rootURLString = @"https://language.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

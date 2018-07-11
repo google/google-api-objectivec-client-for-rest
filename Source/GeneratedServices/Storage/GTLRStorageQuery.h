@@ -2546,6 +2546,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
+ *  If true, objects that end in exactly one instance of delimiter will have
+ *  their metadata included in items in addition to prefixes.
+ */
+@property(nonatomic, assign) BOOL includeTrailingDelimiter;
+
+/**
  *  Maximum number of items plus prefixes to return in a single page of
  *  responses. As duplicate prefixes are omitted, fewer total results may be
  *  returned than requested. The service will use this parameter or 1,000 items,
@@ -3154,6 +3160,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  omitted.
  */
 @property(nonatomic, copy, nullable) NSString *delimiter;
+
+/**
+ *  If true, objects that end in exactly one instance of delimiter will have
+ *  their metadata included in items in addition to prefixes.
+ */
+@property(nonatomic, assign) BOOL includeTrailingDelimiter;
 
 /**
  *  Maximum number of items plus prefixes to return in a single page of

@@ -1078,14 +1078,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or
- *  `projects/<Project ID>/agent/environments/<Environment
+ *  or `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`. Note:
- *  Environments and
- *  users are under construction and will be available soon. The Context ID is
- *  always converted to lowercase. If <Environment ID> is not specified, we
- *  assume default 'draft' environment. If <User ID> is not specified, we
+ ID>/sessions/<Session ID>/contexts/<Context ID>`. The
+ *  `Context ID` is
+ *  always converted to lowercase. If `Environment ID` is not specified, we
+ *  assume default 'draft' environment. If `User ID` is not specified, we
  *  assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1243,8 +1241,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The exported agent.
  *  Example for how to export an agent to a zip file via a command line:
- *  curl \\
- *  'https://dialogflow.googleapis.com/v2beta1/projects/<project_name>/agent:export'\\
+ *  <pre>curl \\
+ *  'https://dialogflow.googleapis.com/v2beta1/projects/&lt;project_name&gt;/agent:export'\\
  *  -X POST \\
  *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
  *  -H 'Accept: application/json' \\
@@ -1252,7 +1250,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  --compressed \\
  *  --data-binary '{}' \\
  *  | grep agentContent | sed -e 's/.*"agentContent": "\\([^"]*\\)".* /\\1/' \\
- *  | base64 --decode > <agent zip file>
+ *  | base64 --decode > &lt;agent zip file&gt;</pre>
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1336,8 +1334,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  taken into account during inference in `ML ONLY` match mode. Also,
  *  auto-markup in the UI is turned off.
  *  DEPRECATED! Please use `ml_disabled` field instead.
- *  NOTE: If neither `ml_enabled` nor `ml_disabled` field is set, then the
- *  default value is determined as follows:
+ *  NOTE: If both `ml_enabled` and `ml_disabled` are either not set or false,
+ *  then the default value is determined as follows:
  *  - Before April 15th, 2018 the default is:
  *  ml_enabled = false / ml_disabled = true.
  *  - After April 15th, 2018 the default is:
@@ -1722,8 +1720,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage : GTLRObject
 
 /**
- *  Optional. A text description of the image to be used for accessibility,
- *  e.g., screen readers.
+ *  A text description of the image to be used for accessibility,
+ *  e.g., screen readers. Required if image_uri is set for CarouselSelect.
  */
 @property(nonatomic, copy, nullable) NSString *accessibilityText;
 
@@ -2086,6 +2084,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
+/**
+ *  Optional. The version of the protocol used for this request.
+ *  This field is AoG-specific.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -2143,6 +2147,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The intent detection confidence. Values range from 0.0
  *  (completely uncertain) to 1.0 (completely certain).
+ *  If there are `multiple knowledge_answers` messages, this value is set to
+ *  the greatest `knowledgeAnswers.match_confidence` value in the list.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2453,7 +2459,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse : GTLRObject
 
-/** The results of the conversational query or event processing. */
+/**
+ *  The selected results of the conversational query or event processing.
+ *  See `alternative_query_results` for additional potential results.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult *queryResult;
 
 /**
@@ -2609,9 +2618,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest : GTLRObject
 
 /**
- *  Optional. The Google Cloud Storage URI to export the agent to.
- *  Note: The URI must start with
- *  "gs://". If left unspecified, the serialized agent is returned inline.
+ *  Optional. The
+ *  [Google Cloud Storage](https://cloud.google.com/storage/docs/)
+ *  URI to export the agent to.
+ *  The format of this URI must be `gs://<bucket-name>/<object-name>`.
+ *  If left unspecified, the serialized agent is returned inline.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -2626,8 +2637,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The exported agent.
  *  Example for how to export an agent to a zip file via a command line:
- *  curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/<project_name>/agent:export'\\
+ *  <pre>curl \\
+ *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:export'\\
  *  -X POST \\
  *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
  *  -H 'Accept: application/json' \\
@@ -2635,7 +2646,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  --compressed \\
  *  --data-binary '{}' \\
  *  | grep agentContent | sed -e 's/.*"agentContent": "\\([^"]*\\)".* /\\1/' \\
- *  | base64 --decode > <agent zip file>
+ *  | base64 --decode > &lt;agent zip file&gt;</pre>
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2659,16 +2670,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The agent to import.
  *  Example for how to import an agent via the command line:
- *  curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/<project_name>/agent:import\\
+ *  <pre>curl \\
+ *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:import\\
  *  -X POST \\
  *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\
  *  --data-binary "{
- *  'agentContent': '$(cat <agent zip file> | base64 -w 0)'
- *  }"
+ *  'agentContent': '$(cat &lt;agent zip file&gt; | base64 -w 0)'
+ *  }"</pre>
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3674,6 +3685,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
+/**
+ *  Optional. The version of the protocol used for this request.
+ *  This field is AoG-specific.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3811,6 +3828,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The intent detection confidence. Values range from 0.0
  *  (completely uncertain) to 1.0 (completely certain).
+ *  If there are `multiple knowledge_answers` messages, this value is set to
+ *  the greatest `knowledgeAnswers.match_confidence` value in the list.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3920,16 +3939,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The agent to restore.
  *  Example for how to restore an agent via the command line:
- *  curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/<project_name>/agent:restore\\
+ *  <pre>curl \\
+ *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:restore\\
  *  -X POST \\
  *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\
  *  --data-binary "{
- *  'agentContent': '$(cat <agent zip file> | base64 -w 0)'
- *  }" \\
+ *  'agentContent': '$(cat &lt;agent zip file&gt; | base64 -w 0)'
+ *  }"</pre>
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

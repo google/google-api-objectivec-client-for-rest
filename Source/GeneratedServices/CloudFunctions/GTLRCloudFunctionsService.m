@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform = @"https://www.googl
     // From discovery.
     self.rootURLString = @"https://cloudfunctions.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

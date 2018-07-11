@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Container Builder API (cloudbuild/v1)
+//   Cloud Container Builder (cloudbuild/v1)
 // Description:
 //   Builds container images in the cloud.
 // Documentation:

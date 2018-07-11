@@ -1931,7 +1931,10 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_Document : GTLRObject
 
-/** The content of the input in string format. */
+/**
+ *  The content of the input in string format.
+ *  Cloud audit logging exempt since it is based on user data.
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
