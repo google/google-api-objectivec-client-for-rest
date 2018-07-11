@@ -222,13 +222,14 @@
 //
 
 @implementation GTLRDrive_File
-@dynamic appProperties, capabilities, contentHints, createdTime,
-         descriptionProperty, explicitlyTrashed, fileExtension, folderColorRgb,
-         fullFileExtension, hasAugmentedPermissions, hasThumbnail,
-         headRevisionId, iconLink, identifier, imageMediaMetadata,
-         isAppAuthorized, kind, lastModifyingUser, md5Checksum, mimeType,
-         modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
-         ownedByMe, owners, parents, permissionIds, permissions, properties,
+@dynamic appProperties, capabilities, contentHints,
+         copyRequiresWriterPermission, createdTime, descriptionProperty,
+         explicitlyTrashed, fileExtension, folderColorRgb, fullFileExtension,
+         hasAugmentedPermissions, hasThumbnail, headRevisionId, iconLink,
+         identifier, imageMediaMetadata, isAppAuthorized, kind,
+         lastModifyingUser, md5Checksum, mimeType, modifiedByMe,
+         modifiedByMeTime, modifiedTime, name, originalFilename, ownedByMe,
+         owners, parents, permissionIds, permissions, properties,
          quotaBytesUsed, shared, sharedWithMeTime, sharingUser, size, spaces,
          starred, teamDriveId, thumbnailLink, thumbnailVersion, trashed,
          trashedTime, trashingUser, version, videoMediaMetadata, viewedByMe,
@@ -277,11 +278,11 @@
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAddChildren, canChangeViewersCanCopyContent, canComment, canCopy,
-         canDelete, canDownload, canEdit, canListChildren,
-         canMoveItemIntoTeamDrive, canMoveTeamDriveItem, canReadRevisions,
-         canReadTeamDrive, canRemoveChildren, canRename, canShare, canTrash,
-         canUntrash;
+@dynamic canAddChildren, canChangeCopyRequiresWriterPermission,
+         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
+         canDownload, canEdit, canListChildren, canMoveItemIntoTeamDrive,
+         canMoveTeamDriveItem, canReadRevisions, canReadTeamDrive,
+         canRemoveChildren, canRename, canShare, canTrash, canUntrash;
 @end
 
 
@@ -542,7 +543,7 @@
 
 @implementation GTLRDrive_TeamDrive
 @dynamic backgroundImageFile, backgroundImageLink, capabilities, colorRgb,
-         createdTime, identifier, kind, name, themeId;
+         createdTime, identifier, kind, name, restrictions, themeId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -572,10 +573,23 @@
 //
 
 @implementation GTLRDrive_TeamDrive_Capabilities
-@dynamic canAddChildren, canChangeTeamDriveBackground, canComment, canCopy,
+@dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
+         canChangeDomainUsersOnlyRestriction, canChangeTeamDriveBackground,
+         canChangeTeamMembersOnlyRestriction, canComment, canCopy,
          canDeleteTeamDrive, canDownload, canEdit, canListChildren,
          canManageMembers, canReadRevisions, canRemoveChildren, canRename,
          canRenameTeamDrive, canShare;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_TeamDrive_Restrictions
+//
+
+@implementation GTLRDrive_TeamDrive_Restrictions
+@dynamic adminManagedRestrictions, copyRequiresWriterPermission,
+         domainUsersOnly, teamMembersOnly;
 @end
 
 

@@ -228,6 +228,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ballotPlacement;
 
+/**
+ *  The official title on the ballot for this contest, only where available.
+ */
+@property(nonatomic, copy, nullable) NSString *ballotTitle;
+
 /** The candidate choices for this contest. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Candidate *> *candidates;
 
@@ -727,14 +732,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *countryName;
 @property(nonatomic, copy, nullable) NSString *countryNameCode;
 @property(nonatomic, copy, nullable) NSString *dependentLocalityName;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfareLeadingType;
 @property(nonatomic, copy, nullable) NSString *dependentThoroughfareName;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfarePostDirection;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfarePreDirection;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresConnector;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresIndicator;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresType;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfareTrailingType;
 @property(nonatomic, copy, nullable) NSString *firmName;
 
 /**
@@ -754,12 +752,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sortingCode;
 @property(nonatomic, copy, nullable) NSString *subAdministrativeAreaName;
 @property(nonatomic, copy, nullable) NSString *subPremiseName;
-@property(nonatomic, copy, nullable) NSString *thoroughfareLeadingType;
 @property(nonatomic, copy, nullable) NSString *thoroughfareName;
 @property(nonatomic, copy, nullable) NSString *thoroughfareNumber;
-@property(nonatomic, copy, nullable) NSString *thoroughfarePostDirection;
-@property(nonatomic, copy, nullable) NSString *thoroughfarePreDirection;
-@property(nonatomic, copy, nullable) NSString *thoroughfareTrailingType;
 
 @end
 
@@ -955,9 +949,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
 
 /**
- *  If no election ID was specified in the query, and there was more than one
- *  election with data for the given voter, this will contain information about
- *  the other elections that could apply.
+ *  When there are multiple elections for a voter address, the otherElections
+ *  field is populated in the API response and there are two possibilities: 1.
+ *  If the earliest election is not the intended election, specify the election
+ *  ID of the desired election in a second API request using the electionId
+ *  field. 2. If these elections occur on the same day, the API doesn?t return
+ *  any polling location, contest, or election official information to ensure
+ *  that an additional query is made. For user-facing applications, we recommend
+ *  displaying these elections to the user to disambiguate. A second API request
+ *  using the electionId field should be made for the election that is relevant
+ *  to the user.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Election *> *otherElections;
 

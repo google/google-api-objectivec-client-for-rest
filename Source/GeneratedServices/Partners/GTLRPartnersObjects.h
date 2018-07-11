@@ -2688,6 +2688,13 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoApprovalEmailDomains;
 
 /**
+ *  Whether the company's badge authority is in AWN
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *badgeAuthorityInAwn;
+
+/**
  *  Partner badge tier
  *
  *  Likely values:

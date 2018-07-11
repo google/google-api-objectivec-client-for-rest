@@ -636,10 +636,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** The authentication information for accessing the master endpoint. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
-/**
- *  Master authorized networks is a Beta feature.
- *  The configuration options for master authorized networks feature.
- */
+/** The configuration options for master authorized networks feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
 
 /**
@@ -812,7 +809,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
 /**
- *  Master authorized networks is a Beta feature.
  *  The desired configuration options for master authorized networks feature.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig;
@@ -960,7 +956,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /**
  *  The parent (project, location, cluster id) where the node pool will be
  *  created. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1314,7 +1310,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
- *  Master authorized networks is a Beta feature.
  *  Configuration options for the master authorized networks feature. Enabled
  *  master authorized networks will disallow all external traffic to access
  *  Kubernetes master through HTTPS except traffic from the given CIDR blocks,

@@ -505,7 +505,8 @@ GTLR_EXTERN NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_Vi
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
+ *  month.
  *
  *  Uses NSNumber of intValue.
  */

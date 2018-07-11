@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeDataflowUserinfoEmail   = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://dataflow.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

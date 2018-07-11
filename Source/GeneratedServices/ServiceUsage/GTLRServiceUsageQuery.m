@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1beta1)
+//   Service Usage API (serviceusage/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -20,13 +20,57 @@
 
 @end
 
+@implementation GTLRServiceUsageQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceUsage_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRServiceUsageQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceUsage_Empty class];
+  query.loggingName = @"serviceusage.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceUsageQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceUsageQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceUsage_Empty class];
+  query.loggingName = @"serviceusage.operations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceUsageQuery_OperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRServiceUsageQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -44,7 +88,7 @@
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta1/operations";
+  NSString *pathURITemplate = @"v1/operations";
   GTLRServiceUsageQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -67,7 +111,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/services:batchEnable";
+  NSString *pathURITemplate = @"v1/{+parent}/services:batchEnable";
   GTLRServiceUsageQuery_ServicesBatchEnable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -92,7 +136,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:disable";
+  NSString *pathURITemplate = @"v1/{+name}:disable";
   GTLRServiceUsageQuery_ServicesDisable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -117,7 +161,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:enable";
+  NSString *pathURITemplate = @"v1/{+name}:enable";
   GTLRServiceUsageQuery_ServicesEnable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -137,13 +181,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRServiceUsageQuery_ServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRServiceUsage_Service class];
+  query.expectedObjectClass = [GTLRServiceUsage_GoogleApiServiceusageV1Service class];
   query.loggingName = @"serviceusage.services.get";
   return query;
 }
@@ -156,7 +200,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/services";
+  NSString *pathURITemplate = @"v1/{+parent}/services";
   GTLRServiceUsageQuery_ServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

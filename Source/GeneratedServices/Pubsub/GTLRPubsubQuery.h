@@ -32,6 +32,7 @@
 @class GTLRPubsub_Topic;
 @class GTLRPubsub_UpdateSnapshotRequest;
 @class GTLRPubsub_UpdateSubscriptionRequest;
+@class GTLRPubsub_UpdateTopicRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -51,18 +52,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [ALPHA] This method is a part of a closed Alpha API.
- *  Creates a snapshot from the requested subscription.
+ *  Creates a snapshot from the requested subscription.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
  *  If the backlog in the subscription is too old -- and the resulting snapshot
  *  would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
- *  See also the `Snapshot.expire_time` field.
- *  If the name is not provided in the request, the server will assign a random
+ *  See also the `Snapshot.expire_time` field. If the name is not provided in
+ *  the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription, conforming
- *  to the
- *  [resource name
- *  format](https://cloud.google.com/pubsub/docs/overview#names). The generated
+ *  to the [resource name
+ *  format](https://cloud.google.com/pubsub/docs/overview#names).
+ *  The generated
  *  name is populated in the returned Snapshot object. Note that for REST API
  *  requests, you must specify a name in the request.
  *
@@ -88,18 +91,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  [ALPHA] This method is a part of a closed Alpha API.
- *  Creates a snapshot from the requested subscription.
+ *  Creates a snapshot from the requested subscription.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
  *  If the backlog in the subscription is too old -- and the resulting snapshot
  *  would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
- *  See also the `Snapshot.expire_time` field.
- *  If the name is not provided in the request, the server will assign a random
+ *  See also the `Snapshot.expire_time` field. If the name is not provided in
+ *  the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription, conforming
- *  to the
- *  [resource name
- *  format](https://cloud.google.com/pubsub/docs/overview#names). The generated
+ *  to the [resource name
+ *  format](https://cloud.google.com/pubsub/docs/overview#names).
+ *  The generated
  *  name is populated in the returned Snapshot object. Note that for REST API
  *  requests, you must specify a name in the request.
  *
@@ -120,11 +125,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes an existing snapshot. All messages retained in the snapshot
+ *  Removes an existing snapshot. <br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
+ *  When the snapshot is deleted, all messages retained in the snapshot
  *  are immediately dropped. After a snapshot is deleted, a new one may be
  *  created with the same name, but the new one has no association with the old
  *  snapshot or its subscription, unless the same subscription is specified.
- *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  Method: pubsub.projects.snapshots.delete
  *
@@ -145,11 +153,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Removes an existing snapshot. All messages retained in the snapshot
+ *  Removes an existing snapshot. <br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
+ *  When the snapshot is deleted, all messages retained in the snapshot
  *  are immediately dropped. After a snapshot is deleted, a new one may be
  *  created with the same name, but the new one has no association with the old
  *  snapshot or its subscription, unless the same subscription is specified.
- *  [ALPHA] This method is a part of a closed Alpha API.
  *
  *  @param snapshot The name of the snapshot to delete.
  *    Format is `projects/{project}/snapshots/{snap}`.
@@ -161,8 +172,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the configuration details of a snapshot.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Gets the configuration details of a snapshot.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Method: pubsub.projects.snapshots.get
  *
@@ -183,8 +196,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Gets the configuration details of a snapshot.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Gets the configuration details of a snapshot.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  @param snapshot The name of the snapshot to get.
  *    Format is `projects/{project}/snapshots/{snap}`.
@@ -234,8 +249,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the existing snapshots.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Lists the existing snapshots.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Method: pubsub.projects.snapshots.list
  *
@@ -266,8 +283,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_ListSnapshotsResponse.
  *
- *  Lists the existing snapshots.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Lists the existing snapshots.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  @param project The name of the cloud project that snapshots belong to.
  *    Format is `projects/{project}`.
@@ -283,9 +302,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing snapshot. Note that certain properties of a
- *  snapshot are not modifiable.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Updates an existing snapshot.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
+ *  Note that certain properties of a snapshot are not modifiable.
  *
  *  Method: pubsub.projects.snapshots.patch
  *
@@ -303,9 +324,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Updates an existing snapshot. Note that certain properties of a
- *  snapshot are not modifiable.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Updates an existing snapshot.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
+ *  Note that certain properties of a snapshot are not modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateSnapshotRequest to include in the
  *    query.
@@ -449,7 +472,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a subscription to a given topic.
+ *  Creates a subscription to a given topic. See the
+ *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
  *  If the subscription already exists, returns `ALREADY_EXISTS`.
  *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
  *  If the name is not provided in the request, the server will assign a random
@@ -482,7 +506,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Subscription.
  *
- *  Creates a subscription to a given topic.
+ *  Creates a subscription to a given topic. See the
+ *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
  *  If the subscription already exists, returns `ALREADY_EXISTS`.
  *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
  *  If the name is not provided in the request, the server will assign a random
@@ -801,8 +826,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Pulls messages from the server. Returns an empty list if there are no
- *  messages available in the backlog. The server may return `UNAVAILABLE` if
+ *  Pulls messages from the server. The server may return `UNAVAILABLE` if
  *  there are too many concurrent pull requests pending for the given
  *  subscription.
  *
@@ -825,8 +849,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_PullResponse.
  *
- *  Pulls messages from the server. Returns an empty list if there are no
- *  messages available in the backlog. The server may return `UNAVAILABLE` if
+ *  Pulls messages from the server. The server may return `UNAVAILABLE` if
  *  there are too many concurrent pull requests pending for the given
  *  subscription.
  *
@@ -843,8 +866,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  whichever is provided in the request.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Method: pubsub.projects.subscriptions.seek
  *
@@ -863,8 +888,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_SeekResponse.
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  whichever is provided in the request.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  @param object The @c GTLRPubsub_SeekRequest to include in the query.
  *  @param subscription The subscription to affect.
@@ -962,7 +989,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates the given topic with the given name.
+ *  Creates the given topic with the given name. See the
+ *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
  *
  *  Method: pubsub.projects.topics.create
  *
@@ -987,7 +1015,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Topic.
  *
- *  Creates the given topic with the given name.
+ *  Creates the given topic with the given name. See the
+ *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
  *  @param name The name of the topic. It must have the format
@@ -1164,6 +1193,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates an existing topic. Note that certain properties of a
+ *  topic are not modifiable.
+ *
+ *  Method: pubsub.projects.topics.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsTopicsPatch : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsTopicsPatchWithObject:name:]
+
+/**
+ *  The name of the topic. It must have the format
+ *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
+ *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
+ *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
+ *  signs (`%`). It must be between 3 and 255 characters in length, and it
+ *  must not start with `"goog"`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsub_Topic.
+ *
+ *  Updates an existing topic. Note that certain properties of a
+ *  topic are not modifiable.
+ *
+ *  @param object The @c GTLRPubsub_UpdateTopicRequest to include in the query.
+ *  @param name The name of the topic. It must have the format
+ *    `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
+ *    and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
+ *    underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
+ *    signs (`%`). It must be between 3 and 255 characters in length, and it
+ *    must not start with `"goog"`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsTopicsPatch
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_UpdateTopicRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
  *  does not exist. The message payload must not be empty; it must contain
  *  either a non-empty data field, or at least one attribute.
@@ -1241,8 +1315,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the names of the snapshots on this topic.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Lists the names of the snapshots on this topic.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Method: pubsub.projects.topics.snapshots.list
  *
@@ -1273,8 +1349,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_ListTopicSnapshotsResponse.
  *
- *  Lists the names of the snapshots on this topic.
- *  [ALPHA] This method is a part of a closed Alpha API.
+ *  Lists the names of the snapshots on this topic.<br><br>
+ *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
  *
  *  @param topic The name of the topic that snapshots are attached to.
  *    Format is `projects/{project}/topics/{topic}`.

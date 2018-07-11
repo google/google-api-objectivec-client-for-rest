@@ -294,15 +294,15 @@ GTLR_EXTERN NSString * const kGTLRJobService_CompensationEntry_Unit_Yearly;
 // GTLRJobService_CompensationFilter.type
 
 /**
- *  Filter by annualized base compensation amount and ** base compensation
- *  entry's ** unit. Populate range and zero or more units.
+ *  Filter by annualized base compensation amount and `base compensation
+ *  entry's` unit. Populate range and zero or more units.
  *
  *  Value: "ANNUALIZED_BASE_AMOUNT"
  */
 GTLR_EXTERN NSString * const kGTLRJobService_CompensationFilter_Type_AnnualizedBaseAmount;
 /**
- *  Filter by annualized total compensation amount and ** base compensation
- *  entry's ** unit . Populate range and zero or more units.
+ *  Filter by annualized total compensation amount and `base compensation
+ *  entry's` unit . Populate range and zero or more units.
  *
  *  Value: "ANNUALIZED_TOTAL_AMOUNT"
  */
@@ -314,7 +314,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_CompensationFilter_Type_AnnualizedT
  */
 GTLR_EXTERN NSString * const kGTLRJobService_CompensationFilter_Type_FilterTypeUnspecified;
 /**
- *  Filter by ** base compensation entry's ** unit and amount / range. A job
+ *  Filter by `base compensation entry's` unit and amount / range. A job
  *  is a match if and only if the job contains a base CompensationEntry, and
  *  the base entry's unit matches provided compensation_units and amount
  *  or range overlaps with provided compensation_range.
@@ -326,7 +326,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_CompensationFilter_Type_FilterTypeU
  */
 GTLR_EXTERN NSString * const kGTLRJobService_CompensationFilter_Type_UnitAndAmount;
 /**
- *  Filter by ** base compensation entry's ** unit. A job is a match if and
+ *  Filter by `base compensation entry's` unit. A job is a match if and
  *  only if the job contains a base CompensationEntry and the base
  *  CompensationEntry's unit matches provided units.
  *  Populate one or more units.
@@ -526,7 +526,14 @@ GTLR_EXTERN NSString * const kGTLRJobService_CustomFieldFilter_Type_Or;
  */
 GTLR_EXTERN NSString * const kGTLRJobService_DeviceInfo_DeviceType_Android;
 /**
- *  The device type is not specified.
+ *  A bot, as opposed to a device operated by human beings, such as a web
+ *  crawler.
+ *
+ *  Value: "BOT"
+ */
+GTLR_EXTERN NSString * const kGTLRJobService_DeviceInfo_DeviceType_Bot;
+/**
+ *  The device type isn't specified.
  *
  *  Value: "DEVICE_TYPE_UNSPECIFIED"
  */
@@ -582,16 +589,16 @@ GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Compensa
 // GTLRJobService_ExtendedCompensationFilter.type
 
 /**
- *  Filter by annualized base compensation amount and ** base compensation
- *  entry's ** unit. Populate compensation_range and zero or more
+ *  Filter by annualized base compensation amount and `base compensation
+ *  entry's` unit. Populate compensation_range and zero or more
  *  compensation_units.
  *
  *  Value: "ANNUALIZED_BASE_AMOUNT"
  */
 GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Type_AnnualizedBaseAmount;
 /**
- *  Filter by annualized total compensation amount and ** base compensation
- *  entry's ** unit . Populate compensation_range and zero or more
+ *  Filter by annualized total compensation amount and `base compensation
+ *  entry's` unit . Populate compensation_range and zero or more
  *  compensation_units.
  *
  *  Value: "ANNUALIZED_TOTAL_AMOUNT"
@@ -604,7 +611,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Type_Ann
  */
 GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Type_FilterTypeUnspecified;
 /**
- *  Filter by ** base compensation entry's ** unit and amount / range. A job
+ *  Filter by `base compensation entry's` unit and amount / range. A job
  *  is a match if and only if the job contains a base CompensationEntry, and
  *  the base entry's unit matches provided compensation_units and amount
  *  or range overlaps with provided compensation_range.
@@ -618,7 +625,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Type_Fil
  */
 GTLR_EXTERN NSString * const kGTLRJobService_ExtendedCompensationFilter_Type_UnitAndAmount;
 /**
- *  Filter by ** base compensation entry's ** unit. A job is a match if and
+ *  Filter by `base compensation entry's` unit. A job is a match if and
  *  only if the job contains a base CompensationEntry and the base
  *  CompensationEntry's unit matches provided compensation_units.
  *  Populate one or more compensation_units.
@@ -1670,14 +1677,14 @@ GTLR_EXTERN NSString * const kGTLRJobService_JobQuery_PublishDateRange_PastYear;
 
 /**
  *  Deprecated. Please use the SearchJobsForAlert API.
- *  The job search matches against jobs that are suited to email notifications.
+ *  The job search matches against jobs suited to email notifications.
  *
  *  Value: "EMAIL_ALERT_SEARCH"
  */
 GTLR_EXTERN NSString * const kGTLRJobService_ResponseMetadata_Mode_EmailAlertSearch;
 /**
  *  The job search matches only against featured jobs (jobs with a
- *  promotionValue > 0). This method does not return any jobs that have a
+ *  promotionValue > 0). This method doesn't return any jobs having a
  *  promotionValue <= 0. The search results order is determined by the
  *  promotionValue (jobs with a higher promotionValue are returned higher up in
  *  the search results), with relevance being used as a tiebreaker.
@@ -1692,7 +1699,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_ResponseMetadata_Mode_FeaturedJobSe
  */
 GTLR_EXTERN NSString * const kGTLRJobService_ResponseMetadata_Mode_JobSearch;
 /**
- *  The mode of the search method is not specified.
+ *  The mode of the search method isn't specified.
  *
  *  Value: "SEARCH_MODE_UNSPECIFIED"
  */
@@ -1746,14 +1753,14 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_JobView_Small;
 
 /**
  *  Deprecated. Please use the SearchJobsForAlert API.
- *  The job search matches against jobs that are suited to email notifications.
+ *  The job search matches against jobs suited to email notifications.
  *
  *  Value: "EMAIL_ALERT_SEARCH"
  */
 GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_Mode_EmailAlertSearch;
 /**
  *  The job search matches only against featured jobs (jobs with a
- *  promotionValue > 0). This method does not return any jobs that have a
+ *  promotionValue > 0). This method doesn't return any jobs having a
  *  promotionValue <= 0. The search results order is determined by the
  *  promotionValue (jobs with a higher promotionValue are returned higher up in
  *  the search results), with relevance being used as a tiebreaker.
@@ -1768,7 +1775,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_Mode_FeaturedJobS
  */
 GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_Mode_JobSearch;
 /**
- *  The mode of the search method is not specified.
+ *  The mode of the search method isn't specified.
  *
  *  Value: "SEARCH_MODE_UNSPECIFIED"
  */
@@ -2200,6 +2207,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  and "Google", which the client wishes to use as the company displayed on
  *  the job. Best practice is to create a distinct company identifier for each
  *  distinct brand displayed.
+ *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *distributorCompanyId;
 
@@ -2245,7 +2253,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  A list of keys of filterable Job.custom_attributes, whose
  *  corresponding `string_values` are used in keyword search. Jobs with
  *  `string_values` under these specified field keys are returned if any
- *  of the values matches the search keyword.
+ *  of the values matches the search keyword. Custom field values with
+ *  parenthesis, brackets and special symbols might not be properly searchable,
+ *  and those keyword queries need to be surrounded by quotes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *keywordSearchableCustomAttributes;
 
@@ -2254,7 +2264,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  A list of filterable custom fields that should be used in keyword
  *  search. The jobs of this company are returned if any of these custom
- *  fields matches the search keyword.
+ *  fields matches the search keyword. Custom field values with parenthesis,
+ *  brackets and special symbols might not be properly searchable, and those
+ *  keyword queries need to be surrounded by quotes.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2471,19 +2483,18 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *
  *  Likely values:
  *    @arg @c kGTLRJobService_CompensationFilter_Type_AnnualizedBaseAmount
- *        Filter by annualized base compensation amount and ** base compensation
- *        entry's ** unit. Populate range and zero or more units. (Value:
+ *        Filter by annualized base compensation amount and `base compensation
+ *        entry's` unit. Populate range and zero or more units. (Value:
  *        "ANNUALIZED_BASE_AMOUNT")
  *    @arg @c kGTLRJobService_CompensationFilter_Type_AnnualizedTotalAmount
- *        Filter by annualized total compensation amount and ** base
- *        compensation
- *        entry's ** unit . Populate range and zero or more units. (Value:
+ *        Filter by annualized total compensation amount and `base compensation
+ *        entry's` unit . Populate range and zero or more units. (Value:
  *        "ANNUALIZED_TOTAL_AMOUNT")
  *    @arg @c kGTLRJobService_CompensationFilter_Type_FilterTypeUnspecified
  *        Filter type unspecified. Position holder, INVALID, should never be
  *        used. (Value: "FILTER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRJobService_CompensationFilter_Type_UnitAndAmount Filter by **
- *        base compensation entry's ** unit and amount / range. A job
+ *    @arg @c kGTLRJobService_CompensationFilter_Type_UnitAndAmount Filter by
+ *        `base compensation entry's` unit and amount / range. A job
  *        is a match if and only if the job contains a base CompensationEntry,
  *        and
  *        the base entry's unit matches provided compensation_units and amount
@@ -2491,8 +2502,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *        See CompensationInfo.CompensationEntry for definition of
  *        base compensation entry.
  *        Set exactly one units and populate range. (Value: "UNIT_AND_AMOUNT")
- *    @arg @c kGTLRJobService_CompensationFilter_Type_UnitOnly Filter by ** base
- *        compensation entry's ** unit. A job is a match if and
+ *    @arg @c kGTLRJobService_CompensationFilter_Type_UnitOnly Filter by `base
+ *        compensation entry's` unit. A job is a match if and
  *        only if the job contains a base CompensationEntry and the base
  *        CompensationEntry's unit matches provided units.
  *        Populate one or more units.
@@ -2503,7 +2514,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Required.
- *  Specify desired ** base compensation entry's **
+ *  Specify desired `base compensation entry's`
  *  CompensationInfo.CompensationUnit.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *units;
@@ -2742,8 +2753,6 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Input only.
  *  Create job request.
- *  The job typically becomes searchable within 10 seconds, but it may take
- *  up to 5 minutes for the job to become searchable.
  */
 @interface GTLRJobService_CreateJobRequest : GTLRObject
 
@@ -2815,10 +2824,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Required.
- *  Specifies the custom field key to perform a histogram on. If
- *  specified without `long_value_buckets` or `long_value_min_max`, a
- *  histogram on string values of the given `key` is triggered,
- *  otherwise histogram is performed on long values.
+ *  Specifies the custom field key to perform a histogram on. If specified
+ *  without `long_value_histogram_bucketing_option`, histogram on string values
+ *  of the given `key` is triggered, otherwise histogram is performed on long
+ *  values.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -2968,7 +2977,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Input only.
  *  Delete job by filter request.
  *  The job typically becomes unsearchable within 10 seconds, but it may take
- *  up to 5 minutes for the job to become unsearchable.
+ *  up to 5 minutes.
  */
 @interface GTLRJobService_DeleteJobsByFilterRequest : GTLRObject
 
@@ -2993,7 +3002,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Input only.
- *  Device information collected from the job searcher, candidate, or
+ *  Device information collected from the job seeker, candidate, or
  *  other entity conducting the job search. Providing this information improves
  *  the quality of the search results across devices.
  */
@@ -3006,8 +3015,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Likely values:
  *    @arg @c kGTLRJobService_DeviceInfo_DeviceType_Android An Android device
  *        native application. (Value: "ANDROID")
+ *    @arg @c kGTLRJobService_DeviceInfo_DeviceType_Bot A bot, as opposed to a
+ *        device operated by human beings, such as a web crawler. (Value: "BOT")
  *    @arg @c kGTLRJobService_DeviceInfo_DeviceType_DeviceTypeUnspecified The
- *        device type is not specified. (Value: "DEVICE_TYPE_UNSPECIFIED")
+ *        device type isn't specified. (Value: "DEVICE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRJobService_DeviceInfo_DeviceType_Ios An iOS device native
  *        application. (Value: "IOS")
  *    @arg @c kGTLRJobService_DeviceInfo_DeviceType_MobileWeb A mobile device
@@ -3023,7 +3034,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  A device-specific ID. It must be a unique identifier, which distinguishes
+ *  A device-specific ID. The ID must be a unique identifier that distinguishes
  *  the device from other devices.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -3061,7 +3072,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Required.
- *  Specify desired ** base compensation entry's **
+ *  Specify desired `base compensation entry's`
  *  ExtendedCompensationInfo.CompensationUnit.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *compensationUnits;
@@ -3088,20 +3099,18 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *
  *  Likely values:
  *    @arg @c kGTLRJobService_ExtendedCompensationFilter_Type_AnnualizedBaseAmount
- *        Filter by annualized base compensation amount and ** base compensation
- *        entry's ** unit. Populate compensation_range and zero or more
+ *        Filter by annualized base compensation amount and `base compensation
+ *        entry's` unit. Populate compensation_range and zero or more
  *        compensation_units. (Value: "ANNUALIZED_BASE_AMOUNT")
  *    @arg @c kGTLRJobService_ExtendedCompensationFilter_Type_AnnualizedTotalAmount
- *        Filter by annualized total compensation amount and ** base
- *        compensation
- *        entry's ** unit . Populate compensation_range and zero or more
+ *        Filter by annualized total compensation amount and `base compensation
+ *        entry's` unit . Populate compensation_range and zero or more
  *        compensation_units. (Value: "ANNUALIZED_TOTAL_AMOUNT")
  *    @arg @c kGTLRJobService_ExtendedCompensationFilter_Type_FilterTypeUnspecified
  *        Filter type unspecified. Position holder, INVALID, should never be
  *        used. (Value: "FILTER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRJobService_ExtendedCompensationFilter_Type_UnitAndAmount
- *        Filter by ** base compensation entry's ** unit and amount / range. A
- *        job
+ *        Filter by `base compensation entry's` unit and amount / range. A job
  *        is a match if and only if the job contains a base CompensationEntry,
  *        and
  *        the base entry's unit matches provided compensation_units and amount
@@ -3112,7 +3121,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *        compensation_units and populate
  *        compensation_range. (Value: "UNIT_AND_AMOUNT")
  *    @arg @c kGTLRJobService_ExtendedCompensationFilter_Type_UnitOnly Filter by
- *        ** base compensation entry's ** unit. A job is a match if and
+ *        `base compensation entry's` unit. A job is a match if and
  *        only if the job contains a base CompensationEntry and the base
  *        CompensationEntry's unit matches provided compensation_units.
  *        Populate one or more compensation_units.
@@ -3447,19 +3456,19 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Optional.
  *  Specifies compensation field-based histogram requests.
- *  Duplicate CompensationHistogramRequest.types are not allowed.
+ *  Duplicate values of CompensationHistogramRequest.type are not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRJobService_CompensationHistogramRequest *> *compensationHistogramFacets;
 
 /**
  *  Optional.
  *  Specifies the custom attributes histogram requests.
- *  Duplicate CustomAttributeHistogramRequest.keys are not allowed.
+ *  Duplicate values of CustomAttributeHistogramRequest.key are not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRJobService_CustomAttributeHistogramRequest *> *customAttributeHistogramFacets;
 
 /**
- *  Optional. Specifies the simple type of histogram facets, e.g,
+ *  Optional. Specifies the simple type of histogram facets, for example,
  *  `COMPANY_SIZE`, `EMPLOYMENT_TYPE` etc. This field is equivalent to
  *  GetHistogramRequest.
  */
@@ -3759,7 +3768,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Optional but one of company_name or distributor_company_id must be
  *  provided.
- *  A unique company identifier that used by job distributors to identify an
+ *  A unique company identifier used by job distributors to identify an
  *  employer's company entity. company_name takes precedence over
  *  this field, and is the recommended field to use to identify companies.
  *  The maximum number of allowed characters is 255.
@@ -3790,15 +3799,15 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @property(nonatomic, strong, nullable) GTLRJobService_Date *endDate;
 
 /**
- *  Optional but strongly recommended to be provided for the best service
+ *  Optional but strongly recommended for the best service
  *  experience.
  *  The expiration timestamp of the job. After this timestamp, the
  *  job is marked as expired, and it no longer appears in search results. The
  *  expired job can't be deleted or listed by the DeleteJob and
  *  ListJobs APIs, but it can be retrieved with the GetJob API or
  *  updated with the UpdateJob API. An expired job can be updated and
- *  opened again by using a future expiration timestamp. It can also remain
- *  expired. Updating an expired job to be open fails if there is another
+ *  opened again by using a future expiration timestamp. Updating an expired job
+ *  fails if there is another
  *  existing open job with same requisition_id, company_name and
  *  language_code.
  *  The expired jobs are retained in our system for 90 days. However, the
@@ -3813,7 +3822,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  A valid date range is between 1970-01-01T00:00:00.0Z and
  *  2100-12-31T23:59:59.999Z. Invalid dates are ignored and treated as expire
  *  time not provided.
- *  If this value is not provided on job creation or invalid, the job posting
+ *  If this value is not provided at the time of job creation or is invalid, the
+ *  job posting
  *  expires after 30 days from the job's creation time. For example, if the
  *  job was created on 2017/01/01 13:00AM UTC with an unspecified expiration
  *  date, the job expires after 2017/01/31 13:00AM UTC.
@@ -3911,7 +3921,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  any requirements for fluency that are associated with the job.
  *  Language codes must be in BCP-47 format, such as "en-US" or "sr-Latn".
  *  For more information, see
- *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
+ *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47){:
+ *  class="external" target="_blank" }.
  *  The default value is `en-US`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -3939,12 +3950,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @property(nonatomic, copy, nullable) NSString *level;
 
 /**
- *  Optional but strongly recommended to be provided for the best service
- *  experience.
- *  Location(s) where the job is hiring.
- *  Providing the full street address(es) of the hiring
- *  location is recommended to enable better API results, including
- *  job searches by commute time.
+ *  Optional but strongly recommended for the best service experience.
+ *  Location(s) where the emploeyer is looking to hire for this job posting.
+ *  Specifying the full street address(es) of the hiring location enables
+ *  better API results, especially job searches by commute time.
  *  At most 50 locations are allowed for best search performance. If a job has
  *  more locations, it is suggested to split it into multiple jobs with unique
  *  requisition_ids (e.g. 'ReqA' becomes 'ReqA-1', 'ReqA-2', etc.) as
@@ -4040,7 +4049,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  for client identification and tracking of listings. A job is not allowed
  *  to be created if there is another job with the same requisition_id,
  *  company_name and language_code.
- *  The maximum number of allowed characters is 225.
+ *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *requisitionId;
 
@@ -4301,9 +4310,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  This filter specifies the locale of jobs to search against,
  *  for example, "en-US".
- *  If a value is not specified, the search results can contain jobs in any
+ *  If a value is not specified, the search results may contain jobs in any
  *  locale.
- *  Language codes should be in BCP-47 format, such as "en-US" or "sr-Latn".
+ *  Language codes should be in BCP-47 format, for example, "en-US" or
+ *  "sr-Latn".
  *  For more information, see
  *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
  *  At most 10 language code filters are allowed.
@@ -4329,7 +4339,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Jobs published within a range specified by this filter are searched
  *  against, for example, DateRange.PAST_MONTH. If a value is not
  *  specified, all open jobs are searched against regardless of the
- *  date on which they were published.
+ *  date they were published.
  *
  *  Likely values:
  *    @arg @c kGTLRJobService_JobFilters_PublishDateRange_DateRangeUnspecified
@@ -4352,15 +4362,15 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  The query filter contains the keywords that match against the job
  *  title, description, and location fields.
- *  The maximum query size is 255 bytes.
+ *  The maximum query size is 255 bytes/characters.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Optional.
+ *  Deprecated. Do not use this field.
  *  This flag controls whether the job search should be restricted to jobs
  *  owned by the current user.
- *  Defaults to false that all jobs accessible to the
+ *  Defaults to false where all jobs accessible to the
  *  user are searched against.
  *
  *  Uses NSNumber of boolValue.
@@ -4479,19 +4489,19 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  Allows filtering jobs by commute time with different travel methods (e.g.
- *  driving or public transit). Note: this only works with COMMUTE
- *  MODE. When specified, [JobQuery.location_filters] will be
+ *  Allows filtering jobs by commute time with different travel methods (for
+ *  example, driving or public transit). Note: This only works with COMMUTE
+ *  MODE. When specified, [JobQuery.location_filters] is
  *  ignored.
- *  Currently we do not support sorting by commute time.
+ *  Currently we don't support sorting by commute time.
  */
 @property(nonatomic, strong, nullable) GTLRJobService_CommutePreference *commuteFilter;
 
 /**
  *  Optional.
  *  This filter specifies the exact company display
- *  name of jobs to search against.
- *  If a value is not specified, jobs within the search results can be
+ *  name of the jobs to search against.
+ *  If a value isn't specified, jobs within the search results are
  *  associated with any company.
  *  If multiple values are specified, jobs within the search results may be
  *  associated with any of the specified companies.
@@ -4501,12 +4511,11 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  The company names filter specifies the company entities to search
- *  against.
- *  If a value is not specified, jobs are searched for against all
+ *  This filter specifies the company entities to search against.
+ *  If a value isn't specified, jobs are searched for against all
  *  companies.
  *  If multiple values are specified, jobs are searched against the
- *  specified companies.
+ *  companies specified.
  *  At most 20 company filters are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *companyNames;
@@ -4515,8 +4524,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  This search filter is applied only to
  *  Job.compensation_info. For example, if the filter is specified
- *  as "Hourly job with per-hour compensation > $15", only jobs that meet
- *  these criteria are searched. If a filter is not defined, all open jobs
+ *  as "Hourly job with per-hour compensation > $15", only jobs meeting
+ *  these criteria are searched. If a filter isn't defined, all open jobs
  *  are searched.
  */
 @property(nonatomic, strong, nullable) GTLRJobService_CompensationFilter *compensationFilter;
@@ -4524,7 +4533,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Optional.
  *  This filter specifies a structured syntax to match against the
- *  Job.custom_attributes that are marked as `filterable`.
+ *  Job.custom_attributes marked as `filterable`.
  *  The syntax for this expression is a subset of Google SQL syntax.
  *  Supported operators are: =, !=, <, <=, >, >= where the left of the operator
  *  is a custom field key and the right of the operator is a number or string
@@ -4533,8 +4542,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  perform case insensitive match and EMPTY(<field_name>) to filter on the
  *  existence of a key.
  *  Boolean expressions (AND/OR/NOT) are supported up to 3 levels of
- *  nesting (for example, "((A AND B AND C) OR NOT D) AND E"), and there can
- *  be a maximum of 50 comparisons/functions in the expression. The expression
+ *  nesting (for example, "((A AND B AND C) OR NOT D) AND E"), a maximum of 50
+ *  comparisons/functions are allowed in the expression. The expression
  *  must be < 2000 characters in length.
  *  Sample Query:
  *  (key1 = "TEST" OR LOWER(key1)="test" OR NOT EMPTY(key1)) AND key2 > 100
@@ -4556,7 +4565,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  The employment type filter specifies the employment type of jobs to
  *  search against, such as EmploymentType.FULL_TIME.
- *  If a value is not specified, jobs in the search results will include any
+ *  If a value is not specified, jobs in the search results include any
  *  employment type.
  *  If multiple values are specified, jobs in the search results include
  *  any of the specified employment types.
@@ -4567,7 +4576,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  This filter specifies the locale of jobs to search against,
  *  for example, "en-US".
- *  If a value is not specified, the search results can contain jobs in any
+ *  If a value isn't specified, the search results can contain jobs in any
  *  locale.
  *  Language codes should be in BCP-47 format, such as "en-US" or "sr-Latn".
  *  For more information, see
@@ -4580,7 +4589,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Optional.
  *  The location filter specifies geo-regions containing the jobs to
  *  search against. See LocationFilter for more information.
- *  If a location value is not specified, jobs that fit the other search
+ *  If a location value isn't specified, jobs fitting the other search
  *  criteria are retrieved regardless of where they're located.
  *  If multiple values are specified, jobs are retrieved from any of the
  *  specified locations, and, if different values are specified
@@ -4593,9 +4602,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Optional.
  *  Jobs published within a range specified by this filter are searched
- *  against, for example, DateRange.PAST_MONTH. If a value is not
- *  specified, all open jobs are searched against regardless of the
- *  date on which they were published.
+ *  against, for example, DateRange.PAST_MONTH. If a value isn't
+ *  specified, all open jobs are searched against regardless of their
+ *  published date.
  *
  *  Likely values:
  *    @arg @c kGTLRJobService_JobQuery_PublishDateRange_DateRangeUnspecified
@@ -4621,17 +4630,6 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  The maximum query size is 255 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *query;
-
-/**
- *  Optional.
- *  This flag controls whether the job search should be restricted to jobs
- *  owned by the current user.
- *  Defaults to false: all jobs accessible to the
- *  user are searched against.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *tenantJobOnly;
 
 @end
 
@@ -4778,8 +4776,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  The distance from the address in miles to search.
- *  The default distance is 20 miles and maximum distance is 5,000 miles.
+ *  The distance_in_miles is applied when the location being searched for is
+ *  identified as a city or smaller. When the location being searched for is a
+ *  state or larger, this field is ignored.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4856,8 +4855,8 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @property(nonatomic, copy, nullable) NSString *jobSummary;
 
 /**
- *  Contains snippets of text from the Job.job_title field that most
- *  closely match a search query's keywords, if available. The matching query
+ *  Contains snippets of text from the Job.job_title field most
+ *  closely matching a search query's keywords, if available. The matching query
  *  keywords are enclosed in HTML bold tags.
  */
 @property(nonatomic, copy, nullable) NSString *jobTitleSnippet;
@@ -5119,7 +5118,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  job board www.foo.com and career site www.bar.com, then this field is
  *  set to "foo.com" for use on the job board, and "bar.com" for use on the
  *  career site.
- *  If this field is not available for some reason, please send "UNKNOWN".
+ *  If this field is not available for some reason, send "UNKNOWN". Note that
+ *  any improvements to the service model for a particular tenant site rely on
+ *  this field being set correctly to some domain.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -5129,7 +5130,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  duration of an end user's interaction with the service over a period.
  *  Obfuscate this field for privacy concerns before
  *  providing it to the API.
- *  If this field is not available for some reason, please send "UNKNOWN".
+ *  If this field is not available for some reason, please send "UNKNOWN". Note
+ *  that any improvements to the service model for a particular tenant site,
+ *  rely on this field being set correctly to some unique session_id.
  */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
@@ -5140,7 +5143,9 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  in order to have the strongest positive impact on search quality.
  *  Obfuscate this field for privacy concerns before
  *  providing it to the service.
- *  If this field is not available for some reason, please send "UNKNOWN".
+ *  If this field is not available for some reason, please send "UNKNOWN". Note
+ *  that any improvements to the service model for a particular tenant site,
+ *  rely on this field being set correctly to some unique user_id.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -5170,11 +5175,11 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Likely values:
  *    @arg @c kGTLRJobService_ResponseMetadata_Mode_EmailAlertSearch Deprecated.
  *        Please use the SearchJobsForAlert API.
- *        The job search matches against jobs that are suited to email
- *        notifications. (Value: "EMAIL_ALERT_SEARCH")
+ *        The job search matches against jobs suited to email notifications.
+ *        (Value: "EMAIL_ALERT_SEARCH")
  *    @arg @c kGTLRJobService_ResponseMetadata_Mode_FeaturedJobSearch The job
  *        search matches only against featured jobs (jobs with a
- *        promotionValue > 0). This method does not return any jobs that have a
+ *        promotionValue > 0). This method doesn't return any jobs having a
  *        promotionValue <= 0. The search results order is determined by the
  *        promotionValue (jobs with a higher promotionValue are returned higher
  *        up in
@@ -5183,7 +5188,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *    @arg @c kGTLRJobService_ResponseMetadata_Mode_JobSearch The job search
  *        doesn't include support for featured jobs. (Value: "JOB_SEARCH")
  *    @arg @c kGTLRJobService_ResponseMetadata_Mode_SearchModeUnspecified The
- *        mode of the search method is not specified. (Value:
+ *        mode of the search method isn't specified. (Value:
  *        "SEARCH_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
@@ -5204,7 +5209,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @interface GTLRJobService_SearchJobsRequest : GTLRObject
 
 /**
- *  Deprecated. Any value provided in this field will be ignored.
+ *  Deprecated. Any value provided in this field is ignored.
  *  Optional.
  *  Controls whether to disable relevance thresholding. Relevance
  *  thresholding removes jobs that have low relevance in search results,
@@ -5260,7 +5265,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  The number of job attributes that is returned for jobs in the
+ *  The number of job attributes returned for jobs in the
  *  search response. Defaults to JobView.SMALL if no value is specified.
  *
  *  Likely values:
@@ -5296,11 +5301,11 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Likely values:
  *    @arg @c kGTLRJobService_SearchJobsRequest_Mode_EmailAlertSearch
  *        Deprecated. Please use the SearchJobsForAlert API.
- *        The job search matches against jobs that are suited to email
- *        notifications. (Value: "EMAIL_ALERT_SEARCH")
+ *        The job search matches against jobs suited to email notifications.
+ *        (Value: "EMAIL_ALERT_SEARCH")
  *    @arg @c kGTLRJobService_SearchJobsRequest_Mode_FeaturedJobSearch The job
  *        search matches only against featured jobs (jobs with a
- *        promotionValue > 0). This method does not return any jobs that have a
+ *        promotionValue > 0). This method doesn't return any jobs having a
  *        promotionValue <= 0. The search results order is determined by the
  *        promotionValue (jobs with a higher promotionValue are returned higher
  *        up in
@@ -5309,14 +5314,15 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *    @arg @c kGTLRJobService_SearchJobsRequest_Mode_JobSearch The job search
  *        doesn't include support for featured jobs. (Value: "JOB_SEARCH")
  *    @arg @c kGTLRJobService_SearchJobsRequest_Mode_SearchModeUnspecified The
- *        mode of the search method is not specified. (Value:
+ *        mode of the search method isn't specified. (Value:
  *        "SEARCH_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
  *  Optional.
- *  An integer that specifies the current offset (i.e. starting result) in
+ *  An integer that specifies the current offset (that is, starting result
+ *  location, amongst the jobs deemed by the API as relevant) in
  *  search results. This field is only considered if page_token is unset.
  *  For example, 0 means to return results starting from the first matching
  *  job, and 10 means to return from the 11th job. This can be used for
@@ -5330,7 +5336,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Deprecated. Use sort_by instead.
  *  Optional.
- *  The criteria that determine how search results are sorted.
+ *  The criteria determining how search results are sorted.
  *  Defaults to SortBy.RELEVANCE_DESC if no value is specified.
  *
  *  Likely values:
@@ -5381,7 +5387,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  The token that specifies the current offset within
+ *  The token specifying the current offset within
  *  search results. See SearchJobsResponse.next_page_token for
  *  an explanation of how to obtain the next set of query results.
  */
@@ -5403,7 +5409,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 
 /**
  *  Optional.
- *  The criteria that determine how search results are sorted.
+ *  The criteria determining how search results are sorted.
  *  Defaults to SortBy.RELEVANCE_DESC if no value is specified.
  *
  *  Likely values:
@@ -5452,7 +5458,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @interface GTLRJobService_SearchJobsResponse : GTLRObject
 
 /**
- *  The commute filter that the service applied to the specified query. This
+ *  The commute filter the service applied to the specified query. This
  *  information is only available when query has a valid CommutePreference.
  */
 @property(nonatomic, strong, nullable) GTLRJobService_CommutePreference *appliedCommuteFilter;
@@ -5587,8 +5593,6 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 /**
  *  Input only.
  *  Update job request.
- *  The job typically becomes searchable within 10 seconds, but it may take
- *  up to 5 minutes for the job to become searchable.
  */
 @interface GTLRJobService_UpdateJobRequest : GTLRObject
 

@@ -24,6 +24,8 @@
 @class GTLRServiceControl_AuditLog_Request;
 @class GTLRServiceControl_AuditLog_Response;
 @class GTLRServiceControl_AuditLog_ServiceData;
+@class GTLRServiceControl_Auth;
+@class GTLRServiceControl_Auth_Claims;
 @class GTLRServiceControl_AuthenticationInfo;
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
@@ -53,8 +55,13 @@
 @class GTLRServiceControl_QuotaProperties;
 @class GTLRServiceControl_ReportError;
 @class GTLRServiceControl_ReportInfo;
+@class GTLRServiceControl_Request;
+@class GTLRServiceControl_Request_Headers;
 @class GTLRServiceControl_RequestMetadata;
+@class GTLRServiceControl_Resource;
+@class GTLRServiceControl_Resource_Labels;
 @class GTLRServiceControl_ResourceInfo;
+@class GTLRServiceControl_ResourceLocation;
 @class GTLRServiceControl_Status;
 @class GTLRServiceControl_Status_Details_Item;
 
@@ -652,6 +659,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /** Metadata about the operation. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_RequestMetadata *requestMetadata;
 
+/** The resource location information. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ResourceLocation *resourceLocation;
+
 /**
  *  The resource or collection that is the target of the operation.
  *  The name is a scheme-less URI, not including the API service name.
@@ -752,6 +762,100 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
+ *  This message defines request authentication attributes. Terminology is
+ *  based on the JSON Web Token (JWT) standard, but the terms also
+ *  correlate to concepts in other standards.
+ */
+@interface GTLRServiceControl_Auth : GTLRObject
+
+/**
+ *  A list of access level resource names that allow resources to be
+ *  accessed by authenticated requester. It is part of Secure GCP processing
+ *  for the incoming request. An access level string has the format:
+ *  "//{api_service_name}/accessPolicies/{policy_id}/accessLevels/{short_name}"
+ *  Example:
+ *  "//accesscontextmanager.googleapis.com/accessPolicies/MY_POLICY_ID/accessLevels/MY_LEVEL"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  The intended audience(s) for this authentication information. Reflects
+ *  the audience (`aud`) claim within a JWT. The audience
+ *  value(s) depends on the `issuer`, but typically include one or more of
+ *  the following pieces of information:
+ *  * The services intended to receive the credential such as
+ *  ["pubsub.googleapis.com", "storage.googleapis.com"]
+ *  * A set of service-based scopes. For example,
+ *  ["https://www.googleapis.com/auth/cloud-platform"]
+ *  * The client id of an app, such as the Firebase project id for JWTs
+ *  from Firebase Auth.
+ *  Consult the documentation for the credential issuer to determine the
+ *  information provided.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *audiences;
+
+/**
+ *  Structured claims presented with the credential. JWTs include
+ *  `{key: value}` pairs for standard and private claims. The following
+ *  is a subset of the standard required and optional claims that would
+ *  typically be presented for a Google-based JWT:
+ *  {'iss': 'accounts.google.com',
+ *  'sub': '113289723416554971153',
+ *  'aud': ['123456789012', 'pubsub.googleapis.com'],
+ *  'azp': '123456789012.apps.googleusercontent.com',
+ *  'email': 'jsmith\@example.com',
+ *  'iat': 1353601026,
+ *  'exp': 1353604926}
+ *  SAML assertions are similarly specified, but with an identity provider
+ *  dependent structure.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Auth_Claims *claims;
+
+/**
+ *  The authorized presenter of the credential. Reflects the optional
+ *  Authorized Presenter (`azp`) claim within a JWT or the
+ *  OAuth client id. For example, a Google Cloud Platform client id looks
+ *  as follows: "123456789012.apps.googleusercontent.com".
+ */
+@property(nonatomic, copy, nullable) NSString *presenter;
+
+/**
+ *  The authenticated principal. Reflects the issuer (`iss`) and subject
+ *  (`sub`) claims within a JWT. The issuer and subject should be `/`
+ *  delimited, with `/` percent-encoded within the subject fragment. For
+ *  Google accounts, the principal format is:
+ *  "https://accounts.google.com/{id}"
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
+
+@end
+
+
+/**
+ *  Structured claims presented with the credential. JWTs include
+ *  `{key: value}` pairs for standard and private claims. The following
+ *  is a subset of the standard required and optional claims that would
+ *  typically be presented for a Google-based JWT:
+ *  {'iss': 'accounts.google.com',
+ *  'sub': '113289723416554971153',
+ *  'aud': ['123456789012', 'pubsub.googleapis.com'],
+ *  'azp': '123456789012.apps.googleusercontent.com',
+ *  'email': 'jsmith\@example.com',
+ *  'iat': 1353601026,
+ *  'exp': 1353604926}
+ *  SAML assertions are similarly specified, but with an identity provider
+ *  dependent structure.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_Auth_Claims : GTLRObject
+@end
+
+
+/**
  *  Authentication information for the operation.
  */
 @interface GTLRServiceControl_AuthenticationInfo : GTLRObject
@@ -817,6 +921,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Resource attributes used in IAM condition evaluation. This field contains
+ *  resource attributes like resource type and resource name.
+ *  To get the whole view of the attributes used in IAM
+ *  condition evaluation, the user must also look into
+ *  `AuditLog.request_metadata.request_attributes`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource *resourceAttributes;
 
 @end
 
@@ -2092,6 +2205,100 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
+ *  This message defines attributes for an HTTP request. If the actual
+ *  request is not an HTTP request, the runtime system should try to map
+ *  the actual request to an equivalent HTTP request.
+ */
+@interface GTLRServiceControl_Request : GTLRObject
+
+/**
+ *  The request authentication. May be absent for unauthenticated requests.
+ *  Derived from the HTTP request `Authorization` header or equivalent.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Auth *auth;
+
+/** The HTTP URL fragment. No URL decoding is performed. */
+@property(nonatomic, copy, nullable) NSString *fragment;
+
+/**
+ *  The HTTP request headers. If multiple headers share the same key, they
+ *  must be merged according to the HTTP spec. All header keys must be
+ *  lowercased, because HTTP header keys are case-insensitive.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Request_Headers *headers;
+
+/** The HTTP request `Host` header value. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The unique ID for a request, which can be propagated to downstream
+ *  systems. The ID should have low probability of collision
+ *  within a single day for a specific service.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The HTTP request method, such as `GET`, `POST`. */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/** The HTTP URL path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The network protocol used with the request, such as "http/1.1",
+ *  "spdy/3", "h2", "h2c", "webrtc", "tcp", "udp", "quic". See
+ *  https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids
+ *  for details.
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  The HTTP URL query in the format of `name1=value`&name2=value2`, as it
+ *  appears in the first line of the HTTP request. No decoding is performed.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  A special parameter for request reason. It is used by security systems
+ *  to associate auditing information with a request.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** The HTTP URL scheme, such as `http` and `https`. */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+/**
+ *  The HTTP request size in bytes. If unknown, it must be -1.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+/**
+ *  The timestamp when the `destination` service receives the first byte of
+ *  the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
+
+@end
+
+
+/**
+ *  The HTTP request headers. If multiple headers share the same key, they
+ *  must be merged according to the HTTP spec. All header keys must be
+ *  lowercased, because HTTP header keys are case-insensitive.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_Request_Headers : GTLRObject
+@end
+
+
+/**
  *  Metadata about the request.
  */
 @interface GTLRServiceControl_RequestMetadata : GTLRObject
@@ -2134,6 +2341,72 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *callerSuppliedUserAgent;
 
+/**
+ *  Request attributes used in IAM condition evaluation. This field contains
+ *  request attributes like request time and access levels associated with
+ *  the request.
+ *  To get the whole view of the attributes used in IAM
+ *  condition evaluation, the user must also look into
+ *  `AuditLog.authentication_info.resource_attributes`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Request *requestAttributes;
+
+@end
+
+
+/**
+ *  This message defines core attributes for a resource. A resource is an
+ *  addressable (named) entity provided by the destination service. For
+ *  example, a file stored on a network storage service.
+ */
+@interface GTLRServiceControl_Resource : GTLRObject
+
+/**
+ *  The labels or tags on the resource, such as AWS resource tags and
+ *  Kubernetes resource labels.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource_Labels *labels;
+
+/**
+ *  The stable identifier (name) of a resource on the `service`. A resource
+ *  can be logically identified as "//{resource.service}/{resource.name}".
+ *  The differences between a resource name and a URI are:
+ *  * Resource name is a logical identifier, independent of network
+ *  protocol and API version. For example,
+ *  `//pubsub.googleapis.com/projects/123/topics/news-feed`.
+ *  * URI often includes protocol and version information, so it can
+ *  be used directly by applications. For example,
+ *  `https://pubsub.googleapis.com/v1/projects/123/topics/news-feed`.
+ *  See https://cloud.google.com/apis/design/resource_names for details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The name of the service that this resource belongs to, such as
+ *  `pubsub.googleapis.com`. The service may be different from the DNS
+ *  hostname that actually serves the request.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  The type of the resource. The scheme is platform-specific because
+ *  different platforms define their resources differently.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The labels or tags on the resource, such as AWS resource tags and
+ *  Kubernetes resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_Resource_Labels : GTLRObject
 @end
 
 
@@ -2153,6 +2426,23 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** Name of the resource. This is used for auditing purposes. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Location information about a resource.
+ */
+@interface GTLRServiceControl_ResourceLocation : GTLRObject
+
+/**
+ *  The locations of a resource after the execution of the operation.
+ *  For example:
+ *  "europe-west1-a"
+ *  "us-east1"
+ *  "nam3"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *currentLocations;
 
 @end
 

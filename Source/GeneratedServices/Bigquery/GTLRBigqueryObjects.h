@@ -35,6 +35,7 @@
 @class GTLRBigquery_ExplainQueryStep;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_GoogleSheetsOptions;
+@class GTLRBigquery_IterationResult;
 @class GTLRBigquery_Job;
 @class GTLRBigquery_JobConfiguration;
 @class GTLRBigquery_JobConfiguration_Labels;
@@ -47,10 +48,13 @@
 @class GTLRBigquery_JobReference;
 @class GTLRBigquery_JobStatistics;
 @class GTLRBigquery_JobStatistics2;
+@class GTLRBigquery_JobStatistics2_ReservationUsage_Item;
 @class GTLRBigquery_JobStatistics3;
 @class GTLRBigquery_JobStatistics4;
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
+@class GTLRBigquery_ModelDefinition;
+@class GTLRBigquery_ModelDefinition_ModelOptions;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
 @class GTLRBigquery_QueryParameter;
@@ -72,6 +76,8 @@
 @class GTLRBigquery_TableRow;
 @class GTLRBigquery_TableSchema;
 @class GTLRBigquery_TimePartitioning;
+@class GTLRBigquery_TrainingRun;
+@class GTLRBigquery_TrainingRun_TrainingOptions;
 @class GTLRBigquery_UserDefinedFunctionResource;
 @class GTLRBigquery_ViewDefinition;
 
@@ -336,6 +342,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** [Required] A reference that identifies the dataset. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
+
+/**
+ *  [Optional] The default partition expiration for all partitioned tables in
+ *  the dataset, in milliseconds. Once this property is set, all newly-created
+ *  partitioned tables in the dataset will have an expirationMs property in the
+ *  timePartitioning settings set to this value, and changing the value will
+ *  only affect new tables, not existing ones. The storage in a partition will
+ *  have an expiration time of its partition time plus this value. Setting this
+ *  property overrides the use of defaultTableExpirationMs for partitioned
+ *  tables: only one of defaultTableExpirationMs and
+ *  defaultPartitionExpirationMs will be used for any new partitioned table. If
+ *  you provide an explicit timePartitioning.expirationMs when creating or
+ *  updating a partitioned table, that value takes precedence over the default
+ *  partition expiration time indicated by this property.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultPartitionExpirationMs;
 
 /**
  *  [Optional] The default lifetime of all tables in the dataset, in
@@ -1083,6 +1107,56 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_IterationResult
+ */
+@interface GTLRBigquery_IterationResult : GTLRObject
+
+/**
+ *  [Output-only, Beta] Time taken to run the training iteration in
+ *  milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
+
+/**
+ *  [Output-only, Beta] Eval loss computed on the eval data at the end of the
+ *  iteration. The eval loss is used for early stopping to avoid overfitting. No
+ *  eval loss if eval_split_method option is specified as no_split or auto_split
+ *  with input data size less than 500 rows.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evalLoss;
+
+/**
+ *  [Output-only, Beta] Index of the ML training iteration, starting from zero
+ *  for each training run.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  [Output-only, Beta] Learning rate used for this iteration, it varies for
+ *  different training iterations if learn_rate_strategy option is not constant.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *learnRate;
+
+/**
+ *  [Output-only, Beta] Training loss computed on the training data at the end
+ *  of the iteration. The training loss function is defined by model type.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainingLoss;
+
+@end
+
+
+/**
  *  GTLRBigquery_Job
  */
 @interface GTLRBigquery_Job : GTLRObject
@@ -1791,7 +1865,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Experimental] The geographic location of the job. Required except for US
- *  and EU.
+ *  and EU. See details at
+ *  https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1904,6 +1979,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
 
 /**
+ *  [Output-only, Beta] Index of current ML training iteration. Updated during
+ *  create model query job to show job progress.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modelTrainingCurrentIteration;
+
+/**
+ *  [Output-only, Beta] Expected number of iterations for the create model query
+ *  job specified as num_iterations in the input query. The actual total number
+ *  of iterations may be less than this number due to early stop.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modelTrainingExpectedTotalIteration;
+
+/**
  *  [Output-only] The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
@@ -1920,6 +2012,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *referencedTables;
 
+/** [Output-only] Job resource usage breakdown by reservation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics2_ReservationUsage_Item *> *reservationUsage;
+
 /**
  *  [Output-only] The schema of the results. Present only for successful dry run
  *  of non-legacy SQL queries.
@@ -1934,6 +2029,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "UPDATE": UPDATE query; see
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
  *  "DELETE": DELETE query; see
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  "MERGE": MERGE query; see
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
  *  "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT.
  *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ...
@@ -1979,6 +2076,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  parameters detected during a dry run validation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *undeclaredQueryParameters;
+
+@end
+
+
+/**
+ *  GTLRBigquery_JobStatistics2_ReservationUsage_Item
+ */
+@interface GTLRBigquery_JobStatistics2_ReservationUsage_Item : GTLRObject
+
+/**
+ *  [Output-only] Reservation name or "unreserved" for on-demand resources
+ *  usage.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output-only] Slot-milliseconds the job spent in the given reservation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slotMs;
 
 @end
 
@@ -2082,6 +2200,43 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigquery_JsonObject : GTLRObject
+@end
+
+
+/**
+ *  GTLRBigquery_ModelDefinition
+ */
+@interface GTLRBigquery_ModelDefinition : GTLRObject
+
+/**
+ *  [Output-only, Beta] Model options used for the first training run. These
+ *  options are immutable for subsequent training runs. Default values are used
+ *  for any options not specified in the input query.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ModelDefinition_ModelOptions *modelOptions;
+
+/**
+ *  [Output-only, Beta] Information about ml training runs, each training run
+ *  comprises of multiple iterations and there may be multiple training runs for
+ *  the model if warm start is used or if a user decides to continue a
+ *  previously cancelled query.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TrainingRun *> *trainingRuns;
+
+@end
+
+
+/**
+ *  [Output-only, Beta] Model options used for the first training run. These
+ *  options are immutable for subsequent training runs. Default values are used
+ *  for any options not specified in the input query.
+ */
+@interface GTLRBigquery_ModelDefinition_ModelOptions : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, copy, nullable) NSString *lossType;
+@property(nonatomic, copy, nullable) NSString *modelType;
+
 @end
 
 
@@ -2613,6 +2768,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  [Output-only, Beta] Present iff this table represents a ML model. Describes
+ *  the training information for the model, and it is required to run 'PREDICT'
+ *  queries.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ModelDefinition *model;
+
+/**
  *  [Output-only] The size of this table in bytes, excluding any data in the
  *  streaming buffer.
  *
@@ -3044,8 +3206,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_TimePartitioning : GTLRObject
 
 /**
- *  [Optional] Number of milliseconds for which to keep the storage for a
- *  partition.
+ *  [Optional] Number of milliseconds for which to keep the storage for
+ *  partitions in the table. The storage in a partition will have an expiration
+ *  time of its partition time plus this value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3053,9 +3216,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Experimental] [Optional] If not set, the table is partitioned by pseudo
- *  column '_PARTITIONTIME'; if set, the table is partitioned by this field. The
- *  field must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE
- *  or REQUIRED.
+ *  column, referenced via either '_PARTITIONTIME' as TIMESTAMP type, or
+ *  '_PARTITIONDATE' as DATE type. If field is specified, the table is instead
+ *  partitioned by this field. The field must be a top-level TIMESTAMP or DATE
+ *  field. Its mode must be NULLABLE or REQUIRED.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
@@ -3072,6 +3236,109 @@ NS_ASSUME_NONNULL_BEGIN
  *  per day.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TrainingRun
+ */
+@interface GTLRBigquery_TrainingRun : GTLRObject
+
+/** [Output-only, Beta] List of each iteration results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
+
+/**
+ *  [Output-only, Beta] Training run start time in milliseconds since the epoch.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  [Output-only, Beta] Different state applicable for a training run. IN
+ *  PROGRESS: Training run is in progress. FAILED: Training run ended due to a
+ *  non-retryable failure. SUCCEEDED: Training run successfully completed.
+ *  CANCELLED: Training run cancelled by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  [Output-only, Beta] Training options used by this training run. These
+ *  options are mutable for subsequent training runs. Default values are
+ *  explicitly stored for options not specified in the input query of the first
+ *  training run. For subsequent training runs, any option not explicitly
+ *  specified in the input query will be copied from the previous training run.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TrainingRun_TrainingOptions *trainingOptions;
+
+@end
+
+
+/**
+ *  [Output-only, Beta] Training options used by this training run. These
+ *  options are mutable for subsequent training runs. Default values are
+ *  explicitly stored for options not specified in the input query of the first
+ *  training run. For subsequent training runs, any option not explicitly
+ *  specified in the input query will be copied from the previous training run.
+ */
+@interface GTLRBigquery_TrainingRun_TrainingOptions : GTLRObject
+
+/**
+ *  earlyStop
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *earlyStop;
+
+/**
+ *  l1Reg
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *l1Reg;
+
+/**
+ *  l2Reg
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *l2Reg;
+
+/**
+ *  learnRate
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *learnRate;
+
+@property(nonatomic, copy, nullable) NSString *learnRateStrategy;
+
+/**
+ *  lineSearchInitLearnRate
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineSearchInitLearnRate;
+
+/**
+ *  maxIteration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIteration;
+
+/**
+ *  minRelProgress
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minRelProgress;
+
+/**
+ *  warmStart
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *warmStart;
 
 @end
 

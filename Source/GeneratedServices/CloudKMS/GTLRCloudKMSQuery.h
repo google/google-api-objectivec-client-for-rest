@@ -383,7 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Restore a CryptoKeyVersion in the
- *  DESTROY_SCHEDULED,
+ *  DESTROY_SCHEDULED
  *  state.
  *  Upon restoration of the CryptoKeyVersion, state
  *  will be set to DISABLED,
@@ -405,7 +405,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
  *  Restore a CryptoKeyVersion in the
- *  DESTROY_SCHEDULED,
+ *  DESTROY_SCHEDULED
  *  state.
  *  Upon restoration of the CryptoKeyVersion, state
  *  will be set to DISABLED,
@@ -739,7 +739,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update the version of a CryptoKey that will be used in Encrypt
+ *  Update the version of a CryptoKey that will be used in Encrypt.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
  *
@@ -756,7 +756,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
- *  Update the version of a CryptoKey that will be used in Encrypt
+ *  Update the version of a CryptoKey that will be used in Encrypt.
  *
  *  @param object The @c GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest to
  *    include in the query.

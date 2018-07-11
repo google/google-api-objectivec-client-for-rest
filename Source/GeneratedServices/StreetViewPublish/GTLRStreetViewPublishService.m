@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeStreetViewPublish = @"https://www.googleapis.com/
     // From discovery.
     self.rootURLString = @"https://streetviewpublish.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

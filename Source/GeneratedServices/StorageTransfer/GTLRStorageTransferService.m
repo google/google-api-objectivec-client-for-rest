@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeStorageTransferCloudPlatform = @"https://www.goog
     // From discovery.
     self.rootURLString = @"https://storagetransfer.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

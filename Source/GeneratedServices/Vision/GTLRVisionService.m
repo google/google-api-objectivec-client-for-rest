@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeVisionCloudVision   = @"https://www.googleapis.co
     // From discovery.
     self.rootURLString = @"https://vision.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

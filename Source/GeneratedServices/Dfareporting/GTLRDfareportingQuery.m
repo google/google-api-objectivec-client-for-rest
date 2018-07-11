@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.0)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -39,6 +39,7 @@ NSString * const kGTLRDfareportingCompatibilitiesApp           = @"APP";
 NSString * const kGTLRDfareportingCompatibilitiesAppInterstitial = @"APP_INTERSTITIAL";
 NSString * const kGTLRDfareportingCompatibilitiesDisplay       = @"DISPLAY";
 NSString * const kGTLRDfareportingCompatibilitiesDisplayInterstitial = @"DISPLAY_INTERSTITIAL";
+NSString * const kGTLRDfareportingCompatibilitiesInStreamAudio = @"IN_STREAM_AUDIO";
 NSString * const kGTLRDfareportingCompatibilitiesInStreamVideo = @"IN_STREAM_VIDEO";
 
 // compatibility
@@ -46,7 +47,13 @@ NSString * const kGTLRDfareportingCompatibilityApp             = @"APP";
 NSString * const kGTLRDfareportingCompatibilityAppInterstitial = @"APP_INTERSTITIAL";
 NSString * const kGTLRDfareportingCompatibilityDisplay         = @"DISPLAY";
 NSString * const kGTLRDfareportingCompatibilityDisplayInterstitial = @"DISPLAY_INTERSTITIAL";
+NSString * const kGTLRDfareportingCompatibilityInStreamAudio   = @"IN_STREAM_AUDIO";
 NSString * const kGTLRDfareportingCompatibilityInStreamVideo   = @"IN_STREAM_VIDEO";
+
+// directories
+NSString * const kGTLRDfareportingDirectoriesAppleAppStore   = @"APPLE_APP_STORE";
+NSString * const kGTLRDfareportingDirectoriesGooglePlayStore = @"GOOGLE_PLAY_STORE";
+NSString * const kGTLRDfareportingDirectoriesUnknown         = @"UNKNOWN";
 
 // eventTagTypes
 NSString * const kGTLRDfareportingEventTagTypesClickThroughEventTag = @"CLICK_THROUGH_EVENT_TAG";
@@ -174,6 +181,7 @@ NSString * const kGTLRDfareportingTypesDisplayRedirect         = @"DISPLAY_REDIR
 NSString * const kGTLRDfareportingTypesFlashInpage             = @"FLASH_INPAGE";
 NSString * const kGTLRDfareportingTypesHtml5Banner             = @"HTML5_BANNER";
 NSString * const kGTLRDfareportingTypesImage                   = @"IMAGE";
+NSString * const kGTLRDfareportingTypesInstreamAudio           = @"INSTREAM_AUDIO";
 NSString * const kGTLRDfareportingTypesInstreamVideo           = @"INSTREAM_VIDEO";
 NSString * const kGTLRDfareportingTypesInstreamVideoRedirect   = @"INSTREAM_VIDEO_REDIRECT";
 NSString * const kGTLRDfareportingTypesInternalRedirect        = @"INTERNAL_REDIRECT";
@@ -3362,6 +3370,60 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_MetrosListResponse class];
   query.loggingName = @"dfareporting.metros.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_MobileAppsGet
+
+@dynamic identifier, profileId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"profileId"
+  ];
+  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileApps/{id}";
+  GTLRDfareportingQuery_MobileAppsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRDfareporting_MobileApp class];
+  query.loggingName = @"dfareporting.mobileApps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_MobileAppsList
+
+@dynamic directories, ids, maxResults, pageToken, profileId, searchString;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"directories" : [NSString class],
+    @"ids" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithProfileId:(long long)profileId {
+  NSArray *pathParams = @[ @"profileId" ];
+  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileApps";
+  GTLRDfareportingQuery_MobileAppsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.expectedObjectClass = [GTLRDfareporting_MobileAppsListResponse class];
+  query.loggingName = @"dfareporting.mobileApps.list";
   return query;
 }
 

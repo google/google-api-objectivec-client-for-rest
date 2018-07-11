@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   Manages lightweight user-provided functions executed in response to events.
 // Documentation:
@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRCloudFunctions_CloudFunction;
+@class GTLRCloudFunctions_CloudFunction_EnvironmentVariables;
 @class GTLRCloudFunctions_CloudFunction_Labels;
 @class GTLRCloudFunctions_EventTrigger;
 @class GTLRCloudFunctions_FailurePolicy;
@@ -209,6 +210,12 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, copy, nullable) NSString *entryPoint;
 
 /**
+ *  **Beta Feature**
+ *  Environment variables that shall be available during function execution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_EnvironmentVariables *environmentVariables;
+
+/**
  *  A source that fires events in response to a condition in another service.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
@@ -220,10 +227,40 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_Labels *labels;
 
 /**
+ *  The limit on the maximum number of function instances that may coexist at a
+ *  given time. This feature is currently in alpha, available only for
+ *  whitelisted users.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstances;
+
+/**
  *  A user-defined name of the function. Function names must be unique
  *  globally and match pattern `projects/ * /locations/ * /functions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The VPC Network that this cloud function can connect to. It can be
+ *  either the fully-qualified URI, or the short name of the network resource.
+ *  If the short network name is used, the network must belong to the same
+ *  project. Otherwise, it must belong to a project within the same
+ *  organization. The format of this field is either
+ *  `projects/{project}/global/networks/{network}` or `{network}`, where
+ *  {project} is a project id where the network is defined, and {network} is
+ *  the short name of the network.
+ *  See [the VPC documentation](https://cloud.google.com/compute/docs/vpc) for
+ *  more information on connecting Cloud projects.
+ *  This feature is currently in alpha, available only for whitelisted users.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The runtime in which the function is going to run. If empty, defaults to
+ *  Node.js 6.
+ */
+@property(nonatomic, copy, nullable) NSString *runtime;
 
 /** Output only. The email of the function's service account. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
@@ -287,6 +324,19 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  */
 @property(nonatomic, strong, nullable) NSNumber *versionId;
 
+@end
+
+
+/**
+ *  **Beta Feature**
+ *  Environment variables that shall be available during function execution.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFunctions_CloudFunction_EnvironmentVariables : GTLRObject
 @end
 
 

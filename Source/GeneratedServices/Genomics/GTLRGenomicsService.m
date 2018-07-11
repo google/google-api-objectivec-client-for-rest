@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeGenomicsReadonly            = @"https://www.googl
     // From discovery.
     self.rootURLString = @"https://genomics.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

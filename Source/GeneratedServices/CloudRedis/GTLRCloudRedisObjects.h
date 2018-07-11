@@ -307,11 +307,11 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The current zone where the Redis endpoint is placed. In
- *  single zone deployments, this will always be the same as [location_id]
- *  provided by the user at creation time. In cross-zone instances (only
- *  applicable in STANDARD_HA tier), this can be either [location_id] or
- *  [alternative_location_id] and can change on a failover event.
+ *  Output only. The current zone where the Redis endpoint is placed. For Basic
+ *  Tier instances, this will always be the same as the [location_id]
+ *  provided by the user at creation time. For Standard Tier instances,
+ *  this can be either [location_id] or [alternative_location_id] and can
+ *  change after a failover event.
  */
 @property(nonatomic, copy, nullable) NSString *currentLocationId;
 
@@ -331,13 +331,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
  *  Optional. The zone where the instance will be provisioned. If not provided,
  *  the service will choose a zone for the instance. For STANDARD_HA tier,
  *  instances will be created across two zones for protection against zonal
- *  failures. if [alternative_location_id] is also provided, it must be
+ *  failures. If [alternative_location_id] is also provided, it must be
  *  different from [location_id].
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Required. Redis memory size in GB, up to 200GB.
+ *  Required. Redis memory size in GiB.
  *
  *  Uses NSNumber of intValue.
  */
@@ -348,7 +348,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
  *  location using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *  Note: Redis instances are managed and addressed at regional level so
- *  location_id here refers to a GCP region; however, users get to choose which
+ *  location_id here refers to a GCP region; however, users may choose which
  *  specific zone (or collection of zones for cross-zone instances) an instance
  *  should be provisioned in. Refer to [location_id] and
  *  [alternative_location_id] fields for more details.
@@ -383,7 +383,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
  *  Optional. The CIDR range of internal addresses that are reserved for this
  *  instance. If not provided, the service will choose an unused /29 block,
  *  for example, 10.0.0.0/29 or 192.168.0.0/29. Ranges must be unique
- *  and non-overlapping with existing subnets in a network.
+ *  and non-overlapping with existing subnets in an authorized network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 

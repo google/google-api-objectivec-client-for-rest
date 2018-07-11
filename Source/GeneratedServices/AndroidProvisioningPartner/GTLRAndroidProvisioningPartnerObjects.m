@@ -18,6 +18,12 @@
 NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
+// GTLRAndroidProvisioningPartner_Company.termsStatus
+NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted = @"TERMS_STATUS_ACCEPTED";
+NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusNotAccepted = @"TERMS_STATUS_NOT_ACCEPTED";
+NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale = @"TERMS_STATUS_STALE";
+NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified = @"TERMS_STATUS_UNSPECIFIED";
+
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
@@ -98,7 +104,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_Company
-@dynamic adminEmails, companyId, companyName, name, ownerEmails;
+@dynamic adminEmails, companyId, companyName, name, ownerEmails, termsStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

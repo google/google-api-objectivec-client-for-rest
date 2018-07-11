@@ -44,6 +44,7 @@
 @class GTLRAndroidPublisher_Season;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
+@class GTLRAndroidPublisher_SubscriptionPriceChange;
 @class GTLRAndroidPublisher_Timestamp;
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
@@ -530,6 +531,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *defaultPrice;
 
+/**
+ *  Grace period of the subscription, specified in ISO 8601 format. It will
+ *  allow developers to give their subscribers a grace period when the payment
+ *  for the new recurrence period is declined. Acceptable values = "P3D" (three
+ *  days) and "P7D" (seven days)
+ */
+@property(nonatomic, copy, nullable) NSString *gracePeriod;
+
 /** List of localized title and description data. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Listings *listings;
 
@@ -985,6 +994,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Contains the price change information for a subscription that can be used to
+ *  control the user journey for the price change in the app. This can be in the
+ *  form of seeking confirmation from the user or tailoring the experience for a
+ *  successful conversion.
+ */
+@interface GTLRAndroidPublisher_SubscriptionPriceChange : GTLRObject
+
+/**
+ *  The new price the subscription will renew with if the price change is
+ *  accepted by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *newPrice NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  The current state of the price change. Possible values are:
+ *  - Outstanding: State for a pending price change waiting for the user to
+ *  agree. In this state, you can optionally seek confirmation from the user
+ *  using the In-App API.
+ *  - Accepted: State for an accepted price change that the subscription will
+ *  renew with unless it's canceled. The price change takes effect on a future
+ *  date when the subscription renews. Note that the change might not occur when
+ *  the subscription is renewed next.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *state;
+
+@end
+
+
+/**
  *  A SubscriptionPurchase resource indicates the status of a user's
  *  subscription purchase.
  */
@@ -1100,6 +1140,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priceAmountMicros;
+
+/**
+ *  The latest price change information available. This is present only when
+ *  there is an upcoming price change for the subscription yet to be applied.
+ *  Once the subscription renews with the new price or the subscription is
+ *  canceled, no price change information will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionPriceChange *priceChange;
 
 /**
  *  ISO 4217 currency code for the subscription price. For example, if the price
@@ -1228,10 +1276,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackRelease *> *releases;
 
-/**
- *  Identifier for this track. One of "alpha", "beta", "production", "rollout"
- *  or "internal".
- */
+/** Identifier for this track. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 @end
@@ -1256,8 +1301,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Fraction of users who are eligible to receive the release. 0 <= fraction <
- *  1. To be set, release status must be "inProgress" or "halted".
+ *  Fraction of users who are eligible to receive the release. 0 < fraction < 1.
+ *  To be set, release status must be "inProgress" or "halted".
  *
  *  Uses NSNumber of doubleValue.
  */

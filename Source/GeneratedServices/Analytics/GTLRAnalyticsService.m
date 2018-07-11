@@ -19,6 +19,7 @@ NSString * const kGTLRAuthScopeAnalyticsManageUsers         = @"https://www.goog
 NSString * const kGTLRAuthScopeAnalyticsManageUsersReadonly = @"https://www.googleapis.com/auth/analytics.manage.users.readonly";
 NSString * const kGTLRAuthScopeAnalyticsProvision           = @"https://www.googleapis.com/auth/analytics.provision";
 NSString * const kGTLRAuthScopeAnalyticsReadonly            = @"https://www.googleapis.com/auth/analytics.readonly";
+NSString * const kGTLRAuthScopeAnalyticsUserDeletion        = @"https://www.googleapis.com/auth/analytics.user.deletion";
 
 // ----------------------------------------------------------------------------
 //   GTLRAnalyticsService
@@ -90,6 +91,7 @@ NSString * const kGTLRAuthScopeAnalyticsReadonly            = @"https://www.goog
     @"analytics#unsampledReports" : [GTLRAnalytics_UnsampledReports class],
     @"analytics#upload" : [GTLRAnalytics_Upload class],
     @"analytics#uploads" : [GTLRAnalytics_Uploads class],
+    @"analytics#userDeletionRequest" : [GTLRAnalytics_UserDeletionRequest class],
     @"analytics#userRef" : [GTLRAnalytics_UserRef class],
     @"analytics#webproperties" : [GTLRAnalytics_Webproperties class],
     @"analytics#webproperty" : [GTLRAnalytics_Webproperty class],

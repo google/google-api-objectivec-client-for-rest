@@ -98,6 +98,14 @@ NSString * const kGTLRServiceManagement_MetricDescriptor_ValueType_Money = @"MON
 NSString * const kGTLRServiceManagement_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceManagement_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRServiceManagement_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRServiceManagement_Rollout.status
 NSString * const kGTLRServiceManagement_Rollout_Status_Cancelled = @"CANCELLED";
 NSString * const kGTLRServiceManagement_Rollout_Status_Failed  = @"FAILED";
@@ -215,7 +223,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_AuthenticationRule
-@dynamic allowWithoutCredential, customAuth, oauth, requirements, selector;
+@dynamic allowWithoutCredential, oauth, requirements, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -469,16 +477,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_Control
 @dynamic environment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceManagement_CustomAuthRequirements
-//
-
-@implementation GTLRServiceManagement_CustomAuthRequirements
-@dynamic provider;
 @end
 
 
@@ -1037,8 +1035,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1051,6 +1049,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_MetricDescriptorMetadata
+//
+
+@implementation GTLRServiceManagement_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 

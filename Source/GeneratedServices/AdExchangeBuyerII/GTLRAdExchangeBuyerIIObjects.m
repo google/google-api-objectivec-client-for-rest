@@ -175,6 +175,7 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseByOmidScript = 
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseOfPersonalInformation = @"MISUSE_OF_PERSONAL_INFORMATION";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCertificatesToAdvertiseInChina = @"NEED_CERTIFICATES_TO_ADVERTISE_IN_CHINA";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder = @"NO_BORDER";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant = @"NON_SSL_COMPLIANT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor = @"NON_WHITELISTED_OMID_VENDOR";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe = @"NOT_FAMILY_SAFE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_OmissionOfRelevantInformation = @"OMISSION_OF_RELEVANT_INFORMATION";
@@ -202,6 +203,7 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredFlashObject
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredRestrictedContent = @"UNDECLARED_RESTRICTED_CONTENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedContent = @"UNSUPPORTED_CONTENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent = @"UNSUPPORTED_FLASH_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedLanguage = @"UNSUPPORTED_LANGUAGE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoFunctionality = @"VIDEO_FUNCTIONALITY";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoInvalidVendor = @"VIDEO_INVALID_VENDOR";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoTooLong = @"VIDEO_TOO_LONG";
@@ -1091,7 +1093,7 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 //
 
 @implementation GTLRAdExchangeBuyerII_ServingRestriction
-@dynamic contexts, disapprovalReasons, status;
+@dynamic contexts, disapproval, disapprovalReasons, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

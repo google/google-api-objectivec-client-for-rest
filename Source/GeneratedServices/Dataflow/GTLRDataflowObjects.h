@@ -23,6 +23,8 @@
 @class GTLRDataflow_ApproximateSplitRequest;
 @class GTLRDataflow_AutoscalingEvent;
 @class GTLRDataflow_AutoscalingSettings;
+@class GTLRDataflow_BigQueryIODetails;
+@class GTLRDataflow_BigTableIODetails;
 @class GTLRDataflow_ComponentSource;
 @class GTLRDataflow_ComponentTransform;
 @class GTLRDataflow_ComputationTopology;
@@ -35,6 +37,7 @@
 @class GTLRDataflow_CreateJobFromTemplateRequest_Parameters;
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
+@class GTLRDataflow_DatastoreIODetails;
 @class GTLRDataflow_DerivedSource;
 @class GTLRDataflow_Disk;
 @class GTLRDataflow_DisplayData;
@@ -48,6 +51,7 @@
 @class GTLRDataflow_ExecutionStageState;
 @class GTLRDataflow_ExecutionStageSummary;
 @class GTLRDataflow_FailedLocation;
+@class GTLRDataflow_FileIODetails;
 @class GTLRDataflow_FlattenInstruction;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
@@ -65,6 +69,7 @@
 @class GTLRDataflow_JobExecutionInfo_Stages;
 @class GTLRDataflow_JobExecutionStageInfo;
 @class GTLRDataflow_JobMessage;
+@class GTLRDataflow_JobMetadata;
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
@@ -87,12 +92,14 @@
 @class GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn;
 @class GTLRDataflow_PipelineDescription;
 @class GTLRDataflow_Position;
+@class GTLRDataflow_PubSubIODetails;
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ResourceUtilizationReport;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
+@class GTLRDataflow_SdkVersion;
 @class GTLRDataflow_SeqMapTask;
 @class GTLRDataflow_SeqMapTask_UserFn;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
@@ -116,6 +123,7 @@
 @class GTLRDataflow_SourceSplitRequest;
 @class GTLRDataflow_SourceSplitResponse;
 @class GTLRDataflow_SourceSplitShard;
+@class GTLRDataflow_SpannerIODetails;
 @class GTLRDataflow_SplitInt64;
 @class GTLRDataflow_StageSource;
 @class GTLRDataflow_StateFamilyConfig;
@@ -915,6 +923,41 @@ GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_SdkVersion.sdkSupportStatus
+
+/**
+ *  This version of the SDK is deprecated and will eventually be no
+ *  longer supported.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated;
+/**
+ *  A newer version of the SDK family exists, and an update is recommended.
+ *
+ *  Value: "STALE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale;
+/**
+ *  This is a known version of an SDK, and is supported.
+ *
+ *  Value: "SUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported;
+/**
+ *  Cloud Dataflow is unaware of this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
+/**
+ *  Support for this SDK version has ended and it should no longer be used.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
 
 /**
@@ -1381,6 +1424,43 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Metadata for a BigQuery connector used by the job.
+ */
+@interface GTLRDataflow_BigQueryIODetails : GTLRObject
+
+/** Dataset accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/** Project accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Query used to access data in the connection. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/** Table accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  Metadata for a BigTable connector used by the job.
+ */
+@interface GTLRDataflow_BigTableIODetails : GTLRObject
+
+/** InstanceId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/** ProjectId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** TableId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
  *  Description of an interstitial value between transforms in an execution
  *  stage.
  */
@@ -1808,6 +1888,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  "myproject-1014-104817-4c2-harness-0".
  */
 @property(nonatomic, copy, nullable) NSString *vmInstance;
+
+@end
+
+
+/**
+ *  Metadata for a Datastore connector used by the job.
+ */
+@interface GTLRDataflow_DatastoreIODetails : GTLRObject
+
+/**
+ *  Namespace used in the connection.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/** ProjectId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -2299,6 +2397,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Metadata for a File connector used by the job.
+ */
+@interface GTLRDataflow_FileIODetails : GTLRObject
+
+/** File Pattern used to access files by the connector. */
+@property(nonatomic, copy, nullable) NSString *filePattern;
+
+@end
+
+
+/**
  *  An instruction that copies its inputs (zero or more) to its (single) output.
  */
 @interface GTLRDataflow_FlattenInstruction : GTLRObject
@@ -2668,6 +2777,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  This field is populated by the Dataflow service to support filtering jobs
+ *  by the metadata values provided here. Populated for ListJobs and all GetJob
+ *  views SUMMARY and higher.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_JobMetadata *jobMetadata;
+
+/**
  *  User-defined labels for this job.
  *  The labels map can contain no more than 64 entries. Entries of the labels
  *  map are UTF8 strings that comply with the following restrictions:
@@ -2972,6 +3088,36 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The timestamp of the message. */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
+
+@end
+
+
+/**
+ *  Metadata available primarily for filtering jobs. Will be included in the
+ *  ListJob response and Job SUMMARY view+.
+ */
+@interface GTLRDataflow_JobMetadata : GTLRObject
+
+/** Identification of a BigQuery source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigQueryIODetails *> *bigqueryDetails;
+
+/** Identification of a BigTable source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigTableIODetails *> *bigTableDetails;
+
+/** Identification of a Datastore source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_DatastoreIODetails *> *datastoreDetails;
+
+/** Identification of a File source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_FileIODetails *> *fileDetails;
+
+/** Identification of a PubSub source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PubSubIODetails *> *pubsubDetails;
+
+/** The SDK version used to run the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SdkVersion *sdkVersion;
+
+/** Identification of a Spanner source used in the Dataflow job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SpannerIODetails *> *spannerDetails;
 
 @end
 
@@ -3712,6 +3858,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Metadata for a PubSub connector used by the job.
+ */
+@interface GTLRDataflow_PubSubIODetails : GTLRObject
+
+/** Subscription used in the connection. */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+/** Topic accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
  *  Identifies a pubsub location to use for transferring data into or
  *  out of a streaming Dataflow job.
  */
@@ -3928,6 +4088,39 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  The version of the SDK used to run the jobl
+ */
+@interface GTLRDataflow_SdkVersion : GTLRObject
+
+/**
+ *  The support status for this SDK version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated This version
+ *        of the SDK is deprecated and will eventually be no
+ *        longer supported. (Value: "DEPRECATED")
+ *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale A newer version of
+ *        the SDK family exists, and an update is recommended. (Value: "STALE")
+ *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported This is a
+ *        known version of an SDK, and is supported. (Value: "SUPPORTED")
+ *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown Cloud Dataflow
+ *        is unaware of this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported Support for
+ *        this SDK version has ended and it should no longer be used. (Value:
+ *        "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *sdkSupportStatus;
+
+/** The version of the SDK used to run the job. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/** A readable string describing the version of the sdk. */
+@property(nonatomic, copy, nullable) NSString *versionDisplayName;
 
 @end
 
@@ -4470,6 +4663,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** DEPRECATED */
 @property(nonatomic, strong, nullable) GTLRDataflow_Source *source;
+
+@end
+
+
+/**
+ *  Metadata for a Spanner connector used by the job.
+ */
+@interface GTLRDataflow_SpannerIODetails : GTLRObject
+
+/** DatabaseId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/** InstanceId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/** ProjectId accessed in the connection. */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 

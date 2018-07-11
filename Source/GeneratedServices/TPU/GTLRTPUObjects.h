@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1alpha1)
+//   Cloud TPU API (tpu/v1)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -28,6 +28,7 @@
 @class GTLRTPU_Operation;
 @class GTLRTPU_Operation_Metadata;
 @class GTLRTPU_Operation_Response;
+@class GTLRTPU_SchedulingConfig;
 @class GTLRTPU_Status;
 @class GTLRTPU_Status_Details_Item;
 @class GTLRTPU_TensorFlowVersion;
@@ -460,6 +461,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *port;
 
+@property(nonatomic, strong, nullable) GTLRTPU_SchedulingConfig *schedulingConfig;
+
 /**
  *  Output only.
  *  The service account used to run the tensor flow services within the node.
@@ -654,6 +657,21 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
  *  Request for ResetNode.
  */
 @interface GTLRTPU_ResetNodeRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRTPU_SchedulingConfig
+ */
+@interface GTLRTPU_SchedulingConfig : GTLRObject
+
+/**
+ *  preemptible
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preemptible;
+
 @end
 
 

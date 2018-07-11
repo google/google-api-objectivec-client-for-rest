@@ -41,6 +41,8 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
 GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
 /** Value: "NETWORK_CONFIGURATION" */
 GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
+/** Value: "PROVIDED_SOFTWARE" */
+GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -246,6 +248,8 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
  *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
  *        "NETWORK_CONFIGURATION"
+ *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
+ *        "PROVIDED_SOFTWARE"
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
@@ -273,6 +277,8 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
  *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
  *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
  *        "NETWORK_CONFIGURATION"
+ *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
+ *        "PROVIDED_SOFTWARE"
  *
  *  @return GTLRTestingQuery_TestEnvironmentCatalogGet
  */

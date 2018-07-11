@@ -12,10 +12,9 @@
 #import "GTLRServiceConsumerManagement.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 NSString * const kGTLRAuthScopeServiceConsumerManagementCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeServiceConsumerManagementServiceManagement = @"https://www.googleapis.com/auth/service.management";
 
 // ----------------------------------------------------------------------------
 //   GTLRServiceConsumerManagementService
@@ -29,7 +28,7 @@ NSString * const kGTLRAuthScopeServiceConsumerManagementServiceManagement = @"ht
     // From discovery.
     self.rootURLString = @"https://serviceconsumermanagement.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

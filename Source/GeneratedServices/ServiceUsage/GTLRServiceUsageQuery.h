@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1beta1)
+//   Service Usage API (serviceusage/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRServiceUsage_BatchEnableServicesRequest;
+@class GTLRServiceUsage_CancelOperationRequest;
 @class GTLRServiceUsage_DisableServiceRequest;
 @class GTLRServiceUsage_EnableServiceRequest;
 
@@ -38,6 +39,91 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: serviceusage.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceUsageCloudPlatform
+ *    @c kGTLRAuthScopeServiceUsageServiceManagement
+ */
+@interface GTLRServiceUsageQuery_OperationsCancel : GTLRServiceUsageQuery
+// Previous library name was
+//   +[GTLQueryServiceUsage queryForOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceUsage_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRServiceUsage_CancelOperationRequest to include in
+ *    the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRServiceUsageQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRServiceUsage_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: serviceusage.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceUsageCloudPlatform
+ *    @c kGTLRAuthScopeServiceUsageServiceManagement
+ */
+@interface GTLRServiceUsageQuery_OperationsDelete : GTLRServiceUsageQuery
+// Previous library name was
+//   +[GTLQueryServiceUsage queryForOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceUsage_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRServiceUsageQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -133,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: BatchEnableServicesResponse>
  *
  *  Method: serviceusage.services.batchEnable
  *
@@ -159,7 +245,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: BatchEnableServicesResponse>
  *
  *  @param object The @c GTLRServiceUsage_BatchEnableServicesRequest to include
  *    in the query.
@@ -183,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  It is not valid to call the disable method on a service that is not
  *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
  *  the target service is not currently enabled.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: DisableServiceResponse>
  *
  *  Method: serviceusage.services.disable
  *
@@ -213,7 +299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  It is not valid to call the disable method on a service that is not
  *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
  *  the target service is not currently enabled.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: DisableServiceResponse>
  *
  *  @param object The @c GTLRServiceUsage_DisableServiceRequest to include in
  *    the query.
@@ -232,7 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Enable a service so that it can be used with a project.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: EnableServiceResponse>
  *
  *  Method: serviceusage.services.enable
  *
@@ -260,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceUsage_Operation.
  *
  *  Enable a service so that it can be used with a project.
- *  Operation<response: google.protobuf.Empty>
+ *  Operation<response: EnableServiceResponse>
  *
  *  @param object The @c GTLRServiceUsage_EnableServiceRequest to include in the
  *    query.
@@ -302,7 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRServiceUsage_Service.
+ *  Fetches a @c GTLRServiceUsage_GoogleApiServiceusageV1Service.
  *
  *  Returns the service configuration and enabled state for a given service.
  *

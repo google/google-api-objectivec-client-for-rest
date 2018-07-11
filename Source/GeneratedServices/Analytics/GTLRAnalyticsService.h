@@ -65,6 +65,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsProvision;
  *  Value "https://www.googleapis.com/auth/analytics.readonly"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsReadonly;
+/**
+ *  Authorization scope: Manage Google Analytics user deletion requests
+ *
+ *  Value "https://www.googleapis.com/auth/analytics.user.deletion"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsUserDeletion;
 
 // ----------------------------------------------------------------------------
 //   GTLRAnalyticsService

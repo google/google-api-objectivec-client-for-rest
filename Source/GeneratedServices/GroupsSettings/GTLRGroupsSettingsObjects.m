@@ -19,12 +19,17 @@
 @dynamic allowExternalMembers, allowGoogleCommunication, allowWebPosting,
          archiveOnly, customFooterText, customReplyTo,
          defaultMessageDenyNotificationText, descriptionProperty, email,
-         includeCustomFooter, includeInGlobalAddressList, isArchived, kind,
-         maxMessageBytes, membersCanPostAsTheGroup, messageDisplayFont,
-         messageModerationLevel, name, primaryLanguage, replyTo,
-         sendMessageDenyNotification, showInGroupDirectory, spamModerationLevel,
-         whoCanAdd, whoCanContactOwner, whoCanInvite, whoCanJoin,
-         whoCanLeaveGroup, whoCanPostMessage, whoCanViewGroup,
+         favoriteRepliesOnTop, includeCustomFooter, includeInGlobalAddressList,
+         isArchived, kind, maxMessageBytes, membersCanPostAsTheGroup,
+         messageDisplayFont, messageModerationLevel, name, primaryLanguage,
+         replyTo, sendMessageDenyNotification, showInGroupDirectory,
+         spamModerationLevel, whoCanAdd, whoCanAddReferences,
+         whoCanAssignTopics, whoCanContactOwner, whoCanEnterFreeFormTags,
+         whoCanInvite, whoCanJoin, whoCanLeaveGroup, whoCanMarkDuplicate,
+         whoCanMarkFavoriteReplyOnAnyTopic, whoCanMarkFavoriteReplyOnOwnTopic,
+         whoCanMarkNoResponseNeeded, whoCanModifyTagsAndCategories,
+         whoCanPostMessage, whoCanTakeTopics, whoCanUnassignTopic,
+         whoCanUnmarkFavoriteReplyOnAnyTopic, whoCanViewGroup,
          whoCanViewMembership;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

@@ -4,8 +4,7 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Manages the execution of large numbers of distributed requests. Cloud Tasks
-//   is in Alpha.
+//   Manages the execution of large numbers of distributed requests.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -608,11 +607,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  If instance is empty, then the task
  *  will be sent to an instance which is available when the task is
  *  attempted.
- *  When service is "default",
- *  version is "default", and
- *  instance is empty,
- *  host is shortened to just the
- *  `application_domain_name`.
  *  If service,
  *  version, or
  *  instance is invalid, then the task
@@ -639,7 +633,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 /**
  *  App service.
  *  By default, the task is sent to the service which is the default
- *  service when the task is attempted ("default").
+ *  service when the task is attempted.
  *  For some queues or tasks which were created using the App Engine
  *  Task Queue API, host is not parsable
  *  into service,
@@ -657,7 +651,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 /**
  *  App version.
  *  By default, the task is sent to the version which is the default
- *  version when the task is attempted ("default").
+ *  version when the task is attempted.
  *  For some queues or tasks which were created using the App Engine
  *  Task Queue API, host is not parsable
  *  into service,
@@ -930,8 +924,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDuration *leaseDuration;
 
 /**
- *  The maximum number of tasks to lease. The maximum that can be
- *  requested is 1000.
+ *  The maximum number of tasks to lease.
+ *  The system will make a best effort to return as close to as
+ *  `max_tasks` as possible.
+ *  The largest that `max_tasks` can be is 1000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1278,6 +1274,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineHttpTarget *appEngineHttpTarget;
 
 /**
+ *  Caller-specified and required in CreateQueue,
+ *  after which it becomes output only.
  *  The queue name.
  *  The queue name must have the following format:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
@@ -1292,8 +1290,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  For more information, see https://cloud.google.com/about/locations/.
  *  * `QUEUE_ID` can contain letters ([A-Za-z]), numbers ([0-9]), or
  *  hyphens (-). The maximum length is 100 characters.
- *  Caller-specified and required in CreateQueue,
- *  after which it becomes output only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1808,6 +1804,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optionally caller-specified in CreateTask.
  *  The task name.
  *  The task name must have the following format:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
@@ -1824,7 +1821,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  hyphens (-). The maximum length is 100 characters.
  *  * `TASK_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
  *  hyphens (-), or underscores (_). The maximum length is 500 characters.
- *  Optionally caller-specified in CreateTask.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

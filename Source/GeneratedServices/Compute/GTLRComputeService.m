@@ -116,6 +116,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#reference" : [GTLRCompute_Reference class],
     @"compute#region" : [GTLRCompute_Region class],
     @"compute#regionAutoscalerList" : [GTLRCompute_RegionAutoscalerList class],
+    @"compute#regionDiskTypeList" : [GTLRCompute_RegionDiskTypeList class],
     @"compute#regionInstanceGroupList" : [GTLRCompute_RegionInstanceGroupList class],
     @"compute#regionInstanceGroupManagerList" : [GTLRCompute_RegionInstanceGroupManagerList class],
     @"compute#regionInstanceGroupsListInstances" : [GTLRCompute_RegionInstanceGroupsListInstances class],

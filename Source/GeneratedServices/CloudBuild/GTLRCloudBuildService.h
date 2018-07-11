@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Container Builder API (cloudbuild/v1)
+//   Cloud Container Builder (cloudbuild/v1)
 // Description:
 //   Builds container images in the cloud.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudBuildCloudPlatform;
 //
 
 /**
- *  Service for executing Cloud Container Builder API queries.
+ *  Service for executing Cloud Container Builder queries.
  *
  *  Builds container images in the cloud.
  */

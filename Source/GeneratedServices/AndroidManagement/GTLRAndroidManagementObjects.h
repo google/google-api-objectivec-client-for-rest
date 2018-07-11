@@ -21,9 +21,12 @@
 
 @class GTLRAndroidManagement_AlwaysOnVpnPackage;
 @class GTLRAndroidManagement_ApiLevelCondition;
+@class GTLRAndroidManagement_ApplicationEvent;
 @class GTLRAndroidManagement_ApplicationPermission;
 @class GTLRAndroidManagement_ApplicationPolicy;
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
+@class GTLRAndroidManagement_ApplicationReport;
+@class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_DeviceSettings;
@@ -67,6 +70,64 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationEvent.eventType
+
+/**
+ *  This value is disallowed.
+ *
+ *  Value: "APPLICATION_EVENT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified;
+/**
+ *  The app was changed, for example, a component was enabled or disabled.
+ *
+ *  Value: "CHANGED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Changed;
+/**
+ *  The app data was cleared.
+ *
+ *  Value: "DATA_CLEARED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_DataCleared;
+/**
+ *  The app was installed.
+ *
+ *  Value: "INSTALLED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Installed;
+/**
+ *  The app was pinned to the foreground.
+ *
+ *  Value: "PINNED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Pinned;
+/**
+ *  The app was removed.
+ *
+ *  Value: "REMOVED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Removed;
+/**
+ *  A new version of the app has been installed, replacing the old version.
+ *
+ *  Value: "REPLACED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced;
+/**
+ *  The app was restarted.
+ *
+ *  Value: "RESTARTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted;
+/**
+ *  The app was unpinned.
+ *
+ *  Value: "UNPINNED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
@@ -119,14 +180,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedS
 // GTLRAndroidManagement_ApplicationPolicy.installType
 
 /**
+ *  The app is available to install.
+ *
+ *  Value: "AVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available;
+/**
  *  The app is automatically installed and can't be removed by the user.
  *
  *  Value: "FORCE_INSTALLED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled;
 /**
- *  No automatic installation is performed. Any other app policies will be
- *  applied if the user installs the app.
+ *  Unspecified. Defaults to AVAILABLE.
  *
  *  Value: "INSTALL_TYPE_UNSPECIFIED"
  */
@@ -137,6 +203,50 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  *  Value: "PREINSTALLED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationReport.applicationSource
+
+/**
+ *  The app was sideloaded from an unspecified source.
+ *
+ *  Value: "APPLICATION_SOURCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified;
+/**
+ *  The app was installed from the Google Play Store.
+ *
+ *  Value: "INSTALLED_FROM_PLAY_STORE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore;
+/**
+ *  This is a system app from the device's factory image.
+ *
+ *  Value: "SYSTEM_APP_FACTORY_VERSION"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppFactoryVersion;
+/**
+ *  This is an updated system app.
+ *
+ *  Value: "SYSTEM_APP_UPDATED_VERSION"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationReport.state
+
+/**
+ *  App is installed on the device
+ *
+ *  Value: "INSTALLED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed;
+/**
+ *  App was removed from the device
+ *
+ *  Value: "REMOVED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.errorCode
@@ -256,6 +366,29 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled
  *  Value: "PROVISIONING"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisioning;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Device.managementMode
+
+/**
+ *  Device owner. Android Device Policy has full control over the device.
+ *
+ *  Value: "DEVICE_OWNER"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_DeviceOwner;
+/**
+ *  This value is disallowed.
+ *
+ *  Value: "MANAGEMENT_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ManagementModeUnspecified;
+/**
+ *  Profile owner. Android Device Policy has control over a managed profile on
+ *  the device.
+ *
+ *  Value: "PROFILE_OWNER"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.state
@@ -1114,6 +1247,45 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
+ *  An app-related event.
+ */
+@interface GTLRAndroidManagement_ApplicationEvent : GTLRObject
+
+/** The creation time of the event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  App event type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified
+ *        This value is disallowed. (Value:
+ *        "APPLICATION_EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Changed The app
+ *        was changed, for example, a component was enabled or disabled. (Value:
+ *        "CHANGED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_DataCleared The
+ *        app data was cleared. (Value: "DATA_CLEARED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Installed The
+ *        app was installed. (Value: "INSTALLED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Pinned The app
+ *        was pinned to the foreground. (Value: "PINNED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Removed The app
+ *        was removed. (Value: "REMOVED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced A new
+ *        version of the app has been installed, replacing the old version.
+ *        (Value: "REPLACED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted The
+ *        app was restarted. (Value: "RESTARTED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned The app
+ *        was unpinned. (Value: "UNPINNED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
  *  A permission required by the app.
  */
 @interface GTLRAndroidManagement_ApplicationPermission : GTLRObject
@@ -1164,15 +1336,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegatedScopes;
 
 /**
+ *  Whether the app is disabled. When disabled, the app data is still preserved.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
  *  The type of installation to perform.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available The
+ *        app is available to install. (Value: "AVAILABLE")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
  *        The app is automatically installed and can't be removed by the user.
  *        (Value: "FORCE_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified
- *        No automatic installation is performed. Any other app policies will be
- *        applied if the user installs the app. (Value:
+ *        Unspecified. Defaults to AVAILABLE. (Value:
  *        "INSTALL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled
  *        The app is automatically installed and can be removed by the user.
@@ -1248,6 +1428,110 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration : GTLRObject
+@end
+
+
+/**
+ *  Information reported about an installed app.
+ */
+@interface GTLRAndroidManagement_ApplicationReport : GTLRObject
+
+/**
+ *  The source of the package.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified
+ *        The app was sideloaded from an unspecified source. (Value:
+ *        "APPLICATION_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore
+ *        The app was installed from the Google Play Store. (Value:
+ *        "INSTALLED_FROM_PLAY_STORE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppFactoryVersion
+ *        This is a system app from the device's factory image. (Value:
+ *        "SYSTEM_APP_FACTORY_VERSION")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion
+ *        This is an updated system app. (Value: "SYSTEM_APP_UPDATED_VERSION")
+ */
+@property(nonatomic, copy, nullable) NSString *applicationSource;
+
+/** The display name of the app. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** List of app events. The most recent 20 events are stored in the list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationEvent *> *events;
+
+/** The package name of the app that installed this app. */
+@property(nonatomic, copy, nullable) NSString *installerPackageName;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  The SHA-256 hash of the app's APK file, which can be used to verify the app
+ *  hasn't been modified. Each byte of the hash value is represented as a
+ *  two-digit hexadecimal number.
+ */
+@property(nonatomic, copy, nullable) NSString *packageSha256Hash;
+
+/**
+ *  The SHA-1 hash of each android.content.pm.Signature
+ *  (https://developer.android.com/reference/android/content/pm/Signature.html)
+ *  associated with the app package. Each byte of each hash value is represented
+ *  as a two-digit hexadecimal number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyCertFingerprints;
+
+/**
+ *  Application state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_State_Installed App is
+ *        installed on the device (Value: "INSTALLED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_State_Removed App was
+ *        removed from the device (Value: "REMOVED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The app version code, which can be used to determine whether one version is
+ *  more recent than another.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+/** The app version as displayed to the user. */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+@end
+
+
+/**
+ *  A rule for automatically choosing a private key and certificate to
+ *  authenticate the device to a server.
+ */
+@interface GTLRAndroidManagement_ChoosePrivateKeyRule : GTLRObject
+
+/**
+ *  The package names for which outgoing requests are subject to this rule. If
+ *  no package names are specified, then the rule applies to all packages. For
+ *  each package name listed, the rule applies to that package and all other
+ *  packages that shared the same Android UID. The SHA256 hash of the signing
+ *  key signatures of each package_name will be verified against those provided
+ *  by Play
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageNames;
+
+/** The alias of the private key to be used. */
+@property(nonatomic, copy, nullable) NSString *privateKeyAlias;
+
+/**
+ *  The URL pattern to match against the URL of the outgoing request. The
+ *  pattern may contain asterisk (*) wildcards. Any URL is matched if
+ *  unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *urlPattern;
+
 @end
 
 
@@ -1356,6 +1640,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_NonComplianceDetailCondition *nonComplianceDetailCondition;
 
+/**
+ *  If set, the rule includes a mitigating action to disable apps specified in
+ *  the list, but app data is preserved.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageNamesToDisable;
+
 @end
 
 
@@ -1371,6 +1661,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *apiLevel;
+
+/**
+ *  Reports for apps installed on the device. This information is only available
+ *  when application_reports_enabled is true in the device's policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationReport *> *applicationReports;
 
 /** The name of the policy currently applied to the device. */
 @property(nonatomic, copy, nullable) NSString *appliedPolicyName;
@@ -1445,7 +1741,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_HardwareStatus *> *hardwareStatusSamples;
 
-/** The last time the device sent a policy compliance report. */
+/**
+ *  The last time the device sent a policy compliance report. Important: This
+ *  field is deprecated. The timestamp will be on last_status_report_time field,
+ *  and last_status_report_time will be used for both status report and
+ *  compliance report.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyComplianceReportTime;
 
 /** The last time the device fetched its policy. */
@@ -1453,6 +1754,22 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /** The last time the device sent a status report. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/**
+ *  The type of management mode Android Device Policy takes on the device. This
+ *  influences which policy settings are supported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Device_ManagementMode_DeviceOwner Device
+ *        owner. Android Device Policy has full control over the device. (Value:
+ *        "DEVICE_OWNER")
+ *    @arg @c kGTLRAndroidManagement_Device_ManagementMode_ManagementModeUnspecified
+ *        This value is disallowed. (Value: "MANAGEMENT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner Profile
+ *        owner. Android Device Policy has control over a managed profile on the
+ *        device. (Value: "PROFILE_OWNER")
+ */
+@property(nonatomic, copy, nullable) NSString *managementMode;
 
 /**
  *  Events related to memory and storage measurements in chronological order.
@@ -1739,6 +2056,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Whether the enrollment token is for one time use only. If the flag is set to
+ *  true, only one device can use it for registration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oneTimeOnly;
 
 /**
  *  The name of the policy initially applied to the enrolled device, in the form
@@ -2630,7 +2955,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @interface GTLRAndroidManagement_PermissionGrant : GTLRObject
 
-/** The android permission, e.g. android.permission.READ_CALENDAR. */
+/**
+ *  The android permission or group, e.g. android.permission.READ_CALENDAR or
+ *  android.permission_group.CALENDAR.
+ */
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
@@ -2798,6 +3126,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cellBroadcastsConfigDisabled;
+
+/**
+ *  Rules for automatically choosing a private key and certificate to
+ *  authenticate the device to a server. The rules are ordered by increasing
+ *  precedence, so if an outgoing request matches more than one rule, the last
+ *  rule defines which private key to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ChoosePrivateKeyRule *> *choosePrivateKeyRules;
 
 /**
  *  Rules declaring which mitigating actions to take when a device is not
@@ -3041,6 +3377,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 
 /**
+ *  Explicit permission or group grants or denials for all apps. These values
+ *  override the default_permission_policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
+
+/**
  *  If present, only the input methods provided by packages in this list are
  *  permitted. If this field is present, but the list is empty, then only system
  *  input methods are permitted.
@@ -3049,6 +3391,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /** Default intent handler activities. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersistentPreferredActivity *> *persistentPreferredActivities;
+
+/**
+ *  Allows showing UI on a device for a user to choose a private key alias if
+ *  there are no matching rules in ChoosePrivateKeyRules. For devices below
+ *  Android P, setting this may leave enterprise keys vulnerable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateKeySelectionEnabled;
 
 /**
  *  The network-independent global HTTP proxy. Typically proxies should be
@@ -3177,8 +3528,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *usbFileTransferDisabled;
 
 /**
- *  Allows admins to toggle whether USB storge is enabled or disabled on user's
- *  devices.
+ *  Whether USB storage is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3362,6 +3712,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /** Kernel version, for example, 2.6.32.9-g103d848. */
 @property(nonatomic, copy, nullable) NSString *deviceKernelVersion;
 
+/** An IETF BCP 47 language code for the primary locale on the device. */
+@property(nonatomic, copy, nullable) NSString *primaryLanguageCode;
+
 /** Security patch level, e.g. 2016-05-01. */
 @property(nonatomic, copy, nullable) NSString *securityPatchLevel;
 
@@ -3446,6 +3799,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Settings controlling the behavior of status reports.
  */
 @interface GTLRAndroidManagement_StatusReportingSettings : GTLRObject
+
+/**
+ *  Whether app reports are enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applicationReportsEnabled;
 
 /**
  *  Whether device settings reporting is enabled.

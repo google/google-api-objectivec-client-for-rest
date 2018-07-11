@@ -4,14 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects. <aside
-//   class="note"><b>Note</b>: In order to use this API in your apps, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
-//   enable it for use</a>. To allow other apps to manage your scripts, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
-//   grant them access</a>.</aside>
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -254,11 +247,23 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi;
 /**
+ *  The process was started from a GSuite menu item.
+ *
+ *  Value: "MENU"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu;
+/**
  *  Unspecified type.
  *
  *  Value: "PROCESS_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified;
+/**
+ *  The process was started from a GSuite simple trigger.
+ *
+ *  Value: "SIMPLE_TRIGGER"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger;
 /**
  *  The process was started from a time-based trigger.
  *
@@ -854,8 +859,13 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi
  *        The process was started using the Apps Script API. (Value:
  *        "EXECUTION_API")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu The
+ *        process was started from a GSuite menu item. (Value: "MENU")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified
  *        Unspecified type. (Value: "PROCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger
+ *        The process was started from a GSuite simple trigger. (Value:
+ *        "SIMPLE_TRIGGER")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven The
  *        process was started from a time-based trigger. (Value: "TIME_DRIVEN")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Trigger The
@@ -1156,13 +1166,12 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 
 /**
- *  A representation of a execution of an Apps Script function that is started
- *  using run. The execution response does not arrive until the function
- *  finishes executing. The maximum execution runtime is listed in the [Apps
- *  Script quotas
- *  guide](/apps-script/guides/services/quotas#current_limitations). <p>After
- *  the execution is started, it can have one of four outcomes:</p> <ul> <li> If
- *  the script function returns successfully, the
+ *  A representation of an execution of an Apps Script function started with
+ *  run. The execution response does not arrive until the function finishes
+ *  executing. The maximum execution runtime is listed in the [Apps Script
+ *  quotas guide](/apps-script/guides/services/quotas#current_limitations).
+ *  <p>After execution has started, it can have one of four outcomes:</p> <ul>
+ *  <li> If the script function returns successfully, the
  *  response field contains an
  *  ExecutionResponse object
  *  with the function's return value in the object's `result` field.</li>
@@ -1298,9 +1307,8 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 /**
  *  A developer-facing error message, which is in English. Any user-facing error
- *  message is localized and sent in the
- *  [google.rpc.Status.details](google.rpc.Status.details) field, or localized
- *  by the client.
+ *  message is localized and sent in the details field, or localized by the
+ *  client.
  */
 @property(nonatomic, copy, nullable) NSString *message;
 

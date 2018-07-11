@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Redis instance based on the specified tier and memory size.
- *  By default, the instance is peered to the project's
+ *  By default, the instance is accessible from the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  The creation is executed asynchronously and callers may check the returned
  *  operation to track its progress. Once the operation is completed the Redis
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRedis_Operation.
  *
  *  Creates a Redis instance based on the specified tier and memory size.
- *  By default, the instance is peered to the project's
+ *  By default, the instance is accessible from the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  The creation is executed asynchronously and callers may check the returned
  *  operation to track its progress. Once the operation is completed the Redis
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  location using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *  Note: Redis instances are managed and addressed at regional level so
- *  location_id here refers to a GCP region; however, users get to choose which
+ *  location_id here refers to a GCP region; however, users may choose which
  *  specific zone (or collection of zones for cross-zone instances) an instance
  *  should be provisioned in. Refer to [location_id] and
  *  [alternative_location_id] fields for more details.
@@ -296,10 +296,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Mask of fields to update. At least one path must be supplied in
  *  this field. The elements of the repeated paths field may only include these
  *  fields from Instance:
- *  * `display_name`
+ *  * `displayName`
  *  * `labels`
- *  * `redis_config`
- *  * `redis_version`
+ *  * `memorySizeGb`
+ *  * `redisConfig`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -319,8 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    location using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *    Note: Redis instances are managed and addressed at regional level so
- *    location_id here refers to a GCP region; however, users get to choose
- *    which
+ *    location_id here refers to a GCP region; however, users may choose which
  *    specific zone (or collection of zones for cross-zone instances) an
  *    instance
  *    should be provisioned in. Refer to [location_id] and

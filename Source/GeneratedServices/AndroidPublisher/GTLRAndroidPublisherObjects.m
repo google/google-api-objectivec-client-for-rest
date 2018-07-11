@@ -294,8 +294,9 @@
 //
 
 @implementation GTLRAndroidPublisher_InAppProduct
-@dynamic defaultLanguage, defaultPrice, listings, packageName, prices,
-         purchaseType, season, sku, status, subscriptionPeriod, trialPeriod;
+@dynamic defaultLanguage, defaultPrice, gracePeriod, listings, packageName,
+         prices, purchaseType, season, sku, status, subscriptionPeriod,
+         trialPeriod;
 @end
 
 
@@ -555,6 +556,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SubscriptionPriceChange
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionPriceChange
+@dynamic newPrice, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SubscriptionPurchase
 //
 
@@ -562,8 +573,8 @@
 @dynamic autoRenewing, cancelReason, cancelSurveyResult, countryCode,
          developerPayload, emailAddress, expiryTimeMillis, familyName,
          givenName, kind, linkedPurchaseToken, orderId, paymentState,
-         priceAmountMicros, priceCurrencyCode, profileId, profileName,
-         purchaseType, startTimeMillis, userCancellationTimeMillis;
+         priceAmountMicros, priceChange, priceCurrencyCode, profileId,
+         profileName, purchaseType, startTimeMillis, userCancellationTimeMillis;
 @end
 
 

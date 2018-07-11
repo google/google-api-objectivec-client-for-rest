@@ -25,6 +25,7 @@
 @class GTLRDataproc_ClusterMetrics;
 @class GTLRDataproc_ClusterMetrics_HdfsMetrics;
 @class GTLRDataproc_ClusterMetrics_YarnMetrics;
+@class GTLRDataproc_ClusterOperation;
 @class GTLRDataproc_ClusterOperationMetadata_Labels;
 @class GTLRDataproc_ClusterOperationStatus;
 @class GTLRDataproc_ClusterStatus;
@@ -65,6 +66,9 @@
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
+@class GTLRDataproc_WorkflowGraph;
+@class GTLRDataproc_WorkflowMetadata_Parameters;
+@class GTLRDataproc_WorkflowNode;
 @class GTLRDataproc_YarnApplication;
 
 // Generated comments include content from the discovery document; avoid them
@@ -290,6 +294,75 @@ GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverL
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
 /** Value: "WARN" */
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_WorkflowMetadata.state
+
+/**
+ *  The operation is done; either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Done;
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending;
+/**
+ *  The operation is running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Running;
+/**
+ *  Unused.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_WorkflowNode.state
+
+/**
+ *  The node is awaiting prerequisite node to finish.
+ *
+ *  Value: "BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Blocked;
+/**
+ *  The node completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Completed;
+/**
+ *  The node failed. A node can be marked FAILED because its ancestor or peer
+ *  failed.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Failed;
+/**
+ *  State is unspecified.
+ *
+ *  Value: "NODE_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_NodeStateUnspecified;
+/**
+ *  The node is runnable but not running.
+ *
+ *  Value: "RUNNABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Runnable;
+/**
+ *  The node is running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_YarnApplication.state
@@ -556,6 +629,27 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
+ *  The cluster operation triggered by a workflow.
+ */
+@interface GTLRDataproc_ClusterOperation : GTLRObject
+
+/**
+ *  Output only. Indicates the operation is done.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** Output only. Error, if operation failed. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** Output only. The id of the cluster operation. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
  *  Metadata describing the operation.
  */
 @interface GTLRDataproc_ClusterOperationMetadata : GTLRObject
@@ -718,6 +812,13 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
+
+/**
+ *  Optional. Type of the boot disk (default is "pd-standard"). Valid values:
+ *  "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent
+ *  Disk Hard Disk Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *bootDiskType;
 
 /**
  *  Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are
@@ -1021,8 +1122,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_DiskConfig *diskConfig;
 
 /**
- *  Output only. The Compute Engine image resource used for cluster instances.
- *  Inferred from SoftwareConfig.image_version.
+ *  Optional. The Compute Engine image resource used for cluster instances. It
+ *  can be specified or may be inferred from SoftwareConfig.image_version.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
@@ -1967,6 +2068,121 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  The workflow graph.
+ */
+@interface GTLRDataproc_WorkflowGraph : GTLRObject
+
+/** Output only. The workflow nodes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_WorkflowNode *> *nodes;
+
+@end
+
+
+/**
+ *  A Cloud Dataproc workflow template resource.
+ */
+@interface GTLRDataproc_WorkflowMetadata : GTLRObject
+
+/** Output only. The name of the managed cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** Output only. The create cluster operation metadata. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *createCluster;
+
+/** Output only. The delete cluster operation metadata. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *deleteCluster;
+
+/** Output only. The workflow graph. */
+@property(nonatomic, strong, nullable) GTLRDataproc_WorkflowGraph *graph;
+
+/** Map from parameter names to values that were used for those parameters. */
+@property(nonatomic, strong, nullable) GTLRDataproc_WorkflowMetadata_Parameters *parameters;
+
+/**
+ *  Output only. The workflow state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_WorkflowMetadata_State_Done The operation is done;
+ *        either cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRDataproc_WorkflowMetadata_State_Pending The operation has
+ *        been created. (Value: "PENDING")
+ *    @arg @c kGTLRDataproc_WorkflowMetadata_State_Running The operation is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRDataproc_WorkflowMetadata_State_Unknown Unused. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The "resource name" of the template.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, copy, nullable) NSString *templateProperty;
+
+/**
+ *  Output only. The version of template at the time of workflow instantiation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Map from parameter names to values that were used for those parameters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_WorkflowMetadata_Parameters : GTLRObject
+@end
+
+
+/**
+ *  The workflow node.
+ */
+@interface GTLRDataproc_WorkflowNode : GTLRObject
+
+/** Output only. The error detail. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** Output only. The job id; populated after the node enters RUNNING state. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** Output only. Node's prerequisite nodes. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *prerequisiteStepIds;
+
+/**
+ *  Output only. The node state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_Blocked The node is awaiting
+ *        prerequisite node to finish. (Value: "BLOCKED")
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_Completed The node completed
+ *        successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_Failed The node failed. A node
+ *        can be marked FAILED because its ancestor or peer failed. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_NodeStateUnspecified State is
+ *        unspecified. (Value: "NODE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_Runnable The node is runnable but
+ *        not running. (Value: "RUNNABLE")
+ *    @arg @c kGTLRDataproc_WorkflowNode_State_Running The node is running.
+ *        (Value: "RUNNING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The name of the node. */
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 @end
 

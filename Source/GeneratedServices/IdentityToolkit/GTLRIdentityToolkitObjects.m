@@ -160,7 +160,8 @@
 @implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest
 @dynamic appId, authFlowType, clientId, context, continueUri, customParameter,
          hostedDomain, identifierProperty, oauthConsumerKey, oauthScope,
-         openidRealm, otaApp, providerId, sessionId;
+         openidRealm, otaApp, providerId, sessionId, tenantId,
+         tenantProjectNumber;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifierProperty" : @"identifier" };
@@ -383,7 +384,7 @@
 @implementation GTLRIdentityToolkit_RelyingpartySignupNewUserRequest
 @dynamic captchaChallenge, captchaResponse, disabled, displayName, email,
          emailVerified, idToken, instanceId, localId, password, phoneNumber,
-         photoUrl;
+         photoUrl, tenantId, tenantProjectNumber;
 @end
 
 
@@ -415,7 +416,8 @@
 @implementation GTLRIdentityToolkit_RelyingpartyVerifyAssertionRequest
 @dynamic autoCreate, delegatedProjectNumber, idToken, instanceId,
          pendingIdToken, postBody, requestUri, returnIdpCredential,
-         returnRefreshToken, returnSecureToken, sessionId;
+         returnRefreshToken, returnSecureToken, sessionId, tenantId,
+         tenantProjectNumber;
 @end
 
 
@@ -436,7 +438,8 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyVerifyPasswordRequest
 @dynamic captchaChallenge, captchaResponse, delegatedProjectNumber, email,
-         idToken, instanceId, password, pendingIdToken, returnSecureToken;
+         idToken, instanceId, password, pendingIdToken, returnSecureToken,
+         tenantId, tenantProjectNumber;
 @end
 
 

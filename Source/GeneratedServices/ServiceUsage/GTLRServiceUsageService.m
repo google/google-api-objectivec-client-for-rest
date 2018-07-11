@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1beta1)
+//   Service Usage API (serviceusage/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeServiceUsageServiceManagement   = @"https://www.g
     // From discovery.
     self.rootURLString = @"https://serviceusage.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

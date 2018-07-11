@@ -73,6 +73,14 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_ValueType_Money
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRServiceConsumerManagement_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRServiceConsumerManagement_TenantResource.status
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Active = @"ACTIVE";
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Failed = @"FAILED";
@@ -139,7 +147,7 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_AuthenticationRule
-@dynamic allowWithoutCredential, customAuth, oauth, requirements, selector;
+@dynamic allowWithoutCredential, oauth, requirements, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -336,16 +344,6 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_CreateTenancyUnitRequest
 @dynamic tenancyUnitId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceConsumerManagement_CustomAuthRequirements
-//
-
-@implementation GTLRServiceConsumerManagement_CustomAuthRequirements
-@dynamic provider;
 @end
 
 
@@ -745,8 +743,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -759,6 +757,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_MetricDescriptorMetadata
+//
+
+@implementation GTLRServiceConsumerManagement_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 

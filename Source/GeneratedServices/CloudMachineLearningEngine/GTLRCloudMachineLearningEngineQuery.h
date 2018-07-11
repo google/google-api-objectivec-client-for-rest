@@ -968,7 +968,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified Version resource.
- *  Currently the only supported field to update is `description`.
+ *  Currently the only update-able fields are `description` and
+ *  `autoScaling.minNodes`.
  *
  *  Method: ml.projects.models.versions.patch
  *
@@ -991,7 +992,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  {
  *  "description": "foo"
  *  }
- *  Currently the only supported update mask is`description`.
+ *  Currently the only supported update mask fields are `description` and
+ *  `autoScaling.minNodes`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1001,7 +1003,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
  *  Updates the specified Version resource.
- *  Currently the only supported field to update is `description`.
+ *  Currently the only update-able fields are `description` and
+ *  `autoScaling.minNodes`.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
  *    to include in the query.

@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeCloudComposerCloudPlatform = @"https://www.google
     // From discovery.
     self.rootURLString = @"https://composer.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

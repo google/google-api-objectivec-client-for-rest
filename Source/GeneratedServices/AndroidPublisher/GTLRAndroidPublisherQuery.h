@@ -245,7 +245,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsBundlesUpload
+ *  Uploads a new Android App Bundle to this edit. If you are using the Google
+ *  API client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
  *
  *  Method: androidpublisher.edits.bundles.upload
  *
@@ -267,6 +271,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Bundle.
+ *
+ *  Uploads a new Android App Bundle to this edit. If you are using the Google
+ *  API client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
  *
  *  @param packageName Unique identifier for the Android app that is being
  *    updated; for example, "com.spiffygame".
@@ -2101,6 +2111,56 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
                             sku:(NSString *)sku;
+
+@end
+
+/**
+ *  Refund a user's subscription or in-app purchase order.
+ *
+ *  Method: androidpublisher.orders.refund
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_OrdersRefund : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForOrdersRefundWithpackageName:orderId:]
+
+/**
+ *  The order ID provided to the user when the subscription or in-app order was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  The package name of the application for which this subscription or in-app
+ *  item was purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Whether to revoke the purchased item. If set to true, access to the
+ *  subscription or in-app item will be terminated immediately. If the item is a
+ *  recurring subscription, all future payments will also be terminated.
+ *  Consumed in-app items need to be handled by developer's app. (optional)
+ */
+@property(nonatomic, assign) BOOL revoke;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Refund a user's subscription or in-app purchase order.
+ *
+ *  @param packageName The package name of the application for which this
+ *    subscription or in-app item was purchased (for example, 'com.some.thing').
+ *  @param orderId The order ID provided to the user when the subscription or
+ *    in-app order was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_OrdersRefund
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                             orderId:(NSString *)orderId;
 
 @end
 

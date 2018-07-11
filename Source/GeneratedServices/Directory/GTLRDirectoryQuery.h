@@ -516,7 +516,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Search string in the format given at
- *  http://support.google.com/chromeos/a/bin/answer.py?hl=en&answer=1698333
+ *  http://support.google.com/chromeos/a/bin/answer.py?answer=1698333
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1243,7 +1243,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
- *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+ *  https://developers.google.com/admin-sdk/directory/v1/guides/search-groups
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1807,7 +1807,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Search string in the format given at
- *  http://support.google.com/a/bin/answer.py?hl=en&answer=1408863#search
+ *  http://support.google.com/a/bin/answer.py?answer=1408863#search
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

@@ -240,7 +240,7 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 //
 
 @implementation GTLRPolyService_PresentationParams
-@dynamic colorSpace, orientingRotation;
+@dynamic backgroundColor, colorSpace, orientingRotation;
 @end
 
 

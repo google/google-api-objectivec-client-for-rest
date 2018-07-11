@@ -32,7 +32,7 @@ NSString * const kGTLRAuthScopeMonitoringWrite         = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://monitoring.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

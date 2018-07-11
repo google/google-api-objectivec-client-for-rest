@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeCloudShellCloudPlatform = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://cloudshell.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

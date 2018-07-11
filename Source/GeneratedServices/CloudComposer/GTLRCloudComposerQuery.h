@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent must be of the form
- *  `projects/{projectId}/locations/{locationId}`.
+ *  "projects/{projectId}/locations/{locationId}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudComposer_Environment to include in the query.
  *  @param parent The parent must be of the form
- *    `projects/{projectId}/locations/{locationId}`.
+ *    "projects/{projectId}/locations/{locationId}".
  *
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCreate
  */
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The environment to delete, in the form:
- *  `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete an environment.
  *
  *  @param name The environment to delete, in the form:
- *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  *
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete
  */
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the environment to get, in the form:
- *  `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get an existing environment.
  *
  *  @param name The resource name of the environment to get, in the form:
- *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  *
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsGet
  */
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  List environments in the given project and location, in the form:
- *  `projects/{projectId}/locations/{locationId}`
+ *  "projects/{projectId}/locations/{locationId}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent List environments in the given project and location, in the
  *    form:
- *    `projects/{projectId}/locations/{locationId}`
+ *    "projects/{projectId}/locations/{locationId}"
  *
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsList
  *
@@ -194,7 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The relative resource name of the environment to update, in the form:
- *  `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudComposer_Environment to include in the query.
  *  @param name The relative resource name of the environment to update, in the
  *    form:
- *    `projects/{projectId}/locations/{locationId}/environments/{environmentId}`
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  *
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPatch
  */

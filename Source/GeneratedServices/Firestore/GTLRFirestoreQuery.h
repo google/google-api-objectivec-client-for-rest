@@ -20,7 +20,7 @@
 @class GTLRFirestore_BeginTransactionRequest;
 @class GTLRFirestore_CommitRequest;
 @class GTLRFirestore_Document;
-@class GTLRFirestore_Index;
+@class GTLRFirestore_GoogleFirestoreAdminV1beta1Index;
 @class GTLRFirestore_ListCollectionIdsRequest;
 @class GTLRFirestore_ListenRequest;
 @class GTLRFirestore_RollbackRequest;
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRFirestore_Operation.
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
  *
  *  Creates the specified index.
  *  A newly created index's initial state is `CREATING`. On completion of the
@@ -699,14 +699,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  create.
  *  Indexes with a single field cannot be created.
  *
- *  @param object The @c GTLRFirestore_Index to include in the query.
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1beta1Index to
+ *    include in the query.
  *  @param parent The name of the database this index will apply to. For
  *    example:
  *    `projects/{project_id}/databases/{database_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesIndexesCreate
  */
-+ (instancetype)queryWithObject:(GTLRFirestore_Index *)object
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1beta1Index *)object
                          parent:(NSString *)parent;
 
 @end
@@ -764,7 +765,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRFirestore_Index.
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1beta1Index.
  *
  *  Gets an index.
  *
@@ -805,7 +806,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRFirestore_ListIndexesResponse.
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse.
  *
  *  Lists the indexes that match the specified filters.
  *

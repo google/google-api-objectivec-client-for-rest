@@ -837,6 +837,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCerti
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder;
 /**
+ *  Non-SSL compliant.
+ *
+ *  Value: "NON_SSL_COMPLIANT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant;
+/**
  *  Use of an Open Measurement SDK vendor not on approved whitelist.
  *
  *  Value: "NON_WHITELISTED_OMID_VENDOR"
@@ -1001,6 +1007,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Unsupport
  *  Value: "UNSUPPORTED_FLASH_CONTENT"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent;
+/**
+ *  Unsupported language.
+ *
+ *  Value: "UNSUPPORTED_LANGUAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedLanguage;
 /**
  *  There was an issue with the video ad.
  *
@@ -1689,7 +1701,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  A creative and its classification data.
- *  Next ID: 35
+ *  Next ID: 36
  */
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 
@@ -2146,6 +2158,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder Ads with a
  *        white background require a border, which was missing. (Value:
  *        "NO_BORDER")
+ *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant Non-SSL
+ *        compliant. (Value: "NON_SSL_COMPLIANT")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor
  *        Use of an Open Measurement SDK vendor not on approved whitelist.
  *        (Value: "NON_WHITELISTED_OMID_VENDOR")
@@ -2218,6 +2232,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent
  *        Flash content was found in an unsupported context. (Value:
  *        "UNSUPPORTED_FLASH_CONTENT")
+ *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedLanguage
+ *        Unsupported language. (Value: "UNSUPPORTED_LANGUAGE")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoFunctionality There
  *        was an issue with the video ad. (Value: "VIDEO_FUNCTIONALITY")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoInvalidVendor The
@@ -3364,11 +3380,23 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ServingContext *> *contexts;
 
 /**
+ *  Disapproval bound to this restriction.
+ *  Only present if status=DISAPPROVED.
+ *  Can be used to filter the response of the
+ *  creatives.list
+ *  method.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Disapproval *disapproval;
+
+/**
  *  Any disapprovals bound to this restriction.
  *  Only present if status=DISAPPROVED.
  *  Can be used to filter the response of the
  *  creatives.list
  *  method.
+ *  Deprecated; please use
+ *  disapproval
+ *  field instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Disapproval *> *disapprovalReasons;
 

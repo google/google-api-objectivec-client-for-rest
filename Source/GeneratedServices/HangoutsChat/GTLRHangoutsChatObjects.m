@@ -4,8 +4,7 @@
 // API:
 //   Hangouts Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in the new Hangouts
-//   Chat.
+//   Enables bots to fetch information and perform actions in Hangouts Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -28,6 +27,13 @@ NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION"
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar = @"AVATAR";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
+
+// GTLRHangoutsChat_DeprecatedEvent.type
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace = @"ADDED_TO_SPACE";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked = @"CARD_CLICKED";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message = @"MESSAGE";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace = @"REMOVED_FROM_SPACE";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified = @"UNSPECIFIED";
 
 // GTLRHangoutsChat_ImageButton.icon
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane   = @"AIRPLANE";
@@ -192,6 +198,17 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_CardHeader
 @dynamic imageStyle, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DeprecatedEvent
+//
+
+@implementation GTLRHangoutsChat_DeprecatedEvent
+@dynamic action, configCompleteRedirectUrl, eventTime, message, space,
+         threadKey, token, type, user;
 @end
 
 

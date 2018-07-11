@@ -342,7 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The parent (project, location, cluster id) where the node pool will be
  *  created. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  'projects/ * /locations/ * /clusters/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -356,7 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The parent (project, location, cluster id) where the node pool
  *    will be
  *    created. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    'projects/ * /locations/ * /clusters/ *'.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
  */
@@ -592,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the autoscaling settings of a specific node pool.
+ *  Sets the autoscaling settings for a specific node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.setAutoscaling
  *
@@ -613,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the autoscaling settings of a specific node pool.
+ *  Sets the autoscaling settings for a specific node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
@@ -668,7 +668,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the size of a specific node pool.
+ *  Sets the size for a specific node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.setSize
  *
@@ -690,7 +690,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the size of a specific node pool.
+ *  Sets the size for a specific node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.
@@ -708,7 +708,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the version and/or image type of a specific node pool.
+ *  Updates the version and/or image type for a specific node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.update
  *
@@ -729,7 +729,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the version and/or image type of a specific node pool.
+ *  Updates the version and/or image type for a specific node pool.
  *
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
@@ -746,7 +746,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the addons of a specific cluster.
+ *  Sets the addons for a specific cluster.
  *
  *  Method: container.projects.locations.clusters.setAddons
  *
@@ -766,7 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the addons of a specific cluster.
+ *  Sets the addons for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetAddonsConfigRequest to include in the
  *    query.
@@ -818,7 +818,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the locations of a specific cluster.
+ *  Sets the locations for a specific cluster.
  *
  *  Method: container.projects.locations.clusters.setLocations
  *
@@ -838,7 +838,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the locations of a specific cluster.
+ *  Sets the locations for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
@@ -854,7 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the logging service of a specific cluster.
+ *  Sets the logging service for a specific cluster.
  *
  *  Method: container.projects.locations.clusters.setLogging
  *
@@ -874,7 +874,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the logging service of a specific cluster.
+ *  Sets the logging service for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetLoggingServiceRequest to include in
  *    the query.
@@ -929,7 +929,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password of a specific cluster.
+ *  Changing the admin password for a specific cluster.
  *  This can be either via password generation or explicitly set the password.
  *
  *  Method: container.projects.locations.clusters.setMasterAuth
@@ -951,7 +951,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password of a specific cluster.
+ *  Changing the admin password for a specific cluster.
  *  This can be either via password generation or explicitly set the password.
  *
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the
@@ -968,7 +968,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the monitoring service of a specific cluster.
+ *  Sets the monitoring service for a specific cluster.
  *
  *  Method: container.projects.locations.clusters.setMonitoring
  *
@@ -988,7 +988,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the monitoring service of a specific cluster.
+ *  Sets the monitoring service for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetMonitoringServiceRequest to include in
  *    the query.
@@ -1147,7 +1147,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the master of a specific cluster.
+ *  Updates the master for a specific cluster.
  *
  *  Method: container.projects.locations.clusters.updateMaster
  *
@@ -1167,7 +1167,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the master of a specific cluster.
+ *  Updates the master for a specific cluster.
  *
  *  @param object The @c GTLRContainer_UpdateMasterRequest to include in the
  *    query.
@@ -1373,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the addons of a specific cluster.
+ *  Sets the addons for a specific cluster.
  *
  *  Method: container.projects.zones.clusters.addons
  *
@@ -1410,7 +1410,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the addons of a specific cluster.
+ *  Sets the addons for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetAddonsConfigRequest to include in the
  *    query.
@@ -1831,7 +1831,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the locations of a specific cluster.
+ *  Sets the locations for a specific cluster.
  *
  *  Method: container.projects.zones.clusters.locations
  *
@@ -1868,7 +1868,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the locations of a specific cluster.
+ *  Sets the locations for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
@@ -1893,7 +1893,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the logging service of a specific cluster.
+ *  Sets the logging service for a specific cluster.
  *
  *  Method: container.projects.zones.clusters.logging
  *
@@ -1930,7 +1930,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the logging service of a specific cluster.
+ *  Sets the logging service for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetLoggingServiceRequest to include in
  *    the query.
@@ -1955,7 +1955,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the master of a specific cluster.
+ *  Updates the master for a specific cluster.
  *
  *  Method: container.projects.zones.clusters.master
  *
@@ -1992,7 +1992,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the master of a specific cluster.
+ *  Updates the master for a specific cluster.
  *
  *  @param object The @c GTLRContainer_UpdateMasterRequest to include in the
  *    query.
@@ -2017,7 +2017,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the monitoring service of a specific cluster.
+ *  Sets the monitoring service for a specific cluster.
  *
  *  Method: container.projects.zones.clusters.monitoring
  *
@@ -2054,7 +2054,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the monitoring service of a specific cluster.
+ *  Sets the monitoring service for a specific cluster.
  *
  *  @param object The @c GTLRContainer_SetMonitoringServiceRequest to include in
  *    the query.
@@ -2079,7 +2079,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the autoscaling settings of a specific node pool.
+ *  Sets the autoscaling settings for a specific node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.autoscaling
  *
@@ -2122,7 +2122,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the autoscaling settings of a specific node pool.
+ *  Sets the autoscaling settings for a specific node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
@@ -2571,7 +2571,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the size of a specific node pool.
+ *  Sets the size for a specific node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.setSize
  *
@@ -2614,7 +2614,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the size of a specific node pool.
+ *  Sets the size for a specific node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.
@@ -2642,7 +2642,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the version and/or image type of a specific node pool.
+ *  Updates the version and/or image type for a specific node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.update
  *
@@ -2685,7 +2685,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the version and/or image type of a specific node pool.
+ *  Updates the version and/or image type for a specific node pool.
  *
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
@@ -2828,7 +2828,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password of a specific cluster.
+ *  Changing the admin password for a specific cluster.
  *  This can be either via password generation or explicitly set the password.
  *
  *  Method: container.projects.zones.clusters.setMasterAuth
@@ -2867,7 +2867,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password of a specific cluster.
+ *  Changing the admin password for a specific cluster.
  *  This can be either via password generation or explicitly set the password.
  *
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the

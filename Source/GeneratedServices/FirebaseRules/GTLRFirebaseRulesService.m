@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeFirebaseRulesFirebaseReadonly = @"https://www.goo
     // From discovery.
     self.rootURLString = @"https://firebaserules.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

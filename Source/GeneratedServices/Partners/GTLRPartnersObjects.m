@@ -581,12 +581,13 @@ NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_Bad
 //
 
 @implementation GTLRPartners_Company
-@dynamic additionalWebsites, autoApprovalEmailDomains, badgeTier,
-         certificationStatuses, companyTypes, convertedMinMonthlyBudget,
-         identifier, industries, localizedInfos, locations, name,
-         originalMinMonthlyBudget, primaryAdwordsManagerAccountId,
-         primaryLanguageCode, primaryLocation, profileStatus, publicProfile,
-         ranks, services, specializationStatus, websiteUrl;
+@dynamic additionalWebsites, autoApprovalEmailDomains, badgeAuthorityInAwn,
+         badgeTier, certificationStatuses, companyTypes,
+         convertedMinMonthlyBudget, identifier, industries, localizedInfos,
+         locations, name, originalMinMonthlyBudget,
+         primaryAdwordsManagerAccountId, primaryLanguageCode, primaryLocation,
+         profileStatus, publicProfile, ranks, services, specializationStatus,
+         websiteUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

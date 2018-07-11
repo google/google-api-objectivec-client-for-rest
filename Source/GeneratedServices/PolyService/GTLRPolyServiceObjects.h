@@ -908,6 +908,15 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 @interface GTLRPolyService_PresentationParams : GTLRObject
 
 /**
+ *  A background color which could be used for displaying the 3D asset in a
+ *  'thumbnail' or 'palette' style view. Authors have the option to set this
+ *  background color when publishing or editing their asset.
+ *  This is represented as a six-digit hexademical triplet specifying the
+ *  RGB components of the background color, e.g. #FF0000 for Red.
+ */
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
+
+/**
  *  The materials' diffuse/albedo color. This does not apply to vertex colors
  *  or texture maps.
  *
@@ -981,7 +990,7 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 
 
 /**
- *  A response message from a request to list.
+ *  A response message from a request to startImport.
  *  This is returned in the response field of the Operation.
  */
 @interface GTLRPolyService_StartAssetImportResponse : GTLRObject
@@ -989,7 +998,7 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 /**
  *  The id of newly created asset. If this is empty when the operation is
  *  complete it means the import failed. Please refer to the
- *  asset_import_message field to understand what went wrong.
+ *  assetImportMessages field to understand what went wrong.
  */
 @property(nonatomic, copy, nullable) NSString *assetId;
 

@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeServiceBrokerCloudPlatform = @"https://www.google
     // From discovery.
     self.rootURLString = @"https://servicebroker.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1alpha1)
+//   Cloud TPU API (tpu/v1)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -631,7 +631,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists TensorFlow versions supported by this API.
+ *  List TensorFlow versions supported by this API.
  *
  *  Method: tpu.projects.locations.tensorflowVersions.list
  *
@@ -662,7 +662,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTPU_ListTensorFlowVersionsResponse.
  *
- *  Lists TensorFlow versions supported by this API.
+ *  List TensorFlow versions supported by this API.
  *
  *  @param parent The parent resource name.
  *

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Photos Library API (photoslibrary/v1)
+//   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Manage photos, videos, and albums in Google Photos
+//   IAM Service Account Credentials API
 // Documentation:
-//   https://developers.google.com/photos/
+//   https://developers.google.com/identity/protocols/OAuth2ServiceAccount
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -26,61 +26,31 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
- *  Authorization scope: View and manage your Google Photos library
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/photoslibrary"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibrary;
-/**
- *  Authorization scope: Add to your Google Photos library
- *
- *  Value "https://www.googleapis.com/auth/photoslibrary.appendonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibraryAppendonly;
-/**
- *  Authorization scope: View the photos, videos and albums in your Google
- *  Photos
- *
- *  Value "https://www.googleapis.com/auth/drive.photos.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibraryDrivePhotosReadonly;
-/**
- *  Authorization scope: View your Google Photos library
- *
- *  Value "https://www.googleapis.com/auth/photoslibrary.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibraryReadonly;
-/**
- *  Authorization scope: Manage photos added by this app
- *
- *  Value "https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddata"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibraryReadonlyAppcreateddata;
-/**
- *  Authorization scope: Manage and add to shared albums on your behalf
- *
- *  Value "https://www.googleapis.com/auth/photoslibrary.sharing"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePhotosLibrarySharing;
+GTLR_EXTERN NSString * const kGTLRAuthScopeIAMCredentialsCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRPhotosLibraryService
+//   GTLRIAMCredentialsService
 //
 
 /**
- *  Service for executing Photos Library API queries.
+ *  Service for executing IAM Service Account Credentials API queries.
  *
- *  Manage photos, videos, and albums in Google Photos
+ *  IAM Service Account Credentials API
  */
-@interface GTLRPhotosLibraryService : GTLRService
+@interface GTLRIAMCredentialsService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRPhotosLibraryQuery.h. The query can the be sent with GTLRService's
+// GTLRIAMCredentialsQuery.h. The query can the be sent with GTLRService's
 // execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

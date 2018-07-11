@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1beta1)
+//   Service Usage API (serviceusage/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -79,18 +79,13 @@ NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
-// GTLRServiceUsage_Service.state
-NSString * const kGTLRServiceUsage_Service_State_Disabled      = @"DISABLED";
-NSString * const kGTLRServiceUsage_Service_State_Enabled       = @"ENABLED";
-NSString * const kGTLRServiceUsage_Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRServiceUsage_Step.status
-NSString * const kGTLRServiceUsage_Step_Status_Cancelled       = @"CANCELLED";
-NSString * const kGTLRServiceUsage_Step_Status_Done            = @"DONE";
-NSString * const kGTLRServiceUsage_Step_Status_Failed          = @"FAILED";
-NSString * const kGTLRServiceUsage_Step_Status_InProgress      = @"IN_PROGRESS";
-NSString * const kGTLRServiceUsage_Step_Status_NotStarted      = @"NOT_STARTED";
-NSString * const kGTLRServiceUsage_Step_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+// GTLRServiceUsage_MetricDescriptorMetadata.launchStage
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -141,7 +136,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_AuthenticationRule
-@dynamic allowWithoutCredential, customAuth, oauth, requirements, selector;
+@dynamic allowWithoutCredential, oauth, requirements, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -301,6 +296,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_CancelOperationRequest
+//
+
+@implementation GTLRServiceUsage_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Context
 //
 
@@ -346,16 +350,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_Control
 @dynamic environment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_CustomAuthRequirements
-//
-
-@implementation GTLRServiceUsage_CustomAuthRequirements
-@dynamic provider;
 @end
 
 
@@ -411,6 +405,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_DisableServiceRequest
+@dynamic disableDependentServices;
 @end
 
 
@@ -455,6 +450,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Empty
+//
+
+@implementation GTLRServiceUsage_Empty
 @end
 
 
@@ -613,6 +617,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV1OperationMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV1OperationMetadata
+@dynamic resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoogleApiServiceusageV1Service
 //
 
@@ -731,7 +753,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRServiceUsage_Service class]
+    @"services" : [GTLRServiceUsage_GoogleApiServiceusageV1Service class]
   };
   return map;
 }
@@ -857,8 +879,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metricKind, name, type, unit,
-         valueType;
+@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
+         type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -871,6 +893,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MetricDescriptorMetadata
+//
+
+@implementation GTLRServiceUsage_MetricDescriptorMetadata
+@dynamic ingestDelay, launchStage, samplePeriod;
 @end
 
 
@@ -1021,12 +1053,11 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_OperationMetadata
-@dynamic progressPercentage, resourceNames, startTime, steps;
+@dynamic resourceNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"resourceNames" : [NSString class],
-    @"steps" : [GTLRServiceUsage_Step class]
+    @"resourceNames" : [NSString class]
   };
   return map;
 }
@@ -1127,36 +1158,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_Service
-//
-
-@implementation GTLRServiceUsage_Service
-@dynamic config, name, parent, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_ServiceConfig
-//
-
-@implementation GTLRServiceUsage_ServiceConfig
-@dynamic apis, authentication, documentation, endpoints, name, quota, title,
-         usage;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"apis" : [GTLRServiceUsage_Api class],
-    @"endpoints" : [GTLRServiceUsage_Endpoint class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUsage_SourceContext
 //
 
@@ -1224,21 +1225,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_Step
-//
-
-@implementation GTLRServiceUsage_Step
-@dynamic descriptionProperty, status;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

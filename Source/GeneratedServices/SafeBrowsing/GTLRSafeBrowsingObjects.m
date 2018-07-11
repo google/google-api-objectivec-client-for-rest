@@ -54,6 +54,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineerin
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ListUpdateResponse.platformType
@@ -96,6 +97,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeri
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ThreatEntrySet.compressionType
@@ -129,6 +131,7 @@ NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineeringInterna
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ThreatInfo.platformTypes
@@ -166,6 +169,7 @@ NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInter
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ThreatListDescriptor.platformType
@@ -203,6 +207,7 @@ NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEnginee
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ThreatMatch.platformType
@@ -240,6 +245,7 @@ NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInter
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter = @"SUBRESOURCE_FILTER";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious = @"SUSPICIOUS";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_TrickToBill = @"TRICK_TO_BILL";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRSafeBrowsing_ThreatSource.type

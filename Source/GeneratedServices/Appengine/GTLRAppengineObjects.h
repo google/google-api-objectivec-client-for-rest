@@ -37,6 +37,7 @@
 @class GTLRAppengine_DiskUtilization;
 @class GTLRAppengine_DomainMapping;
 @class GTLRAppengine_EndpointsApiService;
+@class GTLRAppengine_Entrypoint;
 @class GTLRAppengine_ErrorHandler;
 @class GTLRAppengine_FeatureSettings;
 @class GTLRAppengine_FileInfo;
@@ -49,6 +50,7 @@
 @class GTLRAppengine_Location;
 @class GTLRAppengine_Location_Labels;
 @class GTLRAppengine_Location_Metadata;
+@class GTLRAppengine_ManagedCertificate;
 @class GTLRAppengine_ManualScaling;
 @class GTLRAppengine_Network;
 @class GTLRAppengine_NetworkUtilization;
@@ -212,6 +214,29 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Unspecifie
 GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_EndpointsApiService.rolloutStrategy
+
+/**
+ *  Endpoints service configuration ID will be fixed to the configuration ID
+ *  specified by config_id.
+ *
+ *  Value: "FIXED"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed;
+/**
+ *  Endpoints service configuration ID will be updated with each rollout.
+ *
+ *  Value: "MANAGED"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed;
+/**
+ *  Not specified. Defaults to FIXED.
+ *
+ *  Value: "UNSPECIFIED_ROLLOUT_STRATEGY"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_UnspecifiedRolloutStrategy;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_ErrorHandler.errorCode
 
 /**
@@ -275,6 +300,60 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Resident;
 GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_ManagedCertificate.status
+
+/**
+ *  All renewal attempts have been exhausted, likely due to an invalid DNS
+ *  setup.
+ *
+ *  Value: "FAILED_PERMANENT"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPermanent;
+/**
+ *  Most recent renewal failed due to a CAA retrieval failure. This means that
+ *  the domain's DNS provider does not properly handle CAA records, failing
+ *  requests for CAA records when no CAA records are defined. Renewals will
+ *  continue to fail until the DNS provider is changed or a CAA record is added
+ *  for the given domain. The last successfully provisioned certificate may
+ *  still be serving.
+ *
+ *  Value: "FAILED_RETRYING_CAA_CHECKING"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking;
+/**
+ *  Most recent renewal failed due to an explicit CAA record that does not
+ *  include the in-use CA, Let's Encrypt. Renewals will continue to fail until
+ *  the CAA is reconfigured. The last successfully provisioned certificate may
+ *  still be serving.
+ *
+ *  Value: "FAILED_RETRYING_CAA_FORBIDDEN"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden;
+/**
+ *  Most recent renewal failed due to an invalid DNS setup and will be retried.
+ *  Renewal attempts will continue to fail until the certificate domain's DNS
+ *  configuration is fixed. The last successfully provisioned certificate may
+ *  still be serving.
+ *
+ *  Value: "FAILED_RETRYING_NOT_VISIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible;
+/** Value: "MANAGEMENT_STATUS_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspecified;
+/**
+ *  Certificate was successfully obtained and inserted into the serving system.
+ *
+ *  Value: "OK"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok;
+/**
+ *  Certificate is under active attempts to acquire or renew.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_ResourceRecord.type
 
 /**
@@ -301,6 +380,31 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Cname;
  *  Value: "RECORD_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_SslSettings.sslManagementType
+
+/**
+ *  SSL support for this domain is configured automatically. The mapped SSL
+ *  certificate will be automatically renewed.
+ *
+ *  Value: "AUTOMATIC"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automatic;
+/**
+ *  SSL support for this domain is configured manually by the user. Either the
+ *  domain has no SSL support or a user-obtained SSL certificate has been
+ *  explictly mapped to this domain.
+ *
+ *  Value: "MANUAL"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Manual;
+/**
+ *  Defaults to AUTOMATIC.
+ *
+ *  Value: "SSL_MANAGEMENT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_TrafficSplit.shardBy
@@ -744,6 +848,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Only applicable if this certificate is managed by App Engine. Managed
+ *  certificates are tied to the lifecycle of a DomainMapping and cannot be
+ *  updated or deleted via the AuthorizedCertificates API. If this certificate
+ *  is manually administered by the user, this field will be empty.\@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_ManagedCertificate *managedCertificate;
 
 /**
  *  Full path to the AuthorizedCertificate resource in the API. Example:
@@ -1202,15 +1314,22 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The
  *  Endpoints API Service provides tooling for serving Open API and gRPC
  *  endpoints via an NGINX proxy. Only valid for App Engine Flexible environment
- *  deployments.The fields here refer to the name and configuration id of a
+ *  deployments.The fields here refer to the name and configuration ID of a
  *  "service" resource in the Service Management API
  *  (https://cloud.google.com/service-management/overview).
  */
 @interface GTLRAppengine_EndpointsApiService : GTLRObject
 
 /**
- *  Endpoints service configuration id as specified by the Service Management
- *  API. For example "2016-09-19r1"
+ *  Endpoints service configuration ID as specified by the Service Management
+ *  API. For example "2016-09-19r1".By default, the rollout strategy for
+ *  Endpoints is RolloutStrategy.FIXED. This means that Endpoints starts up with
+ *  a particular configuration ID. When a new configuration is rolled out,
+ *  Endpoints must be given the new configuration ID. The config_id field is
+ *  used to give the configuration ID and is required in this case.Endpoints
+ *  also has a rollout strategy called RolloutStrategy.MANAGED. When using this,
+ *  Endpoints fetches the latest configuration and does not need the
+ *  configuration ID. In this case, config_id must be omitted.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
@@ -1219,6 +1338,34 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Service Management API. For example "myapi.endpoints.myproject.cloud.goog"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Endpoints rollout strategy. If FIXED, config_id must be specified. If
+ *  MANAGED, config_id must be omitted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed Endpoints
+ *        service configuration ID will be fixed to the configuration ID
+ *        specified by config_id. (Value: "FIXED")
+ *    @arg @c kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed
+ *        Endpoints service configuration ID will be updated with each rollout.
+ *        (Value: "MANAGED")
+ *    @arg @c kGTLRAppengine_EndpointsApiService_RolloutStrategy_UnspecifiedRolloutStrategy
+ *        Not specified. Defaults to FIXED. (Value:
+ *        "UNSPECIFIED_ROLLOUT_STRATEGY")
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutStrategy;
+
+@end
+
+
+/**
+ *  The entrypoint for the application.
+ */
+@interface GTLRAppengine_Entrypoint : GTLRObject
+
+/** The format should be a shell command that can be fed to bash -c. */
+@property(nonatomic, copy, nullable) NSString *shell;
 
 @end
 
@@ -1909,6 +2056,59 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  A certificate managed by App Engine.
+ */
+@interface GTLRAppengine_ManagedCertificate : GTLRObject
+
+/**
+ *  Time at which the certificate was last renewed. The renewal process is fully
+ *  managed. Certificate renewal will automatically occur before the certificate
+ *  expires. Renewal errors can be tracked via ManagementStatus.\@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRenewalTime;
+
+/**
+ *  Status of certificate management. Refers to the most recent certificate
+ *  acquisition or renewal attempt.\@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedPermanent All
+ *        renewal attempts have been exhausted, likely due to an invalid DNS
+ *        setup. (Value: "FAILED_PERMANENT")
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking
+ *        Most recent renewal failed due to a CAA retrieval failure. This means
+ *        that the domain's DNS provider does not properly handle CAA records,
+ *        failing requests for CAA records when no CAA records are defined.
+ *        Renewals will continue to fail until the DNS provider is changed or a
+ *        CAA record is added for the given domain. The last successfully
+ *        provisioned certificate may still be serving. (Value:
+ *        "FAILED_RETRYING_CAA_CHECKING")
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden
+ *        Most recent renewal failed due to an explicit CAA record that does not
+ *        include the in-use CA, Let's Encrypt. Renewals will continue to fail
+ *        until the CAA is reconfigured. The last successfully provisioned
+ *        certificate may still be serving. (Value:
+ *        "FAILED_RETRYING_CAA_FORBIDDEN")
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible
+ *        Most recent renewal failed due to an invalid DNS setup and will be
+ *        retried. Renewal attempts will continue to fail until the certificate
+ *        domain's DNS configuration is fixed. The last successfully provisioned
+ *        certificate may still be serving. (Value:
+ *        "FAILED_RETRYING_NOT_VISIBLE")
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspecified
+ *        Value "MANAGEMENT_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_Ok Certificate was
+ *        successfully obtained and inserted into the serving system. (Value:
+ *        "OK")
+ *    @arg @c kGTLRAppengine_ManagedCertificate_Status_Pending Certificate is
+ *        under active attempts to acquire or renew. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  A service with manual scaling runs continuously, allowing you to perform
  *  complex initialization and rely on the state of its memory over time.
  */
@@ -2467,9 +2667,43 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  ID of the AuthorizedCertificate resource configuring SSL for the
- *  application. Clearing this field will remove SSL support. Example: 12345.
+ *  application. Clearing this field will remove SSL support.By default, a
+ *  managed certificate is automatically created for every domain mapping. To
+ *  omit SSL support or to configure SSL manually, specify
+ *  SslManagementType.MANUAL on a CREATE or UPDATE request. You must be
+ *  authorized to administer the AuthorizedCertificate resource to manually map
+ *  it to a DomainMapping resource. Example: 12345.
  */
 @property(nonatomic, copy, nullable) NSString *certificateId;
+
+/**
+ *  ID of the managed AuthorizedCertificate resource currently being
+ *  provisioned, if applicable. Until the new managed certificate has been
+ *  successfully provisioned, the previous SSL state will be preserved. Once the
+ *  provisioning process completes, the certificate_id field will reflect the
+ *  new managed certificate and this field will be left empty. To remove SSL
+ *  support while there is still a pending managed certificate, clear the
+ *  certificate_id field with an UpdateDomainMappingRequest.\@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *pendingManagedCertificateId;
+
+/**
+ *  SSL management type for this domain. If AUTOMATIC, a managed certificate is
+ *  automatically provisioned. If MANUAL, certificate_id must be manually
+ *  specified in order to configure SSL for this domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_Automatic SSL support
+ *        for this domain is configured automatically. The mapped SSL
+ *        certificate will be automatically renewed. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_Manual SSL support
+ *        for this domain is configured manually by the user. Either the domain
+ *        has no SSL support or a user-obtained SSL certificate has been
+ *        explictly mapped to this domain. (Value: "MANUAL")
+ *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified
+ *        Defaults to AUTOMATIC. (Value: "SSL_MANAGEMENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sslManagementType;
 
 @end
 
@@ -2772,7 +3006,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *authFailAction;
 
 /**
- *  Level of login required to access this resource.
+ *  Level of login required to access this resource. Not supported for Node.js
+ *  in the App Engine standard environment.
  *
  *  Likely values:
  *    @arg @c kGTLRAppengine_UrlMap_Login_LoginAdmin If the user is not signed
@@ -2810,7 +3045,11 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, copy, nullable) NSString *redirectHttpResponseCode;
 
-/** Executes a script to handle the request that matches this URL pattern. */
+/**
+ *  Executes a script to handle the requests that match this URL pattern. Only
+ *  the auto value is supported for Node.js in the App Engine standard
+ *  environment, for example "script": "auto".
+ */
 @property(nonatomic, strong, nullable) GTLRAppengine_ScriptHandler *script;
 
 /**
@@ -2919,6 +3158,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  implemented by the app.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_EndpointsApiService *endpointsApiService;
+
+/** The entrypoint for the application. */
+@property(nonatomic, strong, nullable) GTLRAppengine_Entrypoint *entrypoint;
 
 /** App Engine execution environment for this version.Defaults to standard. */
 @property(nonatomic, copy, nullable) NSString *env;

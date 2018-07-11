@@ -1595,6 +1595,32 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalytics_UserDeletionRequest
+//
+
+@implementation GTLRAnalytics_UserDeletionRequest
+@dynamic deletionRequestTime, firebaseProjectId, identifier, kind,
+         webPropertyId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_UserDeletionRequest_Id
+//
+
+@implementation GTLRAnalytics_UserDeletionRequest_Id
+@dynamic type, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalytics_UserRef
 //
 
@@ -1633,9 +1659,10 @@
 //
 
 @implementation GTLRAnalytics_Webproperty
-@dynamic accountId, childLink, created, defaultProfileId, identifier,
-         industryVertical, internalWebPropertyId, kind, level, name, parentLink,
-         permissions, profileCount, selfLink, starred, updated, websiteUrl;
+@dynamic accountId, childLink, created, dataRetentionResetOnNewActivity,
+         dataRetentionTtl, defaultProfileId, identifier, industryVertical,
+         internalWebPropertyId, kind, level, name, parentLink, permissions,
+         profileCount, selfLink, starred, updated, websiteUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

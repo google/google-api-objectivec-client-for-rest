@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Usage API (serviceusage/v1beta1)
+//   Service Usage API (serviceusage/v1)
 // Description:
 //   Enables services that service consumers want to use on Google Cloud
 //   Platform, lists the available or enabled services, or disables services
@@ -34,7 +34,6 @@
 @class GTLRServiceUsage_Context;
 @class GTLRServiceUsage_ContextRule;
 @class GTLRServiceUsage_Control;
-@class GTLRServiceUsage_CustomAuthRequirements;
 @class GTLRServiceUsage_CustomError;
 @class GTLRServiceUsage_CustomErrorRule;
 @class GTLRServiceUsage_CustomHttpPattern;
@@ -58,6 +57,7 @@
 @class GTLRServiceUsage_MediaUpload;
 @class GTLRServiceUsage_Method;
 @class GTLRServiceUsage_MetricDescriptor;
+@class GTLRServiceUsage_MetricDescriptorMetadata;
 @class GTLRServiceUsage_MetricRule;
 @class GTLRServiceUsage_MetricRule_MetricCosts;
 @class GTLRServiceUsage_Mixin;
@@ -74,14 +74,11 @@
 @class GTLRServiceUsage_Quota;
 @class GTLRServiceUsage_QuotaLimit;
 @class GTLRServiceUsage_QuotaLimit_Values;
-@class GTLRServiceUsage_Service;
-@class GTLRServiceUsage_ServiceConfig;
 @class GTLRServiceUsage_SourceContext;
 @class GTLRServiceUsage_SourceInfo;
 @class GTLRServiceUsage_SourceInfo_SourceFiles_Item;
 @class GTLRServiceUsage_Status;
 @class GTLRServiceUsage_Status_Details_Item;
-@class GTLRServiceUsage_Step;
 @class GTLRServiceUsage_SystemParameter;
 @class GTLRServiceUsage_SystemParameterRule;
 @class GTLRServiceUsage_SystemParameters;
@@ -421,70 +418,65 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String
 GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRServiceUsage_Service.state
+// GTLRServiceUsage_MetricDescriptorMetadata.launchStage
 
 /**
- *  The service cannot be used by this consumer. It has either been explicitly
- *  disabled, or has never been enabled.
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved
+ *  and we are in the process of verifying functionality. Alpha customers
+ *  need to apply for access, agree to applicable terms, and have their
+ *  projects whitelisted. Alpha releases don’t have to be feature complete,
+ *  no SLAs are provided, and there are no technical support obligations, but
+ *  they will be far enough along that customers can actually use them in
+ *  test environments or for limited-use tests -- just like they would in
+ *  normal production cases.
  *
- *  Value: "DISABLED"
+ *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_Disabled;
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha;
 /**
- *  The service has been explicitly enabled for use by this consumer.
+ *  Beta is the point at which we are ready to open a release for any
+ *  customer to use. There are no SLA or technical support obligations in a
+ *  Beta release. Products will be complete from a feature perspective, but
+ *  may have some open outstanding issues. Beta releases are suitable for
+ *  limited production use cases.
  *
- *  Value: "ENABLED"
+ *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_Enabled;
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
- *  The default value, which indicates that the enabled state of the service
- *  is unspecified or not meaningful. Currently, all consumers other than
- *  projects (such as folders and organizations) are always in this state.
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/)
+ *  and the [Google Cloud Platform Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
  *
- *  Value: "STATE_UNSPECIFIED"
+ *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Service_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRServiceUsage_Step.status
-
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecated;
 /**
- *  The operation or step has completed with cancellation.
+ *  Early Access features are limited to a closed group of testers. To use
+ *  these features, you must sign up in advance and sign a Trusted Tester
+ *  agreement (which includes confidentiality provisions). These features may
+ *  be unstable, changed in backward-incompatible ways, and are not
+ *  guaranteed to be released.
  *
- *  Value: "CANCELLED"
+ *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_Cancelled;
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
 /**
- *  The operation or step has completed without errors.
+ *  GA features are open to all developers and are considered stable and
+ *  fully qualified for production use.
  *
- *  Value: "DONE"
+ *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_Done;
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga;
 /**
- *  The operation or step has completed with errors. If the operation is
- *  rollbackable, the rollback completed with errors too.
+ *  Do not use this default value.
  *
- *  Value: "FAILED"
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_Failed;
-/**
- *  The operation or step is in progress.
- *
- *  Value: "IN_PROGRESS"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_InProgress;
-/**
- *  The operation or step has not started yet.
- *
- *  Value: "NOT_STARTED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_NotStarted;
-/**
- *  Unspecifed code.
- *
- *  Value: "STATUS_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Step_Status_StatusUnspecified;
+GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Type.syntax
@@ -617,9 +609,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowWithoutCredential;
-
-/** Configuration for custom authentication. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_CustomAuthRequirements *customAuth;
 
 /** The requirements for OAuth credentials. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_OAuthRequirements *oauth;
@@ -934,6 +923,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRServiceUsage_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  `Context` defines which contexts an API requests.
  *  Example:
  *  context:
@@ -1025,21 +1021,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Configuration for a custom authentication provider.
- */
-@interface GTLRServiceUsage_CustomAuthRequirements : GTLRObject
-
-/**
- *  A configuration string containing connection information for the
- *  authentication provider, typically formatted as a SmartService string
- *  (go/smartservice).
- */
-@property(nonatomic, copy, nullable) NSString *provider;
-
-@end
-
-
-/**
  *  Customize service error responses. For example, list any service
  *  specific protobuf types that can appear in error detail lists of
  *  error responses.
@@ -1105,6 +1086,18 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Request message for the `DisableService` method.
  */
 @interface GTLRServiceUsage_DisableServiceRequest : GTLRObject
+
+/**
+ *  Indicates if services that are enabled and which depend on this service
+ *  should also be disabled. If not set, an error will be generated if any
+ *  enabled services depend on the service to be disabled. When set, the
+ *  service, and any enabled services that depend on it, will be disabled
+ *  together.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableDependentServices;
+
 @end
 
 
@@ -1245,7 +1238,20 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  GTLRServiceUsage_EnableFailure
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRServiceUsage_Empty : GTLRObject
+@end
+
+
+/**
+ *  Provides error messages for the failing services.
  */
 @interface GTLRServiceUsage_EnableFailure : GTLRObject
 
@@ -1669,6 +1675,20 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
+
+@end
+
+
+/**
+ *  The operation metadata returned for the batchend services operation.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV1OperationMetadata : GTLRObject
+
+/**
+ *  The full name of the resources that this operation is directly
+ *  associated with.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 @end
 
@@ -2170,7 +2190,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Service *> *services;
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV1Service *> *services;
 
 @end
 
@@ -2483,6 +2503,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_LabelDescriptor *> *labels;
 
+/** Optional. Metadata which can be used to guide usage of the metric. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_MetricDescriptorMetadata *metadata;
+
 /**
  *  Whether the metric records instantaneous values, changes to a value, etc.
  *  Some combinations of `metric_kind` and `value_type` might not be supported.
@@ -2597,6 +2620,77 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        Do not use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Additional annotations that can be used to guide the usage of a metric.
+ */
+@interface GTLRServiceUsage_MetricDescriptorMetadata : GTLRObject
+
+/**
+ *  The delay of data points caused by ingestion. Data points older than this
+ *  age are guaranteed to be ingested and available to be read, excluding
+ *  data loss due to errors.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
+
+/**
+ *  The launch stage of the metric definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha Alpha
+ *        is a limited availability test for releases before they are cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects whitelisted. Alpha releases don’t have to be feature
+ *        complete,
+ *        no SLAs are provided, and there are no technical support obligations,
+ *        but
+ *        they will be far enough along that customers can actually use them in
+ *        test environments or for limited-use tests -- just like they would in
+ *        normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Beta Beta
+ *        is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a
+ *        Beta release. Products will be complete from a feature perspective,
+ *        but
+ *        may have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more
+ *        information, see the “Deprecation Policy” section of our [Terms of
+ *        Service](https://cloud.google.com/terms/)
+ *        and the [Google Cloud Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may
+ *        be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The sampling period of metric data points. For metrics which are written
+ *  periodically, consecutive data points are stored at this time interval,
+ *  excluding data loss due to errors. Metrics with a higher granularity have
+ *  a smaller sampling period.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
 @end
 
@@ -2967,28 +3061,15 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The metadata associated with a long running operation resource.
+ *  The operation metadata returned for the batchend services operation.
  */
 @interface GTLRServiceUsage_OperationMetadata : GTLRObject
-
-/**
- *  Percentage of completion of this operation, ranging from 0 to 100.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *progressPercentage;
 
 /**
  *  The full name of the resources that this operation is directly
  *  associated with.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
-
-/** The start time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/** Detailed status information for each step. The order is undetermined. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Step *> *steps;
 
 @end
 
@@ -3252,98 +3333,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A service that is available for use by the consumer.
- */
-@interface GTLRServiceUsage_Service : GTLRObject
-
-/**
- *  The service configuration of the available service.
- *  Some fields may be filtered out of the configuration in responses to
- *  the `ListServices` method. These fields are present only in responses to
- *  the `GetService` method.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_ServiceConfig *config;
-
-/**
- *  The resource name of the consumer and service.
- *  A valid name would be:
- *  - projects/123/services/serviceusage.googleapis.com
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The resource name of the consumer.
- *  A valid name would be:
- *  - projects/123
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Whether or not the service has been enabled for use by the consumer.
- *
- *  Likely values:
- *    @arg @c kGTLRServiceUsage_Service_State_Disabled The service cannot be
- *        used by this consumer. It has either been explicitly
- *        disabled, or has never been enabled. (Value: "DISABLED")
- *    @arg @c kGTLRServiceUsage_Service_State_Enabled The service has been
- *        explicitly enabled for use by this consumer. (Value: "ENABLED")
- *    @arg @c kGTLRServiceUsage_Service_State_StateUnspecified The default
- *        value, which indicates that the enabled state of the service
- *        is unspecified or not meaningful. Currently, all consumers other than
- *        projects (such as folders and organizations) are always in this state.
- *        (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  The configuration of the service.
- */
-@interface GTLRServiceUsage_ServiceConfig : GTLRObject
-
-/**
- *  A list of API interfaces exported by this service. Contains only the names,
- *  versions, and method names of the interfaces.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Api *> *apis;
-
-/** Auth configuration. Contains only the OAuth rules. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_Authentication *authentication;
-
-/**
- *  Additional API documentation. Contains only the summary and the
- *  documentation URL.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_Documentation *documentation;
-
-/**
- *  Configuration for network endpoints. Contains only the names and aliases
- *  of the endpoints.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
-
-/**
- *  The DNS address at which this service is available.
- *  An example DNS address would be:
- *  `calendar.googleapis.com`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Quota configuration. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_Quota *quota;
-
-/** The product title for this service. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/** Configuration controlling usage of this service. */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
-
-@end
-
-
-/**
  *  `SourceContext` represents information about the source of a
  *  protobuf element, like the file in which it is defined.
  */
@@ -3460,42 +3449,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceUsage_Status_Details_Item : GTLRObject
-@end
-
-
-/**
- *  Represents the status of one operation step.
- */
-@interface GTLRServiceUsage_Step : GTLRObject
-
-/**
- *  The short description of the step.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  The status code.
- *
- *  Likely values:
- *    @arg @c kGTLRServiceUsage_Step_Status_Cancelled The operation or step has
- *        completed with cancellation. (Value: "CANCELLED")
- *    @arg @c kGTLRServiceUsage_Step_Status_Done The operation or step has
- *        completed without errors. (Value: "DONE")
- *    @arg @c kGTLRServiceUsage_Step_Status_Failed The operation or step has
- *        completed with errors. If the operation is
- *        rollbackable, the rollback completed with errors too. (Value:
- *        "FAILED")
- *    @arg @c kGTLRServiceUsage_Step_Status_InProgress The operation or step is
- *        in progress. (Value: "IN_PROGRESS")
- *    @arg @c kGTLRServiceUsage_Step_Status_NotStarted The operation or step has
- *        not started yet. (Value: "NOT_STARTED")
- *    @arg @c kGTLRServiceUsage_Step_Status_StatusUnspecified Unspecifed code.
- *        (Value: "STATUS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
 @end
 
 

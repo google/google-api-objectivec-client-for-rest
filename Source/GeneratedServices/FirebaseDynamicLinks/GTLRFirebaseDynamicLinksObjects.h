@@ -376,6 +376,28 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttribut
 GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.requestIpVersion
+
+/**
+ *  Request made from an IPv4 IP address.
+ *
+ *  Value: "IP_V4"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV4;
+/**
+ *  Request made from an IPv6 IP address.
+ *
+ *  Value: "IP_V6"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV6;
+/**
+ *  Unset.
+ *
+ *  Value: "UNKNOWN_IP_VERSION"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_UnknownIpVersion;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_ManagedShortLink.flaggedAttribute
 
 /** Value: "SPAM" */
@@ -1028,6 +1050,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  techniques (fingerprint, copy unique).
  */
 @property(nonatomic, copy, nullable) NSString *requestedLink;
+
+/**
+ *  Which IP version the request was made from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV4
+ *        Request made from an IPv4 IP address. (Value: "IP_V4")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV6
+ *        Request made from an IPv6 IP address. (Value: "IP_V6")
+ *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_UnknownIpVersion
+ *        Unset. (Value: "UNKNOWN_IP_VERSION")
+ */
+@property(nonatomic, copy, nullable) NSString *requestIpVersion;
 
 /**
  *  The entire FDL, expanded from a short link. It is the same as the

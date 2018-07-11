@@ -7,7 +7,7 @@
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
 // Documentation:
-//   http://cloud.google.com/text-to-speech/
+//   https://cloud.google.com/text-to-speech/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

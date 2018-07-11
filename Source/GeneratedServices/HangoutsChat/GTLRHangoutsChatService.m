@@ -4,8 +4,7 @@
 // API:
 //   Hangouts Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in the new Hangouts
-//   Chat.
+//   Enables bots to fetch information and perform actions in Hangouts Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -19,7 +18,7 @@
     // From discovery.
     self.rootURLString = @"https://chat.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

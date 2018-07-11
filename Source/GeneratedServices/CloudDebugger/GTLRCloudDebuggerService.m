@@ -7,7 +7,7 @@
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   http://cloud.google.com/debugger
+//   https://cloud.google.com/debugger
 
 #import "GTLRCloudDebugger.h"
 
@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform = @"https://www.google
     // From discovery.
     self.rootURLString = @"https://clouddebugger.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

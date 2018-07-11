@@ -33,7 +33,7 @@ NSString * const kGTLRAuthScopeSlidesSpreadsheetsReadonly  = @"https://www.googl
     // From discovery.
     self.rootURLString = @"https://slides.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

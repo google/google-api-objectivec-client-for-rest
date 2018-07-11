@@ -30,7 +30,7 @@ NSString * const kGTLRAuthScopeAppengineCloudPlatformReadOnly = @"https://www.go
     // From discovery.
     self.rootURLString = @"https://appengine.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

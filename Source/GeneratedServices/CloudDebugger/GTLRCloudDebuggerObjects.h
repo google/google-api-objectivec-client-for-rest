@@ -7,7 +7,7 @@
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   http://cloud.google.com/debugger
+//   https://cloud.google.com/debugger
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -298,7 +298,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  */
 @property(nonatomic, copy, nullable) NSString *logMessageFormat;
 
-/** The stack at breakpoint time. */
+/**
+ *  The stack at breakpoint time, where stack_frames[0] represents the most
+ *  recently entered function.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_StackFrame *> *stackFrames;
 
 /**

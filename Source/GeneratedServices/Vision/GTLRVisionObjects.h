@@ -22,6 +22,8 @@
 
 @class GTLRVision_AnnotateImageRequest;
 @class GTLRVision_AnnotateImageResponse;
+@class GTLRVision_AsyncAnnotateFileRequest;
+@class GTLRVision_AsyncAnnotateFileResponse;
 @class GTLRVision_Block;
 @class GTLRVision_BoundingPoly;
 @class GTLRVision_Color;
@@ -35,6 +37,8 @@
 @class GTLRVision_EntityAnnotation;
 @class GTLRVision_FaceAnnotation;
 @class GTLRVision_Feature;
+@class GTLRVision_GcsDestination;
+@class GTLRVision_GcsSource;
 @class GTLRVision_GoogleCloudVisionV1p2beta1AnnotateImageResponse;
 @class GTLRVision_GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Block;
@@ -71,17 +75,25 @@
 @class GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebLabel;
 @class GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebPage;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Word;
+@class GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly;
+@class GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex;
+@class GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage;
+@class GTLRVision_GoogleCloudVisionV1p3beta1Vertex;
 @class GTLRVision_Image;
+@class GTLRVision_ImageAnnotationContext;
 @class GTLRVision_ImageContext;
 @class GTLRVision_ImageProperties;
 @class GTLRVision_ImageSource;
+@class GTLRVision_InputConfig;
 @class GTLRVision_Landmark;
 @class GTLRVision_LatLng;
 @class GTLRVision_LatLongRect;
 @class GTLRVision_LocationInfo;
+@class GTLRVision_NormalizedVertex;
 @class GTLRVision_Operation;
 @class GTLRVision_Operation_Metadata;
 @class GTLRVision_Operation_Response;
+@class GTLRVision_OutputConfig;
 @class GTLRVision_Page;
 @class GTLRVision_Paragraph;
 @class GTLRVision_Position;
@@ -1357,6 +1369,43 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotatio
 GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata.state
+
+/**
+ *  The request is done after the longrunning.Operations.CancelOperation has
+ *  been called by the user. Any records that were processed before the
+ *  cancel command are output as specified in the request.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled;
+/**
+ *  The request is done and no item has been successfully processed.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Processing;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified;
+/**
+ *  The request is done and at least one item has been successfully
+ *  processed.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
 // GTLRVision_Landmark.type
 
 /**
@@ -1571,6 +1620,40 @@ GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_UnknownLandmark;
 GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
+// GTLRVision_OperationMetadata.state
+
+/**
+ *  The batch processing was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Cancelled;
+/**
+ *  Request is received.
+ *
+ *  Value: "CREATED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Created;
+/**
+ *  The batch processing is done.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Done;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Running;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.adult
 
 /**
@@ -1771,6 +1854,21 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryLikel
 GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely;
 
 /**
+ *  Response to a single file annotation request. A file may contain one or more
+ *  images, which individually have their own responses.
+ */
+@interface GTLRVision_AnnotateFileResponse : GTLRObject
+
+/** Information about the file for which this response is generated. */
+@property(nonatomic, strong, nullable) GTLRVision_InputConfig *inputConfig;
+
+/** Individual responses to images found within the file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageResponse *> *responses;
+
+@end
+
+
+/**
  *  Request for performing Google Cloud Vision API tasks over a user-provided
  *  image, with user-requested features.
  */
@@ -1792,6 +1890,12 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Response to an image annotation request.
  */
 @interface GTLRVision_AnnotateImageResponse : GTLRObject
+
+/**
+ *  If present, contextual information is needed to understand where this image
+ *  comes from.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_ImageAnnotationContext *context;
 
 /** If present, crop hints have completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_CropHintsAnnotation *cropHintsAnnotation;
@@ -1834,6 +1938,63 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, web detection has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_WebDetection *webDetection;
+
+@end
+
+
+/**
+ *  An offline file annotation request.
+ */
+@interface GTLRVision_AsyncAnnotateFileRequest : GTLRObject
+
+/** Required. Requested features. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Feature *> *features;
+
+/** Additional context that may accompany the image(s) in the file. */
+@property(nonatomic, strong, nullable) GTLRVision_ImageContext *imageContext;
+
+/** Required. Information about the input file. */
+@property(nonatomic, strong, nullable) GTLRVision_InputConfig *inputConfig;
+
+/** Required. The desired output location and metadata (e.g. format). */
+@property(nonatomic, strong, nullable) GTLRVision_OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  The response for a single offline file annotation request.
+ */
+@interface GTLRVision_AsyncAnnotateFileResponse : GTLRObject
+
+/** The output location and metadata from AsyncAnnotateFileRequest. */
+@property(nonatomic, strong, nullable) GTLRVision_OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  Multiple async file annotation requests are batched into a single service
+ *  call.
+ */
+@interface GTLRVision_AsyncBatchAnnotateFilesRequest : GTLRObject
+
+/** Individual async file annotation requests for this batch. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_AsyncAnnotateFileRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response to an async batch file annotation request.
+ */
+@interface GTLRVision_AsyncBatchAnnotateFilesResponse : GTLRObject
+
+/**
+ *  The list of file annotation responses, one for each request in
+ *  AsyncBatchAnnotateFilesRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_AsyncAnnotateFileResponse *> *responses;
 
 @end
 
@@ -1922,6 +2083,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  A bounding polygon for the detected image annotation.
  */
 @interface GTLRVision_BoundingPoly : GTLRObject
+
+/** The bounding polygon normalized vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_NormalizedVertex *> *normalizedVertices;
 
 /** The bounding polygon vertices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Vertex *> *vertices;
@@ -2611,6 +2775,44 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        "WEB_DETECTION")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location where the output will be written to.
+ */
+@interface GTLRVision_GcsDestination : GTLRObject
+
+/**
+ *  Google Cloud Storage URI where the results will be stored. Results will
+ *  be in JSON format and preceded by its corresponding input URI. This field
+ *  can either represent a single file, or a prefix for multiple outputs.
+ *  Prefixes must end in a `/`.
+ *  Examples:
+ *  * File: gs://bucket-name/filename.json
+ *  * Prefix: gs://bucket-name/prefix/here/
+ *  * File: gs://bucket-name/prefix/here
+ *  If multiple outputs, each response is still AnnotateFileResponse, each of
+ *  which contains some subset of the full list of AnnotateImageResponse.
+ *  Multiple outputs can happen if, for example, the output JSON is too large
+ *  and overflows into multiple sharded files.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location where the input will be read from.
+ */
+@interface GTLRVision_GcsSource : GTLRObject
+
+/**
+ *  Google Cloud Storage URI for the input file. This must only be a
+ *  Google Cloud Storage object. Wildcards are not currently supported.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -3873,7 +4075,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1WebDetection : GTLRObject
 
-/** Best guess text labels for the request image. */
+/**
+ *  The service's best guess as to the topic of the request image.
+ *  Inferred from similar images on the open web.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebLabel *> *bestGuessLabels;
 
 /**
@@ -4042,6 +4247,167 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  Metadata for the batch operations such as the current state.
+ *  This is included in the `metadata` field of the `Operation` returned by the
+ *  `GetOperation` call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata : GTLRObject
+
+/**
+ *  The time when the batch request is finished and
+ *  google.longrunning.Operation.done is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled
+ *        The request is done after the longrunning.Operations.CancelOperation
+ *        has
+ *        been called by the user. Any records that were processed before the
+ *        cancel command are output as specified in the request. (Value:
+ *        "CANCELLED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed
+ *        The request is done and no item has been successfully processed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified
+ *        Invalid. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Successful
+ *        The request is done and at least one item has been successfully
+ *        processed. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the batch request was submitted to the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *submitTime;
+
+@end
+
+
+/**
+ *  A bounding polygon for the detected image annotation.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly : GTLRObject
+
+/** The bounding polygon normalized vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex *> *normalizedVertices;
+
+/** The bounding polygon vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1Vertex *> *vertices;
+
+@end
+
+
+/**
+ *  Response message for the `ImportProductSets` method.
+ *  This message is returned by the
+ *  google.longrunning.Operations.GetOperation method in the returned
+ *  google.longrunning.Operation.response field.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1ImportProductSetsResponse : GTLRObject
+
+/** The list of reference_images that are imported successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage *> *referenceImages;
+
+/**
+ *  The rpc status for each ImportProductSet request, including both successes
+ *  and errors.
+ *  The number of statuses here matches the number of lines in the csv file,
+ *  and statuses[i] stores the success or failure status of processing the i-th
+ *  line of the csv, starting from line 0.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  A `ReferenceImage` represents a product image and its associated metadata,
+ *  such as bounding boxes.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage : GTLRObject
+
+/**
+ *  Bounding polygons around the areas of interest in the reference image.
+ *  Optional. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used.
+ *  The provided shape is converted into a non-rotated rectangle. Once
+ *  converted, the small edge of the rectangle must be greater than or equal
+ *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
+ *  is not).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *> *boundingPolys;
+
+/**
+ *  The resource name of the reference image.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
+ *  This field is ignored when creating a reference image.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Google Cloud Storage URI of the reference image.
+ *  The URI must start with `gs://`.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the vertex coordinates are in the same scale as the original image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1Vertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
  *  Client image to perform Google Cloud Vision API tasks over.
  */
 @interface GTLRVision_Image : GTLRObject
@@ -4062,6 +4428,26 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  takes precedence and is used to perform the image annotation request.
  */
 @property(nonatomic, strong, nullable) GTLRVision_ImageSource *source;
+
+@end
+
+
+/**
+ *  If an image was produced from a file (e.g. a PDF), this message gives
+ *  information about the source of that image.
+ */
+@interface GTLRVision_ImageAnnotationContext : GTLRObject
+
+/**
+ *  If the file was a PDF or TIFF, this field gives the page number within
+ *  the file used to produce the image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumber;
+
+/** The URI of the file used to produce the image. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -4137,6 +4523,23 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  precedence.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
+
+@end
+
+
+/**
+ *  The desired input location and metadata.
+ */
+@interface GTLRVision_InputConfig : GTLRObject
+
+/** The Google Cloud Storage location to read the input from. */
+@property(nonatomic, strong, nullable) GTLRVision_GcsSource *gcsSource;
+
+/**
+ *  The type of the file. Currently only "application/pdf" and "image/tiff"
+ *  are supported. Wildcards are not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -4301,6 +4704,30 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRVision_NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -4379,6 +4806,63 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRVision_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Contains metadata for the BatchAnnotateImages operation.
+ */
+@interface GTLRVision_OperationMetadata : GTLRObject
+
+/** The time when the batch request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_OperationMetadata_State_Cancelled The batch processing
+ *        was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRVision_OperationMetadata_State_Created Request is received.
+ *        (Value: "CREATED")
+ *    @arg @c kGTLRVision_OperationMetadata_State_Done The batch processing is
+ *        done. (Value: "DONE")
+ *    @arg @c kGTLRVision_OperationMetadata_State_Running Request is actively
+ *        being processed. (Value: "RUNNING")
+ *    @arg @c kGTLRVision_OperationMetadata_State_StateUnspecified Invalid.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the operation result was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The desired output location and metadata.
+ */
+@interface GTLRVision_OutputConfig : GTLRObject
+
+/**
+ *  The max number of response protos to put into each output JSON file on
+ *  Google Cloud Storage.
+ *  The valid range is [1, 100]. If not specified, the default value is 20.
+ *  For example, for one pdf file with 100 pages, 100 response protos will
+ *  be generated. If `batch_size` = 20, then 5 json files each
+ *  containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`.
+ *  Currently, batch_size only applies to GcsDestination, with potential future
+ *  support for other output configurations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/** The Google Cloud Storage location to write the output(s) to. */
+@property(nonatomic, strong, nullable) GTLRVision_GcsDestination *gcsDestination;
+
 @end
 
 
@@ -4818,7 +5302,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  */
 @interface GTLRVision_WebDetection : GTLRObject
 
-/** Best guess text labels for the request image. */
+/**
+ *  The service's best guess as to the topic of the request image.
+ *  Inferred from similar images on the open web.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebLabel *> *bestGuessLabels;
 
 /**

@@ -4,8 +4,7 @@
 // API:
 //   Cloud Tasks API (cloudtasks/v2beta2)
 // Description:
-//   Manages the execution of large numbers of distributed requests. Cloud Tasks
-//   is in Alpha.
+//   Manages the execution of large numbers of distributed requests.
 // Documentation:
 //   https://cloud.google.com/cloud-tasks/
 
@@ -28,7 +27,7 @@ NSString * const kGTLRAuthScopeCloudTasksCloudPlatform = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://cloudtasks.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

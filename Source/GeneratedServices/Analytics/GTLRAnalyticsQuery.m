@@ -2489,3 +2489,23 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 }
 
 @end
+
+@implementation GTLRAnalyticsQuery_UserDeletionUserDeletionRequestUpsert
+
++ (instancetype)queryWithObject:(GTLRAnalytics_UserDeletionRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"userDeletion/userDeletionRequests:upsert";
+  GTLRAnalyticsQuery_UserDeletionUserDeletionRequestUpsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAnalytics_UserDeletionRequest class];
+  query.loggingName = @"analytics.userDeletion.userDeletionRequest.upsert";
+  return query;
+}
+
+@end

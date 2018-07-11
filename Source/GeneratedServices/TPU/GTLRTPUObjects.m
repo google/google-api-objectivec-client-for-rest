@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1alpha1)
+//   Cloud TPU API (tpu/v1)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -216,7 +216,7 @@ NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 @implementation GTLRTPU_Node
 @dynamic acceleratorType, cidrBlock, createTime, descriptionProperty, health,
          healthDescription, ipAddress, labels, name, network, networkEndpoints,
-         port, serviceAccount, state, tensorflowVersion;
+         port, schedulingConfig, serviceAccount, state, tensorflowVersion;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -311,6 +311,16 @@ NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 //
 
 @implementation GTLRTPU_ResetNodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_SchedulingConfig
+//
+
+@implementation GTLRTPU_SchedulingConfig
+@dynamic preemptible;
 @end
 
 

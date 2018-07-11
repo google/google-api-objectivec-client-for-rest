@@ -4,14 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects. <aside
-//   class="note"><b>Note</b>: In order to use this API in your apps, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
-//   enable it for use</a>. To allow other apps to manage your scripts, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
-//   grant them access</a>.</aside>
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 

@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeDialogflowCloudPlatform = @"https://www.googleapi
     // From discovery.
     self.rootURLString = @"https://dialogflow.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

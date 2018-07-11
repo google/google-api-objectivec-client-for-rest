@@ -18,6 +18,25 @@
 
 @end
 
+@implementation GTLRCloudSourceRepositoriesQuery_ProjectsGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/config";
+  GTLRCloudSourceRepositoriesQuery_ProjectsGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSourceRepositories_ProjectConfig class];
+  query.loggingName = @"sourcerepo.projects.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate
 
 @dynamic parent;
@@ -119,6 +138,31 @@
 
 @end
 
+@implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_UpdateRepoRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudSourceRepositoriesQuery_ProjectsReposPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSourceRepositories_Repo class];
+  query.loggingName = @"sourcerepo.projects.repos.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy
 
 @dynamic resource;
@@ -164,6 +208,31 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudSourceRepositories_TestIamPermissionsResponse class];
   query.loggingName = @"sourcerepo.projects.repos.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSourceRepositoriesQuery_ProjectsUpdateConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_UpdateProjectConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/config";
+  GTLRCloudSourceRepositoriesQuery_ProjectsUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSourceRepositories_ProjectConfig class];
+  query.loggingName = @"sourcerepo.projects.updateConfig";
   return query;
 }
 

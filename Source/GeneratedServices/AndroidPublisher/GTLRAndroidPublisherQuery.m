@@ -1127,6 +1127,28 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_OrdersRefund
+
+@dynamic orderId, packageName, revoke;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                             orderId:(NSString *)orderId {
+  NSArray *pathParams = @[
+    @"orderId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"{packageName}/orders/{orderId}:refund";
+  GTLRAndroidPublisherQuery_OrdersRefund *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.orderId = orderId;
+  query.loggingName = @"androidpublisher.orders.refund";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_PurchasesProductsGet
 
 @dynamic packageName, productId, token;

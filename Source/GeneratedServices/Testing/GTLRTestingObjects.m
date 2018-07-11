@@ -60,9 +60,11 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DetailsUnavailable
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DeviceAdminReceiver = @"DEVICE_ADMIN_RECEIVER";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ForbiddenPermissions = @"FORBIDDEN_PERMISSIONS";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible = @"INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk = @"INVALID_INPUT_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk = @"NO_CODE_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";
@@ -588,6 +590,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_ProvidedSoftwareCatalog
+//
+
+@implementation GTLRTesting_ProvidedSoftwareCatalog
+@dynamic orchestratorVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_RegularFile
 //
 
@@ -668,7 +680,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestEnvironmentCatalog
-@dynamic androidDeviceCatalog, networkConfigurationCatalog;
+@dynamic androidDeviceCatalog, networkConfigurationCatalog, softwareCatalog;
 @end
 
 

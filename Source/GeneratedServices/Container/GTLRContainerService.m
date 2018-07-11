@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeContainerCloudPlatform = @"https://www.googleapis
     // From discovery.
     self.rootURLString = @"https://container.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

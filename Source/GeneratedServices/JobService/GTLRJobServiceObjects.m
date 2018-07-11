@@ -106,6 +106,7 @@ NSString * const kGTLRJobService_CustomFieldFilter_Type_Or     = @"OR";
 
 // GTLRJobService_DeviceInfo.deviceType
 NSString * const kGTLRJobService_DeviceInfo_DeviceType_Android = @"ANDROID";
+NSString * const kGTLRJobService_DeviceInfo_DeviceType_Bot     = @"BOT";
 NSString * const kGTLRJobService_DeviceInfo_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
 NSString * const kGTLRJobService_DeviceInfo_DeviceType_Ios     = @"IOS";
 NSString * const kGTLRJobService_DeviceInfo_DeviceType_MobileWeb = @"MOBILE_WEB";
@@ -1147,7 +1148,7 @@ NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small = @"SMALL";
 @dynamic categories, commuteFilter, companyDisplayNames, companyNames,
          compensationFilter, customAttributeFilter, disableSpellCheck,
          employmentTypes, languageCodes, locationFilters, publishDateRange,
-         query, tenantJobOnly;
+         query;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -4,14 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects. <aside
-//   class="note"><b>Note</b>: In order to use this API in your apps, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#using_the_apps_script_api_in_your_app">
-//   enable it for use</a>. To allow other apps to manage your scripts, you must
-//   <a
-//   href="/apps-script/api/how-tos/enable#granting_third-party_applications_access_to_your_script_projects">
-//   grant them access</a>.</aside>
+//   An API for managing and executing Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -83,8 +76,12 @@ GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesAddOn;
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi;
+/** Value: "MENU" */
+GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesMenu;
 /** Value: "PROCESS_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified;
+/** Value: "SIMPLE_TRIGGER" */
+GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesSimpleTrigger;
 /** Value: "TIME_DRIVEN" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTimeDriven;
 /** Value: "TRIGGER" */
@@ -137,8 +134,12 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesAddOn;
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi;
+/** Value: "MENU" */
+GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesMenu;
 /** Value: "PROCESS_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified;
+/** Value: "SIMPLE_TRIGGER" */
+GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesSimpleTrigger;
 /** Value: "TIME_DRIVEN" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTimeDriven;
 /** Value: "TRIGGER" */
@@ -264,6 +265,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptUserProcessFilterTypesTrigger Value "TRIGGER"
  *    @arg @c kGTLRScriptUserProcessFilterTypesWebapp Value "WEBAPP"
  *    @arg @c kGTLRScriptUserProcessFilterTypesEditor Value "EDITOR"
+ *    @arg @c kGTLRScriptUserProcessFilterTypesSimpleTrigger Value
+ *        "SIMPLE_TRIGGER"
+ *    @arg @c kGTLRScriptUserProcessFilterTypesMenu Value "MENU"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterTypes;
 
@@ -378,6 +382,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptScriptProcessFilterTypesTrigger Value "TRIGGER"
  *    @arg @c kGTLRScriptScriptProcessFilterTypesWebapp Value "WEBAPP"
  *    @arg @c kGTLRScriptScriptProcessFilterTypesEditor Value "EDITOR"
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesSimpleTrigger Value
+ *        "SIMPLE_TRIGGER"
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesMenu Value "MENU"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterTypes;
 
@@ -845,6 +852,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @c kGTLRAuthScopeScriptAdminDirectoryGroup
  *    @c kGTLRAuthScopeScriptAdminDirectoryUser
  *    @c kGTLRAuthScopeScriptCalendarFeeds
+ *    @c kGTLRAuthScopeScriptDocuments
  *    @c kGTLRAuthScopeScriptDrive
  *    @c kGTLRAuthScopeScriptForms
  *    @c kGTLRAuthScopeScriptFormsCurrentonly

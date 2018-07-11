@@ -420,6 +420,20 @@ NS_ASSUME_NONNULL_BEGIN
 /** The session_id passed by client. */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
+/**
+ *  For multi-tenant use cases, in order to construct sign-in URL with the
+ *  correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
+ *  configs from.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+/**
+ *  Tenant project number to be used for idp discovery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tenantProjectNumber;
+
 @end
 
 
@@ -911,6 +925,20 @@ NS_ASSUME_NONNULL_BEGIN
 /** The photo url of the user. */
 @property(nonatomic, copy, nullable) NSString *photoUrl;
 
+/**
+ *  For multi-tenant use cases, in order to construct sign-in URL with the
+ *  correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
+ *  configs from.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+/**
+ *  Tenant project number to be used for idp discovery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tenantProjectNumber;
+
 @end
 
 
@@ -1085,6 +1113,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
+/**
+ *  For multi-tenant use cases, in order to construct sign-in URL with the
+ *  correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
+ *  configs from.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+/**
+ *  Tenant project number to be used for idp discovery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tenantProjectNumber;
+
 @end
 
 
@@ -1160,6 +1202,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnSecureToken;
+
+/**
+ *  For multi-tenant use cases, in order to construct sign-in URL with the
+ *  correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
+ *  configs from.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+/**
+ *  Tenant project number to be used for idp discovery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tenantProjectNumber;
 
 @end
 

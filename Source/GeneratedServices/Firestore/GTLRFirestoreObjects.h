@@ -33,14 +33,14 @@
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
-@class GTLRFirestore_Index;
-@class GTLRFirestore_IndexField;
+@class GTLRFirestore_GoogleFirestoreAdminV1beta1Index;
+@class GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField;
+@class GTLRFirestore_GoogleLongrunningOperation_Metadata;
+@class GTLRFirestore_GoogleLongrunningOperation_Response;
 @class GTLRFirestore_LatLng;
 @class GTLRFirestore_ListenRequest_Labels;
 @class GTLRFirestore_MapValue;
 @class GTLRFirestore_MapValue_Fields;
-@class GTLRFirestore_Operation_Metadata;
-@class GTLRFirestore_Operation_Response;
 @class GTLRFirestore_Order;
 @class GTLRFirestore_Precondition;
 @class GTLRFirestore_Projection;
@@ -88,6 +88,12 @@ GTLR_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecifi
 // ----------------------------------------------------------------------------
 // GTLRFirestore_FieldFilter.op
 
+/**
+ *  Contains. Requires that the field is an array.
+ *
+ *  Value: "ARRAY_CONTAINS"
+ */
+GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
  *  Equal.
  *
@@ -144,7 +150,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_Requ
 GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRFirestore_Index.state
+// GTLRFirestore_GoogleFirestoreAdminV1beta1Index.state
 
 /**
  *  The index is being created.
@@ -154,7 +160,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_Serv
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_Creating;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Creating;
 /**
  *  The index was being created, but something went wrong.
  *  There is no active long-running operation for the index,
@@ -164,7 +170,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_Creating;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_Error;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Error;
 /**
  *  The index is ready to be used.
  *  The index is updated when writing a document.
@@ -172,37 +178,44 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_Error;
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_Ready;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Ready;
 /**
  *  The state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Index_State_StateUnspecified;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRFirestore_IndexField.mode
+// GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField.mode
 
+/**
+ *  The field's array values are indexed so as to support membership using
+ *  ARRAY_CONTAINS queries.
+ *
+ *  Value: "ARRAY_CONTAINS"
+ */
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ArrayContains;
 /**
  *  The field's values are indexed so as to support sequencing in
  *  ascending order and also query by <, >, <=, >=, and =.
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_IndexField_Mode_Ascending;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Ascending;
 /**
  *  The field's values are indexed so as to support sequencing in
  *  descending order and also query by <, >, <=, >=, and =.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_IndexField_Mode_Descending;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Descending;
 /**
  *  The mode is unspecified.
  *
  *  Value: "MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_IndexField_Mode_ModeUnspecified;
+GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_Order.direction
@@ -806,6 +819,8 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The operator to filter by.
  *
  *  Likely values:
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContains Contains. Requires
+ *        that the field is an array. (Value: "ARRAY_CONTAINS")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal Equal. (Value: "EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThan Greater than. Requires
  *        that the field come first in `order_by`. (Value: "GREATER_THAN")
@@ -844,10 +859,36 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_FieldTransform : GTLRObject
 
 /**
+ *  Append the given elements in order if they are not already present in
+ *  the current field value.
+ *  If the field is not an array, or if the field does not yet exist, it is
+ *  first set to the empty array.
+ *  Equivalent numbers of different types (e.g. 3L and 3.0) are
+ *  considered equal when checking if a value is missing.
+ *  NaN is equal to NaN, and Null is equal to Null.
+ *  If the input contains multiple equivalent values, only the first will
+ *  be considered.
+ *  The corresponding transform_result will be the null value.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *appendMissingElements;
+
+/**
  *  The path of the field. See Document.fields for the field path syntax
  *  reference.
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
+
+/**
+ *  Remove all of the given elements from the array in the field.
+ *  If the field is not an array, or if the field does not yet exist, it is
+ *  set to the empty array.
+ *  Equivalent numbers of the different types (e.g. 3L and 3.0) are
+ *  considered equal when deciding whether an element should be removed.
+ *  NaN is equal to NaN, and Null is equal to Null.
+ *  This will remove all equivalent values if there are duplicates.
+ *  The corresponding transform_result will be the null value.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *removeAllFromArray;
 
 /**
  *  Sets the field to the given server value.
@@ -885,13 +926,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  An index definition.
  */
-@interface GTLRFirestore_Index : GTLRObject
+@interface GTLRFirestore_GoogleFirestoreAdminV1beta1Index : GTLRObject
 
 /** The collection ID to which this index applies. Required. */
 @property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The fields to index. */
-@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_IndexField *> *fields;
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField *> *fields;
 
 /**
  *  The resource name of the index.
@@ -904,22 +945,24 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Output only.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_Index_State_Creating The index is being created.
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Creating The
+ *        index is being created.
  *        There is an active long-running operation for the index.
  *        The index is updated when writing a document.
  *        Some index data may exist. (Value: "CREATING")
- *    @arg @c kGTLRFirestore_Index_State_Error The index was being created, but
- *        something went wrong.
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Error The
+ *        index was being created, but something went wrong.
  *        There is no active long-running operation for the index,
  *        and the most recently finished long-running operation failed.
  *        The index is not updated when writing a document.
  *        Some index data may exist. (Value: "ERROR")
- *    @arg @c kGTLRFirestore_Index_State_Ready The index is ready to be used.
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Ready The
+ *        index is ready to be used.
  *        The index is updated when writing a document.
  *        The index is fully populated from all stored documents it applies to.
  *        (Value: "READY")
- *    @arg @c kGTLRFirestore_Index_State_StateUnspecified The state is
- *        unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -929,7 +972,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  A field of an index.
  */
-@interface GTLRFirestore_IndexField : GTLRObject
+@interface GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField : GTLRObject
 
 /**
  *  The path of the field. Must match the field path specification described
@@ -943,19 +986,128 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The field's mode.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_IndexField_Mode_Ascending The field's values are
- *        indexed so as to support sequencing in
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ArrayContains
+ *        The field's array values are indexed so as to support membership using
+ *        ARRAY_CONTAINS queries. (Value: "ARRAY_CONTAINS")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Ascending
+ *        The field's values are indexed so as to support sequencing in
  *        ascending order and also query by <, >, <=, >=, and =. (Value:
  *        "ASCENDING")
- *    @arg @c kGTLRFirestore_IndexField_Mode_Descending The field's values are
- *        indexed so as to support sequencing in
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Descending
+ *        The field's values are indexed so as to support sequencing in
  *        descending order and also query by <, >, <=, >=, and =. (Value:
  *        "DESCENDING")
- *    @arg @c kGTLRFirestore_IndexField_Mode_ModeUnspecified The mode is
- *        unspecified. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ModeUnspecified
+ *        The mode is unspecified. (Value: "MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+@end
+
+
+/**
+ *  The response for FirestoreAdmin.ListIndexes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "indexes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse : GTLRCollectionObject
+
+/**
+ *  The indexes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1beta1Index *> *indexes;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRFirestore_GoogleLongrunningOperation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress.
+ *  If `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time.
+ *  Some services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleLongrunningOperation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the
+ *  `name` should have the format of `operations/some/unique/name`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleLongrunningOperation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time.
+ *  Some services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleLongrunningOperation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleLongrunningOperation_Response : GTLRObject
 @end
 
 
@@ -1110,30 +1262,6 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for FirestoreAdmin.ListIndexes.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "indexes" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRFirestore_ListIndexesResponse : GTLRCollectionObject
-
-/**
- *  The indexes.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Index *> *indexes;
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  A map value.
  */
 @interface GTLRFirestore_MapValue : GTLRObject
@@ -1163,88 +1291,6 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirestore_MapValue_Fields : GTLRObject
-@end
-
-
-/**
- *  This resource represents a long-running operation that is the result of a
- *  network API call.
- */
-@interface GTLRFirestore_Operation : GTLRObject
-
-/**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
- *  available.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *done;
-
-/** The error result of the operation in case of failure or cancellation. */
-@property(nonatomic, strong, nullable) GTLRFirestore_Status *error;
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_Operation_Metadata *metadata;
-
-/**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_Operation_Response *response;
-
-@end
-
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRFirestore_Operation_Metadata : GTLRObject
-@end
-
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRFirestore_Operation_Response : GTLRObject
 @end
 
 

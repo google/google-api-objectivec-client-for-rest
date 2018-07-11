@@ -53,7 +53,21 @@
 //
 
 @implementation GTLRPubsub_CreateSnapshotRequest
-@dynamic subscription;
+@dynamic labels, subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_CreateSnapshotRequest_Labels
+//
+
+@implementation GTLRPubsub_CreateSnapshotRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -375,7 +389,21 @@
 //
 
 @implementation GTLRPubsub_Snapshot
-@dynamic expireTime, name, topic;
+@dynamic expireTime, labels, name, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Snapshot_Labels
+//
+
+@implementation GTLRPubsub_Snapshot_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -385,8 +413,22 @@
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, messageRetentionDuration, name, pushConfig,
+@dynamic ackDeadlineSeconds, labels, messageRetentionDuration, name, pushConfig,
          retainAckedMessages, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Subscription_Labels
+//
+
+@implementation GTLRPubsub_Subscription_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -432,7 +474,21 @@
 //
 
 @implementation GTLRPubsub_Topic
-@dynamic name;
+@dynamic labels, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Topic_Labels
+//
+
+@implementation GTLRPubsub_Topic_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -453,4 +509,14 @@
 
 @implementation GTLRPubsub_UpdateSubscriptionRequest
 @dynamic subscription, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_UpdateTopicRequest
+//
+
+@implementation GTLRPubsub_UpdateTopicRequest
+@dynamic topic, updateMask;
 @end

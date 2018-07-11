@@ -822,7 +822,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest
-@dynamic payload, source;
+@dynamic payload, source, version;
 @end
 
 
@@ -1609,7 +1609,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest
-@dynamic payload, source;
+@dynamic payload, source, version;
 @end
 
 

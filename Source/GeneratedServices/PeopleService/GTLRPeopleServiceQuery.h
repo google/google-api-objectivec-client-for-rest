@@ -350,9 +350,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * relationshipInterests
  *  * relationshipStatuses
  *  * residences
+ *  * sipAddresses
  *  * skills
  *  * taglines
  *  * urls
+ *  * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -527,9 +529,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * relationshipInterests
  *  * relationshipStatuses
  *  * residences
+ *  * sipAddresses
  *  * skills
  *  * taglines
  *  * urls
+ *  * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -630,9 +634,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * relationshipInterests
  *  * relationshipStatuses
  *  * residences
+ *  * sipAddresses
  *  * skills
  *  * taglines
  *  * urls
+ *  * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -723,7 +729,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * relations
  *  * residences
+ *  * sipAddresses
  *  * urls
+ *  * userDefined
  *
  *  String format is a comma-separated list of fields.
  */

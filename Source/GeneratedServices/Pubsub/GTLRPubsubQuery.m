@@ -597,6 +597,31 @@
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsTopicsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_UpdateTopicRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsTopicsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Topic class];
+  query.loggingName = @"pubsub.projects.topics.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsTopicsPublish
 
 @dynamic topic;
