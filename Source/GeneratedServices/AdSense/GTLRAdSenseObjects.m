@@ -101,7 +101,7 @@
 //
 
 @implementation GTLRAdSense_AdCode
-@dynamic adCode, kind;
+@dynamic adCode, ampBody, ampHead, kind;
 @end
 
 

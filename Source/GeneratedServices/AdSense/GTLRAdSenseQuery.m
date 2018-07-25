@@ -18,6 +18,29 @@
 
 @end
 
+@implementation GTLRAdSenseQuery_AccountsAdclientsGetAdCode
+
+@dynamic accountId, adClientId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                        adClientId:(NSString *)adClientId {
+  NSArray *pathParams = @[
+    @"accountId", @"adClientId"
+  ];
+  NSString *pathURITemplate = @"accounts/{accountId}/adclients/{adClientId}/adcode";
+  GTLRAdSenseQuery_AccountsAdclientsGetAdCode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.adClientId = adClientId;
+  query.expectedObjectClass = [GTLRAdSense_AdCode class];
+  query.loggingName = @"adsense.accounts.adclients.getAdCode";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdSenseQuery_AccountsAdclientsList
 
 @dynamic accountId, maxResults, pageToken;

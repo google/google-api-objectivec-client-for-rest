@@ -455,7 +455,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

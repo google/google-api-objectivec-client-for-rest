@@ -282,6 +282,26 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 @end
 
+@implementation GTLRAnalyticsQuery_ManagementClientIdHashClientId
+
++ (instancetype)queryWithObject:(GTLRAnalytics_HashClientIdRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"management/clientId:hashClientId";
+  GTLRAnalyticsQuery_ManagementClientIdHashClientId *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAnalytics_HashClientIdResponse class];
+  query.loggingName = @"analytics.management.clientId.hashClientId";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsQuery_ManagementCustomDataSourcesList
 
 @dynamic accountId, maxResults, startIndex, webPropertyId;

@@ -73,6 +73,8 @@ NSString * const kGTLRAuthScopeAnalyticsUserDeletion        = @"https://www.goog
     @"analytics#gaData" : [GTLRAnalytics_GaData class],
     @"analytics#goal" : [GTLRAnalytics_Goal class],
     @"analytics#goals" : [GTLRAnalytics_Goals class],
+    @"analytics#hashClientIdRequest" : [GTLRAnalytics_HashClientIdRequest class],
+    @"analytics#hashClientIdResponse" : [GTLRAnalytics_HashClientIdResponse class],
     @"analytics#includeConditions" : [GTLRAnalytics_IncludeConditions class],
     @"analytics#linkedForeignAccount" : [GTLRAnalytics_LinkedForeignAccount class],
     @"analytics#mcfData" : [GTLRAnalytics_McfData class],

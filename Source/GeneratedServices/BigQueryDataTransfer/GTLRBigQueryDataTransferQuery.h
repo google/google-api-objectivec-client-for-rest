@@ -496,7 +496,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.delete
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
@@ -1003,7 +1002,6 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.transferConfigs.delete
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete : GTLRBigQueryDataTransferQuery

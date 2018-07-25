@@ -626,15 +626,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
-/** Options for exporting data as CSV. */
+/**
+ *  Options for exporting data as CSV.
+ *  Exporting in CSV format using the Cloud SQL Admin API is not supported for
+ *  PostgreSQL instances.
+ */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
- *  Databases (for example, guestbook) from which the export is made. If
- *  fileType is SQL and no database is specified, all databases are exported. If
- *  fileType is CSV, you can optionally specify at most one database to export.
- *  If csvExportOptions.selectQuery also specifies the database, this field will
- *  be ignored.
+ *  Databases to be exported.
+ *  MySQL instances: If fileType is SQL and no database is specified, all
+ *  databases are exported, except for the mysql system database. If fileType is
+ *  CSV, you can specify one database, either by using this property or by using
+ *  the csvExportOptions.selectQuery property, which takes precedence over this
+ *  property.
+ *  PostgreSQL instances: If fileType is SQL, you must specify one database to
+ *  be exported. A fileType of CSV is not supported for PostgreSQL instances.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
@@ -642,6 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
+ *  CSV is not supported for PostgreSQL instances.
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
@@ -664,6 +672,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Options for exporting data as CSV.
+ *  Exporting in CSV format using the Cloud SQL Admin API is not supported for
+ *  PostgreSQL instances.
  */
 @interface GTLRSQLAdmin_ExportContext_CsvExportOptions : GTLRObject
 
@@ -687,7 +697,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Tables to export, or that were exported, from the specified database. If you
- *  specify tables, specify one and only one database.
+ *  specify tables, specify one and only one database. For PostgreSQL instances,
+ *  you can specify only one table.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tables;
 
@@ -795,14 +806,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ImportContext : GTLRObject
 
-/** Options for importing data as CSV. */
+/**
+ *  Options for importing data as CSV.
+ *  Importing CSV data using the Cloud SQL Admin API is not supported for
+ *  PostgreSQL instances.
+ */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
 /**
- *  The database (for example, guestbook) to which the import is made. If
- *  fileType is SQL and no database is specified, it is assumed that the
- *  database is specified in the file to be imported. If fileType is CSV, it
- *  must be specified.
+ *  The target database for the import. If fileType is SQL, this field is
+ *  required only if the import file does not specify a database, and is
+ *  overridden by any database specification in the import file. If fileType is
+ *  CSV, one database must be specified.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
@@ -810,12 +825,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
+ *  Importing CSV data using the Cloud SQL Admin API is not supported for
+ *  PostgreSQL instances.
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
  *  The PostgreSQL user for this import operation. Defaults to
- *  cloudsqlsuperuser. Used only for PostgreSQL instances.
+ *  cloudsqlsuperuser. PostgreSQL instances only.
  */
 @property(nonatomic, copy, nullable) NSString *importUser;
 
@@ -823,9 +840,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  A path to the file in Google Cloud Storage from which the import is made.
- *  The URI is in the form gs://bucketName/fileName. Compressed gzip files (.gz)
- *  are supported when fileType is SQL.
+ *  A path to the file in Cloud Storage from which the import is made. The URI
+ *  is in the form gs://bucketName/fileName. Compressed gzip files (.gz) are
+ *  supported when fileType is SQL.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -834,6 +851,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Options for importing data as CSV.
+ *  Importing CSV data using the Cloud SQL Admin API is not supported for
+ *  PostgreSQL instances.
  */
 @interface GTLRSQLAdmin_ImportContext_CsvImportOptions : GTLRObject
 

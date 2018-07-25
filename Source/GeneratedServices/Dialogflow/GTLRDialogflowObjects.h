@@ -47,16 +47,23 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponses;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestions;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_WebhookPayload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
@@ -221,6 +228,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Slack;
 /** Value: "TELEGRAM" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telegram;
+/** Value: "TELEPHONY" */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telephony;
 /** Value: "VIBER" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Viber;
 
@@ -359,6 +368,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram;
 /**
+ *  Telephony Gateway.
+ *
+ *  Value: "TELEPHONY"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony;
+/**
  *  Viber.
  *
  *  Value: "VIBER"
@@ -388,6 +403,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentT
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer.matchConfidenceLevel
+
+/**
+ *  Indicates our confidence is high.
+ *
+ *  Value: "HIGH"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High;
+/**
+ *  Indicates that the confidence is low.
+ *
+ *  Value: "LOW"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low;
+/**
+ *  Not specified.
+ *
+ *  Value: "MATCH_CONFIDENCE_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified;
+/**
+ *  Indicates our confidence is medium.
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata.state
@@ -1244,7 +1287,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  <pre>curl \\
  *  'https://dialogflow.googleapis.com/v2beta1/projects/&lt;project_name&gt;/agent:export'\\
  *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Authorization: Bearer '$(gcloud auth application-default
+ *  print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\
@@ -1273,7 +1317,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent : GTLRObject
 
-/** Optional. The name of the action associated with the intent. */
+/**
+ *  Optional. The name of the action associated with the intent.
+ *  Note: The action name must not contain whitespaces.
+ */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
@@ -1284,6 +1331,15 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /** Required. The name of this intent. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Indicates that this intent ends an interaction. Some integrations
+ *  (e.g., Actions on Google or Dialogflow phone gateway) use this information
+ *  to close interaction with an end user. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
  *  Optional. The collection of event names that trigger the intent.
@@ -1552,6 +1608,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *        Slack. (Value: "SLACK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram
  *        Telegram. (Value: "TELEGRAM")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony
+ *        Telephony Gateway. (Value: "TELEPHONY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber
  *        Viber. (Value: "VIBER")
  */
@@ -1565,6 +1623,15 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /** Displays suggestion chips for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestions *suggestions;
+
+/** Plays audio from a file in Telephony Gateway. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio *telephonyPlayAudio;
+
+/** Synthesizes speech in Telephony Gateway. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech *telephonySynthesizeSpeech;
+
+/** Transfers the call in Telephony Gateway. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall *telephonyTransferCall;
 
 /** Returns a text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText *text;
@@ -1892,6 +1959,67 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Plays audio from a file in Telephony Gateway.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio : GTLRObject
+
+/**
+ *  Required. URI to a Google Cloud Storage object containing the audio to
+ *  play, e.g., "gs://bucket/object". The object must contain a single
+ *  channel (mono) of linear PCM audio (2 bytes / sample) at 8kHz.
+ *  This object must be readable by the
+ *  `service-<Project 
+ Number>\@gcp-sa-dialogflow.iam.gserviceaccount.com`
+ *  service account
+ *  where <Project Number> is the number of the Telephony Gateway project
+ *  (usually the same as the Dialogflow agent project). If the Google Cloud
+ *  Storage bucket is in the Telephony Gateway project, this permission is
+ *  added by default when enabling the Dialogflow V2 API.
+ *  For audio from other sources, consider using the
+ *  `TelephonySynthesizeSpeech` message with SSML.
+ */
+@property(nonatomic, copy, nullable) NSString *audioUri;
+
+@end
+
+
+/**
+ *  Synthesizes speech and plays back the synthesized audio to the caller in
+ *  Telephony Gateway.
+ *  Telephony Gateway takes the synthesizer settings from
+ *  `DetectIntentResponse.output_audio_config` which can either be set
+ *  at request-level or can come from the agent-level synthesizer config.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech : GTLRObject
+
+/**
+ *  The SSML to be synthesized. For more information, see
+ *  [SSML](https://developers.google.com/actions/reference/ssml).
+ */
+@property(nonatomic, copy, nullable) NSString *ssml;
+
+/** The raw text to be synthesized. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Transfers the call in Telephony Gateway.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall : GTLRObject
+
+/**
+ *  Required. The phone number to transfer the call to
+ *  in [E.164 format](https://en.wikipedia.org/wiki/E.164).
+ *  We currently only allow transferring to US numbers (+1xxxyyyzzzz).
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
  *  The text response message.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText : GTLRObject
@@ -2044,6 +2172,78 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Represents the result of querying a Knowledge base.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers : GTLRObject
+
+/** A list of answers from Knowledge Connector. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer *> *answers;
+
+@end
+
+
+/**
+ *  An answer from Knowledge Connector.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer : GTLRObject
+
+/**
+ *  The piece of text from the `source` knowledge base document that answers
+ *  this conversational query.
+ */
+@property(nonatomic, copy, nullable) NSString *answer;
+
+/**
+ *  The corresponding FAQ question if the answer was extracted from a FAQ
+ *  Document, empty otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *faqQuestion;
+
+/**
+ *  The system's confidence score that this Knowledge answer is a good match
+ *  for this converstational query, range from 0.0 (completely uncertain)
+ *  to 1.0 (completely certain).
+ *  Note: The confidence score is likely to vary somewhat (possibly even for
+ *  identical requests), as the underlying model is under constant
+ *  improvement, we may deprecate it in the future. We recommend using
+ *  `match_confidence_level` which should be generally more stable.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *matchConfidence;
+
+/**
+ *  The system's confidence level that this knowledge answer is a good match
+ *  for this conversational query.
+ *  NOTE: The confidence level for a given `<query, answer>` pair may change
+ *  without notice, as it depends on models that are constantly being
+ *  improved. However, it will change less frequently than the confidence
+ *  score below, and should be preferred for referencing the quality of an
+ *  answer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High
+ *        Indicates our confidence is high. (Value: "HIGH")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low
+ *        Indicates that the confidence is low. (Value: "LOW")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified
+ *        Not specified. (Value: "MATCH_CONFIDENCE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium
+ *        Indicates our confidence is medium. (Value: "MEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *matchConfidenceLevel;
+
+/**
+ *  Indicates which Knowledge Document this answer was extracted from.
+ *  Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base
+ *  ID>/documents/<Document ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
@@ -2075,6 +2275,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. This field is set to the value of `QueryParameters.payload` field
  *  passed in the request.
+ *  This field is used for the telephony gateway. It should have a
+ *  structure similar to this JSON message:
+ *  <pre>{
+ *  "telephony": {
+ *  "caller_id": "+18558363987"
+ *  }
+ *  }</pre>
+ *  Note: The caller ID field (`caller_id`) will be in
+ *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is only supported
+ *  for Enterprise Edition and not for Standard Edition agents. When the
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload *payload;
 
@@ -2096,6 +2306,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. This field is set to the value of `QueryParameters.payload` field
  *  passed in the request.
+ *  This field is used for the telephony gateway. It should have a
+ *  structure similar to this JSON message:
+ *  <pre>{
+ *  "telephony": {
+ *  "caller_id": "+18558363987"
+ *  }
+ *  }</pre>
+ *  Note: The caller ID field (`caller_id`) will be in
+ *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is only supported
+ *  for Enterprise Edition and not for Standard Edition agents. When the
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2155,6 +2375,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *intentDetectionConfidence;
 
 /**
+ *  The result from Knowledge Connector (if any), ordered by decreasing
+ *  `KnowledgeAnswers.match_confidence`.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers *knowledgeAnswers;
+
+/**
  *  The language that was triggered during intent detection.
  *  See [Language Support](https://dialogflow.com/docs/reference/language)
  *  for a list of the currently supported language codes.
@@ -2182,6 +2408,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  - If an event was provided as input, `query_text` is not set.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
+
+/**
+ *  The sentiment analysis result, which depends on the
+ *  `sentiment_analysis_request_config` specified in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult *sentimentAnalysisResult;
 
 /**
  *  The Speech recognition confidence between 0.0 and 1.0. A higher number
@@ -2251,9 +2483,49 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  The sentiment, such as positive/negative feeling or association, for a unit
+ *  of analysis, such as the query text.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment : GTLRObject
+
+/**
+ *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  magnitude of sentiment, regardless of score (positive or negative).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *magnitude;
+
+/**
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
+ *  sentiment).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  The result of sentiment analysis as configured by
+ *  `sentiment_analysis_request_config`.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult : GTLRObject
+
+/** The sentiment analysis result for `query_text`. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment *queryTextSentiment;
+
+@end
+
+
+/**
  *  The request message for a webhook call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest : GTLRObject
+
+/** Alternative query results from KnowledgeService. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult *> *alternativeQueryResults;
 
 /**
  *  Optional. The contents of the original request that was passed to
@@ -2287,6 +2559,15 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  The response message for a webhook call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse : GTLRObject
+
+/**
+ *  Optional. Indicates that this intent ends an interaction. Some integrations
+ *  (e.g., Actions on Google or Dialogflow phone gateway) use this information
+ *  to close interaction with an end user. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
  *  Optional. Makes the platform immediately invoke another `DetectIntent` call
@@ -2640,7 +2921,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  <pre>curl \\
  *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:export'\\
  *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Authorization: Bearer '$(gcloud auth application-default
+ *  print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\
@@ -2673,7 +2955,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  <pre>curl \\
  *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:import\\
  *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Authorization: Bearer '$(gcloud auth application-default
+ *  print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\
@@ -2791,7 +3074,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Intent : GTLRObject
 
-/** Optional. The name of the action associated with the intent. */
+/**
+ *  Optional. The name of the action associated with the intent.
+ *  Note: The action name must not contain whitespaces.
+ */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
@@ -3676,6 +3962,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. This field is set to the value of `QueryParameters.payload` field
  *  passed in the request.
+ *  This field is used for the telephony gateway. It should have a
+ *  structure similar to this JSON message:
+ *  <pre>{
+ *  "telephony": {
+ *  "caller_id": "+18558363987"
+ *  }</pre>
+ *  Note: The caller ID field (`caller_id`) will be in
+ *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is not supported
+ *  for standard tier agents. When the telephony gateway is used with a
+ *  standard tier agent the `caller_id` field above will have a value of
+ *  `REDACTED_IN_STANDARD_TIER_AGENT`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload *payload;
 
@@ -3697,6 +3994,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. This field is set to the value of `QueryParameters.payload` field
  *  passed in the request.
+ *  This field is used for the telephony gateway. It should have a
+ *  structure similar to this JSON message:
+ *  <pre>{
+ *  "telephony": {
+ *  "caller_id": "+18558363987"
+ *  }</pre>
+ *  Note: The caller ID field (`caller_id`) will be in
+ *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is not supported
+ *  for standard tier agents. When the telephony gateway is used with a
+ *  standard tier agent the `caller_id` field above will have a value of
+ *  `REDACTED_IN_STANDARD_TIER_AGENT`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3942,7 +4250,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  <pre>curl \\
  *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:restore\\
  *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth print-access-token) \\
+ *  -H 'Authorization: Bearer '$(gcloud auth application-default
+ *  print-access-token) \\
  *  -H 'Accept: application/json' \\
  *  -H 'Content-Type: application/json' \\
  *  --compressed \\

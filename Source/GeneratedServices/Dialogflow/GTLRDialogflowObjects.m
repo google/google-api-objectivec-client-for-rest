@@ -41,6 +41,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultRespo
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Skype = @"SKYPE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Slack = @"SLACK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telegram = @"TELEGRAM";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telephony = @"TELEPHONY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Viber = @"VIBER";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.webhookState
@@ -57,12 +58,19 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platf
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Skype = @"SKYPE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Slack = @"SLACK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram = @"TELEGRAM";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony = @"TELEPHONY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber = @"VIBER";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase.type
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example = @"EXAMPLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template = @"TEMPLATE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer.matchConfidenceLevel
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High = @"HIGH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low = @"LOW";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified = @"MATCH_CONFIDENCE_LEVEL_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium = @"MEDIUM";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done = @"DONE";
@@ -439,7 +447,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent
-@dynamic action, defaultResponsePlatforms, displayName, events,
+@dynamic action, defaultResponsePlatforms, displayName, endInteraction, events,
          followupIntentInfo, inputContextNames, isFallback, messages,
          mlDisabled, mlEnabled, name, outputContexts, parameters,
          parentFollowupIntentName, priority, resetContexts,
@@ -479,7 +487,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage
 @dynamic basicCard, card, carouselSelect, image, linkOutSuggestion, listSelect,
-         payload, platform, quickReplies, simpleResponses, suggestions, text;
+         payload, platform, quickReplies, simpleResponses, suggestions,
+         telephonyPlayAudio, telephonySynthesizeSpeech, telephonyTransferCall,
+         text;
 @end
 
 
@@ -743,6 +753,36 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio
+@dynamic audioUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech
+@dynamic ssml, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall
+@dynamic phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText
 //
 
@@ -808,6 +848,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers
+@dynamic answers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answers" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer
+@dynamic answer, faqQuestion, matchConfidence, matchConfidenceLevel, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata
 //
 
@@ -847,9 +915,10 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult
 @dynamic action, allRequiredParamsPresent, diagnosticInfo, fulfillmentMessages,
-         fulfillmentText, intent, intentDetectionConfidence, languageCode,
-         outputContexts, parameters, queryText, speechRecognitionConfidence,
-         webhookPayload, webhookSource;
+         fulfillmentText, intent, intentDetectionConfidence, knowledgeAnswers,
+         languageCode, outputContexts, parameters, queryText,
+         sentimentAnalysisResult, speechRecognitionConfidence, webhookPayload,
+         webhookSource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -906,11 +975,40 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment
+@dynamic magnitude, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult
+@dynamic queryTextSentiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest
-@dynamic originalDetectIntentRequest, queryResult, responseId, session;
+@dynamic alternativeQueryResults, originalDetectIntentRequest, queryResult,
+         responseId, session;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alternativeQueryResults" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -920,8 +1018,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse
-@dynamic followupEventInput, fulfillmentMessages, fulfillmentText,
-         outputContexts, payload, source;
+@dynamic endInteraction, followupEventInput, fulfillmentMessages,
+         fulfillmentText, outputContexts, payload, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

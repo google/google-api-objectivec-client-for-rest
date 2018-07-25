@@ -4,7 +4,7 @@
 // API:
 //   Stackdriver Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration.
+//   Writes log entries and manages your Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -201,13 +201,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Warning;
 // GTLRLogging_LogMetric.version
 
 /**
- *  Stackdriver Logging API v1.
+ *  Logging API v1.
  *
  *  Value: "V1"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V1;
 /**
- *  Stackdriver Logging API v2.
+ *  Logging API v2.
  *
  *  Value: "V2"
  */
@@ -889,11 +889,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  Optional. A unique identifier for the log entry. If you provide a value,
- *  then Stackdriver Logging considers other log entries in the same project,
- *  with the same timestamp, and with the same insert_id to be duplicates which
- *  can be removed. If omitted in new log entries, then Stackdriver Logging
- *  assigns its own unique identifier. The insert_id is also used to order log
- *  entries that have the same timestamp value.
+ *  then Logging considers other log entries in the same project, with the same
+ *  timestamp, and with the same insert_id to be duplicates which can be
+ *  removed. If omitted in new log entries, then Logging assigns its own unique
+ *  identifier. The insert_id is also used to order log entries that have the
+ *  same timestamp value.
  */
 @property(nonatomic, copy, nullable) NSString *insertId;
 
@@ -949,9 +949,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_ProtoPayload *protoPayload;
 
-/**
- *  Output only. The time the log entry was received by Stackdriver Logging.
- */
+/** Output only. The time the log entry was received by Logging. */
 @property(nonatomic, strong, nullable) GTLRDateTime *receiveTimestamp;
 
 /**
@@ -997,8 +995,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  Optional. The span ID within the trace associated with the log entry. For
- *  Stackdriver Trace spans, this is the same format that the Stackdriver Trace
- *  API v2 uses: a 16-character hexadecimal encoding of an 8-byte array, such as
+ *  Trace spans, this is the same format that the Trace API v2 uses: a
+ *  16-character hexadecimal encoding of an 8-byte array, such as
  *  <code>"000000000000004a"</code>.
  */
 @property(nonatomic, copy, nullable) NSString *spanId;
@@ -1009,14 +1007,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 /**
  *  Optional. The time the event described by the log entry occurred. This time
  *  is used to compute the log entry's age and to enforce the logs retention
- *  period. If this field is omitted in a new log entry, then Stackdriver
- *  Logging assigns it the current time. Timestamps have nanosecond accuracy,
- *  but trailing zeros in the fractional seconds might be omitted when the
- *  timestamp is displayed.Incoming log entries should have timestamps that are
- *  no more than the logs retention period in the past, and no more than 24
- *  hours in the future. Log entries outside those time boundaries will not be
- *  available when calling entries.list, but those log entries can still be
- *  exported with LogSinks.
+ *  period. If this field is omitted in a new log entry, then Logging assigns it
+ *  the current time. Timestamps have nanosecond accuracy, but trailing zeros in
+ *  the fractional seconds might be omitted when the timestamp is
+ *  displayed.Incoming log entries should have timestamps that are no more than
+ *  the logs retention period in the past, and no more than 24 hours in the
+ *  future. Log entries outside those time boundaries will not be available when
+ *  calling entries.list, but those log entries can still be exported with
+ *  LogSinks.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
@@ -1141,12 +1139,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 
 /**
- *  Specifies a set of log entries that are not to be stored in Stackdriver
- *  Logging. If your project receives a large volume of logs, you might be able
- *  to use exclusions to reduce your chargeable logs. Exclusions are processed
- *  after log sinks, so you can export log entries before they are excluded.
- *  Audit log entries and log entries from Amazon Web Services are never
- *  excluded.
+ *  Specifies a set of log entries that are not to be stored in Logging. If your
+ *  project receives a large volume of logs, you might be able to use exclusions
+ *  to reduce your chargeable logs. Exclusions are processed after log sinks, so
+ *  you can export log entries before they are excluded. Audit log entries and
+ *  log entries from Amazon Web Services are never excluded.
  */
 @interface GTLRLogging_LogExclusion : GTLRObject
 
@@ -1331,10 +1328,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  *  format is used by default and cannot be changed.
  *
  *  Likely values:
- *    @arg @c kGTLRLogging_LogMetric_Version_V1 Stackdriver Logging API v1.
- *        (Value: "V1")
- *    @arg @c kGTLRLogging_LogMetric_Version_V2 Stackdriver Logging API v2.
- *        (Value: "V2")
+ *    @arg @c kGTLRLogging_LogMetric_Version_V1 Logging API v1. (Value: "V1")
+ *    @arg @c kGTLRLogging_LogMetric_Version_V2 Logging API v2. (Value: "V2")
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1440,13 +1435,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  Output only. An IAM identity&mdash;a service account or group&mdash;under
- *  which Stackdriver Logging writes the exported log entries to the sink's
- *  destination. This field is set by sinks.create and sinks.update, based on
- *  the setting of unique_writer_identity in those methods.Until you grant this
- *  identity write-access to the destination, log entry exports from this sink
- *  will fail. For more information, see Granting access for a resource. Consult
- *  the destination service's documentation to determine the appropriate IAM
- *  roles to assign to the identity.
+ *  which Logging writes the exported log entries to the sink's destination.
+ *  This field is set by sinks.create and sinks.update, based on the setting of
+ *  unique_writer_identity in those methods.Until you grant this identity
+ *  write-access to the destination, log entry exports from this sink will fail.
+ *  For more information, see Granting access for a resource. Consult the
+ *  destination service's documentation to determine the appropriate IAM roles
+ *  to assign to the identity.
  */
 @property(nonatomic, copy, nullable) NSString *writerIdentity;
 
@@ -1766,20 +1761,17 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 /**
  *  Auxiliary metadata for a MonitoredResource object. MonitoredResource objects
  *  contain the minimum set of information to uniquely identify a monitored
- *  resource instance. There is some other useful auxiliary metadata. Google
- *  Stackdriver Monitoring & Logging uses an ingestion pipeline to extract
- *  metadata for cloud resources of all types , and stores the metadata in this
- *  message.
+ *  resource instance. There is some other useful auxiliary metadata. Monitoring
+ *  and Logging use an ingestion pipeline to extract metadata for cloud
+ *  resources of all types, and store the metadata in this message.
  */
 @interface GTLRLogging_MonitoredResourceMetadata : GTLRObject
 
 /**
  *  Output only. Values for predefined system metadata labels. System labels are
- *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
- *  what system labels are useful and how to obtain their values. Some examples:
- *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
- *  label values can be only strings, Boolean values, or a list of strings. For
- *  example:
+ *  a kind of metadata extracted by Google, including "machine_image", "vpc",
+ *  "subnet_id", "security_group", "name", etc. System label values can be only
+ *  strings, Boolean values, or a list of strings. For example:
  *  { "name": "my-test-instance",
  *  "security_group": ["a", "b", "c"],
  *  "spot_instance": false }
@@ -1794,11 +1786,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  Output only. Values for predefined system metadata labels. System labels are
- *  a kind of metadata extracted by Google Stackdriver. Stackdriver determines
- *  what system labels are useful and how to obtain their values. Some examples:
- *  "machine_image", "vpc", "subnet_id", "security_group", "name", etc. System
- *  label values can be only strings, Boolean values, or a list of strings. For
- *  example:
+ *  a kind of metadata extracted by Google, including "machine_image", "vpc",
+ *  "subnet_id", "security_group", "name", etc. System label values can be only
+ *  strings, Boolean values, or a list of strings. For example:
  *  { "name": "my-test-instance",
  *  "security_group": ["a", "b", "c"],
  *  "spot_instance": false }
@@ -2051,12 +2041,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Required. The log entries to send to Stackdriver Logging. The order of log
- *  entries in this list does not matter. Values supplied in this method's
- *  log_name, resource, and labels fields are copied into those log entries in
- *  this list that do not include values for their corresponding fields. For
- *  more information, see the LogEntry type.If the timestamp or insert_id fields
- *  are missing in log entries, then this method supplies the current time or a
+ *  Required. The log entries to send to Logging. The order of log entries in
+ *  this list does not matter. Values supplied in this method's log_name,
+ *  resource, and labels fields are copied into those log entries in this list
+ *  that do not include values for their corresponding fields. For more
+ *  information, see the LogEntry type.If the timestamp or insert_id fields are
+ *  missing in log entries, then this method supplies the current time or a
  *  unique identifier, respectively. The supplied values are chosen so that,
  *  among the log entries that did not supply their own values, the entries
  *  earlier in the list will sort before the entries later in the list. See the

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Firestore API (firestore/v1beta1)
+//   Cloud Firestore API (firestore/v1)
 // Documentation:
 //   https://cloud.google.com/firestore
 
@@ -11,510 +11,72 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRFirestore_CompositeFilter.op
-NSString * const kGTLRFirestore_CompositeFilter_Op_And         = @"AND";
-NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata_OperationState_Successful = @"SUCCESSFUL";
 
-// GTLRFirestore_FieldFilter.op
-NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains   = @"ARRAY_CONTAINS";
-NSString * const kGTLRFirestore_FieldFilter_Op_Equal           = @"EQUAL";
-NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan     = @"GREATER_THAN";
-NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual = @"GREATER_THAN_OR_EQUAL";
-NSString * const kGTLRFirestore_FieldFilter_Op_LessThan        = @"LESS_THAN";
-NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual = @"LESS_THAN_OR_EQUAL";
-NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata_OperationState_Successful = @"SUCCESSFUL";
 
-// GTLRFirestore_FieldTransform.setToServerValue
-NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
-NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta1IndexOperationMetadata.operationType
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexOperationMetadata_OperationType_CreatingIndex = @"CREATING_INDEX";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexOperationMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
 
-// GTLRFirestore_GoogleFirestoreAdminV1beta1Index.state
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Creating = @"CREATING";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Error = @"ERROR";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_Ready = @"READY";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1Index_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata_State_Successful = @"SUCCESSFUL";
 
-// GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField.mode
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ArrayContains = @"ARRAY_CONTAINS";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Ascending = @"ASCENDING";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_Descending = @"DESCENDING";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta1IndexField_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta2Index.queryScope
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_QueryScope_Collection = @"COLLECTION";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_QueryScope_QueryScopeUnspecified = @"QUERY_SCOPE_UNSPECIFIED";
 
-// GTLRFirestore_Order.direction
-NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
-NSString * const kGTLRFirestore_Order_Direction_Descending     = @"DESCENDING";
-NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta2Index.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_State_Creating = @"CREATING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_State_NeedsRepair = @"NEEDS_REPAIR";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_State_Ready = @"READY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2Index_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRFirestore_TargetChange.targetChangeType
-NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add = @"ADD";
-NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Current = @"CURRENT";
-NSString * const kGTLRFirestore_TargetChange_TargetChangeType_NoChange = @"NO_CHANGE";
-NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Remove = @"REMOVE";
-NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Reset = @"RESET";
+// GTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta.changeType
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta_ChangeType_Add = @"ADD";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta_ChangeType_Remove = @"REMOVE";
 
-// GTLRFirestore_UnaryFilter.op
-NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan           = @"IS_NAN";
-NSString * const kGTLRFirestore_UnaryFilter_Op_IsNull          = @"IS_NULL";
-NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+// GTLRFirestore_GoogleFirestoreAdminV1beta2IndexField.arrayConfig
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexField_ArrayConfig_ArrayConfigUnspecified = @"ARRAY_CONFIG_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexField_ArrayConfig_Contains = @"CONTAINS";
 
-// GTLRFirestore_Value.nullValue
-NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ArrayValue
-//
-
-@implementation GTLRFirestore_ArrayValue
-@dynamic values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRFirestore_Value class]
-  };
-  return map;
-}
-
-@end
-
+// GTLRFirestore_GoogleFirestoreAdminV1beta2IndexField.order
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexField_Order_Ascending = @"ASCENDING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexField_Order_Descending = @"DESCENDING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1beta2IndexField_Order_OrderUnspecified = @"ORDER_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_BatchGetDocumentsRequest
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata
 //
 
-@implementation GTLRFirestore_BatchGetDocumentsRequest
-@dynamic documents, mask, newTransaction, readTime, transaction;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_BatchGetDocumentsResponse
-//
-
-@implementation GTLRFirestore_BatchGetDocumentsResponse
-@dynamic found, missing, readTime, transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_BeginTransactionRequest
-//
-
-@implementation GTLRFirestore_BeginTransactionRequest
-@dynamic options;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_BeginTransactionResponse
-//
-
-@implementation GTLRFirestore_BeginTransactionResponse
-@dynamic transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_CollectionSelector
-//
-
-@implementation GTLRFirestore_CollectionSelector
-@dynamic allDescendants, collectionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_CommitRequest
-//
-
-@implementation GTLRFirestore_CommitRequest
-@dynamic transaction, writes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"writes" : [GTLRFirestore_Write class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_CommitResponse
-//
-
-@implementation GTLRFirestore_CommitResponse
-@dynamic commitTime, writeResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"writeResults" : [GTLRFirestore_WriteResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_CompositeFilter
-//
-
-@implementation GTLRFirestore_CompositeFilter
-@dynamic filters, op;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"filters" : [GTLRFirestore_Filter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Cursor
-//
-
-@implementation GTLRFirestore_Cursor
-@dynamic before, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRFirestore_Value class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Document
-//
-
-@implementation GTLRFirestore_Document
-@dynamic createTime, fields, name, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Document_Fields
-//
-
-@implementation GTLRFirestore_Document_Fields
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRFirestore_Value class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentChange
-//
-
-@implementation GTLRFirestore_DocumentChange
-@dynamic document, removedTargetIds, targetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"removedTargetIds" : [NSNumber class],
-    @"targetIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentDelete
-//
-
-@implementation GTLRFirestore_DocumentDelete
-@dynamic document, readTime, removedTargetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"removedTargetIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentMask
-//
-
-@implementation GTLRFirestore_DocumentMask
-@dynamic fieldPaths;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fieldPaths" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentRemove
-//
-
-@implementation GTLRFirestore_DocumentRemove
-@dynamic document, readTime, removedTargetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"removedTargetIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentsTarget
-//
-
-@implementation GTLRFirestore_DocumentsTarget
-@dynamic documents;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_DocumentTransform
-//
-
-@implementation GTLRFirestore_DocumentTransform
-@dynamic document, fieldTransforms;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fieldTransforms" : [GTLRFirestore_FieldTransform class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Empty
-//
-
-@implementation GTLRFirestore_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ExistenceFilter
-//
-
-@implementation GTLRFirestore_ExistenceFilter
-@dynamic count, targetId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_FieldFilter
-//
-
-@implementation GTLRFirestore_FieldFilter
-@dynamic field, op, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_FieldReference
-//
-
-@implementation GTLRFirestore_FieldReference
-@dynamic fieldPath;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_FieldTransform
-//
-
-@implementation GTLRFirestore_FieldTransform
-@dynamic appendMissingElements, fieldPath, removeAllFromArray, setToServerValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Filter
-//
-
-@implementation GTLRFirestore_Filter
-@dynamic compositeFilter, fieldFilter, unaryFilter;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleFirestoreAdminV1beta1Index
-//
-
-@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1Index
-@dynamic collectionId, fields, name, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField
-//
-
-@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1IndexField
-@dynamic fieldPath, mode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse
-//
-
-@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1ListIndexesResponse
-@dynamic indexes, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"indexes" : [GTLRFirestore_GoogleFirestoreAdminV1beta1Index class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"indexes";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleLongrunningOperation
-//
-
-@implementation GTLRFirestore_GoogleLongrunningOperation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleLongrunningOperation_Metadata
-//
-
-@implementation GTLRFirestore_GoogleLongrunningOperation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleLongrunningOperation_Response
-//
-
-@implementation GTLRFirestore_GoogleLongrunningOperation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_LatLng
-//
-
-@implementation GTLRFirestore_LatLng
-@dynamic latitude, longitude;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ListCollectionIdsRequest
-//
-
-@implementation GTLRFirestore_ListCollectionIdsRequest
-@dynamic pageSize, pageToken;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ListCollectionIdsResponse
-//
-
-@implementation GTLRFirestore_ListCollectionIdsResponse
-@dynamic collectionIds, nextPageToken;
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsMetadata
+@dynamic collectionIds, endTime, operationState, outputUriPrefix, progressBytes,
+         progressDocuments, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -528,21 +90,146 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ListDocumentsResponse
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsResponse
 //
 
-@implementation GTLRFirestore_ListDocumentsResponse
-@dynamic documents, nextPageToken;
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1ExportDocumentsResponse
+@dynamic outputUriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1ImportDocumentsMetadata
+@dynamic collectionIds, endTime, inputUriPrefix, operationState, progressBytes,
+         progressDocuments, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [GTLRFirestore_Document class]
+    @"collectionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1IndexOperationMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1IndexOperationMetadata
+@dynamic cancelled, documentProgress, endTime, index, operationType, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1LocationMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1LocationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta1Progress
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta1Progress
+@dynamic workCompleted, workEstimated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta2FieldOperationMetadata
+@dynamic bytesProgress, documentProgress, endTime, field, indexConfigDeltas,
+         startTime, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexConfigDeltas" : [GTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta2Index
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta2Index
+@dynamic fields, name, queryScope, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRFirestore_GoogleFirestoreAdminV1beta2IndexField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta2IndexConfigDelta
+@dynamic changeType, index;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta2IndexField
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta2IndexField
+@dynamic arrayConfig, fieldPath, order;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1beta2Progress
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1beta2Progress
+@dynamic completedWork, estimatedWork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ListLocationsResponse
+//
+
+@implementation GTLRFirestore_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRFirestore_Location class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"documents";
+  return @"locations";
 }
 
 @end
@@ -550,20 +237,20 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ListenRequest
+//   GTLRFirestore_Location
 //
 
-@implementation GTLRFirestore_ListenRequest
-@dynamic addTarget, labels, removeTarget;
+@implementation GTLRFirestore_Location
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ListenRequest_Labels
+//   GTLRFirestore_Location_Labels
 //
 
-@implementation GTLRFirestore_ListenRequest_Labels
+@implementation GTLRFirestore_Location_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -574,325 +261,13 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ListenResponse
+//   GTLRFirestore_Location_Metadata
 //
 
-@implementation GTLRFirestore_ListenResponse
-@dynamic documentChange, documentDelete, documentRemove, filter, targetChange;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_MapValue
-//
-
-@implementation GTLRFirestore_MapValue
-@dynamic fields;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_MapValue_Fields
-//
-
-@implementation GTLRFirestore_MapValue_Fields
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRFirestore_Value class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Order
-//
-
-@implementation GTLRFirestore_Order
-@dynamic direction, field;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Precondition
-//
-
-@implementation GTLRFirestore_Precondition
-@dynamic exists, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Projection
-//
-
-@implementation GTLRFirestore_Projection
-@dynamic fields;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRFirestore_FieldReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_QueryTarget
-//
-
-@implementation GTLRFirestore_QueryTarget
-@dynamic parent, structuredQuery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ReadOnly
-//
-
-@implementation GTLRFirestore_ReadOnly
-@dynamic readTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ReadWrite
-//
-
-@implementation GTLRFirestore_ReadWrite
-@dynamic retryTransaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_RollbackRequest
-//
-
-@implementation GTLRFirestore_RollbackRequest
-@dynamic transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_RunQueryRequest
-//
-
-@implementation GTLRFirestore_RunQueryRequest
-@dynamic newTransaction, readTime, structuredQuery, transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_RunQueryResponse
-//
-
-@implementation GTLRFirestore_RunQueryResponse
-@dynamic document, readTime, skippedResults, transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Status
-//
-
-@implementation GTLRFirestore_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRFirestore_Status_Details_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Status_Details_Item
-//
-
-@implementation GTLRFirestore_Status_Details_Item
+@implementation GTLRFirestore_Location_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_StructuredQuery
-//
-
-@implementation GTLRFirestore_StructuredQuery
-@dynamic endAt, from, limit, offset, orderBy, select, startAt, where;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"from" : [GTLRFirestore_CollectionSelector class],
-    @"orderBy" : [GTLRFirestore_Order class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Target
-//
-
-@implementation GTLRFirestore_Target
-@dynamic documents, once, query, readTime, resumeToken, targetId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_TargetChange
-//
-
-@implementation GTLRFirestore_TargetChange
-@dynamic cause, readTime, resumeToken, targetChangeType, targetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"targetIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_TransactionOptions
-//
-
-@implementation GTLRFirestore_TransactionOptions
-@dynamic readOnly, readWrite;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_UnaryFilter
-//
-
-@implementation GTLRFirestore_UnaryFilter
-@dynamic field, op;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Value
-//
-
-@implementation GTLRFirestore_Value
-@dynamic arrayValue, booleanValue, bytesValue, doubleValue, geoPointValue,
-         integerValue, mapValue, nullValue, referenceValue, stringValue,
-         timestampValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Write
-//
-
-@implementation GTLRFirestore_Write
-@dynamic currentDocument, deleteProperty, transform, update, updateMask;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"deleteProperty" : @"delete" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_WriteRequest
-//
-
-@implementation GTLRFirestore_WriteRequest
-@dynamic labels, streamId, streamToken, writes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"writes" : [GTLRFirestore_Write class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_WriteRequest_Labels
-//
-
-@implementation GTLRFirestore_WriteRequest_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_WriteResponse
-//
-
-@implementation GTLRFirestore_WriteResponse
-@dynamic commitTime, streamId, streamToken, writeResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"writeResults" : [GTLRFirestore_WriteResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_WriteResult
-//
-
-@implementation GTLRFirestore_WriteResult
-@dynamic transformResults, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"transformResults" : [GTLRFirestore_Value class]
-  };
-  return map;
 }
 
 @end

@@ -4,7 +4,7 @@
 // API:
 //   Stackdriver Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration.
+//   Writes log entries and manages your Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -67,7 +67,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingWrite;
 /**
  *  Service for executing Stackdriver Logging API queries.
  *
- *  Writes log entries and manages your Stackdriver Logging configuration.
+ *  Writes log entries and manages your Logging configuration.
  */
 @interface GTLRLoggingService : GTLRService
 

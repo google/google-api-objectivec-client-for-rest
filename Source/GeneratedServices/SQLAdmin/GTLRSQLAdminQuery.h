@@ -465,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all available database flags for Google Cloud SQL instances.
+ *  List all available database flags for Cloud SQL instances.
  *
  *  Method: sql.flags.list
  *
@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_FlagsListResponse.
  *
- *  List all available database flags for Google Cloud SQL instances.
+ *  List all available database flags for Cloud SQL instances.
  *
  *  @return GTLRSQLAdminQuery_FlagsList
  */
@@ -653,8 +653,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a
- *  MySQL dump file.
+ *  Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL
+ *  dump or CSV file.
  *
  *  Method: sql.instances.export
  *
@@ -674,8 +674,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a
- *  MySQL dump file.
+ *  Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL
+ *  dump or CSV file.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesExportRequest to include in the
  *    query.
@@ -763,8 +763,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Imports data into a Cloud SQL instance from a MySQL dump file in Google
- *  Cloud Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
+ *  Storage.
  *
  *  Method: sql.instances.import
  *
@@ -784,8 +784,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Imports data into a Cloud SQL instance from a MySQL dump file in Google
- *  Cloud Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
+ *  Storage.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesImportRequest to include in the
  *    query.

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   IAM Service Account Credentials API (iamcredentials/v1)
+//   Cloud Identity-Aware Proxy API (iap/v1beta1)
 // Description:
-//   IAM Service Account Credentials API
+//   Controls access to cloud applications running on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
+//   https://cloud.google.com/iap
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -34,24 +34,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeIAMCredentialsCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIAPCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRIAMCredentialsService
+//   GTLRCloudIAPService
 //
 
 /**
- *  Service for executing IAM Service Account Credentials API queries.
+ *  Service for executing Cloud Identity-Aware Proxy API queries.
  *
- *  IAM Service Account Credentials API
+ *  Controls access to cloud applications running on Google Cloud Platform.
  */
-@interface GTLRIAMCredentialsService : GTLRService
+@interface GTLRCloudIAPService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRIAMCredentialsQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRCloudIAPQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

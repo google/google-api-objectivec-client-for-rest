@@ -42,6 +42,10 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng;
 
 /** Value: "LARGE" */
 GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge;
+/** Value: "MEDIUM" */
+GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium;
+/** Value: "SMALL" */
+GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall;
 /** Value: "THUMBNAIL_SIZE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
 
@@ -272,6 +276,8 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
  *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified
  *        Value "THUMBNAIL_SIZE_UNSPECIFIED"
  *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge Value "LARGE"
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium Value "MEDIUM"
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall Value "SMALL"
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailPropertiesThumbnailSize;
 

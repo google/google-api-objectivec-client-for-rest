@@ -52,6 +52,7 @@
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
 @class GTLRServiceManagement_Experimental;
+@class GTLRServiceManagement_Expr;
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_GenerateConfigReportRequest_NewConfig;
 @class GTLRServiceManagement_GenerateConfigReportRequest_OldConfig;
@@ -1180,6 +1181,14 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_Binding : GTLRObject
 
 /**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -1200,7 +1209,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1837,6 +1845,46 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /** Authorization configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_AuthorizationConfig *authorization;
+
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRServiceManagement_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

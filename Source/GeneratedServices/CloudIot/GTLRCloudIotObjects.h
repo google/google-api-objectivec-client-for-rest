@@ -184,7 +184,6 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

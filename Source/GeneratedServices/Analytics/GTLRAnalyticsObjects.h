@@ -2617,6 +2617,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for a hash Client Id request resource.
+ */
+@interface GTLRAnalytics_HashClientIdRequest : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
+
+@end
+
+
+/**
+ *  JSON template for a hash Client Id response resource.
+ */
+@interface GTLRAnalytics_HashClientIdResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *hashedClientId;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
+
+@end
+
+
+/**
  *  JSON template for an Analytics Remarketing Include Conditions.
  */
 @interface GTLRAnalytics_IncludeConditions : GTLRObject

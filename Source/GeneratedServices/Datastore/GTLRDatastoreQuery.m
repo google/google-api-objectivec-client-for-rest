@@ -144,6 +144,48 @@
 
 @end
 
+@implementation GTLRDatastoreQuery_ProjectsIndexesGet
+
+@dynamic indexId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                           indexId:(NSString *)indexId {
+  NSArray *pathParams = @[
+    @"indexId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/indexes/{indexId}";
+  GTLRDatastoreQuery_ProjectsIndexesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.indexId = indexId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleDatastoreAdminV1Index class];
+  query.loggingName = @"datastore.projects.indexes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastoreQuery_ProjectsIndexesList
+
+@dynamic filter, pageSize, pageToken, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/indexes";
+  GTLRDatastoreQuery_ProjectsIndexesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleDatastoreAdminV1ListIndexesResponse class];
+  query.loggingName = @"datastore.projects.indexes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatastoreQuery_ProjectsLookup
 
 @dynamic projectId;

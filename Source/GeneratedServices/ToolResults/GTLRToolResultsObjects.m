@@ -83,6 +83,7 @@ NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
 
 // GTLRToolResults_TestIssue.type
 NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
+NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"availableDeepLinks";
 NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
 NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
 NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
@@ -90,6 +91,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalExcepti
 NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"incompleteRoboScriptExecution";
 NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"launcherActivityNotFound";
 NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
+NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation = @"nonSdkApiUsageViolation";
 NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"startActivityNotFound";
 NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
 NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";

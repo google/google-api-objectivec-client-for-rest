@@ -27,13 +27,11 @@
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
-@class GTLRCloudRedis_LocationMetadata_AvailableZones;
 @class GTLRCloudRedis_Operation;
 @class GTLRCloudRedis_Operation_Metadata;
 @class GTLRCloudRedis_Operation_Response;
 @class GTLRCloudRedis_Status;
 @class GTLRCloudRedis_Status_Details_Item;
-@class GTLRCloudRedis_ZoneMetadata;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -127,80 +125,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa;
  *  Value: "TIER_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudRedis_OperationMetadata.operationType
-
-/**
- *  Redis instance is being created.
- *
- *  Value: "CREATE_REDIS_INSTANCE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_CreateRedisInstance;
-/**
- *  Redis instance is being deleted.
- *
- *  Value: "DELETE_REDIS_INSTANCE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_DeleteRedisInstance;
-/**
- *  Redis instance is being in maintenance.
- *
- *  Value: "MAINTENANCE_FOR_REDIS_INSTANCE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_MaintenanceForRedisInstance;
-/**
- *  Redis instance is being repaired.
- *
- *  Value: "REPAIR_REDIS_INSTANCE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_RepairRedisInstance;
-/**
- *  Not set.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_TypeUnspecified;
-/**
- *  Redis instance is being updated.
- *
- *  Value: "UPDATE_REDIS_INSTANCE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_UpdateRedisInstance;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudRedis_OperationMetadata.state
-
-/**
- *  The operation completed successfully.
- *
- *  Value: "DONE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_Done;
-/**
- *  The operation has failed or was cancelled.
- *
- *  Value: "FAILED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_Failed;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_Pending;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_Running;
-/**
- *  Not set.
- *
- *  Value: "STATUS_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified;
 
 /**
  *  Represents the metadata of the long-running operation.
@@ -610,40 +534,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
 
 
 /**
- *  This location metadata represents additional configuration options for a
- *  given location where a Redis instance may be created. All fields are output
- *  only. It is returned as content of the
- *  `google.cloud.location.Location.metadata` field.
- */
-@interface GTLRCloudRedis_LocationMetadata : GTLRObject
-
-/**
- *  Output only. The set of available zones in the location. The map is keyed
- *  by the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in `location_id` or `alternative_location_id` fields when
- *  creating a Redis instance.
- */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_LocationMetadata_AvailableZones *availableZones;
-
-@end
-
-
-/**
- *  Output only. The set of available zones in the location. The map is keyed
- *  by the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in `location_id` or `alternative_location_id` fields when
- *  creating a Redis instance.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudRedis_ZoneMetadata. Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudRedis_LocationMetadata_AvailableZones : GTLRObject
-@end
-
-
-/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -726,86 +616,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
 
 
 /**
- *  This operation metadata represents the state of operations that may have
- *  happened or are happening on the instance. All fields are output only. It is
- *  returned as content of the `google.longrunning.Operation.metadata` field.
- *  The
- *  `google.longrunning.Operation.name` field will be of the form
- *  `projects/{project_id}/locations/{location_id}/operations/{operation_id}`
- *  and
- *  the name for a `ListOperations` request will be of the form
- *  `projects/{project_id}/locations/{location_id}`
- *  On a ListOperations request where {location_id} is "-", all regions
- *  available to the {project_id} are queried and the results aggregated. If a
- *  location is not available, a dummy `google.longrunning.Operation` entry will
- *  be included in the `operations` field of the response, with the `name` field
- *  set to a value of the form
- *  `projects/{project_id}/locations/{location_id}/operations/-` and the `done`
- *  field will be set and the `result.error` field set with the `code` field set
- *  to `google.rpc.Code.DEADLINE_EXCEEDED` and the `message` field set to
- *  `location unavailable for ListOperations`. The Operation metadata` field
- *  will not be set for such a dummy operation.
- */
-@interface GTLRCloudRedis_OperationMetadata : GTLRObject
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. Detailed operation progress, if available. */
-@property(nonatomic, copy, nullable) NSString *detail;
-
-/** Output only. The time the operation was completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. The operation type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_CreateRedisInstance
- *        Redis instance is being created. (Value: "CREATE_REDIS_INSTANCE")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_DeleteRedisInstance
- *        Redis instance is being deleted. (Value: "DELETE_REDIS_INSTANCE")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_MaintenanceForRedisInstance
- *        Redis instance is being in maintenance. (Value:
- *        "MAINTENANCE_FOR_REDIS_INSTANCE")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_RepairRedisInstance
- *        Redis instance is being repaired. (Value: "REPAIR_REDIS_INSTANCE")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_TypeUnspecified
- *        Not set. (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_OperationType_UpdateRedisInstance
- *        Redis instance is being updated. (Value: "UPDATE_REDIS_INSTANCE")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** Output only. The time the operation was started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  Output only. The current state of the operation.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRedis_OperationMetadata_State_Done The operation
- *        completed successfully. (Value: "DONE")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_State_Failed The operation has
- *        failed or was cancelled. (Value: "FAILED")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_State_Pending The operation has
- *        been created. (Value: "PENDING")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_State_Running The operation is
- *        currently running. (Value: "RUNNING")
- *    @arg @c kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified Not set.
- *        (Value: "STATUS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-@end
-
-
-/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different
  *  programming environments, including REST APIs and RPC APIs. It is used by
@@ -884,14 +694,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRedis_Status_Details_Item : GTLRObject
-@end
-
-
-/**
- *  Defines specific information for a particular zone. Currently empty and
- *  reserved for future use only.
- */
-@interface GTLRCloudRedis_ZoneMetadata : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

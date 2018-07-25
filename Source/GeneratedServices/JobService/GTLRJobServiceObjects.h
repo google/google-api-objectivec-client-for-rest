@@ -57,6 +57,7 @@
 @class GTLRJobService_JobFilters;
 @class GTLRJobService_JobFilters_CustomFieldFilters;
 @class GTLRJobService_JobLocation;
+@class GTLRJobService_JobProcessingOptions;
 @class GTLRJobService_JobQuery;
 @class GTLRJobService_LatLng;
 @class GTLRJobService_LocationFilter;
@@ -1543,6 +1544,29 @@ GTLR_EXTERN NSString * const kGTLRJobService_JobLocation_LocationType_SubLocalit
 GTLR_EXTERN NSString * const kGTLRJobService_JobLocation_LocationType_SubLocality2;
 
 // ----------------------------------------------------------------------------
+// GTLRJobService_JobProcessingOptions.htmlSanitization
+
+/**
+ *  Disables sanitization on HTML input.
+ *
+ *  Value: "HTML_SANITIZATION_DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled;
+/**
+ *  Default value.
+ *
+ *  Value: "HTML_SANITIZATION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified;
+/**
+ *  Sanitizes HTML input, only accepts bold, italic, ordered list, and
+ *  unordered list markup tags.
+ *
+ *  Value: "SIMPLE_FORMATTING_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRJobService_JobQuery.categories
 
 /** Value: "ACCOUNTING_AND_FINANCE" */
@@ -1849,7 +1873,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_OrderBy_Title;
  */
 GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_OrderBy_TitleDesc;
 /**
- *  Sort by updated data descending.
+ *  Sort by updated date descending.
  *
  *  Value: "UPDATED_DATE_DESC"
  */
@@ -1923,7 +1947,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_SortBy_Title;
  */
 GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsRequest_SortBy_TitleDesc;
 /**
- *  Sort by updated data descending.
+ *  Sort by updated date descending.
  *
  *  Value: "UPDATED_DATE_DESC"
  */
@@ -2757,7 +2781,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @interface GTLRJobService_CreateJobRequest : GTLRObject
 
 /**
- *  If set to `true`, the service will not attempt to resolve a
+ *  Deprecated. Please use processing_options. This flag is ignored if
+ *  processing_options is set.
+ *  Optional.
+ *  If set to `true`, the service does not attempt to resolve a
  *  more precise address for the job.
  *
  *  Uses NSNumber of boolValue.
@@ -2769,6 +2796,12 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  The Job to be created.
  */
 @property(nonatomic, strong, nullable) GTLRJobService_Job *job;
+
+/**
+ *  Optional.
+ *  Options for job processing.
+ */
+@property(nonatomic, strong, nullable) GTLRJobService_JobProcessingOptions *processingOptions;
 
 @end
 
@@ -3887,8 +3920,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  structured rather than custom fields is recommended.
  *  Data stored in these custom fields fields are indexed and
  *  searched against by keyword searches (see
- *  SearchJobsRequest.custom_field_filters][]). To list jobs by
- *  custom fields, see ListCustomFieldsRequest.field_id.
+ *  SearchJobsRequest.custom_field_filters][]).
  *  The map key must be a number between 1-20. If an invalid key is
  *  provided on job create or update, an error is returned.
  */
@@ -4149,8 +4181,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  structured rather than custom fields is recommended.
  *  Data stored in these custom fields fields are indexed and
  *  searched against by keyword searches (see
- *  SearchJobsRequest.custom_field_filters][]). To list jobs by
- *  custom fields, see ListCustomFieldsRequest.field_id.
+ *  SearchJobsRequest.custom_field_filters][]).
  *  The map key must be a number between 1-20. If an invalid key is
  *  provided on job create or update, an error is returned.
  *
@@ -4467,6 +4498,47 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *radiusMeters;
+
+@end
+
+
+/**
+ *  Input only.
+ *  Options for job processing.
+ */
+@interface GTLRJobService_JobProcessingOptions : GTLRObject
+
+/**
+ *  Optional.
+ *  If set to `true`, the service does not attempt to resolve a
+ *  more precise address for the job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableStreetAddressResolution;
+
+/**
+ *  Optional.
+ *  Option for job HTML content sanitization. Applied fields are:
+ *  * description
+ *  * applicationInstruction
+ *  * incentives
+ *  * qualifications
+ *  * responsibilities
+ *  HTML tags in these fields may be stripped if sanitiazation is not disabled.
+ *  Defaults to HtmlSanitization.SIMPLE_FORMATTING_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled
+ *        Disables sanitization on HTML input. (Value:
+ *        "HTML_SANITIZATION_DISABLED")
+ *    @arg @c kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified
+ *        Default value. (Value: "HTML_SANITIZATION_UNSPECIFIED")
+ *    @arg @c kGTLRJobService_JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly
+ *        Sanitizes HTML input, only accepts bold, italic, ordered list, and
+ *        unordered list markup tags. (Value: "SIMPLE_FORMATTING_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *htmlSanitization;
 
 @end
 
@@ -5371,7 +5443,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *    @arg @c kGTLRJobService_SearchJobsRequest_OrderBy_TitleDesc Sort by job
  *        title descending. (Value: "TITLE_DESC")
  *    @arg @c kGTLRJobService_SearchJobsRequest_OrderBy_UpdatedDateDesc Sort by
- *        updated data descending. (Value: "UPDATED_DATE_DESC")
+ *        updated date descending. (Value: "UPDATED_DATE_DESC")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -5444,7 +5516,7 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *    @arg @c kGTLRJobService_SearchJobsRequest_SortBy_TitleDesc Sort by job
  *        title descending. (Value: "TITLE_DESC")
  *    @arg @c kGTLRJobService_SearchJobsRequest_SortBy_UpdatedDateDesc Sort by
- *        updated data descending. (Value: "UPDATED_DATE_DESC")
+ *        updated date descending. (Value: "UPDATED_DATE_DESC")
  */
 @property(nonatomic, copy, nullable) NSString *sortBy;
 
@@ -5597,7 +5669,10 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
 @interface GTLRJobService_UpdateJobRequest : GTLRObject
 
 /**
- *  If set to `true`, the service will not attempt resolve a more precise
+ *  Deprecated. Please use processing_options. This flag is ignored if
+ *  processing_options is set.
+ *  Optional.
+ *  If set to `true`, the service does not attempt resolve a more precise
  *  address for the job.
  *
  *  Uses NSNumber of boolValue.
@@ -5609,6 +5684,14 @@ GTLR_EXTERN NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small;
  *  The Job to be updated.
  */
 @property(nonatomic, strong, nullable) GTLRJobService_Job *job;
+
+/**
+ *  Optional.
+ *  Options for job processing.
+ *  UpdateJobRequest.disable_street_address_resolution is ignored if this
+ *  flag is set.
+ */
+@property(nonatomic, strong, nullable) GTLRJobService_JobProcessingOptions *processingOptions;
 
 /**
  *  Optional but strongly recommended to be provided for the best service

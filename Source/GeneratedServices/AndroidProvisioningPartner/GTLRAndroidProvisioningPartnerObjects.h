@@ -340,8 +340,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, strong, nullable) NSNumber *companyId;
 
 /**
- *  Required. The name of the company. For example _XYZ Corp_. Characters
- *  allowed are: Latin letters, numerals, hyphens, and spaces. Displayed to the
+ *  Required. The name of the company. For example _XYZ Corp_. Displayed to the
  *  customer's employees in the zero-touch enrollment portal.
  */
 @property(nonatomic, copy, nullable) NSString *companyName;
@@ -665,6 +664,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ownerCompanyId;
+
+/**
+ *  The ID of the reseller that claimed the device.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resellerId;
 
 /**
  *  Output only. The type of claim made on the device.
@@ -997,6 +1003,61 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /** List of customers related to this reseller partner. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
+
+@end
+
+
+/**
+ *  Response message to list customers of the vendor.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidProvisioningPartner_ListVendorCustomersResponse : GTLRCollectionObject
+
+/**
+ *  List of customers of the vendor.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
+
+/**
+ *  A token to retrieve the next page of results. Omitted if no further results
+ *  are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message to list vendors of the partner.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "vendors" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidProvisioningPartner_ListVendorsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Omitted if no further results
+ *  are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of vendors of the reseller partner. Fields `name`, `companyId` and
+ *  `companyName` are populated to the Company object.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *vendors;
 
 @end
 

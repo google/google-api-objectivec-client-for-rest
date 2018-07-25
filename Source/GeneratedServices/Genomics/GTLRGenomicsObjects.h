@@ -36,6 +36,7 @@
 @class GTLRGenomics_Event_Details;
 @class GTLRGenomics_Exon;
 @class GTLRGenomics_Experiment;
+@class GTLRGenomics_Expr;
 @class GTLRGenomics_ExternalId;
 @class GTLRGenomics_ImportVariantsRequest_InfoMergeConfig;
 @class GTLRGenomics_LinearAlignment;
@@ -943,6 +944,14 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 @interface GTLRGenomics_Binding : GTLRObject
 
 /**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRGenomics_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -1195,7 +1204,24 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when a container starts.
+ *  An event generated when a container is forcibly terminated by the
+ *  worker. Currently, this only occurs when the container outlives the
+ *  timeout specified by the user.
+ */
+@interface GTLRGenomics_ContainerKilledEvent : GTLRObject
+
+/**
+ *  The numeric ID of the action that started the container.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *actionId;
+
+@end
+
+
+/**
+ *  An event generated when a container starts.
  */
 @interface GTLRGenomics_ContainerStartedEvent : GTLRObject
 
@@ -1209,15 +1235,15 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  The public IP address that can be used to connect to the container. This
  *  field is only populated when at least one port mapping is present. If the
- *  instance was created with a private address this field will be empty even
+ *  instance was created with a private address, this field will be empty even
  *  if port mappings exist.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  The container to host port mappings installed for this container. This
- *  set will contain any ports exposed using the PUBLISH_EXPOSED_PORTS flag as
- *  well as any specified in the Action definition.
+ *  The container-to-host port mappings installed for this container. This
+ *  set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
+ *  as well as any specified in the `Action` definition.
  */
 @property(nonatomic, strong, nullable) GTLRGenomics_ContainerStartedEvent_PortMappings *portMappings;
 
@@ -1225,9 +1251,9 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  The container to host port mappings installed for this container. This
- *  set will contain any ports exposed using the PUBLISH_EXPOSED_PORTS flag as
- *  well as any specified in the Action definition.
+ *  The container-to-host port mappings installed for this container. This
+ *  set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
+ *  as well as any specified in the `Action` definition.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
@@ -1239,7 +1265,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when a container exits.
+ *  An event generated when a container exits.
  */
 @interface GTLRGenomics_ContainerStoppedEvent : GTLRObject
 
@@ -1259,12 +1285,12 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 /**
  *  The tail end of any content written to standard error by the container.
- *  To prevent this from being recorded if the action is known to emit
- *  large amounts of debugging noise or sensitive information, set the
- *  DISABLE_STANDARD_ERROR_CAPTURE flag.
+ *  If the content emits large amounts of debugging noise or contains
+ *  sensitive information, you can prevent the content from being printed by
+ *  setting the `DISABLE_STANDARD_ERROR_CAPTURE` flag.
  *  Note that only a small amount of the end of the stream is captured here.
- *  The entire stream is stored in the /google/logs directory mounted into
- *  each action, and may be copied off the machine as described elsewhere.
+ *  The entire stream is stored in the `/google/logs` directory mounted into
+ *  each action, and can be copied off the machine as described elsewhere.
  */
 @property(nonatomic, copy, nullable) NSString *stderr;
 
@@ -1316,14 +1342,14 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated whenever a resource limitation or transient error
+ *  An event generated whenever a resource limitation or transient error
  *  delays execution of a pipeline that was otherwise ready to run.
  */
 @interface GTLRGenomics_DelayedEvent : GTLRObject
 
 /**
- *  A textual description of the cause of the delay. The string may change
- *  without notice since it is often generated by another service (such as
+ *  A textual description of the cause of the delay. The string can change
+ *  without notice because it is often generated by another service (such as
  *  Compute Engine).
  */
 @property(nonatomic, copy, nullable) NSString *cause;
@@ -1331,8 +1357,8 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 /**
  *  If the delay was caused by a resource shortage, this field lists the
  *  Compute Engine metrics that are preventing this operation from running
- *  (for example, CPUS or INSTANCES). If the particular metric is not known,
- *  a single UNKNOWN metric will be present.
+ *  (for example, `CPUS` or `INSTANCES`). If the particular metric is not
+ *  known, a single `UNKNOWN` metric will be present.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
@@ -1367,30 +1393,30 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  Event carries information about events that occur during pipeline execution.
+ *  Carries information about events that occur during pipeline execution.
  */
 @interface GTLRGenomics_Event : GTLRObject
 
 /**
- *  A human readable description of the event. Note that these strings may
+ *  A human-readable description of the event. Note that these strings can
  *  change at any time without notice. Any application logic must use the
- *  information in the details field.
+ *  information in the `details` field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Machine readable details about the event. */
+/** Machine-readable details about the event. */
 @property(nonatomic, strong, nullable) GTLRGenomics_Event_Details *details;
 
-/** The time that the event occurred. */
+/** The time at which the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
 
 
 /**
- *  Machine readable details about the event.
+ *  Machine-readable details about the event.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1551,6 +1577,46 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRGenomics_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  GTLRGenomics_ExternalId
  */
 @interface GTLRGenomics_ExternalId : GTLRObject
@@ -1569,12 +1635,12 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when the execution of a pipeline has failed. Note
- *  that other events may continue to occur after this event.
+ *  An event generated when the execution of a pipeline has failed. Note
+ *  that other events can continue to occur after this event.
  */
 @interface GTLRGenomics_FailedEvent : GTLRObject
 
-/** The human readable description of the cause of the failure. */
+/** The human-readable description of the cause of the failure. */
 @property(nonatomic, copy, nullable) NSString *cause;
 
 /**
@@ -2365,7 +2431,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when the worker starts pulling an image.
+ *  An event generated when the worker starts pulling an image.
  */
 @interface GTLRGenomics_PullStartedEvent : GTLRObject
 
@@ -2376,7 +2442,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when the worker stops pulling an image.
+ *  An event generated when the worker stops pulling an image.
  */
 @interface GTLRGenomics_PullStoppedEvent : GTLRObject
 
@@ -3797,10 +3863,10 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when the execution of a container results in a
+ *  An event generated when the execution of a container results in a
  *  non-zero exit status that was not otherwise ignored. Execution will
- *  continue, but only actions that are flagged as ALWAYS_RUN will be executed:
- *  other actions will be skipped.
+ *  continue, but only actions that are flagged as `ALWAYS_RUN` will be
+ *  executed. Other actions will be skipped.
  */
 @interface GTLRGenomics_UnexpectedExitStatusEvent : GTLRObject
 
@@ -4272,7 +4338,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated once a worker VM has been assigned to run the
+ *  An event generated after a worker VM has been assigned to run the
  *  pipeline.
  */
 @interface GTLRGenomics_WorkerAssignedEvent : GTLRObject
@@ -4291,8 +4357,8 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
- *  This event is generated when the worker VM that was assigned to the pipeline
- *  has been released (i.e., deleted).
+ *  An event generated when the worker VM that was assigned to the pipeline
+ *  has been released (deleted).
  */
 @interface GTLRGenomics_WorkerReleasedEvent : GTLRObject
 

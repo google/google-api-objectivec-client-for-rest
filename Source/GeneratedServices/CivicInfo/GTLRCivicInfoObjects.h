@@ -29,15 +29,25 @@
 @class GTLRCivicInfo_Election;
 @class GTLRCivicInfo_ElectionOfficial;
 @class GTLRCivicInfo_ElectoralDistrict;
+@class GTLRCivicInfo_FieldMetadataProto;
 @class GTLRCivicInfo_GeographicDivision;
+@class GTLRCivicInfo_InternalFieldMetadataProto;
+@class GTLRCivicInfo_InternalSourceSummaryProto;
+@class GTLRCivicInfo_LivegraphBacktraceRecordInfo;
+@class GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo;
+@class GTLRCivicInfo_MessageSet;
 @class GTLRCivicInfo_Office;
 @class GTLRCivicInfo_Official;
+@class GTLRCivicInfo_PointProto;
 @class GTLRCivicInfo_PollingLocation;
 @class GTLRCivicInfo_PostalAddress;
+@class GTLRCivicInfo_Provenance;
 @class GTLRCivicInfo_RepresentativeInfoData_Divisions;
 @class GTLRCivicInfo_RepresentativeInfoResponse_Divisions;
 @class GTLRCivicInfo_SimpleAddressType;
 @class GTLRCivicInfo_Source;
+@class GTLRCivicInfo_StreetSegment;
+@class GTLRCivicInfo_StreetSegmentList;
 @class GTLRCivicInfo_VoterInfoRequest;
 @class GTLRCivicInfo_VoterInfoResponse;
 @class GTLRCivicInfo_VoterInfoSegmentResult;
@@ -555,6 +565,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRCivicInfo_FieldMetadataProto
+ */
+@interface GTLRCivicInfo_FieldMetadataProto : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_InternalFieldMetadataProto *internal;
+
+@end
+
+
+/**
  *  Describes a political geography.
  */
 @interface GTLRCivicInfo_GeographicDivision : GTLRObject
@@ -584,6 +604,142 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *officeIndices;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_InternalFieldMetadataProto
+ */
+@interface GTLRCivicInfo_InternalFieldMetadataProto : GTLRObject
+
+/**
+ *  isAuto
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAuto;
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_InternalSourceSummaryProto *sourceSummary;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_InternalSourceSummaryProto
+ */
+@interface GTLRCivicInfo_InternalSourceSummaryProto : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *dataset;
+@property(nonatomic, copy, nullable) NSString *provider;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_LivegraphBacktraceRecordInfo
+ */
+@interface GTLRCivicInfo_LivegraphBacktraceRecordInfo : GTLRObject
+
+/**
+ *  dataSourcePublishMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataSourcePublishMsec;
+
+@property(nonatomic, copy, nullable) NSString *expId;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo *expInfo;
+
+/**
+ *  isRecon
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRecon;
+
+/**
+ *  isWlmThrottled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isWlmThrottled;
+
+/**
+ *  numberOfTriples
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfTriples;
+
+@property(nonatomic, copy, nullable) NSString *priority;
+@property(nonatomic, copy, nullable) NSString *process;
+
+/**
+ *  proxyReceiveMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxyReceiveMsec;
+
+/**
+ *  proxySentMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxySentMsec;
+
+@property(nonatomic, copy, nullable) NSString *recordId;
+
+/**
+ *  shouldMonitorLatency
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shouldMonitorLatency;
+
+/**
+ *  subscriberReceiveMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subscriberReceiveMsec;
+
+/**
+ *  topicBuildFinishMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicBuildFinishMsec;
+
+/**
+ *  topicBuildStartMsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicBuildStartMsec;
+
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
+ */
+@interface GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deletedIns;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_MessageSet
+ */
+@interface GTLRCivicInfo_MessageSet : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_LivegraphBacktraceRecordInfo *recordMessageSetExt;
 
 @end
 
@@ -661,6 +817,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The official's public website URLs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_PointProto
+ */
+@interface GTLRCivicInfo_PointProto : GTLRObject
+
+/**
+ *  latE7
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latE7;
+
+/**
+ *  lngE7
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lngE7;
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_FieldMetadataProto *metadata;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_MessageSet *temporaryData;
 
 @end
 
@@ -754,6 +935,50 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *subPremiseName;
 @property(nonatomic, copy, nullable) NSString *thoroughfareName;
 @property(nonatomic, copy, nullable) NSString *thoroughfareNumber;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_Provenance
+ */
+@interface GTLRCivicInfo_Provenance : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_StreetSegmentList *collidedSegmentSource;
+@property(nonatomic, copy, nullable) NSString *ctclContestUuid;
+@property(nonatomic, copy, nullable) NSString *ctclOfficeUuid;
+
+/**
+ *  datasetId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetId;
+
+/**
+ *  precinctId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precinctId;
+
+/**
+ *  precinctSplitId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precinctSplitId;
+
+@property(nonatomic, copy, nullable) NSString *tsStreetSegmentId;
+@property(nonatomic, copy, nullable) NSString *vip5PrecinctId;
+@property(nonatomic, copy, nullable) NSString *vip5StreetSegmentId;
+
+/**
+ *  vipStreetSegmentId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vipStreetSegmentId;
 
 @end
 
@@ -896,6 +1121,138 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRCivicInfo_StreetSegment
+ */
+@interface GTLRCivicInfo_StreetSegment : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *administrationRegionIds;
+@property(nonatomic, copy, nullable) NSString *beforeGeocodeId;
+@property(nonatomic, copy, nullable) NSString *catalistUniquePrecinctCode;
+@property(nonatomic, copy, nullable) NSString *city;
+@property(nonatomic, copy, nullable) NSString *cityCouncilDistrict;
+@property(nonatomic, copy, nullable) NSString *congressionalDistrict;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contestIds;
+@property(nonatomic, copy, nullable) NSString *countyCouncilDistrict;
+@property(nonatomic, copy, nullable) NSString *countyFips;
+
+/**
+ *  datasetId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetId;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *earlyVoteSiteByIds;
+
+/**
+ *  endHouseNumber
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endHouseNumber;
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_PointProto *geocodedPoint;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *geographicDivisionOcdIds;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@property(nonatomic, copy, nullable) NSString *judicialDistrict;
+
+/**
+ *  mailOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mailOnly;
+
+@property(nonatomic, copy, nullable) NSString *municipalDistrict;
+@property(nonatomic, copy, nullable) NSString *ncoaAddress;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *oddOrEvens;
+@property(nonatomic, copy, nullable) NSString *originalId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pollinglocationByIds;
+@property(nonatomic, copy, nullable) NSString *precinctName;
+@property(nonatomic, copy, nullable) NSString *precinctOcdId;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Provenance *> *provenances;
+
+/**
+ *  published
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *published;
+
+@property(nonatomic, copy, nullable) NSString *schoolDistrict;
+
+/**
+ *  startHouseNumber
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startHouseNumber;
+
+/**
+ *  startLatE7
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startLatE7;
+
+/**
+ *  startLngE7
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startLngE7;
+
+@property(nonatomic, copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *stateHouseDistrict;
+@property(nonatomic, copy, nullable) NSString *stateSenateDistrict;
+@property(nonatomic, copy, nullable) NSString *streetName;
+@property(nonatomic, copy, nullable) NSString *subAdministrativeAreaName;
+
+/**
+ *  surrogateId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *surrogateId;
+
+@property(nonatomic, copy, nullable) NSString *targetsmartUniquePrecinctCode;
+@property(nonatomic, copy, nullable) NSString *townshipDistrict;
+@property(nonatomic, copy, nullable) NSString *unitNumber;
+@property(nonatomic, copy, nullable) NSString *unitType;
+@property(nonatomic, copy, nullable) NSString *vanPrecinctCode;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *voterGeographicDivisionOcdIds;
+@property(nonatomic, copy, nullable) NSString *wardDistrict;
+
+/**
+ *  wildcard
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wildcard;
+
+@property(nonatomic, copy, nullable) NSString *zip;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_StreetSegmentList
+ */
+@interface GTLRCivicInfo_StreetSegmentList : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_StreetSegment *> *segments;
+
+@end
+
+
+/**
  *  A request for information about a voter.
  */
 @interface GTLRCivicInfo_VoterInfoRequest : GTLRObject
@@ -966,6 +1323,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *pollingLocations;
 
 @property(nonatomic, copy, nullable) NSString *precinctId;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_StreetSegment *> *segments;
 
 /**
  *  Local Election Information for the state that the voter votes in. For the

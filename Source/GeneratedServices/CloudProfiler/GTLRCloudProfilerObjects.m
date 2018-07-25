@@ -4,9 +4,9 @@
 // API:
 //   Stackdriver Profiler API (cloudprofiler/v2)
 // Description:
-//   Allows Google services manage the continuous profiling information.
+//   Manages continuous profiling information.
 // Documentation:
-//   https://cloud.google.com/
+//   https://cloud.google.com/profiler/
 
 #import "GTLRCloudProfilerObjects.h"
 
@@ -37,7 +37,7 @@ NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall   = @"WALL";
 //
 
 @implementation GTLRCloudProfiler_CreateProfileRequest
-@dynamic deployment, profile, profileType;
+@dynamic deployment, profileType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

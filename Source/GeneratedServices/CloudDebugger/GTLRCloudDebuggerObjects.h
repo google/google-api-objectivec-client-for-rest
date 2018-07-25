@@ -804,6 +804,15 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_SourceLocation : GTLRObject
 
 /**
+ *  Column within a line. The first column in a line as the value `1`.
+ *  Agents that do not support setting breakpoints on specific columns ignore
+ *  this field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *column;
+
+/**
  *  Line inside the file. The first line in the file has the value `1`.
  *
  *  Uses NSNumber of intValue.

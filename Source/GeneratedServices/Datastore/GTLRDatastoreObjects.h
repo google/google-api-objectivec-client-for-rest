@@ -34,6 +34,8 @@
 @class GTLRDatastore_GoogleDatastoreAdminV1EntityFilter;
 @class GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels;
 @class GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels;
+@class GTLRDatastore_GoogleDatastoreAdminV1Index;
+@class GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty;
 @class GTLRDatastore_GoogleDatastoreAdminV1Progress;
 @class GTLRDatastore_GoogleLongrunningOperation;
 @class GTLRDatastore_GoogleLongrunningOperation_Metadata;
@@ -192,6 +194,18 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMet
 // GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata.operationType
 
 /**
+ *  CreateIndex.
+ *
+ *  Value: "CREATE_INDEX"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_CreateIndex;
+/**
+ *  DeleteIndex.
+ *
+ *  Value: "DELETE_INDEX"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_DeleteIndex;
+/**
  *  ExportEntities.
  *
  *  Value: "EXPORT_ENTITIES"
@@ -263,6 +277,99 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata
  *  Value: "SUCCESSFUL"
  */
 GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1Index.ancestor
+
+/**
+ *  Include all the entity's ancestors in the index.
+ *
+ *  Value: "ALL_ANCESTORS"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors;
+/**
+ *  The ancestor mode is unspecified.
+ *
+ *  Value: "ANCESTOR_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AncestorModeUnspecified;
+/**
+ *  Do not include the entity's ancestors in the index.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_None;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1Index.state
+
+/**
+ *  The index is being created, and cannot be used by queries.
+ *  There is an active long-running operation for the index.
+ *  The index is updated when writing an entity.
+ *  Some index data may exist.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating;
+/**
+ *  The index is being deleted, and cannot be used by queries.
+ *  There is an active long-running operation for the index.
+ *  The index is not updated when writing an entity.
+ *  Some index data may exist.
+ *
+ *  Value: "DELETING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting;
+/**
+ *  The index was being created or deleted, but something went wrong.
+ *  The index cannot by used by queries.
+ *  There is no active long-running operation for the index,
+ *  and the most recently finished long-running operation failed.
+ *  The index is not updated when writing an entity.
+ *  Some index data may exist.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error;
+/**
+ *  The index is ready to be used.
+ *  The index is updated when writing an entity.
+ *  The index is fully populated from all stored entities it applies to.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Ready;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty.direction
+
+/**
+ *  The property's values are indexed so as to support sequencing in
+ *  ascending order and also query by <, >, <=, >=, and =.
+ *
+ *  Value: "ASCENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending;
+/**
+ *  The property's values are indexed so as to support sequencing in
+ *  descending order and also query by <, >, <=, >=, and =.
+ *
+ *  Value: "DESCENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Descending;
+/**
+ *  The direction is unspecified.
+ *
+ *  Value: "DIRECTION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyFilter.op
@@ -925,6 +1032,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  ListOperationsRequest.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_CreateIndex
+ *        CreateIndex. (Value: "CREATE_INDEX")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_DeleteIndex
+ *        DeleteIndex. (Value: "DELETE_INDEX")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ExportEntities
  *        ExportEntities. (Value: "EXPORT_ENTITIES")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ImportEntities
@@ -1178,6 +1289,160 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        fetch them all at once.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  A minimal index definition.
+ *  Next tag: 8
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1Index : GTLRObject
+
+/**
+ *  The index's ancestor mode. Must not be ANCESTOR_MODE_UNSPECIFIED.
+ *  Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors
+ *        Include all the entity's ancestors in the index. (Value:
+ *        "ALL_ANCESTORS")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AncestorModeUnspecified
+ *        The ancestor mode is unspecified. (Value: "ANCESTOR_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_None Do not
+ *        include the entity's ancestors in the index. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *ancestor;
+
+/**
+ *  The resource ID of the index.
+ *  Output only.
+ */
+@property(nonatomic, copy, nullable) NSString *indexId;
+
+/**
+ *  The entity kind to which this index applies.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Project ID.
+ *  Output only.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  An ordered sequence of property names and their index attributes.
+ *  Required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty *> *properties;
+
+/**
+ *  The state of the index.
+ *  Output only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating The
+ *        index is being created, and cannot be used by queries.
+ *        There is an active long-running operation for the index.
+ *        The index is updated when writing an entity.
+ *        Some index data may exist. (Value: "CREATING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting The
+ *        index is being deleted, and cannot be used by queries.
+ *        There is an active long-running operation for the index.
+ *        The index is not updated when writing an entity.
+ *        Some index data may exist. (Value: "DELETING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error The index
+ *        was being created or deleted, but something went wrong.
+ *        The index cannot by used by queries.
+ *        There is no active long-running operation for the index,
+ *        and the most recently finished long-running operation failed.
+ *        The index is not updated when writing an entity.
+ *        Some index data may exist. (Value: "ERROR")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Ready The index
+ *        is ready to be used.
+ *        The index is updated when writing an entity.
+ *        The index is fully populated from all stored entities it applies to.
+ *        (Value: "READY")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Next tag: 3
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty : GTLRObject
+
+/**
+ *  The indexed property's direction. Must not be DIRECTION_UNSPECIFIED.
+ *  Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending
+ *        The property's values are indexed so as to support sequencing in
+ *        ascending order and also query by <, >, <=, >=, and =. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Descending
+ *        The property's values are indexed so as to support sequencing in
+ *        descending order and also query by <, >, <=, >=, and =. (Value:
+ *        "DESCENDING")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified
+ *        The direction is unspecified. (Value: "DIRECTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  The property name to index.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Metadata for Index operations.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1IndexOperationMetadata : GTLRObject
+
+/** Metadata common to all Datastore Admin operations. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata *common;
+
+/** The index resource ID that this operation is acting on. */
+@property(nonatomic, copy, nullable) NSString *indexId;
+
+/** An estimate of the number of entities processed. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1Progress *progressEntities;
+
+@end
+
+
+/**
+ *  The response for
+ *  google.datastore.admin.v1.DatastoreAdmin.ListIndexes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "indexes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1ListIndexesResponse : GTLRCollectionObject
+
+/**
+ *  The indexes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GoogleDatastoreAdminV1Index *> *indexes;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 

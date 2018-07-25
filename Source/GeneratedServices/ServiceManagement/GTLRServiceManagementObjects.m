@@ -340,7 +340,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -669,6 +669,21 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_Experimental
 @dynamic authorization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_Expr
+//
+
+@implementation GTLRServiceManagement_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

@@ -1008,6 +1008,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalytics_HashClientIdRequest
+//
+
+@implementation GTLRAnalytics_HashClientIdRequest
+@dynamic clientId, kind, webPropertyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_HashClientIdResponse
+//
+
+@implementation GTLRAnalytics_HashClientIdResponse
+@dynamic clientId, hashedClientId, kind, webPropertyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalytics_IncludeConditions
 //
 

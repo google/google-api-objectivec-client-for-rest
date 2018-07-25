@@ -36,6 +36,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get ad code for a given ad client.
+ *
+ *  Method: adsense.accounts.adclients.getAdCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdSense
+ *    @c kGTLRAuthScopeAdSenseReadonly
+ */
+@interface GTLRAdSenseQuery_AccountsAdclientsGetAdCode : GTLRAdSenseQuery
+// Previous library name was
+//   +[GTLQueryAdSense queryForAccountsAdclientsGetAdCodeWithaccountId:adClientId:]
+
+/** Account which contains the ad client. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** Ad client to get the code for. */
+@property(nonatomic, copy, nullable) NSString *adClientId;
+
+/**
+ *  Fetches a @c GTLRAdSense_AdCode.
+ *
+ *  Get ad code for a given ad client.
+ *
+ *  @param accountId Account which contains the ad client.
+ *  @param adClientId Ad client to get the code for.
+ *
+ *  @return GTLRAdSenseQuery_AccountsAdclientsGetAdCode
+ */
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                        adClientId:(NSString *)adClientId;
+
+@end
+
+/**
  *  List all ad clients in the specified account.
  *
  *  Method: adsense.accounts.adclients.list

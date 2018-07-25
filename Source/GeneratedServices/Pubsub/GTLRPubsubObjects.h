@@ -81,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -97,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
 
-/** User labels. */
+/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
@@ -117,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  User labels.
+ *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -651,7 +650,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
-/** User labels. */
+/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot_Labels *labels;
 
 /** The name of the snapshot. */
@@ -664,7 +663,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  User labels.
+ *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -703,7 +702,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
-/** User labels. */
+/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Labels *labels;
 
 /**
@@ -761,7 +760,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  User labels.
+ *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -807,7 +806,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_Topic : GTLRObject
 
-/** User labels. */
+/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
 /**
@@ -824,7 +823,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  User labels.
+ *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

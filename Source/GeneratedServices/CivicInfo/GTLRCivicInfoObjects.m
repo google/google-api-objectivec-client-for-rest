@@ -268,6 +268,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_FieldMetadataProto
+//
+
+@implementation GTLRCivicInfo_FieldMetadataProto
+@dynamic internal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_GeographicDivision
 //
 
@@ -282,6 +292,67 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_InternalFieldMetadataProto
+//
+
+@implementation GTLRCivicInfo_InternalFieldMetadataProto
+@dynamic isAuto, sourceSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_InternalSourceSummaryProto
+//
+
+@implementation GTLRCivicInfo_InternalSourceSummaryProto
+@dynamic dataset, provider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_LivegraphBacktraceRecordInfo
+//
+
+@implementation GTLRCivicInfo_LivegraphBacktraceRecordInfo
+@dynamic dataSourcePublishMsec, expId, expInfo, isRecon, isWlmThrottled,
+         numberOfTriples, priority, process, proxyReceiveMsec, proxySentMsec,
+         recordId, shouldMonitorLatency, subscriberReceiveMsec,
+         topicBuildFinishMsec, topicBuildStartMsec, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
+//
+
+@implementation GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
+@dynamic deletedIns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deletedIns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_MessageSet
+//
+
+@implementation GTLRCivicInfo_MessageSet
+@dynamic recordMessageSetExt;
 @end
 
 
@@ -330,6 +401,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_PointProto
+//
+
+@implementation GTLRCivicInfo_PointProto
+@dynamic latE7, lngE7, metadata, temporaryData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_PollingLocation
 //
 
@@ -371,6 +452,18 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_Provenance
+//
+
+@implementation GTLRCivicInfo_Provenance
+@dynamic collidedSegmentSource, ctclContestUuid, ctclOfficeUuid, datasetId,
+         precinctId, precinctSplitId, tsStreetSegmentId, vip5PrecinctId,
+         vip5StreetSegmentId, vipStreetSegmentId;
 @end
 
 
@@ -472,6 +565,63 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_StreetSegment
+//
+
+@implementation GTLRCivicInfo_StreetSegment
+@dynamic administrationRegionIds, beforeGeocodeId, catalistUniquePrecinctCode,
+         city, cityCouncilDistrict, congressionalDistrict, contestIds,
+         countyCouncilDistrict, countyFips, datasetId, earlyVoteSiteByIds,
+         endHouseNumber, geocodedPoint, geographicDivisionOcdIds, identifier,
+         judicialDistrict, mailOnly, municipalDistrict, ncoaAddress, oddOrEvens,
+         originalId, pollinglocationByIds, precinctName, precinctOcdId,
+         provenances, published, schoolDistrict, startHouseNumber, startLatE7,
+         startLngE7, state, stateHouseDistrict, stateSenateDistrict, streetName,
+         subAdministrativeAreaName, surrogateId, targetsmartUniquePrecinctCode,
+         townshipDistrict, unitNumber, unitType, vanPrecinctCode,
+         voterGeographicDivisionOcdIds, wardDistrict, wildcard, zip;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"administrationRegionIds" : [NSString class],
+    @"contestIds" : [NSString class],
+    @"earlyVoteSiteByIds" : [NSString class],
+    @"geographicDivisionOcdIds" : [NSString class],
+    @"oddOrEvens" : [NSString class],
+    @"pollinglocationByIds" : [NSString class],
+    @"provenances" : [GTLRCivicInfo_Provenance class],
+    @"voterGeographicDivisionOcdIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_StreetSegmentList
+//
+
+@implementation GTLRCivicInfo_StreetSegmentList
+@dynamic segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segments" : [GTLRCivicInfo_StreetSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_VoterInfoRequest
 //
 
@@ -487,7 +637,8 @@
 
 @implementation GTLRCivicInfo_VoterInfoResponse
 @dynamic contests, dropOffLocations, earlyVoteSites, election, kind, mailOnly,
-         normalizedInput, otherElections, pollingLocations, precinctId, state;
+         normalizedInput, otherElections, pollingLocations, precinctId,
+         segments, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -496,6 +647,7 @@
     @"earlyVoteSites" : [GTLRCivicInfo_PollingLocation class],
     @"otherElections" : [GTLRCivicInfo_Election class],
     @"pollingLocations" : [GTLRCivicInfo_PollingLocation class],
+    @"segments" : [GTLRCivicInfo_StreetSegment class],
     @"state" : [GTLRCivicInfo_AdministrationRegion class]
   };
   return map;
