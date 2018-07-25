@@ -6,7 +6,7 @@
 // Description:
 //   IAM Service Account Credentials API
 // Documentation:
-//   https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+//   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
 #import "GTLRIAMCredentialsObjects.h"
 

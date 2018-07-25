@@ -20,6 +20,8 @@ NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng = @"PNG";
 
 // thumbnailPropertiesThumbnailSize
 NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge = @"LARGE";
+NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium = @"MEDIUM";
+NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall = @"SMALL";
 NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified = @"THUMBNAIL_SIZE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------

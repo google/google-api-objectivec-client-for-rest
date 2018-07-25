@@ -4,9 +4,9 @@
 // API:
 //   Stackdriver Profiler API (cloudprofiler/v2)
 // Description:
-//   Allows Google services manage the continuous profiling information.
+//   Manages continuous profiling information.
 // Documentation:
-//   https://cloud.google.com/
+//   https://cloud.google.com/profiler/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -20,7 +20,6 @@
 
 @class GTLRCloudProfiler_Deployment;
 @class GTLRCloudProfiler_Deployment_Labels;
-@class GTLRCloudProfiler_Profile;
 @class GTLRCloudProfiler_Profile_Labels;
 
 // Generated comments include content from the discovery document; avoid them
@@ -107,15 +106,6 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 
 /** Deployment details. */
 @property(nonatomic, strong, nullable) GTLRCloudProfiler_Deployment *deployment;
-
-/**
- *  DEPRECATED: When the profile field is set and the profile type field is not
- *  set, the creation is done in the offline mode as documented for the
- *  CreateOfflineProfile method above. This behavior is temporarily kept
- *  to smoothly migrate the clients that use the old model of when the single
- *  CreateProfile method was used for both creation modes.
- */
-@property(nonatomic, strong, nullable) GTLRCloudProfiler_Profile *profile;
 
 /** One or more profile types that the agent is capable of providing. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profileType;

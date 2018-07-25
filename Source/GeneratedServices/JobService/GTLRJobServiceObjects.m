@@ -393,6 +393,11 @@ NSString * const kGTLRJobService_JobLocation_LocationType_SubLocality = @"SUB_LO
 NSString * const kGTLRJobService_JobLocation_LocationType_SubLocality1 = @"SUB_LOCALITY_1";
 NSString * const kGTLRJobService_JobLocation_LocationType_SubLocality2 = @"SUB_LOCALITY_2";
 
+// GTLRJobService_JobProcessingOptions.htmlSanitization
+NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled = @"HTML_SANITIZATION_DISABLED";
+NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified = @"HTML_SANITIZATION_UNSPECIFIED";
+NSString * const kGTLRJobService_JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly = @"SIMPLE_FORMATTING_ONLY";
+
 // GTLRJobService_JobQuery.categories
 NSString * const kGTLRJobService_JobQuery_Categories_AccountingAndFinance = @"ACCOUNTING_AND_FINANCE";
 NSString * const kGTLRJobService_JobQuery_Categories_AdministrativeAndOffice = @"ADMINISTRATIVE_AND_OFFICE";
@@ -695,7 +700,7 @@ NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small = @"SMALL";
 //
 
 @implementation GTLRJobService_CreateJobRequest
-@dynamic disableStreetAddressResolution, job;
+@dynamic disableStreetAddressResolution, job, processingOptions;
 @end
 
 
@@ -1141,6 +1146,16 @@ NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small = @"SMALL";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRJobService_JobProcessingOptions
+//
+
+@implementation GTLRJobService_JobProcessingOptions
+@dynamic disableStreetAddressResolution, htmlSanitization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRJobService_JobQuery
 //
 
@@ -1422,5 +1437,6 @@ NSString * const kGTLRJobService_SearchJobsResponse_JobView_Small = @"SMALL";
 //
 
 @implementation GTLRJobService_UpdateJobRequest
-@dynamic disableStreetAddressResolution, job, updateJobFields;
+@dynamic disableStreetAddressResolution, job, processingOptions,
+         updateJobFields;
 @end

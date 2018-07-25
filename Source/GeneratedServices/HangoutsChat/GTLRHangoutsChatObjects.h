@@ -313,9 +313,19 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Space.type
 
-/** Value: "DM" */
+/**
+ *  1:1 Direct Message between a human and a bot, where all messages are
+ *  flat.
+ *
+ *  Value: "DM"
+ */
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
-/** Value: "ROOM" */
+/**
+ *  A chat space where memberships are free to change. Messages in rooms are
+ *  threaded.
+ *
+ *  Value: "ROOM"
+ */
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Room;
 /** Value: "TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
@@ -1048,8 +1058,12 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
  *  Output only. The type of a space.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_Space_Type_Dm Value "DM"
- *    @arg @c kGTLRHangoutsChat_Space_Type_Room Value "ROOM"
+ *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
+ *        and a bot, where all messages are
+ *        flat. (Value: "DM")
+ *    @arg @c kGTLRHangoutsChat_Space_Type_Room A chat space where memberships
+ *        are free to change. Messages in rooms are
+ *        threaded. (Value: "ROOM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */

@@ -839,7 +839,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_ResourceInfo
-@dynamic resourceContainer, resourceName;
+@dynamic resourceContainer, resourceLocation, resourceName;
 @end
 
 

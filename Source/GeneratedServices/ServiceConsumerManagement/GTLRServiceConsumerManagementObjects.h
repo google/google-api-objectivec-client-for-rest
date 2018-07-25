@@ -3498,11 +3498,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  */
 @interface GTLRServiceConsumerManagement_TenantProjectConfig : GTLRObject
 
-/**
- *  Billing account properties.
- *  It might be specified explicitly, or created from the specified group
- *  during provisioning
- */
+/** Billing account properties. Billing account must be specified. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_BillingConfig *billingConfig;
 
 /**

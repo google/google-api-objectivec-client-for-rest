@@ -66,7 +66,7 @@ NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobu
 //
 
 @implementation GTLRCloudSourceRepositories_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -84,6 +84,21 @@ NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobu
 //
 
 @implementation GTLRCloudSourceRepositories_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Expr
+//
+
+@implementation GTLRCloudSourceRepositories_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

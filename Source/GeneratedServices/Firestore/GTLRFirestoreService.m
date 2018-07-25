@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Firestore API (firestore/v1beta1)
+//   Cloud Firestore API (firestore/v1)
 // Documentation:
 //   https://cloud.google.com/firestore
 

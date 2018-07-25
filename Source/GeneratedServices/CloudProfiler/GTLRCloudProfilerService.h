@@ -4,9 +4,9 @@
 // API:
 //   Stackdriver Profiler API (cloudprofiler/v2)
 // Description:
-//   Allows Google services manage the continuous profiling information.
+//   Manages continuous profiling information.
 // Documentation:
-//   https://cloud.google.com/
+//   https://cloud.google.com/profiler/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -56,7 +56,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoringWrite;
 /**
  *  Service for executing Stackdriver Profiler API queries.
  *
- *  Allows Google services manage the continuous profiling information.
+ *  Manages continuous profiling information.
  */
 @interface GTLRCloudProfilerService : GTLRService
 

@@ -560,3 +560,41 @@
 }
 
 @end
+
+@implementation GTLRAndroidProvisioningPartnerQuery_PartnersVendorsCustomersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers";
+  GTLRAndroidProvisioningPartnerQuery_PartnersVendorsCustomersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidProvisioningPartner_ListVendorCustomersResponse class];
+  query.loggingName = @"androiddeviceprovisioning.partners.vendors.customers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidProvisioningPartnerQuery_PartnersVendorsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vendors";
+  GTLRAndroidProvisioningPartnerQuery_PartnersVendorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidProvisioningPartner_ListVendorsResponse class];
+  query.loggingName = @"androiddeviceprovisioning.partners.vendors.list";
+  return query;
+}
+
+@end

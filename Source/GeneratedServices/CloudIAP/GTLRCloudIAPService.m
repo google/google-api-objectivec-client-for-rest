@@ -2,31 +2,30 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Vault API (vault/v1)
+//   Cloud Identity-Aware Proxy API (iap/v1beta1)
 // Description:
-//   Archiving and eDiscovery for G Suite.
+//   Controls access to cloud applications running on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/vault
+//   https://cloud.google.com/iap
 
-#import "GTLRVault.h"
-
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
-NSString * const kGTLRAuthScopeVaultEdiscovery         = @"https://www.googleapis.com/auth/ediscovery";
-NSString * const kGTLRAuthScopeVaultEdiscoveryReadonly = @"https://www.googleapis.com/auth/ediscovery.readonly";
+#import "GTLRCloudIAP.h"
 
 // ----------------------------------------------------------------------------
-//   GTLRVaultService
+// Authorization scope
+
+NSString * const kGTLRAuthScopeCloudIAPCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudIAPService
 //
 
-@implementation GTLRVaultService
+@implementation GTLRCloudIAPService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://vault.googleapis.com/";
+    self.rootURLString = @"https://iap.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

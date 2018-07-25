@@ -274,7 +274,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceClaim
-@dynamic ownerCompanyId, sectionType;
+@dynamic ownerCompanyId, resellerId, sectionType;
 @end
 
 
@@ -454,6 +454,50 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
     @"customers" : [GTLRAndroidProvisioningPartner_Company class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_ListVendorCustomersResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_ListVendorCustomersResponse
+@dynamic customers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customers" : [GTLRAndroidProvisioningPartner_Company class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_ListVendorsResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_ListVendorsResponse
+@dynamic nextPageToken, vendors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vendors" : [GTLRAndroidProvisioningPartner_Company class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"vendors";
 }
 
 @end

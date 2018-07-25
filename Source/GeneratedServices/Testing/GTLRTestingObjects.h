@@ -966,7 +966,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Configuration that can be selected at the time a test is run.
+ *  Android configuration that can be selected at the time a test is run.
  */
 @interface GTLRTesting_AndroidRuntimeConfiguration : GTLRObject
 

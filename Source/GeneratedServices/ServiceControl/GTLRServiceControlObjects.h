@@ -2424,6 +2424,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
+/**
+ *  The location of the resource. If not empty, the resource will be checked
+ *  against location policy. The value must be a valid zone, region or
+ *  multiregion. For example: "europe-west4" or "northamerica-northeast1-a"
+ */
+@property(nonatomic, copy, nullable) NSString *resourceLocation;
+
 /** Name of the resource. This is used for auditing purposes. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 

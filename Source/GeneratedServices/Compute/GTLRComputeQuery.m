@@ -4768,6 +4768,476 @@
 
 @end
 
+@implementation GTLRComputeQuery_NodeGroupsAddNodes
+
+@dynamic nodeGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroupsAddNodesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                      nodeGroup:(NSString *)nodeGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes";
+  GTLRComputeQuery_NodeGroupsAddNodes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeGroups.addNodes";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/nodeGroups";
+  GTLRComputeQuery_NodeGroupsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_NodeGroupAggregatedList class];
+  query.loggingName = @"compute.nodeGroups.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsDelete
+
+@dynamic nodeGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                       nodeGroup:(NSString *)nodeGroup {
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}";
+  GTLRComputeQuery_NodeGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsDeleteNodes
+
+@dynamic nodeGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroupsDeleteNodesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                      nodeGroup:(NSString *)nodeGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes";
+  GTLRComputeQuery_NodeGroupsDeleteNodes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeGroups.deleteNodes";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsGet
+
+@dynamic nodeGroup, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                       nodeGroup:(NSString *)nodeGroup {
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}";
+  GTLRComputeQuery_NodeGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_NodeGroup class];
+  query.loggingName = @"compute.nodeGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsInsert
+
+@dynamic initialNodeCount, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroup *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+               initialNodeCount:(NSInteger)initialNodeCount {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups";
+  GTLRComputeQuery_NodeGroupsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.initialNodeCount = initialNodeCount;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeGroups.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty {
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups";
+  GTLRComputeQuery_NodeGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_NodeGroupList class];
+  query.loggingName = @"compute.nodeGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsListNodes
+
+@dynamic filter, maxResults, nodeGroup, orderBy, pageToken, project,
+         zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                       nodeGroup:(NSString *)nodeGroup {
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes";
+  GTLRComputeQuery_NodeGroupsListNodes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_NodeGroupsListNodes class];
+  query.loggingName = @"compute.nodeGroups.listNodes";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsSetNodeTemplate
+
+@dynamic nodeGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroupsSetNodeTemplateRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                      nodeGroup:(NSString *)nodeGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"nodeGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate";
+  GTLRComputeQuery_NodeGroupsSetNodeTemplate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeGroup = nodeGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeGroups.setNodeTemplate";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/nodeTemplates";
+  GTLRComputeQuery_NodeTemplatesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_NodeTemplateAggregatedList class];
+  query.loggingName = @"compute.nodeTemplates.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesDelete
+
+@dynamic nodeTemplate, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                    nodeTemplate:(NSString *)nodeTemplate {
+  NSArray *pathParams = @[
+    @"nodeTemplate", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
+  GTLRComputeQuery_NodeTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.nodeTemplate = nodeTemplate;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesGet
+
+@dynamic nodeTemplate, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                    nodeTemplate:(NSString *)nodeTemplate {
+  NSArray *pathParams = @[
+    @"nodeTemplate", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
+  GTLRComputeQuery_NodeTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.nodeTemplate = nodeTemplate;
+  query.expectedObjectClass = [GTLRCompute_NodeTemplate class];
+  query.loggingName = @"compute.nodeTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_NodeTemplate *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates";
+  GTLRComputeQuery_NodeTemplatesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.nodeTemplates.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates";
+  GTLRComputeQuery_NodeTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_NodeTemplateList class];
+  query.loggingName = @"compute.nodeTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTypesAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/nodeTypes";
+  GTLRComputeQuery_NodeTypesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_NodeTypeAggregatedList class];
+  query.loggingName = @"compute.nodeTypes.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTypesGet
+
+@dynamic nodeType, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        nodeType:(NSString *)nodeType {
+  NSArray *pathParams = @[
+    @"nodeType", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeTypes/{nodeType}";
+  GTLRComputeQuery_NodeTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.nodeType = nodeType;
+  query.expectedObjectClass = [GTLRCompute_NodeType class];
+  query.loggingName = @"compute.nodeTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTypesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty {
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeTypes";
+  GTLRComputeQuery_NodeTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_NodeTypeList class];
+  query.loggingName = @"compute.nodeTypes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ProjectsDisableXpnHost
 
 @dynamic project, requestId;
@@ -5016,6 +5486,31 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.projects.setCommonInstanceMetadata";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ProjectsSetDefaultNetworkTier
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ProjectsSetDefaultNetworkTierRequest *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/setDefaultNetworkTier";
+  GTLRComputeQuery_ProjectsSetDefaultNetworkTier *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.projects.setDefaultNetworkTier";
   return query;
 }
 
@@ -7107,6 +7602,25 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_SubnetworkList class];
   query.loggingName = @"compute.subnetworks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SubnetworksListUsable
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/subnetworks/listUsable";
+  GTLRComputeQuery_SubnetworksListUsable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_UsableSubnetworksAggregatedList class];
+  query.loggingName = @"compute.subnetworks.listUsable";
   return query;
 }
 

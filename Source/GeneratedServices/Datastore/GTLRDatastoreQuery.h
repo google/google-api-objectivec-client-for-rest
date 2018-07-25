@@ -234,6 +234,90 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets an index.
+ *
+ *  Method: datastore.projects.indexes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastore
+ *    @c kGTLRAuthScopeDatastoreCloudPlatform
+ */
+@interface GTLRDatastoreQuery_ProjectsIndexesGet : GTLRDatastoreQuery
+// Previous library name was
+//   +[GTLQueryDatastore queryForProjectsIndexesGetWithprojectId:indexId:]
+
+/** The resource ID of the index to get. */
+@property(nonatomic, copy, nullable) NSString *indexId;
+
+/** Project ID against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDatastore_GoogleDatastoreAdminV1Index.
+ *
+ *  Gets an index.
+ *
+ *  @param projectId Project ID against which to make the request.
+ *  @param indexId The resource ID of the index to get.
+ *
+ *  @return GTLRDatastoreQuery_ProjectsIndexesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                           indexId:(NSString *)indexId;
+
+@end
+
+/**
+ *  Lists the indexes that match the specified filters. Datastore uses an
+ *  eventually consistent query to fetch the list of indexes and may
+ *  occasionally return stale results.
+ *
+ *  Method: datastore.projects.indexes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastore
+ *    @c kGTLRAuthScopeDatastoreCloudPlatform
+ */
+@interface GTLRDatastoreQuery_ProjectsIndexesList : GTLRDatastoreQuery
+// Previous library name was
+//   +[GTLQueryDatastore queryForProjectsIndexesListWithprojectId:]
+
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of items to return. If zero, then all results will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDatastore_GoogleDatastoreAdminV1ListIndexesResponse.
+ *
+ *  Lists the indexes that match the specified filters. Datastore uses an
+ *  eventually consistent query to fetch the list of indexes and may
+ *  occasionally return stale results.
+ *
+ *  @param projectId Project ID against which to make the request.
+ *
+ *  @return GTLRDatastoreQuery_ProjectsIndexesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
  *  Looks up entities by key.
  *
  *  Method: datastore.projects.lookup

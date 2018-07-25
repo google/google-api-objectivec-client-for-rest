@@ -18,7 +18,7 @@
 //
 
 @implementation GTLRServiceBroker_GoogleIamV1Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -93,6 +93,21 @@
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceBroker_GoogleTypeExpr
+//
+
+@implementation GTLRServiceBroker_GoogleTypeExpr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

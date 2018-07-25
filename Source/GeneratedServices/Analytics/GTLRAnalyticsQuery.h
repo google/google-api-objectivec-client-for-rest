@@ -28,6 +28,7 @@
 @class GTLRAnalytics_Experiment;
 @class GTLRAnalytics_Filter;
 @class GTLRAnalytics_Goal;
+@class GTLRAnalytics_HashClientIdRequest;
 @class GTLRAnalytics_Profile;
 @class GTLRAnalytics_ProfileFilterLink;
 @class GTLRAnalytics_RemarketingAudience;
@@ -599,6 +600,33 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 + (instancetype)queryWithObject:(GTLRAnalytics_EntityUserLink *)object
                       accountId:(NSString *)accountId
                          linkId:(NSString *)linkId;
+
+@end
+
+/**
+ *  Hashes the given Client ID.
+ *
+ *  Method: analytics.management.clientId.hashClientId
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsEdit
+ *    @c kGTLRAuthScopeAnalyticsReadonly
+ */
+@interface GTLRAnalyticsQuery_ManagementClientIdHashClientId : GTLRAnalyticsQuery
+// Previous library name was
+//   +[GTLQueryAnalytics queryForManagementClientIdHashClientIdWithObject:]
+
+/**
+ *  Fetches a @c GTLRAnalytics_HashClientIdResponse.
+ *
+ *  Hashes the given Client ID.
+ *
+ *  @param object The @c GTLRAnalytics_HashClientIdRequest to include in the
+ *    query.
+ *
+ *  @return GTLRAnalyticsQuery_ManagementClientIdHashClientId
+ */
++ (instancetype)queryWithObject:(GTLRAnalytics_HashClientIdRequest *)object;
 
 @end
 

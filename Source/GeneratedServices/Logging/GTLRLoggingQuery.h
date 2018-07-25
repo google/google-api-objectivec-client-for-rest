@@ -4,7 +4,7 @@
 // API:
 //   Stackdriver Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration.
+//   Writes log entries and manages your Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -428,10 +428,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Determines the kind of IAM identity returned as writer_identity in
  *  the new sink. If this value is omitted or set to false, and if the sink's
  *  parent is a project, then the value returned as writer_identity is the same
- *  group or service account used by Stackdriver Logging before the addition of
- *  writer identities to this API. The sink's destination must be in the same
- *  project as the sink itself.If this field is set to true, or if the sink is
- *  owned by a non-project resource such as an organization, then the value of
+ *  group or service account used by Logging before the addition of writer
+ *  identities to this API. The sink's destination must be in the same project
+ *  as the sink itself.If this field is set to true, or if the sink is owned by
+ *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a unique service account used only for exports from
  *  the new sink. For more information, see writer_identity in LogSink.
  */
@@ -767,8 +767,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists log entries. Use this method to retrieve log entries from Stackdriver
- *  Logging. For ways to export log entries, see Exporting Logs.
+ *  Lists log entries. Use this method to retrieve log entries from Logging. For
+ *  ways to export log entries, see Exporting Logs.
  *
  *  Method: logging.entries.list
  *
@@ -785,8 +785,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLogEntriesResponse.
  *
- *  Lists log entries. Use this method to retrieve log entries from Stackdriver
- *  Logging. For ways to export log entries, see Exporting Logs.
+ *  Lists log entries. Use this method to retrieve log entries from Logging. For
+ *  ways to export log entries, see Exporting Logs.
  *
  *  @param object The @c GTLRLogging_ListLogEntriesRequest to include in the
  *    query.
@@ -798,12 +798,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes log entries to Stackdriver Logging. This API method is the only way
- *  to send log entries to Stackdriver Logging. This method is used, directly or
- *  indirectly, by the Stackdriver Logging agent (fluentd) and all logging
- *  libraries configured to use Stackdriver Logging. A single request may
- *  contain log entries for a maximum of 1000 different resources (projects,
- *  organizations, billing accounts or folders)
+ *  Writes log entries to Logging. This API method is the only way to send log
+ *  entries to Logging. This method is used, directly or indirectly, by the
+ *  Logging agent (fluentd) and all logging libraries configured to use Logging.
+ *  A single request may contain log entries for a maximum of 1000 different
+ *  resources (projects, organizations, billing accounts or folders)
  *
  *  Method: logging.entries.write
  *
@@ -819,12 +818,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_WriteLogEntriesResponse.
  *
- *  Writes log entries to Stackdriver Logging. This API method is the only way
- *  to send log entries to Stackdriver Logging. This method is used, directly or
- *  indirectly, by the Stackdriver Logging agent (fluentd) and all logging
- *  libraries configured to use Stackdriver Logging. A single request may
- *  contain log entries for a maximum of 1000 different resources (projects,
- *  organizations, billing accounts or folders)
+ *  Writes log entries to Logging. This API method is the only way to send log
+ *  entries to Logging. This method is used, directly or indirectly, by the
+ *  Logging agent (fluentd) and all logging libraries configured to use Logging.
+ *  A single request may contain log entries for a maximum of 1000 different
+ *  resources (projects, organizations, billing accounts or folders)
  *
  *  @param object The @c GTLRLogging_WriteLogEntriesRequest to include in the
  *    query.
@@ -1470,10 +1468,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Determines the kind of IAM identity returned as writer_identity in
  *  the new sink. If this value is omitted or set to false, and if the sink's
  *  parent is a project, then the value returned as writer_identity is the same
- *  group or service account used by Stackdriver Logging before the addition of
- *  writer identities to this API. The sink's destination must be in the same
- *  project as the sink itself.If this field is set to true, or if the sink is
- *  owned by a non-project resource such as an organization, then the value of
+ *  group or service account used by Logging before the addition of writer
+ *  identities to this API. The sink's destination must be in the same project
+ *  as the sink itself.If this field is set to true, or if the sink is owned by
+ *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a unique service account used only for exports from
  *  the new sink. For more information, see writer_identity in LogSink.
  */
@@ -1918,8 +1916,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the descriptors for monitored resource types used by Stackdriver
- *  Logging.
+ *  Lists the descriptors for monitored resource types used by Logging.
  *
  *  Method: logging.monitoredResourceDescriptors.list
  *
@@ -1951,8 +1948,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListMonitoredResourceDescriptorsResponse.
  *
- *  Lists the descriptors for monitored resource types used by Stackdriver
- *  Logging.
+ *  Lists the descriptors for monitored resource types used by Logging.
  *
  *  @return GTLRLoggingQuery_MonitoredResourceDescriptorsList
  *
@@ -2351,10 +2347,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Determines the kind of IAM identity returned as writer_identity in
  *  the new sink. If this value is omitted or set to false, and if the sink's
  *  parent is a project, then the value returned as writer_identity is the same
- *  group or service account used by Stackdriver Logging before the addition of
- *  writer identities to this API. The sink's destination must be in the same
- *  project as the sink itself.If this field is set to true, or if the sink is
- *  owned by a non-project resource such as an organization, then the value of
+ *  group or service account used by Logging before the addition of writer
+ *  identities to this API. The sink's destination must be in the same project
+ *  as the sink itself.If this field is set to true, or if the sink is owned by
+ *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a unique service account used only for exports from
  *  the new sink. For more information, see writer_identity in LogSink.
  */
@@ -3280,10 +3276,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Determines the kind of IAM identity returned as writer_identity in
  *  the new sink. If this value is omitted or set to false, and if the sink's
  *  parent is a project, then the value returned as writer_identity is the same
- *  group or service account used by Stackdriver Logging before the addition of
- *  writer identities to this API. The sink's destination must be in the same
- *  project as the sink itself.If this field is set to true, or if the sink is
- *  owned by a non-project resource such as an organization, then the value of
+ *  group or service account used by Logging before the addition of writer
+ *  identities to this API. The sink's destination must be in the same project
+ *  as the sink itself.If this field is set to true, or if the sink is owned by
+ *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a unique service account used only for exports from
  *  the new sink. For more information, see writer_identity in LogSink.
  */
@@ -3648,10 +3644,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Determines the kind of IAM identity returned as writer_identity in
  *  the new sink. If this value is omitted or set to false, and if the sink's
  *  parent is a project, then the value returned as writer_identity is the same
- *  group or service account used by Stackdriver Logging before the addition of
- *  writer identities to this API. The sink's destination must be in the same
- *  project as the sink itself.If this field is set to true, or if the sink is
- *  owned by a non-project resource such as an organization, then the value of
+ *  group or service account used by Logging before the addition of writer
+ *  identities to this API. The sink's destination must be in the same project
+ *  as the sink itself.If this field is set to true, or if the sink is owned by
+ *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a unique service account used only for exports from
  *  the new sink. For more information, see writer_identity in LogSink.
  */

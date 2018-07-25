@@ -213,6 +213,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
 
 /** Value: "anr" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
+/** Value: "availableDeepLinks" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
 /** Value: "compatibleWithOrchestrator" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
@@ -227,6 +229,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScrip
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /** Value: "nativeCrash" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
+/** Value: "nonSdkApiUsageViolation" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
 /** Value: "startActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
 /** Value: "unspecifiedType" */
@@ -1828,6 +1832,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Value "anr"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_AvailableDeepLinks Value
+ *        "availableDeepLinks"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator Value
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
@@ -1841,6 +1847,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Value
  *        "launcherActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation Value
+ *        "nonSdkApiUsageViolation"
  *    @arg @c kGTLRToolResults_TestIssue_Type_StartActivityNotFound Value
  *        "startActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value

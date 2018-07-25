@@ -810,7 +810,7 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *  Representation of a single script process execution that was started from
  *  the script editor, a trigger, an application, or using the Apps Script API.
  *  This is distinct from the `Operation`
- *  resource, which only represents exeuctions started via the Apps Script API.
+ *  resource, which only represents executions started via the Apps Script API.
  */
 @interface GTLRScript_GoogleAppsScriptTypeProcess : GTLRObject
 

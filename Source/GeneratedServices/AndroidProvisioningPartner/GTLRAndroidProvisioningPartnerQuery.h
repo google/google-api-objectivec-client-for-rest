@@ -859,6 +859,81 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Lists the customers of the vendor.
+ *
+ *  Method: androiddeviceprovisioning.partners.vendors.customers.list
+ */
+@interface GTLRAndroidProvisioningPartnerQuery_PartnersVendorsCustomersList : GTLRAndroidProvisioningPartnerQuery
+// Previous library name was
+//   +[GTLQueryAndroidProvisioningPartner queryForPartnersVendorsCustomersListWithparent:]
+
+/** The maximum number of results to be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results returned by the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name in the format
+ *  `partners/[PARTNER_ID]/vendors/[VENDOR_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidProvisioningPartner_ListVendorCustomersResponse.
+ *
+ *  Lists the customers of the vendor.
+ *
+ *  @param parent Required. The resource name in the format
+ *    `partners/[PARTNER_ID]/vendors/[VENDOR_ID]`.
+ *
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersVendorsCustomersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists vendors of the partner.
+ *
+ *  Method: androiddeviceprovisioning.partners.vendors.list
+ */
+@interface GTLRAndroidProvisioningPartnerQuery_PartnersVendorsList : GTLRAndroidProvisioningPartnerQuery
+// Previous library name was
+//   +[GTLQueryAndroidProvisioningPartner queryForPartnersVendorsListWithparent:]
+
+/** The maximum number of results to be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results returned by the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The resource name in the format `partners/[PARTNER_ID]`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidProvisioningPartner_ListVendorsResponse.
+ *
+ *  Lists vendors of the partner.
+ *
+ *  @param parent Required. The resource name in the format
+ *    `partners/[PARTNER_ID]`.
+ *
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersVendorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

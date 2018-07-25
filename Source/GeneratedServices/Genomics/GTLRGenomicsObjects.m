@@ -235,7 +235,7 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 //
 
 @implementation GTLRGenomics_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -350,6 +350,16 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_ContainerKilledEvent
+//
+
+@implementation GTLRGenomics_ContainerKilledEvent
+@dynamic actionId;
 @end
 
 
@@ -529,6 +539,21 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
     @"callSetIds" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Expr
+//
+
+@implementation GTLRGenomics_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

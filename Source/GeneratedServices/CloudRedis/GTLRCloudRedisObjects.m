@@ -30,21 +30,6 @@ NSString * const kGTLRCloudRedis_Instance_Tier_Basic           = @"BASIC";
 NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa      = @"STANDARD_HA";
 NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
-// GTLRCloudRedis_OperationMetadata.operationType
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_CreateRedisInstance = @"CREATE_REDIS_INSTANCE";
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_DeleteRedisInstance = @"DELETE_REDIS_INSTANCE";
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_MaintenanceForRedisInstance = @"MAINTENANCE_FOR_REDIS_INSTANCE";
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_RepairRedisInstance = @"REPAIR_REDIS_INSTANCE";
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudRedis_OperationMetadata_OperationType_UpdateRedisInstance = @"UPDATE_REDIS_INSTANCE";
-
-// GTLRCloudRedis_OperationMetadata.state
-NSString * const kGTLRCloudRedis_OperationMetadata_State_Done  = @"DONE";
-NSString * const kGTLRCloudRedis_OperationMetadata_State_Failed = @"FAILED";
-NSString * const kGTLRCloudRedis_OperationMetadata_State_Pending = @"PENDING";
-NSString * const kGTLRCloudRedis_OperationMetadata_State_Running = @"RUNNING";
-NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified = @"STATUS_UNSPECIFIED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudRedis_GoogleCloudCommonOperationMetadata
@@ -236,30 +221,6 @@ NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_LocationMetadata
-//
-
-@implementation GTLRCloudRedis_LocationMetadata
-@dynamic availableZones;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_LocationMetadata_AvailableZones
-//
-
-@implementation GTLRCloudRedis_LocationMetadata_AvailableZones
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudRedis_ZoneMetadata class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_Operation
 //
 
@@ -298,16 +259,6 @@ NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_OperationMetadata
-//
-
-@implementation GTLRCloudRedis_OperationMetadata
-@dynamic createTime, detail, endTime, operationType, startTime, state, target;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_Status
 //
 
@@ -335,13 +286,4 @@ NSString * const kGTLRCloudRedis_OperationMetadata_State_StatusUnspecified = @"S
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_ZoneMetadata
-//
-
-@implementation GTLRCloudRedis_ZoneMetadata
 @end

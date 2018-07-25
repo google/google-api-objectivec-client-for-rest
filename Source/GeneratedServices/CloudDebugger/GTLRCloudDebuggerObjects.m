@@ -370,7 +370,7 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 //
 
 @implementation GTLRCloudDebugger_SourceLocation
-@dynamic line, path;
+@dynamic column, line, path;
 @end
 
 
