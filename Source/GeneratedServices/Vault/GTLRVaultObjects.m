@@ -13,12 +13,33 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVault_Export.status
+NSString * const kGTLRVault_Export_Status_Completed            = @"COMPLETED";
+NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified = @"EXPORT_STATUS_UNSPECIFIED";
+NSString * const kGTLRVault_Export_Status_Failed               = @"FAILED";
+NSString * const kGTLRVault_Export_Status_InProgress           = @"IN_PROGRESS";
+
+// GTLRVault_GroupsExportOptions.exportFormat
+NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst = @"PST";
+
+// GTLRVault_HangoutsChatExportOptions.exportFormat
+NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst = @"PST";
+
 // GTLRVault_Hold.corpus
 NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Hold_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Hold_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Hold_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Hold_Corpus_Mail                  = @"MAIL";
+
+// GTLRVault_MailExportOptions.exportFormat
+NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst = @"PST";
 
 // GTLRVault_Matter.state
 NSString * const kGTLRVault_Matter_State_Closed           = @"CLOSED";
@@ -30,6 +51,92 @@ NSString * const kGTLRVault_Matter_State_StateUnspecified = @"STATE_UNSPECIFIED"
 NSString * const kGTLRVault_MatterPermission_Role_Collaborator = @"COLLABORATOR";
 NSString * const kGTLRVault_MatterPermission_Role_Owner        = @"OWNER";
 NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRVault_Query.corpus
+NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
+NSString * const kGTLRVault_Query_Corpus_Drive                 = @"DRIVE";
+NSString * const kGTLRVault_Query_Corpus_Groups                = @"GROUPS";
+NSString * const kGTLRVault_Query_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
+NSString * const kGTLRVault_Query_Corpus_Mail                  = @"MAIL";
+
+// GTLRVault_Query.dataScope
+NSString * const kGTLRVault_Query_DataScope_AllData            = @"ALL_DATA";
+NSString * const kGTLRVault_Query_DataScope_DataScopeUnspecified = @"DATA_SCOPE_UNSPECIFIED";
+NSString * const kGTLRVault_Query_DataScope_HeldData           = @"HELD_DATA";
+NSString * const kGTLRVault_Query_DataScope_UnprocessedData    = @"UNPROCESSED_DATA";
+
+// GTLRVault_Query.searchMethod
+NSString * const kGTLRVault_Query_SearchMethod_Account         = @"ACCOUNT";
+NSString * const kGTLRVault_Query_SearchMethod_EntireOrg       = @"ENTIRE_ORG";
+NSString * const kGTLRVault_Query_SearchMethod_OrgUnit         = @"ORG_UNIT";
+NSString * const kGTLRVault_Query_SearchMethod_Room            = @"ROOM";
+NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
+NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_AccountInfo
+//
+
+@implementation GTLRVault_AccountInfo
+@dynamic emails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"emails" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_AddHeldAccountResult
+//
+
+@implementation GTLRVault_AddHeldAccountResult
+@dynamic account, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_AddHeldAccountsRequest
+//
+
+@implementation GTLRVault_AddHeldAccountsRequest
+@dynamic accountIds, emails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountIds" : [NSString class],
+    @"emails" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_AddHeldAccountsResponse
+//
+
+@implementation GTLRVault_AddHeldAccountsResponse
+@dynamic responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRVault_AddHeldAccountResult class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -62,6 +169,34 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_CloudStorageFile
+//
+
+@implementation GTLRVault_CloudStorageFile
+@dynamic bucketName, md5Hash, objectName, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_CloudStorageSink
+//
+
+@implementation GTLRVault_CloudStorageSink
+@dynamic files;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [GTLRVault_CloudStorageFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_CorpusQuery
 //
 
@@ -72,10 +207,114 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_DriveExportOptions
+//
+
+@implementation GTLRVault_DriveExportOptions
+@dynamic includeAccessInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_DriveOptions
+//
+
+@implementation GTLRVault_DriveOptions
+@dynamic includeTeamDrives, versionDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_Empty
 //
 
 @implementation GTLRVault_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Export
+//
+
+@implementation GTLRVault_Export
+@dynamic cloudStorageSink, createTime, exportOptions, identifier, matterId,
+         name, query, requester, stats, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_ExportOptions
+//
+
+@implementation GTLRVault_ExportOptions
+@dynamic driveOptions, groupsOptions, hangoutsChatOptions, mailOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_ExportStats
+//
+
+@implementation GTLRVault_ExportStats
+@dynamic exportedArtifactCount, sizeInBytes, totalArtifactCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GroupsExportOptions
+//
+
+@implementation GTLRVault_GroupsExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HangoutsChatExportOptions
+//
+
+@implementation GTLRVault_HangoutsChatExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HangoutsChatInfo
+//
+
+@implementation GTLRVault_HangoutsChatInfo
+@dynamic roomId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roomId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HangoutsChatOptions
+//
+
+@implementation GTLRVault_HangoutsChatOptions
+@dynamic includeRooms;
 @end
 
 
@@ -159,6 +398,28 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_ListExportsResponse
+//
+
+@implementation GTLRVault_ListExportsResponse
+@dynamic exports, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exports" : [GTLRVault_Export class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"exports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_ListHeldAccountsResponse
 //
 
@@ -221,6 +482,26 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_MailExportOptions
+//
+
+@implementation GTLRVault_MailExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_MailOptions
+//
+
+@implementation GTLRVault_MailOptions
+@dynamic excludeDrafts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_Matter
 //
 
@@ -248,6 +529,64 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 @implementation GTLRVault_MatterPermission
 @dynamic accountId, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_OrgUnitInfo
+//
+
+@implementation GTLRVault_OrgUnitInfo
+@dynamic orgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Query
+//
+
+@implementation GTLRVault_Query
+@dynamic accountInfo, corpus, dataScope, driveOptions, endTime,
+         hangoutsChatInfo, hangoutsChatOptions, mailOptions, orgUnitInfo,
+         searchMethod, startTime, teamDriveInfo, terms, timeZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_RemoveHeldAccountsRequest
+//
+
+@implementation GTLRVault_RemoveHeldAccountsRequest
+@dynamic accountIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_RemoveHeldAccountsResponse
+//
+
+@implementation GTLRVault_RemoveHeldAccountsResponse
+@dynamic statuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statuses" : [GTLRVault_Status class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -282,8 +621,68 @@ NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified = @"ROLE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_Status
+//
+
+@implementation GTLRVault_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRVault_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Status_Details_Item
+//
+
+@implementation GTLRVault_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_TeamDriveInfo
+//
+
+@implementation GTLRVault_TeamDriveInfo
+@dynamic teamDriveIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"teamDriveIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_UndeleteMatterRequest
 //
 
 @implementation GTLRVault_UndeleteMatterRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_UserInfo
+//
+
+@implementation GTLRVault_UserInfo
+@dynamic displayName, email;
 @end

@@ -24,11 +24,13 @@
 @class GTLRWebSecurityScanner_Finding;
 @class GTLRWebSecurityScanner_FindingTypeStats;
 @class GTLRWebSecurityScanner_GoogleAccount;
+@class GTLRWebSecurityScanner_Header;
 @class GTLRWebSecurityScanner_OutdatedLibrary;
 @class GTLRWebSecurityScanner_ScanConfig;
 @class GTLRWebSecurityScanner_ScanRun;
 @class GTLRWebSecurityScanner_Schedule;
 @class GTLRWebSecurityScanner_ViolatingResource;
+@class GTLRWebSecurityScanner_VulnerableHeaders;
 @class GTLRWebSecurityScanner_VulnerableParameters;
 @class GTLRWebSecurityScanner_Xss;
 
@@ -58,6 +60,13 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_ClearTe
  *  Value: "FINDING_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_FindingTypeUnspecified;
+/**
+ *  An application returns sensitive content with an invalid content type,
+ *  or without an 'X-Content-Type-Options: nosniff' header.
+ *
+ *  Value: "INVALID_CONTENT_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_InvalidContentType;
 /**
  *  A page that was served over HTTPS also resources over HTTP. A
  *  man-in-the-middle attacker could tamper with the HTTP resource and gain
@@ -126,6 +135,13 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingTyp
  *  Value: "FINDING_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_FindingTypeUnspecified;
+/**
+ *  An application returns sensitive content with an invalid content type,
+ *  or without an 'X-Content-Type-Options: nosniff' header.
+ *
+ *  Value: "INVALID_CONTENT_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidContentType;
 /**
  *  A page that was served over HTTPS also resources over HTTP. A
  *  man-in-the-middle attacker could tamper with the HTTP resource and gain
@@ -396,6 +412,10 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        field. (Value: "CLEAR_TEXT_PASSWORD")
  *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_FindingTypeUnspecified
  *        The invalid finding type. (Value: "FINDING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_InvalidContentType An
+ *        application returns sensitive content with an invalid content type,
+ *        or without an 'X-Content-Type-Options: nosniff' header. (Value:
+ *        "INVALID_CONTENT_TYPE")
  *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_MixedContent A page
  *        that was served over HTTPS also resources over HTTP. A
  *        man-in-the-middle attacker could tamper with the HTTP resource and
@@ -499,6 +519,12 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
 
 /**
  *  Output only.
+ *  An addon containing information about vulnerable or missing HTTP headers.
+ */
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_VulnerableHeaders *vulnerableHeaders;
+
+/**
+ *  Output only.
  *  An addon containing information about request parameters which were found
  *  to be vulnerable.
  */
@@ -540,6 +566,10 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        field. (Value: "CLEAR_TEXT_PASSWORD")
  *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_FindingTypeUnspecified
  *        The invalid finding type. (Value: "FINDING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidContentType
+ *        An application returns sensitive content with an invalid content type,
+ *        or without an 'X-Content-Type-Options: nosniff' header. (Value:
+ *        "INVALID_CONTENT_TYPE")
  *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MixedContent
  *        A page that was served over HTTPS also resources over HTTP. A
  *        man-in-the-middle attacker could tamper with the HTTP resource and
@@ -608,6 +638,20 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *  The user name of the Google account.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Describes a HTTP Header.
+ */
+@interface GTLRWebSecurityScanner_Header : GTLRObject
+
+/** Header name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Header value. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -978,6 +1022,20 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
 
 /** URL of this violating resource. */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+@end
+
+
+/**
+ *  Information about vulnerable or missing HTTP Headers.
+ */
+@interface GTLRWebSecurityScanner_VulnerableHeaders : GTLRObject
+
+/** List of vulnerable headers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWebSecurityScanner_Header *> *headers;
+
+/** List of missing headers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWebSecurityScanner_Header *> *missingHeaders;
 
 @end
 

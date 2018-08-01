@@ -2404,6 +2404,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForOrdersGettestordertemplateWithmerchantId:templateName:]
 
+/** The country of the template to retrieve. Defaults to US. */
+@property(nonatomic, copy, nullable) NSString *country;
+
 /**
  *  The ID of the account that should manage the order. This cannot be a
  *  multi-client account.

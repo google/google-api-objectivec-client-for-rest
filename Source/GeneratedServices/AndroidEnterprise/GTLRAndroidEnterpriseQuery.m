@@ -257,24 +257,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
-@implementation GTLRAndroidEnterpriseQuery_EnterprisesDelete
-
-@dynamic enterpriseId;
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
-  NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}";
-  GTLRAndroidEnterpriseQuery_EnterprisesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.enterpriseId = enterpriseId;
-  query.loggingName = @"androidenterprise.enterprises.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesEnroll
 
 @dynamic token;
@@ -387,30 +369,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   query.enterpriseId = enterpriseId;
   query.expectedObjectClass = [GTLRAndroidEnterprise_StoreLayout class];
   query.loggingName = @"androidenterprise.enterprises.getStoreLayout";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidEnterpriseQuery_EnterprisesInsert
-
-@dynamic token;
-
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Enterprise *)object
-                          token:(NSString *)token {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSString *pathURITemplate = @"enterprises";
-  GTLRAndroidEnterpriseQuery_EnterprisesInsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.token = token;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_Enterprise class];
-  query.loggingName = @"androidenterprise.enterprises.insert";
   return query;
 }
 

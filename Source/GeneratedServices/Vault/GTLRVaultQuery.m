@@ -128,6 +128,96 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRVaultQuery_MattersExportsCreate
+
+@dynamic matterId;
+
++ (instancetype)queryWithObject:(GTLRVault_Export *)object
+                       matterId:(NSString *)matterId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"matterId" ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/exports";
+  GTLRVaultQuery_MattersExportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.matterId = matterId;
+  query.expectedObjectClass = [GTLRVault_Export class];
+  query.loggingName = @"vault.matters.exports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersExportsDelete
+
+@dynamic exportId, matterId;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                         exportId:(NSString *)exportId {
+  NSArray *pathParams = @[
+    @"exportId", @"matterId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/exports/{exportId}";
+  GTLRVaultQuery_MattersExportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.exportId = exportId;
+  query.expectedObjectClass = [GTLRVault_Empty class];
+  query.loggingName = @"vault.matters.exports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersExportsGet
+
+@dynamic exportId, matterId;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                         exportId:(NSString *)exportId {
+  NSArray *pathParams = @[
+    @"exportId", @"matterId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/exports/{exportId}";
+  GTLRVaultQuery_MattersExportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.exportId = exportId;
+  query.expectedObjectClass = [GTLRVault_Export class];
+  query.loggingName = @"vault.matters.exports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersExportsList
+
+@dynamic matterId, pageSize, pageToken;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId {
+  NSArray *pathParams = @[ @"matterId" ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/exports";
+  GTLRVaultQuery_MattersExportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.expectedObjectClass = [GTLRVault_ListExportsResponse class];
+  query.loggingName = @"vault.matters.exports.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVaultQuery_MattersGet
 
 @dynamic matterId, view;
@@ -224,6 +314,35 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRVaultQuery_MattersHoldsAddHeldAccounts
+
+@dynamic holdId, matterId;
+
++ (instancetype)queryWithObject:(GTLRVault_AddHeldAccountsRequest *)object
+                       matterId:(NSString *)matterId
+                         holdId:(NSString *)holdId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"holdId", @"matterId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/holds/{holdId}:addHeldAccounts";
+  GTLRVaultQuery_MattersHoldsAddHeldAccounts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.matterId = matterId;
+  query.holdId = holdId;
+  query.expectedObjectClass = [GTLRVault_AddHeldAccountsResponse class];
+  query.loggingName = @"vault.matters.holds.addHeldAccounts";
+  return query;
+}
+
+@end
+
 @implementation GTLRVaultQuery_MattersHoldsCreate
 
 @dynamic matterId;
@@ -309,6 +428,35 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
   query.matterId = matterId;
   query.expectedObjectClass = [GTLRVault_ListHoldsResponse class];
   query.loggingName = @"vault.matters.holds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersHoldsRemoveHeldAccounts
+
+@dynamic holdId, matterId;
+
++ (instancetype)queryWithObject:(GTLRVault_RemoveHeldAccountsRequest *)object
+                       matterId:(NSString *)matterId
+                         holdId:(NSString *)holdId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"holdId", @"matterId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/holds/{holdId}:removeHeldAccounts";
+  GTLRVaultQuery_MattersHoldsRemoveHeldAccounts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.matterId = matterId;
+  query.holdId = holdId;
+  query.expectedObjectClass = [GTLRVault_RemoveHeldAccountsResponse class];
+  query.loggingName = @"vault.matters.holds.removeHeldAccounts";
   return query;
 }
 

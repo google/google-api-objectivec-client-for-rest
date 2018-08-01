@@ -1841,7 +1841,7 @@
 //
 
 @implementation GTLRShoppingContent_OrdersCreateTestOrderRequest
-@dynamic templateName, testOrder;
+@dynamic country, templateName, testOrder;
 @end
 
 

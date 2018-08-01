@@ -442,39 +442,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Deletes the binding between the EMM and enterprise. This is now deprecated.
- *  Use this method only to unenroll customers that were previously enrolled
- *  with the insert call, then enroll them again with the enroll call.
- *
- *  Method: androidenterprise.enterprises.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_EnterprisesDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesDeleteWithenterpriseId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes the binding between the EMM and enterprise. This is now deprecated.
- *  Use this method only to unenroll customers that were previously enrolled
- *  with the insert call, then enroll them again with the enroll call.
- *
- *  @param enterpriseId The ID of the enterprise.
- *
- *  @return GTLRAndroidEnterpriseQuery_EnterprisesDelete
- */
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
-
-@end
-
-/**
  *  Enrolls an enterprise with the calling EMM.
  *
  *  Method: androidenterprise.enterprises.enroll
@@ -680,39 +647,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  @return GTLRAndroidEnterpriseQuery_EnterprisesGetStoreLayout
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
-
-@end
-
-/**
- *  Establishes the binding between the EMM and an enterprise. This is now
- *  deprecated; use enroll instead.
- *
- *  Method: androidenterprise.enterprises.insert
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_EnterprisesInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesInsertWithObject:token:]
-
-/** The token provided by the enterprise to register the EMM. */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
- *
- *  Establishes the binding between the EMM and an enterprise. This is now
- *  deprecated; use enroll instead.
- *
- *  @param object The @c GTLRAndroidEnterprise_Enterprise to include in the
- *    query.
- *  @param token The token provided by the enterprise to register the EMM.
- *
- *  @return GTLRAndroidEnterpriseQuery_EnterprisesInsert
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Enterprise *)object
-                          token:(NSString *)token;
 
 @end
 

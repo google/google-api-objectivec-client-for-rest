@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Text-to-Speech API (texttospeech/v1beta1)
+//   Cloud Text-to-Speech API (texttospeech/v1)
 // Description:
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
@@ -158,13 +158,6 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_S
  *        "OGG_OPUS")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
-
-/**
- *  An identifier which selects 'audio effects' profiles that are applied on
- *  (post synthesized) text to speech.
- *  Effects are applied on top of each other in the order they are given.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *effectsProfileId;
 
 /**
  *  Optional speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20

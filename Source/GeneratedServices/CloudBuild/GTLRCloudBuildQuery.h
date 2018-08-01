@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Container Builder (cloudbuild/v1)
+//   Cloud Build API (cloudbuild/v1)
 // Description:
-//   Builds container images in the cloud.
+//   Creates and manages builds on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/container-builder/docs/
+//   https://cloud.google.com/cloud-build/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

@@ -195,7 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The GMB account which is linked or in the process of being linked with the
- *  Merchant Center accounnt.
+ *  Merchant Center account.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountGoogleMyBusinessLink *googleMyBusinessLink;
 
@@ -427,7 +427,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest : GTLRObject
 
-/** Action to perform for this link. */
+/**
+ *  Action to perform for this link. The "request" action is only available to
+ *  select merchants.
+ */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** The ID of the linked account. */
@@ -494,7 +497,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_AccountsLinkRequest : GTLRObject
 
-/** Action to perform for this link. */
+/**
+ *  Action to perform for this link. The "request" action is only available to
+ *  select merchants.
+ */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /** The ID of the linked account. */
@@ -2032,7 +2038,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
 
 /**
- *  The quantity of the product that is reserved for sell-on-google ads.
+ *  The quantity of the product that is available for selling on Google.
  *  Supported only for online products.
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -2199,7 +2205,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
 
 /**
- *  The quantity of the product that is reserved for sell-on-google ads.
+ *  The quantity of the product that is available for selling on Google.
  *  Supported only for online products.
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -2829,7 +2835,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the recipient. */
 @property(nonatomic, copy, nullable) NSString *recipientName;
 
-/** Top-level administrative subdivision of the country (e.g. "CA"). */
+/**
+ *  Top-level administrative subdivision of the country. For example, a state
+ *  like California ("CA") or a province like Quebec ("QC").
+ */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /** Street-level part of the address. */
@@ -3661,11 +3670,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCancelLineItemRequest : GTLRObject
 
-/**
- *  Amount to refund for the cancelation. Optional. If not set, Google will
- *  calculate the default based on the price and tax of the items involved. The
- *  amount must not be larger than the net amount left on the order.
- */
+/** Deprecated. Please use amountPretax and amountTax instead. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
@@ -3768,6 +3773,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRShoppingContent_OrdersCreateTestOrderRequest
  */
 @interface GTLRShoppingContent_OrdersCreateTestOrderRequest : GTLRObject
+
+/**
+ *  The CLDR territory code of the country of the test order to create. Affects
+ *  the currency and addresses of orders created via template_name, or the
+ *  addresses of orders created via test_order.
+ *  Acceptable values are:
+ *  - "US"
+ *  - "FR" Defaults to US.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  The test order template to use. Specify as an alternative to testOrder as a
@@ -3904,11 +3919,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem : GTLRObject
 
-/**
- *  Amount to refund for the cancelation. Optional. If not set, Google will
- *  calculate the default based on the price and tax of the items involved. The
- *  amount must not be larger than the net amount left on the order.
- */
+/** Deprecated. Please use amountPretax and amountTax instead. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
@@ -3993,7 +4004,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryRefund : GTLRObject
 
-/** The amount that is refunded. */
+/** Deprecated. Please use amountPretax and amountTax instead. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
@@ -4298,8 +4309,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
- *  The status of the execution. Only defined if the method is not get or
- *  getByMerchantOrderId and if the request was successful.
+ *  The status of the execution. Only defined if
+ *  - the request was successful; and
+ *  - the method is not get, getByMerchantOrderId, or one of the test methods.
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -4534,7 +4546,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrdersRefundRequest : GTLRObject
 
-/** The amount that is refunded. */
+/** Deprecated. Please use amountPretax and amountTax instead. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
 /**
@@ -5306,7 +5318,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
 /**
- *  The relative change of the available quantity. Negative for items sold.
+ *  The relative change of the available quantity. Negative for items returned.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5348,7 +5360,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
 /**
- *  The relative change of the available quantity. Negative for items sold.
+ *  The relative change of the available quantity. Negative for items returned.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5396,7 +5408,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
 /**
- *  The relative change of the available quantity. Negative for items sold.
+ *  The relative change of the available quantity. Negative for items returned.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5773,7 +5785,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
 
 /**
- *  The quantity of the product that is reserved for sell-on-google ads.
+ *  The quantity of the product that is available for selling on Google.
+ *  Supported only for online products.
  *
  *  Uses NSNumber of longLongValue.
  */

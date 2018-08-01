@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Text-to-Speech API (texttospeech/v1beta1)
+//   Cloud Text-to-Speech API (texttospeech/v1)
 // Description:
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.

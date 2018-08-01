@@ -28,8 +28,6 @@
 @class GTLRScript_GoogleAppsScriptTypeFunction;
 @class GTLRScript_GoogleAppsScriptTypeFunctionSet;
 @class GTLRScript_GoogleAppsScriptTypeProcess;
-@class GTLRScript_GoogleAppsScriptTypeScope;
-@class GTLRScript_GoogleAppsScriptTypeScopeSet;
 @class GTLRScript_GoogleAppsScriptTypeUser;
 @class GTLRScript_GoogleAppsScriptTypeWebAppConfig;
 @class GTLRScript_GoogleAppsScriptTypeWebAppEntryPoint;
@@ -318,28 +316,6 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessL
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Write;
 
 // ----------------------------------------------------------------------------
-// GTLRScript_GoogleAppsScriptTypeScope.authorizer
-
-/**
- *  Developer authorized scope.
- *
- *  Value: "AUTHORIZED_BY_DEVELOPER"
- */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByDeveloper;
-/**
- *  End user authorized scope.
- *
- *  Value: "AUTHORIZED_BY_END_USER"
- */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByEndUser;
-/**
- *  Authorizer unspecified.
- *
- *  Value: "SCOPE_AUTHORIZER_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_ScopeAuthorizerUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeWebAppConfig.access
 
 /**
@@ -448,12 +424,6 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 /** The deployment's entry points. */
 @property(nonatomic, strong, nullable) NSArray<GTLRScript_EntryPoint *> *entryPoints;
-
-/** Script's defined set of functions. */
-@property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeFunctionSet *functionSet;
-
-/** Set of scopes required by the deployment. */
-@property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeScopeSet *scopeSet;
 
 /** Last modified date time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -897,41 +867,6 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *        user has write access. (Value: "WRITE")
  */
 @property(nonatomic, copy, nullable) NSString *userAccessLevel;
-
-@end
-
-
-/**
- *  Represents an authorization scope.
- */
-@interface GTLRScript_GoogleAppsScriptTypeScope : GTLRObject
-
-/**
- *  Who authorized the scope.
- *
- *  Likely values:
- *    @arg @c kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByDeveloper
- *        Developer authorized scope. (Value: "AUTHORIZED_BY_DEVELOPER")
- *    @arg @c kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByEndUser
- *        End user authorized scope. (Value: "AUTHORIZED_BY_END_USER")
- *    @arg @c kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_ScopeAuthorizerUnspecified
- *        Authorizer unspecified. (Value: "SCOPE_AUTHORIZER_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *authorizer;
-
-/** The scope's identifying string. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  A set of scopes. No duplicates are permitted.
- */
-@interface GTLRScript_GoogleAppsScriptTypeScopeSet : GTLRObject
-
-/** List of scope values in the set. */
-@property(nonatomic, strong, nullable) NSArray<GTLRScript_GoogleAppsScriptTypeScope *> *values;
 
 @end
 

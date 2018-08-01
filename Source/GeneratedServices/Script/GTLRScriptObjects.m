@@ -66,11 +66,6 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Read = 
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_UserAccessLevelUnspecified = @"USER_ACCESS_LEVEL_UNSPECIFIED";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Write = @"WRITE";
 
-// GTLRScript_GoogleAppsScriptTypeScope.authorizer
-NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByDeveloper = @"AUTHORIZED_BY_DEVELOPER";
-NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_AuthorizedByEndUser = @"AUTHORIZED_BY_END_USER";
-NSString * const kGTLRScript_GoogleAppsScriptTypeScope_Authorizer_ScopeAuthorizerUnspecified = @"SCOPE_AUTHORIZER_UNSPECIFIED";
-
 // GTLRScript_GoogleAppsScriptTypeWebAppConfig.access
 NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Anyone = @"ANYONE";
 NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_AnyoneAnonymous = @"ANYONE_ANONYMOUS";
@@ -117,8 +112,7 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 //
 
 @implementation GTLRScript_Deployment
-@dynamic deploymentConfig, deploymentId, entryPoints, functionSet, scopeSet,
-         updateTime;
+@dynamic deploymentConfig, deploymentId, entryPoints, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -293,34 +287,6 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 @implementation GTLRScript_GoogleAppsScriptTypeProcess
 @dynamic duration, executingUser, functionName, processStatus, processType,
          projectName, startTime, userAccessLevel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_GoogleAppsScriptTypeScope
-//
-
-@implementation GTLRScript_GoogleAppsScriptTypeScope
-@dynamic authorizer, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_GoogleAppsScriptTypeScopeSet
-//
-
-@implementation GTLRScript_GoogleAppsScriptTypeScopeSet
-@dynamic values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRScript_GoogleAppsScriptTypeScope class]
-  };
-  return map;
-}
-
 @end
 
 
