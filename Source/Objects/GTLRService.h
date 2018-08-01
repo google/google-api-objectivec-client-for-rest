@@ -422,12 +422,14 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 #pragma mark Custom User Agents
 
 /**
- *  Applications needing an additional identifier in the server logs may specify one.
+ *  Applications needing an additional identifier in the server logs may specify one
+ *  through this property and it will be added to the existing UserAgent. It should
+ *  already be a valid identifier as no cleaning/validation is done.
  */
 @property(nonatomic, copy, nullable) NSString *userAgentAddition;
 
 /**
- *  A user-agent based on the application signature in the Info.plist settings.
+ *  A base user-agent based on the application signature in the Info.plist settings.
  *
  *  Most applications should not explicitly set this property.  Any string provided will
  *  be cleaned of inappropriate characters.
@@ -441,12 +443,21 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 @property(nonatomic, readonly, nullable) NSString *requestUserAgent;
 
 /**
- *  A precise userAgent string identifying the application.  No cleaning of characters is done.
- *  Library-specific details will be appended.
+ *  A precise base userAgent string identifying the application.  No cleaning of characters
+ *  is done. Library-specific details will be appended.
  *
- *  @param userAgent A wire-ready use agent string.
+ *  @param userAgent A wire-ready user agent string.
  */
 - (void)setExactUserAgent:(nullable NSString *)userAgent;
+
+/**
+ *  A precise userAgent string to send on requests; no cleaning is done. When
+ *  set, requestUserAgent be exactly this, no library or system information will
+ *  be auto added.
+ *
+ *  @param requestUserAgent A wire-ready user agent string.
+ */
+- (void)overrideRequestUserAgent:(nullable NSString *)requestUserAgent;
 
 /**
  *  Any additional URL query parameters for the queries executed by this service.

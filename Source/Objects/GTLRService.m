@@ -251,6 +251,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 @implementation GTLRService {
   NSString *_userAgent;
+  NSString *_overrideUserAgent;
   NSDictionary *_serviceProperties;  // Properties retained for the convenience of the client app.
   NSUInteger _uploadChunkSize;       // Only applies to resumable chunked uploads.
 }
@@ -304,6 +305,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 }
 
 - (NSString *)requestUserAgent {
+  if (_overrideUserAgent != nil) {
+    return _overrideUserAgent;
+  }
+
   NSString *userAgent = self.userAgent;
   if (userAgent.length == 0) {
     // The service instance is missing an explicit user-agent; use the bundle ID
@@ -2251,6 +2256,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   // remove whitespace and unfriendly characters
   NSString *str = GTMFetcherCleanedUserAgentString(userAgent);
   [self setExactUserAgent:str];
+}
+
+- (void)overrideRequestUserAgent:(nullable NSString *)requestUserAgent {
+  _overrideUserAgent = [requestUserAgent copy];
 }
 
 #pragma mark -
