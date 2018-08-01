@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Text-to-Speech API (texttospeech/v1beta1)
+//   Cloud Text-to-Speech API (texttospeech/v1)
 // Description:
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
@@ -38,16 +38,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AudioConfig
-@dynamic audioEncoding, effectsProfileId, pitch, sampleRateHertz, speakingRate,
-         volumeGainDb;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"effectsProfileId" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic audioEncoding, pitch, sampleRateHertz, speakingRate, volumeGainDb;
 @end
 
 

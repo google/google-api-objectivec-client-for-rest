@@ -754,9 +754,9 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 @end
 
 /**
- *  (Closed Beta API) Returns metadata about the search performed, metadata
- *  about the custom search engine used for the search, and the search results
- *  only for site-restrict cses.
+ *  Returns metadata about the search performed, metadata about the custom
+ *  search engine used for the search, and the search results. Uses a small set
+ *  of url patterns.
  *
  *  Method: search.cse.siterestrict.list
  */
@@ -1010,9 +1010,9 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 /**
  *  Fetches a @c GTLRCustomsearch_Search.
  *
- *  (Closed Beta API) Returns metadata about the search performed, metadata
- *  about the custom search engine used for the search, and the search results
- *  only for site-restrict cses.
+ *  Returns metadata about the search performed, metadata about the custom
+ *  search engine used for the search, and the search results. Uses a small set
+ *  of url patterns.
  *
  *  @param q Query
  *

@@ -51,7 +51,7 @@
     "Unexpected JSON key under spanner/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under speech/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under streetviewpublish/v1: fullyEncodeReservedExpansion",
-    "Unexpected JSON key under texttospeech/v1beta1: fullyEncodeReservedExpansion",
+    "Unexpected JSON key under texttospeech/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under tpu/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under vault/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under videointelligence/v1: fullyEncodeReservedExpansion",

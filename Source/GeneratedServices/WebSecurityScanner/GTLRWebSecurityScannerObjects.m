@@ -16,6 +16,7 @@
 // GTLRWebSecurityScanner_Finding.findingType
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_ClearTextPassword = @"CLEAR_TEXT_PASSWORD";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_FindingTypeUnspecified = @"FINDING_TYPE_UNSPECIFIED";
+NSString * const kGTLRWebSecurityScanner_Finding_FindingType_InvalidContentType = @"INVALID_CONTENT_TYPE";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_MixedContent = @"MIXED_CONTENT";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_OutdatedLibrary = @"OUTDATED_LIBRARY";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_RosettaFlash = @"ROSETTA_FLASH";
@@ -25,6 +26,7 @@ NSString * const kGTLRWebSecurityScanner_Finding_FindingType_XssError = @"XSS_ER
 // GTLRWebSecurityScanner_FindingTypeStats.findingType
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_ClearTextPassword = @"CLEAR_TEXT_PASSWORD";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_FindingTypeUnspecified = @"FINDING_TYPE_UNSPECIFIED";
+NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidContentType = @"INVALID_CONTENT_TYPE";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MixedContent = @"MIXED_CONTENT";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_OutdatedLibrary = @"OUTDATED_LIBRARY";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_RosettaFlash = @"ROSETTA_FLASH";
@@ -101,7 +103,7 @@ NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success = @"SUCCESS
 @implementation GTLRWebSecurityScanner_Finding
 @dynamic body, descriptionProperty, finalUrl, findingType, frameUrl, fuzzedUrl,
          httpMethod, name, outdatedLibrary, reproductionUrl, trackingId,
-         violatingResource, vulnerableParameters, xss;
+         violatingResource, vulnerableHeaders, vulnerableParameters, xss;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -127,6 +129,16 @@ NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success = @"SUCCESS
 
 @implementation GTLRWebSecurityScanner_GoogleAccount
 @dynamic password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebSecurityScanner_Header
+//
+
+@implementation GTLRWebSecurityScanner_Header
+@dynamic name, value;
 @end
 
 
@@ -321,6 +333,25 @@ NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success = @"SUCCESS
 
 @implementation GTLRWebSecurityScanner_ViolatingResource
 @dynamic contentType, resourceUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebSecurityScanner_VulnerableHeaders
+//
+
+@implementation GTLRWebSecurityScanner_VulnerableHeaders
+@dynamic headers, missingHeaders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headers" : [GTLRWebSecurityScanner_Header class],
+    @"missingHeaders" : [GTLRWebSecurityScanner_Header class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -2058,6 +2058,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
+ *  Indicates if user is archived
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *archived;
+
+/**
  *  Boolean indicating if the user should change password in next login
  *
  *  Uses NSNumber of boolValue.

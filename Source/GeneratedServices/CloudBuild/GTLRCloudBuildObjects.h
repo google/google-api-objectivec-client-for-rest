@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Container Builder (cloudbuild/v1)
+//   Cloud Build API (cloudbuild/v1)
 // Description:
-//   Builds container images in the cloud.
+//   Creates and manages builds on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/container-builder/docs/
+//   https://cloud.google.com/cloud-build/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -347,7 +347,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
- *  A build resource in the Container Builder API.
+ *  A build resource in the Cloud Build API.
  *  At a high level, a `Build` describes where to find source code, how to build
  *  it (for example, the builder image to run on the source), and where to store
  *  the built artifacts.

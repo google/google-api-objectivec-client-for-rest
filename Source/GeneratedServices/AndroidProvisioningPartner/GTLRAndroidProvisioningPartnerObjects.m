@@ -15,6 +15,7 @@
 // Constants
 
 // GTLRAndroidProvisioningPartner_ClaimDeviceRequest.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
@@ -25,6 +26,7 @@ NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatus
 NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified = @"TERMS_STATUS_UNSPECIFIED";
 
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
@@ -35,14 +37,17 @@ NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMeta
 NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessStatusUnspecified = @"BATCH_PROCESS_STATUS_UNSPECIFIED";
 
 // GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
 // GTLRAndroidProvisioningPartner_PartnerUnclaim.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
@@ -57,6 +62,7 @@ NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_S
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnspecified = @"SINGLE_DEVICE_STATUS_UNSPECIFIED";
 
 // GTLRAndroidProvisioningPartner_UnclaimDeviceRequest.sectionType
+NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
@@ -284,7 +290,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceIdentifier
-@dynamic imei, manufacturer, meid, serialNumber;
+@dynamic imei, manufacturer, meid, model, serialNumber;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Text-to-Speech API (texttospeech/v1beta1)
+//   Cloud Text-to-Speech API (texttospeech/v1)
 // Description:
 //   Synthesizes natural-sounding speech by applying powerful neural network
 //   models.
@@ -26,7 +26,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/text:synthesize";
+  NSString *pathURITemplate = @"v1/text:synthesize";
   GTLRTexttospeechQuery_TextSynthesize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -44,7 +44,7 @@
 @dynamic languageCode;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta1/voices";
+  NSString *pathURITemplate = @"v1/voices";
   GTLRTexttospeechQuery_VoicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

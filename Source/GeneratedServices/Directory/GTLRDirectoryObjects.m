@@ -1106,7 +1106,7 @@
 //
 
 @implementation GTLRDirectory_User
-@dynamic addresses, agreedToTerms, aliases, changePasswordAtNextLogin,
+@dynamic addresses, agreedToTerms, aliases, archived, changePasswordAtNextLogin,
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
          externalIds, gender, hashFunction, identifier, ims,
          includeInGlobalAddressList, ipWhitelisted, isAdmin, isDelegatedAdmin,

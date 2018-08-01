@@ -2956,7 +2956,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_PermissionGrant : GTLRObject
 
 /**
- *  The android permission or group, e.g. android.permission.READ_CALENDAR or
+ *  The Android permission or group, e.g. android.permission.READ_CALENDAR or
  *  android.permission_group.CALENDAR.
  */
 @property(nonatomic, copy, nullable) NSString *permission;

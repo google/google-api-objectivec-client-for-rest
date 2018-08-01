@@ -447,7 +447,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Deletes an entry on the user's calendar list.
+ *  Removes a calendar from the user's calendar list.
  *
  *  Method: calendar.calendarList.delete
  *
@@ -469,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes an entry on the user's calendar list.
+ *  Removes a calendar from the user's calendar list.
  *
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the
  *    calendarList.list method. If you want to access the primary calendar of
@@ -482,7 +482,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Returns an entry on the user's calendar list.
+ *  Returns a calendar from the user's calendar list.
  *
  *  Method: calendar.calendarList.get
  *
@@ -504,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
  *
- *  Returns an entry on the user's calendar list.
+ *  Returns a calendar from the user's calendar list.
  *
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the
  *    calendarList.list method. If you want to access the primary calendar of
@@ -517,7 +517,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Adds an entry to the user's calendar list.
+ *  Inserts an existing calendar into the user's calendar list.
  *
  *  Method: calendar.calendarList.insert
  *
@@ -539,7 +539,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
  *
- *  Adds an entry to the user's calendar list.
+ *  Inserts an existing calendar into the user's calendar list.
  *
  *  @param object The @c GTLRCalendar_CalendarListEntry to include in the query.
  *
@@ -550,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Returns entries on the user's calendar list.
+ *  Returns the calendars on the user's calendar list.
  *
  *  Method: calendar.calendarList.list
  *
@@ -618,7 +618,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Fetches a @c GTLRCalendar_CalendarList.
  *
- *  Returns entries on the user's calendar list.
+ *  Returns the calendars on the user's calendar list.
  *
  *  @return GTLRCalendarQuery_CalendarListList
  *
@@ -631,8 +631,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Updates an entry on the user's calendar list. This method supports patch
- *  semantics.
+ *  Updates an existing calendar on the user's calendar list. This method
+ *  supports patch semantics.
  *
  *  Method: calendar.calendarList.patch
  *
@@ -661,8 +661,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
  *
- *  Updates an entry on the user's calendar list. This method supports patch
- *  semantics.
+ *  Updates an existing calendar on the user's calendar list. This method
+ *  supports patch semantics.
  *
  *  @param object The @c GTLRCalendar_CalendarListEntry to include in the query.
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the
@@ -677,7 +677,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 /**
- *  Updates an entry on the user's calendar list.
+ *  Updates an existing calendar on the user's calendar list.
  *
  *  Method: calendar.calendarList.update
  *
@@ -706,7 +706,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
  *
- *  Updates an entry on the user's calendar list.
+ *  Updates an existing calendar on the user's calendar list.
  *
  *  @param object The @c GTLRCalendar_CalendarListEntry to include in the query.
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the

@@ -52,6 +52,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAndroidProvisioningPartner_ClaimDeviceRequest.sectionType
 
 /**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeSimLock;
+/**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
@@ -96,6 +102,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 
+/**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
@@ -143,6 +155,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
 // GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest.sectionType
 
 /**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeSimLock;
+/**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
@@ -159,6 +177,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerR
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
 
 /**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock;
+/**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
@@ -174,6 +198,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_Sectio
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_PartnerUnclaim.sectionType
 
+/**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
@@ -246,6 +276,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
 // GTLRAndroidProvisioningPartner_UnclaimDeviceRequest.sectionType
 
 /**
+ *  SIM-lock section type.
+ *
+ *  Value: "SECTION_TYPE_SIM_LOCK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeSimLock;
+/**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
@@ -277,6 +313,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch
@@ -676,6 +714,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Output only. The type of claim made on the device.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch
@@ -687,8 +727,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  Encapsulates hardware and product IDs to identify a manufactured device. To
- *  learn more, read [Identifiers](/zero-touch/guides/identifiers).
+ *  Encapsulates hardware and product IDs to identify a manufactured device.
+ *  To understand requirements on identifier sets, read
+ *  [Identifiers](/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
@@ -696,7 +737,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
- *  Required. The device manufacturer’s name. Matches the device's built-in
+ *  The device manufacturer’s name. Matches the device's built-in
  *  value returned from `android.os.Build.MANUFACTURER`. Allowed values are
  *  listed in [manufacturer names](/zero-touch/resources/manufacturer-names).
  */
@@ -704,6 +745,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /** The device’s MEID number. */
 @property(nonatomic, copy, nullable) NSString *meid;
+
+/**
+ *  The device model's name. Matches the device's built-in value returned from
+ *  `android.os.Build.MODEL`. Allowed values are listed in
+ *  [manufacturer names](/zero-touch/resources/manufacturer-names).
+ */
+@property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  The manufacturer's serial number for the device. This value might not be
@@ -959,6 +1007,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch
@@ -1180,6 +1230,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch
@@ -1209,6 +1261,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch
@@ -1372,6 +1426,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  Required. The section type of the device's provisioning record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeSimLock
+ *        SIM-lock section type. (Value: "SECTION_TYPE_SIM_LOCK")
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified
  *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch

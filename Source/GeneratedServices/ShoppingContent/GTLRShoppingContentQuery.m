@@ -1422,7 +1422,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_OrdersGettestordertemplate
 
-@dynamic merchantId, templateName;
+@dynamic country, merchantId, templateName;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                        templateName:(NSString *)templateName {
