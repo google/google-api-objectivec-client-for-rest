@@ -352,6 +352,11 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   return requestUserAgent;
 }
 
+- (void)setMainBundleIDRestrictionWithAPIKey:(NSString *)apiKey {
+  self.APIKey = apiKey;
+  self.APIKeyRestrictionBundleID = [[NSBundle mainBundle] bundleIdentifier];
+}
+
 - (NSMutableURLRequest *)requestForURL:(NSURL *)url
                                   ETag:(NSString *)etag
                             httpMethod:(NSString *)httpMethod
