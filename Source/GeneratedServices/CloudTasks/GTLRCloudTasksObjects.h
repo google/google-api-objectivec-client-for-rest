@@ -6,7 +6,7 @@
 // Description:
 //   Manages the execution of large numbers of distributed requests.
 // Documentation:
-//   https://cloud.google.com/cloud-tasks/
+//   https://cloud.google.com/tasks/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -24,6 +24,7 @@
 @class GTLRCloudTasks_AppEngineRouting;
 @class GTLRCloudTasks_AttemptStatus;
 @class GTLRCloudTasks_Binding;
+@class GTLRCloudTasks_Expr;
 @class GTLRCloudTasks_Location;
 @class GTLRCloudTasks_Location_Labels;
 @class GTLRCloudTasks_Location_Metadata;
@@ -52,19 +53,19 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudTasks_AppEngineHttpRequest.httpMethod
 
 /**
- *  HTTP Delete
+ *  HTTP DELETE
  *
  *  Value: "DELETE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete;
 /**
- *  HTTP Get
+ *  HTTP GET
  *
  *  Value: "GET"
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get;
 /**
- *  HTTP Head
+ *  HTTP HEAD
  *
  *  Value: "HEAD"
  */
@@ -76,13 +77,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Hea
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified;
 /**
- *  HTTP Post
+ *  HTTP POST
  *
  *  Value: "POST"
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post;
 /**
- *  HTTP Put
+ *  HTTP PUT
  *
  *  Value: "PUT"
  */
@@ -190,8 +191,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_LeaseTasksRequest_ResponseView_View
 /**
  *  The queue is disabled.
  *  A queue becomes `DISABLED` when
- *  [queue.yaml](/appengine/docs/python/config/queueref) or
- *  [queue.xml](appengine/docs/standard/java/config/queueref) is uploaded
+ *  [queue.yaml](https://cloud.google.com/appengine/docs/python/config/queueref)
+ *  or
+ *  [queue.xml](https://cloud.google.com/appengine/docs/standard/java/config/queueref)
+ *  is uploaded
  *  which does not contain the queue. You cannot directly disable a queue.
  *  When a queue is disabled, tasks can still be added to a queue
  *  but the tasks are not dispatched and
@@ -354,16 +357,17 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  This proto can only be used for tasks in a queue which has
  *  app_engine_http_target set.
  *  Using AppEngineHttpRequest requires
- *  [`appengine.applications.get`](/appengine/docs/admin-api/access-control)
+ *  [`appengine.applications.get`](https://cloud.google.com/appengine/docs/admin-api/access-control)
  *  Google IAM permission for the project
  *  and the following scope:
  *  `https://www.googleapis.com/auth/cloud-platform`
  *  The task will be delivered to the App Engine app which belongs to the same
  *  project as the queue. For more information, see
  *  [How Requests are
- *  Routed](/appengine/docs/standard/python/how-requests-are-routed)
+ *  Routed](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed)
  *  and how routing is affected by
- *  [dispatch files](/appengine/docs/python/config/dispatchref).
+ *  [dispatch
+ *  files](https://cloud.google.com/appengine/docs/python/config/dispatchref).
  *  The AppEngineRouting used to construct the URL that the task is
  *  delivered to can be set at the queue-level or task-level:
  *  * If set,
@@ -397,7 +401,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  HTTP request headers.
  *  This map contains the header field names and values.
  *  Headers can be set when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
+ *  task is created.
  *  Repeated headers are not supported but a header value can contain commas.
  *  Cloud Tasks sets some headers to default values:
  *  * `User-Agent`: By default, this header is
@@ -410,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  * `Content-Type`: By default, the `Content-Type` header is set to
  *  `"application/octet-stream"`. The default can be overridden by explicitly
  *  setting `Content-Type` to a particular media type when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
+ *  task is created.
  *  For example, `Content-Type` can be set to `"application/json"`.
  *  * `Content-Length`: This is computed by Cloud Tasks. This value is
  *  output only. It cannot be changed.
@@ -421,7 +425,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  In addition, Cloud Tasks sets some headers when the task is dispatched,
  *  such as headers containing information about the task; see
  *  [request
- *  headers](/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
+ *  headers](https://cloud.google.com/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
  *  These headers are set only when the task is dispatched, so they are not
  *  visible when the task is returned in a Cloud Tasks response.
  *  Although there is no specific limit for the maximum number of headers or
@@ -436,24 +440,24 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  HTTP requests with this http_method, otherwise the task attempt will fail
  *  with error code 405 (Method Not Allowed). See
  *  [Writing a push task request
- *  handler](/appengine/docs/java/taskqueue/push/creating-handlers#writing_a_push_task_request_handler)
+ *  handler](https://cloud.google.com/appengine/docs/java/taskqueue/push/creating-handlers#writing_a_push_task_request_handler)
  *  and the documentation for the request handlers in the language your app is
  *  written in e.g.
  *  [Python Request
- *  Handler](/appengine/docs/python/tools/webapp/requesthandlerclass).
+ *  Handler](https://cloud.google.com/appengine/docs/python/tools/webapp/requesthandlerclass).
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete HTTP Delete
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete HTTP DELETE
  *        (Value: "DELETE")
- *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get HTTP Get
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get HTTP GET
  *        (Value: "GET")
- *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Head HTTP Head
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Head HTTP HEAD
  *        (Value: "HEAD")
  *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified
  *        HTTP method unspecified (Value: "HTTP_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post HTTP Post
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post HTTP POST
  *        (Value: "POST")
- *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put HTTP Put
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put HTTP PUT
  *        (Value: "PUT")
  */
 @property(nonatomic, copy, nullable) NSString *httpMethod;
@@ -486,7 +490,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  HTTP request headers.
  *  This map contains the header field names and values.
  *  Headers can be set when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
+ *  task is created.
  *  Repeated headers are not supported but a header value can contain commas.
  *  Cloud Tasks sets some headers to default values:
  *  * `User-Agent`: By default, this header is
@@ -499,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  * `Content-Type`: By default, the `Content-Type` header is set to
  *  `"application/octet-stream"`. The default can be overridden by explicitly
  *  setting `Content-Type` to a particular media type when the
- *  [task is created](google.cloud.tasks.v2beta2.CloudTasks.CreateTask).
+ *  task is created.
  *  For example, `Content-Type` can be set to `"application/json"`.
  *  * `Content-Length`: This is computed by Cloud Tasks. This value is
  *  output only. It cannot be changed.
@@ -510,7 +514,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  In addition, Cloud Tasks sets some headers when the task is dispatched,
  *  such as headers containing information about the task; see
  *  [request
- *  headers](/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
+ *  headers](https://cloud.google.com/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
  *  These headers are set only when the task is dispatched, so they are not
  *  visible when the task is returned in a Cloud Tasks response.
  *  Although there is no specific limit for the maximum number of headers or
@@ -533,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The documentation for AppEngineHttpRequest explains how the
  *  task's host URL is constructed.
  *  Using AppEngineHttpTarget requires
- *  [`appengine.applications.get`](/appengine/docs/admin-api/access-control)
+ *  [`appengine.applications.get`](https://cloud.google.com/appengine/docs/admin-api/access-control)
  *  Google IAM permission for the project
  *  and the following scope:
  *  `https://www.googleapis.com/auth/cloud-platform`
@@ -556,13 +560,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  App Engine Routing.
  *  For more information about services, versions, and instances see
  *  [An Overview of App
- *  Engine](/appengine/docs/python/an-overview-of-app-engine),
+ *  Engine](https://cloud.google.com/appengine/docs/python/an-overview-of-app-engine),
  *  [Microservices Architecture on Google App
- *  Engine](/appengine/docs/python/microservices-on-app-engine),
+ *  Engine](https://cloud.google.com/appengine/docs/python/microservices-on-app-engine),
  *  [App Engine Standard request
- *  routing](/appengine/docs/standard/python/how-requests-are-routed),
+ *  routing](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed),
  *  and [App Engine Flex request
- *  routing](/appengine/docs/flexible/python/how-requests-are-routed).
+ *  routing](https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed).
  */
 @interface GTLRCloudTasks_AppEngineRouting : GTLRObject
 
@@ -570,7 +574,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  Output only. The host that the task is sent to.
  *  For more information, see
  *  [How Requests are
- *  Routed](/appengine/docs/standard/python/how-requests-are-routed).
+ *  Routed](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed).
  *  The host is constructed as:
  *  * `host = [application_domain_name]`</br>
  *  `| [service] + '.' + [application_domain_name]`</br>
@@ -621,12 +625,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  the task is attempted.
  *  Requests can only be sent to a specific instance if
  *  [manual scaling is used in App Engine
- *  Standard](/appengine/docs/python/an-overview-of-app-engine?hl=en_US#scaling_types_and_instance_classes).
+ *  Standard](https://cloud.google.com/appengine/docs/python/an-overview-of-app-engine?hl=en_US#scaling_types_and_instance_classes).
  *  App Engine Flex does not support instances. For more information, see
  *  [App Engine Standard request
- *  routing](/appengine/docs/standard/python/how-requests-are-routed)
+ *  routing](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed)
  *  and [App Engine Flex request
- *  routing](/appengine/docs/flexible/python/how-requests-are-routed).
+ *  routing](https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed).
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -708,6 +712,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @interface GTLRCloudTasks_Binding : GTLRObject
 
 /**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -728,7 +740,6 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 /**
  *  Role that is assigned to `members`.
  *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -750,8 +761,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_CancelLeaseRequest_ResponseView_Basic The basic
@@ -801,8 +812,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basic The basic
@@ -875,6 +886,46 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRCloudTasks_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudTasks_GetIamPolicyRequest : GTLRObject
@@ -903,7 +954,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  oldest task (ordered by schedule time).
  *  SDK compatibility: Although the SDK allows tags to be either
  *  string or
- *  [bytes](/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-),
+ *  [bytes](https://cloud.google.com/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-),
  *  only UTF-8 encoded tags can be used in Cloud Tasks. Tag which
  *  aren't UTF-8 encoded can't be used in the
  *  filter and the task's
@@ -928,6 +979,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The system will make a best effort to return as close to as
  *  `max_tasks` as possible.
  *  The largest that `max_tasks` can be is 1000.
+ *  The maximum total size of a lease tasks response is
+ *  32 MB. If the sum of all task sizes requested reaches this limit,
+ *  fewer tasks than requested are returned.
  *
  *  Uses NSNumber of intValue.
  */
@@ -942,8 +996,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_LeaseTasksRequest_ResponseView_Basic The basic
@@ -1237,7 +1291,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The tag must be less than 500 characters.
  *  SDK compatibility: Although the SDK allows tags to be either
  *  string or
- *  [bytes](/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-),
+ *  [bytes](https://cloud.google.com/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-),
  *  only UTF-8 encoded tags can be used in Cloud Tasks. If a tag isn't UTF-8
  *  encoded, the tag will be empty when the task is returned by Cloud Tasks.
  */
@@ -1283,7 +1337,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  hyphens (-), colons (:), or periods (.).
  *  For more information, see
  *  [Identifying
- *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the queue's location.
  *  The list of available locations can be obtained by calling
  *  ListLocations.
@@ -1305,7 +1359,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  were purged.
  *  A queue can be purged using PurgeQueue, the
  *  [App Engine Task Queue SDK, or the Cloud
- *  Console](/appengine/docs/standard/python/taskqueue/push/deleting-tasks-and-queues#purging_all_tasks_from_a_queue).
+ *  Console](https://cloud.google.com/appengine/docs/standard/python/taskqueue/push/deleting-tasks-and-queues#purging_all_tasks_from_a_queue).
  *  Purge time will be truncated to the nearest microsecond. Purge
  *  time will be unset if the queue has never been purged.
  */
@@ -1337,7 +1391,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  settings apply to all tasks in the queue which do not have retry settings
  *  explicitly set on the task and were created by the App Engine SDK. See
  *  [App Engine
- *  documentation](/appengine/docs/standard/python/taskqueue/push/retrying-tasks).
+ *  documentation](https://cloud.google.com/appengine/docs/standard/python/taskqueue/push/retrying-tasks).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_RetryConfig *retryConfig;
 
@@ -1346,14 +1400,16 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  `state` can only be changed by called
  *  PauseQueue,
  *  ResumeQueue, or uploading
- *  [queue.yaml/xml](/appengine/docs/python/config/queueref).
+ *  [queue.yaml/xml](https://cloud.google.com/appengine/docs/python/config/queueref).
  *  UpdateQueue cannot be used to change `state`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_Queue_State_Disabled The queue is disabled.
  *        A queue becomes `DISABLED` when
- *        [queue.yaml](/appengine/docs/python/config/queueref) or
- *        [queue.xml](appengine/docs/standard/java/config/queueref) is uploaded
+ *        [queue.yaml](https://cloud.google.com/appengine/docs/python/config/queueref)
+ *        or
+ *        [queue.xml](https://cloud.google.com/appengine/docs/standard/java/config/queueref)
+ *        is uploaded
  *        which does not contain the queue. You cannot directly disable a queue.
  *        When a queue is disabled, tasks can still be added to a queue
  *        but the tasks are not dispatched and
@@ -1413,7 +1469,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  max_tasks_dispatched_per_second.
  *  For App Engine queues that were created or updated using
  *  `queue.yaml/xml`, `max_burst_size` is equal to
- *  [bucket_size](/appengine/docs/standard/python/config/queueref#bucket_size).
+ *  [bucket_size](https://cloud.google.com/appengine/docs/standard/python/config/queueref#bucket_size).
  *  Since `max_burst_size` is output only, if
  *  UpdateQueue is called on a queue
  *  created by `queue.yaml/xml`, `max_burst_size` will be reset based
@@ -1436,12 +1492,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  default.
  *  The maximum allowed value is 5,000.
  *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget) and always -1, which
- *  indicates no limit. No other queue types can have `max_concurrent_tasks`
- *  set to -1.
+ *  pull queues and always -1, which indicates no limit. No other
+ *  queue types can have `max_concurrent_tasks` set to -1.
  *  This field has the same meaning as
  *  [max_concurrent_requests in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#max_concurrent_requests).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#max_concurrent_requests).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1451,15 +1506,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The maximum rate at which tasks are dispatched from this queue.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  * For App Engine queues, the maximum allowed value is 500.
- *  * This field is output only for [pull
- *  queues](google.cloud.tasks.v2beta2.PullTarget). In
- *  addition to the `max_tasks_dispatched_per_second` limit, a
- *  maximum of 10 QPS of LeaseTasks
- *  requests are allowed per pull queue.
+ *  * For App Engine queues, the maximum allowed value
+ *  is 500.
+ *  * This field is output only for pull queues. In addition to the
+ *  `max_tasks_dispatched_per_second` limit, a maximum of 10 QPS of
+ *  LeaseTasks requests are allowed per pull queue.
  *  This field has the same meaning as
  *  [rate in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#rate).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#rate).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1491,8 +1545,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_RenewLeaseRequest_ResponseView_Basic The basic
@@ -1552,19 +1606,18 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *maxAttempts;
 
 /**
- *  A task will be [scheduled](Task.schedule_time) for retry between
+ *  A task will be scheduled for retry between
  *  min_backoff and
  *  max_backoff duration after it fails,
  *  if the queue's RetryConfig specifies that the task should be
  *  retried.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget).
+ *  This field is output only for pull queues.
  *  `max_backoff` will be truncated to the nearest second.
  *  This field has the same meaning as
  *  [max_backoff_seconds in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxBackoff;
 
@@ -1587,11 +1640,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  240s, 300s, 300s, ....
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget).
+ *  This field is output only for pull queues.
  *  This field has the same meaning as
  *  [max_doublings in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1607,29 +1659,27 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  If zero, then the task age is unlimited.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget).
+ *  This field is output only for pull queues.
  *  `max_retry_duration` will be truncated to the nearest second.
  *  This field has the same meaning as
  *  [task_age_limit in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetryDuration;
 
 /**
- *  A task will be [scheduled](Task.schedule_time) for retry between
+ *  A task will be scheduled for retry between
  *  min_backoff and
  *  max_backoff duration after it fails,
  *  if the queue's RetryConfig specifies that the task should be
  *  retried.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  This field is output only for
- *  [pull queues](google.cloud.tasks.v2beta2.PullTarget).
+ *  This field is output only for pull queues.
  *  `min_backoff` will be truncated to the nearest second.
  *  This field has the same meaning as
  *  [min_backoff_seconds in
- *  queue.yaml/xml](/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minBackoff;
 
@@ -1658,8 +1708,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_RunTaskRequest_ResponseView_Basic The basic view
@@ -1812,7 +1862,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  hyphens (-), colons (:), or periods (.).
  *  For more information, see
  *  [Identifying
- *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the task's location.
  *  The list of available locations can be obtained by calling
  *  ListLocations.
@@ -1888,8 +1938,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  Output only. The number of attempts which have received a response.
- *  This field is not calculated for
- *  [pull tasks](google.cloud.tasks.v2beta2.PullTaskTarget).
+ *  This field is not calculated for pull tasks.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1899,15 +1948,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  Output only. The status of the task's first attempt.
  *  Only dispatch_time will be set.
  *  The other AttemptStatus information is not retained by Cloud Tasks.
- *  This field is not calculated for
- *  [pull tasks](google.cloud.tasks.v2beta2.PullTaskTarget).
+ *  This field is not calculated for pull tasks.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AttemptStatus *firstAttemptStatus;
 
 /**
  *  Output only. The status of the task's last attempt.
- *  This field is not calculated for
- *  [pull tasks](google.cloud.tasks.v2beta2.PullTaskTarget).
+ *  This field is not calculated for pull tasks.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AttemptStatus *lastAttemptStatus;
 

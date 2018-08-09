@@ -35,7 +35,7 @@
 //
 
 @implementation GTLRPubsub_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -77,6 +77,21 @@
 //
 
 @implementation GTLRPubsub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Expr
+//
+
+@implementation GTLRPubsub_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

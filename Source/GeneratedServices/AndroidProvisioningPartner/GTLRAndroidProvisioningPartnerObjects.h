@@ -138,7 +138,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
 GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending;
 /**
  *  Processed.
- *  This doesn't mean all items were processed sucessfully, you should
+ *  This doesn't mean all items were processed successfully, you should
  *  check the `response` field for the result of every item.
  *
  *  Value: "BATCH_PROCESS_PROCESSED"
@@ -360,7 +360,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  A customer resource in the zero-touch enrollment API.
+ *  A reseller, vendor, or customer in the zero-touch reseller and customer
+ *  APIs.
  */
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
@@ -379,13 +380,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /**
  *  Required. The name of the company. For example _XYZ Corp_. Displayed to the
- *  customer's employees in the zero-touch enrollment portal.
+ *  company's employees in the zero-touch enrollment portal.
  */
 @property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
- *  Output only. The API resource name of the company in the format
- *  `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`. Assigned by the server.
+ *  Output only. The API resource name of the company. The resource name is one
+ *  of the following formats:
+ *  * `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`
+ *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]`
+ *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]/customers/[CUSTOMER_ID]`
+ *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -739,7 +744,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /**
  *  The device manufacturer’s name. Matches the device's built-in
  *  value returned from `android.os.Build.MANUFACTURER`. Allowed values are
- *  listed in [manufacturer names](/zero-touch/resources/manufacturer-names).
+ *  listed in
+ *  [manufacturers](/zero-touch/resources/manufacturer-names#manufacturers-names).
  */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
@@ -749,13 +755,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /**
  *  The device model's name. Matches the device's built-in value returned from
  *  `android.os.Build.MODEL`. Allowed values are listed in
- *  [manufacturer names](/zero-touch/resources/manufacturer-names).
+ *  [models](/zero-touch/resources/manufacturer-names#model-names).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  The manufacturer's serial number for the device. This value might not be
- *  unique.
+ *  unique across different device models.
  */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
@@ -838,7 +844,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *        Pending. (Value: "BATCH_PROCESS_PENDING")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessProcessed
  *        Processed.
- *        This doesn't mean all items were processed sucessfully, you should
+ *        This doesn't mean all items were processed successfully, you should
  *        check the `response` field for the result of every item. (Value:
  *        "BATCH_PROCESS_PROCESSED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessStatusUnspecified

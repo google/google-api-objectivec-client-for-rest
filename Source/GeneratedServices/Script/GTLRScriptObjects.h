@@ -245,7 +245,7 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi;
 /**
- *  The process was started from a GSuite menu item.
+ *  The process was started from a G Suite menu item.
  *
  *  Value: "MENU"
  */
@@ -257,7 +257,7 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified;
 /**
- *  The process was started from a GSuite simple trigger.
+ *  The process was started from a G Suite simple trigger.
  *
  *  Value: "SIMPLE_TRIGGER"
  */
@@ -830,11 +830,11 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *        The process was started using the Apps Script API. (Value:
  *        "EXECUTION_API")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu The
- *        process was started from a GSuite menu item. (Value: "MENU")
+ *        process was started from a G Suite menu item. (Value: "MENU")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified
  *        Unspecified type. (Value: "PROCESS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger
- *        The process was started from a GSuite simple trigger. (Value:
+ *        The process was started from a G Suite simple trigger. (Value:
  *        "SIMPLE_TRIGGER")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven The
  *        process was started from a time-based trigger. (Value: "TIME_DRIVEN")

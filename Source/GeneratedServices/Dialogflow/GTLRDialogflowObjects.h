@@ -111,6 +111,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
+@class GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry;
 @class GTLRDialogflow_GoogleLongrunningOperation_Metadata;
 @class GTLRDialogflow_GoogleLongrunningOperation_Response;
 @class GTLRDialogflow_GoogleRpcStatus;
@@ -786,6 +787,28 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry.state
+
+/**
+ *  This QuestionAnswerEntry is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Disabled;
+/**
+ *  This QuestionAnswerEntry is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Enabled;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_StateUnspecified;
 
 /**
  *  Represents a conversational agent.
@@ -2273,18 +2296,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest : GTLRObject
 
 /**
- *  Optional. This field is set to the value of `QueryParameters.payload` field
- *  passed in the request.
- *  This field is used for the telephony gateway. It should have a
- *  structure similar to this JSON message:
+ *  Optional. This field is set to the value of the `QueryParameters.payload`
+ *  field passed in the request. Some integrations that query a Dialogflow
+ *  agent may provide additional information in the payload.
+ *  In particular for the Telephony Gateway this field has the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
  *  }
  *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be in
- *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is only supported
- *  for Enterprise Edition and not for Standard Edition agents. When the
+ *  Note: The caller ID field (`caller_id`) will be redacted for Standard
+ *  Edition agents and populated with the caller ID in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload *payload;
 
@@ -2304,18 +2327,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Optional. This field is set to the value of `QueryParameters.payload` field
- *  passed in the request.
- *  This field is used for the telephony gateway. It should have a
- *  structure similar to this JSON message:
+ *  Optional. This field is set to the value of the `QueryParameters.payload`
+ *  field passed in the request. Some integrations that query a Dialogflow
+ *  agent may provide additional information in the payload.
+ *  In particular for the Telephony Gateway this field has the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
  *  }
  *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be in
- *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is only supported
- *  for Enterprise Edition and not for Standard Edition agents. When the
+ *  Note: The caller ID field (`caller_id`) will be redacted for Standard
+ *  Edition agents and populated with the caller ID in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3960,19 +3983,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @interface GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest : GTLRObject
 
 /**
- *  Optional. This field is set to the value of `QueryParameters.payload` field
- *  passed in the request.
- *  This field is used for the telephony gateway. It should have a
- *  structure similar to this JSON message:
+ *  Optional. This field is set to the value of the `QueryParameters.payload`
+ *  field passed in the request. Some integrations that query a Dialogflow
+ *  agent may provide additional information in the payload.
+ *  In particular for the Telephony Gateway this field has the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
+ *  }
  *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be in
- *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is not supported
- *  for standard tier agents. When the telephony gateway is used with a
- *  standard tier agent the `caller_id` field above will have a value of
- *  `REDACTED_IN_STANDARD_TIER_AGENT`.
+ *  Note: The caller ID field (`caller_id`) will be redacted for Standard
+ *  Edition agents and populated with the caller ID in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload *payload;
 
@@ -3992,19 +4014,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Optional. This field is set to the value of `QueryParameters.payload` field
- *  passed in the request.
- *  This field is used for the telephony gateway. It should have a
- *  structure similar to this JSON message:
+ *  Optional. This field is set to the value of the `QueryParameters.payload`
+ *  field passed in the request. Some integrations that query a Dialogflow
+ *  agent may provide additional information in the payload.
+ *  In particular for the Telephony Gateway this field has the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
+ *  }
  *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be in
- *  [E.164 format](https://en.wikipedia.org/wiki/E.164) and is not supported
- *  for standard tier agents. When the telephony gateway is used with a
- *  standard tier agent the `caller_id` field above will have a value of
- *  `REDACTED_IN_STANDARD_TIER_AGENT`.
+ *  Note: The caller ID field (`caller_id`) will be redacted for Standard
+ *  Edition agents and populated with the caller ID in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4508,6 +4529,47 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload : GTLRObject
+@end
+
+
+/**
+ *  Response message for KnowledgeService.BatchUpdateQuestionAnswerEntries.
+ */
+@interface GTLRDialogflow_GoogleCloudKnowledgeV1alpha1BatchUpdateQuestionAnswerEntriesResponse : GTLRObject
+
+/** The list of question-answer-entries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry *> *questionAnswerEntries;
+
+@end
+
+
+/**
+ *  A QuestionAnswerEntry resource.
+ */
+@interface GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry : GTLRObject
+
+/** Output only. Answer text. */
+@property(nonatomic, copy, nullable) NSString *answer;
+
+/** The name of the question-answer-entry. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The question for the answer. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+/**
+ *  Required. The state of the question-answer-entry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Disabled
+ *        This QuestionAnswerEntry is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Enabled
+ *        This QuestionAnswerEntry is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

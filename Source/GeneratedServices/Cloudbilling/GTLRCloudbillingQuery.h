@@ -46,13 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a billing account.
  *  This method can only be used to create
  *  [billing subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  for GCP resellers.
+ *  by GCP resellers.
  *  When creating a subaccount, the current authenticated user must have the
  *  `billing.accounts.update` IAM permission on the master account, which is
  *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
+ *  This method will return an error if the master account has not been
+ *  provisioned as a reseller account.
  *
  *  Method: cloudbilling.billingAccounts.create
  *
@@ -69,13 +69,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a billing account.
  *  This method can only be used to create
  *  [billing subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  for GCP resellers.
+ *  by GCP resellers.
  *  When creating a subaccount, the current authenticated user must have the
  *  `billing.accounts.update` IAM permission on the master account, which is
  *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
+ *  This method will return an error if the master account has not been
+ *  provisioned as a reseller account.
  *
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
@@ -128,8 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The caller must have the `billing.accounts.getIamPolicy` permission on the
  *  account, which is often given to billing account
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  Method: cloudbilling.billingAccounts.getIamPolicy
  *
@@ -153,8 +151,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The caller must have the `billing.accounts.getIamPolicy` permission on the
  *  account, which is often given to billing account
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
@@ -187,8 +183,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  single provided reseller billing account.
  *  (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
  *  Boolean algebra and other fields are not currently supported.
- *  > This field is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -229,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  IAM permission, which is typically given to the
  *  [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
  *  of the billing account.
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  Method: cloudbilling.billingAccounts.patch
  *
@@ -261,8 +253,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  IAM permission, which is typically given to the
  *  [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
  *  of the billing account.
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
@@ -337,8 +327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The caller must have the `billing.accounts.setIamPolicy` permission on the
  *  account, which is often given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  Method: cloudbilling.billingAccounts.setIamPolicy
  *
@@ -363,8 +351,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The caller must have the `billing.accounts.setIamPolicy` permission on the
  *  account, which is often given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  @param object The @c GTLRCloudbilling_SetIamPolicyRequest to include in the
  *    query.
@@ -383,8 +369,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Tests the access control policy for a billing account. This method takes
  *  the resource and a set of permissions as input and returns the subset of
  *  the input permissions that the caller is allowed for that resource.
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  Method: cloudbilling.billingAccounts.testIamPermissions
  *
@@ -407,8 +391,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Tests the access control policy for a billing account. This method takes
  *  the resource and a set of permissions as input and returns the subset of
  *  the input permissions that the caller is allowed for that resource.
- *  > This method is currently in
- *  > [Beta](https://cloud.google.com/terms/launch-stages).
  *
  *  @param object The @c GTLRCloudbilling_TestIamPermissionsRequest to include
  *    in the query.
@@ -554,6 +536,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all public cloud services.
  *
  *  Method: cloudbilling.services.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesList : GTLRCloudbillingQuery
 // Previous library name was
@@ -588,6 +573,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all publicly available SKUs for a given cloud service.
  *
  *  Method: cloudbilling.services.skus.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesSkusList : GTLRCloudbillingQuery
 // Previous library name was

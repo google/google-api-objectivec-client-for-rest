@@ -20,6 +20,7 @@
 
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
@@ -50,6 +51,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Response;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item;
+@class GTLRCloudMachineLearningEngine_GoogleTypeExpr;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -60,6 +62,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig.type
+
+/**
+ *  Unspecified accelerator type. Default to no GPU.
+ *
+ *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified;
+/**
+ *  Nvidia tesla k80 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_K80"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80;
+/**
+ *  Nvidia tesla P100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P100"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100;
+/**
+ *  Nvidia tesla V100 GPU. Not supported for batch prediction.
+ *
+ *  Value: "NVIDIA_TESLA_V100"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -557,6 +587,38 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a hardware accelerator request config.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig : GTLRObject
+
+/**
+ *  The number of accelerators to attach to each machine running the job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The available types of accelerators.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified
+ *        Unspecified accelerator type. Default to no GPU. (Value:
+ *        "ACCELERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80
+ *        Nvidia tesla k80 GPU. (Value: "NVIDIA_TESLA_K80")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100
+ *        Nvidia tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
+ *        Nvidia tesla V100 GPU. Not supported for batch prediction. (Value:
+ *        "NVIDIA_TESLA_V100")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -1344,6 +1406,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
 /**
+ *  Optional. The type and number of accelerators to be attached to each
+ *  machine running the job.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *accelerator;
+
+/**
  *  Optional. Number of records per batch, defaults to 64.
  *  The service will buffer batch_size number of records in memory before
  *  invoking one Tensorflow prediction call internally. So take the record
@@ -2053,6 +2121,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Binding : GTLRObject
 
 /**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleTypeExpr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -2412,6 +2488,46 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleTypeExpr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 NS_ASSUME_NONNULL_END

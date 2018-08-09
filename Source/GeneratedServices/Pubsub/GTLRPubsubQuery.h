@@ -1239,8 +1239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
- *  does not exist. The message payload must not be empty; it must contain
- *  either a non-empty data field, or at least one attribute.
+ *  does not exist.
  *
  *  Method: pubsub.projects.topics.publish
  *
@@ -1262,8 +1261,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_PublishResponse.
  *
  *  Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
- *  does not exist. The message payload must not be empty; it must contain
- *  either a non-empty data field, or at least one attribute.
+ *  does not exist.
  *
  *  @param object The @c GTLRPubsub_PublishRequest to include in the query.
  *  @param topic The messages in the request will be published on this topic.

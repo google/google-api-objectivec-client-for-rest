@@ -219,6 +219,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
+/** Value: "encounteredNonAndroidUiWidgetScreen" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen;
 /** Value: "failedToInstall" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
 /** Value: "fatalException" */
@@ -1432,17 +1434,11 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  */
 @interface GTLRToolResults_StackTrace : GTLRObject
 
-/** Exception cluster ID */
-@property(nonatomic, copy, nullable) NSString *clusterId;
-
 /**
  *  The stack trace message.
  *  Required
  */
 @property(nonatomic, copy, nullable) NSString *exception;
-
-/** Exception report ID */
-@property(nonatomic, copy, nullable) NSString *reportId;
 
 @end
 
@@ -1838,6 +1834,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
  *        "completeRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen
+ *        Value "encounteredNonAndroidUiWidgetScreen"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FailedToInstall Value
  *        "failedToInstall"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value

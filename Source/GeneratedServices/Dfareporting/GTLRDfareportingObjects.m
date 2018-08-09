@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -593,9 +593,11 @@ NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U98 = @"U98";
 NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U99 = @"U99";
 
 // GTLRDfareporting_DateRange.relativeDateRange
+NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last14Days = @"LAST_14_DAYS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last24Months = @"LAST_24_MONTHS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last30Days = @"LAST_30_DAYS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last365Days = @"LAST_365_DAYS";
+NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last60Days = @"LAST_60_DAYS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last7Days = @"LAST_7_DAYS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last90Days = @"LAST_90_DAYS";
 NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_MonthToDate = @"MONTH_TO_DATE";
@@ -1999,7 +2001,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @dynamic childDirectedTreatment, customVariables, encryptedUserId,
          encryptedUserIdCandidates, floodlightActivityId,
          floodlightConfigurationId, gclid, kind, limitAdTracking,
-         mobileDeviceId, ordinal, quantity, timestampMicros, value;
+         mobileDeviceId, nonPersonalizedAd, ordinal, quantity, timestampMicros,
+         treatmentForUnderage, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2146,9 +2149,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Creative
-@dynamic accountId, active, adParameters, adTagKeys, advertiserId,
-         allowScriptAccess, archived, artworkType, authoringSource,
-         authoringTool, autoAdvanceImages, backgroundColor,
+@dynamic accountId, active, additionalSizes, adParameters, adTagKeys,
+         advertiserId, allowScriptAccess, archived, artworkType,
+         authoringSource, authoringTool, autoAdvanceImages, backgroundColor,
          backupImageClickThroughUrl, backupImageFeatures,
          backupImageReportingLabel, backupImageTargetWindow, clickTags,
          commercialId, companionCreatives, compatibility, convertFlashToHtml5,
@@ -2171,6 +2174,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalSizes" : [GTLRDfareporting_Size class],
     @"adTagKeys" : [NSString class],
     @"backupImageFeatures" : [NSString class],
     @"clickTags" : [GTLRDfareporting_ClickTag class],
@@ -2196,17 +2200,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_CreativeAsset
-@dynamic actionScript3, active, alignment, artworkType, assetIdentifier,
-         backupImageExit, bitRate, childAssetType, collapsedSize,
-         companionCreativeIds, customStartTimeValue, detectedFeatures,
-         displayType, duration, durationType, expandedDimension, fileSize,
-         flashVersion, hideFlashObjects, hideSelectionBoxes, horizontallyLocked,
-         identifier, idDimensionValue, mediaDuration, mimeType, offset,
-         orientation, originalBackup, position, positionLeftUnit,
-         positionTopUnit, progressiveServingUrl, pushdown, pushdownDuration,
-         role, size, sslCompliant, startTimeType, streamingServingUrl,
-         transparency, verticallyLocked, windowMode, zIndex, zipFilename,
-         zipFilesize;
+@dynamic actionScript3, active, additionalSizes, alignment, artworkType,
+         assetIdentifier, backupImageExit, bitRate, childAssetType,
+         collapsedSize, companionCreativeIds, customStartTimeValue,
+         detectedFeatures, displayType, duration, durationType,
+         expandedDimension, fileSize, flashVersion, hideFlashObjects,
+         hideSelectionBoxes, horizontallyLocked, identifier, idDimensionValue,
+         mediaDuration, mimeType, offset, orientation, originalBackup, position,
+         positionLeftUnit, positionTopUnit, progressiveServingUrl, pushdown,
+         pushdownDuration, role, size, sslCompliant, startTimeType,
+         streamingServingUrl, transparency, verticallyLocked, windowMode,
+         zIndex, zipFilename, zipFilesize;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2214,6 +2218,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalSizes" : [GTLRDfareporting_Size class],
     @"companionCreativeIds" : [NSNumber class],
     @"detectedFeatures" : [NSString class]
   };
@@ -3819,11 +3824,11 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Placement
-@dynamic accountId, adBlockingOptOut, advertiserId, advertiserIdDimensionValue,
-         archived, campaignId, campaignIdDimensionValue, comment, compatibility,
-         contentCategoryId, createInfo, directorySiteId,
-         directorySiteIdDimensionValue, externalId, identifier,
-         idDimensionValue, keyName, kind, lastModifiedInfo,
+@dynamic accountId, adBlockingOptOut, additionalSizes, advertiserId,
+         advertiserIdDimensionValue, archived, campaignId,
+         campaignIdDimensionValue, comment, compatibility, contentCategoryId,
+         createInfo, directorySiteId, directorySiteIdDimensionValue, externalId,
+         identifier, idDimensionValue, keyName, kind, lastModifiedInfo,
          lookbackConfiguration, name, paymentApproved, paymentSource,
          placementGroupId, placementGroupIdDimensionValue, placementStrategyId,
          pricingSchedule, primary, publisherUpdateInfo, siteId,
@@ -3837,6 +3842,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalSizes" : [GTLRDfareporting_Size class],
     @"tagFormats" : [NSString class]
   };
   return map;

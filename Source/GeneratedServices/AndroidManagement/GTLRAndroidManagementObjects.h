@@ -664,8 +664,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Installa
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotCompatibleWithDevice;
 /**
- *  The enterprise is no longer enrolled with managed Play or Android Device
- *  Policy is not enabled for the enterprise.
+ *  The enterprise is no longer enrolled with managed Play or the admin has not
+ *  accepted the latest managed Play terms of service.
  *
  *  Value: "NOT_ENROLLED"
  */
@@ -2612,8 +2612,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        The app is incompatible with the device. (Value:
  *        "NOT_COMPATIBLE_WITH_DEVICE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled
- *        The enterprise is no longer enrolled with managed Play or Android
- *        Device Policy is not enabled for the enterprise. (Value:
+ *        The enterprise is no longer enrolled with managed Play or the admin
+ *        has not accepted the latest managed Play terms of service. (Value:
  *        "NOT_ENROLLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound
  *        The app was not found in Play. (Value: "NOT_FOUND")

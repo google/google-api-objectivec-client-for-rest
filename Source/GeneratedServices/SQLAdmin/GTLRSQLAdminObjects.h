@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Administration API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
-//   Creates and configures Cloud SQL instances, which provide fully-managed
-//   MySQL databases.
+//   Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
+//   your instances programmatically.
 // Documentation:
 //   https://cloud.google.com/sql/docs/reference/latest
 
@@ -840,9 +840,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  A path to the file in Cloud Storage from which the import is made. The URI
- *  is in the form gs://bucketName/fileName. Compressed gzip files (.gz) are
- *  supported when fileType is SQL.
+ *  Path to the import file in Cloud Storage, in the form
+ *  gs://bucketName/fileName. Compressed gzip files (.gz) are supported when
+ *  fileType is SQL. The instance must have write permissions to the bucket and
+ *  read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1078,7 +1079,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The preferred Compute Engine zone (e.g. us-centra1-a, us-central1-b, etc.).
+ *  The preferred Compute Engine zone (e.g. us-central1-a, us-central1-b, etc.).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */

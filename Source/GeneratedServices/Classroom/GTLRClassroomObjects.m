@@ -56,6 +56,7 @@ NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHOR
 
 // GTLRClassroom_Feed.feedType
 NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges = @"COURSE_ROSTER_CHANGES";
+NSString * const kGTLRClassroom_Feed_FeedType_CourseWorkChanges = @"COURSE_WORK_CHANGES";
 NSString * const kGTLRClassroom_Feed_FeedType_DomainRosterChanges = @"DOMAIN_ROSTER_CHANGES";
 NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified = @"FEED_TYPE_UNSPECIFIED";
 
@@ -299,6 +300,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_CourseWorkChangesInfo
+//
+
+@implementation GTLRClassroom_CourseWorkChangesInfo
+@dynamic courseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Date
 //
 
@@ -352,7 +363,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_Feed
-@dynamic courseRosterChangesInfo, feedType;
+@dynamic courseRosterChangesInfo, courseWorkChangesInfo, feedType;
 @end
 
 

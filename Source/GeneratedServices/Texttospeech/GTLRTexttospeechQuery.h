@@ -67,8 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a list of Voice
- *  supported for synthesis.
+ *  Returns a list of Voice supported for synthesis.
  *
  *  Method: texttospeech.voices.list
  *
@@ -94,8 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTexttospeech_ListVoicesResponse.
  *
- *  Returns a list of Voice
- *  supported for synthesis.
+ *  Returns a list of Voice supported for synthesis.
  *
  *  @return GTLRTexttospeechQuery_VoicesList
  */

@@ -23,6 +23,7 @@
 @class GTLRIam_CreateRoleRequest;
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
+@class GTLRIam_LintPolicyRequest;
 @class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
 @class GTLRIam_QueryTestablePermissionsRequest;
@@ -83,6 +84,69 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Lints a Cloud IAM policy object or its sub fields. Currently supports
+ *  google.iam.v1.Policy, google.iam.v1.Binding and
+ *  google.iam.v1.Binding.condition.
+ *  Each lint operation consists of multiple lint validation units.
+ *  Validation units have the following properties:
+ *  - Each unit inspects the input object in regard to a particular
+ *  linting aspect and issues a google.iam.admin.v1.LintResult
+ *  disclosing the result.
+ *  - Domain of discourse of each unit can be either
+ *  google.iam.v1.Policy, google.iam.v1.Binding, or
+ *  google.iam.v1.Binding.condition depending on the purpose of the
+ *  validation.
+ *  - A unit may require additional data (like the list of all possible
+ *  enumerable values of a particular attribute used in the policy instance)
+ *  which shall be provided by the caller. Refer to the comments of
+ *  google.iam.admin.v1.LintPolicyRequest.context for more details.
+ *  The set of applicable validation units is determined by the Cloud IAM
+ *  server and is not configurable.
+ *  Regardless of any lint issues or their severities, successful calls to
+ *  `lintPolicy` return an HTTP 200 OK status code.
+ *
+ *  Method: iam.iamPolicies.lintPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_IamPoliciesLintPolicy : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForIamPoliciesLintPolicyWithObject:]
+
+/**
+ *  Fetches a @c GTLRIam_LintPolicyResponse.
+ *
+ *  Lints a Cloud IAM policy object or its sub fields. Currently supports
+ *  google.iam.v1.Policy, google.iam.v1.Binding and
+ *  google.iam.v1.Binding.condition.
+ *  Each lint operation consists of multiple lint validation units.
+ *  Validation units have the following properties:
+ *  - Each unit inspects the input object in regard to a particular
+ *  linting aspect and issues a google.iam.admin.v1.LintResult
+ *  disclosing the result.
+ *  - Domain of discourse of each unit can be either
+ *  google.iam.v1.Policy, google.iam.v1.Binding, or
+ *  google.iam.v1.Binding.condition depending on the purpose of the
+ *  validation.
+ *  - A unit may require additional data (like the list of all possible
+ *  enumerable values of a particular attribute used in the policy instance)
+ *  which shall be provided by the caller. Refer to the comments of
+ *  google.iam.admin.v1.LintPolicyRequest.context for more details.
+ *  The set of applicable validation units is determined by the Cloud IAM
+ *  server and is not configurable.
+ *  Regardless of any lint issues or their severities, successful calls to
+ *  `lintPolicy` return an HTTP 200 OK status code.
+ *
+ *  @param object The @c GTLRIam_LintPolicyRequest to include in the query.
+ *
+ *  @return GTLRIamQuery_IamPoliciesLintPolicy
+ */
++ (instancetype)queryWithObject:(GTLRIam_LintPolicyRequest *)object;
 
 @end
 

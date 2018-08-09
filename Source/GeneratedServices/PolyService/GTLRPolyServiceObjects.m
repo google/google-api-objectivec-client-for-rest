@@ -83,8 +83,8 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 @implementation GTLRPolyService_Asset
 @dynamic authorName, createTime, descriptionProperty, displayName, formats,
-         isCurated, license, metadata, name, presentationParams, thumbnail,
-         updateTime, visibility;
+         isCurated, license, metadata, name, presentationParams, remixInfo,
+         thumbnail, updateTime, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -251,6 +251,24 @@ NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown = @"UNKN
 
 @implementation GTLRPolyService_Quaternion
 @dynamic w, x, y, z;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolyService_RemixInfo
+//
+
+@implementation GTLRPolyService_RemixInfo
+@dynamic sourceAsset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceAsset" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

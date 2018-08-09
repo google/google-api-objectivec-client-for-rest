@@ -34,7 +34,7 @@
     "Unexpected JSON key under iamcredentials/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under iap/v1beta1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under indexing/v3: fullyEncodeReservedExpansion",
-    "Unexpected JSON key under jobs/v2: fullyEncodeReservedExpansion",
+    "Unexpected JSON key under jobs/v3: fullyEncodeReservedExpansion",
     "Unexpected JSON key under logging/v2: fullyEncodeReservedExpansion",
     "Unexpected JSON key under ml/v1: fullyEncodeReservedExpansion",
     "Unexpected JSON key under monitoring/v3: fullyEncodeReservedExpansion",

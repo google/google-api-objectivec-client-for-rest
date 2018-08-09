@@ -16,6 +16,88 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRFirestoreQuery_ProjectsDatabasesOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRFirestoreQuery_ProjectsDatabasesOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"firestore.projects.databases.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsLocationsGet
 
 @dynamic name;

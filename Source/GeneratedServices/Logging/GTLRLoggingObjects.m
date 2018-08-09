@@ -575,8 +575,8 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
          httpVersion, instanceId, instanceIndex, ip, latency, line, megaCycles,
          method, moduleId, nickname, pendingTime, referrer, requestId, resource,
          responseSize, sourceReference, startTime, status, taskName,
-         taskQueueName, traceId, urlMapEntry, userAgent, versionId,
-         wasLoadingRequest;
+         taskQueueName, traceId, traceSampled, urlMapEntry, userAgent,
+         versionId, wasLoadingRequest;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

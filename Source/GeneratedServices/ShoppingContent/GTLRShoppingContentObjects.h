@@ -5551,7 +5551,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Target age group of the item. */
 @property(nonatomic, copy, nullable) NSString *ageGroup;
 
-/** Specifies the intended aspects for the product. */
+/** Deprecated. Do not use. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductAspect *> *aspects;
 
 /** Availability status of the item. */
@@ -5821,6 +5821,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The cut of the item. Recommended for apparel items. */
 @property(nonatomic, copy, nullable) NSString *sizeType;
+
+/** The source of the offer, i.e., how the offer was created. */
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The CLDR territory code for the item. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;

@@ -28,6 +28,7 @@
 @class GTLRPolyService_ObjParseError;
 @class GTLRPolyService_PresentationParams;
 @class GTLRPolyService_Quaternion;
+@class GTLRPolyService_RemixInfo;
 @class GTLRPolyService_UserAsset;
 
 // Generated comments include content from the discovery document; avoid them
@@ -465,6 +466,9 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
  *  immutable; the author of an asset may change them post-publication.
  */
 @property(nonatomic, strong, nullable) GTLRPolyService_PresentationParams *presentationParams;
+
+/** The remix info for the asset. */
+@property(nonatomic, strong, nullable) GTLRPolyService_RemixInfo *remixInfo;
 
 /** The thumbnail image for the asset. */
 @property(nonatomic, strong, nullable) GTLRPolyService_File *thumbnail;
@@ -985,6 +989,21 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *z;
+
+@end
+
+
+/**
+ *  Info about the sources of this asset (i.e. assets that were remixed to
+ *  create this asset).
+ */
+@interface GTLRPolyService_RemixInfo : GTLRObject
+
+/**
+ *  Resource ids for the sources of this remix, of the form:
+ *  `assets/{ASSET_ID}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceAsset;
 
 @end
 

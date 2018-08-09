@@ -93,7 +93,7 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 //
 
 @implementation GTLRCloudbilling_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -112,6 +112,21 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 
 @implementation GTLRCloudbilling_Category
 @dynamic resourceFamily, resourceGroup, serviceDisplayName, usageType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Expr
+//
+
+@implementation GTLRCloudbilling_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

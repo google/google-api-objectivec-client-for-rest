@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Administration API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
-//   Creates and configures Cloud SQL instances, which provide fully-managed
-//   MySQL databases.
+//   Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
+//   your instances programmatically.
 // Documentation:
 //   https://cloud.google.com/sql/docs/reference/latest
 

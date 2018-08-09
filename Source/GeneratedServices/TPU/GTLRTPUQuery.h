@@ -20,7 +20,6 @@
 
 @class GTLRTPU_Node;
 @class GTLRTPU_ReimageNodeRequest;
-@class GTLRTPU_ResetNodeRequest;
 @class GTLRTPU_StartNodeRequest;
 @class GTLRTPU_StopNodeRequest;
 
@@ -339,36 +338,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRTPUQuery_ProjectsLocationsNodesReimage
  */
 + (instancetype)queryWithObject:(GTLRTPU_ReimageNodeRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Resets a node, which stops and starts the VM.
- *
- *  Method: tpu.projects.locations.nodes.reset
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTPUCloudPlatform
- */
-@interface GTLRTPUQuery_ProjectsLocationsNodesReset : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesResetWithObject:name:]
-
-/** The resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRTPU_Operation.
- *
- *  Resets a node, which stops and starts the VM.
- *
- *  @param object The @c GTLRTPU_ResetNodeRequest to include in the query.
- *  @param name The resource name.
- *
- *  @return GTLRTPUQuery_ProjectsLocationsNodesReset
- */
-+ (instancetype)queryWithObject:(GTLRTPU_ResetNodeRequest *)object
                            name:(NSString *)name;
 
 @end

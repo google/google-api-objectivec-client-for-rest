@@ -2594,7 +2594,7 @@
          pattern, price, productType, promotionIds, salePrice,
          salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
          shippingLabel, shippingLength, shippingWeight, shippingWidth, sizes,
-         sizeSystem, sizeType, targetCountry, taxes, title,
+         sizeSystem, sizeType, source, targetCountry, taxes, title,
          unitPricingBaseMeasure, unitPricingMeasure, validatedDestinations,
          warnings;
 

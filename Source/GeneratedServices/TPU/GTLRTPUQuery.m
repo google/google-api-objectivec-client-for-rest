@@ -201,31 +201,6 @@
 
 @end
 
-@implementation GTLRTPUQuery_ProjectsLocationsNodesReset
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRTPU_ResetNodeRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:reset";
-  GTLRTPUQuery_ProjectsLocationsNodesReset *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRTPU_Operation class];
-  query.loggingName = @"tpu.projects.locations.nodes.reset";
-  return query;
-}
-
-@end
-
 @implementation GTLRTPUQuery_ProjectsLocationsNodesStart
 
 @dynamic name;

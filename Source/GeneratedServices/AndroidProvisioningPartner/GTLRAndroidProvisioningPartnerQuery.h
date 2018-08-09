@@ -899,7 +899,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists vendors of the partner.
+ *  Lists the vendors of the partner.
  *
  *  Method: androiddeviceprovisioning.partners.vendors.list
  */
@@ -919,7 +919,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_ListVendorsResponse.
  *
- *  Lists vendors of the partner.
+ *  Lists the vendors of the partner.
  *
  *  @param parent Required. The resource name in the format
  *    `partners/[PARTNER_ID]`.

@@ -552,8 +552,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_HttpRule
 @dynamic additionalBindings, authorizations, body, custom, deleteProperty, get,
-         mediaDownload, mediaUpload, patch, post, put, restCollection,
-         restMethodName, selector;
+         mediaDownload, mediaUpload, patch, post, put, responseBody,
+         restCollection, restMethodName, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };

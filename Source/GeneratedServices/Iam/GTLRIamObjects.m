@@ -36,6 +36,20 @@ NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeGoog
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRIam_LintResult.level
+NSString * const kGTLRIam_LintResult_Level_Binding          = @"BINDING";
+NSString * const kGTLRIam_LintResult_Level_Condition        = @"CONDITION";
+NSString * const kGTLRIam_LintResult_Level_LevelUnspecified = @"LEVEL_UNSPECIFIED";
+NSString * const kGTLRIam_LintResult_Level_Policy           = @"POLICY";
+
+// GTLRIam_LintResult.severity
+NSString * const kGTLRIam_LintResult_Severity_Deprecated       = @"DEPRECATED";
+NSString * const kGTLRIam_LintResult_Severity_Error            = @"ERROR";
+NSString * const kGTLRIam_LintResult_Severity_Info             = @"INFO";
+NSString * const kGTLRIam_LintResult_Severity_Notice           = @"NOTICE";
+NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRIam_LintResult_Severity_Warning          = @"WARNING";
+
 // GTLRIam_Permission.customRolesSupportLevel
 NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported = @"NOT_SUPPORTED";
 NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported = @"SUPPORTED";
@@ -131,7 +145,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -149,7 +163,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_BindingDelta
-@dynamic action, member, role;
+@dynamic action, condition, member, role;
 @end
 
 
@@ -189,6 +203,74 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Expr
+//
+
+@implementation GTLRIam_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_LintPolicyRequest
+//
+
+@implementation GTLRIam_LintPolicyRequest
+@dynamic binding, condition, context, fullResourceName, policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_LintPolicyRequest_Context
+//
+
+@implementation GTLRIam_LintPolicyRequest_Context
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_LintPolicyResponse
+//
+
+@implementation GTLRIam_LintPolicyResponse
+@dynamic lintResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lintResults" : [GTLRIam_LintResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_LintResult
+//
+
+@implementation GTLRIam_LintResult
+@dynamic bindingOrdinal, debugMessage, fieldName, level, locationOffset,
+         severity, validationUnitName;
 @end
 
 

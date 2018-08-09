@@ -87,6 +87,12 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Creating;
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Deleting;
 /**
+ *  TPU node has been preempted. Only applies to Preemptible TPU Nodes.
+ *
+ *  Value: "PREEMPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Preempted;
+/**
  *  TPU node has been created and is fully usable.
  *
  *  Value: "READY"
@@ -481,6 +487,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
  *        "CREATING")
  *    @arg @c kGTLRTPU_Node_State_Deleting TPU node is being deleted. (Value:
  *        "DELETING")
+ *    @arg @c kGTLRTPU_Node_State_Preempted TPU node has been preempted. Only
+ *        applies to Preemptible TPU Nodes. (Value: "PREEMPTED")
  *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created and is fully
  *        usable. (Value: "READY")
  *    @arg @c kGTLRTPU_Node_State_Reimaging TPU node is undergoing reimaging.
@@ -650,13 +658,6 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
 /** The version for reimage to create. */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
-@end
-
-
-/**
- *  Request for ResetNode.
- */
-@interface GTLRTPU_ResetNodeRequest : GTLRObject
 @end
 
 
