@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GoogleAPIClientForREST'
-  s.version      = '1.3.5'
+  s.version      = '1.3.6'
   s.author       = 'Google Inc.'
   s.homepage     = 'https://github.com/google/google-api-objectivec-client-for-rest'
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
