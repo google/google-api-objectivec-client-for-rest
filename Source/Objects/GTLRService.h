@@ -272,8 +272,10 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 /**
  *  Some services require a developer key for quotas and limits.
  *
- *  If you have enabled the iOS API Key Restriction, you will also
- *  want to look at the @c APIKeyRestrictionBundleID property.
+ *  If you have enabled the iOS API Key Restriction, you will want
+ *  to manually set the @c APIKeyRestrictionBundleID property, or
+ *  use -includeBundleIDRestrictionWithAPIKey: to set your API key
+ *  and set the restriction to the main bundle's bundle id.
  */
 @property(nonatomic, copy, nullable) NSString *APIKey;
 
@@ -284,6 +286,12 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *    https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
  */
 @property(nonatomic, copy, nullable) NSString *APIKeyRestrictionBundleID;
+
+/**
+ *  Helper method to set the @c APIKey to the given value and set the
+ *  @c APIKeyRestrictionBundleID to the main bundle's bundle identifier.
+ */
+- (void)setMainBundleIDRestrictionWithAPIKey:(NSString *)apiKey;
 
 /**
  *  An authorizer adds user authentication headers to the request as needed.
