@@ -64,6 +64,8 @@ NSString *const kGTLRServiceTicketStoppedNotification = @"kGTLRServiceTicketStop
 NSString *const kGTLRServiceTicketParsingStartedNotification = @"kGTLRServiceTicketParsingStartedNotification";
 NSString *const kGTLRServiceTicketParsingStoppedNotification = @"kGTLRServiceTicketParsingStoppedNotification";
 
+NSString *const kXIosBundleIdHeader = @"X-Ios-Bundle-Identifier";
+
 static NSString *const kDeveloperAPIQueryParamKey = @"key";
 
 static const NSUInteger kMaxNumberOfNextPagesFetched = 25;
@@ -261,6 +263,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
             allowInsecureQueries = _allowInsecureQueries,
             callbackQueue = _callbackQueue,
             APIKey = _apiKey,
+            APIKeyRestrictionBundleID = _apiKeyRestrictionBundleID,
             batchPath = _batchPath,
             dataWrapperRequired = _dataWrapperRequired,
             fetcherService = _fetcherService,
@@ -480,6 +483,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                                 ETag:nil
                                           httpMethod:query.httpMethod
                                               ticket:nil];
+  NSString *apiRestriction = self.APIKeyRestrictionBundleID;
+  if ([apiRestriction length] > 0) {
+    [request setValue:apiRestriction forHTTPHeaderField:kXIosBundleIdHeader];
+  }
 
   NSDictionary *headers = self.additionalHTTPHeaders;
   for (NSString *key in headers) {
@@ -583,7 +590,22 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     }
   }
 
-  NSDictionary *additionalHeaders = executingQuery.additionalHTTPHeaders;
+  NSDictionary *additionalHeaders = nil;
+  NSString *restriction = self.APIKeyRestrictionBundleID;
+  if ([restriction length] > 0) {
+    additionalHeaders = @{ kXIosBundleIdHeader : restriction };
+  }
+
+  NSDictionary *queryAdditionalHeaders = executingQuery.additionalHTTPHeaders;
+  if (queryAdditionalHeaders) {
+    if (additionalHeaders) {
+      NSMutableDictionary *builder = [additionalHeaders mutableCopy];
+      [builder addEntriesFromDictionary:queryAdditionalHeaders];
+      additionalHeaders = builder;
+    } else {
+      additionalHeaders = queryAdditionalHeaders;
+    }
+  }
 
   NSURLRequest *request = [self objectRequestForURL:targetURL
                                              object:bodyObject
@@ -2426,6 +2448,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 }
 
 @synthesize APIKey = _apiKey,
+            APIKeyRestrictionBundleID = _apiKeyRestrictionBundleID,
             allowInsecureQueries = _allowInsecureQueries,
             authorizer = _authorizer,
             cancelled = _cancelled,
@@ -2504,6 +2527,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     _callbackGroup = dispatch_group_create();
 
     _apiKey = [service.APIKey copy];
+    _apiKeyRestrictionBundleID = [service.APIKeyRestrictionBundleID copy];
     _allowInsecureQueries = service.allowInsecureQueries;
 
 #if GTM_BACKGROUND_TASK_FETCHING
@@ -2520,6 +2544,11 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   if (_apiKey != nil) {
     devKeyInfo = [NSString stringWithFormat:@" devKey:%@", _apiKey];
   }
+  NSString *keyRestrictionInfo = @"";
+  if (_apiKeyRestrictionBundleID != nil) {
+    keyRestrictionInfo = [NSString stringWithFormat:@" restriction:%@",
+                          _apiKeyRestrictionBundleID];
+  }
 
   NSString *authorizerInfo = @"";
   id <GTMFetcherAuthorizationProtocol> authorizer = self.objectFetcher.authorizer;
@@ -2527,8 +2556,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     authorizerInfo = [NSString stringWithFormat:@" authorizer:%@", authorizer];
   }
 
-  return [NSString stringWithFormat:@"%@ %p: {service:%@%@%@ fetcher:%@ }",
-    [self class], self, _service, devKeyInfo, authorizerInfo, _objectFetcher];
+  return [NSString stringWithFormat:@"%@ %p: {service:%@%@%@%@ fetcher:%@ }",
+    [self class], self,
+    _service, devKeyInfo, keyRestrictionInfo, authorizerInfo, _objectFetcher];
 }
 
 - (void)postNotificationOnMainThreadWithName:(NSString *)name

@@ -100,6 +100,13 @@ extern NSString *const kGTLRServiceTicketParsingStartedNotification;
  */
 extern NSString *const kGTLRServiceTicketParsingStoppedNotification;
 
+/**
+ *  The header name used for to send an Applicatoin's Bundle Identifier.
+ *  For more information on adding API restrictions see the docs:
+ *    https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
+ */
+extern NSString *const kXIosBundleIdHeader;
+
 @class GTLRServiceTicket;
 
 /**
@@ -264,8 +271,19 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 
 /**
  *  Some services require a developer key for quotas and limits.
+ *
+ *  If you have enabled the iOS API Key Restriction, you will also
+ *  want to look at the @c APIKeyRestrictionBundleID property.
  */
 @property(nonatomic, copy, nullable) NSString *APIKey;
+
+/**
+ *  The Bundle Identifier to use for the API key restriciton. This will be
+ *  sent in an X-Ios-Bundle-Identifier header; for more information see
+ *  the API key documentation
+ *    https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
+ */
+@property(nonatomic, copy, nullable) NSString *APIKeyRestrictionBundleID;
 
 /**
  *  An authorizer adds user authentication headers to the request as needed.
@@ -752,6 +770,11 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *  The API key used for the query requeat.
  */
 @property(atomic, readonly, nullable) NSString *APIKey;
+
+/**
+ *  The Bundle Identifier to use for the API key restriciton.
+ */
+@property(atomic, readonly, nullable) NSString *APIKeyRestrictionBundleID;
 
 #pragma mark Status
 
