@@ -1086,6 +1086,17 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepImages;
 
+/**
+ *  List of build step outputs, produced by builder images, in the order
+ *  corresponding to build step indices.
+ *  Builders can produce this output by writing to `$BUILDER_OUTPUT/output`.
+ *  Only the first 4KB of data is stored.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepOutputs;
+
 /** Container images that were built as a part of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuiltImage *> *images;
 

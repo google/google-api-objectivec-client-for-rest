@@ -27,6 +27,7 @@
 @class GTLRCloudIot_DeviceRegistry;
 @class GTLRCloudIot_DeviceState;
 @class GTLRCloudIot_EventNotificationConfig;
+@class GTLRCloudIot_Expr;
 @class GTLRCloudIot_HttpConfig;
 @class GTLRCloudIot_MqttConfig;
 @class GTLRCloudIot_Policy;
@@ -162,6 +163,14 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudIot_Binding : GTLRObject
+
+/**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIot_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
@@ -534,6 +543,46 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  subfolders are not supported for state changes.
  */
 @property(nonatomic, copy, nullable) NSString *subfolderMatches;
+
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRCloudIot_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

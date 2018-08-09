@@ -41,7 +41,7 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -161,6 +161,21 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 
 @implementation GTLRCloudIot_EventNotificationConfig
 @dynamic pubsubTopicName, subfolderMatches;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_Expr
+//
+
+@implementation GTLRCloudIot_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

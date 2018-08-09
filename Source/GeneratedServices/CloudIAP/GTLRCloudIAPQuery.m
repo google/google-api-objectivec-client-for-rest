@@ -18,25 +18,6 @@
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthClientIdsHandleRedirect
-
-@dynamic authuser, clientId, code, hd, prompt, sessionState, state;
-
-+ (instancetype)queryWithClientId:(NSString *)clientId {
-  NSArray *pathParams = @[ @"clientId" ];
-  NSString *pathURITemplate = @"v1beta1/oauth/clientIds/{+clientId}:handleRedirect";
-  GTLRCloudIAPQuery_OauthClientIdsHandleRedirect *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.clientId = clientId;
-  query.expectedObjectClass = [GTLRCloudIAP_Empty class];
-  query.loggingName = @"iap.oauth.clientIds.handleRedirect";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudIAPQuery_ProjectsIapWebGetIamPolicy
 
 @dynamic resource;

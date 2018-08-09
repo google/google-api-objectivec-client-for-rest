@@ -1506,10 +1506,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  The metric type, including its DNS name prefix. The type is not URL-encoded.
- *  All user-defined custom metric types have the DNS name
- *  custom.googleapis.com. Metric types should use a natural hierarchical
+ *  All user-defined metric types have the DNS name custom.googleapis.com or
+ *  external.googleapis.com. Metric types should use a natural hierarchical
  *  grouping. For example:
  *  "custom.googleapis.com/invoice/paid/amount"
+ *  "external.googleapis.com/prometheus/up"
  *  "appengine.googleapis.com/http/server/response_latencies"
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -1955,6 +1956,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /** Stackdriver Trace identifier for this request. */
 @property(nonatomic, copy, nullable) NSString *traceId;
+
+/**
+ *  If true, the value in the 'trace_id' field was sampled for storage in a
+ *  trace backend.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *traceSampled;
 
 /** File or class that handled the request. */
 @property(nonatomic, copy, nullable) NSString *urlMapEntry;

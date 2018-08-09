@@ -195,13 +195,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdSense_AdCode : GTLRObject
 
-/** The ad code snippet. */
+/** The Auto ad code snippet. The ad code snippet. */
 @property(nonatomic, copy, nullable) NSString *adCode;
 
-/** The ad code snippet that goes in the body of an AMP page. */
+/** The AMP Auto ad code snippet that goes in the body of an AMP page. */
 @property(nonatomic, copy, nullable) NSString *ampBody;
 
-/** The ad code snippet that goes in the head of an AMP page. */
+/** The AMP Auto ad code snippet that goes in the head of an AMP page. */
 @property(nonatomic, copy, nullable) NSString *ampHead;
 
 /** Kind this is, in this case adsense#adCode. */

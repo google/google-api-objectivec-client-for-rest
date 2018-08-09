@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Activity API (appsactivity/v1)
+//   Drive Activity API (appsactivity/v1)
 // Description:
 //   Provides a historical view of activity.
 // Documentation:

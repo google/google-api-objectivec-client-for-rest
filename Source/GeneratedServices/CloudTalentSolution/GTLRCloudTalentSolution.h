@@ -2,13 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Job Discovery (jobs/v2)
+//   Cloud Talent Solution API (jobs/v3)
 // Description:
-//   Cloud Job Discovery provides the capability to create, read, update, and
+//   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
 // Documentation:
 //   https://cloud.google.com/job-discovery/docs
 
-#import "GTLRJobServiceObjects.h"
-#import "GTLRJobServiceQuery.h"
-#import "GTLRJobServiceService.h"
+#import "GTLRCloudTalentSolutionObjects.h"
+#import "GTLRCloudTalentSolutionQuery.h"
+#import "GTLRCloudTalentSolutionService.h"

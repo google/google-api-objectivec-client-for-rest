@@ -4299,17 +4299,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) NSNumber *enableAutoPopulationOfTimespanConfig;
 
 /**
- *  Exclude files newer than this value.
+ *  Exclude files or rows newer than this value.
  *  If set to zero, no upper time limit is applied.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Exclude files older than this value. */
+/** Exclude files or rows older than this value. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Specification of the field containing the timestamp of scanned items.
- *  Required for data sources like Datastore or BigQuery.
+ *  Used for data sources like Datastore or BigQuery.
+ *  If not specified for BigQuery, table last modification timestamp
+ *  is checked against given time span.
  *  The valid data types of the timestamp field are:
  *  for BigQuery - timestamp, date, datetime;
  *  for Datastore - timestamp.

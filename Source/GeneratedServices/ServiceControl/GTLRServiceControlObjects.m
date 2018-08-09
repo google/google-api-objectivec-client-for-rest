@@ -443,8 +443,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_LogEntry
-@dynamic insertId, labels, name, protoPayload, severity, structPayload,
-         textPayload, timestamp;
+@dynamic insertId, labels, name, operation, protoPayload, severity,
+         structPayload, textPayload, timestamp;
 @end
 
 
@@ -485,6 +485,21 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_LogEntryOperation
+//
+
+@implementation GTLRServiceControl_LogEntryOperation
+@dynamic first, identifier, last, producer;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

@@ -17,6 +17,7 @@
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Contention = @"CONTENTION";
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Cpu = @"CPU";
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Heap = @"HEAP";
+NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_HeapAlloc = @"HEAP_ALLOC";
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_PeakHeap = @"PEAK_HEAP";
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Threads = @"THREADS";
@@ -26,6 +27,7 @@ NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Wall = @"WA
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_Contention = @"CONTENTION";
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_Cpu    = @"CPU";
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_Heap   = @"HEAP";
+NSString * const kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc = @"HEAP_ALLOC";
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_PeakHeap = @"PEAK_HEAP";
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudProfiler_Profile_ProfileType_Threads = @"THREADS";

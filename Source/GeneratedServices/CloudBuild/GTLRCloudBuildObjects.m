@@ -442,11 +442,13 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_Results
-@dynamic artifactManifest, buildStepImages, images, numArtifacts;
+@dynamic artifactManifest, buildStepImages, buildStepOutputs, images,
+         numArtifacts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buildStepImages" : [NSString class],
+    @"buildStepOutputs" : [NSString class],
     @"images" : [GTLRCloudBuild_BuiltImage class]
   };
   return map;

@@ -40,6 +40,7 @@
 @class GTLRServiceControl_LogEntry_Labels;
 @class GTLRServiceControl_LogEntry_ProtoPayload;
 @class GTLRServiceControl_LogEntry_StructPayload;
+@class GTLRServiceControl_LogEntryOperation;
 @class GTLRServiceControl_MetricValue;
 @class GTLRServiceControl_MetricValue_Labels;
 @class GTLRServiceControl_MetricValueSet;
@@ -1415,6 +1416,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Information about an operation associated with the log entry, if
+ *  applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntryOperation *operation;
+
+/**
  *  The log entry payload, represented as a protocol buffer that is
  *  expressed as a JSON object. The only accepted type currently is
  *  AuditLog.
@@ -1503,6 +1510,44 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_LogEntry_StructPayload : GTLRObject
+@end
+
+
+/**
+ *  Additional information about a potentially long-running operation with which
+ *  a log entry is associated.
+ */
+@interface GTLRServiceControl_LogEntryOperation : GTLRObject
+
+/**
+ *  Optional. Set this to True if this is the first log entry in the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *first;
+
+/**
+ *  Optional. An arbitrary operation identifier. Log entries with the
+ *  same identifier are assumed to be part of the same operation.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Set this to True if this is the last log entry in the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last;
+
+/**
+ *  Optional. An arbitrary producer identifier. The combination of
+ *  `id` and `producer` must be globally unique. Examples for `producer`:
+ *  `"MyDivision.MyBigCompany.com"`, `"github.com/MyProject/MyApplication"`.
+ */
+@property(nonatomic, copy, nullable) NSString *producer;
+
 @end
 
 

@@ -6,7 +6,7 @@
 // Description:
 //   Manages the execution of large numbers of distributed requests.
 // Documentation:
-//   https://cloud.google.com/cloud-tasks/
+//   https://cloud.google.com/tasks/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -144,7 +144,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.create
@@ -177,7 +178,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
@@ -203,7 +205,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.delete
@@ -232,7 +235,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  @param name Required.
@@ -283,8 +287,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Gets the access control policy for a Queue.
  *  Returns an empty policy if the resource exists and does not have a policy
  *  set.
- *  Authorization requires the following [Google IAM](/iam) permission on the
- *  specified resource parent:
+ *  Authorization requires the following
+ *  [Google IAM](https://cloud.google.com/iam) permission on the specified
+ *  resource parent:
  *  * `cloudtasks.queues.getIamPolicy`
  *
  *  Method: cloudtasks.projects.locations.queues.getIamPolicy
@@ -308,8 +313,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Gets the access control policy for a Queue.
  *  Returns an empty policy if the resource exists and does not have a policy
  *  set.
- *  Authorization requires the following [Google IAM](/iam) permission on the
- *  specified resource parent:
+ *  Authorization requires the following
+ *  [Google IAM](https://cloud.google.com/iam) permission on the specified
+ *  resource parent:
  *  * `cloudtasks.queues.getIamPolicy`
  *
  *  @param object The @c GTLRCloudTasks_GetIamPolicyRequest to include in the
@@ -343,7 +349,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  field can be used as a filter and several operators as supported.
  *  For example: `<=, <, >=, >, !=, =, :`. The filter syntax is the same as
  *  described in
- *  [Stackdriver's Advanced Logs Filters](/logging/docs/view/advanced_filters).
+ *  [Stackdriver's Advanced Logs
+ *  Filters](https://cloud.google.com/logging/docs/view/advanced_filters).
  *  Sample filter "app_engine_http_target: *".
  *  Note that using filters might cause fewer queues than the
  *  requested_page size to be returned.
@@ -409,7 +416,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  Method: cloudtasks.projects.locations.queues.patch
@@ -431,7 +439,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  hyphens (-), colons (:), or periods (.).
  *  For more information, see
  *  [Identifying
- *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the queue's location.
  *  The list of available locations can be obtained by calling
  *  ListLocations.
@@ -462,7 +470,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  WARNING: Using this method may have unintended side effects if you are
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
- *  [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
+ *  [Overview of Queue Management and
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
  *  before using this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
@@ -475,7 +484,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    hyphens (-), colons (:), or periods (.).
  *    For more information, see
  *    [Identifying
- *    projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *    projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
  *    * `LOCATION_ID` is the canonical ID for the queue's location.
  *    The list of available locations can be obtained by calling
  *    ListLocations.
@@ -591,7 +600,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
  *  [Managing Cloud Tasks Scaling
- *  Risks](/cloud-tasks/pdfs/managing-cloud-tasks-scaling-risks-2017-06-05.pdf).
+ *  Risks](https://cloud.google.com/tasks/docs/manage-cloud-task-scaling).
  *
  *  Method: cloudtasks.projects.locations.queues.resume
  *
@@ -622,7 +631,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  lead to target overloading. If you are resuming high-QPS
  *  queues, follow the 500/50/5 pattern described in
  *  [Managing Cloud Tasks Scaling
- *  Risks](/cloud-tasks/pdfs/managing-cloud-tasks-scaling-risks-2017-06-05.pdf).
+ *  Risks](https://cloud.google.com/tasks/docs/manage-cloud-task-scaling).
  *
  *  @param object The @c GTLRCloudTasks_ResumeQueueRequest to include in the
  *    query.
@@ -642,8 +651,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  policy.
  *  Note: The Cloud Console does not check queue-level IAM permissions yet.
  *  Project-level permissions are required to use the Cloud Console.
- *  Authorization requires the following [Google IAM](/iam) permission on the
- *  specified resource parent:
+ *  Authorization requires the following
+ *  [Google IAM](https://cloud.google.com/iam) permission on the specified
+ *  resource parent:
  *  * `cloudtasks.queues.setIamPolicy`
  *
  *  Method: cloudtasks.projects.locations.queues.setIamPolicy
@@ -668,8 +678,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  policy.
  *  Note: The Cloud Console does not check queue-level IAM permissions yet.
  *  Project-level permissions are required to use the Cloud Console.
- *  Authorization requires the following [Google IAM](/iam) permission on the
- *  specified resource parent:
+ *  Authorization requires the following
+ *  [Google IAM](https://cloud.google.com/iam) permission on the specified
+ *  resource parent:
  *  * `cloudtasks.queues.setIamPolicy`
  *
  *  @param object The @c GTLRCloudTasks_SetIamPolicyRequest to include in the
@@ -790,10 +801,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Creates a task and adds it to a queue.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
- *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
- *  the maximum task size is 100KB.
- *  * For [pull queues](google.cloud.tasks.v2beta2.PullTarget), this
- *  the maximum task size is 1MB.
+ *  * For App Engine queues, the maximum task size is
+ *  100KB.
+ *  * For pull queues, the maximum task size is 1MB.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.create
  *
@@ -817,10 +827,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  Creates a task and adds it to a queue.
  *  Tasks cannot be updated after creation; there is no UpdateTask command.
- *  * For [App Engine queues](google.cloud.tasks.v2beta2.AppEngineHttpTarget),
- *  the maximum task size is 100KB.
- *  * For [pull queues](google.cloud.tasks.v2beta2.PullTarget), this
- *  the maximum task size is 1MB.
+ *  * For App Engine queues, the maximum task size is
+ *  100KB.
+ *  * For pull queues, the maximum task size is 1MB.
  *
  *  @param object The @c GTLRCloudTasks_CreateTaskRequest to include in the
  *    query.
@@ -904,8 +913,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasksResponseViewViewUnspecified Value
@@ -1009,6 +1018,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  due to performance considerations;
  *  response_view controls the
  *  subset of information which is returned.
+ *  The tasks may be returned in any order. The ordering may change at any
+ *  time.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.list
  *
@@ -1056,8 +1067,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  of its large size or because of the sensitivity of data that it
  *  contains.
  *  Authorization for FULL requires
- *  `cloudtasks.tasks.fullView` [Google IAM](/iam/) permission on the
- *  Task resource.
+ *  `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/)
+ *  permission on the Task resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasksResponseViewViewUnspecified Value
@@ -1075,6 +1086,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  due to performance considerations;
  *  response_view controls the
  *  subset of information which is returned.
+ *  The tasks may be returned in any order. The ordering may change at any
+ *  time.
  *
  *  @param parent Required.
  *    The queue name. For example:

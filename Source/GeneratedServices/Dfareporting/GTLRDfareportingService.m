@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -28,10 +28,10 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"dfareporting/v3.1/";
+    self.servicePath = @"dfareporting/v3.2/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/dfareporting/v3.1";
+    self.batchPath = @"batch/dfareporting/v3.2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

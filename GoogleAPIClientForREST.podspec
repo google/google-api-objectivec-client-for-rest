@@ -192,6 +192,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudSourceRepositories/*.{h,m}'
   end
+  s.subspec 'CloudTalentSolution' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudTalentSolution/*.{h,m}'
+  end
   s.subspec 'CloudTasks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudTasks/*.{h,m}'
@@ -351,10 +355,6 @@ Pod::Spec.new do |s|
   s.subspec 'Indexing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Indexing/*.{h,m}'
-  end
-  s.subspec 'JobService' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/JobService/*.{h,m}'
   end
   s.subspec 'Kgsearch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

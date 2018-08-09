@@ -25,6 +25,9 @@
 @class GTLRIam_AuditLogConfig;
 @class GTLRIam_Binding;
 @class GTLRIam_BindingDelta;
+@class GTLRIam_Expr;
+@class GTLRIam_LintPolicyRequest_Context;
+@class GTLRIam_LintResult;
 @class GTLRIam_Permission;
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
@@ -137,6 +140,95 @@ GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyT
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_LintResult.level
+
+/**
+ *  A validation unit which operates on an individual binding. It is executed
+ *  in both cases where the input object to lint is of type
+ *  google.iam.v1.Policy or google.iam.v1.Binding.
+ *
+ *  Value: "BINDING"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_Binding;
+/**
+ *  A validation unit which operates on an individual condition within a
+ *  binding. It is executed in all three cases where the input object to
+ *  lint is of type google.iam.v1.Policy,
+ *  google.iam.v1.Binding or
+ *  google.iam.v1.Binding.condition.
+ *
+ *  Value: "CONDITION"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_Condition;
+/**
+ *  Level is unspecified.
+ *
+ *  Value: "LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_LevelUnspecified;
+/**
+ *  A validation unit which operates on a policy. It is executed only if the
+ *  input object to lint is of type google.iam.v1.Policy.
+ *
+ *  Value: "POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_Policy;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_LintResult.severity
+
+/**
+ *  Deprecated severity level.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Deprecated;
+/**
+ *  A validation unit returns an error only for critical issues. If an
+ *  attempt is made to set the problematic policy without rectifying the
+ *  critical issue, it causes the `setPolicy` operation to fail.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Error;
+/**
+ *  Any informative statement which is not severe enough to raise
+ *  `ERROR`/`WARNING`/`NOTICE`, like auto-correction recommendations on the
+ *  input content. Note that current version of the linter does not utilize
+ *  `INFO`.
+ *
+ *  Value: "INFO"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Info;
+/**
+ *  Reserved for the issues that are not severe as `ERROR`/`WARNING`, but
+ *  need special handling. For instance, messages about skipped validation
+ *  units are issued as `NOTICE`.
+ *
+ *  Value: "NOTICE"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Notice;
+/**
+ *  Severity is unspecified.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified;
+/**
+ *  Any issue which is severe enough but does not cause an error.
+ *  For example, suspicious constructs in the input object will not
+ *  necessarily fail `setPolicy`, but there is a high likelihood that they
+ *  won't behave as expected during policy evaluation in `checkPolicy`.
+ *  This includes the following common scenarios:
+ *  - Unsatisfiable condition: Expired timestamp in date/time condition.
+ *  - Ineffective condition: Condition on a <member, role> pair which is
+ *  granted unconditionally in another binding of the same policy.
+ *
+ *  Value: "WARNING"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_Permission.customRolesSupportLevel
@@ -435,6 +527,14 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @interface GTLRIam_Binding : GTLRObject
 
 /**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -480,6 +580,12 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *        "REMOVE")
  */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  This field is logged only for Cloud Audit Logging.
+ */
+@property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
 
 /**
  *  A single identity requesting access for a Cloud Platform resource.
@@ -588,6 +694,237 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRIam_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRIam_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The request to lint a Cloud IAM policy object. LintPolicy is currently
+ *  functional only for `lint_object` of type `condition`.
+ */
+@interface GTLRIam_LintPolicyRequest : GTLRObject
+
+/**
+ *  Binding object to be linted. The functionality of linting a binding is
+ *  not yet implemented and if this field is set, it returns NOT_IMPLEMENTED
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRIam_Binding *binding;
+
+/** google.iam.v1.Binding.condition object to be linted. */
+@property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
+
+/**
+ *  `context` contains additional *permission-controlled* data that any
+ *  lint unit may depend on, in form of `{key: value}` pairs. Currently, this
+ *  field is non-operational and it will not be used during the lint operation.
+ */
+@property(nonatomic, strong, nullable) GTLRIam_LintPolicyRequest_Context *context;
+
+/**
+ *  The full resource name of the policy this lint request is about.
+ *  The name follows the Google Cloud Platform (GCP) resource format.
+ *  For example, a GCP project with ID `my-project` will be named
+ *  `//cloudresourcemanager.googleapis.com/projects/my-project`.
+ *  The resource name is not used to read the policy instance from the Cloud
+ *  IAM database. The candidate policy for lint has to be provided in the same
+ *  request object.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  Policy object to be linted. The functionality of linting a policy is not
+ *  yet implemented and if this field is set, it returns NOT_IMPLEMENTED
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRIam_Policy *policy;
+
+@end
+
+
+/**
+ *  `context` contains additional *permission-controlled* data that any
+ *  lint unit may depend on, in form of `{key: value}` pairs. Currently, this
+ *  field is non-operational and it will not be used during the lint operation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRIam_LintPolicyRequest_Context : GTLRObject
+@end
+
+
+/**
+ *  The response of a lint operation. An empty response indicates
+ *  the operation was able to fully execute and no lint issue was found.
+ */
+@interface GTLRIam_LintPolicyResponse : GTLRObject
+
+/**
+ *  List of lint results sorted by a composite <severity, binding_ordinal> key,
+ *  descending order of severity and ascending order of binding_ordinal.
+ *  There is no certain order among the same keys.
+ *  For cross-binding results (only if the input object to lint is
+ *  instance of google.iam.v1.Policy), there will be a
+ *  google.iam.admin.v1.LintResult for each of the involved bindings,
+ *  and the associated debug_message may enumerate the other involved
+ *  binding ordinal number(s).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIam_LintResult *> *lintResults;
+
+@end
+
+
+/**
+ *  Structured response of a single validation unit.
+ */
+@interface GTLRIam_LintResult : GTLRObject
+
+/**
+ *  0-based index ordinality of the binding in the input object associated
+ *  with this result.
+ *  This field is populated only if the input object to lint is of type
+ *  google.iam.v1.Policy, which can comprise more than one binding.
+ *  It is set to -1 if the result is not associated with any particular
+ *  binding and only targets the policy as a whole, such as results about
+ *  policy size violations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bindingOrdinal;
+
+/** Human readable debug message associated with the issue. */
+@property(nonatomic, copy, nullable) NSString *debugMessage;
+
+/**
+ *  The name of the field for which this lint result is about, relative to the
+ *  input object to lint in the request.
+ *  For nested messages, `field_name` consists of names of the embedded fields
+ *  separated by period character. For instance, if the lint request is on a
+ *  google.iam.v1.Policy and this lint result is about a condition
+ *  expression of one of the input policy bindings, the field would be
+ *  populated as `bindings.condition.expression`.
+ *  This field does not identify the ordinality of the repetitive fields (for
+ *  instance bindings in a policy).
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  The validation unit level.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_LintResult_Level_Binding A validation unit which operates
+ *        on an individual binding. It is executed
+ *        in both cases where the input object to lint is of type
+ *        google.iam.v1.Policy or google.iam.v1.Binding. (Value: "BINDING")
+ *    @arg @c kGTLRIam_LintResult_Level_Condition A validation unit which
+ *        operates on an individual condition within a
+ *        binding. It is executed in all three cases where the input object to
+ *        lint is of type google.iam.v1.Policy,
+ *        google.iam.v1.Binding or
+ *        google.iam.v1.Binding.condition. (Value: "CONDITION")
+ *    @arg @c kGTLRIam_LintResult_Level_LevelUnspecified Level is unspecified.
+ *        (Value: "LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRIam_LintResult_Level_Policy A validation unit which operates
+ *        on a policy. It is executed only if the
+ *        input object to lint is of type google.iam.v1.Policy. (Value:
+ *        "POLICY")
+ */
+@property(nonatomic, copy, nullable) NSString *level;
+
+/**
+ *  0-based character position of problematic construct within the object
+ *  identified by `field_name`. Currently, this is populated only for condition
+ *  expression.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locationOffset;
+
+/**
+ *  The validation unit severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_LintResult_Severity_Deprecated Deprecated severity level.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRIam_LintResult_Severity_Error A validation unit returns an
+ *        error only for critical issues. If an
+ *        attempt is made to set the problematic policy without rectifying the
+ *        critical issue, it causes the `setPolicy` operation to fail. (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRIam_LintResult_Severity_Info Any informative statement which
+ *        is not severe enough to raise
+ *        `ERROR`/`WARNING`/`NOTICE`, like auto-correction recommendations on
+ *        the
+ *        input content. Note that current version of the linter does not
+ *        utilize
+ *        `INFO`. (Value: "INFO")
+ *    @arg @c kGTLRIam_LintResult_Severity_Notice Reserved for the issues that
+ *        are not severe as `ERROR`/`WARNING`, but
+ *        need special handling. For instance, messages about skipped validation
+ *        units are issued as `NOTICE`. (Value: "NOTICE")
+ *    @arg @c kGTLRIam_LintResult_Severity_SeverityUnspecified Severity is
+ *        unspecified. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRIam_LintResult_Severity_Warning Any issue which is severe
+ *        enough but does not cause an error.
+ *        For example, suspicious constructs in the input object will not
+ *        necessarily fail `setPolicy`, but there is a high likelihood that they
+ *        won't behave as expected during policy evaluation in `checkPolicy`.
+ *        This includes the following common scenarios:
+ *        - Unsatisfiable condition: Expired timestamp in date/time condition.
+ *        - Ineffective condition: Condition on a <member, role> pair which is
+ *        granted unconditionally in another binding of the same policy. (Value:
+ *        "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  The validation unit name, for instance
+ *  “lintValidationUnits/ConditionComplexityCheck”.
+ */
+@property(nonatomic, copy, nullable) NSString *validationUnitName;
+
 @end
 
 

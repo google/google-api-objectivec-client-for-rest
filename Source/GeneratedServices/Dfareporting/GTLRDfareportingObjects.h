@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.1)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -1346,12 +1346,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U99
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DateRange.relativeDateRange
 
+/** Value: "LAST_14_DAYS" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last14Days;
 /** Value: "LAST_24_MONTHS" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last24Months;
 /** Value: "LAST_30_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last30Days;
 /** Value: "LAST_365_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last365Days;
+/** Value: "LAST_60_DAYS" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last60Days;
 /** Value: "LAST_7_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last7Days;
 /** Value: "LAST_90_DAYS" */
@@ -4857,7 +4861,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @interface GTLRDfareporting_Conversion : GTLRObject
 
 /**
- *  Whether the conversion was directed toward children.
+ *  Whether this particular request may come from a user under the age of 13,
+ *  under COPPA compliance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4929,6 +4934,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
 /**
+ *  Whether the conversion was for a non personalized ad.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonPersonalizedAd;
+
+/**
  *  The ordinal of the conversion. Use this field to control how conversions of
  *  the same user and day are de-duplicated. This is a required field.
  */
@@ -4947,6 +4959,15 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timestampMicros;
+
+/**
+ *  Whether this particular request may come from a user under the age of 16
+ *  (may differ by country), under compliance with the EU?s General Data
+ *  Protection Regulation (GDPR).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *treatmentForUnderage;
 
 /**
  *  The value of the conversion.
@@ -5183,6 +5204,14 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Additional sizes associated with a responsive creative. When inserting or
+ *  updating a creative either the size ID field or size width and height fields
+ *  can be used. Applicable to DISPLAY creatives when the primary asset type is
+ *  HTML_IMAGE
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
 
 /**
  *  Ad parameters user for VPAID creative. This is a read-only field. Applicable
@@ -5786,6 +5815,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Additional sizes associated with this creative asset. HTML5 asset generated
+ *  by compatible software such as GWD will be able to support more sizes this
+ *  creative asset can render.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
 
 /**
  *  Possible alignments for an asset. This is a read-only field. Applicable to
@@ -7270,12 +7306,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  The date range relative to the date of when the report is run.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last14Days Value
+ *        "LAST_14_DAYS"
  *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last24Months Value
  *        "LAST_24_MONTHS"
  *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last30Days Value
  *        "LAST_30_DAYS"
  *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last365Days Value
  *        "LAST_365_DAYS"
+ *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last60Days Value
+ *        "LAST_60_DAYS"
  *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last7Days Value
  *        "LAST_7_DAYS"
  *    @arg @c kGTLRDfareporting_DateRange_RelativeDateRange_Last90Days Value
@@ -10606,6 +10646,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adBlockingOptOut;
+
+/**
+ *  Additional sizes associated with this placement. When inserting or updating
+ *  a placement, only the size ID field is used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
 
 /**
  *  Advertiser ID of this placement. This field can be left blank.

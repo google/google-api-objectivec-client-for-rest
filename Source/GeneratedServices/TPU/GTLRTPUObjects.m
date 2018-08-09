@@ -22,6 +22,7 @@ NSString * const kGTLRTPU_Node_Health_Unhealthy         = @"UNHEALTHY";
 // GTLRTPU_Node.state
 NSString * const kGTLRTPU_Node_State_Creating         = @"CREATING";
 NSString * const kGTLRTPU_Node_State_Deleting         = @"DELETING";
+NSString * const kGTLRTPU_Node_State_Preempted        = @"PREEMPTED";
 NSString * const kGTLRTPU_Node_State_Ready            = @"READY";
 NSString * const kGTLRTPU_Node_State_Reimaging        = @"REIMAGING";
 NSString * const kGTLRTPU_Node_State_Repairing        = @"REPAIRING";
@@ -302,15 +303,6 @@ NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 
 @implementation GTLRTPU_ReimageNodeRequest
 @dynamic tensorflowVersion;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTPU_ResetNodeRequest
-//
-
-@implementation GTLRTPU_ResetNodeRequest
 @end
 
 

@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeAdExperienceReportXapiZoo = @"https://www.googlea
     // From discovery.
     self.rootURLString = @"https://adexperiencereport.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

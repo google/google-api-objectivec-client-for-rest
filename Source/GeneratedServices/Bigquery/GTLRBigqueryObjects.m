@@ -592,7 +592,15 @@
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, query,
-         startTime, totalBytesProcessed;
+         quotaDeferments, startTime, totalBytesProcessed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quotaDeferments" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -603,7 +611,7 @@
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
-         estimatedBytesProcessed, modelTrainingCurrentIteration,
+         estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
          referencedTables, reservationUsage, schema, statementType, timeline,
          totalBytesBilled, totalBytesProcessed, totalPartitionsProcessed,
@@ -726,6 +734,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ModelTraining
+//
+
+@implementation GTLRBigquery_ModelTraining
+@dynamic currentIteration, expectedTotalIterations;
 @end
 
 

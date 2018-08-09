@@ -426,6 +426,30 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_DroppedLabels
+//
+
+@implementation GTLRMonitoring_DroppedLabels
+@dynamic label;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_DroppedLabels_Label
+//
+
+@implementation GTLRMonitoring_DroppedLabels_Label
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Empty
 //
 
@@ -1150,6 +1174,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_SourceContext
 @dynamic fileName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_SpanContext
+//
+
+@implementation GTLRMonitoring_SpanContext
+@dynamic spanName;
 @end
 
 

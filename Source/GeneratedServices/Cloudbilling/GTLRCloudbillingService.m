@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeCloudbillingCloudPlatform = @"https://www.googlea
     // From discovery.
     self.rootURLString = @"https://cloudbilling.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

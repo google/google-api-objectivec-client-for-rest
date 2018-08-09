@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Job Discovery (jobs/v2)
+//   Cloud Talent Solution API (jobs/v3)
 // Description:
-//   Cloud Job Discovery provides the capability to create, read, update, and
+//   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
 // Documentation:
 //   https://cloud.google.com/job-discovery/docs
@@ -34,32 +34,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/jobs"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeJobService;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolution;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeJobServiceCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolutionCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRJobServiceService
+//   GTLRCloudTalentSolutionService
 //
 
 /**
- *  Service for executing Cloud Job Discovery queries.
+ *  Service for executing Cloud Talent Solution API queries.
  *
- *  Cloud Job Discovery provides the capability to create, read, update, and
+ *  Cloud Talent Solution provides the capability to create, read, update, and
  *  delete job postings, as well as search jobs based on keywords and filters.
  */
-@interface GTLRJobServiceService : GTLRService
+@interface GTLRCloudTalentSolutionService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRJobServiceQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudTalentSolutionQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

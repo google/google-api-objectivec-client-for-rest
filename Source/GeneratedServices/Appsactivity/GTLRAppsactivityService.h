@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Activity API (appsactivity/v1)
+//   Drive Activity API (appsactivity/v1)
 // Description:
 //   Provides a historical view of activity.
 // Documentation:
@@ -40,7 +40,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAppsactivityActivity;
 //
 
 /**
- *  Service for executing G Suite Activity API queries.
+ *  Service for executing Drive Activity API queries.
  *
  *  Provides a historical view of activity.
  */

@@ -51,8 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Code to identify ApiScope (OAuth scope to be precise) to be included in the
- *  OAuth token.
+ *  Code to identify the scopes to be included in the OAuth 2.0 access token.
  *  See https://developers.google.com/identity/protocols/googlescopes for more
  *  information.
  *  At least one value required.
@@ -70,7 +69,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The OAuth 2.0 access token. */
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
-/** Token expiration time. */
+/**
+ *  Token expiration time.
+ *  The expiration time is always set.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 @end

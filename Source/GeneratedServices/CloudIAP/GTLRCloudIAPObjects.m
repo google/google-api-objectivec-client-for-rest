@@ -75,15 +75,6 @@ NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIAP_Empty
-//
-
-@implementation GTLRCloudIAP_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudIAP_Expr
 //
 

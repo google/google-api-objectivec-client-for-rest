@@ -21,6 +21,7 @@
 
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
+@class GTLRPubsub_Expr;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
 @class GTLRPubsub_Policy;
@@ -59,6 +60,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Associates `members` with a `role`.
  */
 @interface GTLRPubsub_Binding : GTLRObject
+
+/**
+ *  Unimplemented. The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
@@ -137,6 +146,46 @@ NS_ASSUME_NONNULL_BEGIN
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRPubsub_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRPubsub_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -265,8 +314,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A message data and its attributes. The message payload must not be empty;
- *  it must contain either a non-empty data field, or at least one attribute.
+ *  A message that is published by publishers and consumed by subscribers. The
+ *  message must contain either a non-empty data field or at least one
+ *  attribute.
  */
 @interface GTLRPubsub_Message : GTLRObject
 
@@ -274,7 +324,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_Message_Attributes *attributes;
 
 /**
- *  The message payload.
+ *  The message data field. If this field is empty, the message must contain
+ *  at least one attribute.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

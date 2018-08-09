@@ -41,6 +41,8 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType
 GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Cpu;
 /** Value: "HEAP" */
 GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Heap;
+/** Value: "HEAP_ALLOC" */
+GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_HeapAlloc;
 /** Value: "PEAK_HEAP" */
 GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_PeakHeap;
 /** Value: "PROFILE_TYPE_UNSPECIFIED" */
@@ -66,11 +68,23 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Contention;
  */
 GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Cpu;
 /**
- *  Heap allocation sampling.
+ *  In-use heap profile. Represents a snapshot of the allocations that are
+ *  live at the time of the profiling.
  *
  *  Value: "HEAP"
  */
 GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Heap;
+/**
+ *  Heap allocation profile. It represents the aggregation of all allocations
+ *  made over the duration of the profile. All allocations are included,
+ *  including those that might have been freed by the end of the profiling
+ *  interval. The profile is in particular useful for garbage collecting
+ *  languages to understand which parts of the code create most of the garbage
+ *  collection pressure to see if those can be optimized.
+ *
+ *  Value: "HEAP_ALLOC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc;
 /**
  *  Peak heap profile.
  *
@@ -221,8 +235,18 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  *        contention profile. (Value: "CONTENTION")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Cpu Thread CPU time
  *        sampling. (Value: "CPU")
- *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Heap Heap allocation
- *        sampling. (Value: "HEAP")
+ *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Heap In-use heap profile.
+ *        Represents a snapshot of the allocations that are
+ *        live at the time of the profiling. (Value: "HEAP")
+ *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc Heap allocation
+ *        profile. It represents the aggregation of all allocations
+ *        made over the duration of the profile. All allocations are included,
+ *        including those that might have been freed by the end of the profiling
+ *        interval. The profile is in particular useful for garbage collecting
+ *        languages to understand which parts of the code create most of the
+ *        garbage
+ *        collection pressure to see if those can be optimized. (Value:
+ *        "HEAP_ALLOC")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_PeakHeap Peak heap profile.
  *        (Value: "PEAK_HEAP")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_ProfileTypeUnspecified

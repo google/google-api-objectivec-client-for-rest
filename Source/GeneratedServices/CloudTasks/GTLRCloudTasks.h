@@ -6,7 +6,7 @@
 // Description:
 //   Manages the execution of large numbers of distributed requests.
 // Documentation:
-//   https://cloud.google.com/cloud-tasks/
+//   https://cloud.google.com/tasks/
 
 #import "GTLRCloudTasksObjects.h"
 #import "GTLRCloudTasksQuery.h"
