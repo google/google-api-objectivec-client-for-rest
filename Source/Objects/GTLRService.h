@@ -101,7 +101,7 @@ extern NSString *const kGTLRServiceTicketParsingStartedNotification;
 extern NSString *const kGTLRServiceTicketParsingStoppedNotification;
 
 /**
- *  The header name used for to send an Applicatoin's Bundle Identifier.
+ *  The header name used to send an Application's Bundle Identifier.
  *  For more information on adding API restrictions see the docs:
  *    https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
  */
@@ -274,13 +274,13 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  If you have enabled the iOS API Key Restriction, you will want
  *  to manually set the @c APIKeyRestrictionBundleID property, or
- *  use -includeBundleIDRestrictionWithAPIKey: to set your API key
+ *  use -setMainBundleIDRestrictionWithAPIKey: to set your API key
  *  and set the restriction to the main bundle's bundle id.
  */
 @property(nonatomic, copy, nullable) NSString *APIKey;
 
 /**
- *  The Bundle Identifier to use for the API key restriciton. This will be
+ *  The Bundle Identifier to use for the API key restriction. This will be
  *  sent in an X-Ios-Bundle-Identifier header; for more information see
  *  the API key documentation
  *    https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
@@ -478,8 +478,8 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 
 /**
  *  A precise userAgent string to send on requests; no cleaning is done. When
- *  set, requestUserAgent be exactly this, no library or system information will
- *  be auto added.
+ *  set, requestUserAgent will be exactly this, no library or system information
+ *  will be auto added.
  *
  *  @param requestUserAgent A wire-ready user agent string.
  */
