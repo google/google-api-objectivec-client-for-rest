@@ -7,7 +7,7 @@
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
 // Documentation:
-//   https://cloud.google.com/job-discovery/docs
+//   https://cloud.google.com/talent-solution/job-search/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

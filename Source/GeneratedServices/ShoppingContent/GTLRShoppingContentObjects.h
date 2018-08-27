@@ -32,6 +32,9 @@
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountstatusesCustomBatchResponseEntry;
 @class GTLRShoppingContent_AccountStatusExampleItem;
+@class GTLRShoppingContent_AccountStatusItemLevelIssue;
+@class GTLRShoppingContent_AccountStatusProducts;
+@class GTLRShoppingContent_AccountStatusStatistics;
 @class GTLRShoppingContent_AccountTax;
 @class GTLRShoppingContent_AccounttaxCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccounttaxCustomBatchResponseEntry;
@@ -97,6 +100,8 @@
 @class GTLRShoppingContent_OrderPromotion;
 @class GTLRShoppingContent_OrderPromotionBenefit;
 @class GTLRShoppingContent_OrderRefund;
+@class GTLRShoppingContent_OrderReportDisbursement;
+@class GTLRShoppingContent_OrderReportTransaction;
 @class GTLRShoppingContent_OrderReturn;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntry;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryCancel;
@@ -578,6 +583,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  List of product-related data by channel, destination, and country. Data in
+ *  this field may be delayed by up to 30 minutes.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountStatusProducts *> *products;
+
+/**
  *  Whether the account's website is claimed or not.
  *
  *  Uses NSNumber of boolValue.
@@ -806,6 +817,105 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The actual value on the landing page. */
 @property(nonatomic, copy, nullable) NSString *valueOnLandingPage;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountStatusItemLevelIssue
+ */
+@interface GTLRShoppingContent_AccountStatusItemLevelIssue : GTLRObject
+
+/** The attribute's name, if the issue is caused by a single attribute. */
+@property(nonatomic, copy, nullable) NSString *attributeName;
+
+/** The error code of the issue. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A short issue description in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A detailed issue description in English. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** The URL of a web page to help with resolving this issue. */
+@property(nonatomic, copy, nullable) NSString *documentation;
+
+/**
+ *  Number of items with this issue.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numItems;
+
+/** Whether the issue can be resolved by the merchant. */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+/** How this issue affects serving of the offer. */
+@property(nonatomic, copy, nullable) NSString *servability;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountStatusProducts
+ */
+@interface GTLRShoppingContent_AccountStatusProducts : GTLRObject
+
+/** The channel the data applies to. */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/** The country the data applies to. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The destination the data applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** List of item-level issues. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountStatusItemLevelIssue *> *itemLevelIssues;
+
+/** Aggregated product statistics. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountStatusStatistics *statistics;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountStatusStatistics
+ */
+@interface GTLRShoppingContent_AccountStatusStatistics : GTLRObject
+
+/**
+ *  Number of active offers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Number of disapproved offers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disapproved;
+
+/**
+ *  Number of expiring offers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiring;
+
+/**
+ *  Number of pending offers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pending;
 
 @end
 
@@ -2238,23 +2348,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary *> *additionalChargeSummaries;
 
 /**
- *  [required] Customer balance on this invoice. A positive amount means the
- *  customer is paying, a negative one means the customer is receiving money.
+ *  [required] Customer balance on this invoice. A negative amount means the
+ *  customer is paying, a positive one means the customer is receiving money.
  *  Note: the sum of merchant_balance, customer_balance and google_balance must
  *  always be zero.
+ *  Furthermore the absolute value of this amount is expected to be equal to the
+ *  sum of product amount and additional charges, minus promotions.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Amount *customerBalance;
 
 /**
- *  [required] Google balance on this invoice. A positive amount means Google is
- *  paying, a negative one means Google is receiving money. Note: the sum of
+ *  [required] Google balance on this invoice. A negative amount means Google is
+ *  paying, a positive one means Google is receiving money. Note: the sum of
  *  merchant_balance, customer_balance and google_balance must always be zero.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Amount *googleBalance;
 
 /**
- *  [required] Merchant balance on this invoice. A positive amount means the
- *  merchant is paying, a negative one means the merchant is receiving money.
+ *  [required] Merchant balance on this invoice. A negative amount means the
+ *  merchant is paying, a positive one means the merchant is receiving money.
  *  Note: the sum of merchant_balance, customer_balance and google_balance must
  *  always be zero.
  */
@@ -3595,6 +3707,132 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_OrderReportDisbursement
+ */
+@interface GTLRShoppingContent_OrderReportDisbursement : GTLRObject
+
+/** The disbursement amount. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *disbursementAmount;
+
+/** The disbursement date, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementCreationDate;
+
+/** The date the disbursement was initiated, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementDate;
+
+/** The ID of the disbursement. */
+@property(nonatomic, copy, nullable) NSString *disbursementId;
+
+/**
+ *  The ID of the managing account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreportsListDisbursementsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "disbursements" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_OrderreportsListDisbursementsResponse : GTLRCollectionObject
+
+/**
+ *  The list of disbursements.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderReportDisbursement *> *disbursements;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#orderreportsListDisbursementsResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of disbursements. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreportsListTransactionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "transactions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_OrderreportsListTransactionsResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#orderreportsListTransactionsResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of transactions. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of transactions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderReportTransaction *> *transactions;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderReportTransaction
+ */
+@interface GTLRShoppingContent_OrderReportTransaction : GTLRObject
+
+/** The disbursement amount. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *disbursementAmount;
+
+/** The date the disbursement was created, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementCreationDate;
+
+/** The date the disbursement was initiated, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementDate;
+
+/** The ID of the disbursement. */
+@property(nonatomic, copy, nullable) NSString *disbursementId;
+
+/**
+ *  The ID of the managing account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+/** Merchant-provided id of the order. */
+@property(nonatomic, copy, nullable) NSString *merchantOrderId;
+
+/** The id of the order. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/** Total amount for the items. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Amount *productAmount;
+
+/** The date of the transaction, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *transactionDate;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrderReturn
  */
 @interface GTLRShoppingContent_OrderReturn : GTLRObject
@@ -4097,8 +4335,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryReturnRefundLineItem : GTLRObject
 
 /**
- *  The amount that is refunded. Optional, but if filled then both amountPretax
- *  and amountTax must be set.
+ *  The amount that is refunded. If omitted, refundless return is assumed (same
+ *  as calling returnLineItem method). Optional, but if filled then both
+ *  amountPretax and amountTax must be set.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
 
@@ -4705,8 +4944,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrdersReturnRefundLineItemRequest : GTLRObject
 
 /**
- *  The amount that is refunded. Optional, but if filled then both amountPretax
- *  and amountTax must be set.
+ *  The amount that is refunded. If omitted, refundless return is assumed (same
+ *  as calling returnLineItem method). Optional, but if filled then both
+ *  amountPretax and amountTax must be set.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amountPretax;
 

@@ -152,8 +152,8 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
          initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
          labelFingerprint, legacyAbac, location, locations, loggingService,
          maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
-         monitoringService, name, network, networkPolicy, nodeConfig,
-         nodeIpv4CidrSize, nodePools, resourceLabels, selfLink,
+         monitoringService, name, network, networkConfig, networkPolicy,
+         nodeConfig, nodeIpv4CidrSize, nodePools, resourceLabels, selfLink,
          servicesIpv4Cidr, status, statusMessage, subnetwork, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -435,6 +435,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NetworkConfig
+//
+
+@implementation GTLRContainer_NetworkConfig
+@dynamic network, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NetworkPolicy
 //
 
@@ -459,7 +469,7 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, diskSizeGb, imageType, labels, localSsdCount,
+@dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
          machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
          serviceAccount, tags;
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Redis API (redis/v1beta1)
+//   Google Cloud Memorystore for Redis API (redis/v1beta1)
 // Description:
 //   The Google Cloud Memorystore for Redis API is used for creating and
 //   managing Redis instances on the Google Cloud Platform.
@@ -125,6 +125,19 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa;
  *  Value: "TIER_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudRedis_Empty : GTLRObject
+@end
+
 
 /**
  *  Represents the metadata of the long-running operation.
@@ -489,18 +502,20 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Location_Labels *labels;
 
-/** The canonical id for this location. For example: `"us-east1"`. */
+/** Resource ID for the region. For example: "us-east1". */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by Compute Engine. These keys can
+ *  be specified in `location_id` or `alternative_location_id` fields when
+ *  creating a Redis instance.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Full resource name for the region. For example:
+ *  "projects/example-project/locations/us-east1".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -521,8 +536,10 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 
 
 /**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by Compute Engine. These keys can
+ *  be specified in `location_id` or `alternative_location_id` fields when
+ *  creating a Redis instance.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -552,10 +569,18 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Status *error;
 
 /**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
+ *  {
+ *  `createTime`: The time the operation was created.
+ *  `endTime`: The time the operation finished running.
+ *  `target`: Server-defined resource path for the target of the operation.
+ *  `verb`: Name of the verb executed by the operation.
+ *  `statusDetail`: Human-readable status of the operation, if any.
+ *  `cancelRequested`: Identifies whether the user has requested cancellation of
+ *  the operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *  `apiVersion`: API version used to start the operation.
+ *  }
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Operation_Metadata *metadata;
 
@@ -582,10 +607,18 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 
 
 /**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
+ *  {
+ *  `createTime`: The time the operation was created.
+ *  `endTime`: The time the operation finished running.
+ *  `target`: Server-defined resource path for the target of the operation.
+ *  `verb`: Name of the verb executed by the operation.
+ *  `statusDetail`: Human-readable status of the operation, if any.
+ *  `cancelRequested`: Identifies whether the user has requested cancellation of
+ *  the operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *  `apiVersion`: API version used to start the operation.
+ *  }
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

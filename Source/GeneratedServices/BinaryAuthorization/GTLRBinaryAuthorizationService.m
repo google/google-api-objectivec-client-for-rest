@@ -2,30 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Composer API (composer/v1)
+//   Binary Authorization API (binaryauthorization/v1beta1)
 // Description:
-//   Manages Apache Airflow environments on Google Cloud Platform.
+//   The management interface for Binary Authorization, a system providing
+//   policy control for images deployed to Kubernetes Engine clusters.
 // Documentation:
-//   https://cloud.google.com/composer/
+//   https://cloud.google.com/binary-authorization/
 
-#import "GTLRCloudComposer.h"
+#import "GTLRBinaryAuthorization.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudComposerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeBinaryAuthorizationCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudComposerService
+//   GTLRBinaryAuthorizationService
 //
 
-@implementation GTLRCloudComposerService
+@implementation GTLRBinaryAuthorizationService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://composer.googleapis.com/";
+    self.rootURLString = @"https://binaryauthorization.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

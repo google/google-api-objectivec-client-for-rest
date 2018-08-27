@@ -2366,6 +2366,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *put;
 
 /**
+ *  Optional. The name of the response field whose value is mapped to the HTTP
+ *  body of response. Other response fields are ignored. When
+ *  not set, the response message will be used as HTTP body of response.
+ */
+@property(nonatomic, copy, nullable) NSString *responseBody;
+
+/**
  *  Selects methods to which this rule applies.
  *  Refer to selector for syntax details.
  */

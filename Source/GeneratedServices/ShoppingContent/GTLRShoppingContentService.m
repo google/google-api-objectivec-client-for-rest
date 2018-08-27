@@ -78,6 +78,8 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#orderpaymentsNotifyAuthDeclinedResponse" : [GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedResponse class],
     @"content#orderpaymentsNotifyChargeResponse" : [GTLRShoppingContent_OrderpaymentsNotifyChargeResponse class],
     @"content#orderpaymentsNotifyRefundResponse" : [GTLRShoppingContent_OrderpaymentsNotifyRefundResponse class],
+    @"content#orderreportsListDisbursementsResponse" : [GTLRShoppingContent_OrderreportsListDisbursementsResponse class],
+    @"content#orderreportsListTransactionsResponse" : [GTLRShoppingContent_OrderreportsListTransactionsResponse class],
     @"content#ordersAcknowledgeResponse" : [GTLRShoppingContent_OrdersAcknowledgeResponse class],
     @"content#ordersAdvanceTestOrderResponse" : [GTLRShoppingContent_OrdersAdvanceTestOrderResponse class],
     @"content#ordersCancelLineItemResponse" : [GTLRShoppingContent_OrdersCancelLineItemResponse class],

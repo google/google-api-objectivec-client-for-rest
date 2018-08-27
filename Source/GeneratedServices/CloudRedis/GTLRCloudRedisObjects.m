@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Redis API (redis/v1beta1)
+//   Google Cloud Memorystore for Redis API (redis/v1beta1)
 // Description:
 //   The Google Cloud Memorystore for Redis API is used for creating and
 //   managing Redis instances on the Google Cloud Platform.
@@ -29,6 +29,15 @@ NSString * const kGTLRCloudRedis_Instance_State_Updating       = @"UPDATING";
 NSString * const kGTLRCloudRedis_Instance_Tier_Basic           = @"BASIC";
 NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa      = @"STANDARD_HA";
 NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Empty
+//
+
+@implementation GTLRCloudRedis_Empty
+@end
+
 
 // ----------------------------------------------------------------------------
 //

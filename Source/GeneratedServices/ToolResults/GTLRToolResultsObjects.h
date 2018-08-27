@@ -219,6 +219,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
+/** Value: "encounteredLoginScreen" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen;
 /** Value: "encounteredNonAndroidUiWidgetScreen" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen;
 /** Value: "failedToInstall" */
@@ -227,12 +229,18 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 /** Value: "incompleteRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
+/** Value: "iosCrash" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosCrash;
+/** Value: "iosException" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
 /** Value: "launcherActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /** Value: "nativeCrash" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
 /** Value: "nonSdkApiUsageViolation" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
+/** Value: "performedGoogleLogin" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin;
 /** Value: "startActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
 /** Value: "unspecifiedType" */
@@ -1834,6 +1842,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
  *        "completeRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen Value
+ *        "encounteredLoginScreen"
  *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen
  *        Value "encounteredNonAndroidUiWidgetScreen"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FailedToInstall Value
@@ -1842,11 +1852,15 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "fatalException"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution
  *        Value "incompleteRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_IosCrash Value "iosCrash"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_IosException Value "iosException"
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Value
  *        "launcherActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation Value
  *        "nonSdkApiUsageViolation"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin Value
+ *        "performedGoogleLogin"
  *    @arg @c kGTLRToolResults_TestIssue_Type_StartActivityNotFound Value
  *        "startActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value

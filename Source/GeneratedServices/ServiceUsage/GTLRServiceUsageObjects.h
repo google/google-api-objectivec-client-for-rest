@@ -1606,7 +1606,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  A unique ID for a specific instance of this message, typically assigned
  *  by the client for tracking purpose. If empty, the server may choose to
- *  generate one instead.
+ *  generate one instead. Must be no longer than 60 characters.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2070,8 +2070,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Optional. The name of the response field whose value is mapped to the HTTP
  *  body of response. Other response fields are ignored. When
  *  not set, the response message will be used as HTTP body of response.
- *  NOTE: the referred field must be not a repeated field and must be present
- *  at the top-level of response message type.
  */
 @property(nonatomic, copy, nullable) NSString *responseBody;
 

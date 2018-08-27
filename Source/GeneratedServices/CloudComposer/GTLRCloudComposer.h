@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Composer API (composer/v1beta1)
+//   Cloud Composer API (composer/v1)
 // Description:
 //   Manages Apache Airflow environments on Google Cloud Platform.
 // Documentation:

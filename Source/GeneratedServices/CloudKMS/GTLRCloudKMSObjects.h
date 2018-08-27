@@ -4,8 +4,11 @@
 // API:
 //   Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Manages encryption for your cloud services the same way you do on-premises.
-//   You can generate, use, rotate, and destroy AES256 encryption keys.
+//   Cloud KMS allows you to keep cryptographic keys in one central cloud
+//   service, for direct use by other cloud resources and applications. With
+//   Cloud KMS you are the ultimate custodian of your data, you can manage
+//   encryption in the cloud the same way you do on-premises, and you have a
+//   provable and monitorable root of trust over your data.
 // Documentation:
 //   https://cloud.google.com/kms/
 
@@ -609,8 +612,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *  UpdateCryptoKeyPrimaryVersion
  *  do not affect next_rotation_time.
  *  Keys with purpose
- *  ENCRYPT_DECRYPT support automatic
- *  rotation. For other keys, this field must be omitted.
+ *  ENCRYPT_DECRYPT support
+ *  automatic rotation. For other keys, this field must be omitted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextRotationTime;
 
@@ -621,8 +624,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *  The CryptoKey's primary version can be updated via
  *  UpdateCryptoKeyPrimaryVersion.
  *  All keys with purpose
- *  ENCRYPT_DECRYPT have a primary. For
- *  other keys, this field will be omitted.
+ *  ENCRYPT_DECRYPT have a
+ *  primary. For other keys, this field will be omitted.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_CryptoKeyVersion *primary;
 
@@ -652,8 +655,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *  automatically rotates a key. Must be at least one day.
  *  If rotation_period is set, next_rotation_time must also be set.
  *  Keys with purpose
- *  ENCRYPT_DECRYPT support automatic
- *  rotation. For other keys, this field must be omitted.
+ *  ENCRYPT_DECRYPT support
+ *  automatic rotation. For other keys, this field must be omitted.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *rotationPeriod;
 
@@ -1310,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
 @interface GTLRCloudKMS_LocationMetadata : GTLRObject
 
 /**
- *  Indicates that CryptoKeys with
+ *  Indicates whether CryptoKeys with
  *  protection_level
  *  HSM can be created in this location.
  *

@@ -414,9 +414,10 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 @implementation GTLRAdExchangeBuyerII_Creative
 @dynamic accountId, adChoicesDestinationUrl, advertiserName, agencyId,
          apiUpdateTime, attributes, clickThroughUrls, corrections, creativeId,
-         dealsStatus, detectedAdvertiserIds, detectedDomains, detectedLanguages,
-         detectedProductCategories, detectedSensitiveCategories, filteringStats,
-         html, impressionTrackingUrls, native, openAuctionStatus,
+         dealsStatus, declaredClickThroughUrls, detectedAdvertiserIds,
+         detectedDomains, detectedLanguages, detectedProductCategories,
+         detectedSensitiveCategories, filteringStats, html,
+         impressionTrackingUrls, native, openAuctionStatus,
          restrictedCategories, servingRestrictions, vendorIds, version, video;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -424,6 +425,7 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
     @"attributes" : [NSString class],
     @"clickThroughUrls" : [NSString class],
     @"corrections" : [GTLRAdExchangeBuyerII_Correction class],
+    @"declaredClickThroughUrls" : [NSString class],
     @"detectedAdvertiserIds" : [NSNumber class],
     @"detectedDomains" : [NSString class],
     @"detectedLanguages" : [NSString class],

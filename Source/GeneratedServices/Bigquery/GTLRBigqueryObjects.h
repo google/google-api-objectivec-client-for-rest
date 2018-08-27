@@ -409,7 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The labels associated with this dataset. You can use these to organize and
  *  group your datasets. You can set this property when inserting or updating a
- *  dataset. See Labeling Datasets for more information.
+ *  dataset. See Creating and Updating Dataset Labels for more information.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Dataset_Labels *labels;
 
@@ -487,7 +487,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The labels associated with this dataset. You can use these to organize and
  *  group your datasets. You can set this property when inserting or updating a
- *  dataset. See Labeling Datasets for more information.
+ *  dataset. See Creating and Updating Dataset Labels for more information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

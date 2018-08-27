@@ -30,6 +30,7 @@ NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Unknown = 
 // GTLRAdExperienceReport_PlatformSummary.region
 NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionA = @"REGION_A";
 NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionB = @"REGION_B";
+NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionC = @"REGION_C";
 NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown = @"REGION_UNKNOWN";
 
 // ----------------------------------------------------------------------------

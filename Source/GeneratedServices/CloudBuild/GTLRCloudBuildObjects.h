@@ -781,6 +781,28 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  ignored_files and included_files are file glob matches using
+ *  http://godoc/pkg/path/filepath#Match extended with support for "**".
+ *  If ignored_files and changed files are both empty, then they are
+ *  not used to determine whether or not to trigger a build.
+ *  If ignored_files is not empty, then we ignore any files that match
+ *  any of the ignored_file globs. If the change has no files that are
+ *  outside of the ignored_files globs, then we do not trigger a build.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredFiles;
+
+/**
+ *  If any of the files altered in the commit pass the ignored_files
+ *  filter and included_files is empty, then as far as this filter is
+ *  concerned, we should trigger the build.
+ *  If any of the files altered in the commit pass the ignored_files
+ *  filter and included_files is not empty, then we make sure that at
+ *  least one of those files matches a included_files glob. If not,
+ *  then we do not trigger a build.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedFiles;
+
 /** Substitutions data for Build resource. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
 
@@ -1089,7 +1111,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /**
  *  List of build step outputs, produced by builder images, in the order
  *  corresponding to build step indices.
- *  Builders can produce this output by writing to `$BUILDER_OUTPUT/output`.
+ *  [Cloud Builders](https://cloud.google.com/cloud-build/docs/cloud-builders)
+ *  can produce this output by writing to `$BUILDER_OUTPUT/output`.
  *  Only the first 4KB of data is stored.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably

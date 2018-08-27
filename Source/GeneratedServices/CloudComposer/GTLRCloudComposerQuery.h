@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Composer API (composer/v1beta1)
+//   Cloud Composer API (composer/v1)
 // Description:
 //   Manages Apache Airflow environments on Google Cloud Platform.
 // Documentation:
@@ -203,9 +203,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  fields to update.
  *  For example, to set the version of scikit-learn to install in the
  *  environment to 0.19.0 and to remove an existing installation of
- *  argparse, the `updateMask` parameter would include the following two
+ *  numpy, the `updateMask` parameter would include the following two
  *  `paths` values: "config.softwareConfig.pypiPackages.scikit-learn" and
- *  "config.softwareConfig.pypiPackages.argparse". The included patch
+ *  "config.softwareConfig.pypiPackages.numpy". The included patch
  *  environment would specify the scikit-learn version as follows:
  *  {
  *  "config":{
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  }
  *  }
  *  Note that in the above example, any existing PyPI packages
- *  other than scikit-learn and argparse will be unaffected.
+ *  other than scikit-learn and numpy will be unaffected.
  *  Only one update type may be included in a single request's `updateMask`.
  *  For example, one cannot update both the PyPI packages and
  *  labels in the same request. However, it is possible to update multiple
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  }
  *  }
  *  }
- *  <strong>Note:</strong> Only the following fields can be updated:
+ *  **Note:** Only the following fields can be updated:
  *  <table>
  *  <tbody>
  *  <tr>
@@ -303,14 +303,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  more individual config overrides.</td>
  *  </tr>
  *  <tr>
- *  <td>config.softwareConfig.airflowConfigOverrides.<var>section</var>-<var>name
+ *  <td>config.softwareConfig.properties.<var>section</var>-<var>name
  *  </var></td>
- *  <td>Override the Apache Airflow config property <var>name</var> in the
- *  section named <var>section</var>, preserving other properties. To delete
- *  the property override, include it in `updateMask` and omit its mapping
- *  in `environment.config.softwareConfig.airflowConfigOverrides`.
+ *  <td>Override the Apache Airflow property <var>name</var> in the section
+ *  named <var>section</var>, preserving other properties. To delete the
+ *  property override, include it in `updateMask` and omit its mapping
+ *  in `environment.config.softwareConfig.properties`.
  *  It is an error to provide both a mask of this form and the
- *  "config.softwareConfig.airflowConfigOverrides" mask.</td>
+ *  "config.softwareConfig.properties" mask.</td>
  *  </tr>
  *  <tr>
  *  <td>config.softwareConfig.envVariables</td>

@@ -127,6 +127,34 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Physical;
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
 
 // ----------------------------------------------------------------------------
+// GTLRTesting_AndroidModel.formFactor
+
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified;
+/**
+ *  This device has the shape of a phone
+ *
+ *  Value: "PHONE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
+/**
+ *  This device has the shape of a tablet
+ *
+ *  Value: "TABLET"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
+/**
+ *  This device has the shape of a watch or other wearable
+ *
+ *  Value: "WEARABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
+
+// ----------------------------------------------------------------------------
 // GTLRTesting_CancelTestMatrixResponse.testState
 
 /**
@@ -815,6 +843,23 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        simulates the device (Value: "VIRTUAL")
  */
 @property(nonatomic, copy, nullable) NSString *form;
+
+/**
+ *  Whther this device is a phone, tablet, wearable, etc.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified
+ *        Do not use. For proto versioning only. (Value:
+ *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Phone This device has the
+ *        shape of a phone (Value: "PHONE")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tablet This device has the
+ *        shape of a tablet (Value: "TABLET")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Wearable This device has the
+ *        shape of a watch or other wearable (Value: "WEARABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
  *  The unique opaque id for this model.

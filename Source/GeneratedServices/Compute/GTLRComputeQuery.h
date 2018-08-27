@@ -8636,6 +8636,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Simulates a maintenance event on the instance.
+ *
+ *  Method: compute.instances.simulateMaintenanceEvent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSimulateMaintenanceEvent : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSimulateMaintenanceEventWithproject:zoneProperty:instance:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Simulates a maintenance event on the instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesSimulateMaintenanceEvent
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Starts an instance that was stopped using the instances().stop method. For
  *  more information, see Restart an instance.
  *

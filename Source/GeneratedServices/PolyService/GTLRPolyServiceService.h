@@ -4,8 +4,10 @@
 // API:
 //   Poly API (poly/v1)
 // Description:
-//   The Poly API provides read-only access to assets hosted on <a
-//   href="https://poly.google.com">poly.google.com</a>.
+//   The Poly API provides read access to assets hosted on <a
+//   href="https://poly.google.com">poly.google.com</a> to all, and upload
+//   access to <a href="https://poly.google.com">poly.google.com</a> for
+//   whitelisted accounts.
 // Documentation:
 //   https://developers.google.com/poly/
 
@@ -29,8 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Poly API queries.
  *
- *  The Poly API provides read-only access to assets hosted on
- *  <a href="https://poly.google.com">poly.google.com</a>.
+ *  The Poly API provides read access to assets hosted on
+ *  <a href="https://poly.google.com">poly.google.com</a> to all, and upload
+ *  access to <a href="https://poly.google.com">poly.google.com</a> for
+ *  whitelisted accounts.
  */
 @interface GTLRPolyServiceService : GTLRService
 

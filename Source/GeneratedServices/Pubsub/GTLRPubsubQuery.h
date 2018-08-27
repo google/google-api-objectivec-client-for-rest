@@ -275,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the cloud project that snapshots belong to.
- *  Format is `projects/{project}`.
+ *  The name of the project in which to list snapshots.
+ *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -288,8 +288,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
- *  @param project The name of the cloud project that snapshots belong to.
- *    Format is `projects/{project}`.
+ *  @param project The name of the project in which to list snapshots.
+ *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsList
  *
@@ -668,8 +668,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the cloud project that subscriptions belong to.
- *  Format is `projects/{project}`.
+ *  The name of the project in which to list subscriptions.
+ *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -678,8 +678,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists matching subscriptions.
  *
- *  @param project The name of the cloud project that subscriptions belong to.
- *    Format is `projects/{project}`.
+ *  @param project The name of the project in which to list subscriptions.
+ *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsList
  *
@@ -1169,8 +1169,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the cloud project that topics belong to.
- *  Format is `projects/{project}`.
+ *  The name of the project in which to list topics.
+ *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1179,8 +1179,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists matching topics.
  *
- *  @param project The name of the cloud project that topics belong to.
- *    Format is `projects/{project}`.
+ *  @param project The name of the project in which to list topics.
+ *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsList
  *

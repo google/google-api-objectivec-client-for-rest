@@ -1741,12 +1741,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_HardwareStatus *> *hardwareStatusSamples;
 
-/**
- *  The last time the device sent a policy compliance report. Important: This
- *  field is deprecated. The timestamp will be on last_status_report_time field,
- *  and last_status_report_time will be used for both status report and
- *  compliance report.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyComplianceReportTime;
 
 /** The last time the device fetched its policy. */

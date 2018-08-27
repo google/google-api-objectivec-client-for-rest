@@ -1042,7 +1042,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  For an instance of a recurring event, this is the time at which this event
  *  would start according to the recurrence data in the recurring event
- *  identified by recurringEventId. Immutable.
+ *  identified by recurringEventId. It uniquely identifies the instance within
+ *  the recurring event series even if the instance was moved to a different
+ *  time. Immutable.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *originalStartTime;
 

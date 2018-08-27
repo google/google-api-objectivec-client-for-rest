@@ -24,6 +24,12 @@ NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified = @"DEVICE
 NSString * const kGTLRTesting_AndroidModel_Form_Physical       = @"PHYSICAL";
 NSString * const kGTLRTesting_AndroidModel_Form_Virtual        = @"VIRTUAL";
 
+// GTLRTesting_AndroidModel.formFactor
+NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone    = @"PHONE";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet   = @"TABLET";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable = @"WEARABLE";
+
 // GTLRTesting_CancelTestMatrixResponse.testState
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Cancelled = @"CANCELLED";
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Error = @"ERROR";
@@ -196,9 +202,9 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidModel
-@dynamic brand, codename, form, identifier, manufacturer, name, screenDensity,
-         screenX, screenY, supportedAbis, supportedVersionIds, tags,
-         videoRecordingNotSupported;
+@dynamic brand, codename, form, formFactor, identifier, manufacturer, name,
+         screenDensity, screenX, screenY, supportedAbis, supportedVersionIds,
+         tags, videoRecordingNotSupported;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -97,6 +97,13 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_Outdate
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_RosettaFlash;
 /**
+ *  A cross-site scripting (XSS) vulnerability in AngularJS module that
+ *  occurs when a user-provided string is interpolated by Angular.
+ *
+ *  Value: "XSS_ANGULAR_CALLBACK"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_XssAngularCallback;
+/**
  *  A cross-site scripting (XSS) bug is found via JavaScript callback. For
  *  detailed explanations on XSS, see
  *  https://www.google.com/about/appsecurity/learning/xss/.
@@ -171,6 +178,13 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingTyp
  *  Value: "ROSETTA_FLASH"
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_RosettaFlash;
+/**
+ *  A cross-site scripting (XSS) vulnerability in AngularJS module that
+ *  occurs when a user-provided string is interpolated by Angular.
+ *
+ *  Value: "XSS_ANGULAR_CALLBACK"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssAngularCallback;
 /**
  *  A cross-site scripting (XSS) bug is found via JavaScript callback. For
  *  detailed explanations on XSS, see
@@ -349,7 +363,7 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *  Input only.
  *  Required.
  *  The password of the custom account. The credential is stored encrypted
- *  and not returned in any response.
+ *  and not returned in any response nor included in audit logs.
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
@@ -438,6 +452,10 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        causing the browser to execute the Flash file as if it originated on
  *        the
  *        vulnerable server. (Value: "ROSETTA_FLASH")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_XssAngularCallback A
+ *        cross-site scripting (XSS) vulnerability in AngularJS module that
+ *        occurs when a user-provided string is interpolated by Angular. (Value:
+ *        "XSS_ANGULAR_CALLBACK")
  *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_XssCallback A
  *        cross-site scripting (XSS) bug is found via JavaScript callback. For
  *        detailed explanations on XSS, see
@@ -594,6 +612,10 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        causing the browser to execute the Flash file as if it originated on
  *        the
  *        vulnerable server. (Value: "ROSETTA_FLASH")
+ *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssAngularCallback
+ *        A cross-site scripting (XSS) vulnerability in AngularJS module that
+ *        occurs when a user-provided string is interpolated by Angular. (Value:
+ *        "XSS_ANGULAR_CALLBACK")
  *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssCallback A
  *        cross-site scripting (XSS) bug is found via JavaScript callback. For
  *        detailed explanations on XSS, see
@@ -629,7 +651,7 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *  Input only.
  *  Required.
  *  The password of the Google account. The credential is stored encrypted
- *  and not returned in any response.
+ *  and not returned in any response nor included in audit logs.
  */
 @property(nonatomic, copy, nullable) NSString *password;
 

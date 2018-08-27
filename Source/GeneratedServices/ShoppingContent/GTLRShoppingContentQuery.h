@@ -1890,7 +1890,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Creates a refund invoice for one or more shipment groups, and triggers a
- *  refund for non-facilitated payment orders.
+ *  refund for non-facilitated payment orders. This can only be used for line
+ *  items that have previously been charged using createChargeInvoice. All
+ *  amounts (except for the summary) are incremental with respect to the
+ *  previous invoice.
  *
  *  Method: content.orderinvoices.createrefundinvoice
  *
@@ -1914,7 +1917,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Fetches a @c GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceResponse.
  *
  *  Creates a refund invoice for one or more shipment groups, and triggers a
- *  refund for non-facilitated payment orders.
+ *  refund for non-facilitated payment orders. This can only be used for line
+ *  items that have previously been charged using createChargeInvoice. All
+ *  amounts (except for the summary) are incremental with respect to the
+ *  previous invoice.
  *
  *  @param object The @c
  *    GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest to include in
@@ -2094,6 +2100,122 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrderpaymentsNotifyRefundRequest *)object
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId;
+
+@end
+
+/**
+ *  Retrieves a report for disbursements from your Merchant Center account.
+ *
+ *  Method: content.orderreports.listdisbursements
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreportsListdisbursements : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:]
+
+/**
+ *  The last date which disbursements occurred. In ISO 8601 format. Default:
+ *  current date.
+ */
+@property(nonatomic, copy, nullable) NSString *disbursementEndDate;
+
+/** The first date which disbursements occurred. In ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementStartDate;
+
+/**
+ *  The maximum number of disbursements to return in the response, used for
+ *  paging.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreportsListDisbursementsResponse.
+ *
+ *  Retrieves a report for disbursements from your Merchant Center account.
+ *
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreportsListdisbursements
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Retrieves a list of transactions for an disbursement from your Merchant
+ *  Center account.
+ *
+ *  Method: content.orderreports.listtransactions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreportsListtransactions : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:]
+
+/**
+ *  The last date in which disbursements occurred. In ISO 8601 format. Default:
+ *  current date.
+ */
+@property(nonatomic, copy, nullable) NSString *disbursementEndDate;
+
+/** The Google-provided ID of the disbursement (found in Wallet). */
+@property(nonatomic, copy, nullable) NSString *disbursementId;
+
+/** The first date in which disbursements occurred. In ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *disbursementStartDate;
+
+/**
+ *  The maximum number of disbursements to return in the response, used for
+ *  paging.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreportsListTransactionsResponse.
+ *
+ *  Retrieves a list of transactions for an disbursement from your Merchant
+ *  Center account.
+ *
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param disbursementId The Google-provided ID of the disbursement (found in
+ *    Wallet).
+ *
+ *  @return GTLRShoppingContentQuery_OrderreportsListtransactions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                     disbursementId:(NSString *)disbursementId;
 
 @end
 
@@ -2448,7 +2570,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Notifies that item return and refund was handled directly in store.
+ *  Notifies that item return and refund was handled directly by merchant
+ *  outside of Google payments processing (e.g. cash refund done in store).
  *
  *  Method: content.orders.instorerefundlineitem
  *
@@ -2471,7 +2594,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersInStoreRefundLineItemResponse.
  *
- *  Notifies that item return and refund was handled directly in store.
+ *  Notifies that item return and refund was handled directly by merchant
+ *  outside of Google payments processing (e.g. cash refund done in store).
  *
  *  @param object The @c GTLRShoppingContent_OrdersInStoreRefundLineItemRequest
  *    to include in the query.
@@ -2595,7 +2719,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Refund a portion of the order, up to the full amount paid.
+ *  Deprecated, please use returnRefundLineItem instead.
  *
  *  Method: content.orders.refund
  *
@@ -2618,7 +2742,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersRefundResponse.
  *
- *  Refund a portion of the order, up to the full amount paid.
+ *  Deprecated, please use returnRefundLineItem instead.
  *
  *  @param object The @c GTLRShoppingContent_OrdersRefundRequest to include in
  *    the query.

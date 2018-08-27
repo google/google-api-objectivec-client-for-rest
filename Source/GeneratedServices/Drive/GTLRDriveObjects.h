@@ -913,6 +913,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canDelete;
 
 /**
+ *  Whether the current user can delete children of this folder. This is false
+ *  when the item is not a folder. Only populated for Team Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
+
+/**
  *  Whether the current user can download this file.
  *
  *  Uses NSNumber of boolValue.
@@ -935,6 +943,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canListChildren;
 
 /**
+ *  Whether the current user can move children of this folder outside of the
+ *  Team Drive. This is false when the item is not a folder. Only populated for
+ *  Team Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfTeamDrive;
+
+/**
+ *  Whether the current user can move children of this folder within the Team
+ *  Drive. This is false when the item is not a folder. Only populated for Team
+ *  Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenWithinTeamDrive;
+
+/**
  *  Whether the current user can move this item into a Team Drive. If the item
  *  is in a Team Drive, this field is equivalent to canMoveTeamDriveItem.
  *
@@ -943,10 +969,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemIntoTeamDrive;
 
 /**
- *  Whether the current user can move this Team Drive item by changing its
- *  parent. Note that a request to change the parent for this item may still
- *  fail depending on the new parent that is being added. Only populated for
- *  Team Drive files.
+ *  Whether the current user can move this Team Drive item outside of this Team
+ *  Drive by changing its parent. Note that a request to change the parent of
+ *  the item may still fail depending on the new parent that is being added.
+ *  Only populated for Team Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfTeamDrive;
+
+/**
+ *  Whether the current user can move this Team Drive item within this Team
+ *  Drive. Note that a request to change the parent of the item may still fail
+ *  depending on the new parent that is being added. Only populated for Team
+ *  Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemWithinTeamDrive;
+
+/**
+ *  Deprecated - use canMoveItemWithinTeamDrive or canMoveItemOutOfTeamDrive
+ *  instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -971,7 +1015,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the current user can remove children from this folder. This is
- *  always false when the item is not a folder.
+ *  always false when the item is not a folder. For Team Drive items, use
+ *  canDeleteChildren or canTrashChildren instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -997,6 +1042,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canTrash;
+
+/**
+ *  Whether the current user can trash children of this folder. This is false
+ *  when the item is not a folder. Only populated for Team Drive items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canTrashChildren;
 
 /**
  *  Whether the current user can restore this file from trash.
@@ -1866,6 +1919,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canCopy;
 
 /**
+ *  Whether the current user can delete children from folders in this Team
+ *  Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
+
+/**
  *  Whether the current user can delete this Team Drive. Attempting to delete
  *  the Team Drive may still fail if there are untrashed items inside the Team
  *  Drive.
@@ -1913,8 +1974,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
 
 /**
- *  Whether the current user can remove children from folders in this Team
- *  Drive.
+ *  Deprecated - use canDeleteChildren or canTrashChildren instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1940,6 +2000,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canShare;
+
+/**
+ *  Whether the current user can trash children from folders in this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canTrashChildren;
 
 @end
 

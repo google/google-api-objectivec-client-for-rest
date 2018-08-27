@@ -21,6 +21,7 @@
 @class GTLRGmail_AutoForwarding;
 @class GTLRGmail_BatchDeleteMessagesRequest;
 @class GTLRGmail_BatchModifyMessagesRequest;
+@class GTLRGmail_Delegate;
 @class GTLRGmail_Draft;
 @class GTLRGmail_Filter;
 @class GTLRGmail_ForwardingAddress;
@@ -1410,6 +1411,212 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  */
 + (instancetype)queryWithUserId:(NSString *)userId
                      identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Adds a delegate with its verification status set directly to accepted,
+ *  without sending any verification email. The delegate user must be a member
+ *  of the same G Suite organization as the delegator user.
+ *  Gmail imposes limtations on the number of delegates and delegators each user
+ *  in a G Suite organization can have. These limits depend on your
+ *  organization, but in general each user can have up to 25 delegates and up to
+ *  10 delegators.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  Also note that when a new delegate is created, there may be up to a one
+ *  minute delay before the new delegate is available for use.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  Method: gmail.users.settings.delegates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsDelegatesCreate : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsDelegatesCreateWithObject:userId:]
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_Delegate.
+ *
+ *  Adds a delegate with its verification status set directly to accepted,
+ *  without sending any verification email. The delegate user must be a member
+ *  of the same G Suite organization as the delegator user.
+ *  Gmail imposes limtations on the number of delegates and delegators each user
+ *  in a G Suite organization can have. These limits depend on your
+ *  organization, but in general each user can have up to 25 delegates and up to
+ *  10 delegators.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  Also note that when a new delegate is created, there may be up to a one
+ *  minute delay before the new delegate is available for use.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  @param object The @c GTLRGmail_Delegate to include in the query.
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsDelegatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGmail_Delegate *)object
+                         userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Removes the specified delegate (which can be of any verification status),
+ *  and revokes any verification that may have been required for using it.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  Method: gmail.users.settings.delegates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsDelegatesDelete : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsDelegatesDeleteWithuserId:delegateEmail:]
+
+/** The email address of the user to be removed as a delegate. */
+@property(nonatomic, copy, nullable) NSString *delegateEmail;
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes the specified delegate (which can be of any verification status),
+ *  and revokes any verification that may have been required for using it.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param delegateEmail The email address of the user to be removed as a
+ *    delegate.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsDelegatesDelete
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                  delegateEmail:(NSString *)delegateEmail;
+
+@end
+
+/**
+ *  Gets the specified delegate.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  Method: gmail.users.settings.delegates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ */
+@interface GTLRGmailQuery_UsersSettingsDelegatesGet : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsDelegatesGetWithuserId:delegateEmail:]
+
+/**
+ *  The email address of the user whose delegate relationship is to be
+ *  retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *delegateEmail;
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_Delegate.
+ *
+ *  Gets the specified delegate.
+ *  Note that a delegate user must be referred to by their primary email
+ *  address, and not an email alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param delegateEmail The email address of the user whose delegate
+ *    relationship is to be retrieved.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsDelegatesGet
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                  delegateEmail:(NSString *)delegateEmail;
+
+@end
+
+/**
+ *  Lists the delegates for the specified account.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  Method: gmail.users.settings.delegates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ */
+@interface GTLRGmailQuery_UsersSettingsDelegatesList : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsDelegatesListWithuserId:]
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_ListDelegatesResponse.
+ *
+ *  Lists the delegates for the specified account.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
+ *
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsDelegatesList
+ */
++ (instancetype)queryWithUserId:(NSString *)userId;
 
 @end
 

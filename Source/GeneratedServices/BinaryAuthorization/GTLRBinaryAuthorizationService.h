@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Spectrum Database API (spectrum/v1explorer)
+//   Binary Authorization API (binaryauthorization/v1beta1)
 // Description:
-//   API for spectrum-management functions.
+//   The management interface for Binary Authorization, a system providing
+//   policy control for images deployed to Kubernetes Engine clusters.
 // Documentation:
-//   http://developers.google.com/spectrum
+//   https://cloud.google.com/binary-authorization/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -25,18 +26,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
 /**
- *  Service for executing Google Spectrum Database API queries.
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  API for spectrum-management functions.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-@interface GTLRSpectrumService : GTLRService
+GTLR_EXTERN NSString * const kGTLRAuthScopeBinaryAuthorizationCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRBinaryAuthorizationService
+//
+
+/**
+ *  Service for executing Binary Authorization API queries.
+ *
+ *  The management interface for Binary Authorization, a system providing policy
+ *  control for images deployed to Kubernetes Engine clusters.
+ */
+@interface GTLRBinaryAuthorizationService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRSpectrumQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRBinaryAuthorizationQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

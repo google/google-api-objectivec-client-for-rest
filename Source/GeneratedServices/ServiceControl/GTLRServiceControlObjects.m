@@ -33,6 +33,8 @@ NSString * const kGTLRServiceControl_CheckError_Code_LoadShedding = @"LOAD_SHEDD
 NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectDisabled = @"LOAS_PROJECT_DISABLED";
 NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable = @"LOAS_PROJECT_LOOKUP_UNAVAILABLE";
 NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid = @"LOAS_ROLE_INVALID";
+NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable = @"LOCATION_POLICY_BACKEND_UNAVAILABLE";
+NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyViolated = @"LOCATION_POLICY_VIOLATED";
 NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable = @"NAMESPACE_LOOKUP_UNAVAILABLE";
 NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject = @"NO_LOAS_PROJECT";
 NSString * const kGTLRServiceControl_CheckError_Code_NotFound  = @"NOT_FOUND";
@@ -429,6 +431,18 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_HttpRequest
+//
+
+@implementation GTLRServiceControl_HttpRequest
+@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
+         latency, protocol, referer, remoteIp, requestMethod, requestSize,
+         requestUrl, responseSize, serverIp, status, userAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_LinearBuckets
 //
 
@@ -443,8 +457,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_LogEntry
-@dynamic insertId, labels, name, operation, protoPayload, severity,
-         structPayload, textPayload, timestamp;
+@dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
+         structPayload, textPayload, timestamp, trace;
 @end
 
 
@@ -600,6 +614,30 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_Operation_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Peer
+//
+
+@implementation GTLRServiceControl_Peer
+@dynamic ip, labels, port, principal, regionCode, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Peer_Labels
+//
+
+@implementation GTLRServiceControl_Peer_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -820,7 +858,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_RequestMetadata
-@dynamic callerIp, callerNetwork, callerSuppliedUserAgent, requestAttributes;
+@dynamic callerIp, callerNetwork, callerSuppliedUserAgent,
+         destinationAttributes, requestAttributes;
 @end
 
 

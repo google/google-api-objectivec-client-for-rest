@@ -25,6 +25,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest;
 @class GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest;
 @class GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest;
+@class GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2InspectContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2RedactImageRequest;
@@ -32,6 +33,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest;
 @class GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest;
 @class GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest;
+@class GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -525,6 +527,221 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a pre-built stored infoType to be used for inspection.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.organizations.storedInfoTypes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsStoredInfoTypesCreate : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesCreateWithObject:parent:]
+
+/**
+ *  The parent resource name, for example projects/my-project-id or
+ *  organizations/my-org-id.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Creates a pre-built stored infoType to be used for inspection.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+ *    to include in the query.
+ *  @param parent The parent resource name, for example projects/my-project-id
+ *    or
+ *    organizations/my-org-id.
+ *
+ *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.organizations.storedInfoTypes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsStoredInfoTypesDelete : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesDeleteWithname:]
+
+/**
+ *  Resource name of the organization and storedInfoType to be deleted, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param name Resource name of the organization and storedInfoType to be
+ *    deleted, for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.organizations.storedInfoTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsStoredInfoTypesGet : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesGetWithname:]
+
+/**
+ *  Resource name of the organization and storedInfoType to be read, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Gets a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param name Resource name of the organization and storedInfoType to be read,
+ *    for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists stored infoTypes.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.organizations.storedInfoTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsStoredInfoTypesList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesListWithparent:]
+
+/**
+ *  Optional size of the page, can be limited by server. If zero server returns
+ *  a page of max size 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional page token to continue retrieval. Comes from previous call
+ *  to `ListStoredInfoTypes`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent resource name, for example projects/my-project-id or
+ *  organizations/my-org-id.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
+ *
+ *  Lists stored infoTypes.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param parent The parent resource name, for example projects/my-project-id
+ *    or
+ *    organizations/my-org-id.
+ *
+ *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the stored infoType by creating a new version. The existing version
+ *  will continue to be used until the new version is ready.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.organizations.storedInfoTypes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsStoredInfoTypesPatch : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesPatchWithObject:name:]
+
+/**
+ *  Resource name of organization and storedInfoType to be updated, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Updates the stored infoType by creating a new version. The existing version
+ *  will continue to be used until the new version is ready.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+ *    to include in the query.
+ *  @param name Resource name of organization and storedInfoType to be updated,
+ *    for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1465,6 +1682,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  - `create_time`: corresponds to time the triggeredJob was created.
  *  - `update_time`: corresponds to time the triggeredJob was last updated.
  *  - `name`: corresponds to JobTrigger's name.
+ *  - `display_name`: corresponds to JobTrigger's display name.
+ *  - `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1533,6 +1752,221 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_ProjectsJobTriggersPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a pre-built stored infoType to be used for inspection.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.projects.storedInfoTypes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsStoredInfoTypesCreate : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsStoredInfoTypesCreateWithObject:parent:]
+
+/**
+ *  The parent resource name, for example projects/my-project-id or
+ *  organizations/my-org-id.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Creates a pre-built stored infoType to be used for inspection.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+ *    to include in the query.
+ *  @param parent The parent resource name, for example projects/my-project-id
+ *    or
+ *    organizations/my-org-id.
+ *
+ *  @return GTLRDLPQuery_ProjectsStoredInfoTypesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.projects.storedInfoTypes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsStoredInfoTypesDelete : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsStoredInfoTypesDeleteWithname:]
+
+/**
+ *  Resource name of the organization and storedInfoType to be deleted, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param name Resource name of the organization and storedInfoType to be
+ *    deleted, for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_ProjectsStoredInfoTypesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.projects.storedInfoTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsStoredInfoTypesGet : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsStoredInfoTypesGetWithname:]
+
+/**
+ *  Resource name of the organization and storedInfoType to be read, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Gets a stored infoType.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param name Resource name of the organization and storedInfoType to be read,
+ *    for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_ProjectsStoredInfoTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists stored infoTypes.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.projects.storedInfoTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsStoredInfoTypesList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsStoredInfoTypesListWithparent:]
+
+/**
+ *  Optional size of the page, can be limited by server. If zero server returns
+ *  a page of max size 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional page token to continue retrieval. Comes from previous call
+ *  to `ListStoredInfoTypes`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent resource name, for example projects/my-project-id or
+ *  organizations/my-org-id.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
+ *
+ *  Lists stored infoTypes.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param parent The parent resource name, for example projects/my-project-id
+ *    or
+ *    organizations/my-org-id.
+ *
+ *  @return GTLRDLPQuery_ProjectsStoredInfoTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the stored infoType by creating a new version. The existing version
+ *  will continue to be used until the new version is ready.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  Method: dlp.projects.storedInfoTypes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsStoredInfoTypesPatch : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsStoredInfoTypesPatchWithObject:name:]
+
+/**
+ *  Resource name of organization and storedInfoType to be updated, for
+ *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  projects/project-id/storedInfoTypes/432452342.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
+ *
+ *  Updates the stored infoType by creating a new version. The existing version
+ *  will continue to be used until the new version is ready.
+ *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
+ *  learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+ *    to include in the query.
+ *  @param name Resource name of organization and storedInfoType to be updated,
+ *    for
+ *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    projects/project-id/storedInfoTypes/432452342.
+ *
+ *  @return GTLRDLPQuery_ProjectsStoredInfoTypesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest *)object
                            name:(NSString *)name;
 
 @end

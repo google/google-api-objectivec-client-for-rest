@@ -263,6 +263,113 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_OrganizationsStoredInfoTypesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
+  GTLRDLPQuery_OrganizationsStoredInfoTypesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.organizations.storedInfoTypes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsStoredInfoTypesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsStoredInfoTypesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.organizations.storedInfoTypes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsStoredInfoTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsStoredInfoTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.organizations.storedInfoTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsStoredInfoTypesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
+  GTLRDLPQuery_OrganizationsStoredInfoTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse class];
+  query.loggingName = @"dlp.organizations.storedInfoTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsStoredInfoTypesPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsStoredInfoTypesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.organizations.storedInfoTypes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_ProjectsContentDeidentify
 
 @dynamic parent;
@@ -786,6 +893,113 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.name = name;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2JobTrigger class];
   query.loggingName = @"dlp.projects.jobTriggers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsStoredInfoTypesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
+  GTLRDLPQuery_ProjectsStoredInfoTypesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.projects.storedInfoTypes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsStoredInfoTypesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsStoredInfoTypesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.projects.storedInfoTypes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsStoredInfoTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsStoredInfoTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.projects.storedInfoTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsStoredInfoTypesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
+  GTLRDLPQuery_ProjectsStoredInfoTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse class];
+  query.loggingName = @"dlp.projects.storedInfoTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsStoredInfoTypesPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsStoredInfoTypesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
+  query.loggingName = @"dlp.projects.storedInfoTypes.patch";
   return query;
 }
 

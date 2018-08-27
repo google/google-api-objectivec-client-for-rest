@@ -741,6 +741,95 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @end
 
+@implementation GTLRGmailQuery_UsersSettingsDelegatesCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_Delegate *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/delegates";
+  GTLRGmailQuery_UsersSettingsDelegatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_Delegate class];
+  query.loggingName = @"gmail.users.settings.delegates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsDelegatesDelete
+
+@dynamic delegateEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                  delegateEmail:(NSString *)delegateEmail {
+  NSArray *pathParams = @[
+    @"delegateEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/delegates/{delegateEmail}";
+  GTLRGmailQuery_UsersSettingsDelegatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.delegateEmail = delegateEmail;
+  query.loggingName = @"gmail.users.settings.delegates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsDelegatesGet
+
+@dynamic delegateEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                  delegateEmail:(NSString *)delegateEmail {
+  NSArray *pathParams = @[
+    @"delegateEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/delegates/{delegateEmail}";
+  GTLRGmailQuery_UsersSettingsDelegatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.delegateEmail = delegateEmail;
+  query.expectedObjectClass = [GTLRGmail_Delegate class];
+  query.loggingName = @"gmail.users.settings.delegates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsDelegatesList
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/delegates";
+  GTLRGmailQuery_UsersSettingsDelegatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListDelegatesResponse class];
+  query.loggingName = @"gmail.users.settings.delegates.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRGmailQuery_UsersSettingsFiltersCreate
 
 @dynamic userId;

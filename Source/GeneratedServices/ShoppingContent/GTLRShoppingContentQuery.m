@@ -1219,6 +1219,50 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrderreportsListdisbursements
+
+@dynamic disbursementEndDate, disbursementStartDate, maxResults, merchantId,
+         pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/orderreports/disbursements";
+  GTLRShoppingContentQuery_OrderreportsListdisbursements *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrderreportsListDisbursementsResponse class];
+  query.loggingName = @"content.orderreports.listdisbursements";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_OrderreportsListtransactions
+
+@dynamic disbursementEndDate, disbursementId, disbursementStartDate, maxResults,
+         merchantId, pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                     disbursementId:(NSString *)disbursementId {
+  NSArray *pathParams = @[
+    @"disbursementId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orderreports/disbursements/{disbursementId}/transactions";
+  GTLRShoppingContentQuery_OrderreportsListtransactions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.disbursementId = disbursementId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrderreportsListTransactionsResponse class];
+  query.loggingName = @"content.orderreports.listtransactions";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrdersAcknowledge
 
 @dynamic merchantId, orderId;

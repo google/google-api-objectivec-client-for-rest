@@ -331,9 +331,8 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_Quota
-@dynamic blackHoleHidesSystemZones, dnsKeysPerManagedZone, kind, managedZones,
-         resourceRecordsPerRrset, rrsetAdditionsPerChange,
-         rrsetDeletionsPerChange, rrsetsPerManagedZone,
+@dynamic dnsKeysPerManagedZone, kind, managedZones, resourceRecordsPerRrset,
+         rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

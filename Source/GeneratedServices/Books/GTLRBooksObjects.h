@@ -1379,6 +1379,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
+/**
+ *  isDocumentMature
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDocumentMature;
+
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 

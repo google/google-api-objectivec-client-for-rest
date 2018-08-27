@@ -23,6 +23,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Action;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable;
+@class GTLRDLP_GooglePrivacyDlpV2BigQueryField;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryKey;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryOptions;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryTable;
@@ -35,6 +36,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CharsToIgnore;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStoragePath;
 @class GTLRDLP_GooglePrivacyDlpV2Color;
@@ -95,6 +97,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult;
 @class GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey;
+@class GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityConfig;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket;
@@ -133,6 +136,10 @@
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
+@class GTLRDLP_GooglePrivacyDlpV2StoredInfoType;
+@class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig;
+@class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion;
+@class GTLRDLP_GooglePrivacyDlpV2StoredType;
 @class GTLRDLP_GooglePrivacyDlpV2SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2SurrogateType;
 @class GTLRDLP_GooglePrivacyDlpV2Table;
@@ -668,6 +675,39 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_Outp
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion.state
+
+/**
+ *  StoredInfoType creation failed. All relevant error messages are returned in
+ *  the `StoredInfoTypeVersion` message.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed;
+/**
+ *  StoredInfoType is no longer valid because artifacts stored in
+ *  user-controlled storage were modified. To fix an invalid StoredInfoType,
+ *  use the `UpdateStoredInfoType` method to create a new version.
+ *
+ *  Value: "INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid;
+/**
+ *  StoredInfoType version is being created.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending;
+/**
+ *  StoredInfoType version is ready for use.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready;
+/** Value: "STORED_INFO_TYPE_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2SummaryResult.code
 
 /** Value: "ERROR" */
@@ -838,6 +878,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Message defining a field of a BigQuery table.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2BigQueryField : GTLRObject
+
+/** Designated field in the BigQuery table. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
+
+/** Source table of the field. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
+
+@end
+
+
+/**
  *  Row key for identifying a record in BigQuery table.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryKey : GTLRObject
@@ -870,11 +924,23 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Max number of rows to scan. If the table has more rows than this value, the
  *  rest of the rows are omitted. If not set, or if set to 0, all rows will be
- *  scanned. Cannot be used in conjunction with TimespanConfig.
+ *  scanned. Only one of rows_limit and rows_limit_percent can be specified.
+ *  Cannot be used in conjunction with TimespanConfig.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowsLimit;
+
+/**
+ *  Max percentage of rows to scan. The rest are omitted. The number of rows
+ *  scanned is rounded down. Must be between 0 and 100, inclusively. Both 0 and
+ *  100 means no limit. Defaults to 0. Only one of rows_limit and
+ *  rows_limit_percent can be specified. Cannot be used in conjunction with
+ *  TimespanConfig.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowsLimitPercent;
 
 /**
  *  sampleMethod
@@ -1196,19 +1262,45 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Options defining a file or a set of files (path ending with *) within
- *  a Google Cloud Storage bucket.
+ *  Message representing a set of files in Cloud Storage.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet : GTLRObject
+
+/**
+ *  The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
+ *  path is allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Options defining a file or a set of files within a Google Cloud Storage
+ *  bucket.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions : GTLRObject
 
 /**
  *  Max number of bytes to scan from a file. If a scanned file's size is bigger
- *  than this value then the rest of the bytes are omitted.
+ *  than this value then the rest of the bytes are omitted. Only one
+ *  of bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bytesLimitPerFile;
 
+/**
+ *  Max percentage of bytes to scan from a file. The rest are omitted. The
+ *  number of bytes scanned is rounded down. Must be between 0 and 100,
+ *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one
+ *  of bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesLimitPerFilePercent;
+
+/** The set of one or more files to scan. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileSet *fileSet;
 
 /**
@@ -1492,6 +1584,25 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Request message for CreateStoredInfoType.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest : GTLRObject
+
+/** Configuration of the storedInfoType to create. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
+
+/**
+ *  The storedInfoType ID can contain uppercase and lowercase letters,
+ *  numbers, and hyphens; that is, it must match the regular
+ *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  characters. Can be empty to allow the system to generate one.
+ */
+@property(nonatomic, copy, nullable) NSString *storedInfoTypeId;
+
+@end
+
+
+/**
  *  Pseudonymization method that generates surrogates via cryptographic hashing.
  *  Uses SHA-256.
  *  The key size must be either 32 or 64 bytes.
@@ -1667,6 +1778,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** Regular expression based CustomInfoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
+
+/**
+ *  Load an existing `StoredInfoType` resource for use in
+ *  `InspectDataSource`. Not currently supported in `InspectContent`.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredType *storedType;
 
 /**
  *  Message for detecting output from deidentification transformations that
@@ -2058,7 +2175,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  matches for "jennifer".
  *  Dictionary words containing a large number of characters that are not
  *  letters or digits may result in unexpected findings because such characters
- *  are treated as whitespace.
+ *  are treated as whitespace. The
+ *  [limits](https://cloud.google.com/dlp/limits) page contains details about
+ *  the size limits of dictionaries. For dictionaries that do not fit within
+ *  these constraints, consider using `LargeCustomDictionaryConfig` in the
+ *  `StoredInfoType` API.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Dictionary : GTLRObject
 
@@ -2257,8 +2378,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2FileSet : GTLRObject
 
 /**
- *  The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
- *  path is allowed.
+ *  The Cloud Storage url of the file(s) to scan, in the format
+ *  `gs://<bucket>/<path>`. Trailing wildcard in the path is allowed.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -3155,6 +3276,36 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Configuration for a custom dictionary created from a data source of any size
+ *  up to the maximum size defined in the
+ *  [limits](https://cloud.google.com/dlp/limits) page. The artifacts of
+ *  dictionary creation are stored in the specified Google Cloud Storage
+ *  location. Consider using `CustomInfoType.Dictionary` for smaller
+ *  dictionaries
+ *  that satisfy the size requirements.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig : GTLRObject
+
+/**
+ *  Field in a BigQuery table where each cell represents a dictionary phrase.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryField *bigQueryField;
+
+/** Set of files containing newline-delimited lists of dictionary phrases. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet *cloudStorageFileSet;
+
+/**
+ *  Location to store dictionary artifacts in Google Cloud Storage. These files
+ *  will only be accessible by project owners and the DLP API. If any of these
+ *  artifacts are modified, the dictionary is considered invalid and can no
+ *  longer be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStoragePath *outputPath;
+
+@end
+
+
+/**
  *  l-diversity metric, used for analysis of reidentification risk.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LDiversityConfig : GTLRObject
@@ -3413,6 +3564,33 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  in following ListJobTriggers request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListStoredInfoTypes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "storedInfoTypes" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse : GTLRCollectionObject
+
+/**
+ *  If the next page is available then the next page token to be used
+ *  in following ListStoredInfoTypes request.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of storedInfoTypes, up to page_size in ListStoredInfoTypesRequest.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StoredInfoType *> *storedInfoTypes;
 
 @end
 
@@ -3908,7 +4086,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Regex : GTLRObject
 
-/** Pattern defining the regular expression. */
+/**
+ *  Pattern defining the regular expression. Its syntax
+ *  (https://github.com/google/re2/wiki/Syntax) can be found under the
+ *  google/re2 repository on GitHub.
+ */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
 @end
@@ -4139,6 +4321,126 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreOptions *datastoreOptions;
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimespanConfig *timespanConfig;
+
+@end
+
+
+/**
+ *  StoredInfoType resource message that contains information about the current
+ *  version and any pending updates.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StoredInfoType : GTLRObject
+
+/** Current version of the stored info type. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion *currentVersion;
+
+/** Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Pending versions of the stored info type. Empty if no versions are
+ *  pending.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion *> *pendingVersions;
+
+@end
+
+
+/**
+ *  Configuration for a StoredInfoType.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig : GTLRObject
+
+/**
+ *  Description of the StoredInfoType (max 256 characters).
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name of the StoredInfoType (max 256 characters). */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** StoredInfoType where findings are defined by a dictionary of phrases. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig *largeCustomDictionary;
+
+@end
+
+
+/**
+ *  Version of a StoredInfoType, including the configuration used to build it,
+ *  create timestamp, and current state.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion : GTLRObject
+
+/** StoredInfoType configuration. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
+
+/**
+ *  Create timestamp of the version. Read-only, determined by the system
+ *  when the version is created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Errors that occurred when creating this storedInfoType version, or
+ *  anomalies detected in the storedInfoType data that render it unusable. Only
+ *  the five most recent errors will be displayed, with the most recent error
+ *  appearing first.
+ *  <p>For example, some of the data for stored custom dictionaries is put in
+ *  the user's Google Cloud Storage bucket, and if this data is modified or
+ *  deleted by the user or another system, the dictionary becomes invalid.
+ *  <p>If any errors occur, fix the problem indicated by the error message and
+ *  use the UpdateStoredInfoType API method to create another version of the
+ *  storedInfoType to continue using it, reusing the same `config` if it was
+ *  not the source of the error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
+
+/**
+ *  Stored info type version state. Read-only, updated by the system
+ *  during dictionary creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed
+ *        StoredInfoType creation failed. All relevant error messages are
+ *        returned in
+ *        the `StoredInfoTypeVersion` message. (Value: "FAILED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid
+ *        StoredInfoType is no longer valid because artifacts stored in
+ *        user-controlled storage were modified. To fix an invalid
+ *        StoredInfoType,
+ *        use the `UpdateStoredInfoType` method to create a new version. (Value:
+ *        "INVALID")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending
+ *        StoredInfoType version is being created. (Value: "PENDING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready
+ *        StoredInfoType version is ready for use. (Value: "READY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified
+ *        Value "STORED_INFO_TYPE_STATE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A reference to a StoredInfoType to use with scanning.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StoredType : GTLRObject
+
+/**
+ *  Timestamp indicating when the version of the `StoredInfoType` used for
+ *  inspection was created. Output-only field, populated by the system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Resource name of the requested `StoredInfoType`, for example
+ *  `organizations/433245324/storedInfoTypes/432452342` or
+ *  `projects/project-id/storedInfoTypes/432452342`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -4485,6 +4787,28 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** New JobTrigger value. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobTrigger *jobTrigger;
+
+/**
+ *  Mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message for UpdateStoredInfoType.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest : GTLRObject
+
+/**
+ *  Updated configuration for the storedInfoType. If not provided, a new
+ *  version of the storedInfoType will be created with the existing
+ *  configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
 /**
  *  Mask to control which fields get updated.
