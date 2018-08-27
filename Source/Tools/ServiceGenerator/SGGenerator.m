@@ -205,17 +205,53 @@ static NSString *ConstantName(NSString *grouping, NSString *name) {
 + (NSArray<NSString *> *)allDeclaredProperties;
 @end
 
+static void ValidateAcceptedUnknowns(Class objClass) {
+  static NSMutableSet *alreadyChecked;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    alreadyChecked = [NSMutableSet set];
+  });
+  @synchronized(alreadyChecked) {
+    if ([alreadyChecked containsObject:objClass]) {
+      return;
+    }
+    [alreadyChecked addObject:objClass];
+  }
+
+  NSArray *acceptedUnknowns = [objClass sg_acceptedUnknowns];
+  if ([acceptedUnknowns count] == 0) {
+    return;
+  }
+
+  Class additionalPropClass = [objClass classForAdditionalProperties];
+  if (additionalPropClass == nil) {
+    NSArray<NSString *> *allProps = [objClass allDeclaredProperties];
+    for (NSString *name in acceptedUnknowns) {
+      if ([allProps containsObject:name]) {
+        NSLog(@"ERROR: %@ has %@ listed as an acceptedUnknown, but it is known.",
+              objClass, name);
+      }
+    }
+  } else {
+    NSLog(@"ERROR: %@ uses additionalProperties as %@, but it has sg_acceptedUnknowns of %@.",
+          objClass, additionalPropClass, acceptedUnknowns);
+  }
+}
+
 static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                                 SGGeneratorMessageHandler messageHandler) {
+  Class objClass = [obj class];
+  ValidateAcceptedUnknowns(objClass);
+
   // If the class doesn't expect unknowns, report them.
-  Class additionalPropClass = [[obj class] classForAdditionalProperties];
+  Class additionalPropClass = [objClass classForAdditionalProperties];
   if (additionalPropClass == Nil) {
     NSArray *apiUnknowns = [obj additionalJSONKeys];
 
     // The OP servers have added a few keys that aren't documented, this
     // support allows some of them to be stripped from the audit report
     // since they are noise.
-    NSArray *acceptedUnknowns = [[obj class] sg_acceptedUnknowns];
+    NSArray *acceptedUnknowns = [objClass sg_acceptedUnknowns];
     if (acceptedUnknowns.count) {
       NSMutableArray *worker = [apiUnknowns mutableCopy];
       [worker removeObjectsInArray:acceptedUnknowns];
@@ -234,7 +270,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   }
 
   // Recurse through all the known properties.
-  NSArray<NSString *> *allProps = [[obj class] allDeclaredProperties];
+  NSArray<NSString *> *allProps = [objClass allDeclaredProperties];
   allProps = [allProps sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
   for (NSString *key in allProps) {
     id value = [obj valueForKey:key];
