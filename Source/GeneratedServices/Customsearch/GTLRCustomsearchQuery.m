@@ -30,8 +30,10 @@ NSString * const kGTLRCustomsearchImgDominantColorBlue   = @"blue";
 NSString * const kGTLRCustomsearchImgDominantColorBrown  = @"brown";
 NSString * const kGTLRCustomsearchImgDominantColorGray   = @"gray";
 NSString * const kGTLRCustomsearchImgDominantColorGreen  = @"green";
+NSString * const kGTLRCustomsearchImgDominantColorOrange = @"orange";
 NSString * const kGTLRCustomsearchImgDominantColorPink   = @"pink";
 NSString * const kGTLRCustomsearchImgDominantColorPurple = @"purple";
+NSString * const kGTLRCustomsearchImgDominantColorRed    = @"red";
 NSString * const kGTLRCustomsearchImgDominantColorTeal   = @"teal";
 NSString * const kGTLRCustomsearchImgDominantColorWhite  = @"white";
 NSString * const kGTLRCustomsearchImgDominantColorYellow = @"yellow";
@@ -90,6 +92,7 @@ NSString * const kGTLRCustomsearchLrLangZhCN = @"lang_zh-CN";
 NSString * const kGTLRCustomsearchLrLangZhTW = @"lang_zh-TW";
 
 // safe
+NSString * const kGTLRCustomsearchSafeActive = @"active";
 NSString * const kGTLRCustomsearchSafeHigh   = @"high";
 NSString * const kGTLRCustomsearchSafeMedium = @"medium";
 NSString * const kGTLRCustomsearchSafeOff    = @"off";

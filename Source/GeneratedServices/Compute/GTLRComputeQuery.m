@@ -3752,6 +3752,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSimulateMaintenanceEvent
+
+@dynamic instance, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent";
+  GTLRComputeQuery_InstancesSimulateMaintenanceEvent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.simulateMaintenanceEvent";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesStart
 
 @dynamic instance, project, requestId, zoneProperty;

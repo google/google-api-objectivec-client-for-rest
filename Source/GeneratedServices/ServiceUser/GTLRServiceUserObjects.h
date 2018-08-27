@@ -1653,8 +1653,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  Optional. The name of the response field whose value is mapped to the HTTP
  *  body of response. Other response fields are ignored. When
  *  not set, the response message will be used as HTTP body of response.
- *  NOTE: the referred field must be not a repeated field and must be present
- *  at the top-level of response message type.
  */
 @property(nonatomic, copy, nullable) NSString *responseBody;
 

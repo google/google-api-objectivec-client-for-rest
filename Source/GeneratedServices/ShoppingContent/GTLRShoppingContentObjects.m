@@ -209,12 +209,14 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatus
-@dynamic accountId, accountLevelIssues, dataQualityIssues, kind, websiteClaimed;
+@dynamic accountId, accountLevelIssues, dataQualityIssues, kind, products,
+         websiteClaimed;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accountLevelIssues" : [GTLRShoppingContent_AccountStatusAccountLevelIssue class],
-    @"dataQualityIssues" : [GTLRShoppingContent_AccountStatusDataQualityIssue class]
+    @"dataQualityIssues" : [GTLRShoppingContent_AccountStatusDataQualityIssue class],
+    @"products" : [GTLRShoppingContent_AccountStatusProducts class]
   };
   return map;
 }
@@ -353,6 +355,50 @@
 
 @implementation GTLRShoppingContent_AccountStatusExampleItem
 @dynamic itemId, link, submittedValue, title, valueOnLandingPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountStatusItemLevelIssue
+//
+
+@implementation GTLRShoppingContent_AccountStatusItemLevelIssue
+@dynamic attributeName, code, descriptionProperty, detail, documentation,
+         numItems, resolution, servability;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountStatusProducts
+//
+
+@implementation GTLRShoppingContent_AccountStatusProducts
+@dynamic channel, country, destination, itemLevelIssues, statistics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"itemLevelIssues" : [GTLRShoppingContent_AccountStatusItemLevelIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountStatusStatistics
+//
+
+@implementation GTLRShoppingContent_AccountStatusStatistics
+@dynamic active, disapproved, expiring, pending;
 @end
 
 
@@ -1751,6 +1797,73 @@
 
 @implementation GTLRShoppingContent_OrderRefund
 @dynamic actor, amount, creationDate, reason, reasonText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderReportDisbursement
+//
+
+@implementation GTLRShoppingContent_OrderReportDisbursement
+@dynamic disbursementAmount, disbursementCreationDate, disbursementDate,
+         disbursementId, merchantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreportsListDisbursementsResponse
+//
+
+@implementation GTLRShoppingContent_OrderreportsListDisbursementsResponse
+@dynamic disbursements, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disbursements" : [GTLRShoppingContent_OrderReportDisbursement class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"disbursements";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreportsListTransactionsResponse
+//
+
+@implementation GTLRShoppingContent_OrderreportsListTransactionsResponse
+@dynamic kind, nextPageToken, transactions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transactions" : [GTLRShoppingContent_OrderReportTransaction class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"transactions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderReportTransaction
+//
+
+@implementation GTLRShoppingContent_OrderReportTransaction
+@dynamic disbursementAmount, disbursementCreationDate, disbursementDate,
+         disbursementId, merchantId, merchantOrderId, orderId, productAmount,
+         transactionDate;
 @end
 
 

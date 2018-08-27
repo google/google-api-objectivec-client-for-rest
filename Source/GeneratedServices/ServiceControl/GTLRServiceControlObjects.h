@@ -35,6 +35,7 @@
 @class GTLRServiceControl_Distribution;
 @class GTLRServiceControl_ExplicitBuckets;
 @class GTLRServiceControl_ExponentialBuckets;
+@class GTLRServiceControl_HttpRequest;
 @class GTLRServiceControl_LinearBuckets;
 @class GTLRServiceControl_LogEntry;
 @class GTLRServiceControl_LogEntry_Labels;
@@ -48,6 +49,8 @@
 @class GTLRServiceControl_Operation;
 @class GTLRServiceControl_Operation_Labels;
 @class GTLRServiceControl_Operation_UserLabels;
+@class GTLRServiceControl_Peer;
+@class GTLRServiceControl_Peer_Labels;
 @class GTLRServiceControl_QuotaError;
 @class GTLRServiceControl_QuotaInfo;
 @class GTLRServiceControl_QuotaInfo_QuotaConsumed;
@@ -191,6 +194,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLook
  *  Value: "LOAS_ROLE_INVALID"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid;
+/**
+ *  Backend server for evaluating location policy is unavailable.
+ *
+ *  Value: "LOCATION_POLICY_BACKEND_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable;
+/**
+ *  Request is not allowed as per location policies defined in Org Policy.
+ *
+ *  Value: "LOCATION_POLICY_VIOLATED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyViolated;
 /**
  *  The backend server for looking up project id/number is unavailable.
  *
@@ -992,6 +1007,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        "LOAS_PROJECT_LOOKUP_UNAVAILABLE")
  *    @arg @c kGTLRServiceControl_CheckError_Code_LoasRoleInvalid The consumer's
  *        LOAS role is invalid. (Value: "LOAS_ROLE_INVALID")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable
+ *        Backend server for evaluating location policy is unavailable. (Value:
+ *        "LOCATION_POLICY_BACKEND_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LocationPolicyViolated Request
+ *        is not allowed as per location policies defined in Org Policy. (Value:
+ *        "LOCATION_POLICY_VIOLATED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable The
  *        backend server for looking up project id/number is unavailable.
  *        (Value: "NAMESPACE_LOOKUP_UNAVAILABLE")
@@ -1357,6 +1378,120 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
+ *  A common proto for logging HTTP requests. Only contains semantics
+ *  defined by the HTTP specification. Product-specific logging
+ *  information MUST be defined in a separate message.
+ *  This is an exact copy of HttpRequest message defined in Stackdriver.
+ */
+@interface GTLRServiceControl_HttpRequest : GTLRObject
+
+/**
+ *  The number of HTTP response bytes inserted into cache. Set only when a
+ *  cache fill was attempted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheFillBytes;
+
+/**
+ *  Whether or not an entity was served from cache
+ *  (with or without validation).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheHit;
+
+/**
+ *  Whether or not a cache lookup was attempted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheLookup;
+
+/**
+ *  Whether or not the response was validated with the origin server before
+ *  being served from cache. This field is only meaningful if `cache_hit` is
+ *  True.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheValidatedWithOriginServer;
+
+/**
+ *  The request processing latency on the server, from the time the request was
+ *  received until the response was sent.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *latency;
+
+/**
+ *  Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  The referer URL of the request, as defined in
+ *  [HTTP/1.1 Header Field
+ *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+ */
+@property(nonatomic, copy, nullable) NSString *referer;
+
+/**
+ *  The IP address (IPv4 or IPv6) of the client that issued the HTTP
+ *  request. Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteIp;
+
+/** The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`. */
+@property(nonatomic, copy, nullable) NSString *requestMethod;
+
+/**
+ *  The size of the HTTP request message in bytes, including the request
+ *  headers and the request body.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestSize;
+
+/**
+ *  The scheme (http, https), the host name, the path and the query
+ *  portion of the URL that was requested.
+ *  Example: `"http://example.com/some/info?color=red"`.
+ */
+@property(nonatomic, copy, nullable) NSString *requestUrl;
+
+/**
+ *  The size of the HTTP response message sent back to the client, in bytes,
+ *  including the response headers and the response body.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responseSize;
+
+/**
+ *  The IP address (IPv4 or IPv6) of the origin server that the request was
+ *  sent to.
+ */
+@property(nonatomic, copy, nullable) NSString *serverIp;
+
+/**
+ *  The response code indicating the status of response.
+ *  Examples: 200, 404.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
+
+/**
+ *  The user agent sent by the client. Example:
+ *  `"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET
+ *  CLR 1.0.3705)"`.
+ */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
+@end
+
+
+/**
  *  Describing buckets with constant width.
  */
 @interface GTLRServiceControl_LinearBuckets : GTLRObject
@@ -1396,6 +1531,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  An individual log entry.
  */
 @interface GTLRServiceControl_LogEntry : GTLRObject
+
+/**
+ *  Optional. Information about the HTTP request associated with this
+ *  log entry, if applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_HttpRequest *httpRequest;
 
 /**
  *  A unique ID for the log entry used for deduplication. If omitted,
@@ -1469,6 +1610,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  omitted, defaults to operation start time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Optional. Resource name of the trace associated with the log entry, if any.
+ *  If it contains a relative resource name, the name is assumed to be relative
+ *  to `//tracing.googleapis.com`. Example:
+ *  `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
+ */
+@property(nonatomic, copy, nullable) NSString *trace;
 
 @end
 
@@ -1839,6 +1988,62 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        fetch them all at once.
  */
 @interface GTLRServiceControl_Operation_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  This message defines attributes for a node that handles a network request.
+ *  The node can be either a service or an application that sends, forwards,
+ *  or receives the request. Service peers should fill in the `service`,
+ *  `principal`, and `labels` as appropriate.
+ */
+@interface GTLRServiceControl_Peer : GTLRObject
+
+/** The IP address of the peer. */
+@property(nonatomic, copy, nullable) NSString *ip;
+
+/** The labels associated with the peer. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Peer_Labels *labels;
+
+/**
+ *  The network port of the peer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  The identity of this peer. Similar to `Request.auth.principal`, but
+ *  relative to the peer instead of the request. For example, the
+ *  idenity associated with a load balancer that forwared the request.
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
+
+/**
+ *  The CLDR country/region code associated with the above IP address.
+ *  If the IP address is private, the `region_code` should reflect the
+ *  physical location where this peer is running.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  The canonical service name of the peer.
+ *  NOTE: different systems may have different service naming schemes.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  The labels associated with the peer.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_Peer_Labels : GTLRObject
 @end
 
 
@@ -2385,6 +2590,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  NOLINT
  */
 @property(nonatomic, copy, nullable) NSString *callerSuppliedUserAgent;
+
+/**
+ *  The destination of a network activity, such as accepting a TCP connection.
+ *  In a multi hop network activity, the destination represents the receiver of
+ *  the last hop. Only two fields are used in this message, Peer.port and
+ *  Peer.ip. These fields are optionally populated by those services utilizing
+ *  the IAM condition feature.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Peer *destinationAttributes;
 
 /**
  *  Request attributes used in IAM condition evaluation. This field contains

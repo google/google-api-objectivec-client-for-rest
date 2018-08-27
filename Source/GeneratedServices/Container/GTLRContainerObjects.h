@@ -38,6 +38,7 @@
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
+@class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
 @class GTLRContainer_NodeConfig;
@@ -525,9 +526,11 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *currentNodeCount;
 
 /**
- *  [Output only] The current version of the node software components.
- *  If they are currently at multiple versions because they're in the process
- *  of being upgraded, this reflects the minimum version of all nodes.
+ *  [Output only] Deprecated, use
+ *  [NodePool.version](/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePool)
+ *  instead. The current version of the node software components. If they are
+ *  currently at multiple versions because they're in the process of being
+ *  upgraded, this reflects the minimum version of all nodes.
  */
 @property(nonatomic, copy, nullable) NSString *currentNodeVersion;
 
@@ -664,6 +667,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/** Configuration for cluster networking. */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkConfig *networkConfig;
 
 /** Configuration options for the NetworkPolicy feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicy *networkPolicy;
@@ -1274,8 +1280,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
- *  Configuration for client certificate authentication on the cluster. If no
- *  configuration is specified, a client certificate is issued.
+ *  Configuration for client certificate authentication on the cluster. For
+ *  clusters before v1.12, if no configuration is specified, a client
+ *  certificate is issued.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ClientCertificateConfig *clientCertificateConfig;
 
@@ -1329,6 +1336,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  NetworkConfig reports the relative names of network & subnetwork.
+ */
+@interface GTLRContainer_NetworkConfig : GTLRObject
+
+/**
+ *  Output only. The relative name of the Google Compute Engine
+ *  network(/compute/docs/networks-and-firewalls#networks) to which
+ *  the cluster is connected.
+ *  Example: projects/my-project/global/networks/my-network
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The relative name of the Google Compute Engine
+ *  [subnetwork](/compute/docs/vpc) to which the cluster is connected.
+ *  Example: projects/my-project/regions/us-central1/subnetworks/my-subnet
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
 
@@ -1397,6 +1427,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Type of the disk attached to each node (e.g. 'pd-standard' or 'pd-ssd')
+ *  If unspecified, the default disk type is 'pd-standard'
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
  *  The image type to use for this node. Note that for a given image type,

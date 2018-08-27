@@ -147,6 +147,13 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_Dat
 NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns = @"GCS_COLUMNS";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified = @"OUTPUT_SCHEMA_UNSPECIFIED";
 
+// GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion.state
+NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed = @"FAILED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid = @"INVALID";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending = @"PENDING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready = @"READY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified = @"STORED_INFO_TYPE_STATE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2SummaryResult.code
 NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error = @"ERROR";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success = @"SUCCESS";
@@ -213,6 +220,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2BigQueryField
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2BigQueryField
+@dynamic field, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2BigQueryKey
 //
 
@@ -227,7 +244,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2BigQueryOptions
-@dynamic identifyingFields, rowsLimit, sampleMethod, tableReference;
+@dynamic identifyingFields, rowsLimit, rowsLimitPercent, sampleMethod,
+         tableReference;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -383,11 +401,22 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions
-@dynamic bytesLimitPerFile, fileSet, filesLimitPercent, fileTypes, sampleMethod;
+@dynamic bytesLimitPerFile, bytesLimitPerFilePercent, fileSet,
+         filesLimitPercent, fileTypes, sampleMethod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -515,6 +544,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
+@dynamic config, storedInfoTypeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig
 //
 
@@ -550,7 +589,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
-@dynamic detectionRules, dictionary, infoType, likelihood, regex, surrogateType;
+@dynamic detectionRules, dictionary, infoType, likelihood, regex, storedType,
+         surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1321,6 +1361,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig
+@dynamic bigQueryField, cloudStorageFileSet, outputPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2LDiversityConfig
 //
 
@@ -1505,6 +1555,28 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 + (NSString *)collectionItemsKey {
   return @"jobTriggers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse
+@dynamic nextPageToken, storedInfoTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storedInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"storedInfoTypes";
 }
 
 @end
@@ -1960,6 +2032,67 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2StoredInfoType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StoredInfoType
+@dynamic currentVersion, name, pendingVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pendingVersions" : [GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig
+@dynamic descriptionProperty, displayName, largeCustomDictionary;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion
+@dynamic config, createTime, errors, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDLP_GooglePrivacyDlpV2Error class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2StoredType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StoredType
+@dynamic createTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2SummaryResult
 //
 
@@ -2142,6 +2275,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest
 @dynamic jobTrigger, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
+@dynamic config, updateMask;
 @end
 
 

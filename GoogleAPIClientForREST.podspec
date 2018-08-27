@@ -108,6 +108,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Bigquery/*.{h,m}'
   end
+  s.subspec 'BinaryAuthorization' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BinaryAuthorization/*.{h,m}'
+  end
   s.subspec 'Blogger' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Blogger/*.{h,m}'
@@ -495,10 +499,6 @@ Pod::Spec.new do |s|
   s.subspec 'Spanner' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Spanner/*.{h,m}'
-  end
-  s.subspec 'Spectrum' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Spectrum/*.{h,m}'
   end
   s.subspec 'Speech' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

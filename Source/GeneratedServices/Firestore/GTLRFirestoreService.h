@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Firestore API (firestore/v1)
+// Description:
+//   Accesses the NoSQL document database built for automatic scaling, high
+//   performance, and ease of application development.
 // Documentation:
 //   https://cloud.google.com/firestore
 
@@ -46,6 +49,9 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFirestoreDatastore;
 
 /**
  *  Service for executing Cloud Firestore API queries.
+ *
+ *  Accesses the NoSQL document database built for automatic scaling, high
+ *  performance, and ease of application development.
  */
 @interface GTLRFirestoreService : GTLRService
 

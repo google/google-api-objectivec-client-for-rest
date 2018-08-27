@@ -1294,8 +1294,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
- *  `display_name` .
- *  The `etag` is mandatory.
+ *  `display_name`, `description`.
  *
  *  Method: iam.projects.serviceAccounts.update
  *
@@ -1322,8 +1321,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
- *  `display_name` .
- *  The `etag` is mandatory.
+ *  `display_name`, `description`.
  *
  *  @param object The @c GTLRIam_ServiceAccount to include in the query.
  *  @param name The resource name of the service account in the following

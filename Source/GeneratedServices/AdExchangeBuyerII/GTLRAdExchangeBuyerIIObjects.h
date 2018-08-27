@@ -1701,7 +1701,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  A creative and its classification data.
- *  Next ID: 36
+ *  Next ID: 38
  */
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 
@@ -1776,6 +1776,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        status is unknown. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *dealsStatus;
+
+/** The set of declared destination URLs for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *declaredClickThroughUrls;
 
 /**
  *  \@OutputOnly Detected advertiser IDs, if any.

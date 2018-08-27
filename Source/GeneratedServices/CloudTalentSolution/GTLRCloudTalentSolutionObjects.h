@@ -7,7 +7,7 @@
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
 // Documentation:
-//   https://cloud.google.com/job-discovery/docs
+//   https://cloud.google.com/talent-solution/job-search/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -1370,7 +1370,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 /** Location used as the destination in the commute calculation. */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Location *jobLocation;
 
-/** Travel time to reach the job. */
+/**
+ *  The number of seconds required to travel to the job location from the
+ *  query location. A duration of 0 seconds indicates that the job is not
+ *  reachable within the requested duration, but was returned as part of an
+ *  expanded query.
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *travelDuration;
 
 @end
@@ -3328,9 +3333,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *  job board www.foo.com and career site www.bar.com, then this field is
  *  set to "foo.com" for use on the job board, and "bar.com" for use on the
  *  career site.
- *  If this field is not available for some reason, send "UNKNOWN". Note that
- *  any improvements to the {{ api_name }} model for a particular tenant site,
- *  rely on this field being set correctly to some domain.
+ *  If this field isn't available for some reason, send "UNKNOWN".
+ *  Any improvements to the model for a particular tenant site rely on this
+ *  field being set correctly to a domain.
  *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
@@ -3338,11 +3343,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 /**
  *  Required.
  *  A unique session identification string. A session is defined as the
- *  duration of an end user's interaction with the service over a period.
+ *  duration of an end user's interaction with the service over a certain
+ *  period.
  *  Obfuscate this field for privacy concerns before
- *  providing it to the API.
+ *  providing it to the service.
  *  If this field is not available for some reason, send "UNKNOWN". Note
- *  that any improvements to the {{ api_name }} model for a particular tenant
+ *  that any improvements to the model for a particular tenant
  *  site, rely on this field being set correctly to some unique session_id.
  *  The maximum number of allowed characters is 255.
  */
@@ -3350,14 +3356,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 /**
  *  Required.
- *  A unique user identification string, as determined by the client. The
- *  client is responsible for ensuring client-level uniqueness of this value
- *  in order to have the strongest positive impact on search quality.
+ *  A unique user identification string, as determined by the client.
+ *  To have the strongest positive impact on search quality
+ *  make sure the client-level is unique.
  *  Obfuscate this field for privacy concerns before
  *  providing it to the service.
  *  If this field is not available for some reason, send "UNKNOWN". Note
- *  that any improvements to the {{ api_name }} model for a particular tenant
- *  site, rely on this field being set correctly to some unique user_id.
+ *  that any improvements to the model for a particular tenant
+ *  site, rely on this field being set correctly to a unique user_id.
  *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
@@ -3603,7 +3609,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 /**
  *  The histogram results that match with specified
- *  SearchJobsRequest.histogram_request.
+ *  SearchJobsRequest.histogram_facets.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_HistogramResults *histogramResults;
 

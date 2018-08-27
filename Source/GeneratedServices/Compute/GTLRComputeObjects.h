@@ -4472,6 +4472,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
 /** Value: "FORWARDING_RULES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
+/** Value: "GPUS_ALL_REGIONS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
 /** Value: "HEALTH_CHECKS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_HealthChecks;
 /** Value: "IMAGES" */
@@ -8027,11 +8029,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  initializeParams.sourceImage or disks.source is required except for local
  *  SSD.
  *  To create a disk with one of the public operating system images, specify the
- *  image by its family name. For example, specify family/debian-8 to use the
- *  latest Debian 8 image:
- *  projects/debian-cloud/global/images/family/debian-8
+ *  image by its family name. For example, specify family/debian-9 to use the
+ *  latest Debian 9 image:
+ *  projects/debian-cloud/global/images/family/debian-9
  *  Alternatively, use a specific version of a public operating system image:
- *  projects/debian-cloud/global/images/debian-8-jessie-vYYYYMMDD
+ *  projects/debian-cloud/global/images/debian-9-stretch-vYYYYMMDD
  *  To create a disk with a custom image that you created, specify the image
  *  name in the following format:
  *  global/images/my-custom-image
@@ -10472,7 +10474,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *licenseCodes;
 
-/** Any applicable publicly visible licenses. */
+/** A list of publicly visible licenses. Reserved for Google's use. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 /**
@@ -10521,11 +10523,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The source image used to create this disk. If the source image is deleted,
  *  this field will not be set.
  *  To create a disk with one of the public operating system images, specify the
- *  image by its family name. For example, specify family/debian-8 to use the
- *  latest Debian 8 image:
- *  projects/debian-cloud/global/images/family/debian-8
+ *  image by its family name. For example, specify family/debian-9 to use the
+ *  latest Debian 9 image:
+ *  projects/debian-cloud/global/images/family/debian-9
  *  Alternatively, use a specific version of a public operating system image:
- *  projects/debian-cloud/global/images/debian-8-jessie-vYYYYMMDD
+ *  projects/debian-cloud/global/images/debian-9-stretch-vYYYYMMDD
  *  To create a disk with a custom image that you created, specify the image
  *  name in the following format:
  *  global/images/my-custom-image
@@ -14122,10 +14124,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
- *  A list of tags to apply to this instance. Tags are used to identify valid
- *  sources or targets for network firewalls and are specified by the client
- *  during instance creation. The tags can be later modified by the setTags
- *  method. Each tag within the list must comply with RFC1035.
+ *  Tags to apply to this instance. Tags are used to identify valid sources or
+ *  targets for network firewalls and are specified by the client during
+ *  instance creation. The tags can be later modified by the setTags method.
+ *  Each tag within the list must comply with RFC1035. Multiple tags can be
+ *  specified via the 'tags.items' field.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Tags *tags;
 
@@ -22113,6 +22116,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
  *    @arg @c kGTLRCompute_Quota_Metric_ForwardingRules Value "FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GpusAllRegions Value "GPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_HealthChecks Value "HEALTH_CHECKS"
  *    @arg @c kGTLRCompute_Quota_Metric_Images Value "IMAGES"
  *    @arg @c kGTLRCompute_Quota_Metric_InstanceGroupManagers Value

@@ -134,11 +134,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
 
-// GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry.state
-NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Disabled = @"DISABLED";
-NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_Enabled = @"ENABLED";
-NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRDialogflow_GoogleCloudDialogflowV2Agent
@@ -1948,34 +1943,6 @@ NSString * const kGTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudKnowledgeV1alpha1BatchUpdateQuestionAnswerEntriesResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudKnowledgeV1alpha1BatchUpdateQuestionAnswerEntriesResponse
-@dynamic questionAnswerEntries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"questionAnswerEntries" : [GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry
-//
-
-@implementation GTLRDialogflow_GoogleCloudKnowledgeV1alpha1QuestionAnswerEntry
-@dynamic answer, name, question, state;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Composer API (composer/v1beta1)
+//   Cloud Composer API (composer/v1)
 // Description:
 //   Manages Apache Airflow environments on Google Cloud Platform.
 // Documentation:
@@ -141,8 +141,10 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUns
 /**
  *  The operation completed successfully.
  *
- *  Value: "SUCCESSFUL"
+ *  Value: "SUCCEEDED"
  */
+GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded;
+/** Value: "SUCCESSFUL" */
 GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
 
 /**
@@ -306,7 +308,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_Environment *> *environments;
 
-/** The page token used to query for the next page if one exists */
+/** The page token used to query for the next page if one exists. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -404,9 +406,8 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 
 /**
  *  Optional. The set of Google API scopes to be made available on all
- *  node VMs. Defaults to
- *  ["https://www.googleapis.com/auth/cloud-platform"] and must be included in
- *  the list of specified scopes. Cannot be updated.
+ *  node VMs. If `oauth_scopes` is empty, defaults to
+ *  ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
@@ -583,8 +584,10 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *        is underway. (Value: "RUNNING")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_State_StateUnspecified
  *        Unused. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudComposer_OperationMetadata_State_Successful The
- *        operation completed successfully. (Value: "SUCCESSFUL")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_State_Succeeded The operation
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_State_Successful Value
+ *        "SUCCESSFUL"
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -646,7 +649,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  `composer-[0-9]+\\.[0-9]+(\\.[0-9]+)?-airflow-[0-9]+\\.[0-9]+(\\.[0-9]+.*)?`.
  *  The Cloud Composer portion of the version is a
  *  [semantic version](https://semver.org). The portion of the image version
- *  following <em>airflow-</em> is an official Apache Airflow repository
+ *  following _airflow-_ is an official Apache Airflow repository
  *  [release name](https://github.com/apache/incubator-airflow/releases).
  *  See also [Release Notes](/composer/docs/release-notes).
  */

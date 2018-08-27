@@ -20,6 +20,7 @@ NSString * const kGTLRWebSecurityScanner_Finding_FindingType_InvalidContentType 
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_MixedContent = @"MIXED_CONTENT";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_OutdatedLibrary = @"OUTDATED_LIBRARY";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_RosettaFlash = @"ROSETTA_FLASH";
+NSString * const kGTLRWebSecurityScanner_Finding_FindingType_XssAngularCallback = @"XSS_ANGULAR_CALLBACK";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_XssCallback = @"XSS_CALLBACK";
 NSString * const kGTLRWebSecurityScanner_Finding_FindingType_XssError = @"XSS_ERROR";
 
@@ -30,6 +31,7 @@ NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidCon
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MixedContent = @"MIXED_CONTENT";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_OutdatedLibrary = @"OUTDATED_LIBRARY";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_RosettaFlash = @"ROSETTA_FLASH";
+NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssAngularCallback = @"XSS_ANGULAR_CALLBACK";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssCallback = @"XSS_CALLBACK";
 NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_XssError = @"XSS_ERROR";
 

@@ -20,6 +20,13 @@ NSString * const kGTLRGmail_AutoForwarding_Disposition_LeaveInInbox = @"leaveInI
 NSString * const kGTLRGmail_AutoForwarding_Disposition_MarkRead = @"markRead";
 NSString * const kGTLRGmail_AutoForwarding_Disposition_Trash   = @"trash";
 
+// GTLRGmail_Delegate.verificationStatus
+NSString * const kGTLRGmail_Delegate_VerificationStatus_Accepted = @"accepted";
+NSString * const kGTLRGmail_Delegate_VerificationStatus_Expired = @"expired";
+NSString * const kGTLRGmail_Delegate_VerificationStatus_Pending = @"pending";
+NSString * const kGTLRGmail_Delegate_VerificationStatus_Rejected = @"rejected";
+NSString * const kGTLRGmail_Delegate_VerificationStatus_VerificationStatusUnspecified = @"verificationStatusUnspecified";
+
 // GTLRGmail_FilterCriteria.sizeComparison
 NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Larger = @"larger";
 NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Smaller = @"smaller";
@@ -122,6 +129,16 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_Delegate
+//
+
+@implementation GTLRGmail_Delegate
+@dynamic delegateEmail, verificationStatus;
 @end
 
 
@@ -311,6 +328,24 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 @implementation GTLRGmail_LabelColor
 @dynamic backgroundColor, textColor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListDelegatesResponse
+//
+
+@implementation GTLRGmail_ListDelegatesResponse
+@dynamic delegates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"delegates" : [GTLRGmail_Delegate class]
+  };
+  return map;
+}
+
 @end
 
 

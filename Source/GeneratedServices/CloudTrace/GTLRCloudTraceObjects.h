@@ -6,7 +6,9 @@
 // Description:
 //   Sends application trace data to Stackdriver Trace for viewing. Trace data
 //   is collected for all App Engine applications by default. Trace data from
-//   other applications can be provided using this API.
+//   other applications can be provided using this API. This library is used to
+//   interact with the Trace API directly. If you are looking to instrument your
+//   application for Stackdriver Trace, we recommend using OpenCensus.
 // Documentation:
 //   https://cloud.google.com/trace
 
@@ -363,7 +365,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 /**
  *  A description of the span's operation (up to 128 bytes).
  *  Stackdriver Trace displays the description in the
- *  {% dynamic print site_values.console_name %}.
+ *  Google Cloud Platform Console.
  *  For example, the display name can be a qualified method name or a file name
  *  and a line number where the operation is called. A best practice is to use
  *  the same display name within an application and at the same call point.

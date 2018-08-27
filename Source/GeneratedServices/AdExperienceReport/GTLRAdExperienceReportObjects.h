@@ -101,6 +101,8 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatu
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionA;
 /** Value: "REGION_B" */
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionB;
+/** Value: "REGION_C" */
+GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionC;
 /** Value: "REGION_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
 

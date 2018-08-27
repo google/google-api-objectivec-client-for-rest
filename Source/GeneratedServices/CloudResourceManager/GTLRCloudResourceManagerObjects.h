@@ -386,7 +386,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  The display name must start and end with a letter or digit, may contain
  *  letters, digits, spaces, hyphens and underscores and can be no longer
  *  than 30 characters. This is captured by the regular expression:
- *  [\\p{L}\\p{N}]({\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?.
+ *  [\\p{L}\\p{N}]([\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Redis API (redis/v1beta1)
+//   Google Cloud Memorystore for Redis API (redis/v1beta1)
 // Description:
 //   The Google Cloud Memorystore for Redis API is used for creating and
 //   managing Redis instances on the Google Cloud Platform.
@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudRedisCloudPlatform;
 //
 
 /**
- *  Service for executing Cloud Memorystore for Redis API queries.
+ *  Service for executing Google Cloud Memorystore for Redis API queries.
  *
  *  The Google Cloud Memorystore for Redis API is used for creating and managing
  *  Redis instances on the Google Cloud Platform.

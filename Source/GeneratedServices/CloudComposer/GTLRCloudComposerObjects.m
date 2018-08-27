@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Composer API (composer/v1beta1)
+//   Cloud Composer API (composer/v1)
 // Description:
 //   Manages Apache Airflow environments on Google Cloud Platform.
 // Documentation:
@@ -32,6 +32,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Failed = @"FAILED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Pending = @"PENDING";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCESSFUL";
 
 // ----------------------------------------------------------------------------

@@ -280,9 +280,12 @@
 @implementation GTLRDrive_File_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermission,
          canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
-         canDownload, canEdit, canListChildren, canMoveItemIntoTeamDrive,
-         canMoveTeamDriveItem, canReadRevisions, canReadTeamDrive,
-         canRemoveChildren, canRename, canShare, canTrash, canUntrash;
+         canDeleteChildren, canDownload, canEdit, canListChildren,
+         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinTeamDrive,
+         canMoveItemIntoTeamDrive, canMoveItemOutOfTeamDrive,
+         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadRevisions,
+         canReadTeamDrive, canRemoveChildren, canRename, canShare, canTrash,
+         canTrashChildren, canUntrash;
 @end
 
 
@@ -576,9 +579,9 @@
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
          canChangeDomainUsersOnlyRestriction, canChangeTeamDriveBackground,
          canChangeTeamMembersOnlyRestriction, canComment, canCopy,
-         canDeleteTeamDrive, canDownload, canEdit, canListChildren,
-         canManageMembers, canReadRevisions, canRemoveChildren, canRename,
-         canRenameTeamDrive, canShare;
+         canDeleteChildren, canDeleteTeamDrive, canDownload, canEdit,
+         canListChildren, canManageMembers, canReadRevisions, canRemoveChildren,
+         canRename, canRenameTeamDrive, canShare, canTrashChildren;
 @end
 
 

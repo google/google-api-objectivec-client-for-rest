@@ -100,6 +100,12 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGray;
  */
 GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGreen;
 /**
+ *  orange
+ *
+ *  Value: "orange"
+ */
+GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorOrange;
+/**
  *  pink
  *
  *  Value: "pink"
@@ -111,6 +117,12 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPink;
  *  Value: "purple"
  */
 GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPurple;
+/**
+ *  red
+ *
+ *  Value: "red"
+ */
+GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorRed;
 /**
  *  teal
  *
@@ -428,16 +440,14 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangZhTW;
 // safe
 
 /**
- *  Enables highest level of safe search filtering.
+ *  Enables safe search filtering.
  *
- *  Value: "high"
+ *  Value: "active"
  */
+GTLR_EXTERN NSString * const kGTLRCustomsearchSafeActive;
+/** Value: "high" */
 GTLR_EXTERN NSString * const kGTLRCustomsearchSafeHigh;
-/**
- *  Enables moderate safe search filtering.
- *
- *  Value: "medium"
- */
+/** Value: "medium" */
 GTLR_EXTERN NSString * const kGTLRCustomsearchSafeMedium;
 /**
  *  Disables safe search filtering.
@@ -565,8 +575,8 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Returns images of a specific dominant color: yellow, green, teal, blue,
- *  purple, pink, white, gray, black and brown.
+ *  Returns images of a specific dominant color: red, orange, yellow, green,
+ *  teal, blue, purple, pink, white, gray, black and brown.
  *
  *  Likely values:
  *    @arg @c kGTLRCustomsearchImgDominantColorBlack black (Value: "black")
@@ -574,8 +584,10 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgDominantColorBrown brown (Value: "brown")
  *    @arg @c kGTLRCustomsearchImgDominantColorGray gray (Value: "gray")
  *    @arg @c kGTLRCustomsearchImgDominantColorGreen green (Value: "green")
+ *    @arg @c kGTLRCustomsearchImgDominantColorOrange orange (Value: "orange")
  *    @arg @c kGTLRCustomsearchImgDominantColorPink pink (Value: "pink")
  *    @arg @c kGTLRCustomsearchImgDominantColorPurple purple (Value: "purple")
+ *    @arg @c kGTLRCustomsearchImgDominantColorRed red (Value: "red")
  *    @arg @c kGTLRCustomsearchImgDominantColorTeal teal (Value: "teal")
  *    @arg @c kGTLRCustomsearchImgDominantColorWhite white (Value: "white")
  *    @arg @c kGTLRCustomsearchImgDominantColorYellow yellow (Value: "yellow")
@@ -699,10 +711,12 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *  Search safety level
  *
  *  Likely values:
- *    @arg @c kGTLRCustomsearchSafeHigh Enables highest level of safe search
- *        filtering. (Value: "high")
- *    @arg @c kGTLRCustomsearchSafeMedium Enables moderate safe search
- *        filtering. (Value: "medium")
+ *    @arg @c kGTLRCustomsearchSafeActive Enables safe search filtering. (Value:
+ *        "active")
+ *    @arg @c kGTLRCustomsearchSafeHigh (Deprecated) Same as active. (Value:
+ *        "high")
+ *    @arg @c kGTLRCustomsearchSafeMedium (Deprecated) Same as active. (Value:
+ *        "medium")
  *    @arg @c kGTLRCustomsearchSafeOff Disables safe search filtering. (Value:
  *        "off")
  *
@@ -833,8 +847,8 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Returns images of a specific dominant color: yellow, green, teal, blue,
- *  purple, pink, white, gray, black and brown.
+ *  Returns images of a specific dominant color: red, orange, yellow, green,
+ *  teal, blue, purple, pink, white, gray, black and brown.
  *
  *  Likely values:
  *    @arg @c kGTLRCustomsearchImgDominantColorBlack black (Value: "black")
@@ -842,8 +856,10 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgDominantColorBrown brown (Value: "brown")
  *    @arg @c kGTLRCustomsearchImgDominantColorGray gray (Value: "gray")
  *    @arg @c kGTLRCustomsearchImgDominantColorGreen green (Value: "green")
+ *    @arg @c kGTLRCustomsearchImgDominantColorOrange orange (Value: "orange")
  *    @arg @c kGTLRCustomsearchImgDominantColorPink pink (Value: "pink")
  *    @arg @c kGTLRCustomsearchImgDominantColorPurple purple (Value: "purple")
+ *    @arg @c kGTLRCustomsearchImgDominantColorRed red (Value: "red")
  *    @arg @c kGTLRCustomsearchImgDominantColorTeal teal (Value: "teal")
  *    @arg @c kGTLRCustomsearchImgDominantColorWhite white (Value: "white")
  *    @arg @c kGTLRCustomsearchImgDominantColorYellow yellow (Value: "yellow")
