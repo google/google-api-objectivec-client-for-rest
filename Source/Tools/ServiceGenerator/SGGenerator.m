@@ -3538,6 +3538,10 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
             methodOverrideKey:kSimpleUploadPathOverrideKey];
 }
 
++ (NSArray *)sg_acceptedUnknowns {
+  return @[ @"fullyEncodeReservedExpansion" ];
+}
+
 @end
 
 @implementation GTLRDiscovery_JsonSchema (SGGeneratorAdditions)
