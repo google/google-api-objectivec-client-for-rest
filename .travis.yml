@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.3
+osx_image: xcode9.4
 env:
   - TEST_TYPE=Xcode MODE=OSXCore CFG=Debug
   - TEST_TYPE=Xcode MODE=OSXCore CFG=Release
