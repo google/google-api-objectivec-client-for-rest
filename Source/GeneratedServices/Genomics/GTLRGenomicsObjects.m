@@ -1177,6 +1177,15 @@ NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecified = @"TYPE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_RunPipelineResponse
+//
+
+@implementation GTLRGenomics_RunPipelineResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_RuntimeMetadata
 //
 

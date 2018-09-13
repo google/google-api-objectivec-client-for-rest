@@ -251,11 +251,12 @@
 @implementation GTLRAdExchangeBuyer_Creative
 @dynamic accountId, adChoicesDestinationUrl, advertiserId, advertiserName,
          agencyId, apiUploadTimestamp, attribute, buyerCreativeId,
-         clickThroughUrl, corrections, dealsStatus, detectedDomains,
-         filteringReasons, height, HTMLSnippet, impressionTrackingUrl, kind,
-         languages, nativeAd, openAuctionStatus, productCategories,
-         restrictedCategories, sensitiveCategories, servingRestrictions,
-         vendorType, version, videoURL, videoVastXML, width;
+         clickThroughUrl, corrections, creativeStatusIdentityType, dealsStatus,
+         detectedDomains, filteringReasons, height, HTMLSnippet,
+         impressionTrackingUrl, kind, languages, nativeAd, openAuctionStatus,
+         productCategories, restrictedCategories, sensitiveCategories,
+         servingRestrictions, vendorType, version, videoURL, videoVastXML,
+         width;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1126,11 +1127,11 @@
 //
 
 @implementation GTLRAdExchangeBuyer_PublisherProfileApiProto
-@dynamic accountId, audience, buyerPitchStatement, directContact, exchange,
-         googlePlusLink, isParent, isPublished, kind, logoUrl, mediaKitLink,
-         name, overview, profileId, programmaticContact, publisherDomains,
-         publisherProfileId, publisherProvidedForecast, rateCardInfoLink,
-         samplePageLink, seller, state, topHeadlines;
+@dynamic audience, buyerPitchStatement, directContact, exchange, googlePlusLink,
+         isParent, isPublished, kind, logoUrl, mediaKitLink, name, overview,
+         profileId, programmaticContact, publisherDomains, publisherProfileId,
+         publisherProvidedForecast, rateCardInfoLink, samplePageLink, seller,
+         state, topHeadlines;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

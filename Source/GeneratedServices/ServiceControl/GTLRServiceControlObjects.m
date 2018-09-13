@@ -151,7 +151,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 @implementation GTLRServiceControl_AuditLog
 @dynamic authenticationInfo, authorizationInfo, metadata, methodName,
          numResponseItems, request, requestMetadata, resourceLocation,
-         resourceName, response, serviceData, serviceName, status;
+         resourceName, resourceOriginalState, response, serviceData,
+         serviceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -183,6 +184,20 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuditLog_Request
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog_ResourceOriginalState
+//
+
+@implementation GTLRServiceControl_AuditLog_ResourceOriginalState
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -903,11 +918,12 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_ResourceLocation
-@dynamic currentLocations;
+@dynamic currentLocations, originalLocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"currentLocations" : [NSString class]
+    @"currentLocations" : [NSString class],
+    @"originalLocations" : [NSString class]
   };
   return map;
 }

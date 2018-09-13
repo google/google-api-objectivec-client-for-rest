@@ -1373,6 +1373,35 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/testorders/{orderId}/cancelByCustomer";
+  GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse class];
+  query.loggingName = @"content.orders.canceltestorderbycustomer";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrdersCreatetestorder
 
 @dynamic merchantId;

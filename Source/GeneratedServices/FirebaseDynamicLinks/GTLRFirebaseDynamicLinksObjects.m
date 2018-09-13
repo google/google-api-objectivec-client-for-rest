@@ -271,6 +271,27 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest
+//
+
+@implementation GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest
+@dynamic bundleId, requestedLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse
+//
+
+@implementation GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse
+@dynamic deepLink, invitationId, resolvedLink, utmCampaign, utmMedium,
+         utmSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDynamicLinks_GooglePlayAnalytics
 //
 

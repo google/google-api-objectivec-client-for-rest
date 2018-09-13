@@ -1253,6 +1253,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *jobTimeoutMs;
 
 /**
+ *  [Output-only] The type of the job. Can be QUERY, LOAD, EXTRACT, COPY or
+ *  UNKNOWN.
+ */
+@property(nonatomic, copy, nullable) NSString *jobType;
+
+/**
  *  The labels associated with this job. You can use these to organize and group
  *  your jobs. Label keys and values can be no longer than 63 characters, can
  *  only contain lowercase letters, numeric characters, underscores and dashes.
@@ -1588,7 +1594,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Optional] Specifies the default dataset to use for unqualified table names
- *  in the query.
+ *  in the query. Note that this does not alter behavior of unqualified dataset
+ *  names.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *defaultDataset;
 
@@ -1961,21 +1968,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only, Beta] The DDL operation performed, possibly dependent on the
- *  pre-existence of the DDL target. Possible values (new values might be added
- *  in the future): "CREATE": The query created the DDL target. "SKIP": No-op.
- *  Example cases: the query is CREATE TABLE IF NOT EXISTS while the table
- *  already exists, or the query is DROP TABLE IF EXISTS while the table does
- *  not exist. "REPLACE": The query replaced the DDL target. Example case: the
- *  query is CREATE OR REPLACE TABLE, and the table already exists. "DROP": The
- *  query deleted the DDL target.
+ *  The DDL operation performed, possibly dependent on the pre-existence of the
+ *  DDL target. Possible values (new values might be added in the future):
+ *  "CREATE": The query created the DDL target. "SKIP": No-op. Example cases:
+ *  the query is CREATE TABLE IF NOT EXISTS while the table already exists, or
+ *  the query is DROP TABLE IF EXISTS while the table does not exist. "REPLACE":
+ *  The query replaced the DDL target. Example case: the query is CREATE OR
+ *  REPLACE TABLE, and the table already exists. "DROP": The query deleted the
+ *  DDL target.
  */
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
 
-/**
- *  [Output-only, Beta] The DDL target table. Present only for CREATE/DROP
- *  TABLE/VIEW queries.
- */
+/** The DDL target table. Present only for CREATE/DROP TABLE/VIEW queries. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
@@ -2029,9 +2033,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
 /**
- *  [Output-only, Beta] The type of query statement, if valid. Possible values
- *  (new values might be added in the future): "SELECT": SELECT query. "INSERT":
- *  INSERT query; see
+ *  The type of query statement, if valid. Possible values (new values might be
+ *  added in the future): "SELECT": SELECT query. "INSERT": INSERT query; see
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
  *  "UPDATE": UPDATE query; see
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
@@ -2079,8 +2082,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
 /**
- *  [Output-only, Beta] Standard SQL only: list of undeclared query parameters
- *  detected during a dry run validation.
+ *  Standard SQL only: list of undeclared query parameters detected during a dry
+ *  run validation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *undeclaredQueryParameters;
 

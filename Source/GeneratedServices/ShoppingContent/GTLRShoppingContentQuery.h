@@ -41,6 +41,7 @@
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
 @class GTLRShoppingContent_OrdersCancelLineItemRequest;
 @class GTLRShoppingContent_OrdersCancelRequest;
+@class GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest;
 @class GTLRShoppingContent_OrdersCreateTestOrderRequest;
 @class GTLRShoppingContent_OrdersCustomBatchRequest;
 @class GTLRShoppingContent_OrdersInStoreRefundLineItemRequest;
@@ -2373,6 +2374,47 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  @return GTLRShoppingContentQuery_OrdersCancellineitem
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCancelLineItemRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
+ *  Sandbox only. Cancels a test order for customer-initiated cancellation.
+ *
+ *  Method: content.orders.canceltestorderbycustomer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersCanceltestorderbycustomerWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the test order to cancel. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse.
+ *
+ *  Sandbox only. Cancels a test order for customer-initiated cancellation.
+ *
+ *  @param object The @c
+ *    GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest to include in
+ *    the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the test order to cancel.
+ *
+ *  @return GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest *)object
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId;
 

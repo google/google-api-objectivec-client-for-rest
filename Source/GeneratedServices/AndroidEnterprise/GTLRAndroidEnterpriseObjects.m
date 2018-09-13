@@ -36,7 +36,8 @@
 //
 
 @implementation GTLRAndroidEnterprise_AdministratorWebTokenSpec
-@dynamic kind, parent, permission;
+@dynamic kind, parent, permission, playSearch, privateApps, storeBuilder,
+         webApps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -45,6 +46,46 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps
+@dynamic enabled;
 @end
 
 

@@ -840,6 +840,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_BackendServicesSetSecurityPolicy
+
+@dynamic backendService, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                 backendService:(NSString *)backendService {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"backendService", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}/setSecurityPolicy";
+  GTLRComputeQuery_BackendServicesSetSecurityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.backendService = backendService;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.backendServices.setSecurityPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendServicesUpdate
 
 @dynamic backendService, project, requestId;
@@ -7157,6 +7186,229 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_RouteList class];
   query.loggingName = @"compute.routes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesAddRule
+
+@dynamic project, securityPolicy;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/addRule";
+  GTLRComputeQuery_SecurityPoliciesAddRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.addRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesDelete
+
+@dynamic project, requestId, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  GTLRComputeQuery_SecurityPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesGet
+
+@dynamic project, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  GTLRComputeQuery_SecurityPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_SecurityPolicy class];
+  query.loggingName = @"compute.securityPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesGetRule
+
+@dynamic priority, project, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/getRule";
+  GTLRComputeQuery_SecurityPoliciesGetRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_SecurityPolicyRule class];
+  query.loggingName = @"compute.securityPolicies.getRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies";
+  GTLRComputeQuery_SecurityPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies";
+  GTLRComputeQuery_SecurityPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_SecurityPolicyList class];
+  query.loggingName = @"compute.securityPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesPatch
+
+@dynamic project, requestId, securityPolicy;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  GTLRComputeQuery_SecurityPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesPatchRule
+
+@dynamic priority, project, securityPolicy;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/patchRule";
+  GTLRComputeQuery_SecurityPoliciesPatchRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.patchRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SecurityPoliciesRemoveRule
+
+@dynamic priority, project, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/removeRule";
+  GTLRComputeQuery_SecurityPoliciesRemoveRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.securityPolicies.removeRule";
   return query;
 }
 

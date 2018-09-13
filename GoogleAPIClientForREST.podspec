@@ -144,6 +144,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudDebugger/*.{h,m}'
   end
+  s.subspec 'CloudFilestore' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudFilestore/*.{h,m}'
+  end
   s.subspec 'CloudFunctions' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudFunctions/*.{h,m}'

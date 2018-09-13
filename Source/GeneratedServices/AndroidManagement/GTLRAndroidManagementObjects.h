@@ -58,6 +58,7 @@
 @class GTLRAndroidManagement_StatusReportingSettings;
 @class GTLRAndroidManagement_SystemUpdate;
 @class GTLRAndroidManagement_TermsAndConditions;
+@class GTLRAndroidManagement_User;
 @class GTLRAndroidManagement_UserFacingMessage;
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 
@@ -185,6 +186,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedS
  *  Value: "AVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available;
+/**
+ *  The app is blocked and can't be installed. If the app was installed under a
+ *  previous policy, it will be uninstalled.
+ *
+ *  Value: "BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked;
 /**
  *  The app is automatically installed and can't be removed by the user.
  *
@@ -1081,6 +1089,30 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.playStoreMode
+
+/**
+ *  All apps are available and any app that should not be on the device should
+ *  be explicitly markeds as 'BLOCKED' in the applications policy.
+ *
+ *  Value: "BLACKLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist;
+/**
+ *  Unspecified. Defaults to WHITELIST.
+ *
+ *  Value: "PLAY_STORE_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified;
+/**
+ *  Only apps that are in the policy are available and any app not in the policy
+ *  will be automatically uninstalled from the device.
+ *
+ *  Value: "WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 
 /** Value: "AC" */
@@ -1348,6 +1380,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available The
  *        app is available to install. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked The
+ *        app is blocked and can't be installed. If the app was installed under
+ *        a previous policy, it will be uninstalled. (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
  *        The app is automatically installed and can't be removed by the user.
  *        (Value: "FORCE_INSTALLED")
@@ -1855,6 +1890,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** The user who owns the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user;
+
 /**
  *  The resource name of the user that owns this device in the form
  *  enterprises/{enterpriseId}/users/{userId}.
@@ -2078,6 +2116,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  of the properties in the JSON.
  */
 @property(nonatomic, copy, nullable) NSString *qrCode;
+
+/**
+ *  The user associated with this enrollment token. If it's specified when the
+ *  enrollment token is created and the user does not exist, the user will be
+ *  created. This field must not contain personally identifiable information.
+ *  Only the account_identifier field needs to be set.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user;
 
 /**
  *  The token value that's passed to the device and authorizes the device to
@@ -3388,6 +3434,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersistentPreferredActivity *> *persistentPreferredActivities;
 
 /**
+ *  This mode controls which apps are available to the user in the Play Store
+ *  and the behavior on the device when apps are removed from the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist All apps are
+ *        available and any app that should not be on the device should be
+ *        explicitly markeds as 'BLOCKED' in the applications policy. (Value:
+ *        "BLACKLIST")
+ *    @arg @c kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified
+ *        Unspecified. Defaults to WHITELIST. (Value:
+ *        "PLAY_STORE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist Only apps
+ *        that are in the policy are available and any app not in the policy
+ *        will be automatically uninstalled from the device. (Value:
+ *        "WHITELIST")
+ */
+@property(nonatomic, copy, nullable) NSString *playStoreMode;
+
+/**
  *  Allows showing UI on a device for a user to choose a private key alias if
  *  there are no matching rules in ChoosePrivateKeyRules. For devices below
  *  Android P, setting this may leave enterprise keys vulnerable.
@@ -3824,7 +3889,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *hardwareStatusEnabled;
 
 /**
- *  Whether memory info reporting is enabled.
+ *  Whether memory reporting is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3917,6 +3982,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /** A short header which appears above the HTML content. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *header;
+
+@end
+
+
+/**
+ *  A user belonging to an enterprise.
+ */
+@interface GTLRAndroidManagement_User : GTLRObject
+
+/**
+ *  A unique identifier you create for this user, such as user342 or
+ *  asset#44418. This field must be set when the user is created and can't be
+ *  updated. This field must not contain personally identifiable information
+ *  (PII). This identifier must be 1024 characters or less; otherwise, the
+ *  update policy request will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *accountIdentifier;
 
 @end
 

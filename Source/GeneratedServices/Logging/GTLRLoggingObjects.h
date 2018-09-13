@@ -2084,10 +2084,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
  *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog" or
- *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
- *  For more information about log names, see LogEntry.
+ *  [LOG_ID] must be URL-encoded. For example:
+ *  "projects/my-project-id/logs/syslog"
+ *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"
+ *  The permission <code>logging.logEntries.create</code> is needed on each
+ *  project, organization, billing account, or folder that is receiving new log
+ *  entries, whether the resource is specified in <code>logName</code> or in an
+ *  individual log entry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 

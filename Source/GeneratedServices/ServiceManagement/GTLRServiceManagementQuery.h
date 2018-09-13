@@ -220,7 +220,11 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
 // Previous library name was
 //   +[GTLQueryServiceManagement queryForServicesConfigsGetWithserviceName:configId:]
 
-/** The id of the service configuration resource. */
+/**
+ *  The id of the service configuration resource.
+ *  This field must be specified for the server to return all fields, including
+ *  `SourceInfo`.
+ */
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**
@@ -248,6 +252,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *    [overview](/service-management/overview)
  *    for naming requirements. For example: `example.googleapis.com`.
  *  @param configId The id of the service configuration resource.
+ *    This field must be specified for the server to return all fields,
+ *    including
+ *    `SourceInfo`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsGet
  */
@@ -751,7 +758,11 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
 // Previous library name was
 //   +[GTLQueryServiceManagement queryForServicesGetConfigWithserviceName:]
 
-/** The id of the service configuration resource. */
+/**
+ *  The id of the service configuration resource.
+ *  This field must be specified for the server to return all fields, including
+ *  `SourceInfo`.
+ */
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**

@@ -1126,6 +1126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - Payment pending
  *  - Payment received
  *  - Free trial
+ *  - Pending deferred upgrade/downgrade
  *
  *  Uses NSNumber of intValue.
  */

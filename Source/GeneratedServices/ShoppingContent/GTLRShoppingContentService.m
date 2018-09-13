@@ -84,6 +84,7 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#ordersAdvanceTestOrderResponse" : [GTLRShoppingContent_OrdersAdvanceTestOrderResponse class],
     @"content#ordersCancelLineItemResponse" : [GTLRShoppingContent_OrdersCancelLineItemResponse class],
     @"content#ordersCancelResponse" : [GTLRShoppingContent_OrdersCancelResponse class],
+    @"content#ordersCancelTestOrderByCustomerResponse" : [GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse class],
     @"content#ordersCreateTestOrderResponse" : [GTLRShoppingContent_OrdersCreateTestOrderResponse class],
     @"content#ordersCustomBatchResponse" : [GTLRShoppingContent_OrdersCustomBatchResponse class],
     @"content#ordersCustomBatchResponseEntry" : [GTLRShoppingContent_OrdersCustomBatchResponseEntry class],

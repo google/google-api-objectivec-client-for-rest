@@ -62,16 +62,19 @@ NSString * const kGTLRTesting_TestExecution_State_UnsupportedEnvironment = @"UNS
 NSString * const kGTLRTesting_TestExecution_State_Validating   = @"VALIDATING";
 
 // GTLRTesting_TestMatrix.invalidMatrixDetails
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator = @"BUILT_FOR_IOS_SIMULATOR";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DetailsUnavailable = @"DETAILS_UNAVAILABLE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DeviceAdminReceiver = @"DEVICE_ADMIN_RECEIVER";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ForbiddenPermissions = @"FORBIDDEN_PERMISSIONS";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible = @"INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk = @"INVALID_APK_PREVIEW_SDK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk = @"INVALID_INPUT_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip = @"MALFORMED_XC_TEST_ZIP";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk = @"NO_CODE_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity = @"NO_LAUNCHER_ACTIVITY";
@@ -79,12 +82,15 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoManifest = @"NO_
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoPackageName = @"NO_PACKAGE_NAME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature = @"NO_SIGNATURE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass = @"NO_TEST_RUNNER_CLASS";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip = @"NO_TESTS_IN_XC_TEST_ZIP";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed = @"SCENARIO_LABEL_MALFORMED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelNotDeclared = @"SCENARIO_LABEL_NOT_DECLARED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared = @"SCENARIO_NOT_DECLARED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound = @"TEST_LOOP_INTENT_FILTER_NOT_FOUND";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted = @"TEST_NOT_APP_HOSTED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk = @"TEST_ONLY_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp = @"TEST_SAME_AS_APP";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts = @"USE_DESTINATION_ARTIFACTS";
 
 // GTLRTesting_TestMatrix.state
 NSString * const kGTLRTesting_TestMatrix_State_Cancelled       = @"CANCELLED";
@@ -416,7 +422,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_Environment
-@dynamic androidDevice;
+@dynamic androidDevice, iosDevice;
 @end
 
 
@@ -426,7 +432,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_EnvironmentMatrix
-@dynamic androidDeviceList, androidMatrix;
+@dynamic androidDeviceList, androidMatrix, iosDeviceList;
 @end
 
 
@@ -495,6 +501,138 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosDevice
+//
+
+@implementation GTLRTesting_IosDevice
+@dynamic iosModelId, iosVersionId, locale, orientation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosDeviceCatalog
+//
+
+@implementation GTLRTesting_IosDeviceCatalog
+@dynamic models, runtimeConfiguration, versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"models" : [GTLRTesting_IosModel class],
+    @"versions" : [GTLRTesting_IosVersion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosDeviceList
+//
+
+@implementation GTLRTesting_IosDeviceList
+@dynamic iosDevices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iosDevices" : [GTLRTesting_IosDevice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosModel
+//
+
+@implementation GTLRTesting_IosModel
+@dynamic deviceCapabilities, identifier, name, supportedVersionIds, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceCapabilities" : [NSString class],
+    @"supportedVersionIds" : [NSString class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosRuntimeConfiguration
+//
+
+@implementation GTLRTesting_IosRuntimeConfiguration
+@dynamic locales, orientations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locales" : [GTLRTesting_Locale class],
+    @"orientations" : [GTLRTesting_Orientation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosTestSetup
+//
+
+@implementation GTLRTesting_IosTestSetup
+@dynamic networkProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosVersion
+//
+
+@implementation GTLRTesting_IosVersion
+@dynamic identifier, majorVersion, minorVersion, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosXcTest
+//
+
+@implementation GTLRTesting_IosXcTest
+@dynamic testsZip, xctestrun;
 @end
 
 
@@ -686,7 +824,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestEnvironmentCatalog
-@dynamic androidDeviceCatalog, networkConfigurationCatalog, softwareCatalog;
+@dynamic androidDeviceCatalog, iosDeviceCatalog, networkConfigurationCatalog,
+         softwareCatalog;
 @end
 
 
@@ -756,7 +895,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 @implementation GTLRTesting_TestSpecification
 @dynamic androidInstrumentationTest, androidRoboTest, androidTestLoop,
          autoGoogleLogin, disablePerformanceMetrics, disableVideoRecording,
-         testSetup, testTimeout;
+         iosTestSetup, iosXcTest, testSetup, testTimeout;
 @end
 
 

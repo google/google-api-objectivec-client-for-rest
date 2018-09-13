@@ -2158,6 +2158,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
 /**
+ *  Whether the volume has comics content.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *comicsContent;
+
+/**
  *  An identifier for the version of the volume content (text & images). (In
  *  LITE projection)
  */

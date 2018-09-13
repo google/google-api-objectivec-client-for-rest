@@ -88,6 +88,9 @@
 @class GTLRCompute_Route;
 @class GTLRCompute_Router;
 @class GTLRCompute_Scheduling;
+@class GTLRCompute_SecurityPolicy;
+@class GTLRCompute_SecurityPolicyReference;
+@class GTLRCompute_SecurityPolicyRule;
 @class GTLRCompute_SignedUrlKey;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
@@ -2064,6 +2067,61 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRComputeQuery_BackendServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
+                        project:(NSString *)project
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Sets the security policy for the specified backend service.
+ *
+ *  Method: compute.backendServices.setSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendServicesSetSecurityPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendServicesSetSecurityPolicyWithObject:project:backendService:]
+
+/**
+ *  Name of the BackendService resource to which the security policy should be
+ *  set. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the security policy for the specified backend service.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param backendService Name of the BackendService resource to which the
+ *    security policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_BackendServicesSetSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
                         project:(NSString *)project
                  backendService:(NSString *)backendService;
 
@@ -7248,7 +7306,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves aggregated list of instances.
+ *  Retrieves aggregated list of all of the instances in your project across all
+ *  regions and zones.
  *
  *  Method: compute.instances.aggregatedList
  *
@@ -7316,7 +7375,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceAggregatedList.
  *
- *  Retrieves aggregated list of instances.
+ *  Retrieves aggregated list of all of the instances in your project across all
+ *  regions and zones.
  *
  *  @param project Project ID for this request.
  *
@@ -7632,7 +7692,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified instance's serial port output.
+ *  Returns the last 1 MB of serial port output from the specified instance.
  *
  *  Method: compute.instances.getSerialPortOutput
  *
@@ -7677,7 +7737,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SerialPortOutput.
  *
- *  Returns the specified instance's serial port output.
+ *  Returns the last 1 MB of serial port output from the specified instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -16437,6 +16497,420 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Inserts a rule into a security policy.
+ *
+ *  Method: compute.securityPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesAddRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesAddRuleWithObject:project:securityPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a security policy.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Deletes the specified policy.
+ *
+ *  Method: compute.securityPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesDeleteWithproject:securityPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to delete. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to delete.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  Method: compute.securityPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SecurityPoliciesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesGetWithproject:securityPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the security policy to get. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicy.
+ *
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to get.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Gets a rule at the specified priority.
+ *
+ *  Method: compute.securityPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SecurityPoliciesGetRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesGetRuleWithproject:securityPolicy:]
+
+/** The priority of the rule to get from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the security policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyRule.
+ *
+ *  Gets a rule at the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesGetRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.securityPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  List all the policies that have been configured for the specified project.
+ *
+ *  Method: compute.securityPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SecurityPoliciesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyList.
+ *
+ *  List all the policies that have been configured for the specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  Method: compute.securityPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesPatchWithObject:project:securityPolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Patches a rule at the specified priority.
+ *
+ *  Method: compute.securityPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesPatchRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesPatchRuleWithObject:project:securityPolicy:]
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule at the specified priority.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Deletes a rule at the specified priority.
+ *
+ *  Method: compute.securityPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesRemoveRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesRemoveRuleWithproject:securityPolicy:]
+
+/** The priority of the rule to remove from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule at the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesRemoveRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  securityPolicy:(NSString *)securityPolicy;
 
 @end
 

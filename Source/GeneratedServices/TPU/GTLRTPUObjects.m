@@ -31,6 +31,7 @@ NSString * const kGTLRTPU_Node_State_Starting         = @"STARTING";
 NSString * const kGTLRTPU_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
+NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 
 // ----------------------------------------------------------------------------
 //

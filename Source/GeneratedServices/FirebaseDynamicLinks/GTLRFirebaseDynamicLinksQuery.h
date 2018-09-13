@@ -21,6 +21,7 @@
 @class GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest;
 @class GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest;
 @class GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest;
+@class GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -182,6 +183,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseDynamicLinksQuery_V1InstallAttribution
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest *)object;
+
+@end
+
+/**
+ *  Get iOS reopen attribution for app universal link open deeplinking.
+ *
+ *  Method: firebasedynamiclinks.reopenAttribution
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
+ */
+@interface GTLRFirebaseDynamicLinksQuery_V1ReopenAttribution : GTLRFirebaseDynamicLinksQuery
+// Previous library name was
+//   +[GTLQueryFirebaseDynamicLinks queryForReopenAttributionWithObject:]
+
+/**
+ *  Fetches a @c GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse.
+ *
+ *  Get iOS reopen attribution for app universal link open deeplinking.
+ *
+ *  @param object The @c GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest
+ *    to include in the query.
+ *
+ *  @return GTLRFirebaseDynamicLinksQuery_V1ReopenAttribution
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest *)object;
 
 @end
 

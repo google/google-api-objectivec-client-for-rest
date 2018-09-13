@@ -150,6 +150,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecrypt
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256;
 /**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256;
+/**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
@@ -295,6 +301,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Rs
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256;
 /**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256;
+/**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
@@ -365,6 +377,88 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Attest
  *  Value: "CAVIUM_V1_COMPRESSED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_PublicKey.algorithm
+
+/**
+ *  Not specified.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *
+ *  Value: "EC_SIGN_P256_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256;
+/**
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *
+ *  Value: "EC_SIGN_P384_SHA384"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384;
+/**
+ *  Creates symmetric encryption keys.
+ *
+ *  Value: "GOOGLE_SYMMETRIC_ENCRYPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs12048Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs13072Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha256;
+/**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256;
 
 /**
  *  Request message for KeyManagementService.AsymmetricDecrypt.
@@ -719,6 +813,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs12048Sha256
  *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_2048_SHA256")
@@ -856,6 +953,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs12048Sha256
  *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_2048_SHA256")
@@ -1407,6 +1507,47 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Cavium
  *  GetPublicKey.
  */
 @interface GTLRCloudKMS_PublicKey : GTLRObject
+
+/**
+ *  The Algorithm associated
+ *  with this key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
+ *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 ECDSA on the
+ *        NIST P-256 curve with a SHA256 digest. (Value: "EC_SIGN_P256_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384 ECDSA on the
+ *        NIST P-384 curve with a SHA384 digest. (Value: "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption
+ *        Creates symmetric encryption keys. (Value:
+ *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256
+ *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256
+ *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs12048Sha256
+ *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs13072Sha256
+ *        RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha256
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss2048Sha256 RSASSA-PSS
+ *        2048 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256 RSASSA-PSS
+ *        3072 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256 RSASSA-PSS
+ *        4096 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_4096_SHA256")
+ */
+@property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
  *  The public key, encoded in PEM format. For more information, see the

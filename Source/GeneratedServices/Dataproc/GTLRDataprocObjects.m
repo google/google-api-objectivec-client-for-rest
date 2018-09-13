@@ -98,6 +98,24 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_Binding
+//
+
+@implementation GTLRDataproc_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_CancelJobRequest
 //
 
@@ -144,8 +162,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic configBucket, gceClusterConfig, initializationActions, masterConfig,
-         secondaryWorkerConfig, softwareConfig, workerConfig;
+@dynamic configBucket, encryptionConfig, gceClusterConfig,
+         initializationActions, masterConfig, secondaryWorkerConfig,
+         softwareConfig, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -255,6 +274,35 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ClusterSelector
+//
+
+@implementation GTLRDataproc_ClusterSelector
+@dynamic clusterLabels, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ClusterSelector_ClusterLabels
+//
+
+@implementation GTLRDataproc_ClusterSelector_ClusterLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ClusterStatus
 //
 
@@ -303,6 +351,31 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_EncryptionConfig
+//
+
+@implementation GTLRDataproc_EncryptionConfig
+@dynamic gcePdKmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Expr
+//
+
+@implementation GTLRDataproc_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_GceClusterConfig
 //
 
@@ -332,6 +405,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GetIamPolicyRequest
+//
+
+@implementation GTLRDataproc_GetIamPolicyRequest
 @end
 
 
@@ -433,6 +515,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"instanceNames" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstantiateWorkflowTemplateRequest
+//
+
+@implementation GTLRDataproc_InstantiateWorkflowTemplateRequest
+@dynamic parameters, requestId, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters
+//
+
+@implementation GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -581,6 +687,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ListWorkflowTemplatesResponse
+//
+
+@implementation GTLRDataproc_ListWorkflowTemplatesResponse
+@dynamic nextPageToken, templates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"templates" : [GTLRDataproc_WorkflowTemplate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"templates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_LoggingConfig
 //
 
@@ -595,6 +723,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_LoggingConfig_DriverLogLevels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ManagedCluster
+//
+
+@implementation GTLRDataproc_ManagedCluster
+@dynamic clusterName, config, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ManagedCluster_Labels
+//
+
+@implementation GTLRDataproc_ManagedCluster_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -663,6 +815,49 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_OrderedJob
+//
+
+@implementation GTLRDataproc_OrderedJob
+@dynamic hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds, pysparkJob,
+         scheduling, sparkJob, sparkSqlJob, stepId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"prerequisiteStepIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_OrderedJob_Labels
+//
+
+@implementation GTLRDataproc_OrderedJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ParameterValidation
+//
+
+@implementation GTLRDataproc_ParameterValidation
+@dynamic regex, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_PigJob
 //
 
@@ -703,6 +898,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Policy
+//
+
+@implementation GTLRDataproc_Policy
+@dynamic bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRDataproc_Binding class]
+  };
+  return map;
 }
 
 @end
@@ -760,6 +977,34 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RegexValidation
+//
+
+@implementation GTLRDataproc_RegexValidation
+@dynamic regexes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regexes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SetIamPolicyRequest
+//
+
+@implementation GTLRDataproc_SetIamPolicyRequest
+@dynamic policy;
 @end
 
 
@@ -914,6 +1159,82 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_TemplateParameter
+//
+
+@implementation GTLRDataproc_TemplateParameter
+@dynamic descriptionProperty, fields, name, validation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TestIamPermissionsRequest
+//
+
+@implementation GTLRDataproc_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TestIamPermissionsResponse
+//
+
+@implementation GTLRDataproc_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ValueValidation
+//
+
+@implementation GTLRDataproc_ValueValidation
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_WorkflowGraph
 //
 
@@ -975,6 +1296,54 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowTemplate
+//
+
+@implementation GTLRDataproc_WorkflowTemplate
+@dynamic createTime, identifier, jobs, labels, name, parameters, placement,
+         updateTime, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [GTLRDataproc_OrderedJob class],
+    @"parameters" : [GTLRDataproc_TemplateParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowTemplate_Labels
+//
+
+@implementation GTLRDataproc_WorkflowTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WorkflowTemplatePlacement
+//
+
+@implementation GTLRDataproc_WorkflowTemplatePlacement
+@dynamic clusterSelector, managedCluster;
 @end
 
 

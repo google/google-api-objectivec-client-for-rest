@@ -940,6 +940,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ShockingC
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements;
 /**
+ *  Temporary pausing of creative.
+ *
+ *  Value: "TEMPORARY_PAUSE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TemporaryPause;
+/**
  *  Unacceptable content. For example, malware.
  *
  *  Value: "UNACCEPTABLE_CONTENT"
@@ -1936,14 +1942,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  Represents a whole calendar date, e.g. date of birth. The time of day and
- *  time zone are either specified elsewhere or are not significant. The date
- *  is relative to the Proleptic Gregorian Calendar. The day may be 0 to
- *  represent a year and month where the day is not significant, e.g. credit
- *  card
- *  expiration date. The year may be 0 to represent a month and day independent
- *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay
- *  and `google.protobuf.Timestamp`.
+ *  Represents a whole calendar date, for example date of birth. The time of day
+ *  and time zone are either specified elsewhere or are not significant. The
+ *  date
+ *  is relative to the Proleptic Gregorian Calendar. The day can be 0 to
+ *  represent a year and month where the day is not significant, for example
+ *  credit card expiration date. The year can be 0 to represent a month and day
+ *  independent of year, for example anniversary date. Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRAdExchangeBuyerII_Date : GTLRObject
 
@@ -2203,6 +2209,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements
  *        The ad does not meet technical requirements. (Value:
  *        "TECHNICAL_REQUIREMENTS")
+ *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_TemporaryPause Temporary
+ *        pausing of creative. (Value: "TEMPORARY_PAUSE")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent
  *        Unacceptable content. For example, malware. (Value:
  *        "UNACCEPTABLE_CONTENT")

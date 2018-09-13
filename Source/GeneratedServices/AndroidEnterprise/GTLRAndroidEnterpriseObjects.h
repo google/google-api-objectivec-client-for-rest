@@ -19,6 +19,10 @@
 #endif
 
 @class GTLRAndroidEnterprise_Administrator;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue;
@@ -121,6 +125,78 @@ NS_ASSUME_NONNULL_BEGIN
  *  the admin to access the iframe in "approve" mode.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
+
+/** Options for displaying the Play Search page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch *playSearch;
+
+/** Options for displaying the Private Apps page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps *privateApps;
+
+/** Options for displaying the Store Builder page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder *storeBuilder;
+
+/** Options for displaying the Web Apps page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps *webApps;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch : GTLRObject
+
+/**
+ *  Whether the Play Search page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps : GTLRObject
+
+/**
+ *  Whether the Private Apps page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder : GTLRObject
+
+/**
+ *  Whether the Store Builder is be displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps : GTLRObject
+
+/**
+ *  Whether the Web Apps page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1919,11 +1995,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Ordered list of pages a user should be able to reach from this page. The
- *  pages must exist, must not be this page, and once a link is created the page
- *  linked to cannot be deleted until all links to it are removed. It is
- *  recommended that the basic pages are created first, before adding the links
- *  between pages.
- *  No attempt is made to verify that all pages are reachable from the homepage.
+ *  list can't include this page. It is recommended that the basic pages are
+ *  created first, before adding the links between pages.
+ *  The API doesn't verify that the pages exist or the pages are reachable.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *link;
 

@@ -1740,6 +1740,13 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) BOOL archived;
 
 /**
+ *  Select only landing pages that are associated with these campaigns.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *campaignIds;
+
+/**
  *  Select only landing pages with these IDs.
  *
  *  Uses NSNumber of longLongValue.
@@ -4700,7 +4707,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** Select only directory sites with this country ID. */
 @property(nonatomic, assign) long long countryId;
 
-/** Select only directory sites with this DFP network code. */
+/** Select only directory sites with this Ad Manager network code. */
 @property(nonatomic, copy, nullable) NSString *dfpNetworkCode;
 
 /**

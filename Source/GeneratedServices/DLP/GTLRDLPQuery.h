@@ -245,6 +245,20 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesListWithparent:]
 
 /**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc,update_time, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the template was created.
+ *  - `update_time`: corresponds to time the template was last updated.
+ *  - `name`: corresponds to template's name.
+ *  - `display_name`: corresponds to template's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Optional size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
@@ -452,6 +466,20 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesList : GTLRDLPQuery
 // Previous library name was
 //   +[GTLQueryDLP queryForOrganizationsInspectTemplatesListWithparent:]
+
+/**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc,update_time, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the template was created.
+ *  - `update_time`: corresponds to time the template was last updated.
+ *  - `name`: corresponds to template's name.
+ *  - `display_name`: corresponds to template's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional size of the page, can be limited by server. If zero server returns
@@ -1005,6 +1033,20 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesListWithparent:]
 
 /**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc,update_time, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the template was created.
+ *  - `update_time`: corresponds to time the template was last updated.
+ *  - `name`: corresponds to template's name.
+ *  - `display_name`: corresponds to template's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Optional size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
@@ -1479,6 +1521,20 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsInspectTemplatesListWithparent:]
 
 /**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc,update_time, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the template was created.
+ *  - `update_time`: corresponds to time the template was last updated.
+ *  - `name`: corresponds to template's name.
+ *  - `display_name`: corresponds to template's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Optional size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
@@ -1679,8 +1735,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  insignificant.
  *  Example: `name asc,update_time, create_time desc`
  *  Supported fields are:
- *  - `create_time`: corresponds to time the triggeredJob was created.
- *  - `update_time`: corresponds to time the triggeredJob was last updated.
+ *  - `create_time`: corresponds to time the JobTrigger was created.
+ *  - `update_time`: corresponds to time the JobTrigger was last updated.
  *  - `name`: corresponds to JobTrigger's name.
  *  - `display_name`: corresponds to JobTrigger's display name.
  *  - `status`: corresponds to JobTrigger's status.

@@ -656,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -735,7 +735,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -1696,7 +1696,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -1775,7 +1775,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -2575,7 +2575,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -2654,7 +2654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -3504,7 +3504,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -3583,7 +3583,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.
@@ -3872,7 +3872,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  purposes: destination,filter,includeChildren At some point in the future,
  *  behavior will be removed and specifying an empty updateMask will be an
  *  error.For a detailed FieldMask definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample:
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#FieldMaskExample:
  *  updateMask=filter.
  *
  *  String format is a comma-separated list of fields.

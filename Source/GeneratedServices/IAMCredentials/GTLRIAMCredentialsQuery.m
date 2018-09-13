@@ -43,6 +43,31 @@
 
 @end
 
+@implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateIdentityBindingAccessToken";
+  GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_GenerateIdentityBindingAccessTokenResponse class];
+  query.loggingName = @"iamcredentials.projects.serviceAccounts.generateIdentityBindingAccessToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdToken
 
 @dynamic name;

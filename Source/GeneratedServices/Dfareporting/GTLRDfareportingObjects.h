@@ -2674,7 +2674,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landsca
 GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait;
 
 /**
- *  Contains properties of a DCM account.
+ *  Contains properties of a Campaign Manager account.
  */
 @interface GTLRDfareporting_Account : GTLRObject
 
@@ -2959,8 +2959,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  AccountPermissions contains information about a particular account
- *  permission. Some features of DCM require an account permission to be present
- *  in the account.
+ *  permission. Some features of Campaign Manager require an account permission
+ *  to be present in the account.
  */
 @interface GTLRDfareporting_AccountPermission : GTLRObject
 
@@ -3102,9 +3102,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  AccountUserProfiles contains properties of a DCM user profile. This resource
- *  is specifically for managing user profiles, whereas UserProfiles is for
- *  accessing the API.
+ *  AccountUserProfiles contains properties of a Campaign Manager user profile.
+ *  This resource is specifically for managing user profiles, whereas
+ *  UserProfiles is for accessing the API.
  */
 @interface GTLRDfareporting_AccountUserProfile : GTLRObject
 
@@ -3290,7 +3290,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DCM ad.
+ *  Contains properties of a Campaign Manager ad.
  */
 @interface GTLRDfareporting_Ad : GTLRObject
 
@@ -3723,7 +3723,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DCM advertiser.
+ *  Contains properties of a Campaign Manager advertiser.
  */
 @interface GTLRDfareporting_Advertiser : GTLRObject
 
@@ -4113,7 +4113,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DCM campaign.
+ *  Contains properties of a Campaign Manager campaign.
  */
 @interface GTLRDfareporting_Campaign : GTLRObject
 
@@ -4165,8 +4165,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_AudienceSegmentGroup *> *audienceSegmentGroups;
 
 /**
- *  Billing invoice code included in the DCM client billing invoices associated
- *  with the campaign.
+ *  Billing invoice code included in the Campaign Manager client billing
+ *  invoices associated with the campaign.
  */
 @property(nonatomic, copy, nullable) NSString *billingInvoiceCode;
 
@@ -4962,8 +4962,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  Whether this particular request may come from a user under the age of 16
- *  (may differ by country), under compliance with the EU?s General Data
- *  Protection Regulation (GDPR).
+ *  (may differ by country), under compliance with the European Union's General
+ *  Data Protection Regulation (GDPR).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5209,7 +5209,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Additional sizes associated with a responsive creative. When inserting or
  *  updating a creative either the size ID field or size width and height fields
  *  can be used. Applicable to DISPLAY creatives when the primary asset type is
- *  HTML_IMAGE
+ *  HTML_IMAGE.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
 
@@ -5318,11 +5318,11 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  the browser that serves the ad does not support them. Feature dependencies
  *  are features that a browser must be able to support in order to render your
  *  HTML5 creative asset correctly. This field is initially auto-generated to
- *  contain all features detected by DCM for all the assets of this creative and
- *  can then be modified by the client. To reset this field, copy over all the
- *  creativeAssets' detected features. Applicable to the following creative
- *  types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is
- *  not HTML_IMAGE.
+ *  contain all features detected by Campaign Manager for all the assets of this
+ *  creative and can then be modified by the client. To reset this field, copy
+ *  over all the creativeAssets' detected features. Applicable to the following
+ *  creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset
+ *  type is not HTML_IMAGE.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *backupImageFeatures;
 
@@ -5474,9 +5474,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *htmlCode;
 
 /**
- *  Whether HTML code is DCM-generated or manually entered. Set to true to
- *  ignore changes to htmlCode. Applicable to the following creative types:
- *  FLASH_INPAGE and HTML5_BANNER.
+ *  Whether HTML code is generated by Campaign Manager or manually entered. Set
+ *  to true to ignore changes to htmlCode. Applicable to the following creative
+ *  types: FLASH_INPAGE and HTML5_BANNER.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5593,10 +5593,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *requiredFlashPluginVersion;
 
 /**
- *  The internal Flash version for this creative as calculated by DoubleClick
- *  Studio. This is a read-only field. Applicable to the following creative
- *  types: FLASH_INPAGE all RICH_MEDIA, and all VPAID. Applicable to DISPLAY
- *  when the primary asset type is not HTML_IMAGE.
+ *  The internal Flash version for this creative as calculated by Studio. This
+ *  is a read-only field. Applicable to the following creative types:
+ *  FLASH_INPAGE all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the
+ *  primary asset type is not HTML_IMAGE.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5923,8 +5923,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  List of feature dependencies for the creative asset that are detected by
- *  DCM. Feature dependencies are features that a browser must be able to
- *  support in order to render your HTML5 creative correctly. This is a
+ *  Campaign Manager. Feature dependencies are features that a browser must be
+ *  able to support in order to render your HTML5 creative correctly. This is a
  *  read-only, auto-generated field. Applicable to the following creative types:
  *  HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not
  *  HTML_IMAGE.
@@ -6084,8 +6084,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *orientation;
 
 /**
- *  Whether the backup asset is original or changed by the user in DCM.
- *  Applicable to the following creative types: all RICH_MEDIA.
+ *  Whether the backup asset is original or changed by the user in Campaign
+ *  Manager. Applicable to the following creative types: all RICH_MEDIA.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6164,23 +6164,25 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  VPAID creatives. Applicable to DISPLAY when the primary asset type is not
  *  HTML_IMAGE.
  *  ADDITIONAL_IMAGE and ADDITIONAL_FLASH apply to FLASH_INPAGE creatives.
- *  OTHER refers to assets from sources other than DCM, such as Studio uploaded
- *  assets, applicable to all RICH_MEDIA and all VPAID creatives.
- *  PARENT_VIDEO refers to videos uploaded by the user in DCM and is applicable
- *  to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives.
- *  TRANSCODED_VIDEO refers to videos transcoded by DCM from PARENT_VIDEO assets
- *  and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives.
- *  ALTERNATE_VIDEO refers to the DCM representation of child asset videos from
- *  Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These cannot be
- *  added or removed within DCM.
+ *  OTHER refers to assets from sources other than Campaign Manager, such as
+ *  Studio uploaded assets, applicable to all RICH_MEDIA and all VPAID
+ *  creatives.
+ *  PARENT_VIDEO refers to videos uploaded by the user in Campaign Manager and
+ *  is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives.
+ *  TRANSCODED_VIDEO refers to videos transcoded by Campaign Manager from
+ *  PARENT_VIDEO assets and is applicable to INSTREAM_VIDEO and
+ *  VPAID_LINEAR_VIDEO creatives.
+ *  ALTERNATE_VIDEO refers to the Campaign Manager representation of child asset
+ *  videos from Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These
+ *  cannot be added or removed within Campaign Manager.
  *  For VPAID_LINEAR_VIDEO creatives, PARENT_VIDEO, TRANSCODED_VIDEO and
  *  ALTERNATE_VIDEO assets that are marked active serve as backup in case the
  *  VPAID creative cannot be served. Only PARENT_VIDEO assets can be added or
  *  removed for an INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative.
- *  PARENT_AUDIO refers to audios uploaded by the user in DCM and is applicable
- *  to INSTREAM_AUDIO creatives.
- *  TRANSCODED_AUDIO refers to audios transcoded by DCM from PARENT_AUDIO assets
- *  and is applicable to INSTREAM_AUDIO creatives.
+ *  PARENT_AUDIO refers to audios uploaded by the user in Campaign Manager and
+ *  is applicable to INSTREAM_AUDIO creatives.
+ *  TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager from
+ *  PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash Value
@@ -6345,8 +6347,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  List of feature dependencies for the creative asset that are detected by
- *  DCM. Feature dependencies are features that a browser must be able to
- *  support in order to render your HTML5 creative correctly. This is a
+ *  Campaign Manager. Feature dependencies are features that a browser must be
+ *  able to support in order to render your HTML5 creative correctly. This is a
  *  read-only, auto-generated field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedFeatures;
@@ -6572,7 +6574,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @interface GTLRDfareporting_CreativeCustomEvent : GTLRObject
 
 /**
- *  Unique ID of this event used by DDM Reporting and Data Transfer. This is a
+ *  Unique ID of this event used by Reporting and Data Transfer. This is a
  *  read-only field.
  *
  *  Uses NSNumber of longLongValue.
@@ -6596,8 +6598,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *advertiserCustomEventType;
 
 /**
- *  Artwork label column, used to link events in DCM back to events in Studio.
- *  This is a required field and should not be modified after insertion.
+ *  Artwork label column, used to link events in Campaign Manager back to events
+ *  in Studio. This is a required field and should not be modified after
+ *  insertion.
  */
 @property(nonatomic, copy, nullable) NSString *artworkLabel;
 
@@ -7477,8 +7480,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 /**
  *  Impression ratio for this ad. This ratio determines how often each ad is
  *  served relative to the others. For example, if ad A has an impression ratio
- *  of 1 and ad B has an impression ratio of 3, then DCM will serve ad B three
- *  times as often as ad A. Acceptable values are 1 to 10, inclusive.
+ *  of 1 and ad B has an impression ratio of 3, then Campaign Manager will serve
+ *  ad B three times as often as ad A. Acceptable values are 1 to 10, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7528,14 +7531,14 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  DFP Settings
+ *  Google Ad Manager Settings
  */
 @interface GTLRDfareporting_DfpSettings : GTLRObject
 
-/** DFP network code for this directory site. */
+/** Ad Manager network code for this directory site. */
 @property(nonatomic, copy, nullable) NSString *dfpNetworkCode;
 
-/** DFP network name for this directory site. */
+/** Ad Manager network name for this directory site. */
 @property(nonatomic, copy, nullable) NSString *dfpNetworkName;
 
 /**
@@ -7546,8 +7549,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *programmaticPlacementAccepted;
 
 /**
- *  Whether this directory site is available only via DoubleClick Publisher
- *  Portal.
+ *  Whether this directory site is available only via Publisher Portal.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7995,7 +7997,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *activeViewOptOut;
 
-/** Directory site DFP settings. */
+/** Directory site Ad Manager settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DfpSettings *dfpSettings;
 
 /**
@@ -8072,9 +8074,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Contains properties of a dynamic targeting key. Dynamic targeting keys are
  *  unique, user-friendly labels, created at the advertiser level in DCM, that
  *  can be assigned to ads, creatives, and placements and used for targeting
- *  with DoubleClick Studio dynamic creatives. Use these labels instead of
- *  numeric DCM IDs (such as placement IDs) to save time and avoid errors in
- *  your dynamic feeds.
+ *  with Studio dynamic creatives. Use these labels instead of numeric Campaign
+ *  Manager IDs (such as placement IDs) to save time and avoid errors in your
+ *  dynamic feeds.
  */
 @interface GTLRDfareporting_DynamicTargetingKey : GTLRObject
 
@@ -8242,9 +8244,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  Whether to remove this event tag from ads that are trafficked through
- *  DoubleClick Bid Manager to Ad Exchange. This may be useful if the event tag
- *  uses a pixel that is unapproved for Ad Exchange bids on one or more
- *  networks, such as the Google Display Network.
+ *  Display & Video 360 to Ad Exchange. This may be useful if the event tag uses
+ *  a pixel that is unapproved for Ad Exchange bids on one or more networks,
+ *  such as the Google Display Network.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9141,7 +9143,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, copy, nullable) NSString *naturalSearchConversionAttributionOption;
 
-/** Settings for DCM Omniture integration. */
+/** Settings for Campaign Manager Omniture integration. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_OmnitureSettings *omnitureSettings;
 
 /**
@@ -9346,7 +9348,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Represents a buy from the DoubleClick Planning inventory store.
+ *  Represents a buy from the Planning inventory store.
  */
 @interface GTLRDfareporting_InventoryItem : GTLRObject
 
@@ -10261,7 +10263,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Describes properties of a DoubleClick Planning order.
+ *  Describes properties of a Planning order.
  */
 @interface GTLRDfareporting_Order : GTLRObject
 
@@ -10408,7 +10410,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DoubleClick Planning order document.
+ *  Contains properties of a Planning order document.
  */
 @interface GTLRDfareporting_OrderDocument : GTLRObject
 
@@ -11742,7 +11744,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DoubleClick Planning project.
+ *  Contains properties of a Planning project.
  */
 @interface GTLRDfareporting_Project : GTLRObject
 
@@ -13301,7 +13303,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Contains properties of a DCM subaccount.
+ *  Contains properties of a Campaign Manager subaccount.
  */
 @interface GTLRDfareporting_Subaccount : GTLRObject
 

@@ -20,7 +20,10 @@
 #endif
 
 @class GTLRShoppingContent_Account;
+@class GTLRShoppingContent_AccountAddress;
 @class GTLRShoppingContent_AccountAdwordsLink;
+@class GTLRShoppingContent_AccountBusinessInformation;
+@class GTLRShoppingContent_AccountCustomerService;
 @class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntry;
@@ -198,6 +201,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountAdwordsLink *> *adwordsLinks;
 
+/** The business information of the account. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessInformation *businessInformation;
+
 /**
  *  The GMB account which is linked or in the process of being linked with the
  *  Merchant Center account.
@@ -252,6 +258,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_AccountAddress
+ */
+@interface GTLRShoppingContent_AccountAddress : GTLRObject
+
+/** CLDR country code (e.g. "US"). */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  City, town or commune. May also include dependent localities or
+ *  sublocalities (e.g. neighborhoods or suburbs).
+ */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/** Postal code or ZIP (e.g. "94043"). */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/**
+ *  Top-level administrative subdivision of the country. For example, a state
+ *  like California ("CA") or a province like Quebec ("QC").
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Street-level part of the address. */
+@property(nonatomic, copy, nullable) NSString *streetAddress;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_AccountAdwordsLink
  */
 @interface GTLRShoppingContent_AccountAdwordsLink : GTLRObject
@@ -275,6 +310,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  was active or cancel the link request if it was pending.
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountBusinessInformation
+ */
+@interface GTLRShoppingContent_AccountBusinessInformation : GTLRObject
+
+/** The address of the business. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountAddress *address;
+
+/** The customer service information of the business. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountCustomerService *customerService;
+
+/** The phone number of the business. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountCustomerService
+ */
+@interface GTLRShoppingContent_AccountCustomerService : GTLRObject
+
+/** Customer service email. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Customer service phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** Customer service URL. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -4001,6 +4070,31 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "content#ordersCancelResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest
+ */
+@interface GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest : GTLRObject
+
+/** The reason for the cancellation. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
+ */
+@interface GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#ordersCancelTestOrderByCustomerResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
