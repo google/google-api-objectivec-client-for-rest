@@ -192,6 +192,7 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SensitiveEvents = @"S
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SexuallyExplicitContent = @"SEXUALLY_EXPLICIT_CONTENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ShockingContent = @"SHOCKING_CONTENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements = @"TECHNICAL_REQUIREMENTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TemporaryPause = @"TEMPORARY_PAUSE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent = @"UNACCEPTABLE_CONTENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContentSoftware = @"UNACCEPTABLE_CONTENT_SOFTWARE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableImageContent = @"UNACCEPTABLE_IMAGE_CONTENT";

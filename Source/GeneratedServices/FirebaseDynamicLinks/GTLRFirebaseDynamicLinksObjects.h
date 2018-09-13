@@ -1086,6 +1086,63 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 
 /**
+ *  Request for iSDK to get reopen attribution for app universal link open
+ *  deeplinking. This endpoint is meant for only iOS requests.
+ */
+@interface GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest : GTLRObject
+
+/** APP bundle ID. */
+@property(nonatomic, copy, nullable) NSString *bundleId;
+
+/**
+ *  FDL link to be verified from an app universal link open.
+ *  The FDL link can be one of:
+ *  1) short FDL.
+ *  e.g. <app_code>.page.link/<ddl_id>, or
+ *  2) long FDL.
+ *  e.g. <app_code>.page.link/?{query params}, or
+ *  3) Invite FDL.
+ *  e.g. <app_code>.page.link/i/<invite_id_or_alias>
+ */
+@property(nonatomic, copy, nullable) NSString *requestedLink;
+
+@end
+
+
+/**
+ *  Response for iSDK to get reopen attribution for app universal link open
+ *  deeplinking. This endpoint is meant for only iOS requests.
+ */
+@interface GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse : GTLRObject
+
+/**
+ *  The deep-link attributed the app universal link open. For both regular
+ *  FDL links and invite FDL links.
+ */
+@property(nonatomic, copy, nullable) NSString *deepLink;
+
+/** Optional invitation ID, for only invite typed requested FDL links. */
+@property(nonatomic, copy, nullable) NSString *invitationId;
+
+/**
+ *  The entire FDL, expanded from a short link. It is the same as the
+ *  requested_link, if it is long.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedLink;
+
+/** Scion campaign value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmCampaign;
+
+/** Scion medium value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmMedium;
+
+/** Scion source value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmSource;
+
+@end
+
+
+/**
  *  Parameters for Google Play Campaign Measurements.
  *  [Learn
  *  more](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns#campaign-params)

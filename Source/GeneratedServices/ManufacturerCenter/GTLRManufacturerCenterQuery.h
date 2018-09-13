@@ -128,9 +128,6 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 /**
  *  The information to be included in the response. Only sections listed here
  *  will be returned.
- *  If this parameter is not specified, ATTRIBUTES and ISSUES are returned.
- *  This behavior is temporary and will be removed once all clients are ready
- *  or at the latest end of July 2018. After that no sections will be returned.
  *
  *  Likely values:
  *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"
@@ -201,9 +198,6 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 /**
  *  The information to be included in the response. Only sections listed here
  *  will be returned.
- *  If this parameter is not specified, ATTRIBUTES and ISSUES are returned.
- *  This behavior is temporary and will be removed once all clients are ready
- *  or at the latest end of July 2018. After that no sections will be returned.
  *
  *  Likely values:
  *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"

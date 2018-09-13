@@ -491,6 +491,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_Corrections_Item *> *corrections;
 
 /**
+ *  Creative status identity type that the creative item applies to. Ad Exchange
+ *  real-time bidding is migrating to the sizeless creative verification.
+ *  Originally, Ad Exchange assigned creative verification status to a unique
+ *  combination of a buyer creative ID and creative dimensions. Post-migration,
+ *  a single verification status will be assigned at the buyer creative ID
+ *  level. This field allows to distinguish whether a given creative status
+ *  applies to a unique combination of a buyer creative ID and creative
+ *  dimensions, or to a buyer creative ID as a whole.
+ */
+@property(nonatomic, copy, nullable) NSString *creativeStatusIdentityType;
+
+/**
  *  Top-level deals status. Read-only. This field should not be set in requests.
  *  If disapproved, an entry for auctionType=DIRECT_DEALS (or ALL) in
  *  servingRestrictions will also exist. Note that this may be nuanced with
@@ -2530,9 +2542,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRAdExchangeBuyer_PublisherProfileApiProto
  */
 @interface GTLRAdExchangeBuyer_PublisherProfileApiProto : GTLRObject
-
-/** Deprecated: use the seller.account_id. The account id of the seller. */
-@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Publisher provided info on its audience. */
 @property(nonatomic, copy, nullable) NSString *audience;

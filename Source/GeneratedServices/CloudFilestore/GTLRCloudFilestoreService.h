@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tasks API (cloudtasks/v2beta3)
+//   Cloud Filestore API (file/v1beta1)
 // Description:
-//   Manages the execution of large numbers of distributed requests.
+//   The Cloud Filestore API is used for creating and managing cloud file
+//   servers.
 // Documentation:
-//   https://cloud.google.com/tasks/
+//   https://cloud.google.com/filestore/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -34,24 +35,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTasksCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudFilestoreCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudTasksService
+//   GTLRCloudFilestoreService
 //
 
 /**
- *  Service for executing Cloud Tasks API queries.
+ *  Service for executing Cloud Filestore API queries.
  *
- *  Manages the execution of large numbers of distributed requests.
+ *  The Cloud Filestore API is used for creating and managing cloud file
+ *  servers.
  */
-@interface GTLRCloudTasksService : GTLRService
+@interface GTLRCloudFilestoreService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudTasksQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudFilestoreQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

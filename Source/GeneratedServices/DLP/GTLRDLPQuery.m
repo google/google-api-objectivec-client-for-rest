@@ -114,7 +114,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_OrganizationsDeidentifyTemplatesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -221,7 +221,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_OrganizationsInspectTemplatesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -510,7 +510,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsDeidentifyTemplatesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -749,7 +749,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsInspectTemplatesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

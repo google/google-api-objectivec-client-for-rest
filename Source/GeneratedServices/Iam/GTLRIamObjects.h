@@ -675,9 +675,9 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  The ServiceAccount resource to
- *  create. Currently, only the following values are user assignable:
- *  `display_name`, and `description`.
+ *  The ServiceAccount resource to create.
+ *  Currently, only the following values are user assignable:
+ *  `display_name` .
  */
 @property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *serviceAccount;
 
@@ -838,13 +838,13 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *debugMessage;
 
 /**
- *  The name of the field for which this lint result is about, relative to the
- *  input object to lint in the request.
+ *  The name of the field for which this lint result is about.
  *  For nested messages, `field_name` consists of names of the embedded fields
- *  separated by period character. For instance, if the lint request is on a
+ *  separated by period character. The top-level qualifier is the input object
+ *  to lint in the request. For instance, if the lint request is on a
  *  google.iam.v1.Policy and this lint result is about a condition
  *  expression of one of the input policy bindings, the field would be
- *  populated as `bindings.condition.expression`.
+ *  populated as `policy.bindings.condition.expression`.
  *  This field does not identify the ordinality of the repetitive fields (for
  *  instance bindings in a policy).
  */
@@ -1389,8 +1389,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @interface GTLRIam_ServiceAccount : GTLRObject
 
 /**
- *  Optional. A user-specified name for the service account. Must be
- *  less than or equal to 100 UTF-8 bytes.
+ *  Optional. A user-specified description of the service account. Must be
+ *  fewer than 100 UTF-8 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1398,7 +1398,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  Optional. Not currently used.
+ *  Used to perform a consistent read-modify-write.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1440,9 +1440,11 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  responsible for rotating these keys periodically to ensure security of
  *  their service accounts. Users retain the private key of these key-pairs,
  *  and Google retains ONLY the public key.
- *  System-managed key-pairs are managed automatically by Google, and rotated
- *  daily without user intervention. The private key never leaves Google's
- *  servers to maximize security.
+ *  System-managed keys are automatically rotated by Google, and are used for
+ *  signing for a maximum of two weeks. The rotation process is probabilistic,
+ *  and usage of the new key will gradually ramp up and down over the key's
+ *  lifetime. We recommend caching the public key set for a service account for
+ *  no more than 24 hours to ensure you have access to the latest keys.
  *  Public keys for all service accounts are also published at the OAuth2
  *  Service Account API.
  */

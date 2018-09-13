@@ -167,7 +167,6 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
 
 /**
  *  Response message for GetSiteSummary.
- *  Do not confuse with same message in google.chrome.abusiveexperiencereport.v1
  */
 @interface GTLRAdExperienceReport_SiteSummaryResponse : GTLRObject
 

@@ -4,8 +4,8 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
-//   Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
-//   your instances programmatically.
+//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
+//   or PostgreSQL databases.
 // Documentation:
 //   https://cloud.google.com/sql/docs/reference/latest
 
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A database instance backup run resource.
+ *  A BackupRun resource.
  */
 @interface GTLRSQLAdmin_BackupRun : GTLRObject
 
@@ -158,8 +158,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_OperationError *error;
 
 /**
- *  A unique identifier for this backup run. Note that this is unique only
- *  within the scope of a particular Cloud SQL instance.
+ *  The identifier for this backup run. Unique only for a specific Cloud SQL
+ *  instance.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -277,7 +277,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A database resource inside a Cloud SQL instance.
+ *  Represents a SQL database on the Cloud SQL instance.
  */
 @interface GTLRSQLAdmin_Database : GTLRObject
 
@@ -287,7 +287,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The MySQL collation value. */
 @property(nonatomic, copy, nullable) NSString *collation;
 
-/** HTTP 1.1 Entity tag for the resource. */
+/**
+ *  This field is deprecated and will be removed from a future version of the
+ *  API.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -317,16 +320,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  MySQL flags for Cloud SQL instances.
+ *  Database flags for Cloud SQL instances.
  */
 @interface GTLRSQLAdmin_DatabaseFlags : GTLRObject
 
 /**
  *  The name of the flag. These flags are passed at instance startup, so include
- *  both MySQL server options and MySQL system variables. Flags should be
+ *  both server options and system variables for MySQL. Flags should be
  *  specified with underscores, not hyphens. For more information, see
- *  Configuring MySQL Flags in the Google Cloud SQL documentation, as well as
- *  the official MySQL documentation for server options and system variables.
+ *  Configuring Database Flags in the Cloud SQL documentation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -345,9 +347,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_DatabaseInstance : GTLRObject
 
 /**
- *  FIRST_GEN: Basic Cloud SQL instance that runs in a Google-managed container.
- *  SECOND_GEN: A newer Cloud SQL backend that runs in a Compute Engine VM.
- *  EXTERNAL: A MySQL server that is not managed by Google.
+ *  FIRST_GEN: First Generation instance. MySQL only.
+ *  SECOND_GEN: Second Generation instance or PostgreSQL instance.
+ *  EXTERNAL: A database server that is not managed by Google.
+ *  This property is read-only; use the tier property in the settings object to
+ *  determine the database type and Second or First Generation.
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
@@ -358,9 +362,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The current disk usage of the instance in bytes. This property has been
  *  deprecated. Users should use the
  *  "cloudsql.googleapis.com/database/disk/bytes_used" metric in Cloud
- *  Monitoring API instead. Please see
- *  https://groups.google.com/d/msg/google-cloud-sql-announce/I_7-F9EBhT0/BtvFtdFeAgAJ
- *  for details.
+ *  Monitoring API instead. Please see this announcement for details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -374,7 +376,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
-/** HTTP 1.1 Entity tag for the resource. */
+/**
+ *  This field is deprecated and will be removed from a future version of the
+ *  API. Use the settings.settingsVersion field instead.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -444,10 +449,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/**
- *  Configuration specific to read-replicas replicating from on-premises
- *  masters.
- */
+/** Configuration specific to failover replicas and read replicas. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ReplicaConfiguration *replicaConfiguration;
 
 /** The replicas of the instance. */
@@ -725,7 +727,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A Google Cloud SQL service flag resource.
+ *  A flag resource.
  */
 @interface GTLRSQLAdmin_Flag : GTLRObject
 
@@ -1426,8 +1428,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *activationPolicy;
 
 /**
- *  The App Engine app IDs that can access this instance. This property is only
- *  applicable to First Generation instances.
+ *  The App Engine app IDs that can access this instance. First Generation
+ *  instances only.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
@@ -1465,16 +1467,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *databaseReplicationEnabled;
 
 /**
- *  The size of data disk, in GB. The data disk size minimum is 10GB. Applies
- *  only to Second Generation instances.
+ *  The size of data disk, in GB. The data disk size minimum is 10GB. Not used
+ *  for First Generation instances.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataDiskSizeGb;
 
 /**
- *  The type of data disk. Only supported for Second Generation instances. The
- *  default type is PD_SSD. Applies only to Second Generation instances.
+ *  The type of data disk: PD_SSD (default) or PD_HDD. Not used for First
+ *  Generation instances.
  */
 @property(nonatomic, copy, nullable) NSString *dataDiskType;
 
@@ -1498,7 +1500,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maintenance window for this instance. This specifies when the instance
- *  may be restarted for maintenance purposes. Applies only to Second Generation
+ *  can be restarted for maintenance purposes. Not used for First Generation
  *  instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
@@ -1528,7 +1530,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Configuration to increase storage size automatically. The default value is
- *  true. Applies only to Second Generation instances.
+ *  true. Not used for First Generation instances.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1536,16 +1538,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum size to which storage capacity can be automatically increased.
- *  The default value is 0, which specifies that there is no limit. Applies only
- *  to Second Generation instances.
+ *  The default value is 0, which specifies that there is no limit. Not used for
+ *  First Generation instances.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *storageAutoResizeLimit;
 
 /**
- *  The tier of service for this instance, for example D1, D2. For more
- *  information, see pricing.
+ *  The tier (or machine type) for this instance, for example db-n1-standard-1
+ *  (MySQL instances) or db-custom-1-3840 (PostgreSQL instances). For MySQL
+ *  instances, this property determines whether the instance is First or Second
+ *  Generation. For more information, see Instance Settings.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -1781,7 +1785,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_User : GTLRObject
 
-/** HTTP 1.1 Entity tag for the resource. */
+/**
+ *  This field is deprecated and will be removed from a future version of the
+ *  API.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -1802,7 +1809,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the user in the Cloud SQL instance. Can be omitted for update
- *  since it is already specified on the URL.
+ *  since it is already specified in the URL.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

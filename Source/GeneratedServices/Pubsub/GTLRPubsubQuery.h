@@ -52,10 +52,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a snapshot from the requested subscription.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Creates a snapshot from the requested subscription. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.
+ *  <br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  use. It is not subject to any SLA or deprecation policy.<br><br>
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
  *  If the backlog in the subscription is too old -- and the resulting snapshot
@@ -83,7 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional user-provided name for this snapshot.
  *  If the name is not provided in the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription.
- *  Note that for REST API requests, you must specify a name.
+ *  Note that for REST API requests, you must specify a name. See the
+ *  <a href="/pubsub/docs/admin#resource_names">resource name rules</a>.
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -91,10 +97,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Creates a snapshot from the requested subscription.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Creates a snapshot from the requested subscription. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.
+ *  <br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  use. It is not subject to any SLA or deprecation policy.<br><br>
  *  If the snapshot already exists, returns `ALREADY_EXISTS`.
  *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
  *  If the backlog in the subscription is too old -- and the resulting snapshot
@@ -114,7 +125,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    If the name is not provided in the request, the server will assign a
  *    random
  *    name for this snapshot on the same project as the subscription.
- *    Note that for REST API requests, you must specify a name.
+ *    Note that for REST API requests, you must specify a name. See the
+ *    <a href="/pubsub/docs/admin#resource_names">resource name rules</a>.
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsCreate
@@ -125,8 +137,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes an existing snapshot. <br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Removes an existing snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *  When the snapshot is deleted, all messages retained in the snapshot
@@ -153,8 +169,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Removes an existing snapshot. <br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Removes an existing snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *  When the snapshot is deleted, all messages retained in the snapshot
@@ -172,8 +192,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the configuration details of a snapshot.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Gets the configuration details of a snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -196,8 +220,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Gets the configuration details of a snapshot.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Gets the configuration details of a snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -249,8 +277,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the existing snapshots.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Lists the existing snapshots. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -283,8 +315,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_ListSnapshotsResponse.
  *
- *  Lists the existing snapshots.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Lists the existing snapshots. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -302,8 +338,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing snapshot.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Updates an existing snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *  Note that certain properties of a snapshot are not modifiable.
@@ -324,8 +364,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Updates an existing snapshot.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Updates an existing snapshot. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *  Note that certain properties of a snapshot are not modifiable.
@@ -866,8 +910,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  whichever is provided in the request. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot. Note that both the subscription and the snapshot
+ *  must be on the same topic.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -888,8 +937,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_SeekResponse.
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  whichever is provided in the request. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot. Note that both the subscription and the snapshot
+ *  must be on the same topic.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -1313,8 +1367,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the names of the snapshots on this topic.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Lists the names of the snapshots on this topic. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *
@@ -1347,8 +1405,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_ListTopicSnapshotsResponse.
  *
- *  Lists the names of the snapshots on this topic.<br><br>
- *  <b>ALPHA:</b> This feature is part of an alpha release. This API might be
+ *  Lists the names of the snapshots on this topic. Snapshots are used in
+ *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  you to manage message acknowledgments in bulk. That is, you can set the
+ *  acknowledgment state of messages in an existing subscription to the state
+ *  captured by a snapshot.<br><br>
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
  *

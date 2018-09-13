@@ -4,8 +4,8 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
-//   Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
-//   your instances programmatically.
+//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
+//   or PostgreSQL databases.
 // Documentation:
 //   https://cloud.google.com/sql/docs/reference/latest
 
@@ -50,8 +50,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin;
 /**
  *  Service for executing Cloud SQL Admin API queries.
  *
- *  Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
- *  your instances programmatically.
+ *  Creates and manages Cloud SQL instances, which provide fully managed MySQL
+ *  or PostgreSQL databases.
  */
 @interface GTLRSQLAdminService : GTLRService
 

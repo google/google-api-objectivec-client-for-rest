@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
 /** Value: "ENVIRONMENT_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
+/** Value: "IOS" */
+GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeIos;
 /** Value: "NETWORK_CONFIGURATION" */
 GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
 /** Value: "PROVIDED_SOFTWARE" */
@@ -246,6 +248,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value
  *        "ENVIRONMENT_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
+ *    @arg @c kGTLRTestingEnvironmentTypeIos Value "IOS"
  *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
  *        "NETWORK_CONFIGURATION"
  *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
@@ -275,6 +278,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value
  *        "ENVIRONMENT_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
+ *    @arg @c kGTLRTestingEnvironmentTypeIos Value "IOS"
  *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
  *        "NETWORK_CONFIGURATION"
  *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value

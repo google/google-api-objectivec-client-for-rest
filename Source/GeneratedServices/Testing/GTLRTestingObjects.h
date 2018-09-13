@@ -45,6 +45,14 @@
 @class GTLRTesting_GoogleAuto;
 @class GTLRTesting_GoogleCloudStorage;
 @class GTLRTesting_IntentFilter;
+@class GTLRTesting_IosDevice;
+@class GTLRTesting_IosDeviceCatalog;
+@class GTLRTesting_IosDeviceList;
+@class GTLRTesting_IosModel;
+@class GTLRTesting_IosRuntimeConfiguration;
+@class GTLRTesting_IosTestSetup;
+@class GTLRTesting_IosVersion;
+@class GTLRTesting_IosXcTest;
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_NetworkConfiguration;
@@ -356,6 +364,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Validating;
 // GTLRTesting_TestMatrix.invalidMatrixDetails
 
 /**
+ *  The zipped XCTest was built for the iOS simulator rather than for a
+ *  physical device.
+ *
+ *  Value: "BUILT_FOR_IOS_SIMULATOR"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator;
+/**
  *  The matrix is INVALID, but there are no further details available.
  *
  *  Value: "DETAILS_UNAVAILABLE"
@@ -384,6 +399,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Forbid
  *  Value: "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible;
+/**
+ *  APK is built for a preview SDK which is unsupported
+ *
+ *  Value: "INVALID_APK_PREVIEW_SDK"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk;
 /**
  *  Either the provided input APK path was malformed,
  *  the APK file does not exist, or the user does not have permission to
@@ -423,6 +444,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Malfor
  *  Value: "MALFORMED_TEST_APK"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk;
+/**
+ *  The zipped XCTest was malformed. The zip did not contain a single
+ *  .xctestrun file and the contents of the DerivedData/Build/Products
+ *  directory.
+ *
+ *  Value: "MALFORMED_XC_TEST_ZIP"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip;
 /**
  *  APK contains no code.
  *  See also
@@ -473,6 +502,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSign
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass;
 /**
+ *  The .xctestrun file did not specify any test targets.
+ *
+ *  Value: "NO_TESTS_IN_XC_TEST_ZIP"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip;
+/**
  *  There was an error when parsing a label's value.
  *
  *  Value: "SCENARIO_LABEL_MALFORMED"
@@ -500,6 +535,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Scenar
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound;
 /**
+ *  XC tests which run on physical devices must have
+ *  "IsAppHostedTestBundle" == "true" in the xctestrun file.
+ *
+ *  Value: "TEST_NOT_APP_HOSTED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted;
+/**
  *  The APK is marked as "testOnly".
  *  NOT USED
  *
@@ -512,6 +554,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOn
  *  Value: "TEST_SAME_AS_APP"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp;
+/**
+ *  One or more of the test targets defined in the .xctestrun file specifies
+ *  "UseDestinationArtifacts", which is disallowed.
+ *
+ *  Value: "USE_DESTINATION_ARTIFACTS"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestMatrix.state
@@ -1294,14 +1343,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Represents a whole calendar date, e.g. date of birth. The time of day and
- *  time zone are either specified elsewhere or are not significant. The date
- *  is relative to the Proleptic Gregorian Calendar. The day may be 0 to
- *  represent a year and month where the day is not significant, e.g. credit
- *  card
- *  expiration date. The year may be 0 to represent a month and day independent
- *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay
- *  and `google.protobuf.Timestamp`.
+ *  Represents a whole calendar date, for example date of birth. The time of day
+ *  and time zone are either specified elsewhere or are not significant. The
+ *  date
+ *  is relative to the Proleptic Gregorian Calendar. The day can be 0 to
+ *  represent a year and month where the day is not significant, for example
+ *  credit card expiration date. The year can be 0 to represent a month and day
+ *  independent of year, for example anniversary date. Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRTesting_Date : GTLRObject
 
@@ -1377,6 +1426,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** An Android device which must be used with an Android test. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDevice *androidDevice;
 
+/** An iOS device which must be used with an iOS test. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosDevice *iosDevice;
+
 @end
 
 
@@ -1393,6 +1445,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** A matrix of Android devices. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidMatrix *androidMatrix;
+
+/** A list of iOS devices. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosDeviceList *iosDeviceList;
 
 @end
 
@@ -1482,6 +1537,203 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** The android:mimeType value of the <data> tag */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  A single iOS device.
+ */
+@interface GTLRTesting_IosDevice : GTLRObject
+
+/**
+ *  Required. The id of the iOS device to be used.
+ *  Use the EnvironmentDiscoveryService to get supported options.
+ */
+@property(nonatomic, copy, nullable) NSString *iosModelId;
+
+/**
+ *  Required. The id of the iOS major software version to be used.
+ *  Use the EnvironmentDiscoveryService to get supported options.
+ */
+@property(nonatomic, copy, nullable) NSString *iosVersionId;
+
+/**
+ *  Required. The locale the test device used for testing.
+ *  Use the EnvironmentDiscoveryService to get supported options.
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/**
+ *  Required. How the device is oriented during the test.
+ *  Use the EnvironmentDiscoveryService to get supported options.
+ */
+@property(nonatomic, copy, nullable) NSString *orientation;
+
+@end
+
+
+/**
+ *  The currently supported iOS devices.
+ */
+@interface GTLRTesting_IosDeviceCatalog : GTLRObject
+
+/** Output only. The set of supported iOS device models. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosModel *> *models;
+
+/** Output only. The set of supported runtime configurations. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosRuntimeConfiguration *runtimeConfiguration;
+
+/** Output only. The set of supported iOS software versions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosVersion *> *versions;
+
+@end
+
+
+/**
+ *  A list of iOS device configurations in which the test is to be executed.
+ */
+@interface GTLRTesting_IosDeviceList : GTLRObject
+
+/** Required. A list of iOS devices */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosDevice *> *iosDevices;
+
+@end
+
+
+/**
+ *  A description of an iOS device tests may be run on.
+ */
+@interface GTLRTesting_IosModel : GTLRObject
+
+/**
+ *  Output only. Device capabilities.
+ *  Copied from
+ *  https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceCapabilities;
+
+/**
+ *  Output only. The unique opaque id for this model.
+ *  Use this for invoking the TestExecutionService.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The human-readable name for this device model.
+ *  Examples: "iPhone 4s", "iPad Mini 2"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The set of iOS major software versions this device supports.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedVersionIds;
+
+/**
+ *  Output only. Tags for this dimension.
+ *  Examples: "default", "preview", "deprecated"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  iOS configuration that can be selected at the time a test is run.
+ */
+@interface GTLRTesting_IosRuntimeConfiguration : GTLRObject
+
+/** Output only. The set of available locales. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Locale *> *locales;
+
+/** Output only. The set of available orientations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Orientation *> *orientations;
+
+@end
+
+
+/**
+ *  A description of how to set up an iOS device prior to a test.
+ */
+@interface GTLRTesting_IosTestSetup : GTLRObject
+
+/**
+ *  Optional. The network traffic profile used for running the test.
+ *  Available network profiles can be queried by using the
+ *  NETWORK_CONFIGURATION environment type when calling
+ *  TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
+ */
+@property(nonatomic, copy, nullable) NSString *networkProfile;
+
+@end
+
+
+/**
+ *  An iOS version
+ */
+@interface GTLRTesting_IosVersion : GTLRObject
+
+/**
+ *  Output only. An opaque id for this iOS version.
+ *  Use this id to invoke the TestExecutionService.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. An integer representing the major iOS version.
+ *  Examples: "8", "9"
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *majorVersion;
+
+/**
+ *  Output only. An integer representing the minor iOS version.
+ *  Examples: "1", "2"
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minorVersion;
+
+/**
+ *  Output only. Tags for this dimension.
+ *  Examples: "default", "preview", "deprecated"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  A test of an iOS application that uses the XCTest framework.
+ *  Xcode supports the option to "build for testing", which generates an
+ *  .xctestrun file that contains a test specification (arguments, test methods,
+ *  etc). This test type accepts a zip file containing the .xctestrun file and
+ *  the corresponding contents of the Build/Products directory that contains all
+ *  the binaries needed to run the tests.
+ */
+@interface GTLRTesting_IosXcTest : GTLRObject
+
+/**
+ *  Required. The .zip containing the .xctestrun file and the contents of the
+ *  DerivedData/Build/Products directory.
+ *  The .xctestrun file in this zip is ignored if the xctestrun field is
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *testsZip;
+
+/**
+ *  Optional. An .xctestrun file that will override the .xctestrun file in the
+ *  tests zip. Because the .xctestrun file contains environment variables along
+ *  with test methods to run and/or ignore, this can be useful for sharding
+ *  tests. Default is taken from the tests zip.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *xctestrun;
 
 @end
 
@@ -1812,6 +2064,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Android devices suitable for running Android Instrumentation Tests. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDeviceCatalog *androidDeviceCatalog;
 
+/** Supported iOS devices */
+@property(nonatomic, strong, nullable) GTLRTesting_IosDeviceCatalog *iosDeviceCatalog;
+
 /** Supported network configurations */
 @property(nonatomic, strong, nullable) GTLRTesting_NetworkConfigurationCatalog *networkConfigurationCatalog;
 
@@ -1955,6 +2210,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  \@OutputOnly
  *
  *  Likely values:
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator
+ *        The zipped XCTest was built for the iOS simulator rather than for a
+ *        physical device. (Value: "BUILT_FOR_IOS_SIMULATOR")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_DetailsUnavailable
  *        The matrix is INVALID, but there are no further details available.
  *        (Value: "DETAILS_UNAVAILABLE")
@@ -1973,6 +2231,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        Orchestrator can be disabled by using DO_NOT_USE_ORCHESTRATOR
  *        OrchestratorOption. (Value:
  *        "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk
+ *        APK is built for a preview SDK which is unsupported (Value:
+ *        "INVALID_APK_PREVIEW_SDK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk
  *        Either the provided input APK path was malformed,
  *        the APK file does not exist, or the user does not have permission to
@@ -1990,6 +2251,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        NOT USED (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip
+ *        The zipped XCTest was malformed. The zip did not contain a single
+ *        .xctestrun file and the contents of the DerivedData/Build/Products
+ *        directory. (Value: "MALFORMED_XC_TEST_ZIP")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk APK
  *        contains no code.
  *        See also
@@ -2016,6 +2281,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        - the test runner isn't built into the test APK (might be in the app
  *        APK
  *        instead). (Value: "NO_TEST_RUNNER_CLASS")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip
+ *        The .xctestrun file did not specify any test targets. (Value:
+ *        "NO_TESTS_IN_XC_TEST_ZIP")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed
  *        There was an error when parsing a label's value. (Value:
  *        "SCENARIO_LABEL_MALFORMED")
@@ -2028,11 +2296,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound
  *        There there is no test loop intent filter, or the one that is given is
  *        not formatted correctly. (Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted XC
+ *        tests which run on physical devices must have
+ *        "IsAppHostedTestBundle" == "true" in the xctestrun file. (Value:
+ *        "TEST_NOT_APP_HOSTED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk The APK
  *        is marked as "testOnly".
  *        NOT USED (Value: "TEST_ONLY_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp The
  *        test package and app package are the same. (Value: "TEST_SAME_AS_APP")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts
+ *        One or more of the test targets defined in the .xctestrun file
+ *        specifies
+ *        "UseDestinationArtifacts", which is disallowed. (Value:
+ *        "USE_DESTINATION_ARTIFACTS")
  */
 @property(nonatomic, copy, nullable) NSString *invalidMatrixDetails;
 
@@ -2170,8 +2447,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceFile *> *filesToPush;
 
 /**
- *  The network traffic profile used for running the test.
- *  Optional
+ *  Optional. The network traffic profile used for running the test.
+ *  Available network profiles can be queried by using the
+ *  NETWORK_CONFIGURATION environment type when calling
+ *  TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
  */
 @property(nonatomic, copy, nullable) NSString *networkProfile;
 
@@ -2220,6 +2499,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableVideoRecording;
+
+/** Optional. Test setup requirements for iOS. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosTestSetup *iosTestSetup;
+
+/** An iOS XCTest, via an .xctestrun file */
+@property(nonatomic, strong, nullable) GTLRTesting_IosXcTest *iosXcTest;
 
 /**
  *  Test setup requirements for Android e.g. files to install, bootstrap

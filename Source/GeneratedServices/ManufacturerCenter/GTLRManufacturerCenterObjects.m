@@ -198,15 +198,13 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_Product
-@dynamic attributes, contentLanguage, destinationStatuses, finalAttributes,
-         issues, manuallyDeletedAttributes, manuallyProvidedAttributes, name,
-         parent, productId, targetCountry, uploadedAttributes;
+@dynamic attributes, contentLanguage, destinationStatuses, issues, name, parent,
+         productId, targetCountry;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"destinationStatuses" : [GTLRManufacturerCenter_DestinationStatus class],
-    @"issues" : [GTLRManufacturerCenter_Issue class],
-    @"manuallyDeletedAttributes" : [NSString class]
+    @"issues" : [GTLRManufacturerCenter_Issue class]
   };
   return map;
 }

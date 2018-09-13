@@ -461,6 +461,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isLive;
 
 /**
+ *  A regular expression that satisfies the RE2 syntax language. This condition
+ *  is satisfied when the name of the object matches the RE2 pattern. Note: This
+ *  feature is currently in the "Early Access" launch stage and is only
+ *  available to a whitelisted set of users; that means that this feature may
+ *  changed in backward-incompatible ways and that it is not guaranteed to be
+ *  released.
+ */
+@property(nonatomic, copy, nullable) NSString *matchesPattern;
+
+/**
  *  Objects having any of the storage classes specified by this condition will
  *  be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE,
  *  STANDARD, and DURABLE_REDUCED_AVAILABILITY.
@@ -931,7 +941,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Cloud KMS Key used to encrypt this object, if the object is encrypted by
- *  such a key. Limited availability; usable only by enabled projects.
+ *  such a key.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 

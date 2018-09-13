@@ -403,7 +403,8 @@
 //
 
 @implementation GTLRBigquery_JobConfiguration
-@dynamic copyProperty, dryRun, extract, jobTimeoutMs, labels, load, query;
+@dynamic copyProperty, dryRun, extract, jobTimeoutMs, jobType, labels, load,
+         query;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"copyProperty" : @"copy" };

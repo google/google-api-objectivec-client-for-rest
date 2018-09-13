@@ -68,6 +68,24 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_Finding
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_InvalidContentType;
 /**
+ *  A malformed or invalid valued header.
+ *
+ *  Value: "INVALID_HEADER"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_InvalidHeader;
+/**
+ *  Mismatching values in a duplicate security header.
+ *
+ *  Value: "MISMATCHING_SECURITY_HEADER_VALUES"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_MismatchingSecurityHeaderValues;
+/**
+ *  Misspelled security header name.
+ *
+ *  Value: "MISSPELLED_SECURITY_HEADER_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_FindingType_MisspelledSecurityHeaderName;
+/**
  *  A page that was served over HTTPS also resources over HTTP. A
  *  man-in-the-middle attacker could tamper with the HTTP resource and gain
  *  full access to the website that loads the resource or to monitor the
@@ -149,6 +167,24 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingTyp
  *  Value: "INVALID_CONTENT_TYPE"
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidContentType;
+/**
+ *  A malformed or invalid valued header.
+ *
+ *  Value: "INVALID_HEADER"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidHeader;
+/**
+ *  Mismatching values in a duplicate security header.
+ *
+ *  Value: "MISMATCHING_SECURITY_HEADER_VALUES"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MismatchingSecurityHeaderValues;
+/**
+ *  Misspelled security header name.
+ *
+ *  Value: "MISSPELLED_SECURITY_HEADER_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MisspelledSecurityHeaderName;
 /**
  *  A page that was served over HTTPS also resources over HTTP. A
  *  man-in-the-middle attacker could tamper with the HTTP resource and gain
@@ -430,6 +466,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        application returns sensitive content with an invalid content type,
  *        or without an 'X-Content-Type-Options: nosniff' header. (Value:
  *        "INVALID_CONTENT_TYPE")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_InvalidHeader A
+ *        malformed or invalid valued header. (Value: "INVALID_HEADER")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_MismatchingSecurityHeaderValues
+ *        Mismatching values in a duplicate security header. (Value:
+ *        "MISMATCHING_SECURITY_HEADER_VALUES")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_MisspelledSecurityHeaderName
+ *        Misspelled security header name. (Value:
+ *        "MISSPELLED_SECURITY_HEADER_NAME")
  *    @arg @c kGTLRWebSecurityScanner_Finding_FindingType_MixedContent A page
  *        that was served over HTTPS also resources over HTTP. A
  *        man-in-the-middle attacker could tamper with the HTTP resource and
@@ -588,6 +632,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *        An application returns sensitive content with an invalid content type,
  *        or without an 'X-Content-Type-Options: nosniff' header. (Value:
  *        "INVALID_CONTENT_TYPE")
+ *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_InvalidHeader
+ *        A malformed or invalid valued header. (Value: "INVALID_HEADER")
+ *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MismatchingSecurityHeaderValues
+ *        Mismatching values in a duplicate security header. (Value:
+ *        "MISMATCHING_SECURITY_HEADER_VALUES")
+ *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MisspelledSecurityHeaderName
+ *        Misspelled security header name. (Value:
+ *        "MISSPELLED_SECURITY_HEADER_NAME")
  *    @arg @c kGTLRWebSecurityScanner_FindingTypeStats_FindingType_MixedContent
  *        A page that was served over HTTPS also resources over HTTP. A
  *        man-in-the-middle attacker could tamper with the HTTP resource and

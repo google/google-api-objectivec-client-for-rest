@@ -4,8 +4,8 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
-//   Cloud SQL provides the Cloud SQL Admin API, a REST API for administering
-//   your instances programmatically.
+//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
+//   or PostgreSQL databases.
 // Documentation:
 //   https://cloud.google.com/sql/docs/reference/latest
 
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all backup runs associated with a given instance and configuration in
- *  the reverse chronological order of the enqueued time.
+ *  the reverse chronological order of the backup initiation time.
  *
  *  Method: sql.backupRuns.list
  *
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_BackupRunsListResponse.
  *
  *  Lists all backup runs associated with a given instance and configuration in
- *  the reverse chronological order of the enqueued time.
+ *  the reverse chronological order of the backup initiation time.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -478,8 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySQLAdmin queryForFlagsList]
 
 /**
- *  Database version for flag retrieval. Flags are specific to the database
- *  version.
+ *  Database type and version you want to retrieve flags for. By default, this
+ *  method returns flags for all database types and versions.
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 

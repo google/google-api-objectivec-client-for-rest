@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Memorystore for Redis API (redis/v1beta1)
+//   Google Cloud Memorystore for Redis API (redis/v1)
 // Description:
 //   The Google Cloud Memorystore for Redis API is used for creating and
 //   managing Redis instances on the Google Cloud Platform.
@@ -17,8 +17,6 @@
 // GTLRCloudRedis_Instance.state
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
-NSString * const kGTLRCloudRedis_Instance_State_Exporting      = @"EXPORTING";
-NSString * const kGTLRCloudRedis_Instance_State_Importing      = @"IMPORTING";
 NSString * const kGTLRCloudRedis_Instance_State_Maintenance    = @"MAINTENANCE";
 NSString * const kGTLRCloudRedis_Instance_State_Ready          = @"READY";
 NSString * const kGTLRCloudRedis_Instance_State_Repairing      = @"REPAIRING";
@@ -41,34 +39,23 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_GoogleCloudCommonOperationMetadata
+//   GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata
 //
 
-@implementation GTLRCloudRedis_GoogleCloudCommonOperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
-         verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_GoogleCloudRedisV1beta1LocationMetadata
-//
-
-@implementation GTLRCloudRedis_GoogleCloudRedisV1beta1LocationMetadata
+@implementation GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata
 @dynamic availableZones;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_GoogleCloudRedisV1beta1LocationMetadata_AvailableZones
+//   GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata_AvailableZones
 //
 
-@implementation GTLRCloudRedis_GoogleCloudRedisV1beta1LocationMetadata_AvailableZones
+@implementation GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata_AvailableZones
 
 + (Class)classForAdditionalProperties {
-  return [GTLRCloudRedis_GoogleCloudRedisV1beta1ZoneMetadata class];
+  return [GTLRCloudRedis_GoogleCloudRedisV1ZoneMetadata class];
 }
 
 @end
@@ -76,10 +63,21 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_GoogleCloudRedisV1beta1ZoneMetadata
+//   GTLRCloudRedis_GoogleCloudRedisV1OperationMetadata
 //
 
-@implementation GTLRCloudRedis_GoogleCloudRedisV1beta1ZoneMetadata
+@implementation GTLRCloudRedis_GoogleCloudRedisV1OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudRedisV1ZoneMetadata
+//
+
+@implementation GTLRCloudRedis_GoogleCloudRedisV1ZoneMetadata
 @end
 
 

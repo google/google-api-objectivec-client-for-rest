@@ -440,9 +440,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDe
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled;
 /**
- *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
- *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *  transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
@@ -487,13 +487,21 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
 /**
- *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
  *  or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_PENDING"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending;
+/**
+ *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
+ *  delayed until launch. Jobs that are queued may only transition to
+ *  `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`.
+ *
+ *  Value: "JOB_STATE_QUEUED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -595,9 +603,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
 /**
- *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
- *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *  transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
@@ -642,13 +650,21 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
 /**
- *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
  *  or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_PENDING"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePending;
+/**
+ *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
+ *  delayed until launch. Jobs that are queued may only transition to
+ *  `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`.
+ *
+ *  Value: "JOB_STATE_QUEUED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -692,9 +708,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
 /**
- *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
- *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *  transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
@@ -739,13 +755,21 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
 /**
- *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
  *  or `JOB_STATE_FAILED`.
  *
  *  Value: "JOB_STATE_PENDING"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePending;
+/**
+ *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
+ *  delayed until launch. Jobs that are queued may only transition to
+ *  `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`.
+ *
+ *  Value: "JOB_STATE_QUEUED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -2256,10 +2280,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
  *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling
- *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        `JOB_STATE_CANCELLING` indicates that the job has been explicitly
  *        cancelled
  *        and is in the process of stopping. Jobs that are cancelling may only
- *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`. (Value:
  *        "JOB_STATE_CANCELLING")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDone
  *        `JOB_STATE_DONE` indicates that the job has successfully completed.
@@ -2297,11 +2321,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending
- *        'JOB_STATE_PENDING' indicates that the job has been created but is not
+ *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet
  *        running. Jobs that are pending may only transition to
  *        `JOB_STATE_RUNNING`,
  *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateQueued
+ *        `JOB_STATE_QUEUED` indicates that the job has been created but is
+ *        being
+ *        delayed until launch. Jobs that are queued may only transition to
+ *        `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
+ *        "JOB_STATE_QUEUED")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
  *        (Value: "JOB_STATE_RUNNING")
@@ -2694,10 +2724,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
  *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateCancelling
- *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        `JOB_STATE_CANCELLING` indicates that the job has been explicitly
  *        cancelled
  *        and is in the process of stopping. Jobs that are cancelling may only
- *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`. (Value:
  *        "JOB_STATE_CANCELLING")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDone `JOB_STATE_DONE`
  *        indicates that the job has successfully completed.
@@ -2734,11 +2764,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        terminal job state. This state may only be set by the Cloud Dataflow
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePending 'JOB_STATE_PENDING'
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePending `JOB_STATE_PENDING`
  *        indicates that the job has been created but is not yet
  *        running. Jobs that are pending may only transition to
  *        `JOB_STATE_RUNNING`,
  *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateQueued `JOB_STATE_QUEUED`
+ *        indicates that the job has been created but is being
+ *        delayed until launch. Jobs that are queued may only transition to
+ *        `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
+ *        "JOB_STATE_QUEUED")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning `JOB_STATE_RUNNING`
  *        indicates that the job is currently running. (Value:
  *        "JOB_STATE_RUNNING")
@@ -2849,10 +2884,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
  *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateCancelling
- *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        `JOB_STATE_CANCELLING` indicates that the job has been explicitly
  *        cancelled
  *        and is in the process of stopping. Jobs that are cancelling may only
- *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        transition to `JOB_STATE_CANCELLED` or `JOB_STATE_FAILED`. (Value:
  *        "JOB_STATE_CANCELLING")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDone `JOB_STATE_DONE`
  *        indicates that the job has successfully completed.
@@ -2890,11 +2925,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePending
- *        'JOB_STATE_PENDING' indicates that the job has been created but is not
+ *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet
  *        running. Jobs that are pending may only transition to
  *        `JOB_STATE_RUNNING`,
  *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateQueued `JOB_STATE_QUEUED`
+ *        indicates that the job has been created but is being
+ *        delayed until launch. Jobs that are queued may only transition to
+ *        `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
+ *        "JOB_STATE_QUEUED")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
  *        (Value: "JOB_STATE_RUNNING")

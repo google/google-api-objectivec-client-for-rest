@@ -17,8 +17,9 @@
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic adultContent, adwordsLinks, googleMyBusinessLink, identifier, kind,
-         name, reviewsUrl, sellerId, users, websiteUrl, youtubeChannelLinks;
+@dynamic adultContent, adwordsLinks, businessInformation, googleMyBusinessLink,
+         identifier, kind, name, reviewsUrl, sellerId, users, websiteUrl,
+         youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -38,11 +39,41 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_AccountAddress
+//
+
+@implementation GTLRShoppingContent_AccountAddress
+@dynamic country, locality, postalCode, region, streetAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_AccountAdwordsLink
 //
 
 @implementation GTLRShoppingContent_AccountAdwordsLink
 @dynamic adwordsId, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountBusinessInformation
+//
+
+@implementation GTLRShoppingContent_AccountBusinessInformation
+@dynamic address, customerService, phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountCustomerService
+//
+
+@implementation GTLRShoppingContent_AccountCustomerService
+@dynamic email, phoneNumber, url;
 @end
 
 
@@ -1945,6 +1976,26 @@
 
 @implementation GTLRShoppingContent_OrdersCancelResponse
 @dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest
+//
+
+@implementation GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest
+@dynamic reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
+//
+
+@implementation GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
+@dynamic kind;
 @end
 
 

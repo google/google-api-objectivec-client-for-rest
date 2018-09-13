@@ -347,8 +347,16 @@
 //
 
 @implementation GTLRCalendar_EntryPoint
-@dynamic accessCode, entryPointType, label, meetingCode, passcode, password,
-         pin, uri;
+@dynamic accessCode, entryPointFeatures, entryPointType, label, meetingCode,
+         passcode, password, pin, regionCode, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entryPointFeatures" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

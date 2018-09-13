@@ -392,10 +392,10 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
 
 /**
  *  A URL/resource name that uniquely identifies the type of the serialized
- *  protocol buffer message. The last segment of the URL's path must represent
- *  the fully qualified name of the type (as in
- *  `path/google.protobuf.Duration`). The name should be in a canonical form
- *  (e.g., leading "." is not accepted).
+ *  protocol buffer message. This string must contain at least one "/"
+ *  character. The last segment of the URL's path must represent the fully
+ *  qualified name of the type (as in `path/google.protobuf.Duration`). The name
+ *  should be in a canonical form (e.g., leading "." is not accepted).
  *  In practice, teams usually precompile into the binary all types that they
  *  expect it to use in the context of Any. However, for URLs which use the
  *  scheme `http`, `https`, or no scheme, one can optionally set up a type
@@ -2052,7 +2052,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
  *  the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
  *  the Joda Time's [`ISODateTimeFormat.dateTime()`](
- *  http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime--
+ *  http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D
  *  ) to obtain a formatter capable of generating timestamps in this format.
  */
 @interface GTLRToolResults_Timestamp : GTLRObject

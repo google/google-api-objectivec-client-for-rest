@@ -2,30 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tasks API (cloudtasks/v2beta3)
+//   Cloud Filestore API (file/v1beta1)
 // Description:
-//   Manages the execution of large numbers of distributed requests.
+//   The Cloud Filestore API is used for creating and managing cloud file
+//   servers.
 // Documentation:
-//   https://cloud.google.com/tasks/
+//   https://cloud.google.com/filestore/
 
-#import "GTLRCloudTasks.h"
+#import "GTLRCloudFilestore.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudTasksCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudFilestoreCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudTasksService
+//   GTLRCloudFilestoreService
 //
 
-@implementation GTLRCloudTasksService
+@implementation GTLRCloudFilestoreService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://cloudtasks.googleapis.com/";
+    self.rootURLString = @"https://file.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

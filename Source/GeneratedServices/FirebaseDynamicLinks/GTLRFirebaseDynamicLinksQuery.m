@@ -96,3 +96,23 @@
 }
 
 @end
+
+@implementation GTLRFirebaseDynamicLinksQuery_V1ReopenAttribution
+
++ (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/reopenAttribution";
+  GTLRFirebaseDynamicLinksQuery_V1ReopenAttribution *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse class];
+  query.loggingName = @"firebasedynamiclinks.reopenAttribution";
+  return query;
+}
+
+@end

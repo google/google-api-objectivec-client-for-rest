@@ -319,6 +319,12 @@
 @class GTLRCompute_RouterStatusBgpPeerStatus;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_SchedulingNodeAffinity;
+@class GTLRCompute_SecurityPolicy;
+@class GTLRCompute_SecurityPolicyList_Warning;
+@class GTLRCompute_SecurityPolicyList_Warning_Data_Item;
+@class GTLRCompute_SecurityPolicyRule;
+@class GTLRCompute_SecurityPolicyRuleMatcher;
+@class GTLRCompute_SecurityPolicyRuleMatcherConfig;
 @class GTLRCompute_ServiceAccount;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_Snapshot_Labels;
@@ -5222,6 +5228,62 @@ GTLR_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorPropert
 GTLR_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SecurityPolicyList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SecurityPolicyRuleMatcher.versionedExpr
+
+/** Value: "SRC_IPS_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleMatcher_VersionedExpr_SrcIpsV1;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.status
 
 /** Value: "CREATING" */
@@ -7990,6 +8052,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_AttachedDiskInitializeParams : GTLRObject
 
 /**
+ *  An optional description. Provide this property when creating the disk.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  Specifies the disk name. If not specified, the default is to use the name of
  *  the instance. If the disk with the instance name exists already in the given
  *  zone/region, a new name will be automatically generated.
@@ -9226,6 +9295,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  the request body.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  [Output Only] The resource URL for the security policy associated with this
+ *  backend service.
+ */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -11668,6 +11743,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Firewall_Direction_Ingress Value "INGRESS"
  */
 @property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  Denotes whether the firewall rule is disabled, i.e not applied to the
+ *  network it is associated with. When set to true, the firewall rule is not
+ *  enforced and the network behaves as if it did not exist. If this is
+ *  unspecified, the firewall rule will be enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -17651,9 +17736,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  [Output Only] Availability zone for this location. Within a metropolitan
- *  area (metro), maintenance will not be simultaneously scheduled in more than
- *  one availability zone. Example: "zone1" or "zone2".
+ *  [Output Only] Availability zone for this InterconnectLocation. Within a
+ *  metropolitan area (metro), maintenance will not be simultaneously scheduled
+ *  in more than one availability zone. Example: "zone1" or "zone2".
  */
 @property(nonatomic, copy, nullable) NSString *availabilityZone;
 
@@ -24556,6 +24641,318 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Corresponds to the label values of Node resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  A security policy is comprised of one or more rules. It can also be
+ *  associated with one or more 'targets'. (== resource_for v1.securityPolicies
+ *  ==) (== resource_for beta.securityPolicies ==)
+ */
+@interface GTLRCompute_SecurityPolicy : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Specifies a fingerprint for this resource, which is essentially a hash of
+ *  the metadata's contents and used for optimistic locking. The fingerprint is
+ *  initially generated by Compute Engine and changes after every request to
+ *  modify or update metadata. You must always provide an up-to-date fingerprint
+ *  hash in order to update or change metadata.
+ *  To see the latest fingerprint, make get() request to the security policy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output only] Type of the resource. Always compute#securityPolicyfor
+ *  security policies
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of rules that belong to this policy. There must always be a default
+ *  rule (rule with priority 2147483647 and match "*"). If no rules are provided
+ *  when creating a security policy, a default rule with action "allow" will be
+ *  added.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SecurityPolicyRule *> *rules;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyList
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_SecurityPolicyList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of SecurityPolicy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SecurityPolicy *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#securityPolicyList for
+ *  listsof securityPolicies
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_SecurityPolicyList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SecurityPolicyList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyList_Warning_Data_Item
+ */
+@interface GTLRCompute_SecurityPolicyList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyReference
+ */
+@interface GTLRCompute_SecurityPolicyReference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+@end
+
+
+/**
+ *  Represents a rule that describes one or more match conditions along with the
+ *  action to be taken when traffic matches this condition (allow or deny).
+ */
+@interface GTLRCompute_SecurityPolicyRule : GTLRObject
+
+/**
+ *  The Action to preform when the client connection triggers the rule. Can
+ *  currently be either "allow" or "deny()" where valid values for status are
+ *  403, 404, and 502.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output only] Type of the resource. Always compute#securityPolicyRule for
+ *  security policy rules
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A match condition that incoming traffic is evaluated against. If it
+ *  evaluates to true, the corresponding ?action? is enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcher *match;
+
+/**
+ *  If set to true, the specified action is not enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preview;
+
+/**
+ *  An integer indicating the priority of a rule in the list. The priority must
+ *  be a positive value between 0 and 2147483647. Rules are evaluated in the
+ *  increasing order of priority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+@end
+
+
+/**
+ *  Represents a match condition that incoming traffic is evaluated against.
+ *  Exactly one field must be specified.
+ */
+@interface GTLRCompute_SecurityPolicyRuleMatcher : GTLRObject
+
+/**
+ *  The configuration options available when specifying versioned_expr. This
+ *  field must be specified if versioned_expr is specified and cannot be
+ *  specified if versioned_expr is not specified.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcherConfig *config;
+
+/**
+ *  Preconfigured versioned expression. If this field is specified, config must
+ *  also be specified. Available preconfigured expressions along with their
+ *  requirements are: SRC_IPS_V1 - must specify the corresponding src_ip_range
+ *  field in config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleMatcher_VersionedExpr_SrcIpsV1
+ *        Value "SRC_IPS_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *versionedExpr;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyRuleMatcherConfig
+ */
+@interface GTLRCompute_SecurityPolicyRuleMatcherConfig : GTLRObject
+
+/** CIDR IP address range. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
 
 @end
 

@@ -109,6 +109,28 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Timeout;
 GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildOptions.logging
+
+/**
+ *  Only Cloud Storage logging is enabled.
+ *
+ *  Value: "GCS_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
+/**
+ *  Stackdriver logging and Cloud Storage logging are enabled.
+ *
+ *  Value: "LEGACY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
+/**
+ *  The service determines the logging mode. The default is `LEGACY`
+ *
+ *  Value: "LOGGING_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logStreamingOption
 
 /**
@@ -552,6 +574,21 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Option to specify the logging mode, which determines where the logs are
+ *  stored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Only Cloud Storage
+ *        logging is enabled. (Value: "GCS_ONLY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Stackdriver logging
+ *        and Cloud Storage logging are enabled. (Value: "LEGACY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified The
+ *        service determines the logging mode. The default is `LEGACY` (Value:
+ *        "LOGGING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logging;
 
 /**
  *  Option to define build log streaming behavior to Google Cloud

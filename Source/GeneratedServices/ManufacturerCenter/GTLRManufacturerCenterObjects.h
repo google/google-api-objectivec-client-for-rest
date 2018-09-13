@@ -720,7 +720,10 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  */
 @interface GTLRManufacturerCenter_Product : GTLRObject
 
-/** Attributes of the product uploaded to the Manufacturer Center. */
+/**
+ *  Attributes of the product uploaded to the Manufacturer Center. Manually
+ *  edited attributes are taken into account.
+ */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *attributes;
 
 /**
@@ -732,33 +735,8 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 /** The status of the destinations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_DestinationStatus *> *destinationStatuses;
 
-/**
- *  Final attributes of the product. The final attributes are obtained by
- *  overriding the uploaded attributes with the manually provided and deleted
- *  attributes. Google systems only process, evaluate, review, and/or use final
- *  attributes.
- *  This field is deprecated and will be removed end of July 2018. Please use
- *  attributes.
- */
-@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *finalAttributes;
-
 /** A server-generated list of issues associated with the product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Issue *> *issues;
-
-/**
- *  Names of the attributes of the product deleted manually via the
- *  Manufacturer Center UI.
- *  This field is deprecated and will be removed end of July 2018. Please use
- *  attributes.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *manuallyDeletedAttributes;
-
-/**
- *  Attributes of the product provided manually via the Manufacturer Center UI.
- *  This field is deprecated and will be removed end of July 2018. Please use
- *  attributes.
- */
-@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *manuallyProvidedAttributes;
 
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
@@ -788,14 +766,6 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  *  US).
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
-
-/**
- *  Attributes of the product uploaded via the Manufacturer Center API or via
- *  feeds.
- *  This field is deprecated and will be removed end of July 2018. Please use
- *  attributes.
- */
-@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *uploadedAttributes;
 
 @end
 

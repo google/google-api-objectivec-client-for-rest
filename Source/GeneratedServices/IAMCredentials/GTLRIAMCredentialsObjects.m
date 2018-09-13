@@ -41,6 +41,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest
+//
+
+@implementation GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest
+@dynamic jwt, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scope" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_GenerateIdentityBindingAccessTokenResponse
+//
+
+@implementation GTLRIAMCredentials_GenerateIdentityBindingAccessTokenResponse
+@dynamic accessToken, expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIAMCredentials_GenerateIdTokenRequest
 //
 

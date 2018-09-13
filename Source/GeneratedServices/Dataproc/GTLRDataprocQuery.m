@@ -30,6 +30,238 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGet
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_InstantiateWorkflowTemplateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:instantiate";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.instantiate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline
+
+@dynamic parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates:instantiateInline";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.instantiateInline";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListWorkflowTemplatesResponse class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.locations.workflowTemplates.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersCreate
 
 @dynamic projectId, region, requestId;
@@ -140,6 +372,31 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsClustersGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.clusters.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersList
 
 @dynamic filter, pageSize, pageToken, projectId, region;
@@ -190,6 +447,56 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.clusterName = clusterName;
   query.expectedObjectClass = [GTLRDataproc_Operation class];
   query.loggingName = @"dataproc.projects.regions.clusters.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsClustersSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.clusters.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsRegionsClustersTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.regions.clusters.testIamPermissions";
   return query;
 }
 
@@ -276,6 +583,31 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsJobsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsJobsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.jobs.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsJobsList
 
 @dynamic clusterName, filter, jobStateMatcher, pageSize, pageToken, projectId,
@@ -331,6 +663,31 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsJobsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsJobsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.jobs.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsJobsSubmit
 
 @dynamic projectId, region;
@@ -355,6 +712,31 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.region = region;
   query.expectedObjectClass = [GTLRDataproc_Job class];
   query.loggingName = @"dataproc.projects.regions.jobs.submit";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsJobsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsRegionsJobsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.regions.jobs.testIamPermissions";
   return query;
 }
 
@@ -417,6 +799,31 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsOperationsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsOperationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.operations.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsOperationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -431,6 +838,288 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.name = name;
   query.expectedObjectClass = [GTLRDataproc_ListOperationsResponse class];
   query.loggingName = @"dataproc.projects.regions.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsOperationsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsOperationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.operations.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsOperationsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsRegionsOperationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.regions.operations.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGet
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_InstantiateWorkflowTemplateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:instantiate";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.instantiate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline
+
+@dynamic parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates:instantiateInline";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.instantiateInline";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workflowTemplates";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListWorkflowTemplatesResponse class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
+  query.loggingName = @"dataproc.projects.regions.workflowTemplates.update";
   return query;
 }
 

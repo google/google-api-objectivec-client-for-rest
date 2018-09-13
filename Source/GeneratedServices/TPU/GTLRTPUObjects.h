@@ -142,6 +142,13 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
  *  Value: "STOPPING"
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
+/**
+ *  TPU node has been terminated due to maintenance or has reached the end of
+ *  its life cycle (for preemptible nodes).
+ *
+ *  Value: "TERMINATED"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
 
 /**
  *  A accelerator type that a Node can be configured with.
@@ -506,6 +513,9 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
  *        TPU node is stopped. (Value: "STOPPED")
  *    @arg @c kGTLRTPU_Node_State_Stopping TPU node is currently stopping.
  *        (Value: "STOPPING")
+ *    @arg @c kGTLRTPU_Node_State_Terminated TPU node has been terminated due to
+ *        maintenance or has reached the end of
+ *        its life cycle (for preemptible nodes). (Value: "TERMINATED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

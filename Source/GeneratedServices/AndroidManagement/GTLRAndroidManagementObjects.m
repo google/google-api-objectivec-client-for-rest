@@ -42,6 +42,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_Permis
 
 // GTLRAndroidManagement_ApplicationPolicy.installType
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked = @"BLOCKED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled = @"FORCE_INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
@@ -230,6 +231,11 @@ NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy = @"HIG
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified = @"LOCATION_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off = @"OFF";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly = @"SENSORS_ONLY";
+
+// GTLRAndroidManagement_Policy.playStoreMode
+NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist = @"BLACKLIST";
+NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified = @"PLAY_STORE_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist = @"WHITELIST";
 
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac = @"AC";
@@ -446,7 +452,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, policyCompliant,
          policyName, powerManagementEvents, previousDeviceNames, softwareInfo,
-         state, userName;
+         state, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -501,7 +507,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_EnrollmentToken
 @dynamic additionalData, duration, expirationTimestamp, name, oneTimeOnly,
-         policyName, qrCode, value;
+         policyName, qrCode, user, value;
 @end
 
 
@@ -862,15 +868,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          networkEscapeHatchEnabled, networkResetDisabled,
          openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
          passwordRequirements, permissionGrants, permittedInputMethods,
-         persistentPreferredActivities, privateKeySelectionEnabled,
-         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, setUserIconDisabled, setWallpaperDisabled,
-         shareLocationDisabled, shortSupportMessage, skipFirstUseHintsEnabled,
-         smsDisabled, statusBarDisabled, statusReportingSettings,
-         stayOnPluggedModes, systemUpdate, tetheringConfigDisabled,
-         uninstallAppsDisabled, unmuteMicrophoneDisabled,
-         usbFileTransferDisabled, usbMassStorageEnabled, version,
-         vpnConfigDisabled, wifiConfigDisabled, wifiConfigsLockdownEnabled;
+         persistentPreferredActivities, playStoreMode,
+         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
+         safeBootDisabled, screenCaptureDisabled, setUserIconDisabled,
+         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
+         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
+         statusReportingSettings, stayOnPluggedModes, systemUpdate,
+         tetheringConfigDisabled, uninstallAppsDisabled,
+         unmuteMicrophoneDisabled, usbFileTransferDisabled,
+         usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
+         wifiConfigsLockdownEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1017,6 +1024,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_TermsAndConditions
 @dynamic content, header;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_User
+//
+
+@implementation GTLRAndroidManagement_User
+@dynamic accountIdentifier;
 @end
 
 

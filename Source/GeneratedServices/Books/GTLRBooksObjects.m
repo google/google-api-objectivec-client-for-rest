@@ -1142,11 +1142,12 @@
 
 @implementation GTLRBooks_Volume_VolumeInfo
 @dynamic allowAnonLogging, authors, averageRating, canonicalVolumeLink,
-         categories, contentVersion, descriptionProperty, dimensions,
-         imageLinks, industryIdentifiers, infoLink, language, mainCategory,
-         maturityRating, pageCount, panelizationSummary, previewLink,
-         printedPageCount, printType, publishedDate, publisher, ratingsCount,
-         readingModes, samplePageCount, seriesInfo, subtitle, title;
+         categories, comicsContent, contentVersion, descriptionProperty,
+         dimensions, imageLinks, industryIdentifiers, infoLink, language,
+         mainCategory, maturityRating, pageCount, panelizationSummary,
+         previewLink, printedPageCount, printType, publishedDate, publisher,
+         ratingsCount, readingModes, samplePageCount, seriesInfo, subtitle,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

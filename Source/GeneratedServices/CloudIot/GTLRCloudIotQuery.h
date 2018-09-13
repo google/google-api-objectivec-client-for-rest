@@ -289,15 +289,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesListWithparent:]
 
 /**
- *  A list of device string identifiers. If empty, it will ignore this field.
- *  For example, `['device0', 'device12']`. This field cannot hold more than
- *  10,000 entries.
+ *  A list of device string IDs. For example, `['device0', 'device12']`.
+ *  If empty, this field is ignored. Maximum IDs: 10,000
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
 
 /**
- *  A list of device numerical ids. If empty, it will ignore this field. This
- *  field cannot hold more than 10,000 entries.
+ *  A list of device numeric IDs. If empty, this field is ignored. Maximum
+ *  IDs: 10,000.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -305,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The fields of the `Device` resource to be returned in the response. The
- *  fields `id`, and `num_id` are always returned by default, along with any
+ *  fields `id` and `num_id` are always returned, along with any
  *  other fields specified.
  *
  *  String format is a comma-separated list of fields.
@@ -315,15 +314,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The maximum number of devices to return in the response. If this value
  *  is zero, the service will select a default size. A call may return fewer
- *  objects than requested, but if there is a non-empty `page_token`, it
- *  indicates that more entries are available.
+ *  objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListDevicesResponse`; indicates
- *  that this is a continuation of a prior `ListDevices` call, and
- *  that the system should return the next page of data.
+ *  that this is a continuation of a prior `ListDevices` call and
+ *  the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -667,15 +666,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsDevicesListWithparent:]
 
 /**
- *  A list of device string identifiers. If empty, it will ignore this field.
- *  For example, `['device0', 'device12']`. This field cannot hold more than
- *  10,000 entries.
+ *  A list of device string IDs. For example, `['device0', 'device12']`.
+ *  If empty, this field is ignored. Maximum IDs: 10,000
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
 
 /**
- *  A list of device numerical ids. If empty, it will ignore this field. This
- *  field cannot hold more than 10,000 entries.
+ *  A list of device numeric IDs. If empty, this field is ignored. Maximum
+ *  IDs: 10,000.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -683,7 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The fields of the `Device` resource to be returned in the response. The
- *  fields `id`, and `num_id` are always returned by default, along with any
+ *  fields `id` and `num_id` are always returned, along with any
  *  other fields specified.
  *
  *  String format is a comma-separated list of fields.
@@ -693,15 +691,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The maximum number of devices to return in the response. If this value
  *  is zero, the service will select a default size. A call may return fewer
- *  objects than requested, but if there is a non-empty `page_token`, it
- *  indicates that more entries are available.
+ *  objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListDevicesResponse`; indicates
- *  that this is a continuation of a prior `ListDevices` call, and
- *  that the system should return the next page of data.
+ *  that this is a continuation of a prior `ListDevices` call and
+ *  the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1005,15 +1003,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The maximum number of registries to return in the response. If this value
  *  is zero, the service will select a default size. A call may return fewer
- *  objects than requested, but if there is a non-empty `page_token`, it
- *  indicates that more entries are available.
+ *  objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListDeviceRegistriesResponse`; indicates
- *  that this is a continuation of a prior `ListDeviceRegistries` call, and
- *  that the system should return the next page of data.
+ *  that this is a continuation of a prior `ListDeviceRegistries` call and
+ *  the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

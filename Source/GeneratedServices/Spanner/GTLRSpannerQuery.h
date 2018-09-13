@@ -1005,7 +1005,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  must be used by the PartitionQueryRequest used to create the
  *  partition tokens and the ExecuteSqlRequests that use the partition tokens.
  *  Partition tokens become invalid when the session used to create them
- *  is deleted or begins a new transaction.
+ *  is deleted, is idle for too long, begins a new transaction, or becomes too
+ *  old. When any of these happen, it is not possible to resume the query, and
+ *  the whole operation must be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionQuery
  *
@@ -1030,7 +1032,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  must be used by the PartitionQueryRequest used to create the
  *  partition tokens and the ExecuteSqlRequests that use the partition tokens.
  *  Partition tokens become invalid when the session used to create them
- *  is deleted or begins a new transaction.
+ *  is deleted, is idle for too long, begins a new transaction, or becomes too
+ *  old. When any of these happen, it is not possible to resume the query, and
+ *  the whole operation must be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionQueryRequest to include in the
  *    query.
@@ -1049,9 +1053,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  by StreamingRead to specify a subset of the read
  *  result to read. The same session and read-only transaction must be used by
  *  the PartitionReadRequest used to create the partition tokens and the
- *  ReadRequests that use the partition tokens.
+ *  ReadRequests that use the partition tokens. There are no ordering
+ *  guarantees on rows returned among the returned partition tokens, or even
+ *  within each individual StreamingRead call issued with a partition_token.
  *  Partition tokens become invalid when the session used to create them
- *  is deleted or begins a new transaction.
+ *  is deleted, is idle for too long, begins a new transaction, or becomes too
+ *  old. When any of these happen, it is not possible to resume the read, and
+ *  the whole operation must be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionRead
  *
@@ -1074,9 +1082,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  by StreamingRead to specify a subset of the read
  *  result to read. The same session and read-only transaction must be used by
  *  the PartitionReadRequest used to create the partition tokens and the
- *  ReadRequests that use the partition tokens.
+ *  ReadRequests that use the partition tokens. There are no ordering
+ *  guarantees on rows returned among the returned partition tokens, or even
+ *  within each individual StreamingRead call issued with a partition_token.
  *  Partition tokens become invalid when the session used to create them
- *  is deleted or begins a new transaction.
+ *  is deleted, is idle for too long, begins a new transaction, or becomes too
+ *  old. When any of these happen, it is not possible to resume the read, and
+ *  the whole operation must be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionReadRequest to include in the
  *    query.

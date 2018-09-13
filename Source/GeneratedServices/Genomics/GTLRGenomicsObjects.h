@@ -2990,6 +2990,14 @@ GTLR_EXTERN NSString * const kGTLRGenomics_VariantSetMetadata_Type_TypeUnspecifi
 
 
 /**
+ *  The response to the RunPipeline method, returned in the operation's result
+ *  field on success.
+ */
+@interface GTLRGenomics_RunPipelineResponse : GTLRObject
+@end
+
+
+/**
  *  Runtime metadata that will be populated in the
  *  runtimeMetadata
  *  field of the Operation associated with a RunPipeline execution.

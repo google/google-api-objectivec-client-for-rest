@@ -22,6 +22,7 @@
 @class GTLRServiceControl_AllocateInfo;
 @class GTLRServiceControl_AuditLog_Metadata;
 @class GTLRServiceControl_AuditLog_Request;
+@class GTLRServiceControl_AuditLog_ResourceOriginalState;
 @class GTLRServiceControl_AuditLog_Response;
 @class GTLRServiceControl_AuditLog_ServiceData;
 @class GTLRServiceControl_Auth;
@@ -688,6 +689,17 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
+ *  The resource's original state before mutation. Present only for
+ *  operations which have successfully modified the targeted resource(s).
+ *  In general, this field should contain all changed fields, except those
+ *  that are already been included in `request`, `response`, `metadata` or
+ *  `service_data` fields.
+ *  When the JSON object represented here has a proto equivalent,
+ *  the proto name will be indicated in the `\@type` property.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_AuditLog_ResourceOriginalState *resourceOriginalState;
+
+/**
  *  The operation response. This may not include all response elements,
  *  such as those that are too large, privacy-sensitive, or duplicated
  *  elsewhere in the log record.
@@ -743,6 +755,24 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_AuditLog_Request : GTLRObject
+@end
+
+
+/**
+ *  The resource's original state before mutation. Present only for
+ *  operations which have successfully modified the targeted resource(s).
+ *  In general, this field should contain all changed fields, except those
+ *  that are already been included in `request`, `response`, `metadata` or
+ *  `service_data` fields.
+ *  When the JSON object represented here has a proto equivalent,
+ *  the proto name will be indicated in the `\@type` property.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_AuditLog_ResourceOriginalState : GTLRObject
 @end
 
 
@@ -1381,7 +1411,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  A common proto for logging HTTP requests. Only contains semantics
  *  defined by the HTTP specification. Product-specific logging
  *  information MUST be defined in a separate message.
- *  This is an exact copy of HttpRequest message defined in Stackdriver.
  */
 @interface GTLRServiceControl_HttpRequest : GTLRObject
 
@@ -2709,6 +2738,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  "nam3"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *currentLocations;
+
+/**
+ *  The locations of a resource prior to the execution of the operation.
+ *  For example:
+ *  "europe-west1-a"
+ *  "us-east1"
+ *  "nam3"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *originalLocations;
 
 @end
 

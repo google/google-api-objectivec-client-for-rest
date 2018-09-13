@@ -23,6 +23,11 @@ NSString * const kGTLRCloudBuild_Build_Status_Success       = @"SUCCESS";
 NSString * const kGTLRCloudBuild_Build_Status_Timeout       = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
 
+// GTLRCloudBuild_BuildOptions.logging
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly  = @"GCS_ONLY";
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy   = @"LEGACY";
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified = @"LOGGING_UNSPECIFIED";
+
 // GTLRCloudBuild_BuildOptions.logStreamingOption
 NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault = @"STREAM_DEFAULT";
 NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff = @"STREAM_OFF";
@@ -187,8 +192,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic diskSizeGb, logStreamingOption, machineType, requestedVerifyOption,
-         sourceProvenanceHash, substitutionOption;
+@dynamic diskSizeGb, logging, logStreamingOption, machineType,
+         requestedVerifyOption, sourceProvenanceHash, substitutionOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -931,12 +931,13 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @implementation GTLRDfareportingQuery_AdvertiserLandingPagesList
 
-@dynamic advertiserIds, archived, ids, maxResults, pageToken, profileId,
-         searchString, sortField, sortOrder, subaccountId;
+@dynamic advertiserIds, archived, campaignIds, ids, maxResults, pageToken,
+         profileId, searchString, sortField, sortOrder, subaccountId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"advertiserIds" : [NSNumber class],
+    @"campaignIds" : [NSNumber class],
     @"ids" : [NSNumber class]
   };
   return map;
