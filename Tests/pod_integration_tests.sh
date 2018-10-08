@@ -13,7 +13,12 @@ readonly BUILD_CFG="$2"
 # Report then run the build
 RunXcodeBuild() {
   echo xcodebuild "$@"
-  xcodebuild "$@"
+  # If xcpretty is installed, use it to cut down on the output length.
+  if hash xcpretty >/dev/null 2>&1 ; then
+    set -o pipefail && xcodebuild "$@" | xcpretty
+  else
+    xcodebuild "$@"
+  fi
 }
 
 # DEPLOYMENT_TARGET should be kept in sync with the podspec deployment

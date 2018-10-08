@@ -16,7 +16,12 @@ XCODEBUILD_ACTION="test"
 # Report then run the build
 RunXcodeBuild() {
   echo xcodebuild "$@"
-  xcodebuild "$@"
+  # If xcpretty is installed, use it to cut down on the output length.
+  if hash xcpretty >/dev/null 2>&1 ; then
+    set -o pipefail && xcodebuild "$@" | xcpretty
+  else
+    xcodebuild "$@"
+  fi
 }
 
 case "${BUILD_MODE}" in
