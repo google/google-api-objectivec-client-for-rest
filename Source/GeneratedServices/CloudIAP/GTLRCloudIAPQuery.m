@@ -18,6 +18,231 @@
 
 @end
 
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRCloudIAPQuery_ProjectsIapTunnelTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_TestIamPermissionsResponse class];
+  query.loggingName = @"iap.projects.iap_tunnel.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.instances.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.instances.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_TestIamPermissionsResponse class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.instances.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_Policy class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelZonesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRCloudIAPQuery_ProjectsIapTunnelZonesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudIAP_TestIamPermissionsResponse class];
+  query.loggingName = @"iap.projects.iap_tunnel.zones.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIAPQuery_ProjectsIapWebGetIamPolicy
 
 @dynamic resource;

@@ -23,6 +23,7 @@
 @class GTLRCloudIot_DeviceRegistry;
 @class GTLRCloudIot_GetIamPolicyRequest;
 @class GTLRCloudIot_ModifyCloudToDeviceConfigRequest;
+@class GTLRCloudIot_SendCommandToDeviceRequest;
 @class GTLRCloudIot_SetIamPolicyRequest;
 @class GTLRCloudIot_TestIamPermissionsRequest;
 
@@ -445,6 +446,69 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sends a command to the specified device. In order for a device to be able
+ *  to receive commands, it must:
+ *  1) be connected to Cloud IoT Core using the MQTT protocol, and
+ *  2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands
+ *  at the top-level topic /devices/{device-id}/commands as well as commands
+ *  for subfolders, like /devices/{device-id}/commands/subfolder.
+ *  Note that subscribing to specific subfolders is not supported.
+ *  If the command could not be delivered to the device, this method will
+ *  return an error; in particular, if the device is not subscribed, this
+ *  method will return FAILED_PRECONDITION. Otherwise, this method will
+ *  return OK. If the subscription is QoS 1, at least once delivery will be
+ *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *
+ *  Method: cloudiot.projects.locations.registries.devices.sendCommandToDevice
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIot
+ *    @c kGTLRAuthScopeCloudIotCloudPlatform
+ */
+@interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesSendCommandToDevice : GTLRCloudIotQuery
+// Previous library name was
+//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesSendCommandToDeviceWithObject:name:]
+
+/**
+ *  The name of the device. For example,
+ *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
+ *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIot_SendCommandToDeviceResponse.
+ *
+ *  Sends a command to the specified device. In order for a device to be able
+ *  to receive commands, it must:
+ *  1) be connected to Cloud IoT Core using the MQTT protocol, and
+ *  2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands
+ *  at the top-level topic /devices/{device-id}/commands as well as commands
+ *  for subfolders, like /devices/{device-id}/commands/subfolder.
+ *  Note that subscribing to specific subfolders is not supported.
+ *  If the command could not be delivered to the device, this method will
+ *  return an error; in particular, if the device is not subscribed, this
+ *  method will return FAILED_PRECONDITION. Otherwise, this method will
+ *  return OK. If the subscription is QoS 1, at least once delivery will be
+ *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *
+ *  @param object The @c GTLRCloudIot_SendCommandToDeviceRequest to include in
+ *    the query.
+ *  @param name The name of the device. For example,
+ *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
+ *    or
+ *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
+ *
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesSendCommandToDevice
+ */
++ (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists the last few versions of the device state in descending order (i.e.:
  *  newest first).
  *
@@ -817,6 +881,69 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sends a command to the specified device. In order for a device to be able
+ *  to receive commands, it must:
+ *  1) be connected to Cloud IoT Core using the MQTT protocol, and
+ *  2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands
+ *  at the top-level topic /devices/{device-id}/commands as well as commands
+ *  for subfolders, like /devices/{device-id}/commands/subfolder.
+ *  Note that subscribing to specific subfolders is not supported.
+ *  If the command could not be delivered to the device, this method will
+ *  return an error; in particular, if the device is not subscribed, this
+ *  method will return FAILED_PRECONDITION. Otherwise, this method will
+ *  return OK. If the subscription is QoS 1, at least once delivery will be
+ *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *
+ *  Method: cloudiot.projects.locations.registries.groups.devices.sendCommandToDevice
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIot
+ *    @c kGTLRAuthScopeCloudIotCloudPlatform
+ */
+@interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice : GTLRCloudIotQuery
+// Previous library name was
+//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsDevicesSendCommandToDeviceWithObject:name:]
+
+/**
+ *  The name of the device. For example,
+ *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
+ *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIot_SendCommandToDeviceResponse.
+ *
+ *  Sends a command to the specified device. In order for a device to be able
+ *  to receive commands, it must:
+ *  1) be connected to Cloud IoT Core using the MQTT protocol, and
+ *  2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands
+ *  at the top-level topic /devices/{device-id}/commands as well as commands
+ *  for subfolders, like /devices/{device-id}/commands/subfolder.
+ *  Note that subscribing to specific subfolders is not supported.
+ *  If the command could not be delivered to the device, this method will
+ *  return an error; in particular, if the device is not subscribed, this
+ *  method will return FAILED_PRECONDITION. Otherwise, this method will
+ *  return OK. If the subscription is QoS 1, at least once delivery will be
+ *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *
+ *  @param object The @c GTLRCloudIot_SendCommandToDeviceRequest to include in
+ *    the query.
+ *  @param name The name of the device. For example,
+ *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
+ *    or
+ *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
+ *
+ *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice
+ */
++ (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
                            name:(NSString *)name;
 
 @end

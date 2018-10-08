@@ -14,6 +14,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudIot_Device.logLevel
+NSString * const kGTLRCloudIot_Device_LogLevel_Debug           = @"DEBUG";
+NSString * const kGTLRCloudIot_Device_LogLevel_Error           = @"ERROR";
+NSString * const kGTLRCloudIot_Device_LogLevel_Info            = @"INFO";
+NSString * const kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudIot_Device_LogLevel_None            = @"NONE";
+
+// GTLRCloudIot_DeviceRegistry.logLevel
+NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Debug   = @"DEBUG";
+NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Error   = @"ERROR";
+NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Info    = @"INFO";
+NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None    = @"NONE";
+
 // GTLRCloudIot_HttpConfig.httpEnabledState
 NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpDisabled = @"HTTP_DISABLED";
 NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled = @"HTTP_ENABLED";
@@ -61,7 +75,8 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 @implementation GTLRCloudIot_Device
 @dynamic blocked, config, credentials, identifier, lastConfigAckTime,
          lastConfigSendTime, lastErrorStatus, lastErrorTime, lastEventTime,
-         lastHeartbeatTime, lastStateTime, metadata, name, numId, state;
+         lastHeartbeatTime, lastStateTime, logLevel, metadata, name, numId,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -118,7 +133,7 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 
 @implementation GTLRCloudIot_DeviceRegistry
 @dynamic credentials, eventNotificationConfigs, httpConfig, identifier,
-         mqttConfig, name, stateNotificationConfig;
+         logLevel, mqttConfig, name, stateNotificationConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -347,6 +362,25 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 
 @implementation GTLRCloudIot_RegistryCredential
 @dynamic publicKeyCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_SendCommandToDeviceRequest
+//
+
+@implementation GTLRCloudIot_SendCommandToDeviceRequest
+@dynamic binaryData, subfolder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_SendCommandToDeviceResponse
+//
+
+@implementation GTLRCloudIot_SendCommandToDeviceResponse
 @end
 
 

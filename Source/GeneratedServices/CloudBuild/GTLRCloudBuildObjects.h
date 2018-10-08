@@ -124,7 +124,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
 /**
- *  The service determines the logging mode. The default is `LEGACY`
+ *  The service determines the logging mode. The default is `LEGACY`. Do not
+ *  rely on the default logging behavior as it may change in the future.
  *
  *  Value: "LOGGING_UNSPECIFIED"
  */
@@ -576,6 +577,15 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
+ *  A list of global environment variable definitions that will exist for all
+ *  build steps in this build. If a variable is defined in both globally and in
+ *  a build step, the variable will use the build step value.
+ *  The elements are of the form "KEY=VALUE" for the environment variable "KEY"
+ *  being given the value "VALUE".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
  *  Option to specify the logging mode, which determines where the logs are
  *  stored.
  *
@@ -585,8 +595,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Stackdriver logging
  *        and Cloud Storage logging are enabled. (Value: "LEGACY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified The
- *        service determines the logging mode. The default is `LEGACY` (Value:
- *        "LOGGING_UNSPECIFIED")
+ *        service determines the logging mode. The default is `LEGACY`. Do not
+ *        rely on the default logging behavior as it may change in the future.
+ *        (Value: "LOGGING_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logging;
 
@@ -630,6 +641,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
+/**
+ *  A list of global environment variables, which are encrypted using a Cloud
+ *  Key Management Service crypto key. These values must be specified in the
+ *  build's `Secret`. These variables will be available to all build steps
+ *  in this build.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
+
 /** Requested hash for SourceProvenance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceProvenanceHash;
 
@@ -646,6 +665,17 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        a substitution in the template or in the map. (Value: "MUST_MATCH")
  */
 @property(nonatomic, copy, nullable) NSString *substitutionOption;
+
+/**
+ *  Global list of volumes to mount for ALL build steps
+ *  Each volume is created as an empty volume prior to starting the build
+ *  process. Upon completion of the build, volumes and their contents are
+ *  discarded. Global volume names and paths cannot conflict with the volumes
+ *  defined a build step.
+ *  Using a global volume in a build with only one step is not valid as
+ *  it is indicative of a build request with an incorrect configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
 @end
 
@@ -716,6 +746,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Stores timing information for pulling this build step's
+ *  builder image only.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pullTiming;
+
+/**
  *  A list of environment variables which are encrypted using a Cloud Key
  *  Management Service crypto key. These values must be specified in the
  *  build's `Secret`.
@@ -759,11 +795,11 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  List of volumes to mount into the build step.
- *  Each volume will be created as an empty volume prior to execution of the
- *  build step. Upon completion of the build, volumes and their contents will
- *  be discarded.
+ *  Each volume is created as an empty volume prior to execution of the
+ *  build step. Upon completion of the build, volumes and their contents are
+ *  discarded.
  *  Using a named volume in only one step is not valid as it is indicative
- *  of a mis-configured build request.
+ *  of a build request with an incorrect configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
@@ -1190,7 +1226,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Map of environment variable name to its encrypted value.
  *  Secret environment variables must be unique across all of a build's
  *  secrets, and must be used by at least one build step. Values can be at most
- *  1 KB in size. There can be at most ten secret values across all of a
+ *  64 KB in size. There can be at most 100 secret values across all of a
  *  build's secrets.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Secret_SecretEnv *secretEnv;
@@ -1202,7 +1238,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Map of environment variable name to its encrypted value.
  *  Secret environment variables must be unique across all of a build's
  *  secrets, and must be used by at least one build step. Values can be at most
- *  1 KB in size. There can be at most ten secret values across all of a
+ *  64 KB in size. There can be at most 100 secret values across all of a
  *  build's secrets.
  *
  *  @note This class is documented as having more properties of NSString

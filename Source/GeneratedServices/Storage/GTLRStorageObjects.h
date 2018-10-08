@@ -461,10 +461,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isLive;
 
 /**
- *  A regular expression that satisfies the RE2 syntax language. This condition
- *  is satisfied when the name of the object matches the RE2 pattern. Note: This
+ *  A regular expression that satisfies the RE2 syntax. This condition is
+ *  satisfied when the name of the object matches the RE2 pattern. Note: This
  *  feature is currently in the "Early Access" launch stage and is only
- *  available to a whitelisted set of users; that means that this feature may
+ *  available to a whitelisted set of users; that means that this feature may be
  *  changed in backward-incompatible ways and that it is not guaranteed to be
  *  released.
  */
@@ -728,8 +728,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  The source object's name. The source object's bucket is implicitly the
- *  destination bucket.
+ *  The source object's name. All source objects must reside in the same bucket.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

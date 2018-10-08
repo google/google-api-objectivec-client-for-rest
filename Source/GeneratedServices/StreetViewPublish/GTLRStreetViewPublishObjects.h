@@ -432,6 +432,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStreetViewPublish_Pose : GTLRObject
 
 /**
+ *  The estimated horizontal accuracy of this pose in meters with 68%
+ *  confidence (one standard deviation). For example, on Android, this value is
+ *  available from this method:
+ *  https://developer.android.com/reference/android/location/Location#getAccuracy().
+ *  Other platforms have different methods of obtaining similar accuracy
+ *  estimations.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accuracyMeters;
+
+/**
  *  Altitude of the pose in meters above WGS84 ellipsoid.
  *  NaN indicates an unmeasured quantity.
  *

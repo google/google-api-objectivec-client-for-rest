@@ -243,10 +243,11 @@
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         bootMode, deviceFiles, deviceId, ETag, ethernetMacAddress,
-         firmwareVersion, kind, lastEnrollmentTime, lastSync, macAddress, meid,
-         model, notes, orderNumber, orgUnitPath, osVersion, platformVersion,
-         recentUsers, serialNumber, status, supportEndDate, tpmVersionInfo,
+         bootMode, cpuStatusReports, deviceFiles, deviceId, diskVolumeReports,
+         ETag, ethernetMacAddress, firmwareVersion, kind, lastEnrollmentTime,
+         lastSync, macAddress, meid, model, notes, orderNumber, orgUnitPath,
+         osVersion, platformVersion, recentUsers, serialNumber, status,
+         supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
          willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -256,8 +257,11 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
+    @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
-    @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class]
+    @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
+    @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
+    @"systemRamFreeReports" : [GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item class]
   };
   return map;
 }
@@ -277,11 +281,48 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item
+@dynamic cpuTemperatureInfo, cpuUtilizationPercentageInfo, reportTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cpuTemperatureInfo" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item class],
+    @"cpuUtilizationPercentageInfo" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
 //
 
 @implementation GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
 @dynamic createTime, downloadUrl, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item
+@dynamic volumeInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"volumeInfo" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -297,12 +338,50 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
+@dynamic reportTime, systemRamFreeInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"systemRamFreeInfo" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_TpmVersionInfo
 //
 
 @implementation GTLRDirectory_ChromeOsDevice_TpmVersionInfo
 @dynamic family, firmwareVersion, manufacturer, specLevel, tpmModel,
          vendorSpecific;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
+@dynamic label, temperature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item
+@dynamic storageFree, storageTotal, volumeId;
 @end
 
 
@@ -590,10 +669,11 @@
 //
 
 @implementation GTLRDirectory_Member
-@dynamic email, ETag, identifier, kind, role, status, type;
+@dynamic deliverySettings, email, ETag, identifier, kind, role, status, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"deliverySettings" : @"delivery_settings",
     @"ETag" : @"etag",
     @"identifier" : @"id"
   };

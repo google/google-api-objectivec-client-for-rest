@@ -4,11 +4,11 @@
 // API:
 //   Ad Exchange Buyer API II (adexchangebuyer2/v2beta1)
 // Description:
-//   Accesses the latest features for managing Ad Exchange accounts, Real-Time
-//   Bidding configurations and auction metrics, and Marketplace programmatic
-//   deals.
+//   Accesses the latest features for managing Authorized Buyers accounts,
+//   Real-Time Bidding configurations and auction metrics, and Marketplace
+//   programmatic deals.
 // Documentation:
-//   https://developers.google.com/ad-exchange/buyer-rest/reference/rest/
+//   https://developers.google.com/authorized-buyers/apis/reference/rest/
 
 #import "GTLRAdExchangeBuyerIIQuery.h"
 
@@ -20,6 +20,11 @@
 // duplicateIdMode
 NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeForceEnableDuplicateIds = @"FORCE_ENABLE_DUPLICATE_IDS";
 NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLICATES";
+
+// filterSyntax
+NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxFilterSyntaxUnspecified = @"FILTER_SYNTAX_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxListFilter  = @"LIST_FILTER";
+NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -513,6 +518,402 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
   query.creativeId = creativeId;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_Empty class];
   query.loggingName = @"adexchangebuyer2.accounts.creatives.watch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsList
+
+@dynamic accountId, filter, filterSyntax, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/finalizedProposals";
+  GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListProposalsResponse class];
+  query.loggingName = @"adexchangebuyer2.accounts.finalizedProposals.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProductsGet
+
+@dynamic accountId, productId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                         productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"accountId", @"productId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/products/{productId}";
+  GTLRAdExchangeBuyerIIQuery_AccountsProductsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Product class];
+  query.loggingName = @"adexchangebuyer2.accounts.products.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProductsList
+
+@dynamic accountId, filter, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/products";
+  GTLRAdExchangeBuyerIIQuery_AccountsProductsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListProductsResponse class];
+  query.loggingName = @"adexchangebuyer2.accounts.products.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsAccept
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_AcceptProposalRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:accept";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsAccept *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.accept";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsAddNote
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_AddNoteRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:addNote";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsAddNote *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Note class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.addNote";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsCancelNegotiation
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_CancelNegotiationRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:cancelNegotiation";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsCancelNegotiation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.cancelNegotiation";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsCompleteSetup
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_CompleteSetupRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:completeSetup";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsCompleteSetup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.completeSetup";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsCreate
+
+@dynamic accountId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Proposal *)object
+                      accountId:(NSString *)accountId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsGet
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                        proposalId:(NSString *)proposalId {
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsList
+
+@dynamic accountId, filter, filterSyntax, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListProposalsResponse class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsPause
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_PauseProposalRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:pause";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsResume
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ResumeProposalRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}:resume";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.resume";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsProposalsUpdate
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Proposal *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/proposals/{proposalId}";
+  GTLRAdExchangeBuyerIIQuery_AccountsProposalsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.proposals.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesGet
+
+@dynamic accountId, publisherProfileId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                publisherProfileId:(NSString *)publisherProfileId {
+  NSArray *pathParams = @[
+    @"accountId", @"publisherProfileId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/publisherProfiles/{publisherProfileId}";
+  GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.publisherProfileId = publisherProfileId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_PublisherProfile class];
+  query.loggingName = @"adexchangebuyer2.accounts.publisherProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesList
+
+@dynamic accountId, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/publisherProfiles";
+  GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListPublisherProfilesResponse class];
+  query.loggingName = @"adexchangebuyer2.accounts.publisherProfiles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete
+
+@dynamic creativeId, ownerName;
+
++ (instancetype)queryWithOwnerName:(NSString *)ownerName
+                        creativeId:(NSString *)creativeId {
+  NSArray *pathParams = @[
+    @"creativeId", @"ownerName"
+  ];
+  NSString *pathURITemplate = @"v2beta1/{+ownerName}/creatives/{creativeId}";
+  GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.ownerName = ownerName;
+  query.creativeId = creativeId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Empty class];
+  query.loggingName = @"adexchangebuyer2.bidders.accounts.creatives.delete";
   return query;
 }
 

@@ -155,7 +155,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsUnlock
 
-@dynamic achievementId;
+@dynamic achievementId, builtinGameId;
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
@@ -173,6 +173,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @end
 
 @implementation GTLRGamesQuery_AchievementsUpdateMultiple
+
+@dynamic builtinGameId;
 
 + (instancetype)queryWithObject:(GTLRGames_AchievementUpdateMultipleRequest *)object {
   if (object == nil) {
@@ -212,6 +214,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @end
 
 @implementation GTLRGamesQuery_ApplicationsPlayed
+
+@dynamic builtinGameId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"applications/played";

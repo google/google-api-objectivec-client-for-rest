@@ -321,7 +321,7 @@
 
 @implementation GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList
 
-@dynamic partnerId;
+@dynamic pageSize, pageToken, partnerId;
 
 + (instancetype)queryWithPartnerId:(long long)partnerId {
   NSArray *pathParams = @[ @"partnerId" ];

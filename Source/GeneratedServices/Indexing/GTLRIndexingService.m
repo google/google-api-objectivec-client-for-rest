@@ -11,6 +11,15 @@
 
 #import "GTLRIndexing.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeIndexing = @"https://www.googleapis.com/auth/indexing";
+
+// ----------------------------------------------------------------------------
+//   GTLRIndexingService
+//
+
 @implementation GTLRIndexingService
 
 - (instancetype)init {

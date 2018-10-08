@@ -311,7 +311,7 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 @implementation GTLRLogging_LogEntry
 @dynamic httpRequest, insertId, jsonPayload, labels, logName, metadata,
          operation, protoPayload, receiveTimestamp, resource, severity,
-         sourceLocation, spanId, textPayload, timestamp, trace;
+         sourceLocation, spanId, textPayload, timestamp, trace, traceSampled;
 @end
 
 

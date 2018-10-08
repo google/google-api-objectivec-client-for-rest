@@ -49,8 +49,6 @@
 @class GTLRServiceUser_LogDescriptor;
 @class GTLRServiceUser_Logging;
 @class GTLRServiceUser_LoggingDestination;
-@class GTLRServiceUser_MediaDownload;
-@class GTLRServiceUser_MediaUpload;
 @class GTLRServiceUser_Method;
 @class GTLRServiceUser_MetricDescriptor;
 @class GTLRServiceUser_MetricDescriptorMetadata;
@@ -1674,21 +1672,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *get;
 
-/**
- *  Use this only for Scotty Requests. Do not use this for bytestream methods.
- *  For media support, add instead [][google.bytestream.RestByteStream] as an
- *  API to your configuration.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUser_MediaDownload *mediaDownload;
-
-/**
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead
- *  [][google.bytestream.RestByteStream] as an API to your
- *  configuration for Bytestream methods.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUser_MediaUpload *mediaUpload;
-
 /** Maps to HTTP PATCH. Used for updating a resource. */
 @property(nonatomic, copy, nullable) NSString *patch;
 
@@ -1888,121 +1871,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  Service.monitored_resources section.
  */
 @property(nonatomic, copy, nullable) NSString *monitoredResource;
-
-@end
-
-
-/**
- *  Defines the Media configuration for a service in case of a download.
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
- *  your configuration for Bytestream methods.
- */
-@interface GTLRServiceUser_MediaDownload : GTLRObject
-
-/**
- *  A boolean that determines whether a notification for the completion of a
- *  download should be sent to the backend.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *completeNotification;
-
-/**
- *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
- *  Specify name of the download service if one is used for download.
- */
-@property(nonatomic, copy, nullable) NSString *downloadService;
-
-/** Name of the Scotty dropzone to use for the current API. */
-@property(nonatomic, copy, nullable) NSString *dropzone;
-
-/**
- *  Whether download is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Optional maximum acceptable size for direct download.
- *  The size is specified in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxDirectDownloadSize;
-
-/**
- *  A boolean that determines if direct download from ESF should be used for
- *  download of this media.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *useDirectDownload;
-
-@end
-
-
-/**
- *  Defines the Media configuration for a service in case of an upload.
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
- *  your configuration for Bytestream methods.
- */
-@interface GTLRServiceUser_MediaUpload : GTLRObject
-
-/**
- *  A boolean that determines whether a notification for the completion of an
- *  upload should be sent to the backend. These notifications will not be seen
- *  by the client and will not consume quota.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *completeNotification;
-
-/** Name of the Scotty dropzone to use for the current API. */
-@property(nonatomic, copy, nullable) NSString *dropzone;
-
-/**
- *  Whether upload is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Optional maximum acceptable size for an upload.
- *  The size is specified in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSize;
-
-/**
- *  An array of mimetype patterns. Esf will only accept uploads that match one
- *  of the given patterns.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *mimeTypes;
-
-/**
- *  Whether to receive a notification for progress changes of media upload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *progressNotification;
-
-/**
- *  Whether to receive a notification on the start of media upload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startNotification;
-
-/**
- *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
- *  Specify name of the upload service if one is used for upload.
- */
-@property(nonatomic, copy, nullable) NSString *uploadService;
 
 @end
 
@@ -2779,6 +2647,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  quota checks at runtime.
  *  An example quota configuration in yaml format:
  *  quota:
+ *  limits:
  *  - name: apiWriteQpsPerProject
  *  metric: library.googleapis.com/write_calls
  *  unit: "1/min/{project}" # rate limit for consumer projects

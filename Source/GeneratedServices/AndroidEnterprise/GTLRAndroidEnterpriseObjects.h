@@ -118,12 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  The list of permissions the admin is granted within the iframe. The admin
- *  will only be allowed to view an iframe if they have all of the permissions
- *  associated with it. The only valid value is "approveApps" that will allow
- *  the admin to access the iframe in "approve" mode.
- */
+/** Deprecated. Use PlaySearch.approveApps. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 /** Options for displaying the Play Search page. */
@@ -145,6 +140,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch
  */
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch : GTLRObject
+
+/**
+ *  Allow access to the iframe in approve mode. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *approveApps;
 
 /**
  *  Whether the Play Search page is displayed. Default is true.
@@ -177,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder : GTLRObject
 
 /**
- *  Whether the Store Builder is be displayed. Default is true.
+ *  Whether the Store Builder page is displayed. Default is true.
  *
  *  Uses NSNumber of boolValue.
  */

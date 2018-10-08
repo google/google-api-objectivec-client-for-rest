@@ -14,15 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudFilestore_FileShareConfig.protocols
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_FileShareProtocolUnspecified = @"FILE_SHARE_PROTOCOL_UNSPECIFIED";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_NfsV3 = @"NFS_V3";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_NfsV40 = @"NFS_V4_0";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_NfsV41 = @"NFS_V4_1";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_SmbV20 = @"SMB_V2_0";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_SmbV21 = @"SMB_V2_1";
-NSString * const kGTLRCloudFilestore_FileShareConfig_Protocols_SmbV3 = @"SMB_V3";
-
 // GTLRCloudFilestore_Instance.state
 NSString * const kGTLRCloudFilestore_Instance_State_Creating   = @"CREATING";
 NSString * const kGTLRCloudFilestore_Instance_State_Deleting   = @"DELETING";
@@ -39,17 +30,6 @@ NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSP
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
-NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv6 = @"MODE_IPV6";
-
-// GTLRCloudFilestore_NfsExport.protocols
-NSString * const kGTLRCloudFilestore_NfsExport_Protocols_NetworkProtocolsUnspecified = @"NETWORK_PROTOCOLS_UNSPECIFIED";
-NSString * const kGTLRCloudFilestore_NfsExport_Protocols_Tcp   = @"TCP";
-NSString * const kGTLRCloudFilestore_NfsExport_Protocols_Udp   = @"UDP";
-
-// GTLRCloudFilestore_NfsExport.squash
-NSString * const kGTLRCloudFilestore_NfsExport_Squash_All      = @"ALL";
-NSString * const kGTLRCloudFilestore_NfsExport_Squash_Root     = @"ROOT";
-NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"SQUASH_MODE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -57,25 +37,6 @@ NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"
 //
 
 @implementation GTLRCloudFilestore_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_ClientList
-//
-
-@implementation GTLRCloudFilestore_ClientList
-@dynamic hostNames, ipAddresses;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"hostNames" : [NSString class],
-    @"ipAddresses" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -90,39 +51,11 @@ NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_Export
-//
-
-@implementation GTLRCloudFilestore_Export
-@dynamic allowedClients, async, deniedClients, networks, nfsExport, path,
-         readOnly, smbExport;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"networks" : [GTLRCloudFilestore_NetworkConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_FileShareConfig
 //
 
 @implementation GTLRCloudFilestore_FileShareConfig
-@dynamic capacityGb, deleted, enabled, exports, name, protocols;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exports" : [GTLRCloudFilestore_Export class],
-    @"protocols" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic capacityGb, name;
 @end
 
 
@@ -132,9 +65,8 @@ NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic createTime, descriptionProperty, ETag, fileShares, labels,
-         loggingService, monitoringService, name, networks, state,
-         statusMessage, tier;
+@dynamic createTime, descriptionProperty, ETag, fileShares, labels, name,
+         networks, state, statusMessage, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -280,31 +212,12 @@ NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"
 //
 
 @implementation GTLRCloudFilestore_NetworkConfig
-@dynamic ipAddresses, modes, network, reservedIpRange, subnetwork;
+@dynamic ipAddresses, modes, network, reservedIpRange;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ipAddresses" : [NSString class],
     @"modes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_NfsExport
-//
-
-@implementation GTLRCloudFilestore_NfsExport
-@dynamic anonymousGid, anonymousUid, protocols, squash,
-         unauthenticatedLocksAllowed, userPortsAllowed;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"protocols" : [NSString class]
   };
   return map;
 }
@@ -358,16 +271,6 @@ NSString * const kGTLRCloudFilestore_NfsExport_Squash_SquashModeUnspecified = @"
 @implementation GTLRCloudFilestore_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_SmbExport
-//
-
-@implementation GTLRCloudFilestore_SmbExport
-@dynamic browsable, fileShare;
 @end
 
 

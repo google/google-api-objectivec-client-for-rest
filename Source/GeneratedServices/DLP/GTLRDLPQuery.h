@@ -692,6 +692,21 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesListWithparent:]
 
 /**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc, display_name, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the most recent version of the
+ *  resource was created.
+ *  - `state`: corresponds to the state of the resource.
+ *  - `name`: corresponds to resource name.
+ *  - `display_name`: corresponds to info type's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Optional size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
@@ -1311,6 +1326,20 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc, end_time asc, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the job was created.
+ *  - `end_time`: corresponds to time the job ended.
+ *  - `name`: corresponds to job's name.
+ *  - `state`: corresponds to `state`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** The standard list page size. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1943,6 +1972,21 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesList : GTLRDLPQuery
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsStoredInfoTypesListWithparent:]
+
+/**
+ *  Optional comma separated list of fields to order by,
+ *  followed by `asc` or `desc` postfix. This list is case-insensitive,
+ *  default sorting order is ascending, redundant space characters are
+ *  insignificant.
+ *  Example: `name asc, display_name, create_time desc`
+ *  Supported fields are:
+ *  - `create_time`: corresponds to time the most recent version of the
+ *  resource was created.
+ *  - `state`: corresponds to the state of the resource.
+ *  - `name`: corresponds to resource name.
+ *  - `display_name`: corresponds to info type's display name.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional size of the page, can be limited by server. If zero server returns

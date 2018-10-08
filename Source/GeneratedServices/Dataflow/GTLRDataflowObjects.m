@@ -1114,7 +1114,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_MapTask
-@dynamic instructions, stageName, systemName;
+@dynamic counterPrefix, instructions, stageName, systemName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -422,7 +422,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_EndpointsApiService
-@dynamic configId, name, rolloutStrategy;
+@dynamic configId, disableTraceSampling, name, rolloutStrategy;
 @end
 
 

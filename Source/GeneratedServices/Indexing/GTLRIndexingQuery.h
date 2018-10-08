@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Includes the latest `UrlNotification` received via this API.
  *
  *  Method: indexing.urlNotifications.getMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIndexing
  */
 @interface GTLRIndexingQuery_UrlNotificationsGetMetadata : GTLRIndexingQuery
 // Previous library name was
@@ -69,6 +72,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Notifies that a URL has been updated or deleted.
  *
  *  Method: indexing.urlNotifications.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIndexing
  */
 @interface GTLRIndexingQuery_UrlNotificationsPublish : GTLRIndexingQuery
 // Previous library name was

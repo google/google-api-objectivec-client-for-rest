@@ -55,6 +55,7 @@
 @class GTLRVision_GoogleCloudVisionV1p1beta1ImageAnnotationContext;
 @class GTLRVision_GoogleCloudVisionV1p1beta1ImageProperties;
 @class GTLRVision_GoogleCloudVisionV1p1beta1InputConfig;
+@class GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p1beta1LocationInfo;
 @class GTLRVision_GoogleCloudVisionV1p1beta1OutputConfig;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Page;
@@ -90,6 +91,7 @@
 @class GTLRVision_GoogleCloudVisionV1p2beta1ImageAnnotationContext;
 @class GTLRVision_GoogleCloudVisionV1p2beta1ImageProperties;
 @class GTLRVision_GoogleCloudVisionV1p2beta1InputConfig;
+@class GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p2beta1LocationInfo;
 @class GTLRVision_GoogleCloudVisionV1p2beta1NormalizedVertex;
 @class GTLRVision_GoogleCloudVisionV1p2beta1OutputConfig;
@@ -161,6 +163,7 @@
 @class GTLRVision_Landmark;
 @class GTLRVision_LatLng;
 @class GTLRVision_LatLongRect;
+@class GTLRVision_LocalizedObjectAnnotation;
 @class GTLRVision_LocationInfo;
 @class GTLRVision_NormalizedVertex;
 @class GTLRVision_Operation;
@@ -604,6 +607,12 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LandmarkDetection;
  *  Value: "LOGO_DETECTION"
  */
 GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
+/**
+ *  Run localizer for object detection.
+ *
+ *  Value: "OBJECT_LOCALIZATION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ObjectLocalization;
 /**
  *  Run Safe Search to detect potentially unsafe
  *  or undesirable content.
@@ -3618,6 +3627,12 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** If present, landmark detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *landmarkAnnotations;
 
+/**
+ *  If present, localized object detection has completed successfully.
+ *  This will be sorted descending by confidence score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_LocalizedObjectAnnotation *> *localizedObjectAnnotations;
+
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *logoAnnotations;
 
@@ -4452,6 +4467,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        (Value: "LANDMARK_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_LogoDetection Run logo detection. (Value:
  *        "LOGO_DETECTION")
+ *    @arg @c kGTLRVision_Feature_Type_ObjectLocalization Run localizer for
+ *        object detection. (Value: "OBJECT_LOCALIZATION")
  *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection Run Safe Search to
  *        detect potentially unsafe
  *        or undesirable content. (Value: "SAFE_SEARCH_DETECTION")
@@ -4563,6 +4580,12 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, landmark detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation *> *landmarkAnnotations;
+
+/**
+ *  If present, localized object detection has completed successfully.
+ *  This will be sorted descending by confidence score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation *> *logoAnnotations;
@@ -5241,6 +5264,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  are supported. Wildcards are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Set of detected objects with bounding boxes.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation : GTLRObject
+
+/** Image region to which this object belongs. This must be populated. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingPoly;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Object ID that should align with EntityAnnotation mid. */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/** Object name, expressed in its `language_code` language. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Score of the result. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -5966,6 +6020,12 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** If present, landmark detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation *> *landmarkAnnotations;
 
+/**
+ *  If present, localized object detection has completed successfully.
+ *  This will be sorted descending by confidence score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
+
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation *> *logoAnnotations;
 
@@ -6646,6 +6706,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  are supported. Wildcards are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Set of detected objects with bounding boxes.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation : GTLRObject
+
+/** Image region to which this object belongs. This must be populated. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingPoly;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Object ID that should align with EntityAnnotation mid. */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/** Object name, expressed in its `language_code` language. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Score of the result. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -8413,7 +8504,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The category for the product identified by the reference image. This should
- *  be either "homegoods" or "apparel".
+ *  be either "homegoods", "apparel", or "toys".
  *  This field is immutable.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
@@ -8486,8 +8577,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /**
  *  A confidence level on the match, ranging from 0 (no confidence) to
  *  1 (full confidence).
- *  This field is returned only if `view` is set to `FULL` in
- *  the request.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -9301,6 +9390,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Set of detected objects with bounding boxes.
+ */
+@interface GTLRVision_LocalizedObjectAnnotation : GTLRObject
+
+/** Image region to which this object belongs. This must be populated. */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Object ID that should align with EntityAnnotation mid. */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/** Object name, expressed in its `language_code` language. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Score of the result. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 

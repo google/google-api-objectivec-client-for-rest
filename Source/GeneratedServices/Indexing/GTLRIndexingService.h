@@ -26,6 +26,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: Submit data to Google for indexing
+ *
+ *  Value "https://www.googleapis.com/auth/indexing"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeIndexing;
+
+// ----------------------------------------------------------------------------
+//   GTLRIndexingService
+//
+
 /**
  *  Service for executing Indexing API queries.
  *

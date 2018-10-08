@@ -262,7 +262,7 @@
 //
 
 @implementation GTLRStreetViewPublish_Pose
-@dynamic altitude, heading, latLngPair, level, pitch, roll;
+@dynamic accuracyMeters, altitude, heading, latLngPair, level, pitch, roll;
 @end
 
 

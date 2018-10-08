@@ -64,6 +64,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlph
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric = @"NUMERIC";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric = @"UPPER_CASE_ALPHA_NUMERIC";
 
+// GTLRDLP_GooglePrivacyDlpV2CustomInfoType.exclusionType
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude = @"EXCLUSION_TYPE_EXCLUDE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified = @"EXCLUSION_TYPE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.likelihood
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely = @"LIKELY";
@@ -94,6 +98,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running = @"RUNNING";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified = @"DLP_JOB_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob = @"INSPECT_JOB";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob = @"RISK_ANALYSIS_JOB";
+
+// GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch = @"MATCHING_TYPE_FULL_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch = @"MATCHING_TYPE_INVERSE_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch = @"MATCHING_TYPE_PARTIAL_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified = @"MATCHING_TYPE_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And = @"AND";
@@ -440,6 +450,25 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet
+@dynamic bucketName, excludeRegex, includeRegex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeRegex" : [NSString class],
+    @"includeRegex" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2Color
 //
 
@@ -589,8 +618,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
-@dynamic detectionRules, dictionary, infoType, likelihood, regex, storedType,
-         surrogateType;
+@dynamic detectionRules, dictionary, exclusionType, infoType, likelihood, regex,
+         storedType, surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -842,6 +871,34 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes
+@dynamic infoTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ExclusionRule
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ExclusionRule
+@dynamic dictionary, excludeInfoTypes, matchingType, regex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2Expressions
 //
 
@@ -884,7 +941,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2FileSet
-@dynamic url;
+@dynamic regexFileSet, url;
 @end
 
 
@@ -1055,13 +1112,14 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InspectConfig
 @dynamic contentOptions, customInfoTypes, excludeInfoTypes, includeQuote,
-         infoTypes, limits, minLikelihood;
+         infoTypes, limits, minLikelihood, ruleSet;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"contentOptions" : [NSString class],
     @"customInfoTypes" : [GTLRDLP_GooglePrivacyDlpV2CustomInfoType class],
-    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class],
+    @"ruleSet" : [GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet class]
   };
   return map;
 }
@@ -1096,6 +1154,35 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InspectDataSourceDetails
 @dynamic requestedOptions, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2InspectionRule
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectionRule
+@dynamic exclusionRule, hotwordRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet
+@dynamic infoTypes, rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class],
+    @"rules" : [GTLRDLP_GooglePrivacyDlpV2InspectionRule class]
+  };
+  return map;
+}
+
 @end
 
 

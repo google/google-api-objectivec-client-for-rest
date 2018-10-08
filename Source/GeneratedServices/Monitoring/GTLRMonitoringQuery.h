@@ -1093,7 +1093,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  Creates a new notification channel, representing a single notification
- *  endpoint such as an email address, SMS number, or pagerduty service.
+ *  endpoint such as an email address, SMS number, or PagerDuty service.
  *
  *  Method: monitoring.projects.notificationChannels.create
  *
@@ -1119,7 +1119,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Fetches a @c GTLRMonitoring_NotificationChannel.
  *
  *  Creates a new notification channel, representing a single notification
- *  endpoint such as an email address, SMS number, or pagerduty service.
+ *  endpoint such as an email address, SMS number, or PagerDuty service.
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.

@@ -260,6 +260,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsBundlesUploadWithpackageName:editId:]
 
+/**
+ *  Must be set to true if the bundle installation may trigger a warning on user
+ *  devices (i.e. if installation size may be over a threshold, typically 100
+ *  MB).
+ */
+@property(nonatomic, assign) BOOL ackBundleInstallationWarning;
+
 /** Unique identifier for this edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 

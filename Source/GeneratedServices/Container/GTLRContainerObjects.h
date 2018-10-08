@@ -48,6 +48,7 @@
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_Operation;
+@class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 
 // Generated comments include content from the discovery document; avoid them
@@ -702,6 +703,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
+
+/** Configuration for private cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
 
 /**
  *  The resource labels for the cluster to use to annotate any related
@@ -1854,6 +1858,44 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Configuration options for private clusters.
+ */
+@interface GTLRContainer_PrivateClusterConfig : GTLRObject
+
+/**
+ *  Whether the master's internal IP address is used as the cluster endpoint.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint;
+
+/**
+ *  Whether nodes have internal IP addresses only. If enabled, all nodes are
+ *  given only RFC 1918 private addresses and communicate with the master via
+ *  private networking.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateNodes;
+
+/**
+ *  The IP range in CIDR notation to use for the hosted master network. This
+ *  range will be used for assigning internal IP addresses to the master or
+ *  set of masters, as well as the ILB VIP. This range must not overlap with
+ *  any other ranges in use within the cluster's network.
+ */
+@property(nonatomic, copy, nullable) NSString *masterIpv4CidrBlock;
+
+/** Output only. The internal IP address of this cluster's master endpoint. */
+@property(nonatomic, copy, nullable) NSString *privateEndpoint;
+
+/** Output only. The external IP address of this cluster's master endpoint. */
+@property(nonatomic, copy, nullable) NSString *publicEndpoint;
 
 @end
 

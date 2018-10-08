@@ -13,8 +13,11 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeCalendar         = @"https://www.googleapis.com/auth/calendar";
-NSString * const kGTLRAuthScopeCalendarReadonly = @"https://www.googleapis.com/auth/calendar.readonly";
+NSString * const kGTLRAuthScopeCalendar                 = @"https://www.googleapis.com/auth/calendar";
+NSString * const kGTLRAuthScopeCalendarEvents           = @"https://www.googleapis.com/auth/calendar.events";
+NSString * const kGTLRAuthScopeCalendarEventsReadonly   = @"https://www.googleapis.com/auth/calendar.events.readonly";
+NSString * const kGTLRAuthScopeCalendarReadonly         = @"https://www.googleapis.com/auth/calendar.readonly";
+NSString * const kGTLRAuthScopeCalendarSettingsReadonly = @"https://www.googleapis.com/auth/calendar.settings.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRCalendarService

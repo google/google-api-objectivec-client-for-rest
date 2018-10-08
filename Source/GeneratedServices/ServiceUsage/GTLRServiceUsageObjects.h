@@ -24,7 +24,6 @@
 @class GTLRServiceUsage_Authentication;
 @class GTLRServiceUsage_AuthenticationRule;
 @class GTLRServiceUsage_AuthorizationConfig;
-@class GTLRServiceUsage_AuthorizationRule;
 @class GTLRServiceUsage_AuthProvider;
 @class GTLRServiceUsage_AuthRequirement;
 @class GTLRServiceUsage_Backend;
@@ -53,8 +52,6 @@
 @class GTLRServiceUsage_LogDescriptor;
 @class GTLRServiceUsage_Logging;
 @class GTLRServiceUsage_LoggingDestination;
-@class GTLRServiceUsage_MediaDownload;
-@class GTLRServiceUsage_MediaUpload;
 @class GTLRServiceUsage_Method;
 @class GTLRServiceUsage_MetricDescriptor;
 @class GTLRServiceUsage_MetricDescriptorMetadata;
@@ -641,42 +638,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  firebaserules.googleapis.com.
  */
 @property(nonatomic, copy, nullable) NSString *provider;
-
-@end
-
-
-/**
- *  Authorization rule for API services.
- *  It specifies the permission(s) required for an API element for the overall
- *  API request to succeed. It is typically used to mark request message fields
- *  that contain the name of the resource and indicates the permissions that
- *  will be checked on that resource.
- *  For example:
- *  package google.storage.v1;
- *  message CopyObjectRequest {
- *  string source = 1 [
- *  (google.api.authz).permissions = "storage.objects.get"];
- *  string destination = 2 [
- *  (google.api.authz).permissions =
- *  "storage.objects.create,storage.objects.update"];
- *  }
- */
-@interface GTLRServiceUsage_AuthorizationRule : GTLRObject
-
-/**
- *  The required permissions. The acceptable values vary depend on the
- *  authorization system used. For Google APIs, it should be a comma-separated
- *  Google IAM permission values. When multiple permissions are listed, the
- *  semantics is not defined by the system. Additional documentation must
- *  be provided manually.
- */
-@property(nonatomic, copy, nullable) NSString *permissions;
-
-/**
- *  Selects the API elements to which this rule applies.
- *  Refer to selector for syntax details.
- */
-@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -1841,7 +1802,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  service Messaging {
  *  rpc GetMessage(GetMessageRequest) returns (Message) {
  *  option (google.api.http) = {
- *  get: "/v1/{name=messages/ *"}"
+ *  get: "/v1/{name=messages/ *}"
  *  };
  *  }
  *  }
@@ -2054,14 +2015,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_HttpRule *> *additionalBindings;
 
 /**
- *  Specifies the permission(s) required for an API element for the overall
- *  API request to succeed. It is typically used to mark request message fields
- *  that contain the name of the resource and indicates the permissions that
- *  will be checked on that resource.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_AuthorizationRule *> *authorizations;
-
-/**
  *  The name of the request field whose value is mapped to the HTTP request
  *  body, or `*` for mapping all request fields not captured by the path
  *  pattern to the HTTP body, or omitted for not having any HTTP request body.
@@ -2091,21 +2044,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *get;
 
-/**
- *  Use this only for Scotty Requests. Do not use this for bytestream methods.
- *  For media support, add instead [][google.bytestream.RestByteStream] as an
- *  API to your configuration.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_MediaDownload *mediaDownload;
-
-/**
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead
- *  [][google.bytestream.RestByteStream] as an API to your
- *  configuration for Bytestream methods.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_MediaUpload *mediaUpload;
-
 /** Maps to HTTP PATCH. Used for updating a resource. */
 @property(nonatomic, copy, nullable) NSString *patch;
 
@@ -2125,44 +2063,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  message type.
  */
 @property(nonatomic, copy, nullable) NSString *responseBody;
-
-/**
- *  DO NOT USE. This is an experimental field.
- *  Optional. The REST collection name is by default derived from the URL
- *  pattern. If specified, this field overrides the default collection name.
- *  Example:
- *  rpc AddressesAggregatedList(AddressesAggregatedListRequest)
- *  returns (AddressesAggregatedListResponse) {
- *  option (google.api.http) = {
- *  get: "/v1/projects/{project_id}/aggregated/addresses"
- *  rest_collection: "projects.addresses"
- *  };
- *  }
- *  This method has the automatically derived collection name
- *  "projects.aggregated". Because, semantically, this rpc is actually an
- *  operation on the "projects.addresses" collection, the `rest_collection`
- *  field is configured to override the derived collection name.
- */
-@property(nonatomic, copy, nullable) NSString *restCollection;
-
-/**
- *  DO NOT USE. This is an experimental field.
- *  Optional. The rest method name is by default derived from the URL
- *  pattern. If specified, this field overrides the default method name.
- *  Example:
- *  rpc CreateResource(CreateResourceRequest)
- *  returns (CreateResourceResponse) {
- *  option (google.api.http) = {
- *  post: "/v1/resources",
- *  body: "resource",
- *  rest_method_name: "insert"
- *  };
- *  }
- *  This method has the automatically derived rest method name
- *  "create", but for backwards compatibility with apiary, it is specified as
- *  insert.
- */
-@property(nonatomic, copy, nullable) NSString *restMethodName;
 
 /**
  *  Selects a method to which this rule applies.
@@ -2367,121 +2267,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Service.monitored_resources section.
  */
 @property(nonatomic, copy, nullable) NSString *monitoredResource;
-
-@end
-
-
-/**
- *  Defines the Media configuration for a service in case of a download.
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
- *  your configuration for Bytestream methods.
- */
-@interface GTLRServiceUsage_MediaDownload : GTLRObject
-
-/**
- *  A boolean that determines whether a notification for the completion of a
- *  download should be sent to the backend.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *completeNotification;
-
-/**
- *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
- *  Specify name of the download service if one is used for download.
- */
-@property(nonatomic, copy, nullable) NSString *downloadService;
-
-/** Name of the Scotty dropzone to use for the current API. */
-@property(nonatomic, copy, nullable) NSString *dropzone;
-
-/**
- *  Whether download is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Optional maximum acceptable size for direct download.
- *  The size is specified in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxDirectDownloadSize;
-
-/**
- *  A boolean that determines if direct download from ESF should be used for
- *  download of this media.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *useDirectDownload;
-
-@end
-
-
-/**
- *  Defines the Media configuration for a service in case of an upload.
- *  Use this only for Scotty Requests. Do not use this for media support using
- *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
- *  your configuration for Bytestream methods.
- */
-@interface GTLRServiceUsage_MediaUpload : GTLRObject
-
-/**
- *  A boolean that determines whether a notification for the completion of an
- *  upload should be sent to the backend. These notifications will not be seen
- *  by the client and will not consume quota.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *completeNotification;
-
-/** Name of the Scotty dropzone to use for the current API. */
-@property(nonatomic, copy, nullable) NSString *dropzone;
-
-/**
- *  Whether upload is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Optional maximum acceptable size for an upload.
- *  The size is specified in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSize;
-
-/**
- *  An array of mimetype patterns. Esf will only accept uploads that match one
- *  of the given patterns.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *mimeTypes;
-
-/**
- *  Whether to receive a notification for progress changes of media upload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *progressNotification;
-
-/**
- *  Whether to receive a notification on the start of media upload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startNotification;
-
-/**
- *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
- *  Specify name of the upload service if one is used for upload.
- */
-@property(nonatomic, copy, nullable) NSString *uploadService;
 
 @end
 
@@ -3226,6 +3011,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  quota checks at runtime.
  *  An example quota configuration in yaml format:
  *  quota:
+ *  limits:
  *  - name: apiWriteQpsPerProject
  *  metric: library.googleapis.com/write_calls
  *  unit: "1/min/{project}" # rate limit for consumer projects

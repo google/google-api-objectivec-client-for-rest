@@ -741,7 +741,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  HTTP path dispatch rules for requests to the application that do not
  *  explicitly target a service or version. Rules are order-dependent. Up to 20
- *  dispatch rules can be supported.\@OutputOnly
+ *  dispatch rules can be supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_UrlDispatchRule *> *dispatchRules;
 
@@ -1334,6 +1334,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  configuration ID. In this case, config_id must be omitted.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
+
+/**
+ *  Enable or disable trace sampling. By default, this is set to false for
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableTraceSampling;
 
 /**
  *  Endpoints service name which is the name of the "service" resource in the
@@ -3134,7 +3142,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Duration that static files should be cached by web proxies and browsers.
  *  Only applicable if the corresponding StaticFilesHandler
- *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#staticfileshandler)
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StaticFilesHandler)
  *  does not specify its own expiration time.Only returned in GET requests if
  *  view=FULL is set.
  */

@@ -315,6 +315,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 /** `Ruleset` name associated with the `Release` executable. */
 @property(nonatomic, copy, nullable) NSString *rulesetName;
 
+/**
+ *  Optional, indicates the freshness of the result. The response is
+ *  guaranteed to be the latest within an interval up to the
+ *  sync_time (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *syncTime;
+
 /** Timestamp for the most recent `Release.update_time`. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 

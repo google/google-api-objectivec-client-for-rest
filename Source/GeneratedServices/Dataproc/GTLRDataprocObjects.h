@@ -1326,7 +1326,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. Map from parameter names to values that should be used for those
- *  parameters.
+ *  parameters. Values may not exceed 100 characters.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters *parameters;
 
@@ -1355,7 +1355,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. Map from parameter names to values that should be used for those
- *  parameters.
+ *  parameters. Values may not exceed 100 characters.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2665,11 +2665,17 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /** Output only. The delete cluster operation metadata. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *deleteCluster;
 
+/** Output only. Workflow end time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /** Output only. The workflow graph. */
 @property(nonatomic, strong, nullable) GTLRDataproc_WorkflowGraph *graph;
 
 /** Map from parameter names to values that were used for those parameters. */
 @property(nonatomic, strong, nullable) GTLRDataproc_WorkflowMetadata_Parameters *parameters;
+
+/** Output only. Workflow start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Output only. The workflow state.

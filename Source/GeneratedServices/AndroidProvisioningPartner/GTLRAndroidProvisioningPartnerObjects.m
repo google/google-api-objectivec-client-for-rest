@@ -391,7 +391,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierResponse
-@dynamic devices, nextPageToken;
+@dynamic devices, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -431,7 +431,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_FindDevicesByOwnerResponse
-@dynamic devices, nextPageToken;
+@dynamic devices, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -453,13 +453,17 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_ListCustomersResponse
-@dynamic customers;
+@dynamic customers, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"customers" : [GTLRAndroidProvisioningPartner_Company class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customers";
 }
 
 @end
@@ -471,7 +475,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_ListVendorCustomersResponse
-@dynamic customers, nextPageToken;
+@dynamic customers, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -493,7 +497,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_ListVendorsResponse
-@dynamic nextPageToken, vendors;
+@dynamic nextPageToken, totalSize, vendors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

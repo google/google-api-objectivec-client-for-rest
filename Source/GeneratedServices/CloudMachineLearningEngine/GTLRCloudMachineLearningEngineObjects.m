@@ -17,12 +17,14 @@
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -74,11 +76,20 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Ty
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified = @"PARAMETER_TYPE_UNSPECIFIED";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv = @"CSV";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json = @"JSON";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text = @"TEXT";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord = @"TF_RECORD";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip = @"TF_RECORD_GZIP";
+
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.outputDataFormat
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv = @"CSV";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json = @"JSON";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text = @"TEXT";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord = @"TF_RECORD";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip = @"TF_RECORD_GZIP";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput.scaleTier
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic = @"BASIC";
@@ -508,8 +519,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput
 @dynamic accelerator, batchSize, dataFormat, inputPaths, maxWorkerCount,
-         modelName, outputPath, region, runtimeVersion, signatureName, uri,
-         versionName;
+         modelName, outputDataFormat, outputPath, region, runtimeVersion,
+         signatureName, uri, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

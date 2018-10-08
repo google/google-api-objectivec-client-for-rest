@@ -1004,11 +1004,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  Clients may use Operations.GetOperation or Operations.ListOperations to
- *  check whether the cancellation succeeded or the operation completed despite
- *  cancellation.
+ *  Starts asynchronous cancellation on a long-running operation.
+ *  The server makes a best effort to cancel the operation, but success is not
+ *  guaranteed. Clients may use Operations.GetOperation
+ *  or Operations.ListOperations
+ *  to check whether the cancellation succeeded or the operation completed
+ *  despite cancellation.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.cancel`
  *
  *  Method: genomics.operations.cancel
  *
@@ -1026,11 +1030,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGenomics_Empty.
  *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  Clients may use Operations.GetOperation or Operations.ListOperations to
- *  check whether the cancellation succeeded or the operation completed despite
- *  cancellation.
+ *  Starts asynchronous cancellation on a long-running operation.
+ *  The server makes a best effort to cancel the operation, but success is not
+ *  guaranteed. Clients may use Operations.GetOperation
+ *  or Operations.ListOperations
+ *  to check whether the cancellation succeeded or the operation completed
+ *  despite cancellation.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.cancel`
  *
  *  @param object The @c GTLRGenomics_CancelOperationRequest to include in the
  *    query.
@@ -1044,9 +1052,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
+ *  Gets the latest state of a long-running operation.
+ *  Clients can use this method to poll the operation result at intervals as
+ *  recommended by the API service.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.get`
  *
  *  Method: genomics.operations.get
  *
@@ -1064,9 +1075,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGenomics_Operation.
  *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
+ *  Gets the latest state of a long-running operation.
+ *  Clients can use this method to poll the operation result at intervals as
+ *  recommended by the API service.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.get`
  *
  *  @param name The name of the operation resource.
  *
@@ -1078,6 +1092,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.list`
  *
  *  Method: genomics.operations.list
  *
@@ -1135,6 +1152,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGenomics_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request.
+ *  Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission&#58;
+ *  * `genomics.operations.list`
  *
  *  @param name The name of the operation's parent resource.
  *

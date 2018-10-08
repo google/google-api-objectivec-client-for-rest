@@ -145,7 +145,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_EditsBundlesUpload
 
-@dynamic editId, packageName;
+@dynamic ackBundleInstallationWarning, editId, packageName;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId

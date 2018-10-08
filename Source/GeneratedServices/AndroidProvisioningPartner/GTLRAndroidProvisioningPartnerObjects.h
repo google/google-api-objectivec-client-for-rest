@@ -983,6 +983,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  The total count of items in the list irrespective of pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 
@@ -1049,16 +1056,46 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  The total count of items in the list irrespective of pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 
 /**
  *  Response message of all customers related to this partner.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRAndroidProvisioningPartner_ListCustomersResponse : GTLRObject
+@interface GTLRAndroidProvisioningPartner_ListCustomersResponse : GTLRCollectionObject
 
-/** List of customers related to this reseller partner. */
+/**
+ *  List of customers related to this reseller partner.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Company *> *customers;
+
+/**
+ *  A token to retrieve the next page of results. Omitted if no further results
+ *  are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total count of items in the list irrespective of pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -1087,6 +1124,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  The total count of items in the list irrespective of pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 
@@ -1105,6 +1149,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *  are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total count of items in the list irrespective of pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 /**
  *  List of vendors of the reseller partner. Fields `name`, `companyId` and

@@ -50,6 +50,76 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudIot_Device.logLevel
+
+/**
+ *  All events will be logged.
+ *
+ *  Value: "DEBUG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Debug;
+/**
+ *  Error events will be logged.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Error;
+/**
+ *  Informational events will be logged, such as connections and
+ *  disconnections.
+ *
+ *  Value: "INFO"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Info;
+/**
+ *  No logging specified. If not specified, logging will be disabled.
+ *
+ *  Value: "LOG_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified;
+/**
+ *  Disables logging.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_None;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIot_DeviceRegistry.logLevel
+
+/**
+ *  All events will be logged.
+ *
+ *  Value: "DEBUG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Debug;
+/**
+ *  Error events will be logged.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Error;
+/**
+ *  Informational events will be logged, such as connections and
+ *  disconnections.
+ *
+ *  Value: "INFO"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Info;
+/**
+ *  No logging specified. If not specified, logging will be disabled.
+ *
+ *  Value: "LOG_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified;
+/**
+ *  Disables logging.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudIot_HttpConfig.httpEnabledState
 
 /**
@@ -293,6 +363,27 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
 @property(nonatomic, strong, nullable) GTLRDateTime *lastStateTime;
 
 /**
+ *  **Beta Feature**
+ *  The logging verbosity for device activity. If unspecified,
+ *  DeviceRegistry.log_level will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIot_Device_LogLevel_Debug All events will be logged.
+ *        (Value: "DEBUG")
+ *    @arg @c kGTLRCloudIot_Device_LogLevel_Error Error events will be logged.
+ *        (Value: "ERROR")
+ *    @arg @c kGTLRCloudIot_Device_LogLevel_Info Informational events will be
+ *        logged, such as connections and
+ *        disconnections. (Value: "INFO")
+ *    @arg @c kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified No logging
+ *        specified. If not specified, logging will be disabled. (Value:
+ *        "LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIot_Device_LogLevel_None Disables logging. (Value:
+ *        "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *logLevel;
+
+/**
  *  The metadata key-value pairs assigned to the device. This metadata is not
  *  interpreted or indexed by Cloud IoT Core. It can be used to add contextual
  *  information for the device.
@@ -467,6 +558,27 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  **Beta Feature**
+ *  The default logging verbosity for activity from devices in this registry.
+ *  The verbosity level can be overridden by Device.log_level.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Debug All events will be
+ *        logged. (Value: "DEBUG")
+ *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Error Error events will be
+ *        logged. (Value: "ERROR")
+ *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Info Informational events
+ *        will be logged, such as connections and
+ *        disconnections. (Value: "INFO")
+ *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified No
+ *        logging specified. If not specified, logging will be disabled. (Value:
+ *        "LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_None Disables logging.
+ *        (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *logLevel;
 
 /** The MQTT configuration for this device registry. */
 @property(nonatomic, strong, nullable) GTLRCloudIot_MqttConfig *mqttConfig;
@@ -914,6 +1026,38 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
 /** A public key certificate used to verify the device credentials. */
 @property(nonatomic, strong, nullable) GTLRCloudIot_PublicKeyCertificate *publicKeyCertificate;
 
+@end
+
+
+/**
+ *  Request for `SendCommandToDevice`.
+ */
+@interface GTLRCloudIot_SendCommandToDeviceRequest : GTLRObject
+
+/**
+ *  The command data to send to the device.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *binaryData;
+
+/**
+ *  Optional subfolder for the command. If empty, the command will be delivered
+ *  to the /devices/{device-id}/commands topic, otherwise it will be delivered
+ *  to the /devices/{device-id}/commands/{subfolder} topic. Multi-level
+ *  subfolders are allowed. This field must not have more than 256 characters,
+ *  and must not contain any MQTT wildcards ("+" or "#") or null characters.
+ */
+@property(nonatomic, copy, nullable) NSString *subfolder;
+
+@end
+
+
+/**
+ *  Response for `SendCommandToDevice`.
+ */
+@interface GTLRCloudIot_SendCommandToDeviceResponse : GTLRObject
 @end
 
 

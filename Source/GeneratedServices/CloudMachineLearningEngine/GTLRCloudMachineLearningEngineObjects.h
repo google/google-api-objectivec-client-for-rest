@@ -73,19 +73,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified;
 /**
- *  Nvidia tesla k80 GPU.
+ *  Nvidia Tesla K80 GPU.
  *
  *  Value: "NVIDIA_TESLA_K80"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80;
 /**
- *  Nvidia tesla P100 GPU.
+ *  Nvidia Tesla P100 GPU.
  *
  *  Value: "NVIDIA_TESLA_P100"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100;
 /**
- *  Nvidia tesla V100 GPU. Not supported for batch prediction.
+ *  Nvidia Tesla P4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P4"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
+/**
+ *  Nvidia Tesla V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
  */
@@ -100,6 +106,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
 /** Value: "NVIDIA_TESLA_P100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
+/** Value: "NVIDIA_TESLA_P4" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
 /** Value: "NVIDIA_TESLA_V100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 
@@ -335,6 +343,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
 
 /**
+ *  OUTPUT ONLY. Output values will be in comma-separated rows, with keys
+ *  in a separate file.
+ *
+ *  Value: "CSV"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv;
+/**
  *  Unspecified format.
  *
  *  Value: "DATA_FORMAT_UNSPECIFIED"
@@ -364,6 +379,47 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  *  Value: "TF_RECORD_GZIP"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.outputDataFormat
+
+/**
+ *  OUTPUT ONLY. Output values will be in comma-separated rows, with keys
+ *  in a separate file.
+ *
+ *  Value: "CSV"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv;
+/**
+ *  Unspecified format.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified;
+/**
+ *  Each line of the file is a JSON dictionary representing one record.
+ *
+ *  Value: "JSON"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json;
+/**
+ *  Deprecated. Use JSON instead.
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text;
+/**
+ *  INPUT ONLY. The source file is a TFRecord file.
+ *
+ *  Value: "TF_RECORD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord;
+/**
+ *  INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
+ *
+ *  Value: "TF_RECORD_GZIP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput.scaleTier
@@ -610,12 +666,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Unspecified accelerator type. Default to no GPU. (Value:
  *        "ACCELERATOR_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80
- *        Nvidia tesla k80 GPU. (Value: "NVIDIA_TESLA_K80")
+ *        Nvidia Tesla K80 GPU. (Value: "NVIDIA_TESLA_K80")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100
- *        Nvidia tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
+ *        Nvidia Tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4
+ *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
- *        Nvidia tesla V100 GPU. Not supported for batch prediction. (Value:
- *        "NVIDIA_TESLA_V100")
+ *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1401,7 +1458,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents input parameters for a prediction job.
+ *  Represents input parameters for a prediction job. Next field: 19
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
@@ -1425,6 +1482,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Required. The format of the input data files.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv
+ *        OUTPUT ONLY. Output values will be in comma-separated rows, with keys
+ *        in a separate file. (Value: "CSV")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json
@@ -1460,6 +1520,28 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  `"projects/YOUR_PROJECT/models/YOUR_MODEL"`
  */
 @property(nonatomic, copy, nullable) NSString *modelName;
+
+/**
+ *  Optional. Format of the output data files, defaults to JSON.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv
+ *        OUTPUT ONLY. Output values will be in comma-separated rows, with keys
+ *        in a separate file. (Value: "CSV")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified
+ *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json
+ *        Each line of the file is a JSON dictionary representing one record.
+ *        (Value: "JSON")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text
+ *        Deprecated. Use JSON instead. (Value: "TEXT")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord
+ *        INPUT ONLY. The source file is a TFRecord file. (Value: "TF_RECORD")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip
+ *        INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
+ *        (Value: "TF_RECORD_GZIP")
+ */
+@property(nonatomic, copy, nullable) NSString *outputDataFormat;
 
 /** Required. The output Google Cloud Storage location. */
 @property(nonatomic, copy, nullable) NSString *outputPath;
@@ -1900,9 +1982,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. The machine learning framework Cloud ML Engine uses to train
  *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
- *  and `XGBOOST`. If you do not specify a framework, Cloud ML Engine uses
- *  TensorFlow. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set
- *  the runtime version of the model to 1.4 or greater.
+ *  `XGBOOST`. If you do not specify a framework, Cloud ML Engine
+ *  will analyze files in the deployment_uri to determine a framework. If you
+ *  choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version
+ *  of the model to 1.4 or greater.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified

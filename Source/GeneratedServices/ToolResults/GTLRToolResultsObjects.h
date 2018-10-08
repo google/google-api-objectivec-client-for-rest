@@ -227,6 +227,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndro
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
 /** Value: "fatalException" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
+/** Value: "inAppPurchases" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases;
 /** Value: "incompleteRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
 /** Value: "iosCrash" */
@@ -241,12 +243,16 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
 /** Value: "performedGoogleLogin" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin;
+/** Value: "performedMonkeyActions" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions;
 /** Value: "startActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
 /** Value: "unspecifiedType" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 /** Value: "unusedRoboDirective" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective;
+/** Value: "usedRoboDirective" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
 
 /**
  *  Android app information.
@@ -1850,6 +1856,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "failedToInstall"
  *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value
  *        "fatalException"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_InAppPurchases Value
+ *        "inAppPurchases"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution
  *        Value "incompleteRoboScriptExecution"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IosCrash Value "iosCrash"
@@ -1861,12 +1869,16 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *        "nonSdkApiUsageViolation"
  *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin Value
  *        "performedGoogleLogin"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions Value
+ *        "performedMonkeyActions"
  *    @arg @c kGTLRToolResults_TestIssue_Type_StartActivityNotFound Value
  *        "startActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value
  *        "unspecifiedType"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnusedRoboDirective Value
  *        "unusedRoboDirective"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_UsedRoboDirective Value
+ *        "usedRoboDirective"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2046,7 +2058,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective
  *  on January 15, 2017.
  *  In JavaScript, one can convert a Date object to this format using the
  *  standard
- *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString]
+ *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
  *  method. In Python, a standard `datetime.datetime` object can be converted to
  *  this format using
  *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with

@@ -37,6 +37,23 @@
 
 @end
 
+@implementation GTLRSpeechQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/operations";
+  GTLRSpeechQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSpeech_ListOperationsResponse class];
+  query.loggingName = @"speech.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpeechQuery_SpeechLongrunningrecognize
 
 + (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object {

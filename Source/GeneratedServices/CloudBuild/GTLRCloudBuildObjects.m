@@ -192,12 +192,16 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic diskSizeGb, logging, logStreamingOption, machineType,
-         requestedVerifyOption, sourceProvenanceHash, substitutionOption;
+@dynamic diskSizeGb, env, logging, logStreamingOption, machineType,
+         requestedVerifyOption, secretEnv, sourceProvenanceHash,
+         substitutionOption, volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sourceProvenanceHash" : [NSString class]
+    @"env" : [NSString class],
+    @"secretEnv" : [NSString class],
+    @"sourceProvenanceHash" : [NSString class],
+    @"volumes" : [GTLRCloudBuild_Volume class]
   };
   return map;
 }
@@ -211,8 +215,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, status,
-         timeout, timing, volumes, waitFor;
+@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, secretEnv,
+         status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

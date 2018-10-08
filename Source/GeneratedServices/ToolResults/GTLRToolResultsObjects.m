@@ -90,6 +90,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"enco
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
 NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
+NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases = @"inAppPurchases";
 NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"incompleteRoboScriptExecution";
 NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"iosCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"iosException";
@@ -97,9 +98,11 @@ NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"la
 NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation = @"nonSdkApiUsageViolation";
 NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin = @"performedGoogleLogin";
+NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions = @"performedMonkeyActions";
 NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"startActivityNotFound";
 NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
 NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";
+NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboDirective";
 
 // ----------------------------------------------------------------------------
 //

@@ -43,6 +43,7 @@
 @class GTLRShoppingContent_OrdersCancelRequest;
 @class GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest;
 @class GTLRShoppingContent_OrdersCreateTestOrderRequest;
+@class GTLRShoppingContent_OrdersCreateTestReturnRequest;
 @class GTLRShoppingContent_OrdersCustomBatchRequest;
 @class GTLRShoppingContent_OrdersInStoreRefundLineItemRequest;
 @class GTLRShoppingContent_OrdersRefundRequest;
@@ -81,6 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByPlacedDateAsc;
 /** Value: "placedDate desc" */
 GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByPlacedDateDesc;
+/** Value: "returnCreationTimeAsc" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
+/** Value: "returnCreationTimeDesc" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
 
 // ----------------------------------------------------------------------------
 // statuses
@@ -2114,7 +2119,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @interface GTLRShoppingContentQuery_OrderreportsListdisbursements : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:]
+//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:disbursementStartDate:]
 
 /**
  *  The last date which disbursements occurred. In ISO 8601 format. Default:
@@ -2147,6 +2152,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param merchantId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
+ *  @param disbursementStartDate The first date which disbursements occurred. In
+ *    ISO 8601 format.
  *
  *  @return GTLRShoppingContentQuery_OrderreportsListdisbursements
  *
@@ -2154,7 +2161,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+              disbursementStartDate:(NSString *)disbursementStartDate;
 
 @end
 
@@ -2169,19 +2177,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @interface GTLRShoppingContentQuery_OrderreportsListtransactions : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:]
-
-/**
- *  The last date in which disbursements occurred. In ISO 8601 format. Default:
- *  current date.
- */
-@property(nonatomic, copy, nullable) NSString *disbursementEndDate;
+//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:transactionStartDate:]
 
 /** The Google-provided ID of the disbursement (found in Wallet). */
 @property(nonatomic, copy, nullable) NSString *disbursementId;
-
-/** The first date in which disbursements occurred. In ISO 8601 format. */
-@property(nonatomic, copy, nullable) NSString *disbursementStartDate;
 
 /**
  *  The maximum number of disbursements to return in the response, used for
@@ -2199,6 +2198,15 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  The last date in which transaction occurred. In ISO 8601 format. Default:
+ *  current date.
+ */
+@property(nonatomic, copy, nullable) NSString *transactionEndDate;
+
+/** The first date in which transaction occurred. In ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *transactionStartDate;
+
+/**
  *  Fetches a @c GTLRShoppingContent_OrderreportsListTransactionsResponse.
  *
  *  Retrieves a list of transactions for an disbursement from your Merchant
@@ -2208,6 +2216,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    be a multi-client account.
  *  @param disbursementId The Google-provided ID of the disbursement (found in
  *    Wallet).
+ *  @param transactionStartDate The first date in which transaction occurred. In
+ *    ISO 8601 format.
  *
  *  @return GTLRShoppingContentQuery_OrderreportsListtransactions
  *
@@ -2216,7 +2226,114 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                     disbursementId:(NSString *)disbursementId;
+                     disbursementId:(NSString *)disbursementId
+               transactionStartDate:(NSString *)transactionStartDate;
+
+@end
+
+/**
+ *  Retrieves an order return from your Merchant Center account.
+ *
+ *  Method: content.orderreturns.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreturnsGetWithmerchantId:returnId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** Merchant order return ID generated by Google. */
+@property(nonatomic, copy, nullable) NSString *returnId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_MerchantOrderReturn.
+ *
+ *  Retrieves an order return from your Merchant Center account.
+ *
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param returnId Merchant order return ID generated by Google.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsGet
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                           returnId:(NSString *)returnId;
+
+@end
+
+/**
+ *  Lists order returns in your Merchant Center account.
+ *
+ *  Method: content.orderreturns.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreturnsListWithmerchantId:]
+
+/**
+ *  Obtains order returns created before this date (inclusively), in ISO 8601
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *createdEndDate;
+
+/**
+ *  Obtains order returns created after this date (inclusively), in ISO 8601
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *createdStartDate;
+
+/**
+ *  The maximum number of order returns to return in the response, used for
+ *  paging. The default value is 25 returns per page, and the maximum allowed
+ *  value is 250 returns per page.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Return the results in the specified order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeAsc Value
+ *        "returnCreationTimeAsc"
+ *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeDesc Value
+ *        "returnCreationTimeDesc"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreturnsListResponse.
+ *
+ *  Lists order returns in your Merchant Center account.
+ *
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
 
 @end
 
@@ -2452,6 +2569,46 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCreateTestOrderRequest *)object
                      merchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Sandbox only. Creates a test return.
+ *
+ *  Method: content.orders.createtestreturn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersCreatetestreturn : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersCreatetestreturnWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the order. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrdersCreateTestReturnResponse.
+ *
+ *  Sandbox only. Creates a test return.
+ *
+ *  @param object The @c GTLRShoppingContent_OrdersCreateTestReturnRequest to
+ *    include in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the order.
+ *
+ *  @return GTLRShoppingContentQuery_OrdersCreatetestreturn
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCreateTestReturnRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
 
 @end
 

@@ -43,6 +43,12 @@ NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_TestStateUnspec
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_UnsupportedEnvironment = @"UNSUPPORTED_ENVIRONMENT";
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating = @"VALIDATING";
 
+// GTLRTesting_IosModel.formFactor
+NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
+NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
+NSString * const kGTLRTesting_IosModel_FormFactor_Tablet       = @"TABLET";
+NSString * const kGTLRTesting_IosModel_FormFactor_Wearable     = @"WEARABLE";
+
 // GTLRTesting_RoboDirective.actionType
 NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText = @"ENTER_TEXT";
@@ -83,6 +89,7 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoPackageName = @"
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature = @"NO_SIGNATURE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass = @"NO_TEST_RUNNER_CLASS";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip = @"NO_TESTS_IN_XC_TEST_ZIP";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParsed = @"PLIST_CANNOT_BE_PARSED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed = @"SCENARIO_LABEL_MALFORMED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelNotDeclared = @"SCENARIO_LABEL_NOT_DECLARED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared = @"SCENARIO_NOT_DECLARED";
@@ -520,12 +527,13 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosDeviceCatalog
-@dynamic models, runtimeConfiguration, versions;
+@dynamic models, runtimeConfiguration, versions, xcodeVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"models" : [GTLRTesting_IosModel class],
-    @"versions" : [GTLRTesting_IosVersion class]
+    @"versions" : [GTLRTesting_IosVersion class],
+    @"xcodeVersions" : [GTLRTesting_XcodeVersion class]
   };
   return map;
 }
@@ -557,7 +565,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosModel
-@dynamic deviceCapabilities, identifier, name, supportedVersionIds, tags;
+@dynamic deviceCapabilities, formFactor, identifier, name, supportedVersionIds,
+         tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -610,7 +619,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosVersion
-@dynamic identifier, majorVersion, minorVersion, tags;
+@dynamic identifier, majorVersion, minorVersion, supportedXcodeVersionIds, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -618,6 +627,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"supportedXcodeVersionIds" : [NSString class],
     @"tags" : [NSString class]
   };
   return map;
@@ -632,7 +642,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosXcTest
-@dynamic testsZip, xctestrun;
+@dynamic testsZip, xcodeVersion, xctestrun;
 @end
 
 
@@ -936,4 +946,22 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TrafficRule
 @dynamic bandwidth, burst, delay, packetDuplicationRatio, packetLossRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_XcodeVersion
+//
+
+@implementation GTLRTesting_XcodeVersion
+@dynamic tags, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
 @end

@@ -205,7 +205,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic params, paramTypes, partitionToken, queryMode, resumeToken, sql,
+@dynamic params, paramTypes, partitionToken, queryMode, resumeToken, seqno, sql,
          transaction;
 @end
 
@@ -557,6 +557,15 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_PartitionedDml
+//
+
+@implementation GTLRSpanner_PartitionedDml
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_PartitionOptions
 //
 
@@ -805,7 +814,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ResultSetStats
-@dynamic queryPlan, queryStats;
+@dynamic queryPlan, queryStats, rowCountExact, rowCountLowerBound;
 @end
 
 
@@ -1003,7 +1012,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_TransactionOptions
-@dynamic readOnly, readWrite;
+@dynamic partitionedDml, readOnly, readWrite;
 @end
 
 

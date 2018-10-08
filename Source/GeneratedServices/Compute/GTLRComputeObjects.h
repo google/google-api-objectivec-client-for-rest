@@ -4478,6 +4478,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
 /** Value: "FORWARDING_RULES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
+/** Value: "GLOBAL_INTERNAL_ADDRESSES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses;
 /** Value: "GPUS_ALL_REGIONS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
 /** Value: "HEALTH_CHECKS" */
@@ -10382,6 +10384,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_CustomerEncryptionKey : GTLRObject
 
+/** The name of the encryption key that is stored in Google Cloud KMS. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 /**
  *  Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648
  *  base64 to either encrypt or decrypt this resource.
@@ -12113,7 +12118,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  rule supports either IPv4 or IPv6.
  *  When the load balancing scheme is INTERNAL_SELF_MANAGED, this must be a URL
  *  reference to an existing Address resource ( internal regional static IP
- *  address).
+ *  address), with a purpose of GCE_END_POINT and address_type of INTERNAL.
  *  When the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP
  *  address belonging to the network/subnet configured for the forwarding rule.
  *  By default, if this field is empty, an ephemeral internal IP address will be
@@ -13211,6 +13216,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
+/**
+ *  The string to match anywhere in the first 1024 bytes of the response body.
+ *  If left empty (the default value), the status code determines health. The
+ *  response data can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
+
 @end
 
 
@@ -13393,6 +13405,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The request path of the HTTPS health check request. The default value is /.
  */
 @property(nonatomic, copy, nullable) NSString *requestPath;
+
+/**
+ *  The string to match anywhere in the first 1024 bytes of the response body.
+ *  If left empty (the default value), the status code determines health. The
+ *  response data can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 
@@ -18139,8 +18158,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *licenseCode;
 
 /**
- *  [Output Only] Name of the resource. The name is 1-63 characters long and
- *  complies with RFC1035.
+ *  Name of the resource. The name must be 1-63 characters long and comply with
+ *  RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -19151,17 +19170,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  Represents a Network resource. Read Networks and Firewalls for more
- *  information. (== resource_for v1.networks ==) (== resource_for beta.networks
- *  ==)
+ *  Represents a Network resource. Read Virtual Private Cloud (VPC) Network
+ *  Overview for more information. (== resource_for v1.networks ==) (==
+ *  resource_for beta.networks ==)
  */
 @interface GTLRCompute_Network : GTLRObject
 
 /**
- *  When set to true, the network is created in "auto subnet mode". When set to
- *  false, the network is in "custom subnet mode".
- *  In "auto subnet mode", a newly created network is assigned the default CIDR
- *  of 10.128.0.0/9 and it automatically creates one subnetwork per region.
+ *  When set to true, the VPC network is created in "auto" mode. When set to
+ *  false, the VPC network is created in "custom" mode.
+ *  An auto mode VPC network starts with one subnet per region. Each subnet has
+ *  a predetermined range as described in Auto mode VPC network IP ranges.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -19179,9 +19198,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  A gateway address for default routing to other networks. This value is read
- *  only and is selected by the Google Compute Engine, typically as the first
- *  usable address in the IPv4Range.
+ *  [Output Only] The gateway address for default routing out of the network.
+ *  This value is read only and is selected by GCP.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayIPv4;
 
@@ -19232,7 +19250,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] Server-defined fully-qualified URLs for all subnetworks in
- *  this network.
+ *  this VPC network.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subnetworks;
 
@@ -19521,10 +19539,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The network-wide routing mode to use. If set to REGIONAL, this network's
- *  cloud routers will only advertise routes with subnetworks of this network in
- *  the same region as the router. If set to GLOBAL, this network's cloud
- *  routers will advertise routes with all subnetworks of this network, across
- *  regions.
+ *  cloud routers will only advertise routes with subnets of this network in the
+ *  same region as the router. If set to GLOBAL, this network's cloud routers
+ *  will advertise routes with all subnets of this network, across regions.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NetworkRoutingConfig_RoutingMode_Global Value
@@ -22201,6 +22218,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
  *    @arg @c kGTLRCompute_Quota_Metric_ForwardingRules Value "FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalInternalAddresses Value
+ *        "GLOBAL_INTERNAL_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_GpusAllRegions Value "GPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_HealthChecks Value "HEALTH_CHECKS"
  *    @arg @c kGTLRCompute_Quota_Metric_Images Value "IMAGES"
@@ -25991,7 +26010,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Whether to enable flow logging for this subnetwork.
+ *  Whether to enable flow logging for this subnetwork. If this field is not
+ *  explicitly set, it will not appear in get listings. If not set the default
+ *  behavior is to disable flow logging.
  *
  *  Uses NSNumber of boolValue.
  */

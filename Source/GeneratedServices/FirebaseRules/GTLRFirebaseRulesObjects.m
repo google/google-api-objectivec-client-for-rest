@@ -111,7 +111,8 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_GetReleaseExecutableResponse
-@dynamic executable, executableVersion, language, rulesetName, updateTime;
+@dynamic executable, executableVersion, language, rulesetName, syncTime,
+         updateTime;
 @end
 
 
