@@ -144,6 +144,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz */
 @property(nonatomic, copy, nullable) NSString *dynamicLink;
 
+/** Google SDK version. Version takes the form "$major.$minor.$patch" */
+@property(nonatomic, copy, nullable) NSString *sdkVersion;
+
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_DynamicLinkStats.
  *

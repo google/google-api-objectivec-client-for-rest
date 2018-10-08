@@ -45,6 +45,396 @@ NS_ASSUME_NONNULL_BEGIN
  *  More information about managing access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
+ *  Method: iap.projects.iap_tunnel.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelGetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelSetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelTestIamPermissions : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesGetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.instances.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesGetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesInstancesGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.instances.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesSetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesInstancesSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.instances.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesTestIamPermissions : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesInstancesTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesInstancesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesSetIamPolicy : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Policy.
+ *
+ *  Sets the access control policy for an Identity-Aware Proxy protected
+ *  resource. Replaces any existing policy.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  Method: iap.projects.iap_tunnel.zones.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelZonesTestIamPermissions : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForProjectsIapTunnelZonesTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the Identity-Aware Proxy protected
+ *  resource. If the resource does not exist or the caller does not have
+ *  Identity-Aware Proxy permissions a [google.rpc.Code.PERMISSION_DENIED]
+ *  will be returned.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
+ *  @param object The @c GTLRCloudIAP_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelZonesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for an Identity-Aware Proxy protected
+ *  resource.
+ *  More information about managing access via IAP can be found at:
+ *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+ *
  *  Method: iap.projects.iap_web.getIamPolicy
  *
  *  Authorization scope(s):

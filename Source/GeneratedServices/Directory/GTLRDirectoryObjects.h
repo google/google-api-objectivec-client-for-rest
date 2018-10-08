@@ -26,8 +26,13 @@
 @class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_DeviceFiles_Item;
+@class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item;
+@class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
+@class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
@@ -535,11 +540,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** Chromebook boot mode (Read-only) */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
+/** Reports of CPU utilization and temperature (Read-only) */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item *> *cpuStatusReports;
+
 /** List of device files to download (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DeviceFiles_Item *> *deviceFiles;
 
 /** Unique identifier of Chrome OS Device (Read-only) */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** Reports of disk space and other info about mounted/connected volumes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item *> *diskVolumeReports;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -604,6 +615,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** Final date the device will be supported (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportEndDate;
 
+/** Reports of amounts of available RAM memory (Read-only) */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item *> *systemRamFreeReports;
+
+/**
+ *  Total RAM on the device [in bytes] (Read-only)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *systemRamTotal;
+
 /** Trusted Platform Module (TPM) (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDirectory_ChromeOsDevice_TpmVersionInfo *tpmVersionInfo;
 
@@ -640,6 +661,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item : GTLRObject
+
+/** List of CPU temperature samples. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item *> *cpuTemperatureInfo;
+
+/**
+ *  cpuUtilizationPercentageInfo
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *cpuUtilizationPercentageInfo;
+
+/** Date and time the report was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_DeviceFiles_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_DeviceFiles_Item : GTLRObject
@@ -660,6 +702,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item : GTLRObject
+
+/** Disk volumes */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item *> *volumeInfo;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_RecentUsers_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
@@ -669,6 +722,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of the user */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item : GTLRObject
+
+/** Date and time the report was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  systemRamFreeInfo
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *systemRamFreeInfo;
 
 @end
 
@@ -695,6 +766,49 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Vendor-specific information such as Vendor ID. */
 @property(nonatomic, copy, nullable) NSString *vendorSpecific;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item : GTLRObject
+
+/** CPU label */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Temperature in Celsius degrees.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item : GTLRObject
+
+/**
+ *  Free disk space [in bytes]
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageFree;
+
+/**
+ *  Total disk space [in bytes]
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageTotal;
+
+/** Volume id */
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 @end
 
@@ -1127,6 +1241,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  JSON template for Member resource in Directory API.
  */
 @interface GTLRDirectory_Member : GTLRObject
+
+/** Delivery settings of member */
+@property(nonatomic, copy, nullable) NSString *deliverySettings;
 
 /** Email of member (Read-only) */
 @property(nonatomic, copy, nullable) NSString *email;
@@ -2058,7 +2175,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
- *  Indicates if user is archived
+ *  Indicates if user is archived.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2257,7 +2374,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) id sshPublicKeys;
 
 /**
- *  Indicates if user is suspended
+ *  Indicates if user is suspended.
  *
  *  Uses NSNumber of boolValue.
  */

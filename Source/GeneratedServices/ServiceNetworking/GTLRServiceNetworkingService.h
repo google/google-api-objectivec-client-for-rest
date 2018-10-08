@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Ad Exchange Seller API (adexchangeseller/v2.0)
+//   Service Networking API (servicenetworking/v1beta)
 // Description:
-//   Accesses the inventory of Ad Exchange seller users and generates reports.
+//   Provides automatic management of network configurations necessary for
+//   certain services.
 // Documentation:
-//   https://developers.google.com/ad-exchange/seller-rest/
+//   https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -29,33 +30,35 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage your Ad Exchange data
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/adexchange.seller"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdExchangeSellerAdexchangeSeller;
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceNetworkingCloudPlatform;
 /**
- *  Authorization scope: View your Ad Exchange data
+ *  Authorization scope: Manage your Google API service configuration
  *
- *  Value "https://www.googleapis.com/auth/adexchange.seller.readonly"
+ *  Value "https://www.googleapis.com/auth/service.management"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdExchangeSellerAdexchangeSellerReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeServiceNetworkingServiceManagement;
 
 // ----------------------------------------------------------------------------
-//   GTLRAdExchangeSellerService
+//   GTLRServiceNetworkingService
 //
 
 /**
- *  Service for executing Ad Exchange Seller API queries.
+ *  Service for executing Service Networking API queries.
  *
- *  Accesses the inventory of Ad Exchange seller users and generates reports.
+ *  Provides automatic management of network configurations necessary for
+ *  certain services.
  */
-@interface GTLRAdExchangeSellerService : GTLRService
+@interface GTLRServiceNetworkingService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRAdExchangeSellerQuery.h. The query can the be sent with GTLRService's
+// GTLRServiceNetworkingQuery.h. The query can the be sent with GTLRService's
 // execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

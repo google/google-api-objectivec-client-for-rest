@@ -3372,6 +3372,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_MapTask : GTLRObject
 
+/**
+ *  Counter prefix that can be used to prefix counters. Not currently used in
+ *  Dataflow.
+ */
+@property(nonatomic, copy, nullable) NSString *counterPrefix;
+
 /** The instructions in the MapTask. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParallelInstruction *> *instructions;
 

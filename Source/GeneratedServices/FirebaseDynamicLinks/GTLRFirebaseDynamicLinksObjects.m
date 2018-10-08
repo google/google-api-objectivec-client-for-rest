@@ -124,7 +124,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest
-@dynamic dynamicLinkInfo, longDynamicLink, name, suffix;
+@dynamic dynamicLinkInfo, longDynamicLink, name, sdkVersion, suffix;
 @end
 
 
@@ -152,7 +152,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest
-@dynamic dynamicLinkInfo, longDynamicLink, suffix;
+@dynamic dynamicLinkInfo, longDynamicLink, sdkVersion, suffix;
 @end
 
 
@@ -275,7 +275,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_GetIosReopenAttributionRequest
-@dynamic bundleId, requestedLink;
+@dynamic bundleId, requestedLink, sdkVersion;
 @end
 
 

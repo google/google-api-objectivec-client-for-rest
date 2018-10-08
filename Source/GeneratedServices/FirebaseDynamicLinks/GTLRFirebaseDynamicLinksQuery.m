@@ -60,7 +60,7 @@
 
 @implementation GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
 
-@dynamic durationDays, dynamicLink;
+@dynamic durationDays, dynamicLink, sdkVersion;
 
 + (instancetype)queryWithDynamicLink:(NSString *)dynamicLink {
   NSArray *pathParams = @[ @"dynamicLink" ];

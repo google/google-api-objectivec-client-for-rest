@@ -160,16 +160,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_AuthorizationRule
-//
-
-@implementation GTLRServiceUsage_AuthorizationRule
-@dynamic permissions, selector;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUsage_AuthProvider
 //
 
@@ -687,9 +677,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_HttpRule
-@dynamic additionalBindings, authorizations, body, custom, deleteProperty, get,
-         mediaDownload, mediaUpload, patch, post, put, responseBody,
-         restCollection, restMethodName, selector;
+@dynamic additionalBindings, body, custom, deleteProperty, get, patch, post,
+         put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -697,8 +686,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalBindings" : [GTLRServiceUsage_HttpRule class],
-    @"authorizations" : [GTLRServiceUsage_AuthorizationRule class]
+    @"additionalBindings" : [GTLRServiceUsage_HttpRule class]
   };
   return map;
 }
@@ -817,36 +805,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"logs" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_MediaDownload
-//
-
-@implementation GTLRServiceUsage_MediaDownload
-@dynamic completeNotification, downloadService, dropzone, enabled,
-         maxDirectDownloadSize, useDirectDownload;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_MediaUpload
-//
-
-@implementation GTLRServiceUsage_MediaUpload
-@dynamic completeNotification, dropzone, enabled, maxSize, mimeTypes,
-         progressNotification, startNotification, uploadService;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mimeTypes" : [NSString class]
   };
   return map;
 }

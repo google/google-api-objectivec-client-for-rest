@@ -171,7 +171,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  Specifies if cancellation was requested for the operaiton.
+ *  Specifies if cancellation was requested for the operation.
  *
  *  Uses NSNumber of boolValue.
  */

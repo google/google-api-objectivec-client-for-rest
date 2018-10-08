@@ -48,10 +48,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdExchangeBuyerII/*.{h,m}'
   end
-  s.subspec 'AdExchangeSeller' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/AdExchangeSeller/*.{h,m}'
-  end
   s.subspec 'AdExperienceReport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdExperienceReport/*.{h,m}'
@@ -131,6 +127,10 @@ Pod::Spec.new do |s|
   s.subspec 'Classroom' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Classroom/*.{h,m}'
+  end
+  s.subspec 'CloudAsset' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudAsset/*.{h,m}'
   end
   s.subspec 'CloudBuild' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -475,6 +475,10 @@ Pod::Spec.new do |s|
   s.subspec 'ServiceManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceManagement/*.{h,m}'
+  end
+  s.subspec 'ServiceNetworking' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceNetworking/*.{h,m}'
   end
   s.subspec 'ServiceUsage' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutabl
 
 /**
  *  The requested runtime executable version.
- *  Defaults to FIREBASE_RULES_EXECUTABLE_V1
+ *  Defaults to FIREBASE_RULES_EXECUTABLE_V1.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified

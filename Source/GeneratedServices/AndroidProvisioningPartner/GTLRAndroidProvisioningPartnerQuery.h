@@ -551,6 +551,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersListWithpartnerId:]
 
+/**
+ *  The maximum number of results to be returned. If not specified or 0, all
+ *  the records are returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results returned by the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
 
@@ -564,6 +573,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param partnerId Required. The ID of the reseller partner.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithPartnerId:(long long)partnerId;
 

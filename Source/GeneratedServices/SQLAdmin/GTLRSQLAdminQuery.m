@@ -1131,7 +1131,6 @@
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project
                        instance:(NSString *)instance
-                           host:(NSString *)host
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -1148,7 +1147,6 @@
   query.bodyObject = object;
   query.project = project;
   query.instance = instance;
-  query.host = host;
   query.name = name;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.users.update";

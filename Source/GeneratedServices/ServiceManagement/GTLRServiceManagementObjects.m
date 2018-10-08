@@ -806,8 +806,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_HttpRule
-@dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
-         mediaUpload, patch, post, put, responseBody, selector;
+@dynamic additionalBindings, body, custom, deleteProperty, get, patch, post,
+         put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -992,36 +992,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_ManagedService
 @dynamic producerProjectId, serviceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceManagement_MediaDownload
-//
-
-@implementation GTLRServiceManagement_MediaDownload
-@dynamic completeNotification, downloadService, dropzone, enabled,
-         maxDirectDownloadSize, useDirectDownload;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceManagement_MediaUpload
-//
-
-@implementation GTLRServiceManagement_MediaUpload
-@dynamic completeNotification, dropzone, enabled, maxSize, mimeTypes,
-         progressNotification, startNotification, uploadService;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mimeTypes" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

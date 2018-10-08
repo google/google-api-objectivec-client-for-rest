@@ -95,6 +95,7 @@ NSString * const kGTLRVision_Feature_Type_ImageProperties      = @"IMAGE_PROPERT
 NSString * const kGTLRVision_Feature_Type_LabelDetection       = @"LABEL_DETECTION";
 NSString * const kGTLRVision_Feature_Type_LandmarkDetection    = @"LANDMARK_DETECTION";
 NSString * const kGTLRVision_Feature_Type_LogoDetection        = @"LOGO_DETECTION";
+NSString * const kGTLRVision_Feature_Type_ObjectLocalization   = @"OBJECT_LOCALIZATION";
 NSString * const kGTLRVision_Feature_Type_SafeSearchDetection  = @"SAFE_SEARCH_DETECTION";
 NSString * const kGTLRVision_Feature_Type_TextDetection        = @"TEXT_DETECTION";
 NSString * const kGTLRVision_Feature_Type_TypeUnspecified      = @"TYPE_UNSPECIFIED";
@@ -703,14 +704,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @implementation GTLRVision_AnnotateImageResponse
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
-         landmarkAnnotations, logoAnnotations, safeSearchAnnotation,
-         textAnnotations, webDetection;
+         landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
+         safeSearchAnnotation, textAnnotations, webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"faceAnnotations" : [GTLRVision_FaceAnnotation class],
     @"labelAnnotations" : [GTLRVision_EntityAnnotation class],
     @"landmarkAnnotations" : [GTLRVision_EntityAnnotation class],
+    @"localizedObjectAnnotations" : [GTLRVision_LocalizedObjectAnnotation class],
     @"logoAnnotations" : [GTLRVision_EntityAnnotation class],
     @"textAnnotations" : [GTLRVision_EntityAnnotation class]
   };
@@ -1081,14 +1083,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @implementation GTLRVision_GoogleCloudVisionV1p1beta1AnnotateImageResponse
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
-         landmarkAnnotations, logoAnnotations, safeSearchAnnotation,
-         textAnnotations, webDetection;
+         landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
+         safeSearchAnnotation, textAnnotations, webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"faceAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation class],
     @"labelAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation class],
     @"landmarkAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation class],
+    @"localizedObjectAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation class],
     @"logoAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation class],
     @"textAnnotations" : [GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation class]
   };
@@ -1321,6 +1324,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p1beta1InputConfig
 @dynamic gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation
+@dynamic boundingPoly, languageCode, mid, name, score;
 @end
 
 
@@ -1618,14 +1631,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @implementation GTLRVision_GoogleCloudVisionV1p2beta1AnnotateImageResponse
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
-         landmarkAnnotations, logoAnnotations, safeSearchAnnotation,
-         textAnnotations, webDetection;
+         landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
+         safeSearchAnnotation, textAnnotations, webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"faceAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation class],
     @"labelAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation class],
     @"landmarkAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation class],
+    @"localizedObjectAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation class],
     @"logoAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation class],
     @"textAnnotations" : [GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation class]
   };
@@ -1859,6 +1873,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p2beta1InputConfig
 @dynamic gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation
+@dynamic boundingPoly, languageCode, mid, name, score;
 @end
 
 
@@ -2924,6 +2948,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_LocalizedObjectAnnotation
+//
+
+@implementation GTLRVision_LocalizedObjectAnnotation
+@dynamic boundingPoly, languageCode, mid, name, score;
 @end
 
 

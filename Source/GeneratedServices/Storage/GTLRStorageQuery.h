@@ -1907,7 +1907,10 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 // Previous library name was
 //   +[GTLQueryStorage queryForObjectsComposeWithObject:destinationBucket:destinationObject:]
 
-/** Name of the bucket in which to store the new object. */
+/**
+ *  Name of the bucket containing the source objects. The destination object is
+ *  stored in this bucket.
+ */
 @property(nonatomic, copy, nullable) NSString *destinationBucket;
 
 /**
@@ -1973,8 +1976,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  bucket.
  *
  *  @param object The @c GTLRStorage_ComposeRequest to include in the query.
- *  @param destinationBucket Name of the bucket in which to store the new
- *    object.
+ *  @param destinationBucket Name of the bucket containing the source objects.
+ *    The destination object is stored in this bucket.
  *  @param destinationObject Name of the new object. For information about how
  *    to URL encode object names to be path safe, see Encoding URI Path Parts.
  *

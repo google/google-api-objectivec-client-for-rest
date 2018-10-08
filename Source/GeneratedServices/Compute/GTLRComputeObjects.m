@@ -2037,6 +2037,7 @@ NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGI
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_Firewalls           = @"FIREWALLS";
 NSString * const kGTLRCompute_Quota_Metric_ForwardingRules     = @"FORWARDING_RULES";
+NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses = @"GLOBAL_INTERNAL_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions      = @"GPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_HealthChecks        = @"HEALTH_CHECKS";
 NSString * const kGTLRCompute_Quota_Metric_Images              = @"IMAGES";
@@ -4448,7 +4449,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_CustomerEncryptionKey
-@dynamic rawKey, sha256;
+@dynamic kmsKeyName, rawKey, sha256;
 @end
 
 
@@ -5392,7 +5393,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_HTTPHealthCheck
-@dynamic host, port, portName, proxyHeader, requestPath;
+@dynamic host, port, portName, proxyHeader, requestPath, response;
 @end
 
 
@@ -5452,7 +5453,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_HTTPSHealthCheck
-@dynamic host, port, portName, proxyHeader, requestPath;
+@dynamic host, port, portName, proxyHeader, requestPath, response;
 @end
 
 

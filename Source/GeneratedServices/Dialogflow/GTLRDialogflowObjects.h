@@ -882,7 +882,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchCreateEntitiesRequest : GTLRObject
 
-/** Required. The collection of entities to create. */
+/** Required. The entities to create. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
@@ -950,13 +950,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  The response message for EntityTypes.BatchCreateEntities.
+ *  The request message for EntityTypes.BatchUpdateEntities.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntitiesRequest : GTLRObject
 
-/**
- *  Required. The collection of new entities to replace the existing entities.
- */
+/** Required. The entities to update or create. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
@@ -983,7 +981,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest : GTLRObject
 
-/** The collection of entity type to update or create. */
+/** The collection of entity types to update or create. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeBatch *entityTypeBatchInline;
 
 /**
@@ -1349,8 +1347,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<NSString *> *events;
 
 /**
- *  Optional. Collection of information about all followup intents that have
- *  name of this intent as a root_name.
+ *  Read-only. Information about all followup intents that have this intent as
+ *  a direct or indirect parent. We populate this field only in the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo *> *followupIntentInfo;
 
@@ -1422,8 +1420,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter *> *parameters;
 
 /**
- *  The unique identifier of the parent intent in the chain of followup
- *  intents.
+ *  Read-only after creation. The unique identifier of the parent intent in the
+ *  chain of followup intents. You can set this field when creating an intent,
+ *  for example with CreateIntent or BatchUpdateIntents, in order to
+ *  make this intent a followup intent.
  *  It identifies the parent followup intent.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
@@ -1446,8 +1446,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  The unique identifier of the root intent in the chain of followup intents.
- *  It identifies the correct followup intents chain for this intent.
+ *  Read-only. The unique identifier of the root intent in the chain of
+ *  followup intents. It identifies the correct followup intents chain for
+ *  this intent. We populate this field only in the output.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
@@ -1490,7 +1491,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *followupIntentName;
 
 /**
- *  The unique identifier of the followup intent parent.
+ *  The unique identifier of the followup intent's parent.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
@@ -3097,8 +3098,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<NSString *> *events;
 
 /**
- *  Optional. Collection of information about all followup intents that have
- *  name of this intent as a root_name.
+ *  Read-only. Information about all followup intents that have this intent as
+ *  a direct or indirect parent. We populate this field only in the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo *> *followupIntentInfo;
 
@@ -3153,8 +3154,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentParameter *> *parameters;
 
 /**
- *  The unique identifier of the parent intent in the chain of followup
- *  intents.
+ *  Read-only after creation. The unique identifier of the parent intent in the
+ *  chain of followup intents. You can set this field when creating an intent,
+ *  for example with CreateIntent or BatchUpdateIntents, in order to
+ *  make this intent a followup intent.
  *  It identifies the parent followup intent.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
@@ -3177,8 +3180,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  The unique identifier of the root intent in the chain of followup intents.
- *  It identifies the correct followup intents chain for this intent.
+ *  Read-only. The unique identifier of the root intent in the chain of
+ *  followup intents. It identifies the correct followup intents chain for
+ *  this intent. We populate this field only in the output.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
@@ -3232,7 +3236,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *followupIntentName;
 
 /**
- *  The unique identifier of the followup intent parent.
+ *  The unique identifier of the followup intent's parent.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;

@@ -57,8 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -73,8 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateAccessToken
  */
@@ -96,8 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -111,8 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken
  */
@@ -137,8 +129,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -153,8 +143,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdToken
  */
@@ -179,8 +167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -195,8 +181,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignBlob
  */
@@ -221,8 +205,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *  Using `-` as a wildcard for the project will infer the project from
- *  the account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -237,8 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
- *    Using `-` as a wildcard for the project will infer the project from
- *    the account.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignJwt
  */

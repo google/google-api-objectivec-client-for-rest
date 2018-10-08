@@ -537,6 +537,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Google SDK version. Version takes the form "$major.$minor.$patch" */
+@property(nonatomic, copy, nullable) NSString *sdkVersion;
+
 /** Short Dynamic Link suffix. Optional. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_Suffix *suffix;
 
@@ -580,6 +583,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
  */
 @property(nonatomic, copy, nullable) NSString *longDynamicLink;
+
+/** Google SDK version. Version takes the form "$major.$minor.$patch" */
+@property(nonatomic, copy, nullable) NSString *sdkVersion;
 
 /** Short Dynamic Link suffix. Optional. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_Suffix *suffix;
@@ -943,7 +949,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  */
 @property(nonatomic, copy, nullable) NSString *retrievalMethod;
 
-/** Google SDK version. */
+/** Google SDK version. Version takes the form "$major.$minor.$patch" */
 @property(nonatomic, copy, nullable) NSString *sdkVersion;
 
 /**
@@ -1105,6 +1111,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  e.g. <app_code>.page.link/i/<invite_id_or_alias>
  */
 @property(nonatomic, copy, nullable) NSString *requestedLink;
+
+/** Google SDK version. Version takes the form "$major.$minor.$patch" */
+@property(nonatomic, copy, nullable) NSString *sdkVersion;
 
 @end
 

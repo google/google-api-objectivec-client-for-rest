@@ -2234,14 +2234,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Nimbus InternalCheckers.
+ *  Nimbus InternalCheckers. The API currently only allows reading of internal
+ *  checkers, creation of internal checkers is a manual process.
  */
 @interface GTLRMonitoring_InternalChecker : GTLRObject
 
-/** The checker ID. */
-@property(nonatomic, copy, nullable) NSString *checkerId;
-
-/** The checker's human-readable name. */
+/**
+ *  The checker's human-readable name. The display name should be unique within
+ *  a Stackdriver Workspace in order to make it easier to identify; however,
+ *  uniqueness is not enforced.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -2250,14 +2252,19 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, copy, nullable) NSString *gcpZone;
 
-/** The internal network to perform this uptime check on. */
-@property(nonatomic, copy, nullable) NSString *network;
+/**
+ *  A unique resource name for this InternalChecker. The format
+ *  is:projects/[PROJECT_ID]/internalCheckers/[CHECKER_ID].PROJECT_ID is the GCP
+ *  project ID where the internal resource lives. Not necessarily the same as
+ *  the project_id for the config.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The GCP project ID. Not necessarily the same as the project_id for the
- *  config.
+ *  The GCP VPC network (https://cloud.google.com/vpc/docs/vpc) where the
+ *  internal resource lives (ex: "default").
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 
@@ -3060,7 +3067,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  Required. The monitored resource type. This field must match the type field
  *  of a MonitoredResourceDescriptor object. For example, the type of a Compute
- *  Engine VM instance is gce_instance.
+ *  Engine VM instance is gce_instance. For a list of types, see Monitoring
+ *  resource types and Logging resource types.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3865,8 +3873,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  A human-friendly name for the uptime check configuration. The display name
- *  should be unique within a Stackdriver Account in order to make it easier to
- *  identify; however, uniqueness is not enforced. Required.
+ *  should be unique within a Stackdriver Workspace in order to make it easier
+ *  to identify; however, uniqueness is not enforced. Required.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

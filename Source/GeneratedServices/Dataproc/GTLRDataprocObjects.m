@@ -1257,8 +1257,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_WorkflowMetadata
-@dynamic clusterName, createCluster, deleteCluster, graph, parameters, state,
-         templateProperty, version;
+@dynamic clusterName, createCluster, deleteCluster, endTime, graph, parameters,
+         startTime, state, templateProperty, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"templateProperty" : @"template" };

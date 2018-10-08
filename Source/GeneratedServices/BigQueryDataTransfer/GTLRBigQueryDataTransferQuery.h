@@ -496,6 +496,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
@@ -648,11 +649,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 
 /**
  *  The resource name of the transfer config.
- *  Transfer config names have the form
- *  `projects/{project_id}/transferConfigs/{config_id}`.
- *  Where `config_id` is usually a uuid, even though it is not
- *  guaranteed or required. The name is ignored when creating a transfer
- *  config.
+ *  Transfer config names have the form of
+ *  `projects/{project_id}/location/{region}/transferConfigs/{config_id}`.
+ *  The name is automatically generated based on the config_id specified in
+ *  CreateTransferConfigRequest along with project_id and region. If config_id
+ *  is not provided, usually a uuid, even though it is not guaranteed or
+ *  required, will be generated for config_id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -672,11 +674,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config.
- *    Transfer config names have the form
- *    `projects/{project_id}/transferConfigs/{config_id}`.
- *    Where `config_id` is usually a uuid, even though it is not
- *    guaranteed or required. The name is ignored when creating a transfer
- *    config.
+ *    Transfer config names have the form of
+ *    `projects/{project_id}/location/{region}/transferConfigs/{config_id}`.
+ *    The name is automatically generated based on the config_id specified in
+ *    CreateTransferConfigRequest along with project_id and region. If config_id
+ *    is not provided, usually a uuid, even though it is not guaranteed or
+ *    required, will be generated for config_id.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch
  */
@@ -1002,6 +1005,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Method: bigquerydatatransfer.projects.transferConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
@@ -1154,11 +1158,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 
 /**
  *  The resource name of the transfer config.
- *  Transfer config names have the form
- *  `projects/{project_id}/transferConfigs/{config_id}`.
- *  Where `config_id` is usually a uuid, even though it is not
- *  guaranteed or required. The name is ignored when creating a transfer
- *  config.
+ *  Transfer config names have the form of
+ *  `projects/{project_id}/location/{region}/transferConfigs/{config_id}`.
+ *  The name is automatically generated based on the config_id specified in
+ *  CreateTransferConfigRequest along with project_id and region. If config_id
+ *  is not provided, usually a uuid, even though it is not guaranteed or
+ *  required, will be generated for config_id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1178,11 +1183,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config.
- *    Transfer config names have the form
- *    `projects/{project_id}/transferConfigs/{config_id}`.
- *    Where `config_id` is usually a uuid, even though it is not
- *    guaranteed or required. The name is ignored when creating a transfer
- *    config.
+ *    Transfer config names have the form of
+ *    `projects/{project_id}/location/{region}/transferConfigs/{config_id}`.
+ *    The name is automatically generated based on the config_id specified in
+ *    CreateTransferConfigRequest along with project_id and region. If config_id
+ *    is not provided, usually a uuid, even though it is not guaranteed or
+ *    required, will be generated for config_id.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch
  */

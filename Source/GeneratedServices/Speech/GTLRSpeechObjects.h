@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRSpeech_Context;
+@class GTLRSpeech_Operation;
 @class GTLRSpeech_Operation_Metadata;
 @class GTLRSpeech_Operation_Response;
 @class GTLRSpeech_RecognitionAlternative;
@@ -123,9 +124,33 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  to improve the accuracy for specific words and phrases, for example, if
  *  specific commands are typically spoken by the user. This can also be used
  *  to add additional words to the vocabulary of the recognizer. See
- *  [usage limits](https://cloud.google.com/speech/limits#content).
+ *  [usage limits](/speech-to-text/quotas#content).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpeech_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Operation *> *operations;
 
 @end
 
@@ -255,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When enable_speaker_diarization is true, you will see all the words
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
  *  from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_WordInfo *> *words;
@@ -267,7 +292,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  Contains audio data in the encoding specified in the `RecognitionConfig`.
  *  Either `content` or `uri` must be supplied. Supplying both or neither
  *  returns google.rpc.Code.INVALID_ARGUMENT. See
- *  [audio limits](https://cloud.google.com/speech/limits#content).
+ *  [content limits](/speech-to-text/quotas#content).
  */
 @interface GTLRSpeech_RecognitionAudio : GTLRObject
 
@@ -283,7 +308,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 
 /**
  *  URI that points to a file that contains audio data bytes as specified in
- *  `RecognitionConfig`. Currently, only Google Cloud Storage URIs are
+ *  `RecognitionConfig`. The file must not be compressed (for example, gzip).
+ *  Currently, only Google Cloud Storage URIs are
  *  supported, which must be specified in the following format:
  *  `gs://bucket_name/object_name` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
@@ -299,6 +325,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  request.
  */
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
+
+/**
+ *  *Optional* If 'true', adds punctuation to recognition result hypotheses.
+ *  This feature is only available in select languages. Setting this for
+ *  requests in other languages has no effect at all.
+ *  The default 'false' value does not add punctuation to result hypotheses.
+ *  Note: This is currently offered as an experimental service, complimentary
+ *  to all users. In the future this may be exclusively available as a
+ *  premium feature.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutomaticPunctuation;
 
 /**
  *  *Optional* If `true`, the top result includes a list of words and
@@ -364,7 +403,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  *Required* The language of the supplied audio as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
  *  Example: "en-US".
- *  See [Language Support](https://cloud.google.com/speech/docs/languages)
+ *  See [Language Support](/speech-to-text/docs/languages)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -380,6 +419,42 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
+
+/**
+ *  *Optional* Which model to select for the given request. Select the model
+ *  best suited to your domain to get best results. If a model is not
+ *  explicitly specified, then we auto-select a model based on the parameters
+ *  in the RecognitionConfig.
+ *  <table>
+ *  <tr>
+ *  <td><b>Model</b></td>
+ *  <td><b>Description</b></td>
+ *  </tr>
+ *  <tr>
+ *  <td><code>command_and_search</code></td>
+ *  <td>Best for short queries such as voice commands or voice search.</td>
+ *  </tr>
+ *  <tr>
+ *  <td><code>phone_call</code></td>
+ *  <td>Best for audio that originated from a phone call (typically
+ *  recorded at an 8khz sampling rate).</td>
+ *  </tr>
+ *  <tr>
+ *  <td><code>video</code></td>
+ *  <td>Best for audio that originated from from video or includes multiple
+ *  speakers. Ideally the audio is recorded at a 16khz or greater
+ *  sampling rate. This is a premium model that costs more than the
+ *  standard rate.</td>
+ *  </tr>
+ *  <tr>
+ *  <td><code>default</code></td>
+ *  <td>Best for audio that is not one of the specific audio models.
+ *  For example, long-form audio. Ideally the audio is high-fidelity,
+ *  recorded at a 16khz or greater sampling rate.</td>
+ *  </tr>
+ *  </table>
+ */
+@property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  *Optional* If set to `true`, the server will attempt to filter out
@@ -404,8 +479,31 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
-/** *Optional* A means to provide context to assist the speech recognition. */
+/**
+ *  *Optional* array of SpeechContext.
+ *  A means to provide context to assist the speech recognition. For more
+ *  information, see [Phrase Hints](/speech-to-text/docs/basics#phrase-hints).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
+
+/**
+ *  *Optional* Set to true to use an enhanced model for speech recognition.
+ *  If `use_enhanced` is set to true and the `model` field is not set, then
+ *  an appropriate enhanced model is chosen if:
+ *  1. project is eligible for requesting enhanced models
+ *  2. an enhanced model exists for the audio
+ *  If `use_enhanced` is true and an enhanced version of the specified model
+ *  does not exist, then the speech is recognized using the standard version
+ *  of the specified model.
+ *  Enhanced speech models require that you opt-in to data logging using
+ *  instructions in the
+ *  [documentation](/speech-to-text/docs/enable-data-logging). If you set
+ *  `use_enhanced` to true and you have not enabled audio logging, then you
+ *  will receive an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useEnhanced;
 
 @end
 

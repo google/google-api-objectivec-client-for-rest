@@ -39,6 +39,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStoragePath;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet;
 @class GTLRDLP_GooglePrivacyDlpV2Color;
 @class GTLRDLP_GooglePrivacyDlpV2Condition;
 @class GTLRDLP_GooglePrivacyDlpV2Conditions;
@@ -64,6 +65,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2Error;
+@class GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes;
+@class GTLRDLP_GooglePrivacyDlpV2ExclusionRule;
 @class GTLRDLP_GooglePrivacyDlpV2Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2FieldId;
 @class GTLRDLP_GooglePrivacyDlpV2FieldTransformation;
@@ -82,6 +85,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2InspectConfig;
 @class GTLRDLP_GooglePrivacyDlpV2InspectDataSourceDetails;
+@class GTLRDLP_GooglePrivacyDlpV2InspectionRule;
+@class GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet;
 @class GTLRDLP_GooglePrivacyDlpV2InspectJobConfig;
 @class GTLRDLP_GooglePrivacyDlpV2InspectResult;
 @class GTLRDLP_GooglePrivacyDlpV2InspectTemplate;
@@ -352,6 +357,23 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfi
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2CustomInfoType.exclusionType
+
+/**
+ *  A finding of this custom info type will be excluded from final results,
+ *  but can still affect rule execution.
+ *
+ *  Value: "EXCLUSION_TYPE_EXCLUDE"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude;
+/**
+ *  A finding of this custom info type will not be excluded from results.
+ *
+ *  Value: "EXCLUSION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.likelihood
 
 /**
@@ -488,6 +510,43 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob;
  *  Value: "RISK_ANALYSIS_JOB"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
+
+/**
+ *  Full match.
+ *  - Dictionary: join of Dictionary results matched complete finding quote
+ *  - Regex: all regex matches fill a finding quote start to end
+ *  - Exclude info type: completely inside affecting info types findings
+ *
+ *  Value: "MATCHING_TYPE_FULL_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch;
+/**
+ *  Inverse match.
+ *  - Dictionary: no tokens in the finding match the dictionary
+ *  - Regex: finding doesn't match the regex
+ *  - Exclude info type: no intersection with affecting info types findings
+ *
+ *  Value: "MATCHING_TYPE_INVERSE_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch;
+/**
+ *  Partial match.
+ *  - Dictionary: at least one of the tokens in the finding matches
+ *  - Regex: substring of the finding matches
+ *  - Exclude info type: intersects with affecting info types findings
+ *
+ *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch;
+/**
+ *  Invalid.
+ *
+ *  Value: "MATCHING_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
@@ -1353,6 +1412,66 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Message representing a set of files in a Cloud Storage bucket. Regular
+ *  expressions are used to allow fine-grained control over which files in the
+ *  bucket to include.
+ *  Included files are those that match at least one item in `include_regex` and
+ *  do not match any items in `exclude_regex`. Note that a file that matches
+ *  items from both lists will _not_ be included. For a match to occur, the
+ *  entire file path (i.e., everything in the url after the bucket name) must
+ *  match the regular expression.
+ *  For example, given the input `{bucket_name: "mybucket", include_regex:
+ *  ["directory1/.*"], exclude_regex:
+ *  ["directory1/excluded.*"]}`:
+ *  * `gs://mybucket/directory1/myfile` will be included
+ *  * `gs://mybucket/directory1/directory2/myfile` will be included (`.*`
+ *  matches
+ *  across `/`)
+ *  * `gs://mybucket/directory0/directory1/myfile` will _not_ be included (the
+ *  full path doesn't match any items in `include_regex`)
+ *  * `gs://mybucket/directory1/excludedfile` will _not_ be included (the path
+ *  matches an item in `exclude_regex`)
+ *  If `include_regex` is left empty, it will match all files by default
+ *  (this is equivalent to setting `include_regex: [".*"]`).
+ *  Some other common use cases:
+ *  * `{bucket_name: "mybucket", exclude_regex: [".*\\.pdf"]}` will include all
+ *  files in `mybucket` except for .pdf files
+ *  * `{bucket_name: "mybucket", include_regex: ["directory/[^/]+"]}` will
+ *  include all files directly under `gs://mybucket/directory/`, without
+ *  matching
+ *  across `/`
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet : GTLRObject
+
+/** The name of a Cloud Storage bucket. Required. */
+@property(nonatomic, copy, nullable) NSString *bucketName;
+
+/**
+ *  A list of regular expressions matching file paths to exclude. All files in
+ *  the bucket that match at least one of these regular expressions will be
+ *  excluded from the scan.
+ *  Regular expressions use RE2
+ *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
+ *  under the google/re2 repository on GitHub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeRegex;
+
+/**
+ *  A list of regular expressions matching file paths to include. All files in
+ *  the bucket that match at least one of these regular expressions will be
+ *  included in the set of files, except for those that also match an item in
+ *  `exclude_regex`. Leaving this field empty will match all files by default
+ *  (this is equivalent to including `.*` in the list).
+ *  Regular expressions use RE2
+ *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
+ *  under the google/re2 repository on GitHub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeRegex;
+
+@end
+
+
+/**
  *  Represents a color in the RGB color space.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Color : GTLRObject
@@ -1472,9 +1591,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Name of the container where the finding is located.
- *  The top level name is the source file name or table name. Nested names
- *  could be absent if the embedded object has no string identifier
- *  (for an example an image contained within a document).
+ *  The top level name is the source file name or table name. Names of some
+ *  common storage containers are formatted as follows:
+ *  * BigQuery tables: `<project_id>:<dataset_id>.<table_id>`
+ *  * Cloud Storage files: `gs://<bucket>/<path>`
+ *  * Datastore namespace: <namespace>
+ *  Nested names could be absent if the embedded object has no string
+ *  identifier (for an example an image contained within a document).
  */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
@@ -1750,8 +1873,27 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
 
 /**
- *  All CustomInfoTypes must have a name
- *  that does not conflict with built-in InfoTypes or other CustomInfoTypes.
+ *  If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding
+ *  to be returned. It still can be used for rules matching.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude
+ *        A finding of this custom info type will be excluded from final
+ *        results,
+ *        but can still affect rule execution. (Value: "EXCLUSION_TYPE_EXCLUDE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified
+ *        A finding of this custom info type will not be excluded from results.
+ *        (Value: "EXCLUSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *exclusionType;
+
+/**
+ *  CustomInfoType can either be a new infoType, or an extension of built-in
+ *  infoType, when the name matches one of existing infoTypes and that infoType
+ *  is specified in `InspectContent.info_types` field. Specifying the latter
+ *  adds findings to the one detected by the system. If built-in info type is
+ *  not specified in `InspectContent.info_types` list then the name is treated
+ *  as a custom info type.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -2309,6 +2451,72 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  List of exclude infoTypes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes : GTLRObject
+
+/**
+ *  InfoType list in ExclusionRule rule drops a finding when it overlaps or
+ *  contained within with a finding of an infoType from this list. For
+ *  example, for `InspectionRuleSet.info_types` containing "PHONE_NUMBER"` and
+ *  `exclusion_rule` containing `exclude_info_types.info_types` with
+ *  "EMAIL_ADDRESS" the phone number findings are dropped if they overlap
+ *  with EMAIL_ADDRESS finding.
+ *  That leads to "555-222-2222\@example.org" to generate only a single
+ *  finding, namely email address.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
+
+@end
+
+
+/**
+ *  The rule that specifies conditions when findings of infoTypes specified in
+ *  `InspectionRuleSet` are removed from results.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ExclusionRule : GTLRObject
+
+/** Dictionary which defines the rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
+
+/** Set of infoTypes for which findings would affect this rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes *excludeInfoTypes;
+
+/**
+ *  How the rule is applied, see MatchingType documentation for details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch
+ *        Full match.
+ *        - Dictionary: join of Dictionary results matched complete finding
+ *        quote
+ *        - Regex: all regex matches fill a finding quote start to end
+ *        - Exclude info type: completely inside affecting info types findings
+ *        (Value: "MATCHING_TYPE_FULL_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch
+ *        Inverse match.
+ *        - Dictionary: no tokens in the finding match the dictionary
+ *        - Regex: finding doesn't match the regex
+ *        - Exclude info type: no intersection with affecting info types
+ *        findings (Value: "MATCHING_TYPE_INVERSE_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch
+ *        Partial match.
+ *        - Dictionary: at least one of the tokens in the finding matches
+ *        - Regex: substring of the finding matches
+ *        - Exclude info type: intersects with affecting info types findings
+ *        (Value: "MATCHING_TYPE_PARTIAL_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified
+ *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchingType;
+
+/** Regular expression which defines the rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
+
+@end
+
+
+/**
  *  An expression, consisting or an operator and conditions.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Expressions : GTLRObject
@@ -2378,8 +2586,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2FileSet : GTLRObject
 
 /**
+ *  The regex-filtered set of files to scan. Exactly one of `url` or
+ *  `regex_file_set` must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet *regexFileSet;
+
+/**
  *  The Cloud Storage url of the file(s) to scan, in the format
- *  `gs://<bucket>/<path>`. Trailing wildcard in the path is allowed.
+ *  `gs://<bucket>/<path>`. Trailing wildcard in the path is allowed. Exactly
+ *  one of `url` or `regex_file_set` must be set.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -2769,6 +2984,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *minLikelihood;
 
+/**
+ *  Set of rules to apply to the findings for this InspectConfig.
+ *  Exclusion rules, contained in the set are executed in the end, other
+ *  rules are executed in the order they are specified for each info type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet *> *ruleSet;
+
 @end
 
 
@@ -2819,6 +3041,39 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** A summary of the outcome of this inspect job. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Result *result;
+
+@end
+
+
+/**
+ *  A single inspection rule to be applied to infoTypes, specified in
+ *  `InspectionRuleSet`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InspectionRule : GTLRObject
+
+/** Exclusion rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExclusionRule *exclusionRule;
+
+/** Hotword-based detection rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HotwordRule *hotwordRule;
+
+@end
+
+
+/**
+ *  Rule set for modifying a set of infoTypes to alter behavior under certain
+ *  circumstances, depending on the specific details of the rules within the
+ *  set.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet : GTLRObject
+
+/** List of infoTypes this rule set is applied to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
+
+/**
+ *  Set of rules to be applied to infoTypes. The rules are applied in order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectionRule *> *rules;
 
 @end
 
@@ -5012,28 +5267,32 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Represents a whole calendar date, for example date of birth. The time of day
+ *  Represents a whole or partial calendar date, e.g. a birthday. The time of
+ *  day
  *  and time zone are either specified elsewhere or are not significant. The
  *  date
- *  is relative to the Proleptic Gregorian Calendar. The day can be 0 to
- *  represent a year and month where the day is not significant, for example
- *  credit card expiration date. The year can be 0 to represent a month and day
- *  independent of year, for example anniversary date. Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  is relative to the Proleptic Gregorian Calendar. This can represent:
+ *  * A full date, with non-zero year, month and day values
+ *  * A month and day value, with a zero year, e.g. an anniversary
+ *  * A year on its own, with zero month and day values
+ *  * A year and month value, with a zero day, e.g. a credit card expiration
+ *  date
+ *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRDLP_GoogleTypeDate : GTLRObject
 
 /**
  *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year/month where the day is not significant.
+ *  if specifying a year by itself or a year and month where the day is not
+ *  significant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
- *  month.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  month and day.
  *
  *  Uses NSNumber of intValue.
  */

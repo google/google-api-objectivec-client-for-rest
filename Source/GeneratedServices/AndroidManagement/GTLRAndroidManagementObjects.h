@@ -349,8 +349,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
 /**
  *  The device was deleted. This state will never be returned by an API call,
- *  but is used in the final policy compliance report published to Cloud Pub/Sub
- *  when the device acknowledges the deletion.
+ *  but is used in the final status report published to Cloud Pub/Sub when the
+ *  device acknowledges the deletion.
  *
  *  Value: "DELETED"
  */
@@ -409,8 +409,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_Profil
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
 /**
  *  The device was deleted. This state will never be returned by an API call,
- *  but is used in the final policy compliance report published to Cloud Pub/Sub
- *  when the device acknowledges the deletion.
+ *  but is used in the final status report published to Cloud Pub/Sub when the
+ *  device acknowledges the deletion.
  *
  *  Value: "DELETED"
  */
@@ -1721,8 +1721,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        active. (Value: "ACTIVE")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Deleted The device was
  *        deleted. This state will never be returned by an API call, but is used
- *        in the final policy compliance report published to Cloud Pub/Sub when
- *        the device acknowledges the deletion. (Value: "DELETED")
+ *        in the final status report published to Cloud Pub/Sub when the device
+ *        acknowledges the deletion. (Value: "DELETED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified
  *        This value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Disabled The device is
@@ -1878,8 +1878,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRAndroidManagement_Device_State_Deleted The device was
  *        deleted. This state will never be returned by an API call, but is used
- *        in the final policy compliance report published to Cloud Pub/Sub when
- *        the device acknowledges the deletion. (Value: "DELETED")
+ *        in the final status report published to Cloud Pub/Sub when the device
+ *        acknowledges the deletion. (Value: "DELETED")
  *    @arg @c kGTLRAndroidManagement_Device_State_DeviceStateUnspecified This
  *        value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_State_Disabled The device is

@@ -376,8 +376,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a database resource. Returns an empty
- *  policy if a database exists but does not have a policy set.
+ *  Gets the access control policy for a database resource.
+ *  Returns an empty policy if a database exists but does
+ *  not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource.
  *
@@ -402,8 +403,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpanner_Policy.
  *
- *  Gets the access control policy for a database resource. Returns an empty
- *  policy if a database exists but does not have a policy set.
+ *  Gets the access control policy for a database resource.
+ *  Returns an empty policy if a database exists but does
+ *  not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource.
  *
@@ -1236,10 +1238,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy on a database resource. Replaces any
- *  existing policy.
- *  Authorization requires `spanner.databases.setIamPolicy` permission on
- *  resource.
+ *  Sets the access control policy on a database resource.
+ *  Replaces any existing policy.
+ *  Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource.
  *
  *  Method: spanner.projects.instances.databases.setIamPolicy
  *
@@ -1262,10 +1264,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpanner_Policy.
  *
- *  Sets the access control policy on a database resource. Replaces any
- *  existing policy.
- *  Authorization requires `spanner.databases.setIamPolicy` permission on
- *  resource.
+ *  Sets the access control policy on a database resource.
+ *  Replaces any existing policy.
+ *  Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -1283,10 +1285,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns permissions that the caller has on the specified database resource.
- *  Attempting this RPC on a non-existent Cloud Spanner database will result in
- *  a NOT_FOUND error if the user has `spanner.databases.list` permission on
- *  the containing Cloud Spanner instance. Otherwise returns an empty set of
- *  permissions.
+ *  Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has
+ *  `spanner.databases.list` permission on the containing Cloud
+ *  Spanner instance. Otherwise returns an empty set of permissions.
  *
  *  Method: spanner.projects.instances.databases.testIamPermissions
  *
@@ -1310,10 +1312,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpanner_TestIamPermissionsResponse.
  *
  *  Returns permissions that the caller has on the specified database resource.
- *  Attempting this RPC on a non-existent Cloud Spanner database will result in
- *  a NOT_FOUND error if the user has `spanner.databases.list` permission on
- *  the containing Cloud Spanner instance. Otherwise returns an empty set of
- *  permissions.
+ *  Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has
+ *  `spanner.databases.list` permission on the containing Cloud
+ *  Spanner instance. Otherwise returns an empty set of permissions.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.

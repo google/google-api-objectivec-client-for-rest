@@ -222,6 +222,31 @@
 
 @end
 
+@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesSendCommandToDevice
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:sendCommandToDevice";
+  GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesSendCommandToDevice *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIot_SendCommandToDeviceResponse class];
+  query.loggingName = @"cloudiot.projects.locations.registries.devices.sendCommandToDevice";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesStatesList
 
 @dynamic name, numStates;
@@ -395,6 +420,31 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIot_Device class];
   query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:sendCommandToDevice";
+  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIot_SendCommandToDeviceResponse class];
+  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.sendCommandToDevice";
   return query;
 }
 

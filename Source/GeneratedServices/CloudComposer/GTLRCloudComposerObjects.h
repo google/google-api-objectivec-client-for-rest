@@ -252,6 +252,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 @interface GTLRCloudComposer_EnvironmentConfig : GTLRObject
 
 /**
+ *  Output only.
  *  The URI of the Apache Airflow Web UI hosted within this environment (see
  *  [Airflow web
  *  interface](/composer/docs/how-to/accessing/airflow-web-interface)).
@@ -399,7 +400,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  [Shared VPC](/vpc/docs/shared-vpc) is not currently supported. The
  *  network must belong to the environment's project. If unspecified, the
  *  "default" network ID in the environment's project is used. If a
- *  [Custom Subnet Network]((/vpc/docs/vpc#vpc_networks_and_subnets)
+ *  [Custom Subnet Network](/vpc/docs/vpc#vpc_networks_and_subnets)
  *  is provided, `nodeConfig.subnetwork` must also be provided.
  */
 @property(nonatomic, copy, nullable) NSString *network;

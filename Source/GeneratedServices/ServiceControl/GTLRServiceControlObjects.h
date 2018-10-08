@@ -1482,7 +1482,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, strong, nullable) NSNumber *requestSize;
 
 /**
- *  The scheme (http, https), the host name, the path and the query
+ *  The scheme (http, https), the host name, the path, and the query
  *  portion of the URL that was requested.
  *  Example: `"http://example.com/some/info?color=red"`.
  */
@@ -1503,7 +1503,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *serverIp;
 
 /**
- *  The response code indicating the status of response.
+ *  The response code indicating the status of the response.
  *  Examples: 200, 404.
  *
  *  Uses NSNumber of intValue.
@@ -1642,8 +1642,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  Optional. Resource name of the trace associated with the log entry, if any.
- *  If it contains a relative resource name, the name is assumed to be relative
- *  to `//tracing.googleapis.com`. Example:
+ *  If this field contains a relative resource name, you can assume the name is
+ *  relative to `//tracing.googleapis.com`. Example:
  *  `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
  */
 @property(nonatomic, copy, nullable) NSString *trace;

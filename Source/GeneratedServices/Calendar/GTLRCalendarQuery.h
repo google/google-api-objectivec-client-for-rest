@@ -81,6 +81,29 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByStartTime;
 GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 
 // ----------------------------------------------------------------------------
+// sendUpdates
+
+/**
+ *  Notifications are sent to all guests.
+ *
+ *  Value: "all"
+ */
+GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesAll;
+/**
+ *  Notifications are sent to non-Google Calendar guests only.
+ *
+ *  Value: "externalOnly"
+ */
+GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesExternalOnly;
+/**
+ *  No notifications are sent. This value should only be used for migration use
+ *  cases (note that in most migration cases the import method should be used).
+ *
+ *  Value: "none"
+ */
+GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -1012,7 +1035,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
+ *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_ChannelsStop : GTLRCalendarQuery
 // Previous library name was
@@ -1063,6 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsDelete : GTLRCalendarQuery
 // Previous library name was
@@ -1079,10 +1106,26 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  Whether to send notifications about the deletion of the event. Optional. The
- *  default is False.
+ *  Deprecated. Please use sendUpdates instead.
+ *  Whether to send notifications about the deletion of the event. Note that
+ *  some emails might still be sent even if you set the value to false. The
+ *  default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Guests who should receive notifications about the deletion of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1109,6 +1152,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
+ *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsGet : GTLRCalendarQuery
@@ -1172,6 +1217,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsImport : GTLRCalendarQuery
 // Previous library name was
@@ -1226,6 +1272,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsInsert : GTLRCalendarQuery
 // Previous library name was
@@ -1257,10 +1304,27 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Whether to send notifications about the creation of the new event. Optional.
- *  The default is False.
+ *  Deprecated. Please use sendUpdates instead.
+ *  Whether to send notifications about the creation of the new event. Note that
+ *  some emails might still be sent even if you set the value to false. The
+ *  default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Whether to send notifications about the creation of the new event. Note that
+ *  some emails might still be sent. The default is false.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /**
  *  Whether API client performing operation supports event attachments.
@@ -1292,6 +1356,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
+ *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsInstances : GTLRCalendarQuery
@@ -1391,6 +1457,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
+ *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsList : GTLRCalendarQuery
@@ -1578,6 +1646,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsMove : GTLRCalendarQuery
 // Previous library name was
@@ -1598,10 +1667,27 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
+ *  Deprecated. Please use sendUpdates instead.
  *  Whether to send notifications about the change of the event's organizer.
- *  Optional. The default is False.
+ *  Note that some emails might still be sent even if you set the value to
+ *  false. The default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Guests who should receive notifications about the change of the event's
+ *  organizer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1629,6 +1715,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsPatch : GTLRCalendarQuery
 // Previous library name was
@@ -1672,10 +1759,27 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Whether to send notifications about the event update (e.g. attendee's
- *  responses, title changes, etc.). Optional. The default is False.
+ *  Deprecated. Please use sendUpdates instead.
+ *  Whether to send notifications about the event update (for example,
+ *  description changes, etc.). Note that some emails might still be sent even
+ *  if you set the value to false. The default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Guests who should receive notifications about the event update (for example,
+ *  title changes, etc.).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /**
  *  Whether API client performing operation supports event attachments.
@@ -1709,6 +1813,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsQuickAdd : GTLRCalendarQuery
 // Previous library name was
@@ -1722,10 +1827,26 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
- *  Whether to send notifications about the creation of the event. Optional. The
- *  default is False.
+ *  Deprecated. Please use sendUpdates instead.
+ *  Whether to send notifications about the creation of the event. Note that
+ *  some emails might still be sent even if you set the value to false. The
+ *  default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Guests who should receive notifications about the creation of the new event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /** The text describing the event to be created. */
 @property(nonatomic, copy, nullable) NSString *text;
@@ -1754,6 +1875,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsUpdate : GTLRCalendarQuery
 // Previous library name was
@@ -1797,10 +1919,27 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Whether to send notifications about the event update (e.g. attendee's
- *  responses, title changes, etc.). Optional. The default is False.
+ *  Deprecated. Please use sendUpdates instead.
+ *  Whether to send notifications about the event update (for example,
+ *  description changes, etc.). Note that some emails might still be sent even
+ *  if you set the value to false. The default is false.
  */
 @property(nonatomic, assign) BOOL sendNotifications;
+
+/**
+ *  Guests who should receive notifications about the event update (for example,
+ *  title changes, etc.).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarSendUpdatesAll Notifications are sent to all guests.
+ *        (Value: "all")
+ *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
+ *        non-Google Calendar guests only. (Value: "externalOnly")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. This value
+ *        should only be used for migration use cases (note that in most
+ *        migration cases the import method should be used). (Value: "none")
+ */
+@property(nonatomic, copy, nullable) NSString *sendUpdates;
 
 /**
  *  Whether API client performing operation supports event attachments.
@@ -1834,6 +1973,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarEvents
+ *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsWatch : GTLRCalendarQuery
@@ -2046,6 +2187,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsGet : GTLRCalendarQuery
 // Previous library name was
@@ -2075,6 +2217,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsList : GTLRCalendarQuery
 // Previous library name was
@@ -2125,6 +2268,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsWatch : GTLRCalendarQuery
 // Previous library name was

@@ -73,6 +73,7 @@
 @class GTLRTesting_ToolResultsHistory;
 @class GTLRTesting_ToolResultsStep;
 @class GTLRTesting_TrafficRule;
+@class GTLRTesting_XcodeVersion;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -248,6 +249,34 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Uns
  *  Value: "VALIDATING"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_IosModel.formFactor
+
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified;
+/**
+ *  This device has the shape of a phone
+ *
+ *  Value: "PHONE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
+/**
+ *  This device has the shape of a tablet
+ *
+ *  Value: "TABLET"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
+/**
+ *  This device has the shape of a watch or other wearable
+ *
+ *  Value: "WEARABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_RoboDirective.actionType
@@ -507,6 +536,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTest
  *  Value: "NO_TESTS_IN_XC_TEST_ZIP"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip;
+/**
+ *  An Info.plist file in the XCTest zip could not be parsed.
+ *
+ *  Value: "PLIST_CANNOT_BE_PARSED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParsed;
 /**
  *  There was an error when parsing a label's value.
  *
@@ -894,7 +929,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *form;
 
 /**
- *  Whther this device is a phone, tablet, wearable, etc.
+ *  Whether this device is a phone, tablet, wearable, etc.
  *  \@OutputOnly
  *
  *  Likely values:
@@ -1343,28 +1378,32 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Represents a whole calendar date, for example date of birth. The time of day
+ *  Represents a whole or partial calendar date, e.g. a birthday. The time of
+ *  day
  *  and time zone are either specified elsewhere or are not significant. The
  *  date
- *  is relative to the Proleptic Gregorian Calendar. The day can be 0 to
- *  represent a year and month where the day is not significant, for example
- *  credit card expiration date. The year can be 0 to represent a month and day
- *  independent of year, for example anniversary date. Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  is relative to the Proleptic Gregorian Calendar. This can represent:
+ *  * A full date, with non-zero year, month and day values
+ *  * A month and day value, with a zero year, e.g. an anniversary
+ *  * A year on its own, with zero month and day values
+ *  * A year and month value, with a zero day, e.g. a credit card expiration
+ *  date
+ *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRTesting_Date : GTLRObject
 
 /**
  *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year/month where the day is not significant.
+ *  if specifying a year by itself or a year and month where the day is not
+ *  significant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
- *  month.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  month and day.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1587,6 +1626,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Output only. The set of supported iOS software versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosVersion *> *versions;
 
+/** Output only. The set of supported Xcode versions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_XcodeVersion *> *xcodeVersions;
+
 @end
 
 
@@ -1612,6 +1654,23 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceCapabilities;
+
+/**
+ *  Whether this device is a phone, tablet, wearable, etc.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified Do
+ *        not use. For proto versioning only. (Value:
+ *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Phone This device has the shape
+ *        of a phone (Value: "PHONE")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Tablet This device has the shape
+ *        of a tablet (Value: "TABLET")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Wearable This device has the
+ *        shape of a watch or other wearable (Value: "WEARABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
  *  Output only. The unique opaque id for this model.
@@ -1700,6 +1759,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSNumber *minorVersion;
 
+/** Output only. The available Xcode versions for this version. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedXcodeVersionIds;
+
 /**
  *  Output only. Tags for this dimension.
  *  Examples: "default", "preview", "deprecated"
@@ -1726,6 +1788,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *testsZip;
+
+/**
+ *  Optional. The Xcode version that should be used for the test.
+ *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Defaults to the latest Xcode version Firebase Test Lab supports.
+ */
+@property(nonatomic, copy, nullable) NSString *xcodeVersion;
 
 /**
  *  Optional. An .xctestrun file that will override the .xctestrun file in the
@@ -2284,6 +2353,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip
  *        The .xctestrun file did not specify any test targets. (Value:
  *        "NO_TESTS_IN_XC_TEST_ZIP")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParsed
+ *        An Info.plist file in the XCTest zip could not be parsed. (Value:
+ *        "PLIST_CANNOT_BE_PARSED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed
  *        There was an error when parsing a label's value. (Value:
  *        "SCENARIO_LABEL_MALFORMED")
@@ -2638,6 +2710,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *packetLossRatio;
+
+@end
+
+
+/**
+ *  An Xcode version that an iOS version is compatible with.
+ */
+@interface GTLRTesting_XcodeVersion : GTLRObject
+
+/**
+ *  Output only. Tags for this Xcode version.
+ *  Examples: "default"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Output only. The id for this version.
+ *  Example: "9.2"
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

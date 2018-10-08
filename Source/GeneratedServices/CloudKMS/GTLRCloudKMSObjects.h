@@ -4,11 +4,8 @@
 // API:
 //   Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Cloud KMS allows you to keep cryptographic keys in one central cloud
-//   service, for direct use by other cloud resources and applications. With
-//   Cloud KMS you are the ultimate custodian of your data, you can manage
-//   encryption in the cloud the same way you do on-premises, and you have a
-//   provable and monitorable root of trust over your data.
+//   Manages keys and performs cryptographic operations in a central cloud
+//   service, for direct use by other cloud resources and applications.
 // Documentation:
 //   https://cloud.google.com/kms/
 
@@ -156,6 +153,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecrypt
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256;
 /**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha512;
+/**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
@@ -174,6 +177,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkc
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha256;
 /**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha512;
+/**
  *  RSASSA-PSS 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PSS_2048_SHA256"
@@ -191,6 +200,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss
  *  Value: "RSA_SIGN_PSS_4096_SHA256"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
@@ -307,6 +322,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Rs
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256;
 /**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha512;
+/**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
@@ -325,6 +346,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Rs
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha256;
 /**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha512;
+/**
  *  RSASSA-PSS 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PSS_2048_SHA256"
@@ -342,6 +369,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Rs
  *  Value: "RSA_SIGN_PSS_4096_SHA256"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
@@ -424,6 +457,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep307
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256;
 /**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha512;
+/**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
@@ -442,6 +481,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs13072S
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha256;
 /**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha512;
+/**
  *  RSASSA-PSS 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PSS_2048_SHA256"
@@ -459,6 +504,12 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha
  *  Value: "RSA_SIGN_PSS_4096_SHA256"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512;
 
 /**
  *  Request message for KeyManagementService.AsymmetricDecrypt.
@@ -816,6 +867,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs12048Sha256
  *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_2048_SHA256")
@@ -825,6 +879,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha256
  *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss2048Sha256
  *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_SIGN_PSS_2048_SHA256")
@@ -834,6 +891,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha256
  *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -956,6 +1016,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs12048Sha256
  *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_2048_SHA256")
@@ -965,6 +1028,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha256
  *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss2048Sha256
  *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_SIGN_PSS_2048_SHA256")
@@ -974,6 +1040,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha256
  *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -1531,6 +1600,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs12048Sha256
  *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_2048_SHA256")
@@ -1540,12 +1612,17 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha256
  *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
  *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss2048Sha256 RSASSA-PSS
  *        2048 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_2048_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256 RSASSA-PSS
  *        3072 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_3072_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256 RSASSA-PSS
  *        4096 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 RSASSA-PSS
+ *        4096 bit key with a SHA512 digest. (Value: "RSA_SIGN_PSS_4096_SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 

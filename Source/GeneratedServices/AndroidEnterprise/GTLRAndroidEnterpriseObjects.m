@@ -55,7 +55,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch
-@dynamic enabled;
+@dynamic approveApps, enabled;
 @end
 
 

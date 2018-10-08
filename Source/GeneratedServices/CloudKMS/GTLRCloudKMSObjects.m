@@ -4,11 +4,8 @@
 // API:
 //   Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Cloud KMS allows you to keep cryptographic keys in one central cloud
-//   service, for direct use by other cloud resources and applications. With
-//   Cloud KMS you are the ultimate custodian of your data, you can manage
-//   encryption in the cloud the same way you do on-premises, and you have a
-//   provable and monitorable root of trust over your data.
+//   Manages keys and performs cryptographic operations in a central cloud
+//   service, for direct use by other cloud resources and applications.
 // Documentation:
 //   https://cloud.google.com/kms/
 
@@ -37,12 +34,15 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncrypt
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Hsm = @"HSM";
@@ -65,12 +65,15 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetri
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm = @"HSM";
@@ -89,12 +92,15 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption = @
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 
 // ----------------------------------------------------------------------------
 //

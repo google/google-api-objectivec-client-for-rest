@@ -4,11 +4,11 @@
 // API:
 //   Ad Exchange Buyer API II (adexchangebuyer2/v2beta1)
 // Description:
-//   Accesses the latest features for managing Ad Exchange accounts, Real-Time
-//   Bidding configurations and auction metrics, and Marketplace programmatic
-//   deals.
+//   Accesses the latest features for managing Authorized Buyers accounts,
+//   Real-Time Bidding configurations and auction metrics, and Marketplace
+//   programmatic deals.
 // Documentation:
-//   https://developers.google.com/ad-exchange/buyer-rest/reference/rest/
+//   https://developers.google.com/authorized-buyers/apis/reference/rest/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -21,41 +21,81 @@
 #endif
 
 @class GTLRAdExchangeBuyerII_AbsoluteDateRange;
+@class GTLRAdExchangeBuyerII_AdSize;
 @class GTLRAdExchangeBuyerII_AppContext;
 @class GTLRAdExchangeBuyerII_AuctionContext;
 @class GTLRAdExchangeBuyerII_BidMetricsRow;
 @class GTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow;
+@class GTLRAdExchangeBuyerII_Buyer;
 @class GTLRAdExchangeBuyerII_CalloutStatusRow;
 @class GTLRAdExchangeBuyerII_Client;
 @class GTLRAdExchangeBuyerII_ClientUser;
 @class GTLRAdExchangeBuyerII_ClientUserInvitation;
+@class GTLRAdExchangeBuyerII_ContactInformation;
 @class GTLRAdExchangeBuyerII_Correction;
 @class GTLRAdExchangeBuyerII_Creative;
 @class GTLRAdExchangeBuyerII_CreativeDealAssociation;
+@class GTLRAdExchangeBuyerII_CreativeRestrictions;
+@class GTLRAdExchangeBuyerII_CreativeSize;
+@class GTLRAdExchangeBuyerII_CreativeSpecification;
 @class GTLRAdExchangeBuyerII_CreativeStatusRow;
+@class GTLRAdExchangeBuyerII_CriteriaTargeting;
 @class GTLRAdExchangeBuyerII_Date;
+@class GTLRAdExchangeBuyerII_DayPart;
+@class GTLRAdExchangeBuyerII_DayPartTargeting;
+@class GTLRAdExchangeBuyerII_Deal;
+@class GTLRAdExchangeBuyerII_DealPauseStatus;
+@class GTLRAdExchangeBuyerII_DealServingMetadata;
+@class GTLRAdExchangeBuyerII_DealTerms;
+@class GTLRAdExchangeBuyerII_DeliveryControl;
 @class GTLRAdExchangeBuyerII_Disapproval;
 @class GTLRAdExchangeBuyerII_FilteredBidCreativeRow;
 @class GTLRAdExchangeBuyerII_FilteredBidDetailRow;
 @class GTLRAdExchangeBuyerII_FilteringStats;
 @class GTLRAdExchangeBuyerII_FilterSet;
+@class GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting;
+@class GTLRAdExchangeBuyerII_FrequencyCap;
+@class GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms;
 @class GTLRAdExchangeBuyerII_HtmlContent;
 @class GTLRAdExchangeBuyerII_Image;
 @class GTLRAdExchangeBuyerII_ImpressionMetricsRow;
+@class GTLRAdExchangeBuyerII_InventorySizeTargeting;
 @class GTLRAdExchangeBuyerII_LocationContext;
+@class GTLRAdExchangeBuyerII_MarketplaceTargeting;
 @class GTLRAdExchangeBuyerII_MetricValue;
+@class GTLRAdExchangeBuyerII_MobileApplicationTargeting;
+@class GTLRAdExchangeBuyerII_Money;
 @class GTLRAdExchangeBuyerII_NativeContent;
 @class GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow;
+@class GTLRAdExchangeBuyerII_NonGuaranteedAuctionTerms;
+@class GTLRAdExchangeBuyerII_NonGuaranteedFixedPriceTerms;
+@class GTLRAdExchangeBuyerII_Note;
+@class GTLRAdExchangeBuyerII_OperatingSystemTargeting;
+@class GTLRAdExchangeBuyerII_PlacementTargeting;
 @class GTLRAdExchangeBuyerII_PlatformContext;
+@class GTLRAdExchangeBuyerII_Price;
+@class GTLRAdExchangeBuyerII_PricePerBuyer;
+@class GTLRAdExchangeBuyerII_PrivateData;
+@class GTLRAdExchangeBuyerII_Product;
+@class GTLRAdExchangeBuyerII_Proposal;
+@class GTLRAdExchangeBuyerII_PublisherProfile;
 @class GTLRAdExchangeBuyerII_RealtimeTimeRange;
 @class GTLRAdExchangeBuyerII_Reason;
 @class GTLRAdExchangeBuyerII_RelativeDateRange;
 @class GTLRAdExchangeBuyerII_RowDimensions;
 @class GTLRAdExchangeBuyerII_SecurityContext;
+@class GTLRAdExchangeBuyerII_Seller;
 @class GTLRAdExchangeBuyerII_ServingContext;
 @class GTLRAdExchangeBuyerII_ServingRestriction;
+@class GTLRAdExchangeBuyerII_Size;
+@class GTLRAdExchangeBuyerII_TargetingCriteria;
+@class GTLRAdExchangeBuyerII_TargetingValue;
+@class GTLRAdExchangeBuyerII_TechnologyTargeting;
 @class GTLRAdExchangeBuyerII_TimeInterval;
+@class GTLRAdExchangeBuyerII_TimeOfDay;
+@class GTLRAdExchangeBuyerII_UrlTargeting;
 @class GTLRAdExchangeBuyerII_VideoContent;
+@class GTLRAdExchangeBuyerII_VideoTargeting;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -66,6 +106,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_AdSize.sizeType
+
+/**
+ *  Fluid size (i.e., responsive size) can be resized automatically with the
+ *  change of outside environment.
+ *
+ *  Value: "FLUID"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid;
+/**
+ *  Special size to describe an interstitial ad slot.
+ *
+ *  Value: "INTERSTITIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial;
+/**
+ *  Native (mobile) ads rendered by the publisher.
+ *
+ *  Value: "NATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Native;
+/**
+ *  Ad slot with size specified by height and width in pixels.
+ *
+ *  Value: "PIXEL"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Pixel;
+/**
+ *  A placeholder for an undefined size type.
+ *
+ *  Value: "SIZE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_SizeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_AppContext.appTypes
@@ -446,6 +521,436 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategorie
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_NoRestrictedCategories;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeRestrictions.creativeFormat
+
+/**
+ *  A placeholder for an undefined creative format.
+ *
+ *  Value: "CREATIVE_FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_CreativeFormatUnspecified;
+/**
+ *  A creative that will be displayed in environments such as a browser.
+ *
+ *  Value: "DISPLAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Display;
+/**
+ *  A video creative that will be displayed in environments such as a video
+ *  player.
+ *
+ *  Value: "VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeRestrictions.skippableAdType
+
+/**
+ *  This video ad can be skipped after 5 seconds, and is counted as
+ *  engaged view after 30 seconds. The creative is hosted on
+ *  YouTube only, and viewcount of the YouTube video increments
+ *  after the engaged view.
+ *
+ *  Value: "INSTREAM_SELECT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_InstreamSelect;
+/**
+ *  This video ad is not skippable.
+ *
+ *  Value: "NOT_SKIPPABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_NotSkippable;
+/**
+ *  This video ad can be skipped after 5 seconds.
+ *
+ *  Value: "SKIPPABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_Skippable;
+/**
+ *  A placeholder for an undefined skippable ad type.
+ *
+ *  Value: "SKIPPABLE_AD_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_SkippableAdTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeSize.allowedFormats
+
+/** Value: "AUDIO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Audio;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeSize.creativeSizeType
+
+/**
+ *  A placeholder for an undefined creative size type.
+ *
+ *  Value: "CREATIVE_SIZE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_CreativeSizeTypeUnspecified;
+/**
+ *  The creative is an interstitial creative.
+ *
+ *  Value: "INTERSTITIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Interstitial;
+/**
+ *  The creative is a native (mobile) creative.
+ *
+ *  Value: "NATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Native;
+/**
+ *  The creative is a regular desktop creative.
+ *
+ *  Value: "REGULAR"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Regular;
+/**
+ *  The creative is a video creative.
+ *
+ *  Value: "VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeSize.nativeTemplate
+
+/**
+ *  The creative is linked to native app install ad.
+ *
+ *  Value: "NATIVE_APP_INSTALL_AD"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeAppInstallAd;
+/**
+ *  The creative is linked to native content ad.
+ *
+ *  Value: "NATIVE_CONTENT_AD"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeContentAd;
+/**
+ *  The creative is linked to native video app install ad.
+ *
+ *  Value: "NATIVE_VIDEO_APP_INSTALL_AD"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoAppInstallAd;
+/**
+ *  The creative is linked to native video content ad.
+ *
+ *  Value: "NATIVE_VIDEO_CONTENT_AD"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoContentAd;
+/**
+ *  A placeholder for an undefined native template.
+ *
+ *  Value: "UNKNOWN_NATIVE_TEMPLATE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_UnknownNativeTemplate;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_CreativeSize.skippableAdType
+
+/**
+ *  This video ad can be skipped after 5 seconds.
+ *
+ *  Value: "GENERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic;
+/**
+ *  This video ad can be skipped after 5 seconds, and count as
+ *  engaged view after 30 seconds. The creative is hosted on
+ *  YouTube only, and viewcount of the YouTube video increments
+ *  after the engaged view.
+ *
+ *  Value: "INSTREAM_SELECT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_InstreamSelect;
+/**
+ *  This video ad is not skippable.
+ *
+ *  Value: "NOT_SKIPPABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_NotSkippable;
+/**
+ *  A placeholder for an undefined skippable ad type.
+ *
+ *  Value: "SKIPPABLE_AD_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_SkippableAdTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DayPart.dayOfWeek
+
+/**
+ *  A placeholder for when the day of the week is not specified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DayPartTargeting.timeZoneType
+
+/**
+ *  Use publisher's time zone setting.
+ *
+ *  Value: "PUBLISHER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_Publisher;
+/**
+ *  A placeholder for an undefined time zone source.
+ *
+ *  Value: "TIME_ZONE_SOURCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_TimeZoneSourceUnspecified;
+/**
+ *  Use the user's time zone setting.
+ *
+ *  Value: "USER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Deal.creativePreApprovalPolicy
+
+/**
+ *  A placeholder for an undefined creative pre-approval policy.
+ *
+ *  Value: "CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified;
+/**
+ *  The seller does not need to approve each creative before it can serve.
+ *
+ *  Value: "SELLER_PRE_APPROVAL_NOT_REQUIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalNotRequired;
+/**
+ *  The seller needs to approve each creative before it can serve.
+ *
+ *  Value: "SELLER_PRE_APPROVAL_REQUIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalRequired;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Deal.creativeSafeFrameCompatibility
+
+/**
+ *  The creatives need to be compatible with the safe frame option.
+ *
+ *  Value: "COMPATIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Compatible;
+/**
+ *  A placeholder for an undefined creative safe-frame compatibility.
+ *
+ *  Value: "CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_CreativeSafeFrameCompatibilityUnspecified;
+/**
+ *  The creatives can be incompatible with the safe frame option.
+ *
+ *  Value: "INCOMPATIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Incompatible;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Deal.programmaticCreativeSource
+
+/**
+ *  The advertiser provides the creatives.
+ *
+ *  Value: "ADVERTISER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser;
+/**
+ *  A placeholder for an undefined programmatic creative source.
+ *
+ *  Value: "PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_ProgrammaticCreativeSourceUnspecified;
+/**
+ *  The publisher provides the creatives to be served.
+ *
+ *  Value: "PUBLISHER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Publisher;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Deal.syndicationProduct
+
+/**
+ *  This typically represents a web page.
+ *
+ *  Value: "CONTENT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Content;
+/**
+ *  This represents ads shown within games.
+ *
+ *  Value: "GAMES"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Games;
+/**
+ *  This represents a mobile property.
+ *
+ *  Value: "MOBILE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Mobile;
+/**
+ *  A placeholder for an undefined syndication product.
+ *
+ *  Value: "SYNDICATION_PRODUCT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_SyndicationProductUnspecified;
+/**
+ *  This represents video ad formats.
+ *
+ *  Value: "VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DealPauseStatus.firstPausedBy
+
+/**
+ *  Specifies the role as buyer.
+ *
+ *  Value: "BUYER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Buyer;
+/**
+ *  A placeholder for an undefined buyer/seller role.
+ *
+ *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_BuyerSellerRoleUnspecified;
+/**
+ *  Specifies the role as seller.
+ *
+ *  Value: "SELLER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Seller;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DealTerms.brandingType
+
+/**
+ *  Full URL is included in bid requests.
+ *
+ *  Value: "BRANDED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_Branded;
+/**
+ *  A placeholder for an undefined branding type.
+ *
+ *  Value: "BRANDING_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_BrandingTypeUnspecified;
+/**
+ *  A TopLevelDomain or masked URL is sent in bid requests
+ *  rather than the full one.
+ *
+ *  Value: "SEMI_TRANSPARENT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiTransparent;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DeliveryControl.creativeBlockingLevel
+
+/**
+ *  The Ad Exchange policy blocking rules will be applied.
+ *
+ *  Value: "ADX_POLICY_BLOCKING_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_AdxPolicyBlockingOnly;
+/**
+ *  A placeholder for an undefined creative blocking level.
+ *
+ *  Value: "CREATIVE_BLOCKING_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_CreativeBlockingLevelUnspecified;
+/**
+ *  Publisher blocking rules will be applied.
+ *
+ *  Value: "PUBLISHER_BLOCKING_RULES"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_PublisherBlockingRules;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_DeliveryControl.deliveryRateType
+
+/**
+ *  Impressions are served as fast as possible.
+ *
+ *  Value: "AS_FAST_AS_POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_AsFastAsPossible;
+/**
+ *  A placeholder for an undefined delivery rate type.
+ *
+ *  Value: "DELIVERY_RATE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_DeliveryRateTypeUnspecified;
+/**
+ *  Impressions are served uniformly over the life of the deal.
+ *
+ *  Value: "EVENLY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_Evenly;
+/**
+ *  Impressions are served front-loaded.
+ *
+ *  Value: "FRONT_LOADED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_FrontLoaded;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Disapproval.reason
 
 /**
@@ -479,6 +984,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Automated
  *  Value: "BAD_URL_LEGAL_DISAPPROVAL"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval;
+/**
+ *  Promotes services related to bail bonds.
+ *
+ *  Value: "BAIL_BONDS"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BailBonds;
 /**
  *  The ad serves a blank.
  *
@@ -1129,11 +1640,58 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranular
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_TimeSeriesGranularityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_FrequencyCap.timeUnitType
+
+/**
+ *  Day
+ *
+ *  Value: "DAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Day;
+/**
+ *  Hour
+ *
+ *  Value: "HOUR"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour;
+/**
+ *  Lifetime
+ *
+ *  Value: "LIFETIME"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime;
+/**
+ *  Minute
+ *
+ *  Value: "MINUTE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute;
+/**
+ *  Month
+ *
+ *  Value: "MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month;
+/**
+ *  A placeholder for an undefined time unit type. This just indicates the
+ *  variable with this value hasn't been initialized.
+ *
+ *  Value: "TIME_UNIT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified;
+/**
+ *  Week
+ *
+ *  Value: "WEEK"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
 
 /**
  *  Indicates that the detail ID refers to a creative attribute; see
- *  [publisher-excludable-creative-attributes](https://developers.google.com/ad-exchange/rtb/downloads/publisher-excludable-creative-attributes).
+ *  [publisher-excludable-creative-attributes](https://developers.google.com/authorized-buyers/rtb/downloads/publisher-excludable-creative-attributes).
  *
  *  Value: "CREATIVE_ATTRIBUTE"
  */
@@ -1148,28 +1706,28 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
 /**
  *  Indicates that the detail ID refers to a disapproval reason; see
  *  DisapprovalReason enum in
- *  [snippet-status-report-proto](https://developers.google.com/ad-exchange/rtb/downloads/snippet-status-report-proto).
+ *  [snippet-status-report-proto](https://developers.google.com/authorized-buyers/rtb/downloads/snippet-status-report-proto).
  *
  *  Value: "DISAPPROVAL_REASON"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
 /**
  *  Indicates that the detail ID refers to a product category; see
- *  [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
+ *  [ad-product-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-product-categories).
  *
  *  Value: "PRODUCT_CATEGORY"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory;
 /**
  *  Indicates that the detail ID refers to a sensitive category; see
- *  [ad-sensitive-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-sensitive-categories).
+ *  [ad-sensitive-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-sensitive-categories).
  *
  *  Value: "SENSITIVE_CATEGORY"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory;
 /**
  *  Indicates that the detail ID refers to a vendor; see
- *  [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
+ *  [vendors](https://developers.google.com/authorized-buyers/rtb/downloads/vendors).
  *
  *  Value: "VENDOR"
  */
@@ -1201,6 +1759,28 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusR
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Note.creatorRole
+
+/**
+ *  Specifies the role as buyer.
+ *
+ *  Value: "BUYER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Buyer;
+/**
+ *  A placeholder for an undefined buyer/seller role.
+ *
+ *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_BuyerSellerRoleUnspecified;
+/**
+ *  Specifies the role as seller.
+ *
+ *  Value: "SELLER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Seller;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_PlatformContext.platforms
 
 /** Value: "ANDROID" */
@@ -1209,6 +1789,149 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_An
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Desktop;
 /** Value: "IOS" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Ios;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Price.pricingType
+
+/**
+ *  Cost per day
+ *
+ *  Value: "COST_PER_DAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerDay;
+/**
+ *  Cost per thousand impressions.
+ *
+ *  Value: "COST_PER_MILLE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerMille;
+/**
+ *  A placeholder for an undefined pricing type. If the pricing type is
+ *  unpsecified, `COST_PER_MILLE` will be used instead.
+ *
+ *  Value: "PRICING_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_PricingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Product.syndicationProduct
+
+/**
+ *  This typically represents a web page.
+ *
+ *  Value: "CONTENT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Content;
+/**
+ *  This represents ads shown within games.
+ *
+ *  Value: "GAMES"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Games;
+/**
+ *  This represents a mobile property.
+ *
+ *  Value: "MOBILE"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Mobile;
+/**
+ *  A placeholder for an undefined syndication product.
+ *
+ *  Value: "SYNDICATION_PRODUCT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_SyndicationProductUnspecified;
+/**
+ *  This represents video ad formats.
+ *
+ *  Value: "VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Proposal.lastUpdaterOrCommentorRole
+
+/**
+ *  Specifies the role as buyer.
+ *
+ *  Value: "BUYER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Buyer;
+/**
+ *  A placeholder for an undefined buyer/seller role.
+ *
+ *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_BuyerSellerRoleUnspecified;
+/**
+ *  Specifies the role as seller.
+ *
+ *  Value: "SELLER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Seller;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Proposal.originatorRole
+
+/**
+ *  Specifies the role as buyer.
+ *
+ *  Value: "BUYER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Buyer;
+/**
+ *  A placeholder for an undefined buyer/seller role.
+ *
+ *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_BuyerSellerRoleUnspecified;
+/**
+ *  Specifies the role as seller.
+ *
+ *  Value: "SELLER"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Seller;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_Proposal.proposalState
+
+/**
+ *  The proposal has been accepted by the buyer.
+ *
+ *  Value: "BUYER_ACCEPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_BuyerAccepted;
+/**
+ *  The negotiations on the proposal were canceled and the proposal was never
+ *  finalized.
+ *
+ *  Value: "CANCELED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Canceled;
+/**
+ *  The proposal is finalized. During renegotiation, the proposal may
+ *  not be in this state.
+ *
+ *  Value: "FINALIZED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Finalized;
+/**
+ *  A placeholder for an undefined proposal state.
+ *
+ *  Value: "PROPOSAL_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnspecified;
+/**
+ *  The proposal is under negotiation or renegotiation.
+ *
+ *  Value: "PROPOSED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Proposed;
+/**
+ *  The proposal has been accepted by the seller.
+ *
+ *  Value: "SELLER_ACCEPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_SellerAccepted;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_SecurityContext.securities
@@ -1250,6 +1973,30 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_Pe
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_VideoTargeting.excludedPositionTypes
+
+/** Value: "MIDROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Midroll;
+/** Value: "POSITION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_PositionTypeUnspecified;
+/** Value: "POSTROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Postroll;
+/** Value: "PREROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Preroll;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_VideoTargeting.targetedPositionTypes
+
+/** Value: "MIDROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Midroll;
+/** Value: "POSITION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_PositionTypeUnspecified;
+/** Value: "POSTROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Postroll;
+/** Value: "PREROLL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Preroll;
+
 /**
  *  An absolute date range, specified by its start date and end date.
  *  The supported range of dates begins 30 days before today and ends today.
@@ -1278,12 +2025,81 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Request to accept a proposal.
+ */
+@interface GTLRAdExchangeBuyerII_AcceptProposalRequest : GTLRObject
+
+/**
+ *  The last known client revision number of the proposal.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proposalRevision;
+
+@end
+
+
+/**
  *  A request for associating a deal and a creative.
  */
 @interface GTLRAdExchangeBuyerII_AddDealAssociationRequest : GTLRObject
 
 /** The association between a creative and a deal that should be added. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeDealAssociation *association;
+
+@end
+
+
+/**
+ *  Request message for adding a note to a given proposal.
+ */
+@interface GTLRAdExchangeBuyerII_AddNoteRequest : GTLRObject
+
+/** Details of the note to add. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Note *note;
+
+@end
+
+
+/**
+ *  Represents size of a single ad slot, or a creative.
+ */
+@interface GTLRAdExchangeBuyerII_AdSize : GTLRObject
+
+/**
+ *  The height of the ad slot in pixels.
+ *  This field will be present only when size type is `PIXEL`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/**
+ *  The size type of the ad slot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid Fluid size (i.e.,
+ *        responsive size) can be resized automatically with the
+ *        change of outside environment. (Value: "FLUID")
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial Special size
+ *        to describe an interstitial ad slot. (Value: "INTERSTITIAL")
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Native Native (mobile) ads
+ *        rendered by the publisher. (Value: "NATIVE")
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Pixel Ad slot with size
+ *        specified by height and width in pixels. (Value: "PIXEL")
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_SizeTypeUnspecified A
+ *        placeholder for an undefined size type. (Value:
+ *        "SIZE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sizeType;
+
+/**
+ *  The width of the ad slot in pixels.
+ *  This field will be present only when size type is `PIXEL`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -1389,6 +2205,18 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Represents a buyer of inventory. Each buyer is identified by a unique
+ *  Authorized Buyers account ID.
+ */
+@interface GTLRAdExchangeBuyerII_Buyer : GTLRObject
+
+/** Authorized Buyers account ID of the buyer. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+@end
+
+
+/**
  *  The number of impressions with the specified dimension values where the
  *  corresponding bid request or bid response was not successful, as described
  *  by
@@ -1399,7 +2227,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /**
  *  The ID of the callout status.
  *  See
- *  [callout-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/callout-status-codes).
+ *  [callout-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/callout-status-codes).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1418,13 +2246,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  A client resource represents a client buyer&mdash;an agency,
- *  a brand, or an advertiser customer of the sponsor buyer.
- *  Users associated with the client buyer have restricted access to
- *  the Ad Exchange Marketplace and certain other sections
- *  of the Ad Exchange Buyer UI based on the role
- *  granted to the client buyer.
- *  All fields are required unless otherwise specified.
+ *  Request to cancel an ongoing negotiation.
+ */
+@interface GTLRAdExchangeBuyerII_CancelNegotiationRequest : GTLRObject
+@end
+
+
+/**
+ *  A client resource represents a client buyer&mdash;an agency, a brand, or an
+ *  advertiser customer of the sponsor buyer. Users associated with the client
+ *  buyer have restricted access to the Marketplace and certain other sections
+ *  of
+ *  the Authorized Buyers UI based on the role granted to the client buyer. All
+ *  fields are required unless otherwise specified.
  */
 @interface GTLRAdExchangeBuyerII_Client : GTLRObject
 
@@ -1554,9 +2388,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  A client user is created under a client buyer and has restricted access to
- *  the Ad Exchange Marketplace and certain other sections
- *  of the Ad Exchange Buyer UI based on the role
- *  granted to the associated client buyer.
+ *  the Marketplace and certain other sections of the Authorized Buyers UI based
+ *  on the role granted to the associated client buyer.
  *  The only way a new client user can be created is via accepting an
  *  email invitation
  *  (see the
@@ -1612,9 +2445,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  An invitation for a new client user to get access to the Ad Exchange
- *  Buyer UI.
- *  All fields are required unless otherwise specified.
+ *  An invitation for a new client user to get access to the Authorized Buyers
+ *  UI. All fields are required unless otherwise specified.
  */
 @interface GTLRAdExchangeBuyerII_ClientUserInvitation : GTLRObject
 
@@ -1641,6 +2473,27 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *invitationId;
+
+@end
+
+
+/**
+ *  Request message for indicating that the proposal's setup step is complete.
+ */
+@interface GTLRAdExchangeBuyerII_CompleteSetupRequest : GTLRObject
+@end
+
+
+/**
+ *  Contains information on how a buyer or seller can be reached.
+ */
+@interface GTLRAdExchangeBuyerII_ContactInformation : GTLRObject
+
+/** Email address for the contact. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The name of the contact. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1917,6 +2770,158 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Represents creative restrictions associated to Programmatic Guaranteed/
+ *  Preferred Deal in Ad Manager.
+ *  This doesn't apply to Private Auction and AdX Preferred Deals.
+ */
+@interface GTLRAdExchangeBuyerII_CreativeRestrictions : GTLRObject
+
+/**
+ *  The format of the environment that the creatives will be displayed in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_CreativeFormatUnspecified
+ *        A placeholder for an undefined creative format. (Value:
+ *        "CREATIVE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Display
+ *        A creative that will be displayed in environments such as a browser.
+ *        (Value: "DISPLAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Video A
+ *        video creative that will be displayed in environments such as a video
+ *        player. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *creativeFormat;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CreativeSpecification *> *creativeSpecifications;
+
+/**
+ *  Skippable video ads allow viewers to skip ads after 5 seconds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_InstreamSelect
+ *        This video ad can be skipped after 5 seconds, and is counted as
+ *        engaged view after 30 seconds. The creative is hosted on
+ *        YouTube only, and viewcount of the YouTube video increments
+ *        after the engaged view. (Value: "INSTREAM_SELECT")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_NotSkippable
+ *        This video ad is not skippable. (Value: "NOT_SKIPPABLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_Skippable
+ *        This video ad can be skipped after 5 seconds. (Value: "SKIPPABLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_SkippableAdTypeUnspecified
+ *        A placeholder for an undefined skippable ad type. (Value:
+ *        "SKIPPABLE_AD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *skippableAdType;
+
+@end
+
+
+/**
+ *  Specifies the size of the creative.
+ */
+@interface GTLRAdExchangeBuyerII_CreativeSize : GTLRObject
+
+/**
+ *  What formats are allowed by the publisher.
+ *  If this repeated field is empty then all formats are allowed.
+ *  For example, if this field contains AllowedFormatType.AUDIO then the
+ *  publisher only allows an audio ad (without any video).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFormats;
+
+/**
+ *  For video creatives specifies the sizes of companion ads (if present).
+ *  Companion sizes may be filled in only when creative_size_type = VIDEO
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Size *> *companionSizes;
+
+/**
+ *  The creative size type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_CreativeSizeTypeUnspecified
+ *        A placeholder for an undefined creative size type. (Value:
+ *        "CREATIVE_SIZE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Interstitial
+ *        The creative is an interstitial creative. (Value: "INTERSTITIAL")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Native The
+ *        creative is a native (mobile) creative. (Value: "NATIVE")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Regular The
+ *        creative is a regular desktop creative. (Value: "REGULAR")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Video The
+ *        creative is a video creative. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *creativeSizeType;
+
+/**
+ *  The native template for this creative. It will have a value only if
+ *  creative_size_type = CreativeSizeType.NATIVE.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeAppInstallAd
+ *        The creative is linked to native app install ad. (Value:
+ *        "NATIVE_APP_INSTALL_AD")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeContentAd
+ *        The creative is linked to native content ad. (Value:
+ *        "NATIVE_CONTENT_AD")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoAppInstallAd
+ *        The creative is linked to native video app install ad. (Value:
+ *        "NATIVE_VIDEO_APP_INSTALL_AD")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoContentAd
+ *        The creative is linked to native video content ad. (Value:
+ *        "NATIVE_VIDEO_CONTENT_AD")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_UnknownNativeTemplate
+ *        A placeholder for an undefined native template. (Value:
+ *        "UNKNOWN_NATIVE_TEMPLATE")
+ */
+@property(nonatomic, copy, nullable) NSString *nativeTemplate;
+
+/**
+ *  For regular or video creative size type, specifies the size
+ *  of the creative
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Size *size;
+
+/**
+ *  The type of skippable ad for this creative. It will have a value only if
+ *  creative_size_type = CreativeSizeType.VIDEO.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic This
+ *        video ad can be skipped after 5 seconds. (Value: "GENERIC")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_InstreamSelect
+ *        This video ad can be skipped after 5 seconds, and count as
+ *        engaged view after 30 seconds. The creative is hosted on
+ *        YouTube only, and viewcount of the YouTube video increments
+ *        after the engaged view. (Value: "INSTREAM_SELECT")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_NotSkippable
+ *        This video ad is not skippable. (Value: "NOT_SKIPPABLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_SkippableAdTypeUnspecified
+ *        A placeholder for an undefined skippable ad type. (Value:
+ *        "SKIPPABLE_AD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *skippableAdType;
+
+@end
+
+
+/**
+ *  Represents information for a creative that is associated with a Programmatic
+ *  Guaranteed/Preferred Deal in Ad Manager.
+ */
+@interface GTLRAdExchangeBuyerII_CreativeSpecification : GTLRObject
+
+/** Companion sizes may be filled in only when this is a video creative. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_AdSize *> *creativeCompanionSizes;
+
+/** The size of the creative. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_AdSize *creativeSize;
+
+@end
+
+
+/**
  *  The number of bids with the specified dimension values that did not win the
  *  auction (either were filtered pre-auction or lost the auction), as described
  *  by the specified creative status.
@@ -1929,7 +2934,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /**
  *  The ID of the creative status.
  *  See
- *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *  [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1942,28 +2947,55 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  Represents a whole calendar date, for example date of birth. The time of day
+ *  Generic targeting used for targeting dimensions that contains a list of
+ *  included and excluded numeric IDs.
+ */
+@interface GTLRAdExchangeBuyerII_CriteriaTargeting : GTLRObject
+
+/**
+ *  A list of numeric IDs to be excluded.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedCriteriaIds;
+
+/**
+ *  A list of numeric IDs to be included.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *targetedCriteriaIds;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, e.g. a birthday. The time of
+ *  day
  *  and time zone are either specified elsewhere or are not significant. The
  *  date
- *  is relative to the Proleptic Gregorian Calendar. The day can be 0 to
- *  represent a year and month where the day is not significant, for example
- *  credit card expiration date. The year can be 0 to represent a month and day
- *  independent of year, for example anniversary date. Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  is relative to the Proleptic Gregorian Calendar. This can represent:
+ *  * A full date, with non-zero year, month and day values
+ *  * A month and day value, with a zero year, e.g. an anniversary
+ *  * A year on its own, with zero month and day values
+ *  * A year and month value, with a zero day, e.g. a credit card expiration
+ *  date
+ *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRAdExchangeBuyerII_Date : GTLRObject
 
 /**
  *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year/month where the day is not significant.
+ *  if specifying a year by itself or a year and month where the day is not
+ *  significant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a date without a
- *  month.
+ *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  month and day.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1976,6 +3008,463 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Daypart targeting message that specifies if the ad can be shown
+ *  only during certain parts of a day/week.
+ */
+@interface GTLRAdExchangeBuyerII_DayPart : GTLRObject
+
+/**
+ *  The day of the week to target. If unspecified, applicable to all days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_DayOfWeekUnspecified A
+ *        placeholder for when the day of the week is not specified. (Value:
+ *        "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Friday Friday (Value:
+ *        "FRIDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Monday Monday (Value:
+ *        "MONDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Saturday Saturday (Value:
+ *        "SATURDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Sunday Sunday (Value:
+ *        "SUNDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Thursday Thursday (Value:
+ *        "THURSDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Tuesday Tuesday (Value:
+ *        "TUESDAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *dayOfWeek;
+
+/**
+ *  The ending time of the day for the ad to show (minute level granularity).
+ *  The end time is exclusive.
+ *  This field is not available for filtering in PQL queries.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TimeOfDay *endTime;
+
+/**
+ *  The starting time of day for the ad to show (minute level granularity).
+ *  The start time is inclusive.
+ *  This field is not available for filtering in PQL queries.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TimeOfDay *startTime;
+
+@end
+
+
+/**
+ *  Specifies the day part targeting criteria.
+ */
+@interface GTLRAdExchangeBuyerII_DayPartTargeting : GTLRObject
+
+/** A list of day part targeting criterion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_DayPart *> *dayParts;
+
+/**
+ *  The timezone to use for interpreting the day part targeting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_Publisher Use
+ *        publisher's time zone setting. (Value: "PUBLISHER")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_TimeZoneSourceUnspecified
+ *        A placeholder for an undefined time zone source. (Value:
+ *        "TIME_ZONE_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_User Use the
+ *        user's time zone setting. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *timeZoneType;
+
+@end
+
+
+/**
+ *  A deal represents a segment of inventory for displaying ads on.
+ *  A proposal can contain multiple deals. A deal contains the terms and
+ *  targeting information that
+ *  is used for serving.
+ */
+@interface GTLRAdExchangeBuyerII_Deal : GTLRObject
+
+/**
+ *  Proposed flight end time of the deal.
+ *  This will generally be stored in a granularity of a second.
+ *  A value is not required for Private Auction deals or Preferred Deals.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *availableEndTime;
+
+/**
+ *  Optional proposed flight start time of the deal.
+ *  This will generally be stored in the granularity of one second since deal
+ *  serving
+ *  starts at seconds boundary. Any time specified with more granularity
+ *  (e.g., in milliseconds) will be truncated towards the start of time in
+ *  seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *availableStartTime;
+
+/** Buyer private data (hidden from seller). */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PrivateData *buyerPrivateData;
+
+/**
+ *  The product ID from which this deal was created.
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ */
+@property(nonatomic, copy, nullable) NSString *createProductId;
+
+/**
+ *  Optional revision number of the product that the deal was created from.
+ *  If present on create, and the server `product_revision` has advanced sinced
+ *  the passed-in `create_product_revision`, an `ABORTED` error will be
+ *  returned.
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createProductRevision;
+
+/**
+ *  The time of the deal creation.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Specifies the creative pre-approval policy.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified
+ *        A placeholder for an undefined creative pre-approval policy. (Value:
+ *        "CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalNotRequired
+ *        The seller does not need to approve each creative before it can serve.
+ *        (Value: "SELLER_PRE_APPROVAL_NOT_REQUIRED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalRequired
+ *        The seller needs to approve each creative before it can serve. (Value:
+ *        "SELLER_PRE_APPROVAL_REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *creativePreApprovalPolicy;
+
+/**
+ *  Restricitions about the creatives associated with the deal (i.e., size)
+ *  This is available for Programmatic Guaranteed/Preferred Deals in Ad Manager.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeRestrictions *creativeRestrictions;
+
+/**
+ *  Specifies whether the creative is safeFrame compatible.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Compatible
+ *        The creatives need to be compatible with the safe frame option.
+ *        (Value: "COMPATIBLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_CreativeSafeFrameCompatibilityUnspecified
+ *        A placeholder for an undefined creative safe-frame compatibility.
+ *        (Value: "CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Incompatible
+ *        The creatives can be incompatible with the safe frame option. (Value:
+ *        "INCOMPATIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *creativeSafeFrameCompatibility;
+
+/**
+ *  A unique deal ID for the deal (server-assigned).
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *dealId;
+
+/**
+ *  Metadata about the serving status of this deal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealServingMetadata *dealServingMetadata;
+
+/** The negotiable terms of the deal. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealTerms *dealTerms;
+
+/**
+ *  The set of fields around delivery control that are interesting for a buyer
+ *  to see but are non-negotiable. These are set by the publisher.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DeliveryControl *deliveryControl;
+
+/**
+ *  Description for the deal terms.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The name of the deal. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The external deal ID assigned to this deal once the deal is finalized.
+ *  This is the deal ID that shows up in serving/reporting etc.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *externalDealId;
+
+/**
+ *  True, if the buyside inventory setup is complete for this deal.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
+
+/**
+ *  Specifies the creative source for programmatic deals. PUBLISHER means
+ *  creative is provided by seller and ADVERTISER means creative is
+ *  provided by buyer.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser
+ *        The advertiser provides the creatives. (Value: "ADVERTISER")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_ProgrammaticCreativeSourceUnspecified
+ *        A placeholder for an undefined programmatic creative source. (Value:
+ *        "PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Publisher
+ *        The publisher provides the creatives to be served. (Value:
+ *        "PUBLISHER")
+ */
+@property(nonatomic, copy, nullable) NSString *programmaticCreativeSource;
+
+/**
+ *  ID of the proposal that this deal is part of.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Seller contact information for the deal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
+
+/**
+ *  The syndication product associated with the deal.
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Content This
+ *        typically represents a web page. (Value: "CONTENT")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Games This
+ *        represents ads shown within games. (Value: "GAMES")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Mobile This
+ *        represents a mobile property. (Value: "MOBILE")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_SyndicationProductUnspecified
+ *        A placeholder for an undefined syndication product. (Value:
+ *        "SYNDICATION_PRODUCT_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Video This
+ *        represents video ad formats. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *syndicationProduct;
+
+/**
+ *  Specifies the subset of inventory targeted by the deal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MarketplaceTargeting *targeting;
+
+/**
+ *  The shared targeting visible to buyers and sellers. Each shared
+ *  targeting entity is AND'd together.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingCriteria *> *targetingCriterion;
+
+/**
+ *  The time when the deal was last updated.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The web property code for the seller copied over from the product. */
+@property(nonatomic, copy, nullable) NSString *webPropertyCode;
+
+@end
+
+
+/**
+ *  Tracks which parties (if any) have paused a deal.
+ *  The deal is considered paused if either hasBuyerPaused or
+ *  hasSellPaused is true.
+ */
+@interface GTLRAdExchangeBuyerII_DealPauseStatus : GTLRObject
+
+/** The buyer's reason for pausing, if the buyer paused the deal. */
+@property(nonatomic, copy, nullable) NSString *buyerPauseReason;
+
+/**
+ *  The role of the person who first paused this deal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Buyer
+ *        Specifies the role as buyer. (Value: "BUYER")
+ *    @arg @c kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_BuyerSellerRoleUnspecified
+ *        A placeholder for an undefined buyer/seller role. (Value:
+ *        "BUYER_SELLER_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Seller
+ *        Specifies the role as seller. (Value: "SELLER")
+ */
+@property(nonatomic, copy, nullable) NSString *firstPausedBy;
+
+/**
+ *  True, if the buyer has paused the deal unilaterally.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasBuyerPaused;
+
+/**
+ *  True, if the seller has paused the deal unilaterally.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasSellerPaused;
+
+/** The seller's reason for pausing, if the seller paused the deal. */
+@property(nonatomic, copy, nullable) NSString *sellerPauseReason;
+
+@end
+
+
+/**
+ *  Message captures metadata about the serving status of a deal.
+ */
+@interface GTLRAdExchangeBuyerII_DealServingMetadata : GTLRObject
+
+/**
+ *  Tracks which parties (if any) have paused a deal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealPauseStatus *dealPauseStatus;
+
+@end
+
+
+/**
+ *  The deal terms specify the details of a Product/deal. They specify things
+ *  like price per buyer, the type of pricing model (e.g., fixed price, auction)
+ *  and expected impressions from the publisher.
+ */
+@interface GTLRAdExchangeBuyerII_DealTerms : GTLRObject
+
+/**
+ *  Visibility of the URL in bid requests. (default: BRANDED)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DealTerms_BrandingType_Branded Full URL is
+ *        included in bid requests. (Value: "BRANDED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DealTerms_BrandingType_BrandingTypeUnspecified
+ *        A placeholder for an undefined branding type. (Value:
+ *        "BRANDING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiTransparent A
+ *        TopLevelDomain or masked URL is sent in bid requests
+ *        rather than the full one. (Value: "SEMI_TRANSPARENT")
+ */
+@property(nonatomic, copy, nullable) NSString *brandingType;
+
+/**
+ *  Publisher provided description for the terms.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Non-binding estimate of the estimated gross spend for this deal.
+ *  Can be set by buyer or seller.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Price *estimatedGrossSpend;
+
+/**
+ *  Non-binding estimate of the impressions served per day.
+ *  Can be set by buyer or seller.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedImpressionsPerDay;
+
+/** The terms for guaranteed fixed price deals. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms *guaranteedFixedPriceTerms;
+
+/** The terms for non-guaranteed auction deals. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_NonGuaranteedAuctionTerms *nonGuaranteedAuctionTerms;
+
+/** The terms for non-guaranteed fixed price deals. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_NonGuaranteedFixedPriceTerms *nonGuaranteedFixedPriceTerms;
+
+/**
+ *  The time zone name. For deals with Cost Per Day billing, defines the
+ *  time zone used to mark the boundaries of a day. It should be an
+ *  IANA TZ name, such as "America/Los_Angeles". For more information,
+ *  see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
+ */
+@property(nonatomic, copy, nullable) NSString *sellerTimeZone;
+
+@end
+
+
+/**
+ *  Message contains details about how the deals will be paced.
+ */
+@interface GTLRAdExchangeBuyerII_DeliveryControl : GTLRObject
+
+/**
+ *  Specified the creative blocking levels to be applied.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_AdxPolicyBlockingOnly
+ *        The Ad Exchange policy blocking rules will be applied. (Value:
+ *        "ADX_POLICY_BLOCKING_ONLY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_CreativeBlockingLevelUnspecified
+ *        A placeholder for an undefined creative blocking level. (Value:
+ *        "CREATIVE_BLOCKING_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_PublisherBlockingRules
+ *        Publisher blocking rules will be applied. (Value:
+ *        "PUBLISHER_BLOCKING_RULES")
+ */
+@property(nonatomic, copy, nullable) NSString *creativeBlockingLevel;
+
+/**
+ *  Specifies how the impression delivery will be paced.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_AsFastAsPossible
+ *        Impressions are served as fast as possible. (Value:
+ *        "AS_FAST_AS_POSSIBLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_DeliveryRateTypeUnspecified
+ *        A placeholder for an undefined delivery rate type. (Value:
+ *        "DELIVERY_RATE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_Evenly
+ *        Impressions are served uniformly over the life of the deal. (Value:
+ *        "EVENLY")
+ *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_FrontLoaded
+ *        Impressions are served front-loaded. (Value: "FRONT_LOADED")
+ */
+@property(nonatomic, copy, nullable) NSString *deliveryRateType;
+
+/**
+ *  Specifies any frequency caps.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FrequencyCap *> *frequencyCaps;
 
 @end
 
@@ -2006,6 +3495,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        "AUTOMATED_AD_CLICKING")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval
  *        Bad URL: Legal disapproval. (Value: "BAD_URL_LEGAL_DISAPPROVAL")
+ *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BailBonds Promotes
+ *        services related to bail bonds. (Value: "BAIL_BONDS")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BlankCreative The ad
  *        serves a blank. (Value: "BLANK_CREATIVE")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BrokenUrl The click
@@ -2347,9 +3838,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  A set of filters that is applied to a request for data.
  *  Within a filter set, an AND operation is performed across the filters
  *  represented by each field. An OR operation is performed across the filters
- *  represented by the multiple values of a repeated field. E.g.
+ *  represented by the multiple values of a repeated field, e.g.,
  *  "format=VIDEO AND deal_id=12 AND (seller_network_id=34 OR
- *  seller_network_id=56)"
+ *  seller_network_id=56)".
  */
 @interface GTLRAdExchangeBuyerII_FilterSet : GTLRObject
 
@@ -2362,7 +3853,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /**
  *  The ID of the creative on which to filter; optional. This field may be set
  *  only for a filter set that accesses account-level troubleshooting data,
- *  i.e. one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  i.e., one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
  *  pattern.
  */
 @property(nonatomic, copy, nullable) NSString *creativeId;
@@ -2370,7 +3861,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /**
  *  The ID of the deal on which to filter; optional. This field may be set
  *  only for a filter set that accesses account-level troubleshooting data,
- *  i.e. one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  i.e., one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
  *  pattern.
  *
  *  Uses NSNumber of longLongValue.
@@ -2394,7 +3885,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  The list of formats on which to filter; may be empty. The filters
- *  represented by multiple formats are ORed together (i.e. if non-empty,
+ *  represented by multiple formats are ORed together (i.e., if non-empty,
  *  results must match any one of the formats).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *formats;
@@ -2412,13 +3903,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  The list of platforms on which to filter; may be empty. The filters
- *  represented by multiple platforms are ORed together (i.e. if non-empty,
+ *  represented by multiple platforms are ORed together (i.e., if non-empty,
  *  results must match any one of the platforms).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *platforms;
 
 /**
- *  For Exchange Bidding buyers only.
+ *  For Open Bidding partners only.
  *  The list of publisher identifiers on which to filter; may be empty.
  *  The filters represented by multiple publisher identifiers are ORed
  *  together.
@@ -2438,13 +3929,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RelativeDateRange *relativeDateRange;
 
 /**
- *  For Ad Exchange buyers only.
+ *  For Authorized Buyers only.
  *  The list of IDs of the seller (publisher) networks on which to filter;
  *  may be empty. The filters represented by multiple seller network IDs are
- *  ORed together (i.e. if non-empty, results must match any one of the
- *  publisher networks).
- *  See
- *  [seller-network-ids](https://developers.google.com/ad-exchange/rtb/downloads/seller-network-ids)
+ *  ORed together (i.e., if non-empty, results must match any one of the
+ *  publisher networks). See
+ *  [seller-network-ids](https://developers.google.com/authorized-buyers/rtb/downloads/seller-network-ids)
  *  file for the set of existing seller network IDs.
  *
  *  Uses NSNumber of intValue.
@@ -2466,6 +3956,107 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        range. (Value: "TIME_SERIES_GRANULARITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *timeSeriesGranularity;
+
+@end
+
+
+/**
+ *  Represents a list of targeted and excluded mobile application IDs that
+ *  publishers own.
+ *  Mobile application IDs are from App Store and Google Play Store.
+ *  Android App ID, for example, com.google.android.apps.maps, can be found in
+ *  Google Play Store URL.
+ *  iOS App ID (which is a number) can be found at the end of iTunes store URL.
+ *  First party mobile applications is either included or excluded.
+ */
+@interface GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting : GTLRObject
+
+/** A list of application IDs to be excluded. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedAppIds;
+
+/** A list of application IDs to be included. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetedAppIds;
+
+@end
+
+
+/**
+ *  Frequency cap.
+ */
+@interface GTLRAdExchangeBuyerII_FrequencyCap : GTLRObject
+
+/**
+ *  The maximum number of impressions that can be served to a user within the
+ *  specified time period.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxImpressions;
+
+/**
+ *  The amount of time, in the units specified by time_unit_type. Defines the
+ *  amount of time over which impressions per user are counted and capped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTimeUnits;
+
+/**
+ *  The time unit. Along with num_time_units defines the amount of time over
+ *  which impressions per user are counted and capped.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Day Day (Value:
+ *        "DAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour Hour (Value:
+ *        "HOUR")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime Lifetime
+ *        (Value: "LIFETIME")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute Minute
+ *        (Value: "MINUTE")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month Month
+ *        (Value: "MONTH")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified
+ *        A placeholder for an undefined time unit type. This just indicates the
+ *        variable with this value hasn't been initialized. (Value:
+ *        "TIME_UNIT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week Week (Value:
+ *        "WEEK")
+ */
+@property(nonatomic, copy, nullable) NSString *timeUnitType;
+
+@end
+
+
+/**
+ *  Terms for Programmatic Guaranteed Deals.
+ */
+@interface GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms : GTLRObject
+
+/** Fixed price for the specified buyer. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_PricePerBuyer *> *fixedPrices;
+
+/**
+ *  Guaranteed impressions as a percentage. This is the percentage
+ *  of guaranteed looks that the buyer is guaranteeing to buy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guaranteedImpressions;
+
+/**
+ *  Count of guaranteed looks. Required for deal, optional for product.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guaranteedLooks;
+
+/**
+ *  Daily minimum looks for CPD deal types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumDailyLooks;
 
 @end
 
@@ -2559,6 +4150,23 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  to Ad Exchange.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *successfulResponses;
+
+@end
+
+
+/**
+ *  Represents the size of an ad unit that can be targeted on an ad
+ *  request. It only applies to Private Auction, AdX Preferred Deals and
+ *  Auction Packages. This targeting does not apply to Programmatic Guaranteed
+ *  and Preferred Deals in Ad Manager.
+ */
+@interface GTLRAdExchangeBuyerII_InventorySizeTargeting : GTLRObject
+
+/** A list of inventory sizes to be excluded. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_AdSize *> *excludedInventorySizes;
+
+/** A list of inventory sizes to be included. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_AdSize *> *targetedInventorySizes;
 
 @end
 
@@ -2680,8 +4288,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Pass this value in the
  *  ListClientsRequest.pageToken
  *  field in the subsequent call to the
- *  accounts.clients.list method
- *  to retrieve the next page of results.
+ *  accounts.clients.list
+ *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2832,7 +4440,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute
  *        Indicates that the detail ID refers to a creative attribute; see
- *        [publisher-excludable-creative-attributes](https://developers.google.com/ad-exchange/rtb/downloads/publisher-excludable-creative-attributes).
+ *        [publisher-excludable-creative-attributes](https://developers.google.com/authorized-buyers/rtb/downloads/publisher-excludable-creative-attributes).
  *        (Value: "CREATIVE_ATTRIBUTE")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified
  *        A placeholder for an undefined status.
@@ -2841,19 +4449,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason
  *        Indicates that the detail ID refers to a disapproval reason; see
  *        DisapprovalReason enum in
- *        [snippet-status-report-proto](https://developers.google.com/ad-exchange/rtb/downloads/snippet-status-report-proto).
+ *        [snippet-status-report-proto](https://developers.google.com/authorized-buyers/rtb/downloads/snippet-status-report-proto).
  *        (Value: "DISAPPROVAL_REASON")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory
  *        Indicates that the detail ID refers to a product category; see
- *        [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
+ *        [ad-product-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-product-categories).
  *        (Value: "PRODUCT_CATEGORY")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory
  *        Indicates that the detail ID refers to a sensitive category; see
- *        [ad-sensitive-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-sensitive-categories).
+ *        [ad-sensitive-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-sensitive-categories).
  *        (Value: "SENSITIVE_CATEGORY")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor
  *        Indicates that the detail ID refers to a vendor; see
- *        [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
+ *        [vendors](https://developers.google.com/authorized-buyers/rtb/downloads/vendors).
  *        (Value: "VENDOR")
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
@@ -3099,6 +4707,78 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Response message for listing products visible to the buyer.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "products" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAdExchangeBuyerII_ListProductsResponse : GTLRCollectionObject
+
+/** List pagination support. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of matching products at their head revision number.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Product *> *products;
+
+@end
+
+
+/**
+ *  Response message for listing proposals.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "proposals" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAdExchangeBuyerII_ListProposalsResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of proposals.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Proposal *> *proposals;
+
+@end
+
+
+/**
+ *  Response message for profiles visible to the buyer.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "publisherProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAdExchangeBuyerII_ListPublisherProfilesResponse : GTLRCollectionObject
+
+/** List pagination support */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of matching publisher profiles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_PublisherProfile *> *publisherProfiles;
+
+@end
+
+
+/**
  *  \@OutputOnly The Geo criteria the restriction applies to.
  */
 @interface GTLRAdExchangeBuyerII_LocationContext : GTLRObject
@@ -3112,6 +4792,36 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *geoCriteriaIds;
+
+@end
+
+
+/**
+ *  Targeting represents different criteria that can be used by advertisers to
+ *  target ad inventory. For example, they can choose to target ad requests only
+ *  if the user is in the US.
+ *  Multiple types of targeting are always applied as a logical AND, unless
+ *  noted
+ *  otherwise.
+ */
+@interface GTLRAdExchangeBuyerII_MarketplaceTargeting : GTLRObject
+
+/** Geo criteria IDs to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CriteriaTargeting *geoTargeting;
+
+/** Inventory sizes to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_InventorySizeTargeting *inventorySizeTargeting;
+
+/** Placement targeting information, e.g., URL, mobile applications. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PlacementTargeting *placementTargeting;
+
+/**
+ *  Technology targeting information, e.g., operating system, device category.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TechnologyTargeting *technologyTargeting;
+
+/** Video targeting information. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_VideoTargeting *videoTargeting;
 
 @end
 
@@ -3141,6 +4851,51 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *variance;
+
+@end
+
+
+/**
+ *  Mobile application targeting settings.
+ */
+@interface GTLRAdExchangeBuyerII_MobileApplicationTargeting : GTLRObject
+
+/**
+ *  Publisher owned apps to be targeted or excluded by the publisher to
+ *  display the ads in.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting *firstPartyTargeting;
+
+@end
+
+
+/**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRAdExchangeBuyerII_Money : GTLRObject
+
+/** The 3-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount.
+ *  The value must be between -999,999,999 and +999,999,999 inclusive.
+ *  If `units` is positive, `nanos` must be positive or zero.
+ *  If `units` is zero, `nanos` can be positive, zero, or negative.
+ *  If `units` is negative, `nanos` must be negative or zero.
+ *  For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount.
+ *  For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 
@@ -3231,12 +4986,565 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Terms for Private Auctions. Note that Private Auctions can be created only
+ *  by the seller, but they can be returned in a get or list request.
+ */
+@interface GTLRAdExchangeBuyerII_NonGuaranteedAuctionTerms : GTLRObject
+
+/**
+ *  True if open auction buyers are allowed to compete with invited buyers
+ *  in this private auction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoOptimizePrivateAuction;
+
+/** Reserve price for the specified buyer. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_PricePerBuyer *> *reservePricesPerBuyer;
+
+@end
+
+
+/**
+ *  Terms for Preferred Deals. Note that Preferred Deals cannot be created via
+ *  the API at this time, but can be returned in a get or list request.
+ */
+@interface GTLRAdExchangeBuyerII_NonGuaranteedFixedPriceTerms : GTLRObject
+
+/** Fixed price for the specified buyer. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_PricePerBuyer *> *fixedPrices;
+
+@end
+
+
+/**
+ *  A proposal may be associated to several notes.
+ */
+@interface GTLRAdExchangeBuyerII_Note : GTLRObject
+
+/**
+ *  The timestamp for when this note was created.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The role of the person (buyer/seller) creating the note.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Note_CreatorRole_Buyer Specifies the role
+ *        as buyer. (Value: "BUYER")
+ *    @arg @c kGTLRAdExchangeBuyerII_Note_CreatorRole_BuyerSellerRoleUnspecified
+ *        A placeholder for an undefined buyer/seller role. (Value:
+ *        "BUYER_SELLER_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Note_CreatorRole_Seller Specifies the role
+ *        as seller. (Value: "SELLER")
+ */
+@property(nonatomic, copy, nullable) NSString *creatorRole;
+
+/**
+ *  The actual note to attach.
+ *  (max-length: 1024 unicode code units)
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ */
+@property(nonatomic, copy, nullable) NSString *note;
+
+/**
+ *  The unique ID for the note.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *noteId;
+
+/**
+ *  The revision number of the proposal when the note is created.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proposalRevision;
+
+@end
+
+
+/**
+ *  Represents targeting information for operating systems.
+ */
+@interface GTLRAdExchangeBuyerII_OperatingSystemTargeting : GTLRObject
+
+/** IDs of operating systems to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CriteriaTargeting *operatingSystemCriteria;
+
+/** IDs of operating system versions to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CriteriaTargeting *operatingSystemVersionCriteria;
+
+@end
+
+
+/**
+ *  Request message to pause serving for an already-finalized proposal.
+ */
+@interface GTLRAdExchangeBuyerII_PauseProposalRequest : GTLRObject
+
+/**
+ *  The reason why the proposal is being paused.
+ *  This human readable message will be displayed in the seller's UI.
+ *  (Max length: 100 unicode code units.)
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Represents targeting about where the ads can appear, e.g., certain sites or
+ *  mobile applications.
+ *  Different placement targeting types will be logically OR'ed.
+ */
+@interface GTLRAdExchangeBuyerII_PlacementTargeting : GTLRObject
+
+/**
+ *  Mobile application targeting information in a deal.
+ *  This doesn't apply to Auction Packages.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MobileApplicationTargeting *mobileApplicationTargeting;
+
+/** URLs to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_UrlTargeting *urlTargeting;
+
+@end
+
+
+/**
  *  \@OutputOnly The type of platform the restriction applies to.
  */
 @interface GTLRAdExchangeBuyerII_PlatformContext : GTLRObject
 
 /** The platforms this restriction applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *platforms;
+
+@end
+
+
+/**
+ *  Represents a price and a pricing type for a product / deal.
+ */
+@interface GTLRAdExchangeBuyerII_Price : GTLRObject
+
+/** The actual price with currency specified. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Money *amount;
+
+/**
+ *  The pricing type for the deal/product. (default: CPM)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Price_PricingType_CostPerDay Cost per day
+ *        (Value: "COST_PER_DAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_Price_PricingType_CostPerMille Cost per
+ *        thousand impressions. (Value: "COST_PER_MILLE")
+ *    @arg @c kGTLRAdExchangeBuyerII_Price_PricingType_PricingTypeUnspecified A
+ *        placeholder for an undefined pricing type. If the pricing type is
+ *        unpsecified, `COST_PER_MILLE` will be used instead. (Value:
+ *        "PRICING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pricingType;
+
+@end
+
+
+/**
+ *  Used to specify pricing rules for buyers/advertisers. Each PricePerBuyer in
+ *  a product can become 0 or 1 deals. To check if there is a PricePerBuyer for
+ *  a particular buyer or buyer/advertiser pair, we look for the most specific
+ *  matching rule - we first look for a rule matching the buyer and advertiser,
+ *  next a rule with the buyer but an empty advertiser list, and otherwise look
+ *  for a matching rule where no buyer is set.
+ */
+@interface GTLRAdExchangeBuyerII_PricePerBuyer : GTLRObject
+
+/**
+ *  The list of advertisers for this price when associated with this buyer.
+ *  If empty, all advertisers with this buyer pay this price.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advertiserIds;
+
+/**
+ *  The buyer who will pay this price. If unset, all buyers can pay this price
+ *  (if the
+ *  advertisers match, and there's no more specific rule matching the buyer).
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *buyer;
+
+/** The specified price. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Price *price;
+
+@end
+
+
+/**
+ *  Buyers are allowed to store certain types of private data in a
+ *  proposal/deal.
+ */
+@interface GTLRAdExchangeBuyerII_PrivateData : GTLRObject
+
+/**
+ *  A buyer or seller specified reference ID. This can be queried in the list
+ *  operations (max-length: 1024 unicode code units).
+ */
+@property(nonatomic, copy, nullable) NSString *referenceId;
+
+@end
+
+
+/**
+ *  Note: this resource requires whitelisting for access. Please contact your
+ *  account manager for access to Marketplace resources.
+ *  A product is a segment of inventory that a seller wishes to sell. It is
+ *  associated with certain terms and targeting information which helps the
+ *  buyer
+ *  know more about the inventory.
+ */
+@interface GTLRAdExchangeBuyerII_Product : GTLRObject
+
+/**
+ *  The proposed end time for the deal. The field will be truncated to the order
+ *  of
+ *  seconds during serving.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *availableEndTime;
+
+/**
+ *  Inventory availability dates. The start time will be truncated to seconds
+ *  during serving.
+ *  Thus, a field specified as 3:23:34.456 (HH:mm:ss.SSS) will be truncated to
+ *  3:23:34
+ *  when serving.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *availableStartTime;
+
+/** Creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional contact information for the creator of this product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *creatorContacts;
+
+/** The display name for this product as set by the seller. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  If the creator has already signed off on the product, then the buyer can
+ *  finalize the deal by accepting the product as is. When copying to a
+ *  proposal, if any of the terms are changed, then auto_finalize is
+ *  automatically set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasCreatorSignedOff;
+
+/** The unique ID for the product. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The revision number of the product (auto-assigned by Marketplace).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *productRevision;
+
+/**
+ *  An ID which can be used by the Publisher Profile API to get more
+ *  information about the seller that created this product.
+ */
+@property(nonatomic, copy, nullable) NSString *publisherProfileId;
+
+/** Information about the seller that created this product. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
+
+/**
+ *  The syndication product associated with the deal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Content This
+ *        typically represents a web page. (Value: "CONTENT")
+ *    @arg @c kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Games This
+ *        represents ads shown within games. (Value: "GAMES")
+ *    @arg @c kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Mobile This
+ *        represents a mobile property. (Value: "MOBILE")
+ *    @arg @c kGTLRAdExchangeBuyerII_Product_SyndicationProduct_SyndicationProductUnspecified
+ *        A placeholder for an undefined syndication product. (Value:
+ *        "SYNDICATION_PRODUCT_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Video This
+ *        represents video ad formats. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *syndicationProduct;
+
+/**
+ *  Targeting that is shared between the buyer and the seller. Each targeting
+ *  criterion has a specified key and for each key there is a list of inclusion
+ *  value or exclusion values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingCriteria *> *targetingCriterion;
+
+/** The negotiable terms of the deal. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealTerms *terms;
+
+/** Time of last update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The web-property code for the seller. This needs to be copied as is when
+ *  adding a new deal to a proposal.
+ */
+@property(nonatomic, copy, nullable) NSString *webPropertyCode;
+
+@end
+
+
+/**
+ *  Note: this resource requires whitelisting for access. Please contact your
+ *  account manager for access to Marketplace resources.
+ *  Represents a proposal in the Marketplace. A proposal is the unit of
+ *  negotiation between a seller and a buyer and contains deals which
+ *  are served.
+ *  Note: you can not update, create, or otherwise modify Private
+ *  Auction or Preferred Deals deals through the API.
+ *  Fields are updatable unless noted otherwise.
+ */
+@interface GTLRAdExchangeBuyerII_Proposal : GTLRObject
+
+/**
+ *  Reference to the buyer that will get billed for this proposal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *billedBuyer;
+
+/**
+ *  Reference to the buyer on the proposal.
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *buyer;
+
+/** Contact information for the buyer. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *buyerContacts;
+
+/** Private data for buyer. (hidden from seller). */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PrivateData *buyerPrivateData;
+
+/**
+ *  The deals associated with this proposal. For Private Auction proposals
+ *  (whose deals have
+ *  NonGuaranteedAuctionTerms), there will only be one deal.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Deal *> *deals;
+
+/** The name for the proposal. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  True if the proposal is being renegotiated.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRenegotiating;
+
+/**
+ *  True, if the buyside inventory setup is complete for this proposal.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
+
+/**
+ *  The role of the last user that either updated the proposal or left a
+ *  comment.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Buyer
+ *        Specifies the role as buyer. (Value: "BUYER")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_BuyerSellerRoleUnspecified
+ *        A placeholder for an undefined buyer/seller role. (Value:
+ *        "BUYER_SELLER_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Seller
+ *        Specifies the role as seller. (Value: "SELLER")
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdaterOrCommentorRole;
+
+/**
+ *  The notes associated with this proposal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Note *> *notes;
+
+/**
+ *  Indicates whether the buyer/seller created the proposal.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Buyer Specifies the
+ *        role as buyer. (Value: "BUYER")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_BuyerSellerRoleUnspecified
+ *        A placeholder for an undefined buyer/seller role. (Value:
+ *        "BUYER_SELLER_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Seller Specifies
+ *        the role as seller. (Value: "SELLER")
+ */
+@property(nonatomic, copy, nullable) NSString *originatorRole;
+
+/**
+ *  Private auction ID if this proposal is a private auction proposal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *privateAuctionId;
+
+/**
+ *  The unique ID of the proposal.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  The revision number for the proposal.
+ *  Each update to the proposal or the deal causes the proposal revision number
+ *  to auto-increment. The buyer keeps track of the last revision number they
+ *  know of and pass it in when making an update. If the head revision number
+ *  on the server has since incremented, then an ABORTED error is returned
+ *  during the update operation to let the buyer know that a subsequent update
+ *  was made.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proposalRevision;
+
+/**
+ *  The current state of the proposal.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_BuyerAccepted The
+ *        proposal has been accepted by the buyer. (Value: "BUYER_ACCEPTED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_Canceled The
+ *        negotiations on the proposal were canceled and the proposal was never
+ *        finalized. (Value: "CANCELED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_Finalized The
+ *        proposal is finalized. During renegotiation, the proposal may
+ *        not be in this state. (Value: "FINALIZED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnspecified
+ *        A placeholder for an undefined proposal state. (Value:
+ *        "PROPOSAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_Proposed The
+ *        proposal is under negotiation or renegotiation. (Value: "PROPOSED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_SellerAccepted The
+ *        proposal has been accepted by the seller. (Value: "SELLER_ACCEPTED")
+ */
+@property(nonatomic, copy, nullable) NSString *proposalState;
+
+/**
+ *  Reference to the seller on the proposal.
+ *  Note: This field may be set only when creating the resource. Modifying
+ *  this field while updating the resource will result in an error.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
+
+/**
+ *  Contact information for the seller.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
+
+/**
+ *  The time when the proposal was last revised.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Note: this resource requires whitelisting for access. Please contact your
+ *  account manager for access to Marketplace resources.
+ *  Represents a publisher profile in Marketplace.
+ *  All fields are read only. All string fields are free-form text entered by
+ *  the publisher
+ *  unless noted otherwise.
+ */
+@interface GTLRAdExchangeBuyerII_PublisherProfile : GTLRObject
+
+/** Description on the publisher's audience. */
+@property(nonatomic, copy, nullable) NSString *audienceDescription;
+
+/**
+ *  Statement explaining what's unique about publisher's business, and why
+ *  buyers should
+ *  partner with the publisher.
+ */
+@property(nonatomic, copy, nullable) NSString *buyerPitchStatement;
+
+/**
+ *  Contact information for direct reservation deals. This is free text entered
+ *  by the publisher
+ *  and may include information like names, phone numbers and email addresses.
+ */
+@property(nonatomic, copy, nullable) NSString *directDealsContact;
+
+/** Name of the publisher profile. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The list of domains represented in this publisher profile. Empty if this is
+ *  a parent profile.
+ *  These are top private domains, meaning that these will not contain a string
+ *  like
+ *  "photos.google.co.uk/123", but will instead contain "google.co.uk".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/** URL to publisher's Google+ page. */
+@property(nonatomic, copy, nullable) NSString *googlePlusUrl;
+
+/**
+ *  A Google public URL to the logo for this publisher profile. The logo is
+ *  stored as
+ *  a PNG, JPG, or GIF image.
+ */
+@property(nonatomic, copy, nullable) NSString *logoUrl;
+
+/** URL to additional marketing and sales materials. */
+@property(nonatomic, copy, nullable) NSString *mediaKitUrl;
+
+/** Overview of the publisher. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+/**
+ *  Contact information for programmatic deals. This is free text entered by the
+ *  publisher
+ *  and may include information like names, phone numbers and email addresses.
+ */
+@property(nonatomic, copy, nullable) NSString *programmaticDealsContact;
+
+/** Unique ID for publisher profile. */
+@property(nonatomic, copy, nullable) NSString *publisherProfileId;
+
+/** URL to a publisher rate card. */
+@property(nonatomic, copy, nullable) NSString *rateCardInfoUrl;
+
+/** URL to a sample content page. */
+@property(nonatomic, copy, nullable) NSString *samplePageUrl;
+
+/** Seller of the publisher profile. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
+
+/**
+ *  Up to three key metrics and rankings. Max 100 characters each.
+ *  For example "#1 Mobile News Site for 20 Straight Months".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topHeadlines;
 
 @end
 
@@ -3281,8 +5589,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  A relative date range, specified by an offset and a duration.
- *  The supported range of dates begins 30 days before today and ends today.
- *  I.e. the limits for these values are:
+ *  The supported range of dates begins 30 days before today and ends today,
+ *  i.e., the limits for these values are:
  *  offset_days >= 0
  *  duration_days >= 1
  *  offset_days + duration_days <= 30
@@ -3290,8 +5598,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @interface GTLRAdExchangeBuyerII_RelativeDateRange : GTLRObject
 
 /**
- *  The number of days in the requested date range. E.g. for a range spanning
- *  today, 1. For a range spanning the last 7 days, 7.
+ *  The number of days in the requested date range, e.g., for a range spanning
+ *  today: 1. For a range spanning the last 7 days: 7.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3299,7 +5607,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /**
  *  The end date of the filter set, specified as the number of days before
- *  today. E.g. for a range where the last date is today, 0.
+ *  today, e.g., for a range where the last date is today: 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3316,6 +5624,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /** The association between a creative and a deal that should be removed. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeDealAssociation *association;
 
+@end
+
+
+/**
+ *  Request message to resume (unpause) serving for an already-finalized
+ *  proposal.
+ */
+@interface GTLRAdExchangeBuyerII_ResumeProposalRequest : GTLRObject
 @end
 
 
@@ -3339,6 +5655,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /** The security types in this context. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *securities;
+
+@end
+
+
+/**
+ *  Represents a seller of inventory. Each seller is identified by a unique
+ *  Ad Manager account ID.
+ */
+@interface GTLRAdExchangeBuyerII_Seller : GTLRObject
+
+/**
+ *  The unique ID for the seller. The seller fills in this field.
+ *  The seller account ID is then available to buyer in the product.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** Optional sub-account ID for the seller. */
+@property(nonatomic, copy, nullable) NSString *subAccountId;
 
 @end
 
@@ -3429,9 +5763,112 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Message depicting the size of the creative. The units of width and
+ *  height depend on the type of the targeting.
+ */
+@interface GTLRAdExchangeBuyerII_Size : GTLRObject
+
+/**
+ *  The height of the creative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/**
+ *  The width of the creative
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
  *  A request for stopping notifications for changes to creative Status.
  */
 @interface GTLRAdExchangeBuyerII_StopWatchingCreativeRequest : GTLRObject
+@end
+
+
+/**
+ *  Advertisers can target different attributes of an ad slot. For example,
+ *  they can choose to show ads only if the user is in the U.S. Such
+ *  targeting criteria can be specified as part of Shared Targeting.
+ */
+@interface GTLRAdExchangeBuyerII_TargetingCriteria : GTLRObject
+
+/**
+ *  The list of values to exclude from targeting. Each value is AND'd
+ *  together.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingValue *> *exclusions;
+
+/**
+ *  The list of value to include as part of the targeting. Each value is OR'd
+ *  together.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingValue *> *inclusions;
+
+/**
+ *  The key representing the shared targeting criterion.
+ *  Targeting criteria defined by Google ad servers will begin with GOOG_.
+ *  Third parties may define their own keys.
+ *  A list of permissible keys along with the acceptable values will be
+ *  provided as part of the external documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  A polymorphic targeting value used as part of Shared Targeting.
+ */
+@interface GTLRAdExchangeBuyerII_TargetingValue : GTLRObject
+
+/**
+ *  The creative size value to include/exclude.
+ *  Filled in when key = GOOG_CREATIVE_SIZE
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeSize *creativeSizeValue;
+
+/**
+ *  The daypart targeting to include / exclude.
+ *  Filled in when the key is GOOG_DAYPART_TARGETING.
+ *  The definition of this targeting is derived from the structure
+ *  used by Ad Manager.
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DayPartTargeting *dayPartTargetingValue;
+
+/**
+ *  The long value to include/exclude.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longValue;
+
+/** The string value to include/exclude. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
+ *  Represents targeting about various types of technology.
+ */
+@interface GTLRAdExchangeBuyerII_TechnologyTargeting : GTLRObject
+
+/** IDs of device capabilities to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CriteriaTargeting *deviceCapabilityTargeting;
+
+/** IDs of device categories to be included/excluded. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CriteriaTargeting *deviceCategoryTargeting;
+
+/** Operating system related targeting information. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_OperatingSystemTargeting *operatingSystemTargeting;
+
 @end
 
 
@@ -3456,6 +5893,64 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRAdExchangeBuyerII_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+ *  to allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
+ *  Represents a list of targeted and excluded URLs (e.g., google.com).
+ *  For Private Auction and AdX Preferred Deals, URLs are either included or
+ *  excluded.
+ *  For Programmatic Guaranteed and Preferred Deals, this doesn't
+ *  apply.
+ */
+@interface GTLRAdExchangeBuyerII_UrlTargeting : GTLRObject
+
+/** A list of URLs to be excluded. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedUrls;
+
+/** A list of URLs to be included. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetedUrls;
+
+@end
+
+
+/**
  *  Video content for a creative.
  */
 @interface GTLRAdExchangeBuyerII_VideoContent : GTLRObject
@@ -3468,6 +5963,27 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  This document should conform to the VAST 2.0 or 3.0 standard.
  */
 @property(nonatomic, copy, nullable) NSString *videoVastXml;
+
+@end
+
+
+/**
+ *  Represents targeting information about video.
+ */
+@interface GTLRAdExchangeBuyerII_VideoTargeting : GTLRObject
+
+/**
+ *  A list of video positions to be excluded.
+ *  Position types can either be included or excluded (XOR).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedPositionTypes;
+
+/**
+ *  A list of video positions to be included.
+ *  When the included list is present, the excluded list must be empty.
+ *  When the excluded list is present, the included list must be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetedPositionTypes;
 
 @end
 

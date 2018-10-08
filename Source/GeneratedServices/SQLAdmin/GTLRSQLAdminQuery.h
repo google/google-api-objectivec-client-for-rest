@@ -1737,7 +1737,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_UsersUpdate : GTLRSQLAdminQuery
 // Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:host:name:]
+//   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:name:]
 
 /** Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;
@@ -1759,7 +1759,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSQLAdmin_User to include in the query.
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Database instance ID. This does not include the project ID.
- *  @param host Host of the user in the instance.
  *  @param name Name of the user in the instance.
  *
  *  @return GTLRSQLAdminQuery_UsersUpdate
@@ -1767,7 +1766,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project
                        instance:(NSString *)instance
-                           host:(NSString *)host
                            name:(NSString *)name;
 
 @end

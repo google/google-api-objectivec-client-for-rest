@@ -7787,9 +7787,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  This field is optional. It can be a full or partial URL. For example, the
  *  following are all valid URLs to an instance template:
  *  -
- *  https://www.googleapis.com/compute/v1/projects/project/global/global/instanceTemplates/instanceTemplate
- *  - projects/project/global/global/instanceTemplates/instanceTemplate
- *  - global/instancesTemplates/instanceTemplate
+ *  https://www.googleapis.com/compute/v1/projects/project/global/instanceTemplates/instanceTemplate
+ *  - projects/project/global/instanceTemplates/instanceTemplate
+ *  - global/instanceTemplates/instanceTemplate
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstanceTemplate;
 

@@ -18,7 +18,7 @@
     // From discovery.
     self.rootURLString = @"https://kgsearch.googleapis.com/";
     self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
 }

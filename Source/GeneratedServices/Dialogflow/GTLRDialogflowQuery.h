@@ -231,8 +231,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
- *  Creates multiple new entities in the specified entity type (extends the
- *  existing collection of entries).
+ *  Creates multiple new entities in the specified entity type.
  *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchCreate
@@ -253,8 +252,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Creates multiple new entities in the specified entity type (extends the
- *  existing collection of entries).
+ *  Creates multiple new entities in the specified entity type.
  *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
@@ -315,8 +313,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
- *  Updates entities in the specified entity type (replaces the existing
- *  collection of entries).
+ *  Updates or creates multiple entities in the specified entity type. This
+ *  method does not affect entities in the entity type that aren't explicitly
+ *  specified in the request.
  *  Operation
  *  <response: google.protobuf.Empty, 
             metadata: google.protobuf.Struct>
@@ -331,16 +330,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentEntityTypesEntitiesBatchUpdateWithObject:parent:]
 
 /**
- *  Required. The name of the entity type to update the entities in. Format:
- *  `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  Required. The name of the entity type to update or create entities in.
+ *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Updates entities in the specified entity type (replaces the existing
- *  collection of entries).
+ *  Updates or creates multiple entities in the specified entity type. This
+ *  method does not affect entities in the entity type that aren't explicitly
+ *  specified in the request.
  *  Operation
  *  <response: google.protobuf.Empty, 
             metadata: google.protobuf.Struct>
@@ -348,9 +348,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntitiesRequest to
  *    include in the query.
- *  @param parent Required. The name of the entity type to update the entities
- *    in. Format:
- *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  @param parent Required. The name of the entity type to update or create
+ *    entities in.
+ *    Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchUpdate
  */
@@ -737,7 +737,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
- *  Deletes the specified intent.
+ *  Deletes the specified intent and its direct or indirect followup intents.
  *
  *  Method: dialogflow.projects.agent.intents.delete
  *
@@ -749,7 +749,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentIntentsDeleteWithname:]
 
 /**
- *  Required. The name of the intent to delete.
+ *  Required. The name of the intent to delete. If this intent has direct or
+ *  indirect followup intents, we also delete them.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -757,9 +758,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified intent.
+ *  Deletes the specified intent and its direct or indirect followup intents.
  *
- *  @param name Required. The name of the intent to delete.
+ *  @param name Required. The name of the intent to delete. If this intent has
+ *    direct or
+ *    indirect followup intents, we also delete them.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentIntentsDelete

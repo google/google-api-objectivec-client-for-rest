@@ -301,13 +301,15 @@ GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full;
 // GTLRIam_Role.stage
 
 /**
- *  The user has indicated this role is currently in an alpha phase.
+ *  The user has indicated this role is currently in an Alpha phase. If this
+ *  launch stage is selected, the `stage` field will not be included when
+ *  requesting the definition for a given role.
  *
  *  Value: "ALPHA"
  */
 GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Alpha;
 /**
- *  The user has indicated this role is currently in a beta phase.
+ *  The user has indicated this role is currently in a Beta phase.
  *
  *  Value: "BETA"
  */
@@ -326,7 +328,7 @@ GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Deprecated;
  */
 GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Disabled;
 /**
- *  The user has indicated this role is currently in an eap phase.
+ *  The user has indicated this role is currently in an EAP phase.
  *
  *  Value: "EAP"
  */
@@ -1343,20 +1345,24 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The current launch stage of the role.
+ *  The current launch stage of the role. If the `ALPHA` launch stage has been
+ *  selected for a role, the `stage` field will not be included in the
+ *  returned definition for the role.
  *
  *  Likely values:
  *    @arg @c kGTLRIam_Role_Stage_Alpha The user has indicated this role is
- *        currently in an alpha phase. (Value: "ALPHA")
+ *        currently in an Alpha phase. If this
+ *        launch stage is selected, the `stage` field will not be included when
+ *        requesting the definition for a given role. (Value: "ALPHA")
  *    @arg @c kGTLRIam_Role_Stage_Beta The user has indicated this role is
- *        currently in a beta phase. (Value: "BETA")
+ *        currently in a Beta phase. (Value: "BETA")
  *    @arg @c kGTLRIam_Role_Stage_Deprecated The user has indicated this role is
  *        being deprecated. (Value: "DEPRECATED")
  *    @arg @c kGTLRIam_Role_Stage_Disabled This role is disabled and will not
  *        contribute permissions to any members
  *        it is granted to in policies. (Value: "DISABLED")
  *    @arg @c kGTLRIam_Role_Stage_Eap The user has indicated this role is
- *        currently in an eap phase. (Value: "EAP")
+ *        currently in an EAP phase. (Value: "EAP")
  *    @arg @c kGTLRIam_Role_Stage_Ga The user has indicated this role is
  *        generally available. (Value: "GA")
  */

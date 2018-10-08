@@ -153,8 +153,9 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
          labelFingerprint, legacyAbac, location, locations, loggingService,
          maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
          monitoringService, name, network, networkConfig, networkPolicy,
-         nodeConfig, nodeIpv4CidrSize, nodePools, resourceLabels, selfLink,
-         servicesIpv4Cidr, status, statusMessage, subnetwork, zoneProperty;
+         nodeConfig, nodeIpv4CidrSize, nodePools, privateClusterConfig,
+         resourceLabels, selfLink, servicesIpv4Cidr, status, statusMessage,
+         subnetwork, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -565,6 +566,17 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PrivateClusterConfig
+//
+
+@implementation GTLRContainer_PrivateClusterConfig
+@dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
+         privateEndpoint, publicEndpoint;
 @end
 
 
