@@ -512,6 +512,15 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Optional. The starting address of a range. The address must be a valid
+ *  IPv4 address in the x.x.x.x format. This value combined with the IP prefix
+ *  range is the CIDR range for the subnet. The range must be within the
+ *  allocated range that is assigned to the private connection. If the CIDR
+ *  range isn't available, the call fails.
+ */
+@property(nonatomic, copy, nullable) NSString *requestedAddress;
+
+/**
  *  Required. Name for the new subnetwork.
  *  Must be a legal [subnetwork](compute/docs/reference/rest/v1/subnetworks)
  *  name.
@@ -813,6 +822,14 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minDeadline;
+
+/**
+ *  The number of seconds to wait for the completion of a long running
+ *  operation. The default is no deadline.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationDeadline;
 
 /**
  *  Selects the methods to which this rule applies.
@@ -3091,6 +3108,12 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  See https://cloud.google.com/compute/docs/vpc/
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Shared VPC host project network peered with consumer network.
+ *  For example: projects/1234321/global/networks/host-network
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 

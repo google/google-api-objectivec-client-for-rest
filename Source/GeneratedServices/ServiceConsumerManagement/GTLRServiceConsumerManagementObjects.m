@@ -4,8 +4,7 @@
 // API:
 //   Service Consumer Management API (serviceconsumermanagement/v1)
 // Description:
-//   Provides management methods for configuring service producer resources on
-//   Google Cloud.
+//   Manages the service consumers of a Service Infrastructure service.
 // Documentation:
 //   https://cloud.google.com/service-consumer-management/docs/overview
 
@@ -218,7 +217,7 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, minDeadline, selector;
+@dynamic address, deadline, minDeadline, operationDeadline, selector;
 @end
 
 

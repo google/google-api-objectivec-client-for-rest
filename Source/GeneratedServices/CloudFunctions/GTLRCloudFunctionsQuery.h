@@ -22,6 +22,8 @@
 @class GTLRCloudFunctions_CloudFunction;
 @class GTLRCloudFunctions_GenerateDownloadUrlRequest;
 @class GTLRCloudFunctions_GenerateUploadUrlRequest;
+@class GTLRCloudFunctions_SetIamPolicyRequest;
+@class GTLRCloudFunctions_TestIamPermissionsRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -365,6 +367,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy : GTLRCloudFunctionsQuery
+// Previous library name was
+//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGetIamPolicyWithresource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Policy.
+ *
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns a list of functions that belong to the requested project.
  *
  *  Method: cloudfunctions.projects.locations.functions.list
@@ -456,6 +495,90 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_CloudFunction *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy : GTLRCloudFunctionsQuery
+// Previous library name was
+//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCloudFunctions_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions : GTLRCloudFunctionsQuery
+// Previous library name was
+//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudFunctions_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

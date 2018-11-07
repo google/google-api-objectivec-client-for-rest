@@ -955,6 +955,15 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  True if and only if tests with this model are recorded by stitching
+ *  together screenshots. See use_low_spec_video_recording in device config.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowFpsVideoRecording;
+
+/**
  *  The manufacturer of this device.
  *  \@OutputOnly
  */
@@ -1015,15 +1024,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Examples: "default", "preview", "deprecated"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
-
-/**
- *  True if and only if tests with this model DO NOT have video output.
- *  See also TestSpecification.disable_video_recording
- *  \@OutputOnly
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoRecordingNotSupported;
 
 @end
 
@@ -2111,16 +2111,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *progressMessages;
-
-/**
- *  Indicates that video will not be recorded for this execution either because
- *  the user chose to disable it or the device does not support it.
- *  See AndroidModel.video_recording_not_supported
- *  \@OutputOnly
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoRecordingDisabled;
 
 @end
 

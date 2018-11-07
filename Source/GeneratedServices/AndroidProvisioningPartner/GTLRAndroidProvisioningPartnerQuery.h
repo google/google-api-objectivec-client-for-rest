@@ -504,8 +504,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a customer for zero-touch enrollment. After the method returns
  *  successfully, admin and owner roles can manage devices and EMM configs
- *  by calling API methods or using their zero-touch enrollment portal. The API
- *  doesn't notify the customer that they have access.
+ *  by calling API methods or using their zero-touch enrollment portal.
+ *  The customer receives an email that welcomes them to zero-touch enrollment
+ *  and explains how to sign into the portal.
  *
  *  Method: androiddeviceprovisioning.partners.customers.create
  */
@@ -524,8 +525,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a customer for zero-touch enrollment. After the method returns
  *  successfully, admin and owner roles can manage devices and EMM configs
- *  by calling API methods or using their zero-touch enrollment portal. The API
- *  doesn't notify the customer that they have access.
+ *  by calling API methods or using their zero-touch enrollment portal.
+ *  The customer receives an email that welcomes them to zero-touch enrollment
+ *  and explains how to sign into the portal.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_CreateCustomerRequest to
  *    include in the query.

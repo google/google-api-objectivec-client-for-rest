@@ -54,6 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The project ID of the Google Cloud Platform project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A system ID for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *systemId;
+
 /**
  *  Fetches a @c GTLRCloudOSLogin_LoginProfile.
  *

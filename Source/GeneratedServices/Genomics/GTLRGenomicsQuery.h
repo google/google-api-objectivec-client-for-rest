@@ -4,7 +4,7 @@
 // API:
 //   Genomics API (genomics/v1)
 // Description:
-//   Upload, process, query, and search Genomics data in the cloud.
+//   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
 //   https://cloud.google.com/genomics
 

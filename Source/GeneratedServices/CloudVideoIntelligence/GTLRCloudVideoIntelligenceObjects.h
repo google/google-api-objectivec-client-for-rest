@@ -4,7 +4,8 @@
 // API:
 //   Cloud Video Intelligence API (videointelligence/v1)
 // Description:
-//   Cloud Video Intelligence API.
+//   Detects objects, explicit content, and scene changes in videos. It also
+//   specifies the region for annotation and transcribes speech to text.
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
@@ -24,9 +25,12 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentDetectionConfig;
@@ -58,17 +62,25 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ShotChangeDetectionConfig;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoContext;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation_Metadata;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation_Response;
@@ -96,6 +108,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LabelDetection;
 /** Value: "SHOT_CHANGE_DETECTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ShotChangeDetection;
+/** Value: "SPEECH_TRANSCRIPTION" */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_SpeechTranscription;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame.pornographyLikelihood
@@ -528,6 +542,56 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Alternative hypotheses (a.k.a. n-best list).
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative : GTLRObject
+
+/**
+ *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is typically provided only for the top hypothesis, and
+ *  only for `is_final=true` results. Clients should not rely on the
+ *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Transcript text representing the words that the user spoke. */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/** A list of word-specific information for each recognized word. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo *> *words;
+
+@end
+
+
+/**
+ *  A speech recognition result corresponding to a portion of the audio.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription : GTLRObject
+
+/**
+ *  May contain one or more recognition hypotheses (up to the maximum specified
+ *  in `max_alternatives`). These alternatives are ordered in terms of
+ *  accuracy, with the top (first) alternative being the most probable, as
+ *  ranked by the recognizer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative *> *alternatives;
+
+/**
+ *  Output only. The
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
+ *  language in this result. This language code was detected to have the most
+ *  likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress : GTLRObject
@@ -596,6 +660,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *shotLabelAnnotations;
 
+/** Speech transcription. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription *> *speechTranscriptions;
+
 @end
 
 
@@ -615,6 +682,57 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  corresponding to the start of the segment (inclusive).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTimeOffset;
+
+@end
+
+
+/**
+ *  Word-specific information for recognized words. Word information is only
+ *  included in the response when certain request parameters are set, such
+ *  as `enable_word_time_offsets`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo : GTLRObject
+
+/**
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the end of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
+ *  and is only set if speaker diarization is enabled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the start of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
+
+/** The word corresponding to this set of information. */
+@property(nonatomic, copy, nullable) NSString *word;
 
 @end
 
@@ -1010,6 +1128,14 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  ranked by the recognizer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative *> *alternatives;
+
+/**
+ *  Output only. The
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
+ *  language in this result. This language code was detected to have the most
+ *  likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 @end
 
@@ -1453,22 +1579,61 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
- *  Annotations related to one detected OCR text snippet. This will contain the
- *  corresponding text, confidence value, and frame level information for each
- *  detection.
+ *  Alternative hypotheses (a.k.a. n-best list).
  */
-@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation : GTLRObject
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  Confidence for the track of detected text. It is calculated as the highest
- *  over all frames where OCR detected text appears.
+ *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is typically provided only for the top hypothesis, and
+ *  only for `is_final=true` results. Clients should not rely on the
+ *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** Information related to the frames where OCR detected text appears. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextFrame *> *frames;
+/** Transcript text representing the words that the user spoke. */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/** A list of word-specific information for each recognized word. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo *> *words;
+
+@end
+
+
+/**
+ *  A speech recognition result corresponding to a portion of the audio.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription : GTLRObject
+
+/**
+ *  May contain one or more recognition hypotheses (up to the maximum specified
+ *  in `max_alternatives`). These alternatives are ordered in terms of
+ *  accuracy, with the top (first) alternative being the most probable, as
+ *  ranked by the recognizer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative *> *alternatives;
+
+/**
+ *  Output only. The
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
+ *  language in this result. This language code was detected to have the most
+ *  likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Annotations related to one detected OCR text snippet. This will contain the
+ *  corresponding text, confidence value, and frame level information for each
+ *  detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation : GTLRObject
 
 /** All video segments where OCR detected text appears. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextSegment *> *segments;
@@ -1499,6 +1664,17 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Video segment level annotation results for text detection.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextSegment : GTLRObject
+
+/**
+ *  Confidence for the track of detected text. It is calculated as the highest
+ *  over all frames where OCR detected text appears.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Information related to the frames where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextFrame *> *frames;
 
 /** Video segment where a text snippet was detected. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
@@ -1578,6 +1754,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *shotLabelAnnotations;
 
+/** Speech transcription. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription *> *speechTranscriptions;
+
 /**
  *  OCR text detection and tracking.
  *  Annotations for list of detected text snippets. Each will have list of
@@ -1609,6 +1788,57 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Word-specific information for recognized words. Word information is only
+ *  included in the response when certain request parameters are set, such
+ *  as `enable_word_time_offsets`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo : GTLRObject
+
+/**
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the end of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
+ *  and is only set if speaker diarization is enabled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the start of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
+
+/** The word corresponding to this set of information. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
  *  Config for SHOT_CHANGE_DETECTION.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ShotChangeDetectionConfig : GTLRObject
@@ -1619,6 +1849,169 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  "builtin/latest".
  */
 @property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Provides "hints" to the speech recognizer to favor specific words and
+ *  phrases
+ *  in the results.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext : GTLRObject
+
+/**
+ *  *Optional* A list of strings containing words and phrases "hints" so that
+ *  the speech recognition is more likely to recognize them. This can be used
+ *  to improve the accuracy for specific words and phrases, for example, if
+ *  specific commands are typically spoken by the user. This can also be used
+ *  to add additional words to the vocabulary of the recognizer. See
+ *  [usage limits](https://cloud.google.com/speech/limits#content).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
+
+@end
+
+
+/**
+ *  Alternative hypotheses (a.k.a. n-best list).
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative : GTLRObject
+
+/**
+ *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is typically provided only for the top hypothesis, and
+ *  only for `is_final=true` results. Clients should not rely on the
+ *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Transcript text representing the words that the user spoke. */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/** A list of word-specific information for each recognized word. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo *> *words;
+
+@end
+
+
+/**
+ *  A speech recognition result corresponding to a portion of the audio.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription : GTLRObject
+
+/**
+ *  May contain one or more recognition hypotheses (up to the maximum specified
+ *  in `max_alternatives`). These alternatives are ordered in terms of
+ *  accuracy, with the top (first) alternative being the most probable, as
+ *  ranked by the recognizer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative *> *alternatives;
+
+/**
+ *  Output only. The
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
+ *  language in this result. This language code was detected to have the most
+ *  likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Config for SPEECH_TRANSCRIPTION.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig : GTLRObject
+
+/**
+ *  *Optional* For file formats, such as MXF or MKV, supporting multiple audio
+ *  tracks, specify up to two tracks. Default: track 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *audioTracks;
+
+/**
+ *  *Optional*
+ *  If set, specifies the estimated number of speakers in the conversation.
+ *  If not set, defaults to '2'.
+ *  Ignored unless enable_speaker_diarization is set to true.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diarizationSpeakerCount;
+
+/**
+ *  *Optional* If 'true', adds punctuation to recognition result hypotheses.
+ *  This feature is only available in select languages. Setting this for
+ *  requests in other languages has no effect at all. The default 'false' value
+ *  does not add punctuation to result hypotheses. NOTE: "This is currently
+ *  offered as an experimental service, complimentary to all users. In the
+ *  future this may be exclusively available as a premium feature."
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutomaticPunctuation;
+
+/**
+ *  *Optional* If 'true', enables speaker detection for each recognized word in
+ *  the top alternative of the recognition result using a speaker_tag provided
+ *  in the WordInfo.
+ *  Note: When this is true, we send all the words from the beginning of the
+ *  audio for the top alternative in every consecutive responses.
+ *  This is done in order to improve our speaker tags as our models learn to
+ *  identify the speakers in the conversation over time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSpeakerDiarization;
+
+/**
+ *  *Optional* If `true`, the top result includes a list of words and the
+ *  confidence for those words. If `false`, no word-level confidence
+ *  information is returned. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWordConfidence;
+
+/**
+ *  *Optional* If set to `true`, the server will attempt to filter out
+ *  profanities, replacing all but the initial character in each filtered word
+ *  with asterisks, e.g. "f***". If set to `false` or omitted, profanities
+ *  won't be filtered out.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filterProfanity;
+
+/**
+ *  *Required* The language of the supplied audio as a
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
+ *  Example: "en-US".
+ *  See [Language Support](https://cloud.google.com/speech/docs/languages)
+ *  for a list of the currently supported language codes.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  *Optional* Maximum number of recognition hypotheses to be returned.
+ *  Specifically, the maximum number of `SpeechRecognitionAlternative` messages
+ *  within each `SpeechTranscription`. The server may return fewer than
+ *  `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will
+ *  return a maximum of one. If omitted, will return a maximum of one.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
+
+/** *Optional* A means to provide context to assist the speech recognition. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext *> *speechContexts;
 
 @end
 
@@ -1692,6 +2085,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *shotLabelAnnotations;
 
+/** Speech transcription. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription *> *speechTranscriptions;
+
 @end
 
 
@@ -1716,6 +2112,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Config for SHOT_CHANGE_DETECTION. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ShotChangeDetectionConfig *shotChangeDetectionConfig;
 
+/** Config for SPEECH_TRANSCRIPTION. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig *speechTranscriptionConfig;
+
 @end
 
 
@@ -1735,6 +2134,57 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  corresponding to the start of the segment (inclusive).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTimeOffset;
+
+@end
+
+
+/**
+ *  Word-specific information for recognized words. Word information is only
+ *  included in the response when certain request parameters are set, such
+ *  as `enable_word_time_offsets`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo : GTLRObject
+
+/**
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the end of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
+ *  and is only set if speaker diarization is enabled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the start of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
+
+/** The word corresponding to this set of information. */
+@property(nonatomic, copy, nullable) NSString *word;
 
 @end
 

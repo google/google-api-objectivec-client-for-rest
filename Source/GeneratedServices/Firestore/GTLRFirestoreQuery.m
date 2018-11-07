@@ -19,6 +19,201 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1Field class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.fields.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/fields";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListFieldsResponse class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.fields.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Field *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.fields.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Index *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/indexes";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.indexes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.indexes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1Index class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.indexes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/indexes";
+  GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListIndexesResponse class];
+  query.loggingName = @"firestore.projects.databases.collectionGroups.indexes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesExportDocuments
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:exportDocuments";
+  GTLRFirestoreQuery_ProjectsDatabasesExportDocuments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.exportDocuments";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesImportDocuments
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:importDocuments";
+  GTLRFirestoreQuery_ProjectsDatabasesImportDocuments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.importDocuments";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesOperationsCancel
 
 @dynamic name;

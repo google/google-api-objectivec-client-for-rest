@@ -4,8 +4,8 @@
 // API:
 //   Dialogflow API (dialogflow/v2)
 // Description:
-//   An end-to-end development suite for conversational interfaces (e.g.,
-//   chatbots, voice-powered apps and devices).
+//   Builds conversational interfaces (for example, chatbots, and voice-powered
+//   apps and devices).
 // Documentation:
 //   https://cloud.google.com/dialogflow-enterprise/
 
@@ -168,6 +168,42 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateI
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
+
+/**
+ *  An existing conversation has closed. This is fired when a telephone call
+ *  is terminated, or a conversation is closed via the API.
+ *
+ *  Value: "CONVERSATION_FINISHED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished;
+/**
+ *  A new conversation has been opened. This is fired when a telephone call
+ *  is answered, or a conversation is created via the API.
+ *
+ *  Value: "CONVERSATION_STARTED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted;
+/**
+ *  Type not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified;
+/**
+ *  Unrecoverable error during a telephone call.
+ *  In general non-recoverable errors only occur if something was
+ *  misconfigured in the ConversationProfile corresponding to the call. After
+ *  a non-recoverable error, Dialogflow may stop responding.
+ *  We don't fire this event:
+ *  * in an API call because we can directly return the error, or,
+ *  * when we can recover from an error.
+ *
+ *  Value: "UNRECOVERABLE_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 
 /**
@@ -208,6 +244,23 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
  *  Value: "KIND_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent.type
+
+/**
+ *  A new suggestion has been sent.
+ *  This is fired when a suggestion comes from an agent assistant.
+ *
+ *  Value: "NEW_SUGGESTION"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_NewSuggestion;
+/**
+ *  Type not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
@@ -772,10 +825,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The collection of session entities extends the collection of entities in
  *  the corresponding developer entity type.
- *  Calls to `ListSessionEntityTypes`, `GetSessionEntityType`,
- *  `CreateSessionEntityType` and `UpdateSessionEntityType` return the full
- *  collection of entities from the developer entity type in the agent's
- *  default language and the session entity type.
+ *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
+ *  `GetSessionEntityType`, `CreateSessionEntityType` and
+ *  `UpdateSessionEntityType` only return the additional entities added in
+ *  this session entity type. If you want to get the supplemented list,
+ *  please call EntityTypes.GetEntityType on the developer entity type
+ *  and merge.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
  */
@@ -1154,6 +1209,55 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Represents a notification sent to Cloud Pub/Sub subscribers for conversation
+ *  lifecycle events.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent : GTLRObject
+
+/**
+ *  Required. The unique identifier of the conversation this notification
+ *  refers to. Format: `projects/<Project ID>/conversations/<Conversation ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  Optional. More detailed information about an error. Only set for type
+ *  UNRECOVERABLE_ERROR_IN_PHONE_CALL.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *errorStatus;
+
+/**
+ *  Required. The type of the event that this notification refers to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished
+ *        An existing conversation has closed. This is fired when a telephone
+ *        call
+ *        is terminated, or a conversation is closed via the API. (Value:
+ *        "CONVERSATION_FINISHED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted
+ *        A new conversation has been opened. This is fired when a telephone
+ *        call
+ *        is answered, or a conversation is created via the API. (Value:
+ *        "CONVERSATION_STARTED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified
+ *        Type not set. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError
+ *        Unrecoverable error during a telephone call.
+ *        In general non-recoverable errors only occur if something was
+ *        misconfigured in the ConversationProfile corresponding to the call.
+ *        After
+ *        a non-recoverable error, Dialogflow may stop responding.
+ *        We don't fire this event:
+ *        * in an API call because we can directly return the error, or,
+ *        * when we can recover from an error. (Value: "UNRECOVERABLE_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Represents an entity type.
  *  Entity types serve as a tool for extracting parameter values from natural
  *  language queries.
@@ -1174,7 +1278,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @property(nonatomic, copy, nullable) NSString *autoExpansionMode;
 
-/** Required. The name of the entity. */
+/** Required. The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. The collection of entities associated with the entity type. */
@@ -1304,6 +1408,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  only if `agent_uri` is specified in `ExportAgentRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+@end
+
+
+/**
+ *  Represents a notification sent to Cloud Pub/Sub subscribers for
+ *  agent assistant events in a specific conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent : GTLRObject
+
+/**
+ *  Required. The conversation this notification refers to.
+ *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  Required. The type of the event that this notification refers to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_NewSuggestion
+ *        A new suggestion has been sent.
+ *        This is fired when a suggestion comes from an agent assistant. (Value:
+ *        "NEW_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_TypeUnspecified
+ *        Type not set. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2549,7 +2681,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The unique identifier of detectIntent request session.
  *  Can be used to identify end-user inside webhook implementation.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -2669,7 +2804,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The number of conversational query requests after which the
  *  context expires. If set to `0` (the default) the context expires
- *  immediately. Contexts expire automatically after 10 minutes even if there
+ *  immediately. Contexts expire automatically after 20 minutes even if there
  *  are no matching queries.
  *
  *  Uses NSNumber of intValue.
@@ -2753,10 +2888,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @property(nonatomic, copy, nullable) NSString *responseId;
 
-/**
- *  Specifies the status of the webhook request. `webhook_status`
- *  is never populated in webhook requests.
- */
+/** Specifies the status of the webhook request. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *webhookStatus;
 
 @end
@@ -2783,7 +2915,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  */
 @property(nonatomic, copy, nullable) NSString *autoExpansionMode;
 
-/** Required. The name of the entity. */
+/** Required. The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. The collection of entities associated with the entity type. */
@@ -4067,9 +4199,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  Optional. The collection of session entity types to replace or extend
- *  developer entities with for this query only. The entity synonyms apply
- *  to all languages.
+ *  Optional. Additional session entity types to replace or extend developer
+ *  entity types with. The entity synonyms apply to all languages and persist
+ *  for the session of this query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
@@ -4332,12 +4464,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *        The collection of session entities extends the collection of entities
  *        in
  *        the corresponding developer entity type.
- *        Calls to `ListSessionEntityTypes`, `GetSessionEntityType`,
- *        `CreateSessionEntityType` and `UpdateSessionEntityType` return the
- *        full
- *        collection of entities from the developer entity type in the agent's
- *        default language and the session entity type. (Value:
- *        "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
+ *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
+ *        `GetSessionEntityType`, `CreateSessionEntityType` and
+ *        `UpdateSessionEntityType` only return the additional entities added in
+ *        this session entity type. If you want to get the supplemented list,
+ *        please call EntityTypes.GetEntityType on the developer entity type
+ *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
  *        Not specified. This value should be never used. (Value:
  *        "ENTITY_OVERRIDE_MODE_UNSPECIFIED")
@@ -4349,6 +4481,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
  Display Name>`.
+ *  `<Entity Type Display Name>` must be the display name of an existing entity
+ *  type in the same agent that will be overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4410,7 +4544,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  The unique identifier of detectIntent request session.
  *  Can be used to identify end-user inside webhook implementation.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 

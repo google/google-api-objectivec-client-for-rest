@@ -128,6 +128,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 /**
  *  Deletes specified company.
+ *  Prerequisite: The company has no jobs associated with it.
  *
  *  Method: jobs.projects.companies.delete
  *
@@ -151,6 +152,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Fetches a @c GTLRCloudTalentSolution_Empty.
  *
  *  Deletes specified company.
+ *  Prerequisite: The company has no jobs associated with it.
  *
  *  @param name Required.
  *    The resource name of the company to be deleted.
@@ -332,7 +334,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
- *  Required.
+ *  Deprecated. Use language_codes instead.
+ *  Optional.
  *  The language of the query. This is
  *  the BCP-47 language code, such as "en-US" or "sr-Latn".
  *  For more information, see
@@ -348,6 +351,24 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional.
+ *  The list of languages of the query. This is
+ *  the BCP-47 language code, such as "en-US" or "sr-Latn".
+ *  For more information, see
+ *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
+ *  For CompletionType.JOB_TITLE type, only open jobs with same
+ *  language_codes are returned.
+ *  For CompletionType.COMPANY_NAME type,
+ *  only companies having open jobs with same language_codes are
+ *  returned.
+ *  For CompletionType.COMBINED type, only open jobs with same
+ *  language_codes or companies having open jobs with same
+ *  language_codes are returned.
+ *  The maximum number of allowed characters is 255.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /**
  *  Required.

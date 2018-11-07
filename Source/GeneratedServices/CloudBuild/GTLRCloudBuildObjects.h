@@ -677,6 +677,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
+/**
+ *  Option to specify a `WorkerPool` for the build. User specifies the pool
+ *  with the format "[WORKERPOOL_PROJECT_ID]/[WORKERPOOL_NAME]".
+ *  This is an experimental field.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
 @end
 
 

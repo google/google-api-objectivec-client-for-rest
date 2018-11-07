@@ -1614,7 +1614,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @interface GTLRShoppingContentQuery_LiasettingsRequestgmbaccess : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsRequestgmbaccessWithmerchantId:accountId:]
+//   +[GTLQueryShoppingContent queryForLiasettingsRequestgmbaccessWithmerchantId:accountId:gmbEmail:]
 
 /** The ID of the account for which GMB access is requested. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -1638,11 +1638,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    the same as accountId, then this account must be a multi-client account
  *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which GMB access is requested.
+ *  @param gmbEmail The email of the Google My Business account.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsRequestgmbaccess
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId;
+                          accountId:(unsigned long long)accountId
+                           gmbEmail:(NSString *)gmbEmail;
 
 @end
 
@@ -1705,7 +1707,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @interface GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:]
+//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:contactEmail:contactName:country:language:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -1743,11 +1745,19 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
+ *  @param contactEmail The email of the inventory verification contact.
+ *  @param contactName The name of the inventory verification contact.
+ *  @param country The country for which inventory verification is requested.
+ *  @param language The language for which inventory verification is requested.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId;
+                          accountId:(unsigned long long)accountId
+                       contactEmail:(NSString *)contactEmail
+                        contactName:(NSString *)contactName
+                            country:(NSString *)country
+                           language:(NSString *)language;
 
 @end
 
@@ -1761,7 +1771,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @interface GTLRShoppingContentQuery_LiasettingsSetposdataprovider : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsSetposdataproviderWithmerchantId:accountId:]
+//   +[GTLQueryShoppingContent queryForLiasettingsSetposdataproviderWithmerchantId:accountId:country:]
 
 /**
  *  The ID of the account for which to retrieve accessible Google My Business
@@ -1797,11 +1807,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    and accountId must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to retrieve accessible
  *    Google My Business accounts.
+ *  @param country The country for which the POS data provider is selected.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsSetposdataprovider
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId;
+                          accountId:(unsigned long long)accountId
+                            country:(NSString *)country;
 
 @end
 
@@ -2167,7 +2179,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Retrieves a list of transactions for an disbursement from your Merchant
+ *  Retrieves a list of transactions for a disbursement from your Merchant
  *  Center account.
  *
  *  Method: content.orderreports.listtransactions
@@ -2209,7 +2221,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_OrderreportsListTransactionsResponse.
  *
- *  Retrieves a list of transactions for an disbursement from your Merchant
+ *  Retrieves a list of transactions for a disbursement from your Merchant
  *  Center account.
  *
  *  @param merchantId The ID of the account that manages the order. This cannot

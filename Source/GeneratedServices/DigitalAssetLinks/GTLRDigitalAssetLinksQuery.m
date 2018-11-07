@@ -4,8 +4,8 @@
 // API:
 //   Digital Asset Links API (digitalassetlinks/v1)
 // Description:
-//   API for discovering relationships between online assets such as web sites
-//   or mobile apps.
+//   Discovers relationships between online assets such as websites or mobile
+//   apps.
 // Documentation:
 //   https://developers.google.com/digital-asset-links/
 

@@ -4,7 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects.
+//   Manages and executes Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 

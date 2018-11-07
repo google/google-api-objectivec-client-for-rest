@@ -61,6 +61,11 @@
 @class GTLRVision_GoogleCloudVisionV1p1beta1Page;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Paragraph;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Position;
+@class GTLRVision_GoogleCloudVisionV1p1beta1Product;
+@class GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue;
+@class GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResults;
+@class GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult;
+@class GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Property;
 @class GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Symbol;
@@ -98,6 +103,11 @@
 @class GTLRVision_GoogleCloudVisionV1p2beta1Page;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Paragraph;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Position;
+@class GTLRVision_GoogleCloudVisionV1p2beta1Product;
+@class GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue;
+@class GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResults;
+@class GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult;
+@class GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Property;
 @class GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p2beta1Symbol;
@@ -138,6 +148,7 @@
 @class GTLRVision_GoogleCloudVisionV1p3beta1Product;
 @class GTLRVision_GoogleCloudVisionV1p3beta1ProductKeyValue;
 @class GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResults;
+@class GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult;
 @class GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsResult;
 @class GTLRVision_GoogleCloudVisionV1p3beta1Property;
 @class GTLRVision_GoogleCloudVisionV1p3beta1ReferenceImage;
@@ -154,12 +165,16 @@
 @class GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebLabel;
 @class GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebPage;
 @class GTLRVision_GoogleCloudVisionV1p3beta1Word;
+@class GTLRVision_GroupedResult;
 @class GTLRVision_Image;
 @class GTLRVision_ImageAnnotationContext;
 @class GTLRVision_ImageContext;
 @class GTLRVision_ImageProperties;
 @class GTLRVision_ImageSource;
+@class GTLRVision_ImportProductSetsGcsSource;
+@class GTLRVision_ImportProductSetsInputConfig;
 @class GTLRVision_InputConfig;
+@class GTLRVision_KeyValue;
 @class GTLRVision_Landmark;
 @class GTLRVision_LatLng;
 @class GTLRVision_LatLongRect;
@@ -173,7 +188,13 @@
 @class GTLRVision_Page;
 @class GTLRVision_Paragraph;
 @class GTLRVision_Position;
+@class GTLRVision_Product;
+@class GTLRVision_ProductSearchParams;
+@class GTLRVision_ProductSearchResults;
+@class GTLRVision_ProductSet;
 @class GTLRVision_Property;
+@class GTLRVision_ReferenceImage;
+@class GTLRVision_Result;
 @class GTLRVision_SafeSearchAnnotation;
 @class GTLRVision_Status;
 @class GTLRVision_Status_Details_Item;
@@ -198,6 +219,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRVision_BatchOperationMetadata.state
+
+/**
+ *  The request is done after the longrunning.Operations.CancelOperation has
+ *  been called by the user. Any records that were processed before the
+ *  cancel command are output as specified in the request.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Cancelled;
+/**
+ *  The request is done and no item has been successfully processed.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Failed;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Processing;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_StateUnspecified;
+/**
+ *  The request is done and at least one item has been successfully
+ *  processed.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_Block.blockType
@@ -613,6 +671,12 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
  *  Value: "OBJECT_LOCALIZATION"
  */
 GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ObjectLocalization;
+/**
+ *  Run Product Search.
+ *
+ *  Value: "PRODUCT_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ProductSearch;
 /**
  *  Run Safe Search to detect potentially unsafe
  *  or undesirable content.
@@ -3554,6 +3618,21 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryLikel
 GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely;
 
 /**
+ *  Request message for the `AddProductToProductSet` method.
+ */
+@interface GTLRVision_AddProductToProductSetRequest : GTLRObject
+
+/**
+ *  The resource name for the Product to be added to this ProductSet.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
+@end
+
+
+/**
  *  Response to a single file annotation request. A file may contain one or more
  *  images, which individually have their own responses.
  */
@@ -3635,6 +3714,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *logoAnnotations;
+
+/** If present, product search has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_ProductSearchResults *productSearchResults;
 
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_SafeSearchAnnotation *safeSearchAnnotation;
@@ -3723,6 +3805,46 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** Individual responses to image annotation requests within the batch. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageResponse *> *responses;
+
+@end
+
+
+/**
+ *  Metadata for the batch operations such as the current state.
+ *  This is included in the `metadata` field of the `Operation` returned by the
+ *  `GetOperation` call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRVision_BatchOperationMetadata : GTLRObject
+
+/**
+ *  The time when the batch request is finished and
+ *  google.longrunning.Operation.done is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_BatchOperationMetadata_State_Cancelled The request is
+ *        done after the longrunning.Operations.CancelOperation has
+ *        been called by the user. Any records that were processed before the
+ *        cancel command are output as specified in the request. (Value:
+ *        "CANCELLED")
+ *    @arg @c kGTLRVision_BatchOperationMetadata_State_Failed The request is
+ *        done and no item has been successfully processed. (Value: "FAILED")
+ *    @arg @c kGTLRVision_BatchOperationMetadata_State_Processing Request is
+ *        actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRVision_BatchOperationMetadata_State_StateUnspecified Invalid.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVision_BatchOperationMetadata_State_Successful The request is
+ *        done and at least one item has been successfully
+ *        processed. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the batch request was submitted to the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *submitTime;
 
 @end
 
@@ -4469,6 +4591,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        "LOGO_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_ObjectLocalization Run localizer for
  *        object detection. (Value: "OBJECT_LOCALIZATION")
+ *    @arg @c kGTLRVision_Feature_Type_ProductSearch Run Product Search. (Value:
+ *        "PRODUCT_SEARCH")
  *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection Run Safe Search to
  *        detect potentially unsafe
  *        or undesirable content. (Value: "SAFE_SEARCH_DETECTION")
@@ -4589,6 +4713,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation *> *logoAnnotations;
+
+/** If present, product search has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResults *productSearchResults;
 
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation *safeSearchAnnotation;
@@ -5476,6 +5603,139 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A Product contains ReferenceImages.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1Product : GTLRObject
+
+/**
+ *  User-provided metadata to be stored with this product. Must be at most 4096
+ *  characters long.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The user-provided name for this Product. Must not be empty. Must be at most
+ *  4096 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the product.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
+ *  This field is ignored when creating a product.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The category for the product identified by the reference image. This should
+ *  be either "homegoods", "apparel", or "toys".
+ *  This field is immutable.
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+/**
+ *  Key-value pairs that can be attached to a product. At query time,
+ *  constraints can be specified based on the product_labels.
+ *  Note that integer values can be provided as strings, e.g. "1199". Only
+ *  strings with integer values can match a range-based restriction which is
+ *  to be supported soon.
+ *  Multiple values can be assigned to the same key. One product may have up to
+ *  100 product_labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue *> *productLabels;
+
+@end
+
+
+/**
+ *  A product label represented as a key-value pair.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue : GTLRObject
+
+/**
+ *  The key of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The value of the label attached to the product. Cannot be empty and
+ *  cannot exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Results for a product search request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResults : GTLRObject
+
+/**
+ *  Timestamp of the index which provided these results. Changes made after
+ *  this time are not reflected in the current results.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
+
+/**
+ *  List of results grouped by products detected in the query image. Each entry
+ *  corresponds to one bounding polygon in the query image, and contains the
+ *  matching products specific to that region. There may be duplicate product
+ *  matches in the union of all the per-product results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult *> *productGroupedResults;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about the products similar to a single product in a query
+ *  image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult : GTLRObject
+
+/** The bounding polygon around the product detected in the query image. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingPoly;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about a product.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult : GTLRObject
+
+/**
+ *  The resource name of the image from the product that is the closest match
+ *  to the query.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** The Product. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1Product *product;
+
+/**
+ *  A confidence level on the match, ranging from 0 (no confidence) to
+ *  1 (full confidence).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
  *  A `Property` consists of a user-supplied name/value pair.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Property : GTLRObject
@@ -6028,6 +6288,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, logo detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation *> *logoAnnotations;
+
+/** If present, product search has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResults *productSearchResults;
 
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation *safeSearchAnnotation;
@@ -6937,6 +7200,139 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *z;
+
+@end
+
+
+/**
+ *  A Product contains ReferenceImages.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1Product : GTLRObject
+
+/**
+ *  User-provided metadata to be stored with this product. Must be at most 4096
+ *  characters long.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The user-provided name for this Product. Must not be empty. Must be at most
+ *  4096 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the product.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
+ *  This field is ignored when creating a product.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The category for the product identified by the reference image. This should
+ *  be either "homegoods", "apparel", or "toys".
+ *  This field is immutable.
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+/**
+ *  Key-value pairs that can be attached to a product. At query time,
+ *  constraints can be specified based on the product_labels.
+ *  Note that integer values can be provided as strings, e.g. "1199". Only
+ *  strings with integer values can match a range-based restriction which is
+ *  to be supported soon.
+ *  Multiple values can be assigned to the same key. One product may have up to
+ *  100 product_labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue *> *productLabels;
+
+@end
+
+
+/**
+ *  A product label represented as a key-value pair.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue : GTLRObject
+
+/**
+ *  The key of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The value of the label attached to the product. Cannot be empty and
+ *  cannot exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Results for a product search request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResults : GTLRObject
+
+/**
+ *  Timestamp of the index which provided these results. Changes made after
+ *  this time are not reflected in the current results.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
+
+/**
+ *  List of results grouped by products detected in the query image. Each entry
+ *  corresponds to one bounding polygon in the query image, and contains the
+ *  matching products specific to that region. There may be duplicate product
+ *  matches in the union of all the per-product results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult *> *productGroupedResults;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about the products similar to a single product in a query
+ *  image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult : GTLRObject
+
+/** The bounding polygon around the product detected in the query image. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingPoly;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about a product.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult : GTLRObject
+
+/**
+ *  The resource name of the image from the product that is the closest match
+ *  to the query.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** The Product. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1Product *product;
+
+/**
+ *  A confidence level on the match, ranging from 0 (no confidence) to
+ *  1 (full confidence).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -8554,6 +8950,29 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
 
+/**
+ *  List of results grouped by products detected in the query image. Each entry
+ *  corresponds to one bounding polygon in the query image, and contains the
+ *  matching products specific to that region. There may be duplicate product
+ *  matches in the union of all the per-product results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult *> *productGroupedResults;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about the products similar to a single product in a query
+ *  image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult : GTLRObject
+
+/** The bounding polygon around the product detected in the query image. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingPoly;
+
 /** List of results, one for each product match. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsResult *> *results;
 
@@ -9110,6 +9529,21 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  Information about the products similar to a single product in a query
+ *  image.
+ */
+@interface GTLRVision_GroupedResult : GTLRObject
+
+/** The bounding polygon around the product detected in the query image. */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Result *> *results;
+
+@end
+
+
+/**
  *  Client image to perform Google Cloud Vision API tasks over.
  */
 @interface GTLRVision_Image : GTLRObject
@@ -9177,6 +9611,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** Not used. */
 @property(nonatomic, strong, nullable) GTLRVision_LatLongRect *latLongRect;
 
+/** Parameters for product search. */
+@property(nonatomic, strong, nullable) GTLRVision_ProductSearchParams *productSearchParams;
+
 /** Parameters for web detection. */
 @property(nonatomic, strong, nullable) GTLRVision_WebDetectionParams *webDetectionParams;
 
@@ -9230,6 +9667,114 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  The Google Cloud Storage location for a csv file which preserves a list of
+ *  ImportProductSetRequests in each line.
+ */
+@interface GTLRVision_ImportProductSetsGcsSource : GTLRObject
+
+/**
+ *  The Google Cloud Storage URI of the input csv file.
+ *  The URI must start with `gs://`.
+ *  The format of the input csv file should be one image per line.
+ *  In each line, there are 8 columns.
+ *  1. image-uri
+ *  2. image-id
+ *  3. product-set-id
+ *  4. product-id
+ *  5. product-category
+ *  6. product-display-name
+ *  7. labels
+ *  8. bounding-poly
+ *  The `image-uri`, `product-set-id`, `product-id`, and `product-category`
+ *  columns are required. All other columns are optional.
+ *  If the `ProductSet` or `Product` specified by the `product-set-id` and
+ *  `product-id` values does not exist, then the system will create a new
+ *  `ProductSet` or `Product` for the image. In this case, the
+ *  `product-display-name` column refers to
+ *  display_name, the
+ *  `product-category` column refers to
+ *  product_category, and the
+ *  `labels` column refers to product_labels.
+ *  The `image-id` column is optional but must be unique if provided. If it is
+ *  empty, the system will automatically assign a unique id to the image.
+ *  The `product-display-name` column is optional. If it is empty, the system
+ *  sets the display_name field for the product to a
+ *  space (" "). You can update the `display_name` later by using the API.
+ *  If a `Product` with the specified `product-id` already exists, then the
+ *  system ignores the `product-display-name`, `product-category`, and `labels`
+ *  columns.
+ *  The `labels` column (optional) is a line containing a list of
+ *  comma-separated key-value pairs, in the following format:
+ *  "key_1=value_1,key_2=value_2,...,key_n=value_n"
+ *  The `bounding-poly` column (optional) identifies one region of
+ *  interest from the image in the same manner as `CreateReferenceImage`. If
+ *  you do not specify the `bounding-poly` column, then the system will try to
+ *  detect regions of interest automatically.
+ *  At most one `bounding-poly` column is allowed per line. If the image
+ *  contains multiple regions of interest, add a line to the CSV file that
+ *  includes the same product information, and the `bounding-poly` values for
+ *  each region of interest.
+ *  The `bounding-poly` column must contain an even number of comma-separated
+ *  numbers, in the format "p1_x,p1_y,p2_x,p2_y,...,pn_x,pn_y". Use
+ *  non-negative integers for absolute bounding polygons, and float values
+ *  in [0, 1] for normalized bounding polygons.
+ *  The system will resize the image if the image resolution is too
+ *  large to process (larger than 20MP).
+ */
+@property(nonatomic, copy, nullable) NSString *csvFileUri;
+
+@end
+
+
+/**
+ *  The input content for the `ImportProductSets` method.
+ */
+@interface GTLRVision_ImportProductSetsInputConfig : GTLRObject
+
+/**
+ *  The Google Cloud Storage location for a csv file which preserves a list
+ *  of ImportProductSetRequests in each line.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_ImportProductSetsGcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  Request message for the `ImportProductSets` method.
+ */
+@interface GTLRVision_ImportProductSetsRequest : GTLRObject
+
+/** The input content for the list of requests. */
+@property(nonatomic, strong, nullable) GTLRVision_ImportProductSetsInputConfig *inputConfig;
+
+@end
+
+
+/**
+ *  Response message for the `ImportProductSets` method.
+ *  This message is returned by the
+ *  google.longrunning.Operations.GetOperation method in the returned
+ *  google.longrunning.Operation.response field.
+ */
+@interface GTLRVision_ImportProductSetsResponse : GTLRObject
+
+/** The list of reference_images that are imported successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_ReferenceImage *> *referenceImages;
+
+/**
+ *  The rpc status for each ImportProductSet request, including both successes
+ *  and errors.
+ *  The number of statuses here matches the number of lines in the csv file,
+ *  and statuses[i] stores the success or failure status of processing the i-th
+ *  line of the csv, starting from line 0.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
+
+@end
+
+
+/**
  *  The desired input location and metadata.
  */
 @interface GTLRVision_InputConfig : GTLRObject
@@ -9242,6 +9787,26 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  are supported. Wildcards are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  A product label represented as a key-value pair.
+ */
+@interface GTLRVision_KeyValue : GTLRObject
+
+/**
+ *  The key of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The value of the label attached to the product. Cannot be empty and
+ *  cannot exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -9390,6 +9955,118 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for the `ListProductSets` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "productSets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVision_ListProductSetsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of ProductSets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_ProductSet *> *productSets;
+
+@end
+
+
+/**
+ *  Response message for the `ListProductsInProductSet` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "products" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVision_ListProductsInProductSetResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Products.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Product *> *products;
+
+@end
+
+
+/**
+ *  Response message for the `ListProducts` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "products" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVision_ListProductsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of products.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Product *> *products;
+
+@end
+
+
+/**
+ *  Response message for the `ListReferenceImages` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "referenceImages" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRVision_ListReferenceImagesResponse : GTLRCollectionObject
+
+/** The next_page_token returned from a previous List request, if any. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The maximum number of items to return. Default 10, maximum 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  The list of reference images.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_ReferenceImage *> *referenceImages;
 
 @end
 
@@ -9708,6 +10385,155 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A Product contains ReferenceImages.
+ */
+@interface GTLRVision_Product : GTLRObject
+
+/**
+ *  User-provided metadata to be stored with this product. Must be at most 4096
+ *  characters long.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The user-provided name for this Product. Must not be empty. Must be at most
+ *  4096 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the product.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
+ *  This field is ignored when creating a product.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The category for the product identified by the reference image. This should
+ *  be either "homegoods", "apparel", or "toys".
+ *  This field is immutable.
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+/**
+ *  Key-value pairs that can be attached to a product. At query time,
+ *  constraints can be specified based on the product_labels.
+ *  Note that integer values can be provided as strings, e.g. "1199". Only
+ *  strings with integer values can match a range-based restriction which is
+ *  to be supported soon.
+ *  Multiple values can be assigned to the same key. One product may have up to
+ *  100 product_labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_KeyValue *> *productLabels;
+
+@end
+
+
+/**
+ *  Parameters for a product search request.
+ */
+@interface GTLRVision_ProductSearchParams : GTLRObject
+
+/**
+ *  The bounding polygon around the area of interest in the image.
+ *  Optional. If it is not specified, system discretion will be applied.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+
+/**
+ *  The filtering expression. This can be used to restrict search results based
+ *  on Product labels. We currently support an AND of OR of key-value
+ *  expressions, where each expression within an OR must have the same key.
+ *  For example, "(color = red OR color = blue) AND brand = Google" is
+ *  acceptable, but not "(color = red OR brand = Google)" or "color: red".
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The list of product categories to search in. Currently, we only consider
+ *  the first category, and either "homegoods", "apparel", or "toys" should be
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productCategories;
+
+/**
+ *  The resource name of a ProductSet to be searched for similar images.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+ */
+@property(nonatomic, copy, nullable) NSString *productSet;
+
+@end
+
+
+/**
+ *  Results for a product search request.
+ */
+@interface GTLRVision_ProductSearchResults : GTLRObject
+
+/**
+ *  Timestamp of the index which provided these results. Changes made after
+ *  this time are not reflected in the current results.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
+
+/**
+ *  List of results grouped by products detected in the query image. Each entry
+ *  corresponds to one bounding polygon in the query image, and contains the
+ *  matching products specific to that region. There may be duplicate product
+ *  matches in the union of all the per-product results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GroupedResult *> *productGroupedResults;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Result *> *results;
+
+@end
+
+
+/**
+ *  A ProductSet contains Products. A ProductSet can contain a maximum of 1
+ *  million reference images. If the limit is exceeded, periodic indexing will
+ *  fail.
+ */
+@interface GTLRVision_ProductSet : GTLRObject
+
+/**
+ *  The user-provided name for this ProductSet. Must not be empty. Must be at
+ *  most 4096 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. If there was an error with indexing the product set, the field
+ *  is populated.
+ *  This field is ignored when creating a ProductSet.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_Status *indexError;
+
+/**
+ *  Output only. The time at which this ProductSet was last indexed. Query
+ *  results will reflect all updates before this time. If this ProductSet has
+ *  never been indexed, this field is 0.
+ *  This field is ignored when creating a ProductSet.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
+
+/**
+ *  The resource name of the ProductSet.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+ *  This field is ignored when creating a ProductSet.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A `Property` consists of a user-supplied name/value pair.
  */
 @interface GTLRVision_Property : GTLRObject
@@ -9724,6 +10550,81 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** Value of the property. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A `ReferenceImage` represents a product image and its associated metadata,
+ *  such as bounding boxes.
+ */
+@interface GTLRVision_ReferenceImage : GTLRObject
+
+/**
+ *  Bounding polygons around the areas of interest in the reference image.
+ *  Optional. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used.
+ *  The provided shape is converted into a non-rotated rectangle. Once
+ *  converted, the small edge of the rectangle must be greater than or equal
+ *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
+ *  is not).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_BoundingPoly *> *boundingPolys;
+
+/**
+ *  The resource name of the reference image.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
+ *  This field is ignored when creating a reference image.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Google Cloud Storage URI of the reference image.
+ *  The URI must start with `gs://`.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Request message for the `RemoveProductFromProductSet` method.
+ */
+@interface GTLRVision_RemoveProductFromProductSetRequest : GTLRObject
+
+/**
+ *  The resource name for the Product to be removed from this ProductSet.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
+@end
+
+
+/**
+ *  Information about a product.
+ */
+@interface GTLRVision_Result : GTLRObject
+
+/**
+ *  The resource name of the image from the product that is the closest match
+ *  to the query.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** The Product. */
+@property(nonatomic, strong, nullable) GTLRVision_Product *product;
+
+/**
+ *  A confidence level on the match, ranging from 0 (no confidence) to
+ *  1 (full confidence).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 

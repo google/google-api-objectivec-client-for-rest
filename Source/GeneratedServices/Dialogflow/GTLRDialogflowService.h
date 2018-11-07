@@ -4,8 +4,8 @@
 // API:
 //   Dialogflow API (dialogflow/v2)
 // Description:
-//   An end-to-end development suite for conversational interfaces (e.g.,
-//   chatbots, voice-powered apps and devices).
+//   Builds conversational interfaces (for example, chatbots, and voice-powered
+//   apps and devices).
 // Documentation:
 //   https://cloud.google.com/dialogflow-enterprise/
 
@@ -27,8 +27,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: View, manage and query your Dialogflow agents
+ *
+ *  Value "https://www.googleapis.com/auth/dialogflow"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeDialogflow;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
@@ -44,8 +50,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDialogflowCloudPlatform;
 /**
  *  Service for executing Dialogflow API queries.
  *
- *  An end-to-end development suite for conversational interfaces (e.g.,
- *  chatbots, voice-powered apps and devices).
+ *  Builds conversational interfaces (for example, chatbots, and voice-powered
+ *  apps and devices).
  */
 @interface GTLRDialogflowService : GTLRService
 

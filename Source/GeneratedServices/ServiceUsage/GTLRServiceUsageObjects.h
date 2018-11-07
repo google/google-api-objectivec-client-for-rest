@@ -779,6 +779,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *minDeadline;
 
 /**
+ *  The number of seconds to wait for the completion of a long running
+ *  operation. The default is no deadline.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationDeadline;
+
+/**
  *  Selects the methods to which this rule applies.
  *  Refer to selector for syntax details.
  */

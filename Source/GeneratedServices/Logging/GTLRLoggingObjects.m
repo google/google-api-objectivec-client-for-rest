@@ -443,8 +443,8 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic destination, endTime, filter, includeChildren, name,
-         outputVersionFormat, startTime, writerIdentity;
+@dynamic destination, filter, includeChildren, name, outputVersionFormat,
+         writerIdentity;
 @end
 
 

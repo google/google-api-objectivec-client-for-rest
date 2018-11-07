@@ -102,11 +102,12 @@ NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 //
 
 @implementation GTLRTPU_ListNodesResponse
-@dynamic nextPageToken, nodes;
+@dynamic nextPageToken, nodes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"nodes" : [GTLRTPU_Node class]
+    @"nodes" : [GTLRTPU_Node class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

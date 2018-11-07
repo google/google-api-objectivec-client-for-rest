@@ -45,6 +45,7 @@
 @class GTLRVault_MatterPermission;
 @class GTLRVault_OrgUnitInfo;
 @class GTLRVault_Query;
+@class GTLRVault_SavedQuery;
 @class GTLRVault_Status;
 @class GTLRVault_Status_Details_Item;
 @class GTLRVault_TeamDriveInfo;
@@ -987,6 +988,33 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
+ *  Definition of the response for method ListSaveQuery.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "savedQueries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVault_ListSavedQueriesResponse : GTLRCollectionObject
+
+/**
+ *  Page token to retrieve the next page of results in the list.
+ *  If this is empty, then there are no more saved queries to list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of output saved queries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVault_SavedQuery *> *savedQueries;
+
+@end
+
+
+/**
  *  The options for mail export.
  */
 @interface GTLRVault_MailExportOptions : GTLRObject
@@ -1003,6 +1031,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
+
+/**
+ *  Set to true to export confidential mode content
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showConfidentialModeContent;
 
 @end
 
@@ -1285,6 +1320,39 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /** The updated matter, with state OPEN. */
 @property(nonatomic, strong, nullable) GTLRVault_Matter *matter;
+
+@end
+
+
+/**
+ *  Definition of the saved query.
+ */
+@interface GTLRVault_SavedQuery : GTLRObject
+
+/**
+ *  Output only. The server generated timestamp at which saved query was
+ *  created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Name of the saved query. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The matter id of the associated matter.
+ *  The server does not look at this field during create and always uses matter
+ *  id in the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/**
+ *  The underlying Query object which contains all the information of the saved
+ *  query.
+ */
+@property(nonatomic, strong, nullable) GTLRVault_Query *query;
+
+/** A unique identifier for the saved query. */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
 
 @end
 

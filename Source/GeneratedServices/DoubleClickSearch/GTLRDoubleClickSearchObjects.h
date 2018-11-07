@@ -597,7 +597,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *reportType;
 
 /**
- *  Synchronous report only. The maxinum number of rows to return; additional
+ *  Synchronous report only. The maximum number of rows to return; additional
  *  rows are dropped. Acceptable values are 0 to 10000, inclusive. Defaults to
  *  10000.
  *

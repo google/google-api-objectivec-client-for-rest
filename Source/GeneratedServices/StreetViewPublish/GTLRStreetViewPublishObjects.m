@@ -252,7 +252,7 @@
 //
 
 @implementation GTLRStreetViewPublish_Place
-@dynamic placeId;
+@dynamic languageCode, name, placeId;
 @end
 
 

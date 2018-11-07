@@ -15,6 +15,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVision_BatchOperationMetadata.state
+NSString * const kGTLRVision_BatchOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVision_BatchOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRVision_BatchOperationMetadata_State_Processing = @"PROCESSING";
+NSString * const kGTLRVision_BatchOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVision_BatchOperationMetadata_State_Successful = @"SUCCESSFUL";
+
 // GTLRVision_Block.blockType
 NSString * const kGTLRVision_Block_BlockType_Barcode = @"BARCODE";
 NSString * const kGTLRVision_Block_BlockType_Picture = @"PICTURE";
@@ -96,6 +103,7 @@ NSString * const kGTLRVision_Feature_Type_LabelDetection       = @"LABEL_DETECTI
 NSString * const kGTLRVision_Feature_Type_LandmarkDetection    = @"LANDMARK_DETECTION";
 NSString * const kGTLRVision_Feature_Type_LogoDetection        = @"LOGO_DETECTION";
 NSString * const kGTLRVision_Feature_Type_ObjectLocalization   = @"OBJECT_LOCALIZATION";
+NSString * const kGTLRVision_Feature_Type_ProductSearch        = @"PRODUCT_SEARCH";
 NSString * const kGTLRVision_Feature_Type_SafeSearchDetection  = @"SAFE_SEARCH_DETECTION";
 NSString * const kGTLRVision_Feature_Type_TextDetection        = @"TEXT_DETECTION";
 NSString * const kGTLRVision_Feature_Type_TypeUnspecified      = @"TYPE_UNSPECIFIED";
@@ -662,6 +670,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_AddProductToProductSetRequest
+//
+
+@implementation GTLRVision_AddProductToProductSetRequest
+@dynamic product;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_AnnotateFileResponse
 //
 
@@ -705,7 +723,8 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
          landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
-         safeSearchAnnotation, textAnnotations, webDetection;
+         productSearchResults, safeSearchAnnotation, textAnnotations,
+         webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -819,6 +838,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_BatchOperationMetadata
+//
+
+@implementation GTLRVision_BatchOperationMetadata
+@dynamic endTime, state, submitTime;
 @end
 
 
@@ -1084,7 +1113,8 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
          landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
-         safeSearchAnnotation, textAnnotations, webDetection;
+         productSearchResults, safeSearchAnnotation, textAnnotations,
+         webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1415,6 +1445,85 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_GoogleCloudVisionV1p1beta1Product
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1Product
+@dynamic descriptionProperty, displayName, name, productCategory, productLabels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productLabels" : [GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResults
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResults
+@dynamic indexTime, productGroupedResults, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productGroupedResults" : [GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult class],
+    @"results" : [GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult
+@dynamic boundingPoly, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult
+@dynamic image, product, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_GoogleCloudVisionV1p1beta1Property
 //
 
@@ -1632,7 +1741,8 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
          fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
          landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
-         safeSearchAnnotation, textAnnotations, webDetection;
+         productSearchResults, safeSearchAnnotation, textAnnotations,
+         webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1969,6 +2079,85 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p2beta1Position
 @dynamic x, y, z;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1Product
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1Product
+@dynamic descriptionProperty, displayName, name, productCategory, productLabels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productLabels" : [GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResults
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResults
+@dynamic indexTime, productGroupedResults, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productGroupedResults" : [GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult class],
+    @"results" : [GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult
+@dynamic boundingPoly, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult
+@dynamic image, product, score;
 @end
 
 
@@ -2599,7 +2788,26 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResults
-@dynamic indexTime, results;
+@dynamic indexTime, productGroupedResults, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productGroupedResults" : [GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult class],
+    @"results" : [GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult
+@dynamic boundingPoly, results;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2833,6 +3041,24 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_GroupedResult
+//
+
+@implementation GTLRVision_GroupedResult
+@dynamic boundingPoly, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRVision_Result class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Image
 //
 
@@ -2857,7 +3083,8 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_ImageContext
-@dynamic cropHintsParams, languageHints, latLongRect, webDetectionParams;
+@dynamic cropHintsParams, languageHints, latLongRect, productSearchParams,
+         webDetectionParams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2891,11 +3118,70 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_ImportProductSetsGcsSource
+//
+
+@implementation GTLRVision_ImportProductSetsGcsSource
+@dynamic csvFileUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ImportProductSetsInputConfig
+//
+
+@implementation GTLRVision_ImportProductSetsInputConfig
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ImportProductSetsRequest
+//
+
+@implementation GTLRVision_ImportProductSetsRequest
+@dynamic inputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ImportProductSetsResponse
+//
+
+@implementation GTLRVision_ImportProductSetsResponse
+@dynamic referenceImages, statuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceImages" : [GTLRVision_ReferenceImage class],
+    @"statuses" : [GTLRVision_Status class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_InputConfig
 //
 
 @implementation GTLRVision_InputConfig
 @dynamic gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_KeyValue
+//
+
+@implementation GTLRVision_KeyValue
+@dynamic key, value;
 @end
 
 
@@ -2946,6 +3232,94 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ListProductSetsResponse
+//
+
+@implementation GTLRVision_ListProductSetsResponse
+@dynamic nextPageToken, productSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productSets" : [GTLRVision_ProductSet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"productSets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ListProductsInProductSetResponse
+//
+
+@implementation GTLRVision_ListProductsInProductSetResponse
+@dynamic nextPageToken, products;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [GTLRVision_Product class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"products";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ListProductsResponse
+//
+
+@implementation GTLRVision_ListProductsResponse
+@dynamic nextPageToken, products;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [GTLRVision_Product class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"products";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ListReferenceImagesResponse
+//
+
+@implementation GTLRVision_ListReferenceImagesResponse
+@dynamic nextPageToken, pageSize, referenceImages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceImages" : [GTLRVision_ReferenceImage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"referenceImages";
 }
 
 @end
@@ -3087,11 +3461,118 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Product
+//
+
+@implementation GTLRVision_Product
+@dynamic descriptionProperty, displayName, name, productCategory, productLabels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productLabels" : [GTLRVision_KeyValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ProductSearchParams
+//
+
+@implementation GTLRVision_ProductSearchParams
+@dynamic boundingPoly, filter, productCategories, productSet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productCategories" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ProductSearchResults
+//
+
+@implementation GTLRVision_ProductSearchResults
+@dynamic indexTime, productGroupedResults, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productGroupedResults" : [GTLRVision_GroupedResult class],
+    @"results" : [GTLRVision_Result class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ProductSet
+//
+
+@implementation GTLRVision_ProductSet
+@dynamic displayName, indexError, indexTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Property
 //
 
 @implementation GTLRVision_Property
 @dynamic name, uint64Value, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_ReferenceImage
+//
+
+@implementation GTLRVision_ReferenceImage
+@dynamic boundingPolys, name, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundingPolys" : [GTLRVision_BoundingPoly class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_RemoveProductFromProductSetRequest
+//
+
+@implementation GTLRVision_RemoveProductFromProductSetRequest
+@dynamic product;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_Result
+//
+
+@implementation GTLRVision_Result
+@dynamic image, product, score;
 @end
 
 

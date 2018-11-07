@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRSQLAdmin_AclEntry;
+@class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
@@ -34,6 +35,7 @@
 @class GTLRSQLAdmin_ExportContext;
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
+@class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_ImportContext;
@@ -84,6 +86,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The whitelisted value for the access control list. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  An Admin API warning message.
+ */
+@interface GTLRSQLAdmin_ApiWarning : GTLRObject
+
+/** Code to uniquely identify the warning type. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** The warning message. */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -690,6 +706,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ExportContext_SqlExportOptions : GTLRObject
 
+/** Options for exporting from MySQL. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions *mysqlExportOptions;
+
 /**
  *  Export only schemas.
  *
@@ -703,6 +722,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  you can specify only one table.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tables;
+
+@end
+
+
+/**
+ *  Options for exporting from MySQL.
+ */
+@interface GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions : GTLRObject
+
+/**
+ *  Option to include SQL statement required to set up replication. If set to 1,
+ *  the dump file includes a CHANGE MASTER TO statement with the binary log
+ *  coordinates. If set to 2, the CHANGE MASTER TO statement is written as a SQL
+ *  comment, and has no effect. All other values are ignored.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *masterData;
 
 @end
 
@@ -953,6 +990,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** List of warnings that ocurred while handling the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ApiWarning *> *warnings;
+
 @end
 
 
@@ -1024,7 +1064,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ipv4Enabled;
 
-/** Reserved for future use. */
+/**
+ *  The resource link for the VPC network from which the Cloud SQL instance is
+ *  accessible for private IP. For example,
+ *  /projects/myProject/global/networks/default. This setting can be updated,
+ *  but it cannot be removed after it is set.
+ */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;
 
 /**
@@ -1092,7 +1137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maintenance window. This specifies when a v2 Cloud SQL instance should
- *  preferably be restarted for system maintenance puruposes.
+ *  preferably be restarted for system maintenance purposes.
  */
 @interface GTLRSQLAdmin_MaintenanceWindow : GTLRObject
 

@@ -482,11 +482,33 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_ListSavedQueriesResponse
+//
+
+@implementation GTLRVault_ListSavedQueriesResponse
+@dynamic nextPageToken, savedQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"savedQueries" : [GTLRVault_SavedQuery class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"savedQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_MailExportOptions
 //
 
 @implementation GTLRVault_MailExportOptions
-@dynamic exportFormat;
+@dynamic exportFormat, showConfidentialModeContent;
 @end
 
 
@@ -616,6 +638,16 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_ReopenMatterResponse
 @dynamic matter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_SavedQuery
+//
+
+@implementation GTLRVault_SavedQuery
+@dynamic createTime, displayName, matterId, query, savedQueryId;
 @end
 
 

@@ -47,7 +47,9 @@
 @class GTLRShoppingContent_Amount;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
+@class GTLRShoppingContent_CustomAttribute;
 @class GTLRShoppingContent_CustomerReturnReason;
+@class GTLRShoppingContent_CustomGroup;
 @class GTLRShoppingContent_CutoffTime;
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedFetchSchedule;
@@ -99,6 +101,7 @@
 @class GTLRShoppingContent_OrderLegacyPromotionBenefit;
 @class GTLRShoppingContent_OrderLineItem;
 @class GTLRShoppingContent_OrderLineItemProduct;
+@class GTLRShoppingContent_OrderLineItemProductFee;
 @class GTLRShoppingContent_OrderLineItemProductVariantAttribute;
 @class GTLRShoppingContent_OrderLineItemReturnInfo;
 @class GTLRShoppingContent_OrderLineItemShippingDetails;
@@ -138,8 +141,6 @@
 @class GTLRShoppingContent_Price;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAspect;
-@class GTLRShoppingContent_ProductCustomAttribute;
-@class GTLRShoppingContent_ProductCustomGroup;
 @class GTLRShoppingContent_ProductDestination;
 @class GTLRShoppingContent_ProductsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductsCustomBatchResponseEntry;
@@ -188,7 +189,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Account data.
+ *  Account data. After the creation of a new account it may take a few minutes
+ *  before it is fully operational.
  */
 @interface GTLRShoppingContent_Account : GTLRObject
 
@@ -687,6 +689,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Additional details about the issue. */
 @property(nonatomic, copy, nullable) NSString *detail;
+
+/** The URL of a web page to help resolving this issue. */
+@property(nonatomic, copy, nullable) NSString *documentation;
 
 /**
  *  Issue identifier.
@@ -1302,6 +1307,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_CustomAttribute
+ */
+@interface GTLRShoppingContent_CustomAttribute : GTLRObject
+
+/**
+ *  The name of the attribute. Underscores will be replaced by spaces upon
+ *  insertion.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The type of the attribute. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Free-form unit of the attribute. Unit can only be used for values of type
+ *  int, float, or price.
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/** The value of the attribute. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_CustomerReturnReason
  */
 @interface GTLRShoppingContent_CustomerReturnReason : GTLRObject
@@ -1314,6 +1345,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @property(nonatomic, copy, nullable) NSString *reasonCode;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_CustomGroup
+ */
+@interface GTLRShoppingContent_CustomGroup : GTLRObject
+
+/** The sub-attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomAttribute *> *attributes;
+
+/**
+ *  The name of the group. Underscores will be replaced by spaces upon
+ *  insertion.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2195,8 +2243,41 @@ NS_ASSUME_NONNULL_BEGIN
 /** The availability of the product. */
 @property(nonatomic, copy, nullable) NSString *availability;
 
+/**
+ *  Custom label 0 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel0;
+
+/**
+ *  Custom label 1 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel1;
+
+/**
+ *  Custom label 2 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel2;
+
+/**
+ *  Custom label 3 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel3;
+
+/**
+ *  Custom label 3 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel4;
+
 /** Number and amount of installments to pay for an item. Brazil only. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Installment *installment;
+
+/** The instore product location. Supported only for local products. */
+@property(nonatomic, copy, nullable) NSString *instoreProductLocation;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -2368,8 +2449,41 @@ NS_ASSUME_NONNULL_BEGIN
 /** The availability of the product. */
 @property(nonatomic, copy, nullable) NSString *availability;
 
+/**
+ *  Custom label 0 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel0;
+
+/**
+ *  Custom label 1 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel1;
+
+/**
+ *  Custom label 2 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel2;
+
+/**
+ *  Custom label 3 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel3;
+
+/**
+ *  Custom label 3 for custom grouping of items in a Shopping campaign. Only
+ *  supported for online products.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel4;
+
 /** Number and amount of installments to pay for an item. Brazil only. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Installment *installment;
+
+/** The instore product location. Supported only for local products. */
+@property(nonatomic, copy, nullable) NSString *instoreProductLocation;
 
 /**
  *  Loyalty points that users receive after purchasing the item. Japan only.
@@ -3410,7 +3524,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** Product data from the time of the order placement. */
+/**
+ *  Product data as seen by customer from the time of the order placement. Note
+ *  that certain attributes values (e.g. title or gtin) might be reformatted and
+ *  no longer match values submitted via product feed.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderLineItemProduct *product;
 
 /**
@@ -3490,6 +3608,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The two-letter ISO 639-1 language code for the item. */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
+/** Associated fees at order creation time. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderLineItemProductFee *> *fees;
+
 /** Global Trade Item Number (GTIN) of the item. */
 @property(nonatomic, copy, nullable) NSString *gtin;
 
@@ -3530,6 +3651,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  list of variant attributes here.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderLineItemProductVariantAttribute *> *variantAttributes;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderLineItemProductFee
+ */
+@interface GTLRShoppingContent_OrderLineItemProductFee : GTLRObject
+
+/** Amount of the fee. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
+
+/** Name of the fee. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -6066,10 +6201,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  (e.g., { "name": "size type", "type": "text", "value": "regular" }). This is
  *  useful for submitting attributes not explicitly exposed by the API.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductCustomAttribute *> *customAttributes;
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomAttribute *> *customAttributes;
 
 /** A list of custom (merchant-provided) custom attribute groups. */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductCustomGroup *> *customGroups;
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomGroup *> *customGroups;
 
 /** Custom label 0 for custom grouping of items in a Shopping campaign. */
 @property(nonatomic, copy, nullable) NSString *customLabel0;
@@ -6344,49 +6479,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Whether the aspect is required, excluded or should be validated. */
 @property(nonatomic, copy, nullable) NSString *intention;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_ProductCustomAttribute
- */
-@interface GTLRShoppingContent_ProductCustomAttribute : GTLRObject
-
-/**
- *  The name of the attribute. Underscores will be replaced by spaces upon
- *  insertion.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The type of the attribute. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Free-form unit of the attribute. Unit can only be used for values of type
- *  int, float, or price.
- */
-@property(nonatomic, copy, nullable) NSString *unit;
-
-/** The value of the attribute. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_ProductCustomGroup
- */
-@interface GTLRShoppingContent_ProductCustomGroup : GTLRObject
-
-/** The sub-attributes. */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductCustomAttribute *> *attributes;
-
-/**
- *  The name of the group. Underscores will be replaced by spaces upon
- *  insertion.
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

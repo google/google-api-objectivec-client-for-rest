@@ -4,7 +4,7 @@
 // API:
 //   Web Security Scanner API (websecurityscanner/v1alpha)
 // Description:
-//   Web Security Scanner API (under development).
+//   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:
 //   https://cloud.google.com/security-scanner/
 

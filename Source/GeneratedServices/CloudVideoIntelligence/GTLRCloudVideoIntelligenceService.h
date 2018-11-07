@@ -4,7 +4,8 @@
 // API:
 //   Cloud Video Intelligence API (videointelligence/v1)
 // Description:
-//   Cloud Video Intelligence API.
+//   Detects objects, explicit content, and scene changes in videos. It also
+//   specifies the region for annotation and transcribes speech to text.
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
@@ -43,7 +44,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform;
 /**
  *  Service for executing Cloud Video Intelligence API queries.
  *
- *  Cloud Video Intelligence API.
+ *  Detects objects, explicit content, and scene changes in videos. It also
+ *  specifies the region for annotation and transcribes speech to text.
  */
 @interface GTLRCloudVideoIntelligenceService : GTLRService
 

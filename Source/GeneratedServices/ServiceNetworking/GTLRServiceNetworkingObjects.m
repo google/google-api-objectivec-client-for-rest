@@ -92,7 +92,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
 @dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength, region,
-         subnetwork, subnetworkUsers;
+         requestedAddress, subnetwork, subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -224,7 +224,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, minDeadline, selector;
+@dynamic address, deadline, minDeadline, operationDeadline, selector;
 @end
 
 
@@ -1033,7 +1033,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_Subnetwork
-@dynamic ipCidrRange, name;
+@dynamic ipCidrRange, name, network;
 @end
 
 

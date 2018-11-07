@@ -2,13 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service User API (serviceuser/v1)
+//   Access Context Manager API (accesscontextmanager/v1beta)
 // Description:
-//   Enables services that service consumers want to use on Google Cloud
-//   Platform, lists the available or enabled services, or disables services
-//   that service consumers no longer use.
+//   An API for setting attribute based access control to requests to GCP
+//   services.
 // Documentation:
-//   https://cloud.google.com/service-management/
+//   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -28,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -36,38 +35,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUserCloudPlatform;
-/**
- *  Authorization scope: View your data across Google Cloud Platform services
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUserCloudPlatformReadOnly;
-/**
- *  Authorization scope: Manage your Google API service configuration
- *
- *  Value "https://www.googleapis.com/auth/service.management"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceUserServiceManagement;
+GTLR_EXTERN NSString * const kGTLRAuthScopeAccessContextManagerCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRServiceUserService
+//   GTLRAccessContextManagerService
 //
 
 /**
- *  Service for executing Service User API queries.
+ *  Service for executing Access Context Manager API queries.
  *
- *  Enables services that service consumers want to use on Google Cloud
- *  Platform, lists the available or enabled services, or disables services that
- *  service consumers no longer use.
+ *  An API for setting attribute based access control to requests to GCP
+ *  services.
  */
-@interface GTLRServiceUserService : GTLRService
+@interface GTLRAccessContextManagerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRServiceUserQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRAccessContextManagerQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

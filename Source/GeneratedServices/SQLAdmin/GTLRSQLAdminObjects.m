@@ -23,6 +23,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_ApiWarning
+//
+
+@implementation GTLRSQLAdmin_ApiWarning
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_BackupConfiguration
 //
 
@@ -236,7 +246,7 @@
 //
 
 @implementation GTLRSQLAdmin_ExportContext_SqlExportOptions
-@dynamic schemaOnly, tables;
+@dynamic mysqlExportOptions, schemaOnly, tables;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -245,6 +255,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions
+//
+
+@implementation GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions
+@dynamic masterData;
 @end
 
 
@@ -380,11 +400,12 @@
 //
 
 @implementation GTLRSQLAdmin_InstancesListResponse
-@dynamic items, kind, nextPageToken;
+@dynamic items, kind, nextPageToken, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRSQLAdmin_DatabaseInstance class]
+    @"items" : [GTLRSQLAdmin_DatabaseInstance class],
+    @"warnings" : [GTLRSQLAdmin_ApiWarning class]
   };
   return map;
 }

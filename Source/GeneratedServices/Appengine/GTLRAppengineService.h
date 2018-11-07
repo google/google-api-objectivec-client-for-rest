@@ -4,8 +4,7 @@
 // API:
 //   App Engine Admin API (appengine/v1)
 // Description:
-//   The App Engine Admin API enables developers to provision and manage their
-//   App Engine applications.
+//   Provisions and manages developers' App Engine applications.
 // Documentation:
 //   https://cloud.google.com/appengine/docs/admin-api/
 
@@ -57,8 +56,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAppengineCloudPlatformReadOnly;
 /**
  *  Service for executing App Engine Admin API queries.
  *
- *  The App Engine Admin API enables developers to provision and manage their
- *  App Engine applications.
+ *  Provisions and manages developers' App Engine applications.
  */
 @interface GTLRAppengineService : GTLRService
 

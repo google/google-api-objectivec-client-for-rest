@@ -4,7 +4,7 @@
 // API:
 //   Abusive Experience Report API (abusiveexperiencereport/v1)
 // Description:
-//   View Abusive Experience Report data, and get a list of sites that have a
+//   Views Abusive Experience Report data, and gets a list of sites that have a
 //   significant number of abusive experiences.
 // Documentation:
 //   https://developers.google.com/abusive-experience-report/
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAbusiveExperienceReportXapiZoo;
 /**
  *  Service for executing Abusive Experience Report API queries.
  *
- *  View Abusive Experience Report data, and get a list of sites that have a
+ *  Views Abusive Experience Report data, and gets a list of sites that have a
  *  significant number of abusive experiences.
  */
 @interface GTLRAbusiveExperienceReportService : GTLRService

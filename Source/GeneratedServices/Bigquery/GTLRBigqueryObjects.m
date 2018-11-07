@@ -458,7 +458,7 @@
          ignoreUnknownValues, maxBadRecords, nullMarker, projectionFields,
          quote, schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
          skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
-         writeDisposition;
+         useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -926,6 +926,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_RangePartitioning
+//
+
+@implementation GTLRBigquery_RangePartitioning
+@dynamic field, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_RangePartitioning_Range
+//
+
+@implementation GTLRBigquery_RangePartitioning_Range
+@dynamic end, interval, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Streamingbuffer
 //
 
@@ -943,7 +963,8 @@
 @dynamic clustering, creationTime, descriptionProperty, encryptionConfiguration,
          ETag, expirationTime, externalDataConfiguration, friendlyName,
          identifier, kind, labels, lastModifiedTime, location, model, numBytes,
-         numLongTermBytes, numRows, schema, selfLink, streamingBuffer,
+         numLongTermBytes, numPhysicalBytes, numRows, rangePartitioning,
+         requirePartitionFilter, schema, selfLink, streamingBuffer,
          tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

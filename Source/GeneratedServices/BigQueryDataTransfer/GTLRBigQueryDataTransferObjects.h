@@ -191,7 +191,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pend
  */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
 /**
- *  Data transfer completed successsfully.
+ *  Data transfer completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
@@ -260,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending
  */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
 /**
- *  Data transfer completed successsfully.
+ *  Data transfer completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
@@ -969,7 +969,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Running Data
  *        transfer is in progress. (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded Data
- *        transfer completed successsfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully. (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified
  *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
@@ -1104,7 +1104,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Running Data transfer
  *        is in progress. (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded Data
- *        transfer completed successsfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully. (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified
  *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
  */

@@ -602,7 +602,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_InternalChecker
-@dynamic displayName, gcpZone, name, network;
+@dynamic displayName, gcpZone, name, network, peerProjectId;
 @end
 
 

@@ -4307,6 +4307,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_InterconnectsGetDiagnostics
+
+@dynamic interconnect, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect {
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}/getDiagnostics";
+  GTLRComputeQuery_InterconnectsGetDiagnostics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_InterconnectsGetDiagnosticsResponse class];
+  query.loggingName = @"compute.interconnects.getDiagnostics";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InterconnectsInsert
 
 @dynamic project, requestId;
@@ -6926,6 +6949,31 @@
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Router class];
   query.loggingName = @"compute.routers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersGetNatMappingInfo
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}/getNatMappingInfo";
+  GTLRComputeQuery_RoutersGetNatMappingInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_VmEndpointNatMappingsList class];
+  query.loggingName = @"compute.routers.getNatMappingInfo";
   return query;
 }
 

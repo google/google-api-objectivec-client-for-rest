@@ -261,7 +261,8 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatusAccountLevelIssue
-@dynamic country, destination, detail, identifier, severity, title;
+@dynamic country, destination, detail, documentation, identifier, severity,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -600,6 +601,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_CustomAttribute
+//
+
+@implementation GTLRShoppingContent_CustomAttribute
+@dynamic name, type, unit, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_CustomerReturnReason
 //
 
@@ -608,6 +619,24 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CustomGroup
+//
+
+@implementation GTLRShoppingContent_CustomGroup
+@dynamic attributes, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRShoppingContent_CustomAttribute class]
+  };
+  return map;
 }
 
 @end
@@ -1042,8 +1071,10 @@
 //
 
 @implementation GTLRShoppingContent_Inventory
-@dynamic availability, installment, kind, loyaltyPoints, pickup, price,
-         quantity, salePrice, salePriceEffectiveDate, sellOnGoogleQuantity;
+@dynamic availability, customLabel0, customLabel1, customLabel2, customLabel3,
+         customLabel4, installment, instoreProductLocation, kind, loyaltyPoints,
+         pickup, price, quantity, salePrice, salePriceEffectiveDate,
+         sellOnGoogleQuantity;
 @end
 
 
@@ -1119,8 +1150,10 @@
 //
 
 @implementation GTLRShoppingContent_InventorySetRequest
-@dynamic availability, installment, loyaltyPoints, pickup, price, quantity,
-         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity;
+@dynamic availability, customLabel0, customLabel1, customLabel2, customLabel3,
+         customLabel4, installment, instoreProductLocation, loyaltyPoints,
+         pickup, price, quantity, salePrice, salePriceEffectiveDate,
+         sellOnGoogleQuantity;
 @end
 
 
@@ -1716,7 +1749,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItemProduct
-@dynamic brand, channel, condition, contentLanguage, gtin, identifier,
+@dynamic brand, channel, condition, contentLanguage, fees, gtin, identifier,
          imageLink, itemGroupId, mpn, offerId, price, shownImage, targetCountry,
          title, variantAttributes;
 
@@ -1726,11 +1759,22 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fees" : [GTLRShoppingContent_OrderLineItemProductFee class],
     @"variantAttributes" : [GTLRShoppingContent_OrderLineItemProductVariantAttribute class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderLineItemProductFee
+//
+
+@implementation GTLRShoppingContent_OrderLineItemProductFee
+@dynamic amount, name;
 @end
 
 
@@ -2906,8 +2950,8 @@
     @"additionalProductTypes" : [NSString class],
     @"adwordsLabels" : [NSString class],
     @"aspects" : [GTLRShoppingContent_ProductAspect class],
-    @"customAttributes" : [GTLRShoppingContent_ProductCustomAttribute class],
-    @"customGroups" : [GTLRShoppingContent_ProductCustomGroup class],
+    @"customAttributes" : [GTLRShoppingContent_CustomAttribute class],
+    @"customGroups" : [GTLRShoppingContent_CustomGroup class],
     @"destinations" : [GTLRShoppingContent_ProductDestination class],
     @"displayAdsSimilarIds" : [NSString class],
     @"promotionIds" : [NSString class],
@@ -2930,34 +2974,6 @@
 
 @implementation GTLRShoppingContent_ProductAspect
 @dynamic aspectName, destinationName, intention;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ProductCustomAttribute
-//
-
-@implementation GTLRShoppingContent_ProductCustomAttribute
-@dynamic name, type, unit, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ProductCustomGroup
-//
-
-@implementation GTLRShoppingContent_ProductCustomGroup
-@dynamic attributes, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attributes" : [GTLRShoppingContent_ProductCustomAttribute class]
-  };
-  return map;
-}
-
 @end
 
 

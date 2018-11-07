@@ -68,6 +68,126 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 
 @end
 
+@implementation GTLRMonitoringQuery_MetricDescriptorsCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_MetricDescriptor *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/metricDescriptors";
+  GTLRMonitoringQuery_MetricDescriptorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_MetricDescriptor class];
+  query.loggingName = @"monitoring.metricDescriptors.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_MetricDescriptorsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_MetricDescriptorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.metricDescriptors.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_MetricDescriptorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_MetricDescriptorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_MetricDescriptor class];
+  query.loggingName = @"monitoring.metricDescriptors.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_MetricDescriptorsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/metricDescriptors";
+  GTLRMonitoringQuery_MetricDescriptorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListMetricDescriptorsResponse class];
+  query.loggingName = @"monitoring.metricDescriptors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_MonitoredResourceDescriptorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_MonitoredResourceDescriptorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_MonitoredResourceDescriptor class];
+  query.loggingName = @"monitoring.monitoredResourceDescriptors.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_MonitoredResourceDescriptorsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/monitoredResourceDescriptors";
+  GTLRMonitoringQuery_MonitoredResourceDescriptorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListMonitoredResourceDescriptorsResponse class];
+  query.loggingName = @"monitoring.monitoredResourceDescriptors.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
 
 @dynamic name;
@@ -843,6 +963,72 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
   query.name = name;
   query.expectedObjectClass = [GTLRMonitoring_UptimeCheckConfig class];
   query.loggingName = @"monitoring.projects.uptimeCheckConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_TimeSeriesCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries";
+  GTLRMonitoringQuery_TimeSeriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.timeSeries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_TimeSeriesList
+
+@dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,
+         aggregationGroupByFields, aggregationPerSeriesAligner, filter,
+         intervalEndTime, intervalStartTime, name, orderBy, pageSize, pageToken,
+         view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"aggregationAlignmentPeriod" : @"aggregation.alignmentPeriod",
+    @"aggregationCrossSeriesReducer" : @"aggregation.crossSeriesReducer",
+    @"aggregationGroupByFields" : @"aggregation.groupByFields",
+    @"aggregationPerSeriesAligner" : @"aggregation.perSeriesAligner",
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregation.groupByFields" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries";
+  GTLRMonitoringQuery_TimeSeriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListTimeSeriesResponse class];
+  query.loggingName = @"monitoring.timeSeries.list";
   return query;
 }
 

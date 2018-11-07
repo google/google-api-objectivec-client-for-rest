@@ -4,16 +4,17 @@
 // API:
 //   Dialogflow API (dialogflow/v2)
 // Description:
-//   An end-to-end development suite for conversational interfaces (e.g.,
-//   chatbots, voice-powered apps and devices).
+//   Builds conversational interfaces (for example, chatbots, and voice-powered
+//   apps and devices).
 // Documentation:
 //   https://cloud.google.com/dialogflow-enterprise/
 
 #import "GTLRDialogflow.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeDialogflow              = @"https://www.googleapis.com/auth/dialogflow";
 NSString * const kGTLRAuthScopeDialogflowCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

@@ -170,6 +170,15 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 // Previous library name was
 //   +[GTLQueryStreetViewPublish queryForPhotoGetWithphotoId:]
 
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  If language_code is unspecified, the user's language preference for Google
+ *  services will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
 /** Required. ID of the Photo. */
 @property(nonatomic, copy, nullable) NSString *photoId;
 
@@ -284,6 +293,15 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @interface GTLRStreetViewPublishQuery_PhotosBatchGet : GTLRStreetViewPublishQuery
 // Previous library name was
 //   +[GTLQueryStreetViewPublish queryForPhotosBatchGet]
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  If language_code is unspecified, the user's language preference for Google
+ *  services will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Required. IDs of the Photos. For HTTP
@@ -420,6 +438,15 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  The only filter supported at the moment is `placeId`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  If language_code is unspecified, the user's language preference for Google
+ *  services will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The maximum number of photos to return.

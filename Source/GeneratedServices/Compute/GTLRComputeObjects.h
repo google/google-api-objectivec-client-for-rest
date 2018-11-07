@@ -197,6 +197,11 @@
 @class GTLRCompute_InterconnectAttachmentsScopedList_Warning;
 @class GTLRCompute_InterconnectAttachmentsScopedList_Warning_Data_Item;
 @class GTLRCompute_InterconnectCircuitInfo;
+@class GTLRCompute_InterconnectDiagnostics;
+@class GTLRCompute_InterconnectDiagnosticsARPEntry;
+@class GTLRCompute_InterconnectDiagnosticsLinkLACPStatus;
+@class GTLRCompute_InterconnectDiagnosticsLinkOpticalPower;
+@class GTLRCompute_InterconnectDiagnosticsLinkStatus;
 @class GTLRCompute_InterconnectList_Warning;
 @class GTLRCompute_InterconnectList_Warning_Data_Item;
 @class GTLRCompute_InterconnectLocation;
@@ -312,11 +317,14 @@
 @class GTLRCompute_RouterInterface;
 @class GTLRCompute_RouterList_Warning;
 @class GTLRCompute_RouterList_Warning_Data_Item;
+@class GTLRCompute_RouterNat;
+@class GTLRCompute_RouterNatSubnetworkToNat;
 @class GTLRCompute_RoutersScopedList;
 @class GTLRCompute_RoutersScopedList_Warning;
 @class GTLRCompute_RoutersScopedList_Warning_Data_Item;
 @class GTLRCompute_RouterStatus;
 @class GTLRCompute_RouterStatusBgpPeerStatus;
+@class GTLRCompute_RouterStatusNatStatus;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_SchedulingNodeAffinity;
 @class GTLRCompute_SecurityPolicy;
@@ -402,6 +410,10 @@
 @class GTLRCompute_UsableSubnetworksAggregatedList_Warning_Data_Item;
 @class GTLRCompute_UsableSubnetworkSecondaryRange;
 @class GTLRCompute_UsageExportLocation;
+@class GTLRCompute_VmEndpointNatMappings;
+@class GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings;
+@class GTLRCompute_VmEndpointNatMappingsList_Warning;
+@class GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item;
 @class GTLRCompute_VpnTunnel;
 @class GTLRCompute_VpnTunnelAggregatedList_Items;
 @class GTLRCompute_VpnTunnelAggregatedList_Warning;
@@ -3200,6 +3212,28 @@ GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warn
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectDiagnosticsLinkLACPStatus.state
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Active;
+/** Value: "DETACHED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Detached;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectDiagnosticsLinkOpticalPower.state
+
+/** Value: "HIGH_ALARM" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighAlarm;
+/** Value: "HIGH_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighWarning;
+/** Value: "LOW_ALARM" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowAlarm;
+/** Value: "LOW_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowWarning;
+/** Value: "OK" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -3600,6 +3634,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Recreati
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Refreshing;
 /** Value: "RESTARTING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Restarting;
+/** Value: "VERIFYING" */
+GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifying;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ManagedInstance.instanceStatus
@@ -3810,6 +3846,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Deleting;
 GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Invalid;
 /** Value: "READY" */
 GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Ready;
+/** Value: "REPAIRING" */
+GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Repairing;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupsListNodes_Warning.code
@@ -4520,6 +4558,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100VwsGpus;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4Gpus;
 /** Value: "NVIDIA_P4_VWS_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4VwsGpus;
+/** Value: "NVIDIA_T4_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4Gpus;
+/** Value: "NVIDIA_T4_VWS_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus;
 /** Value: "NVIDIA_V100_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus;
 /** Value: "PREEMPTIBLE_CPUS" */
@@ -4536,6 +4578,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100VwsG
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P4_VWS_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus;
+/** Value: "PREEMPTIBLE_NVIDIA_T4_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus;
+/** Value: "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_V100_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
 /** Value: "REGIONAL_AUTOSCALERS" */
@@ -4578,6 +4624,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetTcpProxies;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
 /** Value: "URL_MAPS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_UrlMaps;
+/** Value: "VPN_GATEWAYS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnGateways;
 /** Value: "VPN_TUNNELS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnTunnels;
 
@@ -5150,6 +5198,34 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_SingleInstance
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterNat.natIpAllocateOption
+
+/** Value: "AUTO_ONLY" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_AutoOnly;
+/** Value: "MANUAL_ONLY" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_ManualOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterNat.sourceSubnetworkIpRangesToNat
+
+/** Value: "ALL_SUBNETWORKS_ALL_IP_RANGES" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllIpRanges;
+/** Value: "ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllPrimaryIpRanges;
+/** Value: "LIST_OF_SUBNETWORKS" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterNatSubnetworkToNat.sourceIpRangesToNat
+
+/** Value: "ALL_IP_RANGES" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_AllIpRanges;
+/** Value: "LIST_OF_SECONDARY_IP_RANGES" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_ListOfSecondaryIpRanges;
+/** Value: "PRIMARY_IP_RANGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_PrimaryIpRange;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RoutersScopedList_Warning.code
@@ -6528,6 +6604,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warnin
 GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VmEndpointNatMappingsList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnel.status
@@ -8857,15 +8983,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The fully-qualified URL of a Instance Group resource. This instance group
- *  defines the list of instances that serve traffic. Member virtual machine
- *  instances from each instance group must live in the same zone as the
- *  instance group itself. No two backends in a backend service are allowed to
- *  use same Instance Group resource.
- *  Note that you must specify an Instance Group resource using the
- *  fully-qualified URL, rather than a partial URL.
+ *  The fully-qualified URL of an Instance Group or Network Endpoint Group
+ *  resource. In case of instance group this defines the list of instances that
+ *  serve traffic. Member virtual machine instances from each instance group
+ *  must live in the same zone as the instance group itself. No two backends in
+ *  a backend service are allowed to use same Instance Group resource.
+ *  For Network Endpoint Groups this defines list of endpoints. All endpoints of
+ *  Network Endpoint Group must be hosted on instances located in the same zone
+ *  as the Network Endpoint Group.
+ *  Backend service can not contain mix of Instance Group and Network Endpoint
+ *  Group backends.
+ *  Note that you must specify an Instance Group or Network Endpoint Group
+ *  resource using the fully-qualified URL, rather than a partial URL.
  *  When the BackendService has load balancing scheme INTERNAL, the instance
- *  group must be within the same region as the BackendService.
+ *  group must be within the same region as the BackendService. Network Endpoint
+ *  Groups are not supported for INTERNAL load balancing scheme.
  */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -9512,6 +9644,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_BackendServiceGroupHealth : GTLRObject
 
+/**
+ *  Health state of the backend instances or endpoints in requested instance or
+ *  network endpoint group, determined based on configured health checks.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HealthStatus *> *healthStatus;
 
 /**
@@ -15005,6 +15141,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSNumber *restarting;
 
+/**
+ *  [Output Only] The number of instances in the managed instance group that are
+ *  being verified. See the managedInstances[].currentAction property in the
+ *  listManagedInstances method documentation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifying;
+
 @end
 
 
@@ -17600,6 +17745,127 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Diagnostics information about interconnect, contains detailed and current
+ *  technical information about Google?s side of the connection.
+ */
+@interface GTLRCompute_InterconnectDiagnostics : GTLRObject
+
+/**
+ *  A list of InterconnectDiagnostics.ARPEntry objects, describing individual
+ *  neighbors currently seen by the Google router in the ARP cache for the
+ *  Interconnect. This will be empty when the Interconnect is not bundled.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectDiagnosticsARPEntry *> *arpCaches;
+
+/**
+ *  A list of InterconnectDiagnostics.LinkStatus objects, describing the status
+ *  for each link on the Interconnect.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectDiagnosticsLinkStatus *> *links;
+
+/** The MAC address of the Interconnect's bundle interface. */
+@property(nonatomic, copy, nullable) NSString *macAddress;
+
+@end
+
+
+/**
+ *  Describing the ARP neighbor entries seen on this link
+ */
+@interface GTLRCompute_InterconnectDiagnosticsARPEntry : GTLRObject
+
+/** The IP address of this ARP neighbor. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** The MAC address of this ARP neighbor. */
+@property(nonatomic, copy, nullable) NSString *macAddress;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectDiagnosticsLinkLACPStatus
+ */
+@interface GTLRCompute_InterconnectDiagnosticsLinkLACPStatus : GTLRObject
+
+/** System ID of the port on Google?s side of the LACP exchange. */
+@property(nonatomic, copy, nullable) NSString *googleSystemId;
+
+/** System ID of the port on the neighbor?s side of the LACP exchange. */
+@property(nonatomic, copy, nullable) NSString *neighborSystemId;
+
+/**
+ *  state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Active
+ *        Value "ACTIVE"
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Detached
+ *        Value "DETACHED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectDiagnosticsLinkOpticalPower
+ */
+@interface GTLRCompute_InterconnectDiagnosticsLinkOpticalPower : GTLRObject
+
+/**
+ *  state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighAlarm
+ *        Value "HIGH_ALARM"
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighWarning
+ *        Value "HIGH_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowAlarm
+ *        Value "LOW_ALARM"
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowWarning
+ *        Value "LOW_WARNING"
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok
+ *        Value "OK"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Value of the current optical power, read in dBm.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectDiagnosticsLinkStatus
+ */
+@interface GTLRCompute_InterconnectDiagnosticsLinkStatus : GTLRObject
+
+/**
+ *  A list of InterconnectDiagnostics.ARPEntry objects, describing the ARP
+ *  neighbor entries seen on this link. This will be empty if the link is
+ *  bundled
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectDiagnosticsARPEntry *> *arpCaches;
+
+/** The unique ID for this link assigned during turn up by Google. */
+@property(nonatomic, copy, nullable) NSString *circuitId;
+
+/** The Demarc address assigned by Google and provided in the LoA. */
+@property(nonatomic, copy, nullable) NSString *googleDemarc;
+
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkLACPStatus *lacpStatus;
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkOpticalPower *receivingOpticalPower;
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkOpticalPower *transmittingOpticalPower;
+
+@end
+
+
+/**
  *  Response to the list request, and contains a list of interconnects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -18108,6 +18374,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "NS_CANCELED"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Response for the InterconnectsGetDiagnosticsRequest.
+ */
+@interface GTLRCompute_InterconnectsGetDiagnosticsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnostics *result;
 
 @end
 
@@ -18984,6 +19260,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "REFRESHING"
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Restarting Value
  *        "RESTARTING"
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Verifying Value
+ *        "VERIFYING"
  */
 @property(nonatomic, copy, nullable) NSString *currentAction;
 
@@ -19977,6 +20255,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_NodeGroupNode_Status_Deleting Value "DELETING"
  *    @arg @c kGTLRCompute_NodeGroupNode_Status_Invalid Value "INVALID"
  *    @arg @c kGTLRCompute_NodeGroupNode_Status_Ready Value "READY"
+ *    @arg @c kGTLRCompute_NodeGroupNode_Status_Repairing Value "REPAIRING"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -20313,8 +20592,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  RFC1035. Specifically, the name must be 1-63 characters long and match the
  *  regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
  *  character must be a lowercase letter, and all following characters must be a
- *  dash, lowercase letter, or digit, except the last charaicter, which cannot
- *  be a dash.
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -21963,13 +22242,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The full or partial URL to the BackendService resource. This will be used if
- *  none of the pathRules defined by this PathMatcher is matched by the URL's
- *  path portion. For example, the following are all valid URLs to a
- *  BackendService resource:
+ *  none of the pathRules or routeRules defined by this PathMatcher are matched.
+ *  For example, the following are all valid URLs to a BackendService resource:
  *  -
  *  https://www.googleapis.com/compute/v1/projects/project/global/backendServices/backendService
  *  - compute/v1/projects/project/global/backendServices/backendService
  *  - global/backendServices/backendService
+ *  Use defaultService instead of defaultRouteAction when simple routing to a
+ *  backend service is desired and other advanced capabilities like traffic
+ *  splitting and URL rewrites are not required.
+ *  Only one of defaultService, defaultRouteAction or defaultUrlRedirect must be
+ *  set.
+ *  Authorization requires one or more of the following Google IAM permissions
+ *  on the specified resource default_service:
+ *  - compute.backendBuckets.use
+ *  - compute.backendServices.use
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
@@ -21984,7 +22271,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** The name to which this PathMatcher is referred by the HostRule. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list of path rules. */
+/**
+ *  The list of path rules. Use this list instead of routeRules when routing
+ *  based on simple path matching is all that's required. The order by which
+ *  path rules are specified does not matter. Matches are always done on the
+ *  longest-path-first basis.
+ *  For example: a pathRule with a path /a/b/c/ * will match before /a/b/ *
+ *  irrespective of the order in which those paths appear in this list.
+ *  Only one of pathRules or routeRules must be set.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PathRule *> *pathRules;
 
 @end
@@ -22004,7 +22299,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
-/** The URL of the BackendService resource if this rule is matched. */
+/**
+ *  The URL of the backend service resource if this rule is matched.
+ *  Use service instead of routeAction when simple routing to a backend service
+ *  is desired and other advanced capabilities like traffic splitting and
+ *  rewrites are not required.
+ *  Only one of service, routeAction or urlRedirect should must be set.
+ */
 @property(nonatomic, copy, nullable) NSString *service;
 
 @end
@@ -22249,6 +22550,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP4Gpus Value "NVIDIA_P4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP4VwsGpus Value
  *        "NVIDIA_P4_VWS_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NvidiaT4Gpus Value "NVIDIA_T4_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus Value
+ *        "NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaV100Gpus Value "NVIDIA_V100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb Value
@@ -22263,6 +22567,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "PREEMPTIBLE_NVIDIA_P4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus Value
  *        "PREEMPTIBLE_NVIDIA_P4_VWS_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus Value
+ *        "PREEMPTIBLE_NVIDIA_T4_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus Value
+ *        "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_V100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
@@ -22295,6 +22603,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_TargetVpnGateways Value
  *        "TARGET_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_UrlMaps Value "URL_MAPS"
+ *    @arg @c kGTLRCompute_Quota_Metric_VpnGateways Value "VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_VpnTunnels Value "VPN_TUNNELS"
  */
 @property(nonatomic, copy, nullable) NSString *metric;
@@ -23468,7 +23777,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_ResourceGroupReference : GTLRObject
 
 /**
- *  A URI referencing one of the instance groups listed in the backend service.
+ *  A URI referencing one of the instance groups or network endpoint groups
+ *  listed in the backend service.
  */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -23885,6 +24195,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** A list of Nat services created in this router. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterNat *> *nats;
 
 /** URI of the network to which this router belongs. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -24384,6 +24697,131 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Represents a Nat resource. It enables the VMs within the specified
+ *  subnetworks to access Internet without external IP addresses. It specifies a
+ *  list of subnetworks (and the ranges within) that want to use NAT. Customers
+ *  can also provide the external IPs that would be used for NAT. GCP would
+ *  auto-allocate ephemeral IPs if no external IPs are provided.
+ */
+@interface GTLRCompute_RouterNat : GTLRObject
+
+/**
+ *  Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *icmpIdleTimeoutSec;
+
+/**
+ *  Minimum number of ports allocated to a VM from this NAT config. If not set,
+ *  a default number of ports is allocated to a VM. This gets rounded up to the
+ *  nearest power of 2. Eg. if the value of this field is 50, at least 64 ports
+ *  will be allocated to a VM.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minPortsPerVm;
+
+/**
+ *  Unique name of this Nat service. The name must be 1-63 characters long and
+ *  comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specify the NatIpAllocateOption. If it is AUTO_ONLY, then nat_ip should be
+ *  empty.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterNat_NatIpAllocateOption_AutoOnly Value
+ *        "AUTO_ONLY"
+ *    @arg @c kGTLRCompute_RouterNat_NatIpAllocateOption_ManualOnly Value
+ *        "MANUAL_ONLY"
+ */
+@property(nonatomic, copy, nullable) NSString *natIpAllocateOption;
+
+/**
+ *  A list of URLs of the IP resources used for this Nat service. These IPs must
+ *  be valid static external IP addresses assigned to the project. max_length is
+ *  subject to change post alpha.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *natIps;
+
+/**
+ *  Specify the Nat option. If this field contains ALL_SUBNETWORKS_ALL_IP_RANGES
+ *  or ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any other
+ *  Router.Nat section in any Router for this network in this region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllIpRanges
+ *        Value "ALL_SUBNETWORKS_ALL_IP_RANGES"
+ *    @arg @c kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllPrimaryIpRanges
+ *        Value "ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES"
+ *    @arg @c kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks
+ *        Value "LIST_OF_SUBNETWORKS"
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSubnetworkIpRangesToNat;
+
+/**
+ *  A list of Subnetwork resources whose traffic should be translated by NAT
+ *  Gateway. It is used only when LIST_OF_SUBNETWORKS is selected for the
+ *  SubnetworkIpRangeToNatOption above.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterNatSubnetworkToNat *> *subnetworks;
+
+/**
+ *  Timeout (in seconds) for TCP established connections. Defaults to 1200s if
+ *  not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tcpEstablishedIdleTimeoutSec;
+
+/**
+ *  Timeout (in seconds) for TCP transitory connections. Defaults to 30s if not
+ *  set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tcpTransitoryIdleTimeoutSec;
+
+/**
+ *  Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *udpIdleTimeoutSec;
+
+@end
+
+
+/**
+ *  Defines the IP ranges that want to use NAT for a subnetwork.
+ */
+@interface GTLRCompute_RouterNatSubnetworkToNat : GTLRObject
+
+/** URL for the subnetwork resource to use NAT. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of the secondary ranges of the Subnetwork that are allowed to use
+ *  NAT. This can be populated only if "LIST_OF_SECONDARY_IP_RANGES" is one of
+ *  the values in source_ip_ranges_to_nat.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryIpRangeNames;
+
+/**
+ *  Specify the options for NAT ranges in the Subnetwork. All usages of single
+ *  value are valid except NAT_IP_RANGE_OPTION_UNSPECIFIED. The only valid
+ *  option with multiple values is: ["PRIMARY_IP_RANGE",
+ *  "LIST_OF_SECONDARY_IP_RANGES"] Default: [ALL_IP_RANGES]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceIpRangesToNat;
+
+@end
+
+
+/**
  *  GTLRCompute_RoutersPreviewResponse
  */
 @interface GTLRCompute_RoutersPreviewResponse : GTLRObject
@@ -24517,6 +24955,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Route *> *bestRoutesForRouter;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterStatusBgpPeerStatus *> *bgpPeerStatus;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterStatusNatStatus *> *natStatus;
 
 /** URI of the network to which this router belongs. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -24573,6 +25012,47 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Time this session has been up, in seconds. Format: 145 */
 @property(nonatomic, copy, nullable) NSString *uptimeSeconds;
+
+@end
+
+
+/**
+ *  Status of a NAT contained in this router.
+ */
+@interface GTLRCompute_RouterStatusNatStatus : GTLRObject
+
+/**
+ *  A list of IPs auto-allocated for NAT. Example: ["1.1.1.1", "129.2.16.89"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoAllocatedNatIps;
+
+/**
+ *  The number of extra IPs to allocate. This will be greater than 0 only if
+ *  user-specified IPs are NOT enough to allow all configured VMs to use NAT.
+ *  This value is meaningful only when auto-allocation of NAT IPs is *not* used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minExtraNatIpsNeeded;
+
+/** Unique name of this NAT. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Number of VM endpoints (i.e., Nics) that can use NAT.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numVmEndpointsWithNatMappings;
+
+/** A list of fully qualified URLs of reserved IP address resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userAllocatedNatIpResources;
+
+/**
+ *  A list of IPs user-allocated for NAT. They will be raw IP strings like
+ *  "179.12.26.133".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userAllocatedNatIps;
 
 @end
 
@@ -26886,8 +27366,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  URLs to SslCertificate resources that are used to authenticate connections
- *  between users and the load balancer. Currently, exactly one SSL certificate
- *  must be specified.
+ *  between users and the load balancer. At least one SSL certificate must be
+ *  specified. Currently, you may specify up to 15 SSL certificates.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
 
@@ -27624,7 +28104,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  Sesssion affinity option, must be one of the following values:
+ *  Session affinity option, must be one of the following values:
  *  NONE: Connections from the same client IP may go to any instance in the
  *  pool.
  *  CLIENT_IP: Connections from the same client IP will go to the same instance
@@ -28237,7 +28717,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  URLs to SslCertificate resources that are used to authenticate connections
- *  to Backends. Currently exactly one SSL certificate must be specified.
+ *  to Backends. At least one SSL certificate must be specified. Currently, you
+ *  may specify up to 15 SSL certificates.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
 
@@ -29206,7 +29687,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
-/** The URL of the BackendService resource if none of the hostRules match. */
+/**
+ *  The URL of the backendService resource if none of the hostRules match.
+ *  Use defaultService instead of defaultRouteAction when simple routing to a
+ *  backendService is desired and other advanced capabilities like traffic
+ *  splitting and rewrites are not required.
+ *  Only one of defaultService, defaultRouteAction or defaultUrlRedirect should
+ *  must be set.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
 /**
@@ -29701,6 +30189,194 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  conform to Cloud Storage object naming conventions.
  */
 @property(nonatomic, copy, nullable) NSString *reportNamePrefix;
+
+@end
+
+
+/**
+ *  Contain information of Nat mapping for a VM endpoint (i.e., NIC).
+ */
+@interface GTLRCompute_VmEndpointNatMappings : GTLRObject
+
+/** Name of the VM instance which the endpoint belongs to */
+@property(nonatomic, copy, nullable) NSString *instanceName;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings *> *interfaceNatMappings;
+
+@end
+
+
+/**
+ *  Contain information of Nat mapping for an interface of this endpoint.
+ */
+@interface GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings : GTLRObject
+
+/**
+ *  A list of all IP:port-range mappings assigned to this interface. These
+ *  ranges are inclusive, that is, both the first and the last ports can be used
+ *  for NAT. Example: ["2.2.2.2:12345-12355", "1.1.1.1:2234-2234"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *natIpPortRanges;
+
+/**
+ *  Total number of ports across all NAT IPs allocated to this interface. It
+ *  equals to the aggregated port number in the field nat_ip_port_ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalNatPorts;
+
+/**
+ *  Alias IP range for this interface endpoint. It will be a private (RFC 1918)
+ *  IP range. Examples: "10.33.4.55/32", or "192.168.5.0/24".
+ */
+@property(nonatomic, copy, nullable) NSString *sourceAliasIpRange;
+
+/** Primary IP of the VM for this NIC. */
+@property(nonatomic, copy, nullable) NSString *sourceVirtualIp;
+
+@end
+
+
+/**
+ *  Contains a list of VmEndpointNatMappings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "result" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_VmEndpointNatMappingsList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  [Output Only] Type of resource. Always compute#vmEndpointNatMappingsList for
+ *  lists of Nat mappings of VM endpoints.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  [Output Only] A list of Nat mapping information of VM endpoints.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VmEndpointNatMappings *> *result;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_VmEndpointNatMappingsList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_VmEndpointNatMappingsList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item
+ */
+@interface GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -783,9 +783,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates a bucket. Changes to the bucket will be readable immediately after
- *  writing, but configuration changes may take time to propagate. This method
- *  supports patch semantics.
+ *  Patches a bucket. Changes to the bucket will be readable immediately after
+ *  writing, but configuration changes may take time to propagate.
  *
  *  Method: storage.buckets.patch
  *
@@ -873,9 +872,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_Bucket.
  *
- *  Updates a bucket. Changes to the bucket will be readable immediately after
- *  writing, but configuration changes may take time to propagate. This method
- *  supports patch semantics.
+ *  Patches a bucket. Changes to the bucket will be readable immediately after
+ *  writing, but configuration changes may take time to propagate.
  *
  *  @param object The @c GTLRStorage_Bucket to include in the query.
  *  @param bucket Name of a bucket.

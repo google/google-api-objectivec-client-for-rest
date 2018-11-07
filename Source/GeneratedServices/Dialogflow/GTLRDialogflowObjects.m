@@ -4,8 +4,8 @@
 // API:
 //   Dialogflow API (dialogflow/v2)
 // Description:
-//   An end-to-end development suite for conversational interfaces (e.g.,
-//   chatbots, voice-powered apps and devices).
+//   Builds conversational interfaces (for example, chatbots, and voice-powered
+//   apps and devices).
 // Documentation:
 //   https://cloud.google.com/dialogflow-enterprise/
 
@@ -23,6 +23,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchMod
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewFull = @"INTENT_VIEW_FULL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified = @"INTENT_VIEW_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished = @"CONVERSATION_FINISHED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted = @"CONVERSATION_STARTED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError = @"UNRECOVERABLE_ERROR";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeDefault = @"AUTO_EXPANSION_MODE_DEFAULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeUnspecified = @"AUTO_EXPANSION_MODE_UNSPECIFIED";
@@ -31,6 +37,10 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpa
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList = @"KIND_LIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap = @"KIND_MAP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent.type
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_NewSuggestion = @"NEW_SUGGESTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
@@ -367,6 +377,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent
+@dynamic conversation, errorStatus, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType
 //
 
@@ -438,6 +458,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportAgentResponse
 @dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent
+@dynamic conversation, type;
 @end
 
 

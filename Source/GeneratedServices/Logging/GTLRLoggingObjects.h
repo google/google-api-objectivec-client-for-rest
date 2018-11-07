@@ -1256,7 +1256,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, strong, nullable) GTLRLogging_BucketOptions *bucketOptions;
 
 /**
- *  Optional. A description of this metric, which is used in documentation.
+ *  Optional. A description of this metric, which is used in documentation. The
+ *  maximum length of the description is 8000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1390,9 +1391,6 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
-/** Deprecated. This field is ignored when creating or updating sinks. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
 /**
  *  Optional. An advanced logs filter. The only exported log entries are those
  *  that are in the resource owning the sink and that match the filter. For
@@ -1441,9 +1439,6 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
-
-/** Deprecated. This field is ignored when creating or updating sinks. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Output only. An IAM identity&mdash;a service account or group&mdash;under

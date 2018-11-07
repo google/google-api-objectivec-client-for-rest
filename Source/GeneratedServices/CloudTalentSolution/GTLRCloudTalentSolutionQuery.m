@@ -153,7 +153,15 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 
 @implementation GTLRCloudTalentSolutionQuery_ProjectsComplete
 
-@dynamic companyName, languageCode, name, pageSize, query, scope, type;
+@dynamic companyName, languageCode, languageCodes, name, pageSize, query, scope,
+         type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"languageCodes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
