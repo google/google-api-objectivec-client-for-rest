@@ -231,6 +231,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases;
 /** Value: "incompleteRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
+/** Value: "insufficientCoverage" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage;
 /** Value: "iosCrash" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosCrash;
 /** Value: "iosException" */
@@ -1860,6 +1862,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
  *        "inAppPurchases"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution
  *        Value "incompleteRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_InsufficientCoverage Value
+ *        "insufficientCoverage"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IosCrash Value "iosCrash"
  *    @arg @c kGTLRToolResults_TestIssue_Type_IosException Value "iosException"
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Value

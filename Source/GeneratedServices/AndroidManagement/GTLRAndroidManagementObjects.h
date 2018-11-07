@@ -34,6 +34,8 @@
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
+@class GTLRAndroidManagement_ManagedConfigurationTemplate;
+@class GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables;
 @class GTLRAndroidManagement_ManagedProperty;
 @class GTLRAndroidManagement_ManagedPropertyEntry;
 @class GTLRAndroidManagement_MemoryEvent;
@@ -52,6 +54,7 @@
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
+@class GTLRAndroidManagement_SigninDetail;
 @class GTLRAndroidManagement_SoftwareInfo;
 @class GTLRAndroidManagement_Status;
 @class GTLRAndroidManagement_Status_Details_Item;
@@ -910,6 +913,30 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PasswordRequirements.passwordScope
+
+/**
+ *  The password requirements are only applied to the device.
+ *
+ *  Value: "SCOPE_DEVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice;
+/**
+ *  The password requirements are only applied to the work profile.
+ *
+ *  Value: "SCOPE_PROFILE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile;
+/**
+ *  The scope is unspecified. The password requirements are applied to the work
+ *  profile for work profile devices and the whole device for fully managed or
+ *  dedicated devices.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PermissionGrant.policy
 
 /**
@@ -1416,6 +1443,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration *managedConfiguration;
+
+/**
+ *  The managed configurations template for the app, saved from the managed
+ *  configurations iframe. This field is ignored if managed_configuration is
+ *  set.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ManagedConfigurationTemplate *managedConfigurationTemplate;
 
 /**
  *  The minimum version of the app that runs on the device. If set, the device
@@ -2183,6 +2217,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
+ *  Sign-in details of the enterprise. Maximum of 1 SigninDetail is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SigninDetail *> *signinDetails;
+
+/**
  *  Terms and conditions that must be accepted when provisioning a device for
  *  this enterprise. A page of terms is generated for each value in this list.
  */
@@ -2427,6 +2466,37 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Policy *> *policies;
 
+@end
+
+
+/**
+ *  The managed configurations template for the app, saved from the managed
+ *  configurations iframe.
+ */
+@interface GTLRAndroidManagement_ManagedConfigurationTemplate : GTLRObject
+
+/**
+ *  Optional, a map containing <key, value> configuration variables defined for
+ *  the configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables *configurationVariables;
+
+/** The ID of the managed configurations template. */
+@property(nonatomic, copy, nullable) NSString *templateId;
+
+@end
+
+
+/**
+ *  Optional, a map containing <key, value> configuration variables defined for
+ *  the configuration.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables : GTLRObject
 @end
 
 
@@ -2988,6 +3058,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *passwordQuality;
 
+/**
+ *  The scope that the password requirement applies to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice
+ *        The password requirements are only applied to the device. (Value:
+ *        "SCOPE_DEVICE")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile
+ *        The password requirements are only applied to the work profile.
+ *        (Value: "SCOPE_PROFILE")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified
+ *        The scope is unspecified. The password requirements are applied to the
+ *        work profile for work profile devices and the whole device for fully
+ *        managed or dedicated devices. (Value: "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *passwordScope;
+
 @end
 
 
@@ -3414,7 +3501,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSNumber *outgoingCallsDisabled;
 
-/** Password requirements. */
+/**
+ *  Password requirement policies. Different policies can be set for work
+ *  profile or fully managed devices by setting the password_scope field in the
+ *  policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *passwordPolicies;
+
+/** Password requirements. DEPRECATED - Use password_policies */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 
 /**
@@ -3707,6 +3801,39 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+@end
+
+
+/**
+ *  A resource containing sign in details for an enterprise.
+ */
+@interface GTLRAndroidManagement_SigninDetail : GTLRObject
+
+/**
+ *  A JSON string whose UTF-8 representation can be used to generate a QR code
+ *  to enroll a device with this enrollment token. To enroll a device using NFC,
+ *  the NFC record must contain a serialized java.util.Properties representation
+ *  of the properties in the JSON. This is a read-only field generated by the
+ *  server.
+ */
+@property(nonatomic, copy, nullable) NSString *qrCode;
+
+/**
+ *  An enterprise wide enrollment token used to trigger custom sign-in flow.
+ *  This is a read-only field generated by the server.
+ */
+@property(nonatomic, copy, nullable) NSString *signinEnrollmentToken;
+
+/**
+ *  Sign-in URL for authentication when device is provisioned with a sign-in
+ *  enrollment token. The sign-in endpoint should finish authentication flow
+ *  with a URL in the form of
+ *  https://enterprise.google.com/android/enroll?et=<token> for a successful
+ *  login, or https://enterprise.google.com/android/enroll/invalid for a failed
+ *  login.
+ */
+@property(nonatomic, copy, nullable) NSString *signinUrl;
 
 @end
 

@@ -72,7 +72,7 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 @implementation GTLRStreetViewPublishQuery_PhotoGet
 
-@dynamic photoId, view;
+@dynamic languageCode, photoId, view;
 
 + (instancetype)queryWithPhotoId:(NSString *)photoId {
   NSArray *pathParams = @[ @"photoId" ];
@@ -111,7 +111,7 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 @implementation GTLRStreetViewPublishQuery_PhotosBatchGet
 
-@dynamic photoIds, view;
+@dynamic languageCode, photoIds, view;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -155,7 +155,7 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 @implementation GTLRStreetViewPublishQuery_PhotosList
 
-@dynamic filter, pageSize, pageToken, view;
+@dynamic filter, languageCode, pageSize, pageToken, view;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/photos";

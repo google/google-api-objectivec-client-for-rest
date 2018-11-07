@@ -871,6 +871,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Latitude of the location, in degrees north of the equator. Only some
+ *  locations -- generally, ballot drop boxes for vote-by-mail elections -- will
+ *  have this set; for others, use a geocoding service like the Google Maps API
+ *  to resolve the address to a geographic point.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  Longitude of the location, in degrees east of the Prime Meridian. Only some
+ *  locations -- generally, ballot drop boxes for vote-by-mail elections -- will
+ *  have this set; for others, use a geocoding service like the Google Maps API
+ *  to resolve the address to a geographic point.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+/**
  *  The name of the early vote site or drop off location. This field is not
  *  populated for polling locations.
  */

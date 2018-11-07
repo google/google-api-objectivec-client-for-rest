@@ -192,6 +192,25 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudFunctions_Policy class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList
 
 @dynamic pageSize, pageToken, parent;
@@ -231,6 +250,56 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
   query.loggingName = @"cloudfunctions.projects.locations.functions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudFunctions_Policy class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudFunctions_TestIamPermissionsResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.testIamPermissions";
   return query;
 }
 

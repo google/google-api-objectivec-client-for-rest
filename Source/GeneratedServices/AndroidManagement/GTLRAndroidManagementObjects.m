@@ -186,6 +186,11 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Num
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified = @"PASSWORD_QUALITY_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something = @"SOMETHING";
 
+// GTLRAndroidManagement_PasswordRequirements.passwordScope
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice = @"SCOPE_DEVICE";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile = @"SCOPE_PROFILE";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
 // GTLRAndroidManagement_PermissionGrant.policy
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant = @"GRANT";
@@ -334,8 +339,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic defaultPermissionPolicy, delegatedScopes, disabled, installType,
-         lockTaskAllowed, managedConfiguration, minimumVersionCode, packageName,
-         permissionGrants;
+         lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
+         minimumVersionCode, packageName, permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -519,11 +524,12 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @implementation GTLRAndroidManagement_Enterprise
 @dynamic appAutoApprovalEnabled, enabledNotificationTypes,
          enterpriseDisplayName, logo, name, primaryColor, pubsubTopic,
-         termsAndConditions;
+         signinDetails, termsAndConditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"enabledNotificationTypes" : [NSString class],
+    @"signinDetails" : [GTLRAndroidManagement_SigninDetail class],
     @"termsAndConditions" : [GTLRAndroidManagement_TermsAndConditions class]
   };
   return map;
@@ -656,6 +662,30 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 + (NSString *)collectionItemsKey {
   return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ManagedConfigurationTemplate
+//
+
+@implementation GTLRAndroidManagement_ManagedConfigurationTemplate
+@dynamic configurationVariables, templateId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables
+//
+
+@implementation GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -812,7 +842,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordHistoryLength, passwordMinimumLength, passwordMinimumLetters,
          passwordMinimumLowerCase, passwordMinimumNonLetter,
          passwordMinimumNumeric, passwordMinimumSymbols,
-         passwordMinimumUpperCase, passwordQuality;
+         passwordMinimumUpperCase, passwordQuality, passwordScope;
 @end
 
 
@@ -867,8 +897,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
          networkEscapeHatchEnabled, networkResetDisabled,
          openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
-         passwordRequirements, permissionGrants, permittedInputMethods,
-         persistentPreferredActivities, playStoreMode,
+         passwordPolicies, passwordRequirements, permissionGrants,
+         permittedInputMethods, persistentPreferredActivities, playStoreMode,
          privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
          safeBootDisabled, screenCaptureDisabled, setUserIconDisabled,
          setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
@@ -888,6 +918,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"complianceRules" : [GTLRAndroidManagement_ComplianceRule class],
     @"frpAdminEmails" : [NSString class],
     @"keyguardDisabledFeatures" : [NSString class],
+    @"passwordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],
     @"stayOnPluggedModes" : [NSString class]
@@ -937,6 +968,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SigninDetail
+//
+
+@implementation GTLRAndroidManagement_SigninDetail
+@dynamic qrCode, signinEnrollmentToken, signinUrl;
 @end
 
 

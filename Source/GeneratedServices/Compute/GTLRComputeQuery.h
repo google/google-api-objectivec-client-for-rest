@@ -5672,14 +5672,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to remove the specified instances from the managed
- *  instance group. Abandoning an instance does not delete the instance, but it
- *  does remove the instance from any target pools that are applied by the
- *  managed instance group. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you abandon. This operation
- *  is marked as DONE when the action is scheduled even if the instances have
- *  not yet been removed from the group. You must separately verify the status
- *  of the abandoning action with the listmanagedinstances method.
+ *  Flags the specified instances to be removed from the managed instance group.
+ *  Abandoning an instance does not delete the instance, but it does remove the
+ *  instance from any target pools that are applied by the managed instance
+ *  group. This method reduces the targetSize of the managed instance group by
+ *  the number of instances that you abandon. This operation is marked as DONE
+ *  when the action is scheduled even if the instances have not yet been removed
+ *  from the group. You must separately verify the status of the abandoning
+ *  action with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -5725,14 +5725,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to remove the specified instances from the managed
- *  instance group. Abandoning an instance does not delete the instance, but it
- *  does remove the instance from any target pools that are applied by the
- *  managed instance group. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you abandon. This operation
- *  is marked as DONE when the action is scheduled even if the instances have
- *  not yet been removed from the group. You must separately verify the status
- *  of the abandoning action with the listmanagedinstances method.
+ *  Flags the specified instances to be removed from the managed instance group.
+ *  Abandoning an instance does not delete the instance, but it does remove the
+ *  instance from any target pools that are applied by the managed instance
+ *  group. This method reduces the targetSize of the managed instance group by
+ *  the number of instances that you abandon. This operation is marked as DONE
+ *  when the action is scheduled even if the instances have not yet been removed
+ *  from the group. You must separately verify the status of the abandoning
+ *  action with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -5898,13 +5898,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to delete the specified instances in the managed
- *  instance group. The instances are also removed from any target pools of
- *  which they were a member. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you delete. This operation is
- *  marked as DONE when the action is scheduled even if the instances are still
- *  being deleted. You must separately verify the status of the deleting action
- *  with the listmanagedinstances method.
+ *  Flags the specified instances in the managed instance group for immediate
+ *  deletion. The instances are also removed from any target pools of which they
+ *  were a member. This method reduces the targetSize of the managed instance
+ *  group by the number of instances that you delete. This operation is marked
+ *  as DONE when the action is scheduled even if the instances are still being
+ *  deleted. You must separately verify the status of the deleting action with
+ *  the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -5950,13 +5950,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to delete the specified instances in the managed
- *  instance group. The instances are also removed from any target pools of
- *  which they were a member. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you delete. This operation is
- *  marked as DONE when the action is scheduled even if the instances are still
- *  being deleted. You must separately verify the status of the deleting action
- *  with the listmanagedinstances method.
+ *  Flags the specified instances in the managed instance group for immediate
+ *  deletion. The instances are also removed from any target pools of which they
+ *  were a member. This method reduces the targetSize of the managed instance
+ *  group by the number of instances that you delete. This operation is marked
+ *  as DONE when the action is scheduled even if the instances are still being
+ *  deleted. You must separately verify the status of the deleting action with
+ *  the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -6027,11 +6027,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a managed instance group using the information that you specify in
- *  the request. After the group is created, it schedules an action to create
- *  instances in the group using the specified instance template. This operation
- *  is marked as DONE when the group is created even if the instances in the
- *  group have not yet been created. You must separately verify the status of
- *  the individual instances with the listmanagedinstances method.
+ *  the request. After the group is created, instances in the group are created
+ *  using the specified instance template. This operation is marked as DONE when
+ *  the group is created even if the instances in the group have not yet been
+ *  created. You must separately verify the status of the individual instances
+ *  with the listmanagedinstances method.
  *  A managed instance group can have up to 1000 VM instances per group. Please
  *  contact Cloud Support if you need an increase in this limit.
  *
@@ -6073,11 +6073,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a managed instance group using the information that you specify in
- *  the request. After the group is created, it schedules an action to create
- *  instances in the group using the specified instance template. This operation
- *  is marked as DONE when the group is created even if the instances in the
- *  group have not yet been created. You must separately verify the status of
- *  the individual instances with the listmanagedinstances method.
+ *  the request. After the group is created, instances in the group are created
+ *  using the specified instance template. This operation is marked as DONE when
+ *  the group is created even if the instances in the group have not yet been
+ *  created. You must separately verify the status of the individual instances
+ *  with the listmanagedinstances method.
  *  A managed instance group can have up to 1000 VM instances per group. Please
  *  contact Cloud Support if you need an increase in this limit.
  *
@@ -6293,10 +6293,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to recreate the specified instances in the managed
- *  instance group. The instances are deleted and recreated using the current
- *  instance template for the managed instance group. This operation is marked
- *  as DONE when the action is scheduled even if the instances have not yet been
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately recreated. The instances are deleted and recreated using the
+ *  current instance template for the managed instance group. This operation is
+ *  marked as DONE when the flag is set even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
@@ -6344,10 +6344,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to recreate the specified instances in the managed
- *  instance group. The instances are deleted and recreated using the current
- *  instance template for the managed instance group. This operation is marked
- *  as DONE when the action is scheduled even if the instances have not yet been
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately recreated. The instances are deleted and recreated using the
+ *  current instance template for the managed instance group. This operation is
+ *  marked as DONE when the flag is set even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
@@ -6379,6 +6379,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  When resizing down, the instance group arbitrarily chooses the order in
+ *  which VMs are deleted. The group takes into account some VM attributes when
+ *  making the selection including:
+ *  + The status of the VM instance. + The health of the VM instance. + The
+ *  instance template version the VM is based on. + For regional managed
+ *  instance groups, the location of the VM instance.
+ *  This list is subject to change.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -6436,6 +6443,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  When resizing down, the instance group arbitrarily chooses the order in
+ *  which VMs are deleted. The group takes into account some VM attributes when
+ *  making the selection including:
+ *  + The status of the VM instance. + The health of the VM instance. + The
+ *  instance template version the VM is based on. + For regional managed
+ *  instance groups, the location of the VM instance.
+ *  This list is subject to change.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -7912,7 +7926,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of referrers to instances contained within the specified
- *  zone.
+ *  zone. For more information, read Viewing Referrers to VM Instances.
  *
  *  Method: compute.instances.listReferrers
  *
@@ -7994,7 +8008,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceListReferrers.
  *
  *  Retrieves the list of referrers to instances contained within the specified
- *  zone.
+ *  zone. For more information, read Viewing Referrers to VM Instances.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8637,7 +8651,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets tags for the specified instance to the data included in the request.
+ *  Sets network tags for the specified instance to the data included in the
+ *  request.
  *
  *  Method: compute.instances.setTags
  *
@@ -8679,7 +8694,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets tags for the specified instance to the data included in the request.
+ *  Sets network tags for the specified instance to the data included in the
+ *  request.
  *
  *  @param object The @c GTLRCompute_Tags to include in the query.
  *  @param project Project ID for this request.
@@ -9869,6 +9885,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the interconnectDiagnostics for the specified interconnect.
+ *
+ *  Method: compute.interconnects.getDiagnostics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectsGetDiagnostics : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInterconnectsGetDiagnosticsWithproject:interconnect:]
+
+/** Name of the interconnect resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectsGetDiagnosticsResponse.
+ *
+ *  Returns the interconnectDiagnostics for the specified interconnect.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectsGetDiagnostics
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect;
+
+@end
+
+/**
  *  Creates a Interconnect in the specified project using the data included in
  *  the request.
  *
@@ -10107,7 +10158,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -10118,7 +10169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_LicenseCodesTestIamPermissions
  */
@@ -10369,7 +10420,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -10380,7 +10431,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_LicensesTestIamPermissions
  */
@@ -14272,7 +14323,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -14284,7 +14335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_RegionDisksTestIamPermissions
  */
@@ -14426,7 +14477,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to remove the specified instances from the managed
+ *  Flags the specified instances to be immediately removed from the managed
  *  instance group. Abandoning an instance does not delete the instance, but it
  *  does remove the instance from any target pools that are applied by the
  *  managed instance group. This method reduces the targetSize of the managed
@@ -14475,7 +14526,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to remove the specified instances from the managed
+ *  Flags the specified instances to be immediately removed from the managed
  *  instance group. Abandoning an instance does not delete the instance, but it
  *  does remove the instance from any target pools that are applied by the
  *  managed instance group. This method reduces the targetSize of the managed
@@ -14560,13 +14611,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to delete the specified instances in the managed
- *  instance group. The instances are also removed from any target pools of
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately deleted. The instances are also removed from any target pools of
  *  which they were a member. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you delete. This operation is
- *  marked as DONE when the action is scheduled even if the instances are still
- *  being deleted. You must separately verify the status of the deleting action
- *  with the listmanagedinstances method.
+ *  instance group by the number of instances that you delete. The
+ *  deleteInstances operation is marked DONE if the deleteInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the deleting action with the listmanagedinstances
+ *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -14608,13 +14660,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to delete the specified instances in the managed
- *  instance group. The instances are also removed from any target pools of
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately deleted. The instances are also removed from any target pools of
  *  which they were a member. This method reduces the targetSize of the managed
- *  instance group by the number of instances that you delete. This operation is
- *  marked as DONE when the action is scheduled even if the instances are still
- *  being deleted. You must separately verify the status of the deleting action
- *  with the listmanagedinstances method.
+ *  instance group by the number of instances that you delete. The
+ *  deleteInstances operation is marked DONE if the deleteInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the deleting action with the listmanagedinstances
+ *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -14678,11 +14731,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a managed instance group using the information that you specify in
- *  the request. After the group is created, it schedules an action to create
- *  instances in the group using the specified instance template. This operation
- *  is marked as DONE when the group is created even if the instances in the
- *  group have not yet been created. You must separately verify the status of
- *  the individual instances with the listmanagedinstances method.
+ *  the request. After the group is created, instances in the group are created
+ *  using the specified instance template. This operation is marked as DONE when
+ *  the group is created even if the instances in the group have not yet been
+ *  created. You must separately verify the status of the individual instances
+ *  with the listmanagedinstances method.
  *  A regional managed instance group can contain up to 2000 instances.
  *
  *  Method: compute.regionInstanceGroupManagers.insert
@@ -14719,11 +14772,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a managed instance group using the information that you specify in
- *  the request. After the group is created, it schedules an action to create
- *  instances in the group using the specified instance template. This operation
- *  is marked as DONE when the group is created even if the instances in the
- *  group have not yet been created. You must separately verify the status of
- *  the individual instances with the listmanagedinstances method.
+ *  the request. After the group is created, instances in the group are created
+ *  using the specified instance template. This operation is marked as DONE when
+ *  the group is created even if the instances in the group have not yet been
+ *  created. You must separately verify the status of the individual instances
+ *  with the listmanagedinstances method.
  *  A regional managed instance group can contain up to 2000 instances.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
@@ -14923,10 +14976,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedules a group action to recreate the specified instances in the managed
- *  instance group. The instances are deleted and recreated using the current
- *  instance template for the managed instance group. This operation is marked
- *  as DONE when the action is scheduled even if the instances have not yet been
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately recreated. The instances are deleted and recreated using the
+ *  current instance template for the managed instance group. This operation is
+ *  marked as DONE when the flag is set even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
@@ -14970,10 +15023,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Schedules a group action to recreate the specified instances in the managed
- *  instance group. The instances are deleted and recreated using the current
- *  instance template for the managed instance group. This operation is marked
- *  as DONE when the action is scheduled even if the instances have not yet been
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately recreated. The instances are deleted and recreated using the
+ *  current instance template for the managed instance group. This operation is
+ *  marked as DONE when the flag is set even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
  *  If the group is part of a backend service that has enabled connection
@@ -14997,13 +15050,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the intended size for the managed instance group. If you increase
- *  the size, the group schedules actions to create new instances using the
- *  current instance template. If you decrease the size, the group schedules
- *  delete actions on one or more instances. The resize operation is marked DONE
- *  when the resize actions are scheduled even if the group has not yet added or
- *  deleted any instances. You must separately verify the status of the creating
- *  or deleting actions with the listmanagedinstances method.
+ *  Changes the intended size of the managed instance group. If you increase the
+ *  size, the group creates new instances using the current instance template.
+ *  If you decrease the size, the group deletes one or more instances.
+ *  The resize operation is marked DONE if the resize request is successful. The
+ *  underlying actions take additional time. You must separately verify the
+ *  status of the creating or deleting actions with the listmanagedinstances
+ *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -15047,13 +15100,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the intended size for the managed instance group. If you increase
- *  the size, the group schedules actions to create new instances using the
- *  current instance template. If you decrease the size, the group schedules
- *  delete actions on one or more instances. The resize operation is marked DONE
- *  when the resize actions are scheduled even if the group has not yet added or
- *  deleted any instances. You must separately verify the status of the creating
- *  or deleting actions with the listmanagedinstances method.
+ *  Changes the intended size of the managed instance group. If you increase the
+ *  size, the group creates new instances using the current instance template.
+ *  If you decrease the size, the group deletes one or more instances.
+ *  The resize operation is marked DONE if the resize request is successful. The
+ *  underlying actions take additional time. You must separately verify the
+ *  status of the creating or deleting actions with the listmanagedinstances
+ *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -15940,6 +15993,103 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param router Name of the Router resource to return.
  *
  *  @return GTLRComputeQuery_RoutersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Retrieves runtime Nat mapping information of VM endpoints.
+ *
+ *  Method: compute.routers.getNatMappingInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGetNatMappingInfo : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersGetNatMappingInfoWithproject:region:router:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Name of the Router resource to query for Nat Mapping information of VM
+ *  endpoints.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_VmEndpointNatMappingsList.
+ *
+ *  Retrieves runtime Nat mapping information of VM endpoints.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to query for Nat Mapping
+ *    information of VM endpoints.
+ *
+ *  @return GTLRComputeQuery_RoutersGetNatMappingInfo
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region

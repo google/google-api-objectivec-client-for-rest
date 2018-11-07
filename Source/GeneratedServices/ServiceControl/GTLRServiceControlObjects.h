@@ -4,8 +4,8 @@
 // API:
 //   Service Control API (servicecontrol/v1)
 // Description:
-//   Google Service Control provides control plane functionality to managed
-//   services, such as logging, monitoring, and status checks.
+//   Provides control plane functionality to managed services, such as logging,
+//   monitoring, and status checks.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -145,6 +145,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocke
  *  Value: "CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable;
+/**
+ *  The input consumer info does not represent a valid consumer folder or
+ *  organization.
+ *
+ *  Value: "CONSUMER_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ConsumerInvalid;
 /**
  *  The consumer's request has been flagged as a DoS attack.
  *
@@ -300,6 +307,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderIn
  *  Value: "VISIBILITY_DENIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_ConsumerInfo.type
+
+/** Value: "CONSUMER_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified;
+/** Value: "FOLDER" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder;
+/** Value: "ORGANIZATION" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization;
+/** Value: "PROJECT" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_LogEntry.severity
@@ -1015,6 +1034,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *    @arg @c kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable
  *        Cloud Resource Manager backend server is unavailable. (Value:
  *        "CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_ConsumerInvalid The input
+ *        consumer info does not represent a valid consumer folder or
+ *        organization. (Value: "CONSUMER_INVALID")
  *    @arg @c kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected The
  *        consumer's request has been flagged as a DoS attack. (Value:
  *        "DENIAL_OF_SERVICE_DETECTED")
@@ -1192,17 +1214,41 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
- *  `ConsumerInfo` provides information about the consumer project.
+ *  `ConsumerInfo` provides information about the consumer.
  */
 @interface GTLRServiceControl_ConsumerInfo : GTLRObject
 
 /**
+ *  The consumer identity number, can be Google cloud project number, folder
+ *  number or organization number e.g. 1234567890. A value of 0 indicates no
+ *  consumer number is found.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerNumber;
+
+/**
  *  The Google cloud project number, e.g. 1234567890. A value of 0 indicates
  *  no project number is found.
+ *  NOTE: This field is deprecated after Chemist support flexible consumer
+ *  id. New code should not depend on this field anymore.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *projectNumber;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified
+ *        Value "CONSUMER_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Folder Value "FOLDER"
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Organization Value
+ *        "ORGANIZATION"
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Project Value "PROJECT"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1280,65 +1326,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sumOfSquaredDeviation;
-
-@end
-
-
-/**
- *  Request message for QuotaController.EndReconciliation.
- */
-@interface GTLRServiceControl_EndReconciliationRequest : GTLRObject
-
-/** Operation that describes the quota reconciliation. */
-@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *reconciliationOperation;
-
-/**
- *  Specifies which version of service configuration should be used to process
- *  the request. If unspecified or no matching version can be found, the latest
- *  one will be used.
- */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
-
-@end
-
-
-/**
- *  Response message for QuotaController.EndReconciliation.
- */
-@interface GTLRServiceControl_EndReconciliationResponse : GTLRObject
-
-/**
- *  The same operation_id value used in the EndReconciliationRequest. Used for
- *  logging and diagnostics purposes.
- */
-@property(nonatomic, copy, nullable) NSString *operationId;
-
-/**
- *  Metric values as tracked by One Platform before the adjustment was made.
- *  The following metrics will be included:
- *  1. Per quota metric total usage will be specified using the following gauge
- *  metric:
- *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
- *  2. Value for each quota limit associated with the metrics will be specified
- *  using the following gauge metric:
- *  "serviceruntime.googleapis.com/quota/limit"
- *  3. Delta value of the usage after the reconciliation for limits associated
- *  with the metrics will be specified using the following metric:
- *  "serviceruntime.googleapis.com/allocation/reconciliation_delta"
- *  The delta value is defined as:
- *  new_usage_from_client - existing_value_in_spanner.
- *  This metric is not defined in serviceruntime.yaml or in Cloud Monarch.
- *  This metric is meant for callers' use only. Since this metric is not
- *  defined in the monitoring backend, reporting on this metric will result in
- *  an error.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
-
-/** Indicates the decision of the reconciliation end. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *reconciliationErrors;
-
-/** ID of the actual config used to process the request. */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 
@@ -2337,59 +2324,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
- *  Request message for the ReleaseQuota method.
- */
-@interface GTLRServiceControl_ReleaseQuotaRequest : GTLRObject
-
-/** Operation that describes the quota release. */
-@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *releaseOperation;
-
-/**
- *  Specifies which version of service configuration should be used to process
- *  the request. If unspecified or no matching version can be found, the latest
- *  one will be used.
- */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
-
-@end
-
-
-/**
- *  Response message for the ReleaseQuota method.
- */
-@interface GTLRServiceControl_ReleaseQuotaResponse : GTLRObject
-
-/**
- *  The same operation_id value used in the ReleaseQuotaRequest. Used for
- *  logging and diagnostics purposes.
- */
-@property(nonatomic, copy, nullable) NSString *operationId;
-
-/**
- *  Quota metrics to indicate the result of release. Depending on the
- *  request, one or more of the following metrics will be included:
- *  1. For rate quota, per quota group or per quota metric released amount
- *  will be specified using the following delta metric:
- *  "serviceruntime.googleapis.com/api/consumer/quota_refund_count"
- *  2. For allocation quota, per quota metric total usage will be specified
- *  using the following gauge metric:
- *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
- *  3. For allocation quota, value for each quota limit associated with
- *  the metrics will be specified using the following gauge metric:
- *  "serviceruntime.googleapis.com/quota/limit"
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
-
-/** Indicates the decision of the release. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *releaseErrors;
-
-/** ID of the actual config used to process the request. */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
-
-@end
-
-
-/**
  *  Represents the processing error of one Operation in the request.
  */
 @interface GTLRServiceControl_ReportError : GTLRObject
@@ -2747,56 +2681,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  "nam3"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *originalLocations;
-
-@end
-
-
-/**
- *  Request message for QuotaController.StartReconciliation.
- */
-@interface GTLRServiceControl_StartReconciliationRequest : GTLRObject
-
-/** Operation that describes the quota reconciliation. */
-@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *reconciliationOperation;
-
-/**
- *  Specifies which version of service configuration should be used to process
- *  the request. If unspecified or no matching version can be found, the latest
- *  one will be used.
- */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
-
-@end
-
-
-/**
- *  Response message for QuotaController.StartReconciliation.
- */
-@interface GTLRServiceControl_StartReconciliationResponse : GTLRObject
-
-/**
- *  The same operation_id value used in the StartReconciliationRequest. Used
- *  for logging and diagnostics purposes.
- */
-@property(nonatomic, copy, nullable) NSString *operationId;
-
-/**
- *  Metric values as tracked by One Platform before the start of
- *  reconciliation. The following metrics will be included:
- *  1. Per quota metric total usage will be specified using the following gauge
- *  metric:
- *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
- *  2. Value for each quota limit associated with the metrics will be specified
- *  using the following gauge metric:
- *  "serviceruntime.googleapis.com/quota/limit"
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
-
-/** Indicates the decision of the reconciliation start. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *reconciliationErrors;
-
-/** ID of the actual config used to process the request. */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 

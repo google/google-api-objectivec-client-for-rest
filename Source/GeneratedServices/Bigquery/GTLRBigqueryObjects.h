@@ -64,6 +64,8 @@
 @class GTLRBigquery_QueryParameterValue;
 @class GTLRBigquery_QueryParameterValue_StructValues;
 @class GTLRBigquery_QueryTimelineSample;
+@class GTLRBigquery_RangePartitioning;
+@class GTLRBigquery_RangePartitioning_Range;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -1544,6 +1546,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
+ *  If sourceFormat is set to "AVRO", indicates whether to enable interpreting
+ *  logical types into their corresponding types (ie. TIMESTAMP), instead of
+ *  only using their raw types (ie. INTEGER). The default value will be true
+ *  once this feature launches, but can be set now in preparation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAvroLogicalTypes;
+
+/**
  *  [Optional] Specifies the action that occurs if the destination table already
  *  exists. The following values are supported: WRITE_TRUNCATE: If the table
  *  already exists, BigQuery overwrites the table data. WRITE_APPEND: If the
@@ -1875,9 +1887,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. Required except for US and EU. See
- *  details at
- *  https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
+ *  The geographic location of the job. See details at
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -2682,6 +2693,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_RangePartitioning
+ */
+@interface GTLRBigquery_RangePartitioning : GTLRObject
+
+/**
+ *  [Experimental] [Required] The table is partitioned by this field. The field
+ *  must be a top-level NULLABLE/REQUIRED field. The only supported type is
+ *  INTEGER/INT64.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** [Experimental] [Required] Defines the ranges for range partitioning. */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning_Range *range;
+
+@end
+
+
+/**
+ *  [Experimental] [Required] Defines the ranges for range partitioning.
+ */
+@interface GTLRBigquery_RangePartitioning_Range : GTLRObject
+
+/**
+ *  [Experimental] [Required] The end of range partitioning, exclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  [Experimental] [Required] The width of each interval.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interval;
+
+/**
+ *  [Experimental] [Required] The start of range partitioning, inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
  *  GTLRBigquery_Streamingbuffer
  */
 @interface GTLRBigquery_Streamingbuffer : GTLRObject
@@ -2720,8 +2778,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_Table : GTLRObject
 
 /**
- *  [Beta] Clustering specification for the table. Must be specified with
- *  time-based partitioning, data in the table will be first partitioned and
+ *  [Experimental] Clustering specification for the table. Must be specified
+ *  with partitioning, data in the table will be first partitioned and
  *  subsequently clustered.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
@@ -2831,12 +2889,35 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *numLongTermBytes;
 
 /**
+ *  [Output-only] [Experimental] The physical size of this table in bytes,
+ *  excluding any data in the streaming buffer. This includes compression and
+ *  storage used for time travel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPhysicalBytes;
+
+/**
  *  [Output-only] The number of rows of data in this table, excluding any data
  *  in the streaming buffer.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numRows;
+
+/**
+ *  [Experimental] Range partitioning specification for this table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
+
+/**
+ *  [Experimental] [Optional] If set to true, queries over this table require a
+ *  partition filter that can be used for partition elimination to be specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
 
 /** [Optional] Describes the schema of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
@@ -2854,7 +2935,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Required] Reference describing the ID of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/** Time-based partitioning specification for this table. */
+/**
+ *  Time-based partitioning specification for this table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**

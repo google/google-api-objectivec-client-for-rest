@@ -313,6 +313,10 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedForma
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedLength = @"VIDEO_UNSUPPORTED_LENGTH";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ViolatesJapanesePharmacyLaw = @"VIOLATES_JAPANESE_PHARMACY_LAW";
 
+// GTLRAdExchangeBuyerII_FilterSet.breakdownDimensions
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_BreakdownDimensionUnspecified = @"BREAKDOWN_DIMENSION_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_PublisherIdentifier = @"PUBLISHER_IDENTIFIER";
+
 // GTLRAdExchangeBuyerII_FilterSet.environment
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_App = @"APP";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
@@ -959,12 +963,14 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
-@dynamic absoluteDateRange, creativeId, dealId, environment, formats, name,
-         platforms, publisherIdentifiers, realtimeTimeRange, relativeDateRange,
-         sellerNetworkIds, timeSeriesGranularity;
+@dynamic absoluteDateRange, breakdownDimensions, creativeId, dealId,
+         environment, formats, name, platforms, publisherIdentifiers,
+         realtimeTimeRange, relativeDateRange, sellerNetworkIds,
+         timeSeriesGranularity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"breakdownDimensions" : [NSString class],
     @"formats" : [NSString class],
     @"platforms" : [NSString class],
     @"publisherIdentifiers" : [NSString class],
@@ -1828,7 +1834,7 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_RowDimensions
-@dynamic timeInterval;
+@dynamic publisherIdentifier, timeInterval;
 @end
 
 

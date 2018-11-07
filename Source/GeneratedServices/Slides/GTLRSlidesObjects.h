@@ -4,7 +4,7 @@
 // API:
 //   Google Slides API (slides/v1)
 // Description:
-//   An API for creating and editing Google Slides presentations.
+//   Reads and writes Google Slides presentations.
 // Documentation:
 //   https://developers.google.com/slides/
 
@@ -2304,7 +2304,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light5;
 GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light6;
 /**
  *  A recolor effect that lightens the image using the page's seventh
- *  available color from its color scheme.e.
+ *  available color from its color scheme.
  *
  *  Value: "LIGHT7"
  */
@@ -6696,7 +6696,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        color from its color scheme. (Value: "LIGHT6")
  *    @arg @c kGTLRSlides_Recolor_Name_Light7 A recolor effect that lightens the
  *        image using the page's seventh
- *        available color from its color scheme.e. (Value: "LIGHT7")
+ *        available color from its color scheme. (Value: "LIGHT7")
  *    @arg @c kGTLRSlides_Recolor_Name_Light8 A recolor effect that lightens the
  *        image using the page's eighth
  *        available color from its color scheme. (Value: "LIGHT8")
@@ -7210,7 +7210,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The alignment point of the shadow, that sets the origin for translate,
- *  scale and skew of the shadow.
+ *  scale and skew of the shadow. This property is read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Shadow_Alignment_BottomCenter Bottom center. (Value:
@@ -7287,7 +7287,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
 /**
- *  Whether the shadow should rotate with the shape.
+ *  Whether the shadow should rotate with the shape. This property is
+ *  read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7300,7 +7301,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_AffineTransform *transform;
 
 /**
- *  The type of the shadow.
+ *  The type of the shadow. This property is read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Shadow_Type_Outer Outer shadow. (Value: "OUTER")

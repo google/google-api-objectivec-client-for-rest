@@ -131,6 +131,7 @@
 @class GTLRDataflow_Status_Details_Item;
 @class GTLRDataflow_Step;
 @class GTLRDataflow_Step_Properties;
+@class GTLRDataflow_StreamingApplianceSnapshotConfig;
 @class GTLRDataflow_StreamingComputationConfig;
 @class GTLRDataflow_StreamingComputationRanges;
 @class GTLRDataflow_StreamingComputationTask;
@@ -2960,6 +2961,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ExecutionStageState *> *stageStates;
 
+/**
+ *  The timestamp when the job was started (transitioned to JOB_STATE_PENDING).
+ *  Flexible resource scheduling jobs are started with some delay after job
+ *  creation, so start_time is unset before start and is updated when the
+ *  job is started by the Cloud Dataflow service. For other jobs, start_time
+ *  always equals to create_time and is immutable and set by the Cloud Dataflow
+ *  service.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 /** The top-level steps that constitute the entire job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
 
@@ -4935,6 +4946,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Streaming appliance snapshot configuration.
+ */
+@interface GTLRDataflow_StreamingApplianceSnapshotConfig : GTLRObject
+
+/** Indicates which endpoint is used to import appliance state. */
+@property(nonatomic, copy, nullable) NSString *importStateEndpoint;
+
+/** If set, indicates the snapshot id for the snapshot being performed. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+@end
+
+
+/**
  *  Configuration information for a single streaming computation.
  */
 @interface GTLRDataflow_StreamingComputationConfig : GTLRObject
@@ -5062,6 +5087,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *receiveWorkPort;
+
+/** Configures streaming appliance snapshot. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingApplianceSnapshotConfig *snapshotConfig;
 
 /** The global topology of the streaming Dataflow job. */
 @property(nonatomic, strong, nullable) GTLRDataflow_TopologyConfig *streamingComputationTopology;

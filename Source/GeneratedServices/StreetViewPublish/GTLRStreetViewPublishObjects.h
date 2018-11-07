@@ -418,6 +418,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStreetViewPublish_Place : GTLRObject
 
 /**
+ *  Output-only. The language_code that the name is localized with. This should
+ *  be the language_code specified in the request, but may be a fallback.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Output-only. The name of the place, localized to the language_code. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  Place identifier, as described in
  *  https://developers.google.com/places/place-id.
  */

@@ -128,11 +128,12 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 //
 
 @implementation GTLRCloudRedis_ListInstancesResponse
-@dynamic instances, nextPageToken;
+@dynamic instances, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"instances" : [GTLRCloudRedis_Instance class]
+    @"instances" : [GTLRCloudRedis_Instance class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

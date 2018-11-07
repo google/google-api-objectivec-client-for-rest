@@ -4,7 +4,7 @@
 // API:
 //   Google Play Developer API (androidpublisher/v3)
 // Description:
-//   Lets Android application developers access their Google Play accounts.
+//   Accesses Android application developers' Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAndroidPublisher;
 /**
  *  Service for executing Google Play Developer API queries.
  *
- *  Lets Android application developers access their Google Play accounts.
+ *  Accesses Android application developers' Google Play accounts.
  */
 @interface GTLRAndroidPublisherService : GTLRService
 

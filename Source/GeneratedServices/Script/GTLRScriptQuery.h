@@ -4,7 +4,7 @@
 // API:
 //   Apps Script API (script/v1)
 // Description:
-//   An API for managing and executing Google Apps Script projects.
+//   Manages and executes Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
@@ -837,14 +837,18 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
 @end
 
 /**
- *  Runs a function in an Apps Script project. The project must be deployed
- *  for use with the Apps Script API.
+ *  Runs a function in an Apps Script project. The script project must be
+ *  deployed for use with the Apps Script API and the calling application must
+ *  share the same Cloud Platform project.
  *  This method requires authorization with an OAuth 2.0 token that includes at
  *  least one of the scopes listed in the [Authorization](#authorization)
  *  section; script projects that do not require authorization cannot be
  *  executed through this API. To find the correct scopes to include in the
  *  authentication token, open the project in the script editor, then select
  *  **File > Project properties** and click the **Scopes** tab.
+ *  The error `403, PERMISSION_DENIED: The caller does not have permission`
+ *  indicates that the Cloud Platform project used to authorize the request is
+ *  not the same as the one used by the script.
  *
  *  Method: script.scripts.run
  *
@@ -875,14 +879,18 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
 /**
  *  Fetches a @c GTLRScript_Operation.
  *
- *  Runs a function in an Apps Script project. The project must be deployed
- *  for use with the Apps Script API.
+ *  Runs a function in an Apps Script project. The script project must be
+ *  deployed for use with the Apps Script API and the calling application must
+ *  share the same Cloud Platform project.
  *  This method requires authorization with an OAuth 2.0 token that includes at
  *  least one of the scopes listed in the [Authorization](#authorization)
  *  section; script projects that do not require authorization cannot be
  *  executed through this API. To find the correct scopes to include in the
  *  authentication token, open the project in the script editor, then select
  *  **File > Project properties** and click the **Scopes** tab.
+ *  The error `403, PERMISSION_DENIED: The caller does not have permission`
+ *  indicates that the Cloud Platform project used to authorize the request is
+ *  not the same as the one used by the script.
  *
  *  @param object The @c GTLRScript_ExecutionRequest to include in the query.
  *  @param scriptId The script ID of the script to be executed. To find the

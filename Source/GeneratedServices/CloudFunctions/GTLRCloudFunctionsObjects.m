@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFunctions_AuditLogConfig.logType
+NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRCloudFunctions_CloudFunction.status
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_Active = @"ACTIVE";
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_CloudFunctionStatusUnspecified = @"CLOUD_FUNCTION_STATUS_UNSPECIFIED";
@@ -32,6 +38,60 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunctio
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction = @"DELETE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction = @"UPDATE_FUNCTION";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_AuditConfig
+//
+
+@implementation GTLRCloudFunctions_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRCloudFunctions_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_AuditLogConfig
+//
+
+@implementation GTLRCloudFunctions_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_Binding
+//
+
+@implementation GTLRCloudFunctions_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -63,7 +123,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
          environmentVariables, eventTrigger, httpsTrigger, labels, maxInstances,
          name, network, runtime, serviceAccountEmail, sourceArchiveUrl,
          sourceRepository, sourceUploadUrl, status, timeout, updateTime,
-         versionId;
+         versionId, vpcConnector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -107,6 +167,21 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 @implementation GTLRCloudFunctions_EventTrigger
 @dynamic eventType, failurePolicy, resource, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_Expr
+//
+
+@implementation GTLRCloudFunctions_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -361,10 +436,43 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_Policy
+//
+
+@implementation GTLRCloudFunctions_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRCloudFunctions_AuditConfig class],
+    @"bindings" : [GTLRCloudFunctions_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_Retry
 //
 
 @implementation GTLRCloudFunctions_Retry
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_SetIamPolicyRequest
+//
+
+@implementation GTLRCloudFunctions_SetIamPolicyRequest
+@dynamic policy, updateMask;
 @end
 
 
@@ -405,6 +513,42 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_TestIamPermissionsRequest
+//
+
+@implementation GTLRCloudFunctions_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_TestIamPermissionsResponse
+//
+
+@implementation GTLRCloudFunctions_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
 }
 
 @end

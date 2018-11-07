@@ -415,8 +415,8 @@
 //
 
 @implementation GTLRCivicInfo_PollingLocation
-@dynamic address, endDate, identifier, name, notes, pollingHours, sources,
-         startDate, voterServices;
+@dynamic address, endDate, identifier, latitude, longitude, name, notes,
+         pollingHours, sources, startDate, voterServices;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

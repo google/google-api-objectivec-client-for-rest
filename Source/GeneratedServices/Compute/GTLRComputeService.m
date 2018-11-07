@@ -171,6 +171,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#urlMap" : [GTLRCompute_UrlMap class],
     @"compute#urlMapList" : [GTLRCompute_UrlMapList class],
     @"compute#usableSubnetworksAggregatedList" : [GTLRCompute_UsableSubnetworksAggregatedList class],
+    @"compute#vmEndpointNatMappingsList" : [GTLRCompute_VmEndpointNatMappingsList class],
     @"compute#vpnTunnel" : [GTLRCompute_VpnTunnel class],
     @"compute#vpnTunnelAggregatedList" : [GTLRCompute_VpnTunnelAggregatedList class],
     @"compute#vpnTunnelList" : [GTLRCompute_VpnTunnelList class],

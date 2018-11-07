@@ -58,6 +58,7 @@
 @class GTLRAndroidEnterprise_StoreCluster;
 @class GTLRAndroidEnterprise_StorePage;
 @class GTLRAndroidEnterprise_TokenPagination;
+@class GTLRAndroidEnterprise_TrackInfo;
 @class GTLRAndroidEnterprise_User;
 @class GTLRAndroidEnterprise_VariableSet;
 
@@ -121,13 +122,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Deprecated. Use PlaySearch.approveApps. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
-/** Options for displaying the Play Search page. */
+/** Options for displaying the managed Play Search apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch *playSearch;
 
 /** Options for displaying the Private Apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps *privateApps;
 
-/** Options for displaying the Store Builder page. */
+/** Options for displaying the Organize apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder *storeBuilder;
 
 /** Options for displaying the Web Apps page. */
@@ -149,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *approveApps;
 
 /**
- *  Whether the Play Search page is displayed. Default is true.
+ *  Whether the managed Play Search apps page is displayed. Default is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -179,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder : GTLRObject
 
 /**
- *  Whether the Store Builder page is displayed. Default is true.
+ *  Whether the Organize apps page is displayed. Default is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -389,10 +390,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AppVersion : GTLRObject
 
 /**
- *  The track that this app was published in. For example if track is "alpha",
- *  this is an alpha version of the app.
+ *  True if this version is a production APK.
+ *
+ *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *isProduction;
+
+/** Deprecated, use trackId instead. */
 @property(nonatomic, copy, nullable) NSString *track;
+
+/**
+ *  Track ids that the app version is published in. Replaces the track field
+ *  (deprecated), but doesn't include the production track (see isProduction
+ *  instead).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trackId;
 
 /**
  *  Unique increasing identifier for the app version.
@@ -1376,6 +1388,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_Product : GTLRObject
 
+/** The tracks visible to the enterprise. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_TrackInfo *> *appTracks;
+
 /** App versions currently available for this product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppVersion *> *appVersion;
 
@@ -1385,7 +1400,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The countries which this app is available in. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableCountries;
 
-/** The tracks that are visible to the enterprise. */
+/** Deprecated, use appTracks instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableTracks;
 
 /** The app category (e.g. RACING, SOCIAL, etc.) */
@@ -1579,21 +1594,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  Grants visibility to the specified track(s) of the product to the device.
- *  The track available to the device is based on the following order of
- *  preference: alpha, beta, production. For example, if an app has a prod
- *  version, a beta version and an alpha version and the enterprise has been
- *  granted visibility to both the alpha and beta tracks, if tracks is {"beta",
- *  "production"} then the beta version of the app is made available to the
- *  device. If there are no app versions in the specified track adding the
- *  "alpha" and "beta" values to the list of tracks will have no effect. Note
- *  that the enterprise requires access to alpha and/or beta tracks before users
- *  can be granted visibility to apps in those tracks.
- *  The allowed sets are: {} (considered equivalent to {"production"})
- *  {"production"} {"beta", "production"} {"alpha", "beta", "production"} The
- *  order of elements is not relevant. Any other set of tracks will be rejected
- *  with an error.
+ *  Grants the device visibility to the specified product release track(s),
+ *  identified by trackIds. The list of release tracks of a product can be
+ *  obtained by calling Products.Get.
  */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
+
+/** Deprecated. Use trackIds instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tracks;
 
 @end
@@ -1744,21 +1751,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  Grants visibility to the specified track(s) of the product to the user. The
- *  track available to the user is based on the following order of preference:
- *  alpha, beta, production. For example, if an app has a prod version, a beta
- *  version and an alpha version and the enterprise has been granted visibility
- *  to both the alpha and beta tracks, if tracks is {"beta", "production"} the
- *  user will be able to install the app and they will get the beta version of
- *  the app. If there are no app versions in the specified track adding the
- *  "alpha" and "beta" values to the list of tracks will have no effect. Note
- *  that the enterprise requires access to alpha and/or beta tracks before users
- *  can be granted visibility to apps in those tracks.
- *  The allowed sets are: {} (considered equivalent to {"production"})
- *  {"production"} {"beta", "production"} {"alpha", "beta", "production"} The
- *  order of elements is not relevant. Any other set of tracks will be rejected
- *  with an error.
+ *  Grants the user visibility to the specified product track(s), identified by
+ *  trackIds.
  */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
+
+/** Deprecated. Use trackIds instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tracks;
 
 @end
@@ -2020,6 +2018,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 @property(nonatomic, copy, nullable) NSString *previousPageToken;
+
+@end
+
+
+/**
+ *  Id to name association of a track.
+ */
+@interface GTLRAndroidEnterprise_TrackInfo : GTLRObject
+
+/**
+ *  A modifiable name for a track. This is the visible name in the play
+ *  developer console.
+ */
+@property(nonatomic, copy, nullable) NSString *trackAlias;
+
+/**
+ *  Unmodifiable, unique track identifier. This identifier is the releaseTrackId
+ *  in the url of the play developer console page that displays the track
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *trackId;
 
 @end
 

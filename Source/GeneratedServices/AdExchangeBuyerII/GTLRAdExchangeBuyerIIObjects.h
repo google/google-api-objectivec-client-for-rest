@@ -1568,6 +1568,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsu
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ViolatesJapanesePharmacyLaw;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_FilterSet.breakdownDimensions
+
+/** Value: "BREAKDOWN_DIMENSION_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_BreakdownDimensionUnspecified;
+/** Value: "PUBLISHER_IDENTIFIER" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_PublisherIdentifier;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.environment
 
 /**
@@ -3851,6 +3859,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_AbsoluteDateRange *absoluteDateRange;
 
 /**
+ *  The set of dimensions along which to break down the response; may be empty.
+ *  If multiple dimensions are requested, the breakdown is along the Cartesian
+ *  product of the requested dimensions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *breakdownDimensions;
+
+/**
  *  The ID of the creative on which to filter; optional. This field may be set
  *  only for a filter set that accesses account-level troubleshooting data,
  *  i.e., one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
@@ -5641,6 +5656,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *  Encapsulates the values of all dimensions for a given row.
  */
 @interface GTLRAdExchangeBuyerII_RowDimensions : GTLRObject
+
+/**
+ *  The publisher identifier for this row, if a breakdown by
+ *  BreakdownDimension.PUBLISHER_IDENTIFIER
+ *  was requested.
+ */
+@property(nonatomic, copy, nullable) NSString *publisherIdentifier;
 
 /** The time interval that this row represents. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TimeInterval *timeInterval;

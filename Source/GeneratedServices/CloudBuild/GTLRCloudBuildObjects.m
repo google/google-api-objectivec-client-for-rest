@@ -194,7 +194,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 @implementation GTLRCloudBuild_BuildOptions
 @dynamic diskSizeGb, env, logging, logStreamingOption, machineType,
          requestedVerifyOption, secretEnv, sourceProvenanceHash,
-         substitutionOption, volumes;
+         substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

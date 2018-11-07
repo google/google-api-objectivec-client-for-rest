@@ -975,6 +975,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryOptions : GTLRObject
 
 /**
+ *  References to fields excluded from scanning. This allows you to skip
+ *  inspection of entire columns which you know have no findings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *excludedFields;
+
+/**
  *  References to fields uniquely identifying rows within the table.
  *  Nested fields in the format, like `person.birthdate.year`, are allowed.
  */
@@ -1374,7 +1380,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  List of file type groups to include in the scan.
  *  If empty, all files are scanned and available data format processors
- *  are applied.
+ *  are applied. In addition, the binary content of the selected files
+ *  is always scanned as well.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -2008,6 +2015,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Message for a date time object.
+ *  e.g. 2018-01-01, 5th August.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DateTime : GTLRObject
 
@@ -2810,7 +2818,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Name of the information type. Either a name of your choosing when
  *  creating a CustomInfoType, or one of the names listed
  *  at https://cloud.google.com/dlp/docs/infotypes-reference when specifying
- *  a built-in type.
+ *  a built-in type. InfoType names should conform to the pattern
+ *  [a-zA-Z0-9_]{1,64}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3189,7 +3198,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  A stream of errors encountered when the trigger was activated. Repeated
- *  errors may result in the JobTrigger automaticaly being paused.
+ *  errors may result in the JobTrigger automatically being paused.
  *  Will return the last 100 errors. Whenever the JobTrigger is modified
  *  this list will be cleared. Output only field.
  */
@@ -3245,7 +3254,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Optional message indicating that multiple rows might be associated to a
  *  single individual. If the same entity_id is associated to multiple
- *  quasi-identifier tuples over distict rows, we consider the entire
+ *  quasi-identifier tuples over distinct rows, we consider the entire
  *  collection of tuples as the composite quasi-identifier. This collection
  *  is a multiset: the order in which the different tuples appear in the
  *  dataset is ignored, but their frequency is taken into account.
@@ -3926,8 +3935,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  from the `Finding` object. If appending to an existing table, any columns
  *  from the predefined schema that are missing will be added. No columns in
  *  the existing table will be deleted.
- *  If unspecified, then all available columns will be used for a new table,
- *  and no changes will be made to an existing table.
+ *  If unspecified, then all available columns will be used for a new table or
+ *  an (existing) table with no schema, and no changes will be made to an
+ *  existing table that has a schema.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns
@@ -4175,6 +4185,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuoteInfo : GTLRObject
 
+/** The date time indicated by the quote. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DateTime *dateTime;
 
 @end

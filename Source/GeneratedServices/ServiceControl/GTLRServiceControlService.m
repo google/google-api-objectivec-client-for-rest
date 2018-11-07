@@ -4,8 +4,8 @@
 // API:
 //   Service Control API (servicecontrol/v1)
 // Description:
-//   Google Service Control provides control plane functionality to managed
-//   services, such as logging, monitoring, and status checks.
+//   Provides control plane functionality to managed services, such as logging,
+//   monitoring, and status checks.
 // Documentation:
 //   https://cloud.google.com/service-control/
 

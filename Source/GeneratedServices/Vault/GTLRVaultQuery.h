@@ -28,6 +28,7 @@
 @class GTLRVault_RemoveHeldAccountsRequest;
 @class GTLRVault_RemoveMatterPermissionsRequest;
 @class GTLRVault_ReopenMatterRequest;
+@class GTLRVault_SavedQuery;
 @class GTLRVault_UndeleteMatterRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -894,6 +895,167 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRVault_ReopenMatterRequest *)object
                        matterId:(NSString *)matterId;
+
+@end
+
+/**
+ *  Creates a saved query.
+ *
+ *  Method: vault.matters.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ */
+@interface GTLRVaultQuery_MattersSavedQueriesCreate : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForMattersSavedQueriesCreateWithObject:matterId:]
+
+/**
+ *  The matter id of the parent matter for which the saved query is to be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/**
+ *  Fetches a @c GTLRVault_SavedQuery.
+ *
+ *  Creates a saved query.
+ *
+ *  @param object The @c GTLRVault_SavedQuery to include in the query.
+ *  @param matterId The matter id of the parent matter for which the saved query
+ *    is to be
+ *    created.
+ *
+ *  @return GTLRVaultQuery_MattersSavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRVault_SavedQuery *)object
+                       matterId:(NSString *)matterId;
+
+@end
+
+/**
+ *  Deletes a saved query by Id.
+ *
+ *  Method: vault.matters.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ */
+@interface GTLRVaultQuery_MattersSavedQueriesDelete : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForMattersSavedQueriesDeleteWithmatterId:savedQueryId:]
+
+/**
+ *  The matter id of the parent matter for which the saved query is to be
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/** Id of the saved query to be deleted. */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRVault_Empty.
+ *
+ *  Deletes a saved query by Id.
+ *
+ *  @param matterId The matter id of the parent matter for which the saved query
+ *    is to be
+ *    deleted.
+ *  @param savedQueryId Id of the saved query to be deleted.
+ *
+ *  @return GTLRVaultQuery_MattersSavedQueriesDelete
+ */
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                     savedQueryId:(NSString *)savedQueryId;
+
+@end
+
+/**
+ *  Retrieves a saved query by Id.
+ *
+ *  Method: vault.matters.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
+ */
+@interface GTLRVaultQuery_MattersSavedQueriesGet : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForMattersSavedQueriesGetWithmatterId:savedQueryId:]
+
+/**
+ *  The matter id of the parent matter for which the saved query is to be
+ *  retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/** Id of the saved query to be retrieved. */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRVault_SavedQuery.
+ *
+ *  Retrieves a saved query by Id.
+ *
+ *  @param matterId The matter id of the parent matter for which the saved query
+ *    is to be
+ *    retrieved.
+ *  @param savedQueryId Id of the saved query to be retrieved.
+ *
+ *  @return GTLRVaultQuery_MattersSavedQueriesGet
+ */
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                     savedQueryId:(NSString *)savedQueryId;
+
+@end
+
+/**
+ *  Lists saved queries within a matter. An empty page token in
+ *  ListSavedQueriesResponse denotes no more saved queries to list.
+ *
+ *  Method: vault.matters.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
+ */
+@interface GTLRVaultQuery_MattersSavedQueriesList : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForMattersSavedQueriesListWithmatterId:]
+
+/**
+ *  The matter id of the parent matter for which the saved queries are to be
+ *  retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/** The maximum number of saved queries to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The pagination token as returned in the previous response.
+ *  An empty token means start from the beginning.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRVault_ListSavedQueriesResponse.
+ *
+ *  Lists saved queries within a matter. An empty page token in
+ *  ListSavedQueriesResponse denotes no more saved queries to list.
+ *
+ *  @param matterId The matter id of the parent matter for which the saved
+ *    queries are to be
+ *    retrieved.
+ *
+ *  @return GTLRVaultQuery_MattersSavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMatterId:(NSString *)matterId;
 
 @end
 

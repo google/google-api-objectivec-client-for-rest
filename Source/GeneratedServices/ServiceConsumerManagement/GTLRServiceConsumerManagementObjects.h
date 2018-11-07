@@ -4,8 +4,7 @@
 // API:
 //   Service Consumer Management API (serviceconsumermanagement/v1)
 // Description:
-//   Provides management methods for configuring service producer resources on
-//   Google Cloud.
+//   Manages the service consumers of a Service Infrastructure service.
 // Documentation:
 //   https://cloud.google.com/service-consumer-management/docs/overview
 
@@ -808,6 +807,14 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minDeadline;
+
+/**
+ *  The number of seconds to wait for the completion of a long running
+ *  operation. The default is no deadline.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationDeadline;
 
 /**
  *  Selects the methods to which this rule applies.

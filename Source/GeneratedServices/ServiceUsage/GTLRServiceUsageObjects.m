@@ -207,7 +207,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, minDeadline, selector;
+@dynamic address, deadline, minDeadline, operationDeadline, selector;
 @end
 
 

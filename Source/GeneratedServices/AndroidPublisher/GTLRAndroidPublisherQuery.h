@@ -4,7 +4,7 @@
 // API:
 //   Google Play Developer API (androidpublisher/v3)
 // Description:
-//   Lets Android application developers access their Google Play accounts.
+//   Accesses Android application developers' Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -262,8 +262,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 /**
  *  Must be set to true if the bundle installation may trigger a warning on user
- *  devices (i.e. if installation size may be over a threshold, typically 100
- *  MB).
+ *  devices (for example, if installation size may be over a threshold,
+ *  typically 100 MB).
  */
 @property(nonatomic, assign) BOOL ackBundleInstallationWarning;
 

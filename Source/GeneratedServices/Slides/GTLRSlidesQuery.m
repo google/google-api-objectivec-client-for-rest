@@ -4,7 +4,7 @@
 // API:
 //   Google Slides API (slides/v1)
 // Description:
-//   An API for creating and editing Google Slides presentations.
+//   Reads and writes Google Slides presentations.
 // Documentation:
 //   https://developers.google.com/slides/
 

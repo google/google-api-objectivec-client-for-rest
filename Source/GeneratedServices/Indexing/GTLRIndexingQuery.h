@@ -4,8 +4,7 @@
 // API:
 //   Indexing API (indexing/v3)
 // Description:
-//   The Indexing API allows developers to share the life cycle of a Web
-//   Document with Google.
+//   Notifies Google when your web pages change.
 // Documentation:
 //   https://developers.google.com/search/apis/indexing-api/
 

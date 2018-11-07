@@ -4,8 +4,8 @@
 // API:
 //   Service Control API (servicecontrol/v1)
 // Description:
-//   Google Service Control provides control plane functionality to managed
-//   services, such as logging, monitoring, and status checks.
+//   Provides control plane functionality to managed services, such as logging,
+//   monitoring, and status checks.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -25,6 +25,7 @@ NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable = 
 NSString * const kGTLRServiceControl_CheckError_Code_BudgetExceeded = @"BUDGET_EXCEEDED";
 NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked = @"CLIENT_APP_BLOCKED";
 NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable = @"CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE";
+NSString * const kGTLRServiceControl_CheckError_Code_ConsumerInvalid = @"CONSUMER_INVALID";
 NSString * const kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected = @"DENIAL_OF_SERVICE_DETECTED";
 NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
 NSString * const kGTLRServiceControl_CheckError_Code_InvalidCredential = @"INVALID_CREDENTIAL";
@@ -50,6 +51,12 @@ NSString * const kGTLRServiceControl_CheckError_Code_ServiceNotActivated = @"SER
 NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable = @"SERVICE_STATUS_UNAVAILABLE";
 NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid = @"SPATULA_HEADER_INVALID";
 NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied = @"VISIBILITY_DENIED";
+
+// GTLRServiceControl_ConsumerInfo.type
+NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified = @"CONSUMER_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder  = @"FOLDER";
+NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project = @"PROJECT";
 
 // GTLRServiceControl_LogEntry.severity
 NSString * const kGTLRServiceControl_LogEntry_Severity_Alert   = @"ALERT";
@@ -364,7 +371,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_ConsumerInfo
-@dynamic projectNumber;
+@dynamic consumerNumber, projectNumber, type;
 @end
 
 
@@ -380,35 +387,6 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bucketCounts" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_EndReconciliationRequest
-//
-
-@implementation GTLRServiceControl_EndReconciliationRequest
-@dynamic reconciliationOperation, serviceConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_EndReconciliationResponse
-//
-
-@implementation GTLRServiceControl_EndReconciliationResponse
-@dynamic operationId, quotaMetrics, reconciliationErrors, serviceConfigId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class],
-    @"reconciliationErrors" : [GTLRServiceControl_QuotaError class]
   };
   return map;
 }
@@ -753,35 +731,6 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_ReleaseQuotaRequest
-//
-
-@implementation GTLRServiceControl_ReleaseQuotaRequest
-@dynamic releaseOperation, serviceConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_ReleaseQuotaResponse
-//
-
-@implementation GTLRServiceControl_ReleaseQuotaResponse
-@dynamic operationId, quotaMetrics, releaseErrors, serviceConfigId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class],
-    @"releaseErrors" : [GTLRServiceControl_QuotaError class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceControl_ReportError
 //
 
@@ -924,35 +873,6 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
   NSDictionary<NSString *, Class> *map = @{
     @"currentLocations" : [NSString class],
     @"originalLocations" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_StartReconciliationRequest
-//
-
-@implementation GTLRServiceControl_StartReconciliationRequest
-@dynamic reconciliationOperation, serviceConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_StartReconciliationResponse
-//
-
-@implementation GTLRServiceControl_StartReconciliationResponse
-@dynamic operationId, quotaMetrics, reconciliationErrors, serviceConfigId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class],
-    @"reconciliationErrors" : [GTLRServiceControl_QuotaError class]
   };
   return map;
 }

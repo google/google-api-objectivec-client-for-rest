@@ -4,7 +4,7 @@
 // API:
 //   Web Security Scanner API (websecurityscanner/v1alpha)
 // Description:
-//   Web Security Scanner API (under development).
+//   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:
 //   https://cloud.google.com/security-scanner/
 
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeWebSecurityScannerCloudPlatform;
 /**
  *  Service for executing Web Security Scanner API queries.
  *
- *  Web Security Scanner API (under development).
+ *  Scans your Compute and App Engine apps for common web vulnerabilities.
  */
 @interface GTLRWebSecurityScannerService : GTLRService
 

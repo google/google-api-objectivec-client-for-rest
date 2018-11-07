@@ -4,8 +4,8 @@
 // API:
 //   Dialogflow API (dialogflow/v2)
 // Description:
-//   An end-to-end development suite for conversational interfaces (e.g.,
-//   chatbots, voice-powered apps and devices).
+//   Builds conversational interfaces (for example, chatbots, and voice-powered
+//   apps and devices).
 // Documentation:
 //   https://cloud.google.com/dialogflow-enterprise/
 
@@ -77,6 +77,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.batchDelete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchDelete : GTLRDialogflowQuery
@@ -120,6 +121,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.batchUpdate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesBatchUpdate : GTLRDialogflowQuery
@@ -160,6 +162,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesCreate : GTLRDialogflowQuery
@@ -204,6 +207,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesDelete : GTLRDialogflowQuery
@@ -237,6 +241,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchCreate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchCreate : GTLRDialogflowQuery
@@ -278,6 +283,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchDelete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchDelete : GTLRDialogflowQuery
@@ -323,6 +329,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchUpdate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesEntitiesBatchUpdate : GTLRDialogflowQuery
@@ -365,6 +372,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesGet : GTLRDialogflowQuery
@@ -406,6 +414,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesList : GTLRDialogflowQuery
@@ -462,6 +471,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.entityTypes.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentEntityTypesPatch : GTLRDialogflowQuery
@@ -521,6 +531,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentExport : GTLRDialogflowQuery
@@ -567,6 +578,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentImport : GTLRDialogflowQuery
@@ -611,6 +623,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.batchDelete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsBatchDelete : GTLRDialogflowQuery
@@ -650,6 +663,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.batchUpdate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsBatchUpdate : GTLRDialogflowQuery
@@ -688,6 +702,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsCreate : GTLRDialogflowQuery
@@ -742,6 +757,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsDelete : GTLRDialogflowQuery
@@ -777,6 +793,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsGet : GTLRDialogflowQuery
@@ -828,6 +845,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsList : GTLRDialogflowQuery
@@ -894,6 +912,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.intents.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentIntentsPatch : GTLRDialogflowQuery
@@ -965,6 +984,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentRestore : GTLRDialogflowQuery
@@ -1012,6 +1032,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSearch : GTLRDialogflowQuery
@@ -1060,10 +1081,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Creates a context.
+ *  If the specified context already exists, overrides the context.
  *
  *  Method: dialogflow.projects.agent.sessions.contexts.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsContextsCreate : GTLRDialogflowQuery
@@ -1080,6 +1103,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
  *
  *  Creates a context.
+ *  If the specified context already exists, overrides the context.
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
  *    include in the query.
@@ -1099,6 +1123,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.contexts.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsContextsDelete : GTLRDialogflowQuery
@@ -1131,6 +1156,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.contexts.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsContextsGet : GTLRDialogflowQuery
@@ -1163,6 +1189,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.contexts.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsContextsList : GTLRDialogflowQuery
@@ -1210,6 +1237,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.contexts.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch : GTLRDialogflowQuery
@@ -1252,6 +1280,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.deleteContexts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsDeleteContexts : GTLRDialogflowQuery
@@ -1288,6 +1317,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.detectIntent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent : GTLRDialogflowQuery
@@ -1331,10 +1361,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Creates a session entity type.
+ *  If the specified session entity type already exists, overrides the session
+ *  entity type.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesCreate : GTLRDialogflowQuery
@@ -1351,6 +1384,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
  *
  *  Creates a session entity type.
+ *  If the specified session entity type already exists, overrides the session
+ *  entity type.
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
  *    to include in the query.
@@ -1370,6 +1405,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.entityTypes.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesDelete : GTLRDialogflowQuery
@@ -1406,6 +1442,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.entityTypes.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesGet : GTLRDialogflowQuery
@@ -1442,6 +1479,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.entityTypes.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesList : GTLRDialogflowQuery
@@ -1490,6 +1528,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.sessions.entityTypes.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesPatch : GTLRDialogflowQuery
@@ -1501,6 +1540,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
  Display Name>`.
+ *  `<Entity Type Display Name>` must be the display name of an existing entity
+ *  type in the same agent that will be overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1523,6 +1564,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
  Display Name>`.
+ *    `<Entity Type Display Name>` must be the display name of an existing
+ *    entity
+ *    type in the same agent that will be overridden or supplemented.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesPatch
  */
@@ -1540,6 +1584,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.agent.train
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsAgentTrain : GTLRDialogflowQuery
@@ -1579,6 +1624,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.getAgent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsGetAgent : GTLRDialogflowQuery
@@ -1614,6 +1660,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Method: dialogflow.projects.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsGet : GTLRDialogflowQuery

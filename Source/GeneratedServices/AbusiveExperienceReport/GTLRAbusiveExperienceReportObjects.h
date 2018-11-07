@@ -4,7 +4,7 @@
 // API:
 //   Abusive Experience Report API (abusiveexperiencereport/v1)
 // Description:
-//   View Abusive Experience Report data, and get a list of sites that have a
+//   Views Abusive Experience Report data, and gets a list of sites that have a
 //   significant number of abusive experiences.
 // Documentation:
 //   https://developers.google.com/abusive-experience-report/
@@ -89,7 +89,6 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Fi
 
 /**
  *  Response message for GetSiteSummary.
- *  Do not confuse with same message in google.ads.experiencereport.v1
  */
 @interface GTLRAbusiveExperienceReport_SiteSummaryResponse : GTLRObject
 

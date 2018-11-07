@@ -246,6 +246,9 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_Node *> *nodes;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 

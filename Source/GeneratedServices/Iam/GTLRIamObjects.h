@@ -1395,8 +1395,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @interface GTLRIam_ServiceAccount : GTLRObject
 
 /**
- *  Optional. A user-specified description of the service account. Must be
- *  fewer than 100 UTF-8 bytes.
+ *  Optional. A user-specified name for the service account.
+ *  Must be less than or equal to 100 UTF-8 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1404,7 +1404,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  Used to perform a consistent read-modify-write.
+ *  Optional. Note: `etag` is an inoperable legacy field that is only returned
+ *  for backwards compatibility.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

@@ -928,7 +928,8 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 @dynamic accountId, gmbEmail, merchantId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId {
+                          accountId:(unsigned long long)accountId
+                           gmbEmail:(NSString *)gmbEmail {
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
@@ -939,6 +940,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
   query.accountId = accountId;
+  query.gmbEmail = gmbEmail;
   query.expectedObjectClass = [GTLRShoppingContent_LiasettingsRequestGmbAccessResponse class];
   query.loggingName = @"content.liasettings.requestgmbaccess";
   return query;
@@ -976,7 +978,11 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 @dynamic accountId, contactEmail, contactName, country, language, merchantId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId {
+                          accountId:(unsigned long long)accountId
+                       contactEmail:(NSString *)contactEmail
+                        contactName:(NSString *)contactName
+                            country:(NSString *)country
+                           language:(NSString *)language {
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
@@ -987,6 +993,10 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
   query.accountId = accountId;
+  query.contactEmail = contactEmail;
+  query.contactName = contactName;
+  query.country = country;
+  query.language = language;
   query.expectedObjectClass = [GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse class];
   query.loggingName = @"content.liasettings.setinventoryverificationcontact";
   return query;
@@ -1000,7 +1010,8 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
          posExternalAccountId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                          accountId:(unsigned long long)accountId {
+                          accountId:(unsigned long long)accountId
+                            country:(NSString *)country {
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
@@ -1011,6 +1022,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
   query.accountId = accountId;
+  query.country = country;
   query.expectedObjectClass = [GTLRShoppingContent_LiasettingsSetPosDataProviderResponse class];
   query.loggingName = @"content.liasettings.setposdataprovider";
   return query;

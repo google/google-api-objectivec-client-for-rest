@@ -36,7 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeYouTube;
 /**
- *  Authorization scope: Manage your YouTube account
+ *  Authorization scope: See, edit, and permanently delete your YouTube videos,
+ *  ratings, comments and captions
  *
  *  Value "https://www.googleapis.com/auth/youtube.force-ssl"
  */

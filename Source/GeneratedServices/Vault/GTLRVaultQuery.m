@@ -558,6 +558,96 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRVaultQuery_MattersSavedQueriesCreate
+
+@dynamic matterId;
+
++ (instancetype)queryWithObject:(GTLRVault_SavedQuery *)object
+                       matterId:(NSString *)matterId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"matterId" ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/savedQueries";
+  GTLRVaultQuery_MattersSavedQueriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.matterId = matterId;
+  query.expectedObjectClass = [GTLRVault_SavedQuery class];
+  query.loggingName = @"vault.matters.savedQueries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersSavedQueriesDelete
+
+@dynamic matterId, savedQueryId;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                     savedQueryId:(NSString *)savedQueryId {
+  NSArray *pathParams = @[
+    @"matterId", @"savedQueryId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/savedQueries/{savedQueryId}";
+  GTLRVaultQuery_MattersSavedQueriesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.savedQueryId = savedQueryId;
+  query.expectedObjectClass = [GTLRVault_Empty class];
+  query.loggingName = @"vault.matters.savedQueries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersSavedQueriesGet
+
+@dynamic matterId, savedQueryId;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId
+                     savedQueryId:(NSString *)savedQueryId {
+  NSArray *pathParams = @[
+    @"matterId", @"savedQueryId"
+  ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/savedQueries/{savedQueryId}";
+  GTLRVaultQuery_MattersSavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.savedQueryId = savedQueryId;
+  query.expectedObjectClass = [GTLRVault_SavedQuery class];
+  query.loggingName = @"vault.matters.savedQueries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_MattersSavedQueriesList
+
+@dynamic matterId, pageSize, pageToken;
+
++ (instancetype)queryWithMatterId:(NSString *)matterId {
+  NSArray *pathParams = @[ @"matterId" ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}/savedQueries";
+  GTLRVaultQuery_MattersSavedQueriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.matterId = matterId;
+  query.expectedObjectClass = [GTLRVault_ListSavedQueriesResponse class];
+  query.loggingName = @"vault.matters.savedQueries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVaultQuery_MattersUndelete
 
 @dynamic matterId;

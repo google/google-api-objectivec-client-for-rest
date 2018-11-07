@@ -20,7 +20,7 @@
 
 @implementation GTLRCloudOSLoginQuery_UsersGetLoginProfile
 
-@dynamic name;
+@dynamic name, projectId, systemId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

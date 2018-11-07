@@ -196,7 +196,15 @@
 //
 
 @implementation GTLRAndroidEnterprise_AppVersion
-@dynamic track, versionCode, versionString;
+@dynamic isProduction, track, trackId, versionCode, versionString;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trackId" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -697,12 +705,12 @@
 //
 
 @implementation GTLRAndroidEnterprise_Product
-@dynamic appVersion, authorName, availableCountries, availableTracks, category,
-         contentRating, descriptionProperty, detailsUrl, distributionChannel,
-         iconUrl, kind, lastUpdatedTimestampMillis, minAndroidSdkVersion,
-         permissions, productId, productPricing, recentChanges,
-         requiresContainerApp, screenshotUrls, signingCertificate, smallIconUrl,
-         title, workDetailsUrl;
+@dynamic appTracks, appVersion, authorName, availableCountries, availableTracks,
+         category, contentRating, descriptionProperty, detailsUrl,
+         distributionChannel, iconUrl, kind, lastUpdatedTimestampMillis,
+         minAndroidSdkVersion, permissions, productId, productPricing,
+         recentChanges, requiresContainerApp, screenshotUrls,
+         signingCertificate, smallIconUrl, title, workDetailsUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -710,6 +718,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appTracks" : [GTLRAndroidEnterprise_TrackInfo class],
     @"appVersion" : [GTLRAndroidEnterprise_AppVersion class],
     @"availableCountries" : [NSString class],
     @"availableTracks" : [NSString class],
@@ -776,10 +785,11 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductPolicy
-@dynamic productId, tracks;
+@dynamic productId, trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"trackIds" : [NSString class],
     @"tracks" : [NSString class]
   };
   return map;
@@ -861,10 +871,11 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductVisibility
-@dynamic productId, tracks;
+@dynamic productId, trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"trackIds" : [NSString class],
     @"tracks" : [NSString class]
   };
   return map;
@@ -1025,6 +1036,16 @@
 
 @implementation GTLRAndroidEnterprise_TokenPagination
 @dynamic nextPageToken, previousPageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_TrackInfo
+//
+
+@implementation GTLRAndroidEnterprise_TrackInfo
+@dynamic trackAlias, trackId;
 @end
 
 

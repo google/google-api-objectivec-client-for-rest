@@ -1629,13 +1629,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Used to perform string matching. Currently, this matches on the exact
- *  content. In the future, it can be expanded to allow for regular expressions
- *  and more complex matching.
+ *  Used to perform string matching. It allows substring and regular
+ *  expressions, together with their negations.
  */
 @interface GTLRMonitoring_ContentMatcher : GTLRObject
 
-/** String content to match (max 1024 bytes) */
+/** String or regex content to match (max 1024 bytes) */
 @property(nonatomic, copy, nullable) NSString *content;
 
 @end
@@ -2234,8 +2233,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Nimbus InternalCheckers. The API currently only allows reading of internal
- *  checkers, creation of internal checkers is a manual process.
+ *  An internal checker allows uptime checks to run on private/internal GCP
+ *  resources.
  */
 @interface GTLRMonitoring_InternalChecker : GTLRObject
 
@@ -2254,9 +2253,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  A unique resource name for this InternalChecker. The format
- *  is:projects/[PROJECT_ID]/internalCheckers/[CHECKER_ID].PROJECT_ID is the GCP
- *  project ID where the internal resource lives. Not necessarily the same as
- *  the project_id for the config.
+ *  is:projects/[PROJECT_ID]/internalCheckers/[INTERNAL_CHECKER_ID].PROJECT_ID
+ *  is the stackdriver workspace project for the uptime check config associated
+ *  with the internal checker.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2265,6 +2264,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  internal resource lives (ex: "default").
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The GCP project_id where the internal checker lives. Not necessary the same
+ *  as the workspace project.
+ */
+@property(nonatomic, copy, nullable) NSString *peerProjectId;
 
 @end
 
@@ -3883,13 +3888,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  The internal checkers that this check will egress from. If is_internal is
- *  true and this list is empty, the check will egress from all InternalCheckers
- *  configured for the project that owns this CheckConfig.
+ *  true and this list is empty, the check will egress from all the
+ *  InternalCheckers configured for the project that owns this CheckConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
 
 /**
- *  Denotes whether this is a check that egresses from InternalCheckers.
+ *  If this is true, then checks are made only from the 'internal_checkers'. If
+ *  it is false, then checks are made only from the 'selected_regions'. It is an
+ *  error to provide 'selected_regions' when is_internal is true, or to provide
+ *  'internal_checkers' when is_internal is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3922,10 +3930,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_ResourceGroup *resourceGroup;
 
 /**
- *  The list of regions from which the check will be run. If this field is
- *  specified, enough regions to include a minimum of 3 locations must be
- *  provided, or an error message is returned. Not specifying this field will
- *  result in uptime checks running from all regions.
+ *  The list of regions from which the check will be run. Some regions contain
+ *  one location, and others contain more than one. If this field is specified,
+ *  enough regions to include a minimum of 3 locations must be provided, or an
+ *  error message is returned. Not specifying this field will result in uptime
+ *  checks running from all regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *selectedRegions;
 

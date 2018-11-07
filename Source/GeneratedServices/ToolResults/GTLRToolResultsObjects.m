@@ -92,6 +92,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToIns
 NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
 NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases = @"inAppPurchases";
 NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"incompleteRoboScriptExecution";
+NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage = @"insufficientCoverage";
 NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"iosCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"iosException";
 NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"launcherActivityNotFound";

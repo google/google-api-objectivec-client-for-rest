@@ -832,8 +832,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @dynamic clientRequestId, createTime, currentState, currentStateTime,
          environment, executionInfo, identifier, jobMetadata, labels, location,
          name, pipelineDescription, projectId, replacedByJobId, replaceJobId,
-         requestedState, stageStates, steps, tempFiles, transformNameMapping,
-         type;
+         requestedState, stageStates, startTime, steps, tempFiles,
+         transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1972,6 +1972,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_StreamingApplianceSnapshotConfig
+//
+
+@implementation GTLRDataflow_StreamingApplianceSnapshotConfig
+@dynamic importStateEndpoint, snapshotId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StreamingComputationConfig
 //
 
@@ -2064,7 +2074,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_StreamingSetupTask
-@dynamic drain, receiveWorkPort, streamingComputationTopology,
+@dynamic drain, receiveWorkPort, snapshotConfig, streamingComputationTopology,
          workerHarnessPort;
 @end
 
