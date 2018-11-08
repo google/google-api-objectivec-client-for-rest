@@ -23,6 +23,10 @@
 #import "GTLRDuration.h"
 #import "GTLRErrorObject.h"
 
+@interface GTLRObject (ExposedForTesting)
+- (NSString *)JSONDescription;
+@end
+
 // Custom subclass for testing the property handling.
 @class GTLRTestingObject;
 @interface GTLRTestingObject : GTLRObject
@@ -1692,6 +1696,56 @@ static Class gAdditionalPropsClass = Nil;
   XCTAssertEqualObjects(result.successes, result2.successes);
   XCTAssertEqualObjects(result.failures, result2.failures);
   XCTAssertEqualObjects(result.responseHeaders, result2.responseHeaders);
+}
+
+#pragma mark NSObject description
+
+- (void)testObjectDescription {
+  // -description uses the internal -JSONDescription; we test that since
+  // it won't include instance pointer values.
+
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = @"a string";
+  obj.aNum = @123;
+  obj.aBool = @YES;
+  obj.arrayNumber = @[ @1, @2, @3 ];
+  obj.JSON[@"unknown"] = @"something";
+
+  GTLRTestingObject *obj2 = [GTLRTestingObject object];
+  obj2.aStr = @"kid";
+  obj2.JSON[@"un"] = @"value";
+
+  obj.child = obj2;
+
+  XCTAssertEqualObjects([obj JSONDescription],
+                        @"{a.num:123 a_bool:1 a_str:\"a string\" arrayNumber:[3] unknown?:\"something\" child:{a_str,un}}");
+  XCTAssertEqualObjects([obj2 JSONDescription],
+                        @"{a_str:\"kid\" un?:\"value\"}");
+
+  // Test the special case wrapper for arrays: of Object
+
+  NSString * const jsonStr = @"[ {\"a_str\":\"obj 1\"}, {\"a_str\":\"obj 2\"} ]";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingResultArray *arrayResult = [GTLRTestingResultArray objectWithJSON:json];
+  XCTAssertNotNil(arrayResult);
+
+  XCTAssertEqualObjects([arrayResult JSONDescription], @"[2]");
+
+  // Test the special case wrapper for arrays: of Object
+
+  NSString * const jsonStr2 = @"[ \"str 1\", \"str 2\" ]";
+  json = [self objectWithString:jsonStr2 error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingResultArray2 *arrayResult2 = [GTLRTestingResultArray2 objectWithJSON:json];
+  XCTAssertNotNil(arrayResult2);
+
+  XCTAssertEqualObjects([arrayResult2 JSONDescription], @"[2]");
 }
 
 @end
