@@ -1718,7 +1718,7 @@ static Class gAdditionalPropsClass = Nil;
   obj.child = obj2;
 
   XCTAssertEqualObjects([obj JSONDescription],
-                        @"{a.num:123 a_bool:1 a_str:\"a string\" arrayNumber:[3] unknown?:\"something\" child:{a_str,un}}");
+                        @"{a.num:123 a_bool:1 a_str:\"a string\" arrayNumber:[3] child:{a_str,un} unknown?:\"something\"}");
   XCTAssertEqualObjects([obj2 JSONDescription],
                         @"{a_str:\"kid\" un?:\"value\"}");
 

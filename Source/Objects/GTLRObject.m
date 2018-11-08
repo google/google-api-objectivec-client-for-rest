@@ -445,7 +445,7 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
   NSMutableString *descStr = [NSMutableString stringWithString:@"{"];
 
   NSString *spacer = @"";
-  for (NSString *key in _json) {
+  for (NSString *key in [[_json allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]) {
     NSString *value = nil;
     // show question mark for JSON keys not supported by a declared property:
     //   foo?:"Hi mom."
@@ -456,7 +456,8 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
     if ([rawValue isKindOfClass:[NSDictionary class]]) {
       // for dictionaries, show the list of keys:
       //   {key1,key2,key3}
-      NSString *subkeyList = [((NSDictionary *)rawValue).allKeys componentsJoinedByString:@","];
+      NSArray *subKeys = [((NSDictionary *)rawValue).allKeys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+      NSString *subkeyList = [subKeys componentsJoinedByString:@","];
       value = [NSString stringWithFormat:@"{%@}", subkeyList];
     } else if ([rawValue isKindOfClass:[NSArray class]]) {
       // for arrays, show the number of items in the array:
