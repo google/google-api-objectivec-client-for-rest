@@ -3,29 +3,13 @@ The apps in this folder are designed to provide examples of the basic workings o
 Eg you should not ask for a Client key as it should be embedded within the codebase of your app.
 
 ## Installation instructons
-In order to use the example projects in this folder, you will need to ensure that you have downloaded the below two Git Submodules:
-- gtm-session-fetcher
-- AppAuth
-- GTMAppAuth
+In order to use the example projects in this folder, you will need to use CocoaPods to install their dependencies.
+For help with installing CocoaPods, see [their getting started guide](https://guides.cocoapods.org/using/getting-started.html#getting-started)
 
-
-## How to download Git Submodules
-You can download Git Submodules using the following command:
-[Credit: Stackoverflow Question](http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
-
-
+To fetch/update the dependencies:
 ```
-git clone git://url
-cd repo
-git submodule init
-git submodule update
-```
-
-Then, add another step after the git pull.
-
-```
-git pull ...
-git submodule update --recursive
+cd Examples/[sample_to_build]
+pod install
 ```
 
 ## Requirements to use
@@ -39,7 +23,3 @@ These example apps need an oAuth2 Client key, which you can obtain from the [Goo
 5. Enter a memorable name for this key to help you identify it easily in the future.
 6. Copy the Bundle Identifier from your IOS App.  This is found in your main project target under the `General` tab
 7. Click the `Create` Button and your are complete.
-
-
-## Note
-These sample apps should automatically build and copy over the GTLR.framework as part of the build-and-run process.
