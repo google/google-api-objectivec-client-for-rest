@@ -270,7 +270,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_Connection
-@dynamic network, peering, reservedPeeringRanges;
+@dynamic network, peering, reservedPeeringRanges, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -917,6 +917,16 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return [NSNumber class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_SearchRangeRequest
+//
+
+@implementation GTLRServiceNetworking_SearchRangeRequest
+@dynamic ipPrefixLength, network;
 @end
 
 

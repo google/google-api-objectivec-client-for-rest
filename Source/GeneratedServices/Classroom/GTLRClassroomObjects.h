@@ -239,13 +239,13 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Published;
 // GTLRClassroom_CourseWork.submissionModificationMode
 
 /**
- *  Submisisons can be modified at any time.
+ *  Submissions can be modified at any time.
  *
  *  Value: "MODIFIABLE"
  */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable;
 /**
- *  Submisisons can be modified before being turned in.
+ *  Submissions can be modified before being turned in.
  *
  *  Value: "MODIFIABLE_UNTIL_TURNED_IN"
  */
@@ -1136,13 +1136,13 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional date, in UTC, that submissions for this this course work are due.
+ *  Optional date, in UTC, that submissions for this course work are due.
  *  This must be specified if `due_time` is specified.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Date *dueDate;
 
 /**
- *  Optional time of day, in UTC, that submissions for this this course work
+ *  Optional time of day, in UTC, that submissions for this course work
  *  are due.
  *  This must be specified if `due_date` is specified.
  */
@@ -1221,9 +1221,9 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *
  *  Likely values:
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable
- *        Submisisons can be modified at any time. (Value: "MODIFIABLE")
+ *        Submissions can be modified at any time. (Value: "MODIFIABLE")
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn
- *        Submisisons can be modified before being turned in. (Value:
+ *        Submissions can be modified before being turned in. (Value:
  *        "MODIFIABLE_UNTIL_TURNED_IN")
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified
  *        No modification mode specified. This is never returned. (Value:

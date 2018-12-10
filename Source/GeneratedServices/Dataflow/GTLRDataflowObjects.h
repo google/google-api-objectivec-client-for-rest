@@ -2703,6 +2703,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *clientRequestId;
 
 /**
+ *  If this is specified, the job's initial state is populated from the given
+ *  snapshot.
+ */
+@property(nonatomic, copy, nullable) NSString *createdFromSnapshotId;
+
+/**
  *  The timestamp when the job was initially created. Immutable and set by the
  *  Cloud Dataflow service.
  */
@@ -2971,8 +2977,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** The top-level steps that constitute the entire job. */
+/**
+ *  Exactly one of step or steps_location should be specified.
+ *  The top-level steps that constitute the entire job.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
+
+/** The GCS location where the steps are stored. */
+@property(nonatomic, copy, nullable) NSString *stepsLocation;
 
 /**
  *  A set of files the system should be aware of that are used
@@ -4383,6 +4395,47 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_Sink_Spec : GTLRObject
+@end
+
+
+/**
+ *  Represents a snapshot of a job.
+ */
+@interface GTLRDataflow_Snapshot : GTLRObject
+
+/** The time this snapshot was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  The unique ID of this snapshot.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The project this snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The job this snapshot was created from. */
+@property(nonatomic, copy, nullable) NSString *sourceJobId;
+
+/** The time after which this snapshot will be automatically deleted. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  Request to create a snapshot of a job.
+ */
+@interface GTLRDataflow_SnapshotJobRequest : GTLRObject
+
+/** The location that contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** TTL for the snapshot. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
 @end
 
 

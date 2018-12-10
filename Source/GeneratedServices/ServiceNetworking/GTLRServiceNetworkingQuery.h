@@ -21,6 +21,7 @@
 
 @class GTLRServiceNetworking_AddSubnetworkRequest;
 @class GTLRServiceNetworking_Connection;
+@class GTLRServiceNetworking_SearchRangeRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -73,16 +74,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Service producers use this method to provision a new subnet in
- *  peered service shared VPC network.
- *  It will validate previously provided allocated ranges, find
- *  non-conflicting sub-range of requested size (expressed in
- *  number of leading bits of ipv4 network mask, as in CIDR range
- *  notation). It will then create a subnetwork in the request
- *  region. The subsequent call will try to reuse the
- *  subnetwork previously created if subnetwork name, region and
- *  prefix length of the IP range match.
- *  Operation<response: Subnetwork>
+ *  For service producers, provisions a new subnet in a
+ *  peered service's shared VPC network in the requested region and with the
+ *  requested size that's expressed as a CIDR range (number of leading bits of
+ *  ipV4 network mask). The method checks against the assigned allocated ranges
+ *  to find a non-conflicting IP address range. The method will reuse a subnet
+ *  if subsequent calls contain the same subnet name, region, prefix length.
+ *  This method will make producer's tenant project to be a shared VPC service
+ *  project as needed.
+ *  The response from the `get` operation will be of type `Subnetwork` if the
+ *  operation successfully completes.
  *
  *  Method: servicenetworking.services.addSubnetwork
  *
@@ -95,42 +96,42 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceNetworking queryForServicesAddSubnetworkWithObject:parent:]
 
 /**
- *  Required. This is a 'tenant' project in the service producer organization.
- *  services/{service}/{collection-id}/{resource-id}
- *  {collection id} is the cloud resource collection type representing the
- *  tenant project. Only 'projects' are currently supported.
- *  {resource id} is the tenant project numeric id: '123456'.
- *  {service} the name of the peering service, for example
- *  'service-peering.example.com'. This service must be activated.
- *  in the consumer project.
+ *  Required. A tenant project in the service producer organization, in the
+ *  following format: services/{service}/{collection-id}/{resource-id}.
+ *  {collection-id} is the cloud resource collection type that represents the
+ *  tenant project. Only `projects` are supported.
+ *  {resource-id} is the tenant project numeric id, such as
+ *  `123456`. {service} the name of the peering service, such as
+ *  `service-peering.example.com`. This service must already be
+ *  enabled in the service consumer's project.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
- *  Service producers use this method to provision a new subnet in
- *  peered service shared VPC network.
- *  It will validate previously provided allocated ranges, find
- *  non-conflicting sub-range of requested size (expressed in
- *  number of leading bits of ipv4 network mask, as in CIDR range
- *  notation). It will then create a subnetwork in the request
- *  region. The subsequent call will try to reuse the
- *  subnetwork previously created if subnetwork name, region and
- *  prefix length of the IP range match.
- *  Operation<response: Subnetwork>
+ *  For service producers, provisions a new subnet in a
+ *  peered service's shared VPC network in the requested region and with the
+ *  requested size that's expressed as a CIDR range (number of leading bits of
+ *  ipV4 network mask). The method checks against the assigned allocated ranges
+ *  to find a non-conflicting IP address range. The method will reuse a subnet
+ *  if subsequent calls contain the same subnet name, region, prefix length.
+ *  This method will make producer's tenant project to be a shared VPC service
+ *  project as needed.
+ *  The response from the `get` operation will be of type `Subnetwork` if the
+ *  operation successfully completes.
  *
  *  @param object The @c GTLRServiceNetworking_AddSubnetworkRequest to include
  *    in the query.
- *  @param parent Required. This is a 'tenant' project in the service producer
- *    organization.
- *    services/{service}/{collection-id}/{resource-id}
- *    {collection id} is the cloud resource collection type representing the
- *    tenant project. Only 'projects' are currently supported.
- *    {resource id} is the tenant project numeric id: '123456'.
- *    {service} the name of the peering service, for example
- *    'service-peering.example.com'. This service must be activated.
- *    in the consumer project.
+ *  @param parent Required. A tenant project in the service producer
+ *    organization, in the
+ *    following format: services/{service}/{collection-id}/{resource-id}.
+ *    {collection-id} is the cloud resource collection type that represents the
+ *    tenant project. Only `projects` are supported.
+ *    {resource-id} is the tenant project numeric id, such as
+ *    `123456`. {service} the name of the peering service, such as
+ *    `service-peering.example.com`. This service must already be
+ *    enabled in the service consumer's project.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesAddSubnetwork
  */
@@ -140,15 +141,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  To connect service to a VPC network peering connection
- *  must be established prior to service provisioning.
- *  This method must be invoked by the consumer VPC network administrator
- *  It will establish a permanent peering connection with a shared
- *  network created in the service producer organization and register a
- *  allocated IP range(s) to be used for service subnetwork provisioning.
- *  This connection will be used for all supported services in the service
- *  producer organization, so it only needs to be invoked once.
- *  Operation<response: Connection>.
+ *  Creates a private connection that establishes a VPC Network Peering
+ *  connection to a VPC network in the service producer's organization.
+ *  The administrator of the service consumer's VPC network invokes this
+ *  method. The administrator must assign one or more allocated IP ranges for
+ *  provisioning subnetworks in the service producer's VPC network. This
+ *  connection is used for all supported services in the service producer's
+ *  organization, so it only needs to be invoked once. The response from the
+ *  `get` operation will be of type `Connection` if the operation successfully
+ *  completes.
  *
  *  Method: servicenetworking.services.connections.create
  *
@@ -161,33 +162,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceNetworking queryForServicesConnectionsCreateWithObject:parent:]
 
 /**
- *  Provider peering service that is managing peering connectivity for a
- *  service provider organization.
- *  For Google services that support this functionality it is
- *  'services/servicenetworking.googleapis.com'.
+ *  The service that is managing peering connectivity for a service producer's
+ *  organization. For Google services that support this functionality, this
+ *  value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
- *  To connect service to a VPC network peering connection
- *  must be established prior to service provisioning.
- *  This method must be invoked by the consumer VPC network administrator
- *  It will establish a permanent peering connection with a shared
- *  network created in the service producer organization and register a
- *  allocated IP range(s) to be used for service subnetwork provisioning.
- *  This connection will be used for all supported services in the service
- *  producer organization, so it only needs to be invoked once.
- *  Operation<response: Connection>.
+ *  Creates a private connection that establishes a VPC Network Peering
+ *  connection to a VPC network in the service producer's organization.
+ *  The administrator of the service consumer's VPC network invokes this
+ *  method. The administrator must assign one or more allocated IP ranges for
+ *  provisioning subnetworks in the service producer's VPC network. This
+ *  connection is used for all supported services in the service producer's
+ *  organization, so it only needs to be invoked once. The response from the
+ *  `get` operation will be of type `Connection` if the operation successfully
+ *  completes.
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
- *  @param parent Provider peering service that is managing peering connectivity
- *    for a
- *    service provider organization.
- *    For Google services that support this functionality it is
- *    'services/servicenetworking.googleapis.com'.
+ *  @param parent The service that is managing peering connectivity for a
+ *    service producer's
+ *    organization. For Google services that support this functionality, this
+ *    value is `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsCreate
  */
@@ -197,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Service consumers use this method to list configured peering connection for
- *  the given service and consumer network.
+ *  List the private connections that are configured in a service consumer's
+ *  VPC network.
  *
  *  Method: servicenetworking.services.connections.list
  *
@@ -211,38 +210,152 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceNetworking queryForServicesConnectionsListWithparent:]
 
 /**
- *  Network name in the consumer project. This network must have been
- *  already peered with a shared VPC network using CreateConnection
- *  method.
- *  Must be in a form 'projects/{project}/global/networks/{network}'.
- *  {project} is a project number, as in '12345'
- *  {network} is network name.
+ *  The name of service consumer's VPC network that's connected with service
+ *  producer network through a private connection. The network name must be in
+ *  the following format:
+ *  `projects/{project}/global/networks/{network}`. {project} is a
+ *  project number, such as in `12345` that includes the VPC service
+ *  consumer's VPC network. {network} is the name of the service consumer's VPC
+ *  network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Provider peering service that is managing peering connectivity for a
- *  service provider organization.
- *  For Google services that support this functionality it is
- *  'services/servicenetworking.googleapis.com'.
+ *  The service that is managing peering connectivity for a service producer's
+ *  organization. For Google services that support this functionality, this
+ *  value is `services/servicenetworking.googleapis.com`.
+ *  If you specify `-` as the parameter value, all configured public peering
+ *  services are listed.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_ListConnectionsResponse.
  *
- *  Service consumers use this method to list configured peering connection for
- *  the given service and consumer network.
+ *  List the private connections that are configured in a service consumer's
+ *  VPC network.
  *
- *  @param parent Provider peering service that is managing peering connectivity
- *    for a
- *    service provider organization.
- *    For Google services that support this functionality it is
- *    'services/servicenetworking.googleapis.com'.
+ *  @param parent The service that is managing peering connectivity for a
+ *    service producer's
+ *    organization. For Google services that support this functionality, this
+ *    value is `services/servicenetworking.googleapis.com`.
+ *    If you specify `-` as the parameter value, all configured public peering
+ *    services are listed.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  Method: servicenetworking.services.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesPatch : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesPatchWithObject:name:]
+
+/**
+ *  If a previously defined allocated range is removed, force flag must be
+ *  set to true.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  The service producer peering service that is managing peering connectivity
+ *  for a service producer organization.
+ *  For Google services that support this functionality, this is
+ *  `services/servicenetworking.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask. If this is omitted, it defaults to "*". You can only
+ *  update the listed peering ranges.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  @param object The @c GTLRServiceNetworking_Connection to include in the
+ *    query.
+ *  @param name The service producer peering service that is managing peering
+ *    connectivity
+ *    for a service producer organization.
+ *    For Google services that support this functionality, this is
+ *    `services/servicenetworking.googleapis.com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Service producers can use this method to find a currently unused range
+ *  within consumer allocated ranges. This returned range is not reserved,
+ *  and not guaranteed to remain unused.
+ *  It will validate previously provided allocated ranges, find
+ *  non-conflicting sub-range of requested size (expressed in
+ *  number of leading bits of ipv4 network mask, as in CIDR range
+ *  notation).
+ *  Operation<response: Range>
+ *
+ *  Method: servicenetworking.services.searchRange
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesSearchRange : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesSearchRangeWithObject:parent:]
+
+/**
+ *  Required. This is in a form services/{service}.
+ *  {service} the name of the private access management service, for example
+ *  'service-peering.example.com'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Service producers can use this method to find a currently unused range
+ *  within consumer allocated ranges. This returned range is not reserved,
+ *  and not guaranteed to remain unused.
+ *  It will validate previously provided allocated ranges, find
+ *  non-conflicting sub-range of requested size (expressed in
+ *  number of leading bits of ipv4 network mask, as in CIDR range
+ *  notation).
+ *  Operation<response: Range>
+ *
+ *  @param object The @c GTLRServiceNetworking_SearchRangeRequest to include in
+ *    the query.
+ *  @param parent Required. This is in a form services/{service}.
+ *    {service} the name of the private access management service, for example
+ *    'service-peering.example.com'.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesSearchRange
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_SearchRangeRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

@@ -42,6 +42,9 @@
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_AttachedDiskInitializeParams;
 @class GTLRCompute_AttachedDiskInitializeParams_Labels;
+@class GTLRCompute_AuditConfig;
+@class GTLRCompute_AuditLogConfig;
+@class GTLRCompute_AuthorizationLoggingOptions;
 @class GTLRCompute_Autoscaler;
 @class GTLRCompute_AutoscalerAggregatedList_Items;
 @class GTLRCompute_AutoscalerAggregatedList_Warning;
@@ -72,6 +75,7 @@
 @class GTLRCompute_BackendServicesScopedList;
 @class GTLRCompute_BackendServicesScopedList_Warning;
 @class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
+@class GTLRCompute_Binding;
 @class GTLRCompute_CacheKeyPolicy;
 @class GTLRCompute_Commitment;
 @class GTLRCompute_CommitmentAggregatedList_Items;
@@ -82,6 +86,7 @@
 @class GTLRCompute_CommitmentsScopedList;
 @class GTLRCompute_CommitmentsScopedList_Warning;
 @class GTLRCompute_CommitmentsScopedList_Warning_Data_Item;
+@class GTLRCompute_Condition;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
@@ -108,11 +113,13 @@
 @class GTLRCompute_DiskTypesScopedList_Warning_Data_Item;
 @class GTLRCompute_DistributionPolicy;
 @class GTLRCompute_DistributionPolicyZoneConfiguration;
+@class GTLRCompute_Expr;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_Firewall_Allowed_Item;
 @class GTLRCompute_Firewall_Denied_Item;
 @class GTLRCompute_FirewallList_Warning;
 @class GTLRCompute_FirewallList_Warning_Data_Item;
+@class GTLRCompute_FirewallLogConfig;
 @class GTLRCompute_ForwardingRule;
 @class GTLRCompute_ForwardingRuleAggregatedList_Items;
 @class GTLRCompute_ForwardingRuleAggregatedList_Warning;
@@ -214,6 +221,10 @@
 @class GTLRCompute_LicenseResourceRequirements;
 @class GTLRCompute_LicensesListResponse_Warning;
 @class GTLRCompute_LicensesListResponse_Warning_Data_Item;
+@class GTLRCompute_LogConfig;
+@class GTLRCompute_LogConfigCloudAuditOptions;
+@class GTLRCompute_LogConfigCounterOptions;
+@class GTLRCompute_LogConfigDataAccessOptions;
 @class GTLRCompute_MachineType;
 @class GTLRCompute_MachineType_ScratchDisks_Item;
 @class GTLRCompute_MachineTypeAggregatedList_Items;
@@ -284,6 +295,7 @@
 @class GTLRCompute_OperationsScopedList_Warning_Data_Item;
 @class GTLRCompute_PathMatcher;
 @class GTLRCompute_PathRule;
+@class GTLRCompute_Policy;
 @class GTLRCompute_Project;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Reference;
@@ -325,6 +337,7 @@
 @class GTLRCompute_RouterStatus;
 @class GTLRCompute_RouterStatusBgpPeerStatus;
 @class GTLRCompute_RouterStatusNatStatus;
+@class GTLRCompute_Rule;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_SchedulingNodeAffinity;
 @class GTLRCompute_SecurityPolicy;
@@ -634,6 +647,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Premium;
 GTLR_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Address.purpose
+
+/** Value: "DNS_RESOLVER" */
+GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
+/** Value: "GCE_ENDPOINT" */
+GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
+/** Value: "VPC_PEERING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_VpcPeering;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Address.status
 
 /** Value: "IN_USE" */
@@ -816,6 +839,32 @@ GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite;
 GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
 /** Value: "SCRATCH" */
 GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AuditLogConfig.logType
+
+/** Value: "ADMIN_READ" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_AdminRead;
+/** Value: "DATA_READ" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataRead;
+/** Value: "DATA_WRITE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataWrite;
+/** Value: "LOG_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AuthorizationLoggingOptions.permissionType
+
+/** Value: "ADMIN_READ" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead;
+/** Value: "ADMIN_WRITE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite;
+/** Value: "DATA_READ" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead;
+/** Value: "DATA_WRITE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite;
+/** Value: "PERMISSION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Autoscaler.status
@@ -1442,6 +1491,54 @@ GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Sin
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Condition.iam
+
+/** Value: "APPROVER" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Approver;
+/** Value: "ATTRIBUTION" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Attribution;
+/** Value: "AUTHORITY" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Authority;
+/** Value: "CREDENTIALS_TYPE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_CredentialsType;
+/** Value: "JUSTIFICATION_TYPE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_JustificationType;
+/** Value: "NO_ATTR" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_NoAttr;
+/** Value: "SECURITY_REALM" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_SecurityRealm;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Condition.op
+
+/** Value: "DISCHARGED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_Discharged;
+/** Value: "EQUALS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_Equals;
+/** Value: "IN" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_In;
+/** Value: "NO_OP" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NoOp;
+/** Value: "NOT_EQUALS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NotEquals;
+/** Value: "NOT_IN" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NotIn;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Condition.sys
+
+/** Value: "IP" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Ip;
+/** Value: "NAME" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Name;
+/** Value: "NO_ATTR" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_NoAttr;
+/** Value: "REGION" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Region;
+/** Value: "SERVICE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Service;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DeprecationStatus.state
@@ -3466,6 +3563,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unde
 GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_LogConfigCloudAuditOptions.logName
+
+/** Value: "ADMIN_ACTIVITY" */
+GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_AdminActivity;
+/** Value: "DATA_ACCESS" */
+GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_DataAccess;
+/** Value: "UNSPECIFIED_LOG_NAME" */
+GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_UnspecifiedLogName;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_LogConfigDataAccessOptions.logMode
+
+/** Value: "LOG_FAIL_CLOSED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed;
+/** Value: "LOG_MODE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -5286,6 +5401,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down;
 GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown;
 /** Value: "UP" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Rule.action
+
+/** Value: "ALLOW" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Allow;
+/** Value: "ALLOW_WITH_LOG" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_AllowWithLog;
+/** Value: "DENY" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Deny;
+/** Value: "DENY_WITH_LOG" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_DenyWithLog;
+/** Value: "LOG" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Log;
+/** Value: "NO_ACTION" */
+GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_NoAction;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Scheduling.onHostMaintenance
@@ -7571,8 +7702,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The URL of the network in which to reserve the address. This field can only
+ *  be used with INTERNAL type with VPC_PEERING purpose.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
  *  This signifies the networking tier used for configuring this Address and can
- *  only take the following values: PREMIUM , STANDARD.
+ *  only take the following values: PREMIUM, STANDARD. Global forwarding rules
+ *  can only be Premium Tier. Regional forwarding rules can be either Premium or
+ *  Standard Tier. Standard Tier addresses applied to regional forwarding rules
+ *  can be used with any external load balancer. Regional forwarding rules in
+ *  Premium Tier can only be used with a Network load balancer.
  *  If this field is not specified, it is assumed to be PREMIUM.
  *
  *  Likely values:
@@ -7580,6 +7721,23 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Address_NetworkTier_Standard Value "STANDARD"
  */
 @property(nonatomic, copy, nullable) NSString *networkTier;
+
+/**
+ *  The prefix length if the resource reprensents an IP range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *prefixLength;
+
+/**
+ *  The purpose of resource, only used with INTERNAL type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver Value "DNS_RESOLVER"
+ *    @arg @c kGTLRCompute_Address_Purpose_GceEndpoint Value "GCE_ENDPOINT"
+ *    @arg @c kGTLRCompute_Address_Purpose_VpcPeering Value "VPC_PEERING"
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
 
 /**
  *  [Output Only] URL of the region where the regional address resides. This
@@ -8268,6 +8426,98 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service, the
+ *  union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditLogConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  { "audit_configs": [ { "service": "allServices" "audit_log_configs": [ {
+ *  "log_type": "DATA_READ", "exempted_members": [ "user:foo\@gmail.com" ] }, {
+ *  "log_type": "DATA_WRITE", }, { "log_type": "ADMIN_READ", } ] }, { "service":
+ *  "fooservice.googleapis.com" "audit_log_configs": [ { "log_type":
+ *  "DATA_READ", }, { "log_type": "DATA_WRITE", "exempted_members": [
+ *  "user:bar\@gmail.com" ] } ] } ] }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
+ */
+@interface GTLRCompute_AuditConfig : GTLRObject
+
+/** The configuration for logging of each type of permission. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AuditLogConfig *> *auditLogConfigs;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for logging a type of permissions. Example:
+ *  { "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:foo\@gmail.com" ] }, { "log_type": "DATA_WRITE", } ] }
+ *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
+ *  foo\@gmail.com from DATA_READ logging.
+ */
+@interface GTLRCompute_AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission. Follows the same format of [Binding.members][].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  The log type that this config enables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AuditLogConfig_LogType_AdminRead Value "ADMIN_READ"
+ *    @arg @c kGTLRCompute_AuditLogConfig_LogType_DataRead Value "DATA_READ"
+ *    @arg @c kGTLRCompute_AuditLogConfig_LogType_DataWrite Value "DATA_WRITE"
+ *    @arg @c kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified Value
+ *        "LOG_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  Authorization-related information used by Cloud Audit Logging.
+ */
+@interface GTLRCompute_AuthorizationLoggingOptions : GTLRObject
+
+/**
+ *  The type of the permission that was checked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead
+ *        Value "ADMIN_READ"
+ *    @arg @c kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite
+ *        Value "ADMIN_WRITE"
+ *    @arg @c kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead
+ *        Value "DATA_READ"
+ *    @arg @c kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite
+ *        Value "DATA_WRITE"
+ *    @arg @c kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified
+ *        Value "PERMISSION_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *permissionType;
+
+@end
+
+
+/**
  *  Represents an Autoscaler resource. Autoscalers allow you to automatically
  *  scale virtual machine instances in managed instance groups according to an
  *  autoscaling policy that you define. For more information, read Autoscaling
@@ -8910,8 +9160,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Defines how target utilization value is expressed for a Stackdriver
- *  Monitoring metric. Either GAUGE, DELTA_PER_SECOND, or DELTA_PER_MINUTE. If
- *  not specified, the default is GAUGE.
+ *  Monitoring metric. Either GAUGE, DELTA_PER_SECOND, or DELTA_PER_MINUTE.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute
@@ -9124,7 +9373,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  considered fresh. After this time period, the response will be revalidated
  *  before being served. Defaults to 1hr (3600s). When serving responses to
  *  signed URL requests, Cloud CDN will internally behave as though all
- *  responses from this backend had a ?Cache-Control: public, max-age=[TTL]?
+ *  responses from this backend had a "Cache-Control: public, max-age=[TTL]"
  *  header, regardless of any existing Cache-Control header. The actual headers
  *  served in responses will not be altered.
  *
@@ -9326,7 +9575,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Fingerprint of this resource. A hash of the contents stored in this object.
  *  This field is used in optimistic locking. This field will be ignored when
  *  inserting a BackendService. An up-to-date fingerprint must be provided in
- *  order to update the BackendService.
+ *  order to update the BackendService, otherwise the request will fail with
+ *  error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve a
  *  BackendService.
  *
@@ -9625,7 +9875,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  considered fresh. After this time period, the response will be revalidated
  *  before being served. Defaults to 1hr (3600s). When serving responses to
  *  signed URL requests, Cloud CDN will internally behave as though all
- *  responses from this backend had a ?Cache-Control: public, max-age=[TTL]?
+ *  responses from this backend had a "Cache-Control: public, max-age=[TTL]"
  *  header, regardless of any existing Cache-Control header. The actual headers
  *  served in responses will not be altered.
  *
@@ -9931,6 +10181,45 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Associates `members` with a `role`.
+ */
+@interface GTLRCompute_Binding : GTLRObject
+
+/**
+ *  Unimplemented. The condition that is associated with this binding. NOTE: an
+ *  unsatisfied condition will not allow user access via current binding.
+ *  Different bindings, including their conditions, are examined independently.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Expr *condition;
+
+/**
+ *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  `members` can have the following values:
+ *  * `allUsers`: A special identifier that represents anyone who is on the
+ *  internet; with or without a Google account.
+ *  * `allAuthenticatedUsers`: A special identifier that represents anyone who
+ *  is authenticated with a Google account or a service account.
+ *  * `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@gmail.com` .
+ *  * `serviceAccount:{emailid}`: An email address that represents a service
+ *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
+ *  * `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`.
+ *  * `domain:{domain}`: A Google Apps domain name that represents all the users
+ *  of that domain. For example, `google.com` or `example.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -10500,6 +10789,65 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  A condition to be met.
+ */
+@interface GTLRCompute_Condition : GTLRObject
+
+/**
+ *  Trusted attributes supplied by the IAM system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Condition_Iam_Approver Value "APPROVER"
+ *    @arg @c kGTLRCompute_Condition_Iam_Attribution Value "ATTRIBUTION"
+ *    @arg @c kGTLRCompute_Condition_Iam_Authority Value "AUTHORITY"
+ *    @arg @c kGTLRCompute_Condition_Iam_CredentialsType Value
+ *        "CREDENTIALS_TYPE"
+ *    @arg @c kGTLRCompute_Condition_Iam_JustificationType Value
+ *        "JUSTIFICATION_TYPE"
+ *    @arg @c kGTLRCompute_Condition_Iam_NoAttr Value "NO_ATTR"
+ *    @arg @c kGTLRCompute_Condition_Iam_SecurityRealm Value "SECURITY_REALM"
+ */
+@property(nonatomic, copy, nullable) NSString *iam;
+
+/**
+ *  An operator to apply the subject with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Condition_Op_Discharged Value "DISCHARGED"
+ *    @arg @c kGTLRCompute_Condition_Op_Equals Value "EQUALS"
+ *    @arg @c kGTLRCompute_Condition_Op_In Value "IN"
+ *    @arg @c kGTLRCompute_Condition_Op_NoOp Value "NO_OP"
+ *    @arg @c kGTLRCompute_Condition_Op_NotEquals Value "NOT_EQUALS"
+ *    @arg @c kGTLRCompute_Condition_Op_NotIn Value "NOT_IN"
+ */
+@property(nonatomic, copy, nullable) NSString *op;
+
+/** Trusted attributes discharged by the service. */
+@property(nonatomic, copy, nullable) NSString *svc;
+
+/**
+ *  Trusted attributes supplied by any service that owns resources and uses the
+ *  IAM system for access control.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Condition_Sys_Ip Value "IP"
+ *    @arg @c kGTLRCompute_Condition_Sys_Name Value "NAME"
+ *    @arg @c kGTLRCompute_Condition_Sys_NoAttr Value "NO_ATTR"
+ *    @arg @c kGTLRCompute_Condition_Sys_Region Value "REGION"
+ *    @arg @c kGTLRCompute_Condition_Sys_Service Value "SERVICE"
+ */
+@property(nonatomic, copy, nullable) NSString *sys;
+
+/** DEPRECATED. Use 'values' instead. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+/** The objects of the condition. This is mutually exclusive with 'value'. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Message containing connection draining configuration.
  */
 @interface GTLRCompute_ConnectionDraining : GTLRObject
@@ -10663,7 +11011,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  essentially a hash of the labels set used for optimistic locking. The
  *  fingerprint is initially generated by Compute Engine and changes after every
  *  request to modify or update labels. You must always provide an up-to-date
- *  fingerprint hash in order to update or change labels.
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve a disk.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -10706,6 +11055,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Internal use only. */
 @property(nonatomic, copy, nullable) NSString *options;
+
+/**
+ *  Physical block size of the persistent disk, in bytes. If not present in a
+ *  request, a default value is used. Currently supported sizes are 4096 and
+ *  16384, other sizes may be added in the future. If an unsupported value is
+ *  requested, the error message will list the supported values for the caller's
+ *  project.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *physicalBlockSizeBytes;
 
 /**
  *  [Output Only] URL of the region where the disk resides. Only applicable for
@@ -11839,6 +12199,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Represents an expression text. Example:
+ *  title: "User account presence" description: "Determines whether the request
+ *  has a user account" expression: "size(request.user) > 0"
+ */
+@interface GTLRCompute_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Represents a Firewall resource.
  */
 @interface GTLRCompute_Firewall : GTLRObject
@@ -11910,6 +12308,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  rules.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  This field denotes the logging options for a particular firewall rule. If
+ *  logging is enabled, logs will be exported to Stackdriver.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_FirewallLogConfig *logConfig;
 
 /**
  *  Name of the resource; provided by the client when the resource is created.
@@ -12204,6 +12608,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  The available logging options for a firewall rule.
+ */
+@interface GTLRCompute_FirewallLogConfig : GTLRObject
+
+/**
+ *  This field denotes whether to enable logging for a particular firewall rule.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+@end
+
+
+/**
  *  A ForwardingRule resource. A ForwardingRule resource specifies which pool of
  *  target virtual machines to forward a packet to if it matches the given
  *  [IPAddress, IPProtocol, ports] tuple. (== resource_for beta.forwardingRules
@@ -12382,10 +12801,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  This field is used along with the backend_service field for internal load
  *  balancing.
- *  When the load balancing scheme is INTERNAL, a single port or a comma
- *  separated list of ports can be configured. Only packets addressed to these
- *  ports will be forwarded to the backends configured with this forwarding
- *  rule.
+ *  When the load balancing scheme is INTERNAL, a list of ports can be
+ *  configured, for example, ['80'], ['8000','9000'] etc. Only packets addressed
+ *  to these ports will be forwarded to the backends configured with this
+ *  forwarding rule.
  *  You may specify a maximum of up to 5 ports.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
@@ -12827,8 +13246,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The fingerprint of the previous set of labels for this resource, used to
  *  detect conflicts. The fingerprint is initially generated by Compute Engine
  *  and changes after every request to modify or update labels. You must always
- *  provide an up-to-date fingerprint hash when updating or changing labels.
- *  Make a get() request to the resource to get the latest fingerprint.
+ *  provide an up-to-date fingerprint hash when updating or changing labels,
+ *  otherwise the request will fail with error 412 conditionNotMet. Make a get()
+ *  request to the resource to get the latest fingerprint.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -12864,6 +13284,36 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        fetch them all at once.
  */
 @interface GTLRCompute_GlobalSetLabelsRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_GlobalSetPolicyRequest
+ */
+@interface GTLRCompute_GlobalSetPolicyRequest : GTLRObject
+
+/**
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
+ *  'policy' to specify bindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Binding *> *bindings;
+
+/**
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
+ *  'policy' to specify the etag.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  REQUIRED: The complete policy to be applied to the 'resource'. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is in general a
+ *  valid policy but certain services (like Projects) might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Policy *policy;
+
 @end
 
 
@@ -13872,7 +14322,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  essentially a hash of the labels used for optimistic locking. The
  *  fingerprint is initially generated by Compute Engine and changes after every
  *  request to modify or update labels. You must always provide an up-to-date
- *  fingerprint hash in order to update or change labels.
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve an image.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -14975,7 +15426,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Fingerprint of this resource. This field may be used in optimistic locking.
  *  It will be ignored when inserting an InstanceGroupManager. An up-to-date
- *  fingerprint must be provided in order to update the InstanceGroupManager.
+ *  fingerprint must be provided in order to update the InstanceGroupManager,
+ *  otherwise the request will fail with error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve an
  *  InstanceGroupManager.
  *
@@ -15961,7 +16413,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  named ports settings concurrently. Obtain the fingerprint with the
  *  instanceGroups.get method. Then, include the fingerprint in your request to
  *  ensure that you do not overwrite changes that were applied from another
- *  concurrent request.
+ *  concurrent request. A request with an incorrect fingerprint will fail with
+ *  error 412 conditionNotMet.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -17056,7 +17509,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Provisioned bandwidth capacity for the interconnectAttachment. Can be set by
  *  the partner to update the customer's provisioned bandwidth. Output only for
- *  for PARTNER type, mutable for PARTNER_PROVIDER, not available for DEDICATED.
+ *  PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100m Value
@@ -17220,7 +17673,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  URL of the cloud router to be used for dynamic routing. This router must be
+ *  URL of the Cloud Router to be used for dynamic routing. This router must be
  *  in the same region as this InterconnectAttachment. The
  *  InterconnectAttachment will automatically connect the Interconnect to the
  *  network & region within which the Cloud Router is configured.
@@ -17262,9 +17715,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Available only for DEDICATED and PARTNER_PROVIDER. Desired VLAN tag for this
- *  attachment, in the range 2-4094. This field refers to 802.1q VLAN tag, also
- *  known as IEEE 802.1Q Only specified at creation time.
+ *  The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only
+ *  specified at creation time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -17571,7 +18023,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Plain text name of the Interconnect this attachment is connected to, as
- *  displayed in the Partner?s portal. For instance ?Chicago 1?. This value may
+ *  displayed in the Partner?s portal. For instance "Chicago 1". This value may
  *  be validated to match approved Partner values.
  */
 @property(nonatomic, copy, nullable) NSString *interconnectName;
@@ -17831,7 +18283,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Value of the current optical power, read in dBm.
+ *  Value of the current optical power, read in dBm. Take a known good optical
+ *  value, give it a 10% margin and trigger warnings relative to that value. In
+ *  general, a -7dBm warning and a -11dBm alarm are good optical value estimates
+ *  for most links.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -18703,6 +19158,101 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Specifies what kind of log the caller must write
+ */
+@interface GTLRCompute_LogConfig : GTLRObject
+
+/** Cloud audit options. */
+@property(nonatomic, strong, nullable) GTLRCompute_LogConfigCloudAuditOptions *cloudAudit;
+
+/** Counter options. */
+@property(nonatomic, strong, nullable) GTLRCompute_LogConfigCounterOptions *counter;
+
+/** Data access options. */
+@property(nonatomic, strong, nullable) GTLRCompute_LogConfigDataAccessOptions *dataAccess;
+
+@end
+
+
+/**
+ *  Write a Cloud Audit log
+ */
+@interface GTLRCompute_LogConfigCloudAuditOptions : GTLRObject
+
+/** Information used by the Cloud Audit Logging pipeline. */
+@property(nonatomic, strong, nullable) GTLRCompute_AuthorizationLoggingOptions *authorizationLoggingOptions;
+
+/**
+ *  The log_name to populate in the Cloud Audit Record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_LogConfigCloudAuditOptions_LogName_AdminActivity
+ *        Value "ADMIN_ACTIVITY"
+ *    @arg @c kGTLRCompute_LogConfigCloudAuditOptions_LogName_DataAccess Value
+ *        "DATA_ACCESS"
+ *    @arg @c kGTLRCompute_LogConfigCloudAuditOptions_LogName_UnspecifiedLogName
+ *        Value "UNSPECIFIED_LOG_NAME"
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
+@end
+
+
+/**
+ *  Increment a streamz counter with the specified metric and field names.
+ *  Metric names should start with a '/', generally be lowercase-only, and end
+ *  in "_count". Field names should not contain an initial slash. The actual
+ *  exported metric names will have "/iam/policy" prepended.
+ *  Field names correspond to IAM request parameters and field values are their
+ *  respective values.
+ *  Supported field names: - "authority", which is "[token]" if IAMContext.token
+ *  is present, otherwise the value of IAMContext.authority_selector if present,
+ *  and otherwise a representation of IAMContext.principal; or -
+ *  "iam_principal", a representation of IAMContext.principal even if a token or
+ *  authority selector is present; or - "" (empty string), resulting in a
+ *  counter with no fields.
+ *  Examples: counter { metric: "/debug_access_count" field: "iam_principal" }
+ *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  {iam_principal=[value of IAMContext.principal]}
+ *  At this time we do not support multiple field names (though this may be
+ *  supported in the future).
+ */
+@interface GTLRCompute_LogConfigCounterOptions : GTLRObject
+
+/** The field value to attribute. */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** The metric to update. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Write a Data Access (Gin) log
+ */
+@interface GTLRCompute_LogConfigDataAccessOptions : GTLRObject
+
+/**
+ *  Whether Gin logging should happen in a fail-closed manner at the caller.
+ *  This is relevant only in the LocalIAM implementation, for now.
+ *  NOTE: Logging to Gin in a fail-closed manner is currently unsupported while
+ *  work is being done to satisfy the requirements of go/345. Currently, setting
+ *  LOG_FAIL_CLOSED mode will have no effect, but still exists because there is
+ *  active work being done to support it (b/115874152).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed
+ *        Value "LOG_FAIL_CLOSED"
+ *    @arg @c kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogModeUnspecified
+ *        Value "LOG_MODE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *logMode;
+
+@end
+
+
+/**
  *  A Machine Type resource. (== resource_for v1.machineTypes ==) (==
  *  resource_for beta.machineTypes ==)
  */
@@ -19376,7 +19926,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  metadata's contents and used for optimistic locking. The fingerprint is
  *  initially generated by Compute Engine and changes after every request to
  *  modify or update metadata. You must always provide an up-to-date fingerprint
- *  hash in order to update or change metadata.
+ *  hash in order to update or change metadata, otherwise the request will fail
+ *  with error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve the
  *  resource.
  *
@@ -19557,7 +20108,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Fingerprint hash of contents stored in this network interface. This field
  *  will be ignored when inserting an Instance or adding a NetworkInterface. An
  *  up-to-date fingerprint must be provided in order to update the
- *  NetworkInterface.
+ *  NetworkInterface, otherwise the request will fail with error 412
+ *  conditionNotMet.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -19766,10 +20318,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_NetworkPeering : GTLRObject
 
 /**
- *  Whether full mesh connectivity is created and managed automatically. When it
- *  is set to true, Google Compute Engine will automatically create and manage
- *  the routes between two networks when the state is ACTIVE. Otherwise, user
- *  needs to create routes manually to route packets to peer network.
+ *  Indicates whether full mesh connectivity is created and managed
+ *  automatically. When it is set to true, Google Compute Engine will
+ *  automatically create and manage the routes between two networks when the
+ *  state is ACTIVE. Otherwise, user needs to create routes manually to route
+ *  packets to peer network.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -22312,6 +22865,80 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Defines an Identity and Access Management (IAM) policy. It is used to
+ *  specify access control policies for Cloud Platform resources.
+ *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
+ *  `members` to a `role`, where the members can be user accounts, Google
+ *  groups, Google domains, and service accounts. A `role` is a named list of
+ *  permissions defined by IAM.
+ *  **JSON Example**
+ *  { "bindings": [ { "role": "roles/owner", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/viewer", "members": ["user:sean\@example.com"] } ] }
+ *  **YAML Example**
+ *  bindings: - members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com - serviceAccount:my-other-app\@appspot.gserviceaccount.com
+ *  role: roles/owner - members: - user:sean\@example.com role: roles/viewer
+ *  For a description of IAM and its features, see the [IAM developer's
+ *  guide](https://cloud.google.com/iam/docs).
+ */
+@interface GTLRCompute_Policy : GTLRObject
+
+/** Specifies cloud audit logging configuration for this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AuditConfig *> *auditConfigs;
+
+/**
+ *  Associates a list of `members` to a `role`. `bindings` with no members will
+ *  result in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Binding *> *bindings;
+
+/**
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy.
+ *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
+ *  policy is overwritten blindly.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  iamOwned
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *iamOwned;
+
+/**
+ *  If more than one rule is specified, the rules are applied in the following
+ *  manner: - All matching LOG rules are always applied. - If any
+ *  DENY/DENY_WITH_LOG rule matches, permission is denied. Logging will be
+ *  applied if one or more matching rule requires logging. - Otherwise, if any
+ *  ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be
+ *  applied if one or more matching rule requires logging. - Otherwise, if no
+ *  rule applies, permission is denied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Rule *> *rules;
+
+/**
+ *  Deprecated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  A Project resource. For an overview of projects, see Cloud Platform Resource
  *  Hierarchy. (== resource_for v1.projects ==) (== resource_for beta.projects
  *  ==)
@@ -23741,6 +24368,36 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_RegionSetPolicyRequest
+ */
+@interface GTLRCompute_RegionSetPolicyRequest : GTLRObject
+
+/**
+ *  Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use
+ *  'policy' to specify bindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Binding *> *bindings;
+
+/**
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
+ *  'policy' to specify the etag.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  REQUIRED: The complete policy to be applied to the 'resource'. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is in general a
+ *  valid policy but certain services (like Projects) might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Policy *policy;
+
+@end
+
+
+/**
  *  Commitment for a particular resource (a Commitment is composed of one or
  *  more of these).
  */
@@ -24468,11 +25125,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  [Output Only] Type of how the resource/configuration of the BGP peer is
- *  managed. MANAGED_BY_USER is the default value; MANAGED_BY_ATTACHMENT
- *  represents an BGP peer that is automatically created for PARTNER
- *  interconnectAttachment, Google will automatically create/delete this type of
- *  BGP peer when the PARTNER interconnectAttachment is created/deleted.
+ *  [Output Only] The resource that configures and manages this BGP peer.
+ *  MANAGED_BY_USER is the default value and can be managed by you or other
+ *  users; MANAGED_BY_ATTACHMENT is a BGP peer that is configured and managed by
+ *  Cloud Interconnect, specifically by an InterconnectAttachment of type
+ *  PARTNER. Google will automatically create, update, and delete this type of
+ *  BGP peer when the PARTNER InterconnectAttachment is created, updated, or
+ *  deleted.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByAttachment
@@ -24533,12 +25192,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *linkedVpnTunnel;
 
 /**
- *  [Output Only] Type of how the resource/configuration of the interface is
- *  managed. MANAGED_BY_USER is the default value; MANAGED_BY_ATTACHMENT
- *  represents an interface that is automatically created for PARTNER type
- *  interconnectAttachment, Google will automatically create/update/delete this
- *  type of interface when the PARTNER interconnectAttachment is
- *  created/provisioned/deleted.
+ *  [Output Only] The resource that configures and manages this interface.
+ *  MANAGED_BY_USER is the default value and can be managed by you or other
+ *  users; MANAGED_BY_ATTACHMENT is an interface that is configured and managed
+ *  by Cloud Interconnect, specifically by an InterconnectAttachment of type
+ *  PARTNER. Google will automatically create, update, and delete this type of
+ *  interface when the PARTNER InterconnectAttachment is created, updated, or
+ *  deleted.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RouterInterface_ManagementType_ManagedByAttachment
@@ -25071,6 +25731,65 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  A rule to be applied in a Policy.
+ */
+@interface GTLRCompute_Rule : GTLRObject
+
+/**
+ *  Required
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Rule_Action_Allow Value "ALLOW"
+ *    @arg @c kGTLRCompute_Rule_Action_AllowWithLog Value "ALLOW_WITH_LOG"
+ *    @arg @c kGTLRCompute_Rule_Action_Deny Value "DENY"
+ *    @arg @c kGTLRCompute_Rule_Action_DenyWithLog Value "DENY_WITH_LOG"
+ *    @arg @c kGTLRCompute_Rule_Action_Log Value "LOG"
+ *    @arg @c kGTLRCompute_Rule_Action_NoAction Value "NO_ACTION"
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Additional restrictions that must be met. All conditions must pass for the
+ *  rule to match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Condition *> *conditions;
+
+/**
+ *  Human-readable description of the rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If one or more 'in' clauses are specified, the rule matches if the
+ *  PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ins;
+
+/**
+ *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
+ *  that match the LOG action.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LogConfig *> *logConfigs;
+
+/**
+ *  If one or more 'not_in' clauses are specified, the rule matches if the
+ *  PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notIns;
+
+/**
+ *  A permission is a string of form '..' (e.g., 'storage.buckets.list'). A
+ *  value of '*' matches all permissions, and a verb part of '*' (e.g.,
+ *  'storage.buckets.*') matches all verbs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
  *  Sets the scheduling options for an Instance.
  */
 @interface GTLRCompute_Scheduling : GTLRObject
@@ -25167,7 +25886,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  the metadata's contents and used for optimistic locking. The fingerprint is
  *  initially generated by Compute Engine and changes after every request to
  *  modify or update metadata. You must always provide an up-to-date fingerprint
- *  hash in order to update or change metadata.
+ *  hash in order to update or change metadata, otherwise the request will fail
+ *  with error 412 conditionNotMet.
  *  To see the latest fingerprint, make get() request to the security policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -25407,8 +26127,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  An integer indicating the priority of a rule in the list. The priority must
- *  be a positive value between 0 and 2147483647. Rules are evaluated in the
- *  increasing order of priority.
+ *  be a positive value between 0 and 2147483647. Rules are evaluated from
+ *  highest to lowest priority where 0 is the highest priority and 2147483647 is
+ *  the lowest prority.
  *
  *  Uses NSNumber of intValue.
  */
@@ -25577,7 +26298,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  essentially a hash of the labels set used for optimistic locking. The
  *  fingerprint is initially generated by Compute Engine and changes after every
  *  request to modify or update labels. You must always provide an up-to-date
- *  fingerprint hash in order to update or change labels.
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve a snapshot.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -26292,7 +27014,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Fingerprint of this resource. A hash of the contents stored in this object.
  *  This field is used in optimistic locking. This field will be ignored when
  *  inserting a SslPolicy. An up-to-date fingerprint must be provided in order
- *  to update the SslPolicy.
+ *  to update the SslPolicy, otherwise the request will fail with error 412
+ *  conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve an
  *  SslPolicy.
  *
@@ -26502,7 +27225,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Fingerprint of this resource. A hash of the contents stored in this object.
  *  This field is used in optimistic locking. This field will be ignored when
  *  inserting a Subnetwork. An up-to-date fingerprint must be provided in order
- *  to update the Subnetwork.
+ *  to update the Subnetwork, otherwise the request will fail with error 412
+ *  conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve a
  *  Subnetwork.
  *
@@ -26580,7 +27304,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  An array of configurations for secondary IP ranges for VM instances
  *  contained in this subnetwork. The primary IP of such VM must belong to the
  *  primary ipCidrRange of the subnetwork. The alias IPs may belong to either
- *  primary or secondary ranges.
+ *  primary or secondary ranges. This field can be updated with a patch request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_SubnetworkSecondaryRange *> *secondaryIpRanges;
 
@@ -29709,7 +30433,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Fingerprint of this resource. A hash of the contents stored in this object.
  *  This field is used in optimistic locking. This field will be ignored when
  *  inserting a UrlMap. An up-to-date fingerprint must be provided in order to
- *  update the UrlMap.
+ *  update the UrlMap, otherwise the request will fail with error 412
+ *  conditionNotMet.
  *  To see the latest fingerprint, make a get() request to retrieve a UrlMap.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -31298,6 +32023,36 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        fetch them all at once.
  */
 @interface GTLRCompute_ZoneSetLabelsRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_ZoneSetPolicyRequest
+ */
+@interface GTLRCompute_ZoneSetPolicyRequest : GTLRObject
+
+/**
+ *  Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use
+ *  'policy' to specify bindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Binding *> *bindings;
+
+/**
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
+ *  'policy' to specify the etag.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  REQUIRED: The complete policy to be applied to the 'resource'. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is in general a
+ *  valid policy but certain services (like Projects) might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Policy *policy;
+
 @end
 
 NS_ASSUME_NONNULL_END

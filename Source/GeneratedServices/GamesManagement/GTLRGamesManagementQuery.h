@@ -49,7 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_AchievementsReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -82,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_AchievementsResetAll : GTLRGamesManagementQuery
 // Previous library name was
@@ -109,7 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -137,7 +134,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_AchievementsResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -171,7 +167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_AchievementsResetMultipleForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -203,7 +198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ApplicationsListHidden : GTLRGamesManagementQuery
 // Previous library name was
@@ -253,7 +247,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_EventsReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -288,7 +281,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_EventsResetAll : GTLRGamesManagementQuery
 // Previous library name was
@@ -317,7 +309,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_EventsResetAllForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -346,7 +337,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_EventsResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -380,7 +370,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_EventsResetMultipleForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -411,7 +400,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_PlayersHide : GTLRGamesManagementQuery
 // Previous library name was
@@ -453,7 +441,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_PlayersUnhide : GTLRGamesManagementQuery
 // Previous library name was
@@ -496,7 +483,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_QuestsReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -530,7 +516,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_QuestsResetAll : GTLRGamesManagementQuery
 // Previous library name was
@@ -558,7 +543,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_QuestsResetAllForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -586,7 +570,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_QuestsResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -620,7 +603,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_QuestsResetMultipleForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -652,7 +634,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_RoomsReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -681,7 +662,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_RoomsResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -710,7 +690,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ScoresReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -743,7 +722,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ScoresResetAll : GTLRGamesManagementQuery
 // Previous library name was
@@ -770,7 +748,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ScoresResetAllForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -798,7 +775,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ScoresResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -832,7 +808,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was
@@ -863,7 +838,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_TurnBasedMatchesReset : GTLRGamesManagementQuery
 // Previous library name was
@@ -891,7 +865,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGamesManagementGames
- *    @c kGTLRAuthScopeGamesManagementPlusLogin
  */
 @interface GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers : GTLRGamesManagementQuery
 // Previous library name was

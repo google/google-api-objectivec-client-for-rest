@@ -4,7 +4,7 @@
 // API:
 //   Cloud Source Repositories API (sourcerepo/v1)
 // Description:
-//   Access source code repositories hosted by Google.
+//   Accesses source code repositories hosted by Google.
 // Documentation:
 //   https://cloud.google.com/source-repositories/docs/apis
 
@@ -61,7 +61,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrit
 /**
  *  Service for executing Cloud Source Repositories API queries.
  *
- *  Access source code repositories hosted by Google.
+ *  Accesses source code repositories hosted by Google.
  */
 @interface GTLRCloudSourceRepositoriesService : GTLRService
 

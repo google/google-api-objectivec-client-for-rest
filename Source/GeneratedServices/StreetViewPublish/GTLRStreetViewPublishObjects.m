@@ -13,6 +13,24 @@
 #import "GTLRStreetViewPublishObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRStreetViewPublish_Photo.mapsPublishStatus
+NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published = @"PUBLISHED";
+NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_RejectedUnknown = @"REJECTED_UNKNOWN";
+NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_UnspecifiedMapsPublishStatus = @"UNSPECIFIED_MAPS_PUBLISH_STATUS";
+
+// GTLRStreetViewPublish_Photo.transferStatus
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Cancelled = @"CANCELLED";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Completed = @"COMPLETED";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Expired = @"EXPIRED";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_NeverTransferred = @"NEVER_TRANSFERRED";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Pending = @"PENDING";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_ReceivedViaTransfer = @"RECEIVED_VIA_TRANSFER";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Rejected = @"REJECTED";
+NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown = @"TRANSFER_STATUS_UNKNOWN";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRStreetViewPublish_BatchDeletePhotosRequest
 //
@@ -207,8 +225,9 @@
 //
 
 @implementation GTLRStreetViewPublish_Photo
-@dynamic captureTime, connections, downloadUrl, photoId, places, pose,
-         shareLink, thumbnailUrl, uploadReference, viewCount;
+@dynamic captureTime, connections, downloadUrl, mapsPublishStatus, photoId,
+         places, pose, shareLink, thumbnailUrl, transferStatus, uploadReference,
+         viewCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

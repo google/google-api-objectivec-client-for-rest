@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Firebase Hosting API (firebasehosting/v1beta1)
+// Description:
+//   The Firebase Hosting REST API enables programmatic custom deployment for
+//   releasing versions of your Firebase hosted content and configuration files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
@@ -19,6 +22,7 @@
 @class GTLRFirebaseHosting_Domain;
 @class GTLRFirebaseHosting_PopulateVersionFilesRequest;
 @class GTLRFirebaseHosting_Release;
+@class GTLRFirebaseHosting_SiteConfig;
 @class GTLRFirebaseHosting_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -235,6 +239,42 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 @end
 
 /**
+ *  Gets the Hosting metadata for a specific site.
+ *
+ *  Method: firebasehosting.sites.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_SitesGetConfig : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForSitesGetConfigWithname:]
+
+/**
+ *  Required. The site for which to get the SiteConfig, in the format:
+ *  <code>sites/<var>site-name</var>/config</code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_SiteConfig.
+ *
+ *  Gets the Hosting metadata for a specific site.
+ *
+ *  @param name Required. The site for which to get the SiteConfig, in the
+ *    format:
+ *    <code>sites/<var>site-name</var>/config</code>
+ *
+ *  @return GTLRFirebaseHostingQuery_SitesGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new release which makes the content of the specified version
  *  actively display on the site.
  *
@@ -324,6 +364,53 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the Hosting metadata for a specific site.
+ *
+ *  Method: firebasehosting.sites.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_SitesUpdateConfig : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForSitesUpdateConfigWithObject:name:]
+
+/**
+ *  Required. The site for which to update the SiteConfig, in the format:
+ *  <code>sites/<var>site-name</var>/config</code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A set of field names from your [site configuration](../sites.SiteConfig)
+ *  that you want to update.
+ *  <br>A field will be overwritten if, and only if, it's in the mask.
+ *  <br>If a mask is not provided then a default mask of only
+ *  [`max_versions`](../sites.SiteConfig.max_versions) will be used.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_SiteConfig.
+ *
+ *  Sets the Hosting metadata for a specific site.
+ *
+ *  @param object The @c GTLRFirebaseHosting_SiteConfig to include in the query.
+ *  @param name Required. The site for which to update the SiteConfig, in the
+ *    format:
+ *    <code>sites/<var>site-name</var>/config</code>
+ *
+ *  @return GTLRFirebaseHostingQuery_SitesUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_SiteConfig *)object
+                           name:(NSString *)name;
 
 @end
 

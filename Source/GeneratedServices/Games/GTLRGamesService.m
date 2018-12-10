@@ -15,7 +15,6 @@
 
 NSString * const kGTLRAuthScopeGames             = @"https://www.googleapis.com/auth/games";
 NSString * const kGTLRAuthScopeGamesDriveAppdata = @"https://www.googleapis.com/auth/drive.appdata";
-NSString * const kGTLRAuthScopeGamesPlusLogin    = @"https://www.googleapis.com/auth/plus.login";
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

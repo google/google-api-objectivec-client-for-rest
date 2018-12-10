@@ -4,8 +4,7 @@
 // API:
 //   Google Cloud Memorystore for Redis API (redis/v1)
 // Description:
-//   The Google Cloud Memorystore for Redis API is used for creating and
-//   managing Redis instances on the Google Cloud Platform.
+//   Creates and manages Redis instances on the Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/memorystore/docs/redis/
 

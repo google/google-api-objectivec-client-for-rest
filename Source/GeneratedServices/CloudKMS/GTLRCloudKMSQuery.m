@@ -555,6 +555,75 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudKMS_Policy class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudKMS_Policy class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudKMS_TestIamPermissionsResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList
 
 @dynamic pageSize, pageToken, parent;

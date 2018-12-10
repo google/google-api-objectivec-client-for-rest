@@ -50,6 +50,7 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown =
 
 // GTLRScript_GoogleAppsScriptTypeProcess.processType
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn = @"ADD_ON";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_BatchTask = @"BATCH_TASK";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Editor = @"EDITOR";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi = @"EXECUTION_API";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu = @"MENU";

@@ -17,9 +17,10 @@
 
 @implementation GTLRStorage_Bucket
 @dynamic acl, billing, cors, defaultEventBasedHold, defaultObjectAcl,
-         encryption, ETag, identifier, kind, labels, lifecycle, location,
-         logging, metageneration, name, owner, projectNumber, retentionPolicy,
-         selfLink, storageClass, timeCreated, updated, versioning, website;
+         encryption, ETag, iamConfiguration, identifier, kind, labels,
+         lifecycle, location, logging, metageneration, name, owner,
+         projectNumber, retentionPolicy, selfLink, storageClass, timeCreated,
+         updated, versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -78,6 +79,16 @@
 
 @implementation GTLRStorage_Bucket_Encryption
 @dynamic defaultKmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IamConfiguration
+//
+
+@implementation GTLRStorage_Bucket_IamConfiguration
+@dynamic bucketPolicyOnly;
 @end
 
 
@@ -160,6 +171,16 @@
 
 @implementation GTLRStorage_Bucket_Website
 @dynamic mainPageSuffix, notFoundPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
+//
+
+@implementation GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
+@dynamic enabled, lockedTime;
 @end
 
 

@@ -75,6 +75,8 @@ NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeA
 
 // GTLRAdExchangeBuyerII_Creative.attributes
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified = @"ATTRIBUTE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml = @"CREATIVE_TYPE_HTML";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo = @"CREATIVE_TYPE_VAST_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand = @"EXPANDING_ACTION_ROLLOVER_TO_EXPAND";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionAnyDiagonal = @"EXPANDING_DIRECTION_ANY_DIAGONAL";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDown = @"EXPANDING_DIRECTION_DOWN";
@@ -88,15 +90,20 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft = @"EXPANDING_DIRECTION_UP_LEFT";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown = @"EXPANDING_DIRECTION_UP_OR_DOWN";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight = @"EXPANDING_DIRECTION_UP_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo = @"IN_BANNER_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash = @"INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted = @"IS_COOKIE_TARGETED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged = @"IS_TAGGED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted = @"IS_USER_INTEREST_TARGETED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible = @"NATIVE_ELIGIBILITY_ELIGIBLE";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible = @"NATIVE_ELIGIBILITY_NOT_ELIGIBLE";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10 = @"OMSDK_1_0";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash = @"RICH_MEDIA_CAPABILITY_TYPE_FLASH";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5 = @"RICH_MEDIA_CAPABILITY_TYPE_HTML5";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial = @"RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid = @"RICH_MEDIA_CAPABILITY_TYPE_MRAID";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl = @"RICH_MEDIA_CAPABILITY_TYPE_NON_SSL";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl = @"RICH_MEDIA_CAPABILITY_TYPE_SSL";
 
 // GTLRAdExchangeBuyerII_Creative.dealsStatus

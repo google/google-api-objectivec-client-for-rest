@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Manage your tasks
+ *  Authorization scope: Create, edit, organize, and delete all your tasks
  *
  *  Value "https://www.googleapis.com/auth/tasks"
  */

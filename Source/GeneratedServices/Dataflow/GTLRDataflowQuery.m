@@ -237,6 +237,35 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsJobsSnapshot
+
+@dynamic jobId, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_SnapshotJobRequest *)object
+                      projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/jobs/{jobId}:snapshot";
+  GTLRDataflowQuery_ProjectsJobsSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_Snapshot class];
+  query.loggingName = @"dataflow.projects.jobs.snapshot";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsJobsUpdate
 
 @dynamic jobId, location, projectId;
@@ -514,6 +543,37 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsSnapshot
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_SnapshotJobRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}:snapshot";
+  GTLRDataflowQuery_ProjectsLocationsJobsSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_Snapshot class];
+  query.loggingName = @"dataflow.projects.locations.jobs.snapshot";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsUpdate
 
 @dynamic jobId, location, projectId;
@@ -661,7 +721,16 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch
 
-@dynamic gcsPath, location, projectId, validateOnly;
+@dynamic dynamicTemplateGcsPath, dynamicTemplateStagingLocation, gcsPath,
+         location, projectId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dynamicTemplateGcsPath" : @"dynamicTemplate.gcsPath",
+    @"dynamicTemplateStagingLocation" : @"dynamicTemplate.stagingLocation"
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId
@@ -763,7 +832,16 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsTemplatesLaunch
 
-@dynamic gcsPath, location, projectId, validateOnly;
+@dynamic dynamicTemplateGcsPath, dynamicTemplateStagingLocation, gcsPath,
+         location, projectId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dynamicTemplateGcsPath" : @"dynamicTemplate.gcsPath",
+    @"dynamicTemplateStagingLocation" : @"dynamicTemplate.stagingLocation"
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId {

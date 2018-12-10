@@ -452,8 +452,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_DataPoint : GTLRObject
 
 /**
- *  Used for version checking during transformation; that is, a datapoint can
- *  only replace another datapoint that has an older computation time stamp.
+ *  DO NOT USE THIS FIELD. It is ignored, and not stored.
  *
  *  Uses NSNumber of longLongValue.
  */

@@ -395,6 +395,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnipp
 
 /** Value: "ATTRIBUTE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified;
+/** Value: "CREATIVE_TYPE_HTML" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml;
+/** Value: "CREATIVE_TYPE_VAST_VIDEO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo;
 /** Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand;
 /** Value: "EXPANDING_DIRECTION_ANY_DIAGONAL" */
@@ -421,6 +425,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Expandin
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown;
 /** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight;
+/** Value: "IN_BANNER_VIDEO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo;
 /** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash;
 /** Value: "IS_COOKIE_TARGETED" */
@@ -433,12 +439,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserIn
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible;
 /** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible;
+/** Value: "OMSDK_1_0" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
 /** Value: "RENDERING_SIZELESS_ADX" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx;
+/** Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash;
+/** Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid;
+/** Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl;
 
@@ -5659,7 +5673,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /**
  *  The publisher identifier for this row, if a breakdown by
- *  BreakdownDimension.PUBLISHER_IDENTIFIER
+ *  [BreakdownDimension.PUBLISHER_IDENTIFIER](https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/bidders.accounts.filterSets#FilterSet.BreakdownDimension)
  *  was requested.
  */
 @property(nonatomic, copy, nullable) NSString *publisherIdentifier;

@@ -100,12 +100,12 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  End time of the time window (exclusive).
+ *  End time of the time window (inclusive).
  *  Current timestamp if not specified.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowEndTime;
 
-/** Start time of the time window (inclusive). */
+/** Start time of the time window (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowStartTime;
 
 /**
@@ -252,12 +252,12 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  End time of the time window (exclusive).
+ *  End time of the time window (inclusive).
  *  Current timestamp if not specified.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowEndTime;
 
-/** Start time of the time window (inclusive). */
+/** Start time of the time window (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowStartTime;
 
 /**

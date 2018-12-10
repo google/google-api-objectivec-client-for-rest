@@ -1183,10 +1183,11 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly
-@dynamic vertices;
+@dynamic normalizedVertices, vertices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"normalizedVertices" : [GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex class],
     @"vertices" : [GTLRVision_GoogleCloudVisionV1p1beta1Vertex class]
   };
   return map;
@@ -1374,6 +1375,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p1beta1LocationInfo
 @dynamic latLng;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex
+@dynamic x, y;
 @end
 
 

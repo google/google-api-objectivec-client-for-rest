@@ -4,9 +4,8 @@
 // API:
 //   Kubernetes Engine API (container/v1)
 // Description:
-//   The Google Kubernetes Engine API is used for building and managing
-//   container based applications, powered by the open source Kubernetes
-//   technology.
+//   Builds and manages container-based applications, powered by the open source
+//   Kubernetes technology.
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
@@ -36,6 +35,12 @@ NSString * const kGTLRContainer_NodePool_Status_Running        = @"RUNNING";
 NSString * const kGTLRContainer_NodePool_Status_RunningWithError = @"RUNNING_WITH_ERROR";
 NSString * const kGTLRContainer_NodePool_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_NodePool_Status_Stopping       = @"STOPPING";
+
+// GTLRContainer_NodeTaint.effect
+NSString * const kGTLRContainer_NodeTaint_Effect_EffectUnspecified = @"EFFECT_UNSPECIFIED";
+NSString * const kGTLRContainer_NodeTaint_Effect_NoExecute     = @"NO_EXECUTE";
+NSString * const kGTLRContainer_NodeTaint_Effect_NoSchedule    = @"NO_SCHEDULE";
+NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSchedule = @"PREFER_NO_SCHEDULE";
 
 // GTLRContainer_Operation.operationType
 NSString * const kGTLRContainer_Operation_OperationType_AutoRepairNodes = @"AUTO_REPAIR_NODES";
@@ -68,6 +73,13 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword = @
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword = @"SET_PASSWORD";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername = @"SET_USERNAME";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN";
+
+// GTLRContainer_StatusCondition.code
+NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded = @"GCE_QUOTA_EXCEEDED";
+NSString * const kGTLRContainer_StatusCondition_Code_GceStockout = @"GCE_STOCKOUT";
+NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = @"GKE_SERVICE_ACCOUNT_DELETED";
+NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator = @"SET_BY_OPERATOR";
+NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
@@ -146,16 +158,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, clusterIpv4Cidr, createTime, currentMasterVersion,
-         currentNodeCount, currentNodeVersion, descriptionProperty,
-         enableKubernetesAlpha, endpoint, expireTime, initialClusterVersion,
-         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
-         labelFingerprint, legacyAbac, location, locations, loggingService,
-         maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
-         monitoringService, name, network, networkConfig, networkPolicy,
-         nodeConfig, nodeIpv4CidrSize, nodePools, privateClusterConfig,
-         resourceLabels, selfLink, servicesIpv4Cidr, status, statusMessage,
-         subnetwork, zoneProperty;
+@dynamic addonsConfig, clusterIpv4Cidr, conditions, createTime,
+         currentMasterVersion, currentNodeCount, currentNodeVersion,
+         descriptionProperty, enableKubernetesAlpha, endpoint, expireTime,
+         initialClusterVersion, initialNodeCount, instanceGroupUrls,
+         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
+         loggingService, maintenancePolicy, masterAuth,
+         masterAuthorizedNetworksConfig, monitoringService, name, network,
+         networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
+         privateClusterConfig, resourceLabels, selfLink, servicesIpv4Cidr,
+         status, statusMessage, subnetwork, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -167,6 +179,7 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRContainer_StatusCondition class],
     @"instanceGroupUrls" : [NSString class],
     @"locations" : [NSString class],
     @"nodePools" : [GTLRContainer_NodePool class]
@@ -472,13 +485,14 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
          machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
-         serviceAccount, tags;
+         serviceAccount, tags, taints;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRContainer_AcceleratorConfig class],
     @"oauthScopes" : [NSString class],
-    @"tags" : [NSString class]
+    @"tags" : [NSString class],
+    @"taints" : [GTLRContainer_NodeTaint class]
   };
   return map;
 }
@@ -530,11 +544,12 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_NodePool
-@dynamic autoscaling, config, initialNodeCount, instanceGroupUrls, management,
-         name, selfLink, status, statusMessage, version;
+@dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
+         management, name, selfLink, status, statusMessage, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRContainer_StatusCondition class],
     @"instanceGroupUrls" : [NSString class]
   };
   return map;
@@ -555,15 +570,34 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodeTaint
+//
+
+@implementation GTLRContainer_NodeTaint
+@dynamic effect, key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Operation
 //
 
 @implementation GTLRContainer_Operation
-@dynamic detail, endTime, location, name, operationType, selfLink, startTime,
-         status, statusMessage, targetLink, zoneProperty;
+@dynamic clusterConditions, detail, endTime, location, name, nodepoolConditions,
+         operationType, selfLink, startTime, status, statusMessage, targetLink,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusterConditions" : [GTLRContainer_StatusCondition class],
+    @"nodepoolConditions" : [GTLRContainer_StatusCondition class]
+  };
+  return map;
 }
 
 @end
@@ -830,6 +864,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_StatusCondition
+//
+
+@implementation GTLRContainer_StatusCondition
+@dynamic code, message;
 @end
 
 

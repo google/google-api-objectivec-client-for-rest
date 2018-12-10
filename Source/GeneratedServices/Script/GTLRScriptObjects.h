@@ -233,6 +233,12 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStat
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn;
 /**
+ *  The process was started as a task in a batch job.
+ *
+ *  Value: "BATCH_TASK"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_BatchTask;
+/**
  *  The process was started using the Apps Script IDE.
  *
  *  Value: "EDITOR"
@@ -824,6 +830,8 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *  Likely values:
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn The
  *        process was started from an add-on entry point. (Value: "ADD_ON")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_BatchTask The
+ *        process was started as a task in a batch job. (Value: "BATCH_TASK")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Editor The
  *        process was started using the Apps Script IDE. (Value: "EDITOR")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi

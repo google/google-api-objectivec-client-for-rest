@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Content API for Shopping (content/v2)
+//   Content API for Shopping (content/v2.1)
 // Description:
 //   Manages product items, inventory, and Merchant Center accounts for Google
 //   Shopping.
@@ -27,8 +27,8 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"content/v2/";
-    self.batchPath = @"batch/content/v2";
+    self.servicePath = @"content/v2.1/";
+    self.batchPath = @"batch/content/v2.1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -57,10 +57,6 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#datafeedStatus" : [GTLRShoppingContent_DatafeedStatus class],
     @"content#datafeedstatusesCustomBatchResponse" : [GTLRShoppingContent_DatafeedstatusesCustomBatchResponse class],
     @"content#datafeedstatusesListResponse" : [GTLRShoppingContent_DatafeedstatusesListResponse class],
-    @"content#inventory" : [GTLRShoppingContent_Inventory class],
-    @"content#inventoryCustomBatchResponse" : [GTLRShoppingContent_InventoryCustomBatchResponse class],
-    @"content#inventoryCustomBatchResponseEntry" : [GTLRShoppingContent_InventoryCustomBatchResponseEntry class],
-    @"content#inventorySetResponse" : [GTLRShoppingContent_InventorySetResponse class],
     @"content#liaSettings" : [GTLRShoppingContent_LiaSettings class],
     @"content#liasettingsCustomBatchResponse" : [GTLRShoppingContent_LiasettingsCustomBatchResponse class],
     @"content#liasettingsCustomBatchResponseEntry" : [GTLRShoppingContent_LiasettingsCustomBatchResponseEntry class],
@@ -88,15 +84,11 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#ordersCancelTestOrderByCustomerResponse" : [GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse class],
     @"content#ordersCreateTestOrderResponse" : [GTLRShoppingContent_OrdersCreateTestOrderResponse class],
     @"content#ordersCreateTestReturnResponse" : [GTLRShoppingContent_OrdersCreateTestReturnResponse class],
-    @"content#ordersCustomBatchResponse" : [GTLRShoppingContent_OrdersCustomBatchResponse class],
-    @"content#ordersCustomBatchResponseEntry" : [GTLRShoppingContent_OrdersCustomBatchResponseEntry class],
     @"content#ordersGetByMerchantOrderIdResponse" : [GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse class],
     @"content#ordersGetTestOrderTemplateResponse" : [GTLRShoppingContent_OrdersGetTestOrderTemplateResponse class],
     @"content#ordersInStoreRefundLineItemResponse" : [GTLRShoppingContent_OrdersInStoreRefundLineItemResponse class],
     @"content#ordersListResponse" : [GTLRShoppingContent_OrdersListResponse class],
-    @"content#ordersRefundResponse" : [GTLRShoppingContent_OrdersRefundResponse class],
     @"content#ordersRejectReturnLineItemResponse" : [GTLRShoppingContent_OrdersRejectReturnLineItemResponse class],
-    @"content#ordersReturnLineItemResponse" : [GTLRShoppingContent_OrdersReturnLineItemResponse class],
     @"content#ordersReturnRefundLineItemResponse" : [GTLRShoppingContent_OrdersReturnRefundLineItemResponse class],
     @"content#ordersSetLineItemMetadataResponse" : [GTLRShoppingContent_OrdersSetLineItemMetadataResponse class],
     @"content#ordersShipLineItemsResponse" : [GTLRShoppingContent_OrdersShipLineItemsResponse class],

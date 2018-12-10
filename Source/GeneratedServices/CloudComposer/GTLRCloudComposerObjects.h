@@ -667,6 +667,14 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig_PypiPackages *pypiPackages;
 
+/**
+ *  Optional. The major version of Python used to run the Apache Airflow
+ *  scheduler, worker, and webserver processes.
+ *  Can be set to '2' or '3'. If not specified, the default is '2'. Cannot be
+ *  updated.
+ */
+@property(nonatomic, copy, nullable) NSString *pythonVersion;
+
 @end
 
 

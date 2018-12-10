@@ -92,6 +92,11 @@ NSString * const kGTLRMonitoring_Field_Kind_TypeUint32   = @"TYPE_UINT32";
 NSString * const kGTLRMonitoring_Field_Kind_TypeUint64   = @"TYPE_UINT64";
 NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 
+// GTLRMonitoring_InternalChecker.state
+NSString * const kGTLRMonitoring_InternalChecker_State_Creating = @"CREATING";
+NSString * const kGTLRMonitoring_InternalChecker_State_Running = @"RUNNING";
+NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified = @"UNSPECIFIED";
+
 // GTLRMonitoring_LabelDescriptor.valueType
 NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Int64 = @"INT64";
@@ -602,7 +607,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_InternalChecker
-@dynamic displayName, gcpZone, name, network, peerProjectId;
+@dynamic displayName, gcpZone, name, network, peerProjectId, state;
 @end
 
 

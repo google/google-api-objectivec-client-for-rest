@@ -749,7 +749,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesMetadataWithObject:metadataOwnerId:deviceId:]
 
-/** Required. The ID of the reseller partner. */
+/** Required. The ID of the device. */
 @property(nonatomic, assign) long long deviceId;
 
 /**
@@ -767,7 +767,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param metadataOwnerId Required. The owner of the newly set metadata. Set
  *    this to the partner ID.
- *  @param deviceId Required. The ID of the reseller partner.
+ *  @param deviceId Required. The ID of the device.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata
  */

@@ -394,7 +394,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, copy, nullable) NSString *entryPoint;
 
 /**
- *  **Beta Feature**
  *  Environment variables that shall be available during function execution.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_EnvironmentVariables *environmentVariables;
@@ -527,7 +526,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 
 /**
- *  **Beta Feature**
  *  Environment variables that shall be available during function execution.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -975,7 +973,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  Version id of the function created or updated by an API call.
- *  This field is only pupulated for Create and Update operations.
+ *  This field is only populated for Create and Update operations.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1030,7 +1028,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  Version id of the function created or updated by an API call.
- *  This field is only pupulated for Create and Update operations.
+ *  This field is only populated for Create and Update operations.
  *
  *  Uses NSNumber of longLongValue.
  */

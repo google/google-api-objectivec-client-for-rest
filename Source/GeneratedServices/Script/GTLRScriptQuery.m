@@ -33,6 +33,7 @@ NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown = @"UNKNOWN";
 
 // scriptProcessFilterTypes
 NSString * const kGTLRScriptScriptProcessFilterTypesAddOn      = @"ADD_ON";
+NSString * const kGTLRScriptScriptProcessFilterTypesBatchTask  = @"BATCH_TASK";
 NSString * const kGTLRScriptScriptProcessFilterTypesEditor     = @"EDITOR";
 NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi = @"EXECUTION_API";
 NSString * const kGTLRScriptScriptProcessFilterTypesMenu       = @"MENU";
@@ -62,6 +63,7 @@ NSString * const kGTLRScriptUserProcessFilterStatusesUnknown   = @"UNKNOWN";
 
 // userProcessFilterTypes
 NSString * const kGTLRScriptUserProcessFilterTypesAddOn        = @"ADD_ON";
+NSString * const kGTLRScriptUserProcessFilterTypesBatchTask    = @"BATCH_TASK";
 NSString * const kGTLRScriptUserProcessFilterTypesEditor       = @"EDITOR";
 NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi = @"EXECUTION_API";
 NSString * const kGTLRScriptUserProcessFilterTypesMenu         = @"MENU";

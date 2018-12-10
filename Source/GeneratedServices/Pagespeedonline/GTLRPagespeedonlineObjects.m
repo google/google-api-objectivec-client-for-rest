@@ -2,88 +2,28 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v4)
+//   PageSpeed Insights API (pagespeedonline/v5)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
 // Documentation:
-//   https://developers.google.com/speed/docs/insights/v4/getting-started
+//   https://developers.google.com/speed/docs/insights/v5/get-started
 
 #import "GTLRPagespeedonlineObjects.h"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiFormatStringV4
+//   GTLRPagespeedonline_LighthouseAuditResultV5
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiFormatStringV4
-@dynamic args, format;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"args" : [GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item
-@dynamic key, rects, secondaryRects, type, value;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"secondaryRects" : @"secondary_rects" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rects" : [GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_Rects_Item class],
-    @"secondary_rects" : [GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_SecondaryRects_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_Rects_Item
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_Rects_Item
-@dynamic height, left, top, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_SecondaryRects_Item
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiFormatStringV4_Args_Item_SecondaryRects_Item
-@dynamic height, left, top, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiImageV4
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiImageV4
-@dynamic data, height, key, mimeType, pageRect, width;
+@implementation GTLRPagespeedonline_LighthouseAuditResultV5
+@dynamic descriptionProperty, details, displayValue, errorMessage, explanation,
+         identifier, score, scoreDisplayMode, title, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
-    @"mimeType" : @"mime_type",
-    @"pageRect" : @"page_rect"
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
   };
   return map;
 }
@@ -93,32 +33,73 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiImageV4_PageRect
+//   GTLRPagespeedonline_LighthouseAuditResultV5_Details
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiImageV4_PageRect
-@dynamic height, left, top, width;
+@implementation GTLRPagespeedonline_LighthouseAuditResultV5_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4
+//   GTLRPagespeedonline_LighthouseCategoryV5
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4
-@dynamic captchaResult, formattedResults, identifier, invalidRules, kind,
-         loadingExperience, pageStats, responseCode, ruleGroups, screenshot,
-         snapshots, title, version;
+@implementation GTLRPagespeedonline_LighthouseCategoryV5
+@dynamic auditRefs, descriptionProperty, identifier, manualDescription, score,
+         title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditRefs" : [GTLRPagespeedonline_LighthouseCategoryV5_AuditRefs_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseCategoryV5_AuditRefs_Item
+//
+
+@implementation GTLRPagespeedonline_LighthouseCategoryV5_AuditRefs_Item
+@dynamic group, identifier, weight;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5
+@dynamic audits, categories, categoryGroups, configSettings, environment,
+         fetchTime, finalUrl, i18n, lighthouseVersion, requestedUrl,
+         runtimeError, runWarnings, timing, userAgent;
+
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"invalidRules" : [NSString class],
-    @"snapshots" : [GTLRPagespeedonline_PagespeedApiImageV4 class]
+    @"runWarnings" : [NSObject class]
   };
   return map;
 }
@@ -128,20 +109,132 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults
+//   GTLRPagespeedonline_LighthouseResultV5_Audits
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults
-@dynamic locale, ruleResults;
+@implementation GTLRPagespeedonline_LighthouseResultV5_Audits
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPagespeedonline_LighthouseAuditResultV5 class];
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience
+//   GTLRPagespeedonline_LighthouseResultV5_Categories
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience
+@implementation GTLRPagespeedonline_LighthouseResultV5_Categories
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPagespeedonline_LighthouseCategoryV5 class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_CategoryGroups
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_CategoryGroups
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPagespeedonline_LighthouseResultV5_CategoryGroups_CategoryGroup class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_ConfigSettings
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_ConfigSettings
+@dynamic emulatedFormFactor, locale, onlyCategories;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_Environment
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_Environment
+@dynamic benchmarkIndex, hostUserAgent, networkUserAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_I18n
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_I18n
+@dynamic rendererFormattedStrings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_RuntimeError
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_RuntimeError
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_Timing
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_Timing
+@dynamic total;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_CategoryGroups_CategoryGroup
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_CategoryGroups_CategoryGroup
+@dynamic descriptionProperty, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_I18n_RendererFormattedStrings
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_I18n_RendererFormattedStrings
+@dynamic auditGroupExpandTooltip, crcInitialNavigation, crcLongestDurationLabel,
+         errorLabel, errorMissingAuditInfo, labDataTitle,
+         lsPerformanceCategoryDescription, manualAuditsGroupTitle,
+         notApplicableAuditsGroupTitle, opportunityResourceColumnLabel,
+         opportunitySavingsColumnLabel, passedAuditsGroupTitle, scorescaleLabel,
+         toplevelWarningsMessage, varianceDisclaimer, warningHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_PagespeedApiLoadingExperienceV5
+//
+
+@implementation GTLRPagespeedonline_PagespeedApiLoadingExperienceV5
 @dynamic identifier, initialUrl, metrics, overallCategory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -158,39 +251,13 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_PageStats
+//   GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_PageStats
-@dynamic cms, cssResponseBytes, flashResponseBytes, htmlResponseBytes,
-         imageResponseBytes, javascriptResponseBytes, numberCssResources,
-         numberHosts, numberJsResources, numberResources,
-         numberRobotedResources, numberStaticResources,
-         numberTransientFetchFailureResources, numRenderBlockingRoundTrips,
-         numTotalRoundTrips, otherResponseBytes, overTheWireResponseBytes,
-         robotedUrls, textResponseBytes, totalRequestBytes,
-         transientFetchFailureUrls;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"robotedUrls" : [NSString class],
-    @"transientFetchFailureUrls" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_RuleGroups
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_RuleGroups
+@implementation GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics
 
 + (Class)classForAdditionalProperties {
-  return [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_RuleGroups_RuleGroup class];
+  return [GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric class];
 }
 
 @end
@@ -198,64 +265,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_Version
+//   GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_Version
-@dynamic major, minor;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_RuleGroups_RuleGroup
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_RuleGroups_RuleGroup
-@dynamic pass, score;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult
-@dynamic beta, groups, localizedRuleName, ruleImpact, summary, urlBlocks;
+@implementation GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric
+@dynamic category, distributions, percentile;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"groups" : [NSString class],
-    @"urlBlocks" : [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item class]
+    @"distributions" : [GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric_Distributions_Item class]
   };
   return map;
 }
@@ -265,63 +283,35 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric
+//   GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric_Distributions_Item
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric
-@dynamic category, distributions, median;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"distributions" : [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric_Distributions_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item
-@dynamic header, urls;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"urls" : [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric_Distributions_Item
-//
-
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_LoadingExperience_Metrics_Metric_Distributions_Item
+@implementation GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics_Metric_Distributions_Item
 @dynamic max, min, proportion;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item
+//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV5
 //
 
-@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV4_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item
-@dynamic details, result;
+@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV5
+@dynamic analysisUTCTimestamp, captchaResult, identifier, kind,
+         lighthouseResult, loadingExperience, originLoadingExperience, version;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRPagespeedonline_PagespeedApiFormatStringV4 class]
-  };
-  return map;
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_PagespeedApiPagespeedResponseV5_Version
+//
+
+@implementation GTLRPagespeedonline_PagespeedApiPagespeedResponseV5_Version
+@dynamic major, minor;
 @end

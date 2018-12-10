@@ -1176,11 +1176,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`. The
- *  `Context ID` is
- *  always converted to lowercase. If `Environment ID` is not specified, we
- *  assume default 'draft' environment. If `User ID` is not specified, we
- *  assume default '-' user.
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  The `Context ID` is always converted to lowercase, may only contain
+ *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1563,7 +1563,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities. Zero or negative numbers mean that the intent is disabled.
+ *  priorities. If this is zero or unspecified, we use the default
+ *  priority 500000.
+ *  Negative numbers mean that the intent is disabled.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2814,6 +2816,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  The `Context ID` is always converted to lowercase, may only contain
+ *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3297,7 +3301,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities. Zero or negative numbers mean that the intent is disabled.
+ *  priorities. If this is zero or unspecified, we use the default
+ *  priority 500000.
+ *  Negative numbers mean that the intent is disabled.
  *
  *  Uses NSNumber of intValue.
  */

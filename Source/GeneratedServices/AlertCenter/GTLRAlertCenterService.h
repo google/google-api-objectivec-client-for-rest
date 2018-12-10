@@ -25,6 +25,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: See and delete your domain's G Suite alerts, and send
+ *  alert feedback
+ *
+ *  Value "https://www.googleapis.com/auth/apps.alerts"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeAlertCenterAppsAlerts;
+
+// ----------------------------------------------------------------------------
+//   GTLRAlertCenterService
+//
+
 /**
  *  Service for executing G Suite Alert Center API queries.
  *

@@ -570,11 +570,12 @@
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
-@dynamic autoRenewing, cancelReason, cancelSurveyResult, countryCode,
-         developerPayload, emailAddress, expiryTimeMillis, familyName,
-         givenName, kind, linkedPurchaseToken, orderId, paymentState,
-         priceAmountMicros, priceChange, priceCurrencyCode, profileId,
-         profileName, purchaseType, startTimeMillis, userCancellationTimeMillis;
+@dynamic autoRenewing, autoResumeTimeMillis, cancelReason, cancelSurveyResult,
+         countryCode, developerPayload, emailAddress, expiryTimeMillis,
+         familyName, givenName, kind, linkedPurchaseToken, orderId,
+         paymentState, priceAmountMicros, priceChange, priceCurrencyCode,
+         profileId, profileName, purchaseType, startTimeMillis,
+         userCancellationTimeMillis;
 @end
 
 

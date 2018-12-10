@@ -2,58 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Identity-Aware Proxy API (iap/v1beta1)
+//   Cloud Identity-Aware Proxy API (iap/v1)
 // Description:
 //   Controls access to cloud applications running on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/iap
 
 #import "GTLRCloudIAPObjects.h"
-
-// ----------------------------------------------------------------------------
-// Constants
-
-// GTLRCloudIAP_AuditLogConfig.logType
-NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIAP_AuditConfig
-//
-
-@implementation GTLRCloudIAP_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudIAP_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIAP_AuditLogConfig
-//
-
-@implementation GTLRCloudIAP_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -103,7 +58,7 @@ NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLRCloudIAP_Policy
-@dynamic auditConfigs, bindings, ETag, version;
+@dynamic bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -111,7 +66,6 @@ NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRCloudIAP_AuditConfig class],
     @"bindings" : [GTLRCloudIAP_Binding class]
   };
   return map;
@@ -126,7 +80,7 @@ NSString * const kGTLRCloudIAP_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLRCloudIAP_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@dynamic policy;
 @end
 
 

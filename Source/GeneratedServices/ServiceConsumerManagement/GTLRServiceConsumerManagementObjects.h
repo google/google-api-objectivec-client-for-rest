@@ -592,6 +592,48 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
+ *  Request to apply configuration to an existing tenant project.
+ */
+@interface GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest : GTLRObject
+
+/** Configuration that should be applied to the existing tenant project. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_TenantProjectConfig *projectConfig;
+
+/** Tag of the project. Must be less than 128 characters. Required. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Request to attach an existing project to the tenancy unit as a new tenant
+ *  resource.
+ */
+@interface GTLRServiceConsumerManagement_AttachTenantProjectRequest : GTLRObject
+
+/**
+ *  When attaching an external project, this is in the format of
+ *  `projects/{project_number}’.
+ */
+@property(nonatomic, copy, nullable) NSString *externalResource;
+
+/**
+ *  When attaching a reserved project already in Tenancy Units, this is the
+ *  tag of tenant resource under the tenancy unit for the service's producer
+ *  project. The reserved tenant resource must be in active state.
+ */
+@property(nonatomic, copy, nullable) NSString *reservedResource;
+
+/**
+ *  Tag of the tenant resource after attachment.
+ *  Must be less than 128 characters. Required.
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
  *  `Authentication` defines the authentication configuration for an API.
  *  Example for an API targeted for external use:
  *  name: calendar.googleapis.com
@@ -695,7 +737,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, copy, nullable) NSString *audiences;
 
 /**
- *  Redirect URL if JWT token is required but no present or is expired.
+ *  Redirect URL if JWT token is required but not present or is expired.
  *  Implement authorizationUrl of securityDefinitions in OpenAPI spec.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationUrl;

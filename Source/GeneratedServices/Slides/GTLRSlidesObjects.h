@@ -60,6 +60,7 @@
 @class GTLRSlides_LayoutProperties;
 @class GTLRSlides_LayoutReference;
 @class GTLRSlides_Line;
+@class GTLRSlides_LineConnection;
 @class GTLRSlides_LineFill;
 @class GTLRSlides_LineProperties;
 @class GTLRSlides_Link;
@@ -92,6 +93,7 @@
 @class GTLRSlides_ReplaceAllTextResponse;
 @class GTLRSlides_ReplaceImageRequest;
 @class GTLRSlides_Request;
+@class GTLRSlides_RerouteLineRequest;
 @class GTLRSlides_Response;
 @class GTLRSlides_RgbColor;
 @class GTLRSlides_Shadow;
@@ -127,8 +129,10 @@
 @class GTLRSlides_UngroupObjectsRequest;
 @class GTLRSlides_UnmergeTableCellsRequest;
 @class GTLRSlides_UpdateImagePropertiesRequest;
+@class GTLRSlides_UpdateLineCategoryRequest;
 @class GTLRSlides_UpdateLinePropertiesRequest;
 @class GTLRSlides_UpdatePageElementAltTextRequest;
+@class GTLRSlides_UpdatePageElementsZOrderRequest;
 @class GTLRSlides_UpdatePageElementTransformRequest;
 @class GTLRSlides_UpdatePagePropertiesRequest;
 @class GTLRSlides_UpdateParagraphStyleRequest;
@@ -194,6 +198,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_SlideNumber;
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_CreateLineRequest.category
+
+/**
+ *  Bent connectors, including bent connector 2 to 5.
+ *
+ *  Value: "BENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Bent;
+/**
+ *  Curved connectors, including curved connector 2 to 5.
+ *
+ *  Value: "CURVED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Curved;
+/**
+ *  Unspecified line category.
+ *
+ *  Value: "LINE_CATEGORY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_LineCategoryUnspecified;
+/**
+ *  Straight connectors, including straight connector 1.
+ *
+ *  Value: "STRAIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateLineRequest.lineCategory
@@ -1386,6 +1418,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleA
  *  Value: "TITLE_ONLY"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_Line.lineCategory
+
+/**
+ *  Bent connectors, including bent connector 2 to 5.
+ *
+ *  Value: "BENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Bent;
+/**
+ *  Curved connectors, including curved connector 2 to 5.
+ *
+ *  Value: "CURVED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Curved;
+/**
+ *  Unspecified line category.
+ *
+ *  Value: "LINE_CATEGORY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_LineCategoryUnspecified;
+/**
+ *  Straight connectors, including straight connector 1.
+ *
+ *  Value: "STRAIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Line.lineType
@@ -3796,6 +3856,70 @@ GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Text2;
 GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSlides_UpdateLineCategoryRequest.lineCategory
+
+/**
+ *  Bent connectors, including bent connector 2 to 5.
+ *
+ *  Value: "BENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Bent;
+/**
+ *  Curved connectors, including curved connector 2 to 5.
+ *
+ *  Value: "CURVED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Curved;
+/**
+ *  Unspecified line category.
+ *
+ *  Value: "LINE_CATEGORY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_LineCategoryUnspecified;
+/**
+ *  Straight connectors, including straight connector 1.
+ *
+ *  Value: "STRAIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Straight;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_UpdatePageElementsZOrderRequest.operation
+
+/**
+ *  Brings the page elements forward on the page by one element relative to the
+ *  forwardmost one in the specified page elements.
+ *
+ *  Value: "BRING_FORWARD"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward;
+/**
+ *  Brings the page elements to the front of the page.
+ *
+ *  Value: "BRING_TO_FRONT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront;
+/**
+ *  Sends the page elements backward on the page by one element relative to the
+ *  furthest behind one in the specified page elements.
+ *
+ *  Value: "SEND_BACKWARD"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward;
+/**
+ *  Sends the page elements to the back of the page.
+ *
+ *  Value: "SEND_TO_BACK"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack;
+/**
+ *  Unspecified operation.
+ *
+ *  Value: "Z_ORDER_OPERATION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_ZOrderOperationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSlides_UpdatePageElementTransformRequest.applyMode
 
 /**
@@ -4154,11 +4278,40 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_CreateLineRequest : GTLRObject
 
+/**
+ *  The category of the line to be created.
+ *  The exact line type created is
+ *  determined based on the category and how it's routed to connect to other
+ *  page elements.
+ *  If you specify both a `category` and a `line_category`, the `category`
+ *  takes precedence.
+ *  If you do not specify a value for `category`, but specify a value for
+ *  `line_category`, then the specified `line_category` value is used.
+ *  If you do not specify either, then STRAIGHT is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_CreateLineRequest_Category_Bent Bent connectors,
+ *        including bent connector 2 to 5. (Value: "BENT")
+ *    @arg @c kGTLRSlides_CreateLineRequest_Category_Curved Curved connectors,
+ *        including curved connector 2 to 5. (Value: "CURVED")
+ *    @arg @c kGTLRSlides_CreateLineRequest_Category_LineCategoryUnspecified
+ *        Unspecified line category. (Value: "LINE_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_CreateLineRequest_Category_Straight Straight
+ *        connectors, including straight connector 1. (Value: "STRAIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
 /** The element properties for the line. */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  The category of line to be created.
+ *  The category of the line to be created.
+ *  <b>Deprecated</b>: use `category` instead.
+ *  The exact line type created is
+ *  determined based on the category and how it's routed to connect to other
+ *  page elements.
+ *  If you specify both a `category` and a `line_category`, the `category`
+ *  takes precedence.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_CreateLineRequest_LineCategory_Bent Bent connectors,
@@ -5628,6 +5781,24 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_Line : GTLRObject
 
+/**
+ *  The category of the line.
+ *  It matches the `category` specified in CreateLineRequest, and can be updated
+ *  with
+ *  UpdateLineCategoryRequest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_Line_LineCategory_Bent Bent connectors, including bent
+ *        connector 2 to 5. (Value: "BENT")
+ *    @arg @c kGTLRSlides_Line_LineCategory_Curved Curved connectors, including
+ *        curved connector 2 to 5. (Value: "CURVED")
+ *    @arg @c kGTLRSlides_Line_LineCategory_LineCategoryUnspecified Unspecified
+ *        line category. (Value: "LINE_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_Line_LineCategory_Straight Straight connectors,
+ *        including straight connector 1. (Value: "STRAIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *lineCategory;
+
 /** The properties of the line. */
 @property(nonatomic, strong, nullable) GTLRSlides_LineProperties *lineProperties;
 
@@ -5669,6 +5840,38 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        type. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *lineType;
+
+@end
+
+
+/**
+ *  The properties for one end of a Line
+ *  connection.
+ */
+@interface GTLRSlides_LineConnection : GTLRObject
+
+/**
+ *  The object ID of the connected page element.
+ *  Some page elements, such as groups, tables, and lines
+ *  do not have connection sites and therefore cannot be connected to a
+ *  connector line.
+ */
+@property(nonatomic, copy, nullable) NSString *connectedObjectId;
+
+/**
+ *  The index of the connection site on the connected page element.
+ *  In most cases, it corresponds to the predefined connection site index from
+ *  the ECMA-376 standard. More information on those connection sites can be
+ *  found in the description of the "cnx" attribute in section 20.1.9.9 and
+ *  Annex H. "Predefined DrawingML Shape and Text Geometries" of "Office Open
+ *  XML File Formats-Fundamentals and Markup Language Reference", part 1 of
+ *  [ECMA-376 5th edition]
+ *  (http://www.ecma-international.org/publications/standards/Ecma-376.htm).
+ *  The position of each connection site can also be viewed from Slides editor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *connectionSiteIndex;
 
 @end
 
@@ -5749,6 +5952,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *endArrow;
 
 /**
+ *  The connection at the end of the line. If unset, there is no connection.
+ *  Only lines with a Type indicating it is
+ *  a "connector" can have an `end_connection`.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_LineConnection *endConnection;
+
+/**
  *  The fill of the line. The default line fill matches the defaults for new
  *  lines created in the Slides editor.
  */
@@ -5789,6 +5999,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        'stealth'. (Value: "STEALTH_ARROW")
  */
 @property(nonatomic, copy, nullable) NSString *startArrow;
+
+/**
+ *  The connection at the beginning of the line. If unset, there is no
+ *  connection.
+ *  Only lines with a Type indicating it is
+ *  a "connector" can have a `start_connection`.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_LineConnection *startConnection;
 
 /** The thickness of the line. */
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *weight;
@@ -6800,7 +7018,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The replace method.
- *  Deprecated: use `image_replace_method` instead.
+ *  <b>Deprecated</b>: use `image_replace_method` instead.
  *  If you specify both a `replace_method` and an `image_replace_method`, the
  *  `image_replace_method` takes precedence.
  *
@@ -7063,6 +7281,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Replaces an existing image with a new image. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceImageRequest *replaceImage;
 
+/**
+ *  Reroutes a line such that it's connected
+ *  at the two closest connection sites on the connected page elements.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_RerouteLineRequest *rerouteLine;
+
 /** Ungroups objects, such as groups. */
 @property(nonatomic, strong, nullable) GTLRSlides_UngroupObjectsRequest *ungroupObjects;
 
@@ -7072,6 +7296,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of an Image. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateImagePropertiesRequest *updateImageProperties;
 
+/** Updates the category of a line. */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateLineCategoryRequest *updateLineCategory;
+
 /** Updates the properties of a Line. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateLinePropertiesRequest *updateLineProperties;
 
@@ -7080,6 +7307,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  page element.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementAltTextRequest *updatePageElementAltText;
+
+/** Updates the Z-order of page elements. */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementsZOrderRequest *updatePageElementsZOrder;
 
 /** Updates the transform of a page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementTransformRequest *updatePageElementTransform;
@@ -7116,6 +7346,23 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Updates the properties of a Video. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateVideoPropertiesRequest *updateVideoProperties;
+
+@end
+
+
+/**
+ *  Reroutes a line such that it's connected at the
+ *  two closest connection sites on the connected page elements.
+ */
+@interface GTLRSlides_RerouteLineRequest : GTLRObject
+
+/**
+ *  The object ID of the line to reroute.
+ *  Only a line with a category
+ *  indicating it is a "connector" can be rerouted. The start and end
+ *  connections of the line must be on different page elements.
+ */
+@property(nonatomic, copy, nullable) NSString *objectId;
 
 @end
 
@@ -8749,6 +8996,41 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Updates the category of a line.
+ */
+@interface GTLRSlides_UpdateLineCategoryRequest : GTLRObject
+
+/**
+ *  The line category to update to.
+ *  The exact line type is determined based
+ *  on the category to update to and how it's routed to connect to other page
+ *  elements.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Bent Bent
+ *        connectors, including bent connector 2 to 5. (Value: "BENT")
+ *    @arg @c kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Curved Curved
+ *        connectors, including curved connector 2 to 5. (Value: "CURVED")
+ *    @arg @c kGTLRSlides_UpdateLineCategoryRequest_LineCategory_LineCategoryUnspecified
+ *        Unspecified line category. (Value: "LINE_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Straight
+ *        Straight connectors, including straight connector 1. (Value:
+ *        "STRAIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *lineCategory;
+
+/**
+ *  The object ID of the line the update is applied to.
+ *  Only a line with a category
+ *  indicating it is a "connector" can be updated.
+ *  The line may be rerouted after updating its category.
+ */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
  *  Updates the properties of a Line.
  */
 @interface GTLRSlides_UpdateLinePropertiesRequest : GTLRObject
@@ -8802,6 +9084,49 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  to the content of the page element.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Updates the Z-order of page elements. Z-order is an ordering of the elements
+ *  on the page from back to front. The page element in the front may cover the
+ *  elements that are behind it.
+ */
+@interface GTLRSlides_UpdatePageElementsZOrderRequest : GTLRObject
+
+/**
+ *  The Z-order operation to apply on the page elements.
+ *  When applying the operation on multiple page elements, the relative
+ *  Z-orders within these page elements before the operation is maintained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward
+ *        Brings the page elements forward on the page by one element relative
+ *        to the
+ *        forwardmost one in the specified page elements. (Value:
+ *        "BRING_FORWARD")
+ *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront
+ *        Brings the page elements to the front of the page. (Value:
+ *        "BRING_TO_FRONT")
+ *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward
+ *        Sends the page elements backward on the page by one element relative
+ *        to the
+ *        furthest behind one in the specified page elements. (Value:
+ *        "SEND_BACKWARD")
+ *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack
+ *        Sends the page elements to the back of the page. (Value:
+ *        "SEND_TO_BACK")
+ *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_ZOrderOperationUnspecified
+ *        Unspecified operation. (Value: "Z_ORDER_OPERATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The object IDs of the page elements to update.
+ *  All the page elements must be on the same page and must not be grouped.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageElementObjectIds;
 
 @end
 

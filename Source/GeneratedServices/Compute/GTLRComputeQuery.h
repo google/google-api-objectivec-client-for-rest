@@ -33,6 +33,7 @@
 @class GTLRCompute_Firewall;
 @class GTLRCompute_ForwardingRule;
 @class GTLRCompute_GlobalSetLabelsRequest;
+@class GTLRCompute_GlobalSetPolicyRequest;
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
@@ -84,6 +85,7 @@
 @class GTLRCompute_RegionInstanceGroupsListInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest;
 @class GTLRCompute_RegionSetLabelsRequest;
+@class GTLRCompute_RegionSetPolicyRequest;
 @class GTLRCompute_ResourceGroupReference;
 @class GTLRCompute_Route;
 @class GTLRCompute_Router;
@@ -126,6 +128,7 @@
 @class GTLRCompute_UsageExportLocation;
 @class GTLRCompute_VpnTunnel;
 @class GTLRCompute_ZoneSetLabelsRequest;
+@class GTLRCompute_ZoneSetPolicyRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1803,7 +1806,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified BackendService resource. Gets a list of available
- *  backend services by making a list() request.
+ *  backend services.
  *
  *  Method: compute.backendServices.get
  *
@@ -1826,7 +1829,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendService.
  *
  *  Returns the specified BackendService resource. Gets a list of available
- *  backend services by making a list() request.
+ *  backend services.
  *
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to return.
@@ -2433,6 +2436,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.disks.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_DisksGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksGetIamPolicyWithproject:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_DisksGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a persistent disk in the specified project using the data in the
  *  request. You can create a disk with a sourceImage, a sourceSnapshot, or
  *  create an empty 500 GB data disk by omitting all properties. You can also
@@ -2651,6 +2700,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.disks.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksSetIamPolicyWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_DisksSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the labels on a disk. To learn more about labels, read the Labeling
  *  Resources documentation.
  *
@@ -2681,7 +2778,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -2701,11 +2798,58 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_DisksSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_ZoneSetLabelsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.disks.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_DisksTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksTestIamPermissionsWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_DisksTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource;
@@ -5487,6 +5631,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.images.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ImagesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForImagesGetIamPolicyWithproject:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ImagesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates an image in the specified project using the data included in the
  *  request.
  *
@@ -5633,6 +5814,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.images.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ImagesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForImagesSetIamPolicyWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ImagesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the labels on an image. To learn more about labels, read the Labeling
  *  Resources documentation.
  *
@@ -5649,7 +5869,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -5661,11 +5881,49 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_ImagesSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.images.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ImagesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForImagesTestIamPermissionsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ImagesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
 
@@ -6289,6 +6547,77 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
             instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Updates a managed instance group using the information that you specify in
+ *  the request. This operation is marked as DONE when the group is patched even
+ *  if the instances in the group are still in the process of being patched. You
+ *  must separately verify the status of the individual instances with the
+ *  listManagedInstances method. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  Method: compute.instanceGroupManagers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersPatchWithObject:project:zoneProperty:instanceGroupManager:]
+
+/** The name of the instance group manager. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where you want to create the managed instance group.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a managed instance group using the information that you specify in
+ *  the request. This operation is marked as DONE when the group is patched even
+ *  if the instances in the group are still in the process of being patched. You
+ *  must separately verify the status of the individual instances with the
+ *  listManagedInstances method. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where you want to create the
+ *    managed instance group.
+ *  @param instanceGroupManager The name of the instance group manager.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -7610,10 +7939,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForInstancesDetachDiskWithproject:zoneProperty:instance:deviceName:]
 
-/** Disk device name to detach. */
+/**
+ *  The device name of the disk to detach. Make a get() request on the instance
+ *  to view currently attached disks and device names.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceName;
 
-/** Instance name. */
+/** Instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /** Project ID for this request. */
@@ -7647,8 +7979,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param instance Instance name.
- *  @param deviceName Disk device name to detach.
+ *  @param instance Instance name for this request.
+ *  @param deviceName The device name of the disk to detach. Make a get()
+ *    request on the instance to view currently attached disks and device names.
  *
  *  @return GTLRComputeQuery_InstancesDetachDisk
  */
@@ -7702,6 +8035,52 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.instances.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesGetIamPolicyWithproject:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
 
 @end
 
@@ -8123,7 +8502,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -8140,7 +8519,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_InstancesSetDeletionProtection
  */
@@ -8166,10 +8545,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Whether to auto-delete the disk when the instance is deleted. */
 @property(nonatomic, assign) BOOL autoDelete;
 
-/** The device name of the disk to modify. */
+/**
+ *  The device name of the disk to modify. Make a get() request on the instance
+ *  to view currently attached disks and device names.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceName;
 
-/** The instance name. */
+/** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /** Project ID for this request. */
@@ -8203,10 +8585,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param instance The instance name.
+ *  @param instance The instance name for this request.
  *  @param autoDelete Whether to auto-delete the disk when the instance is
  *    deleted.
- *  @param deviceName The device name of the disk to modify.
+ *  @param deviceName The device name of the disk to modify. Make a get()
+ *    request on the instance to view currently attached disks and device names.
  *
  *  @return GTLRComputeQuery_InstancesSetDiskAutoDelete
  */
@@ -8215,6 +8598,54 @@ NS_ASSUME_NONNULL_BEGIN
                         instance:(NSString *)instance
                       autoDelete:(BOOL)autoDelete
                       deviceName:(NSString *)deviceName;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.instances.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetIamPolicyWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
 
 @end
 
@@ -8542,7 +8973,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForInstancesSetSchedulingWithObject:project:zoneProperty:instance:]
 
-/** Instance name. */
+/** Instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /** Project ID for this request. */
@@ -8577,7 +9008,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Scheduling to include in the query.
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param instance Instance name.
+ *  @param instance Instance name for this request.
  *
  *  @return GTLRComputeQuery_InstancesSetScheduling
  */
@@ -8943,6 +9374,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.instances.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesTestIamPermissionsWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates the specified access config from an instance's network interface
  *  with the data included in the request. This method supports PATCH semantics
  *  and uses the JSON merge patch format and processing rules.
@@ -9167,6 +9645,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.instanceTemplates.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceTemplatesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceTemplatesGetIamPolicyWithproject:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstanceTemplatesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates an instance template in the specified project using the data that is
  *  included in the request. If you are creating a new template to update an
  *  existing instance group, your new instance template must use the same
@@ -9299,6 +9814,83 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.instanceTemplates.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceTemplatesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceTemplatesSetIamPolicyWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstanceTemplatesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.instanceTemplates.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceTemplatesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceTemplatesTestIamPermissionsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstanceTemplatesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
 
 @end
 
@@ -10263,6 +10855,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.licenses.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_LicensesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesGetIamPolicyWithproject:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_LicensesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Create a License resource in the specified project.
  *
  *  Method: compute.licenses.insert
@@ -10400,6 +11029,45 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.licenses.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_LicensesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForLicensesSetIamPolicyWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_LicensesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
 
 @end
 
@@ -11088,7 +11756,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForNodeGroupsAddNodesWithObject:project:zoneProperty:nodeGroup:]
 
-/** Name of the NodeGroup resource to delete. */
+/** Name of the NodeGroup resource. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
 
 /** Project ID for this request. */
@@ -11124,7 +11792,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param nodeGroup Name of the NodeGroup resource to delete.
+ *  @param nodeGroup Name of the NodeGroup resource.
  *
  *  @return GTLRComputeQuery_NodeGroupsAddNodes
  */
@@ -11382,6 +12050,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.nodeGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NodeGroupsGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeGroupsGetIamPolicyWithproject:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeGroupsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a NodeGroup resource in the specified project using the data
  *  included in the request.
  *
@@ -11635,6 +12349,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.nodeGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NodeGroupsSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeGroupsSetIamPolicyWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates the node template of the node group.
  *
  *  Method: compute.nodeGroups.setNodeTemplate
@@ -11691,6 +12453,53 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.nodeGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NodeGroupsTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeGroupsTestIamPermissionsWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
 
 @end
 
@@ -11869,6 +12678,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.nodeTemplates.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NodeTemplatesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeTemplatesGetIamPolicyWithproject:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeTemplatesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a NodeTemplate resource in the specified project using the data
  *  included in the request.
  *
@@ -12005,6 +12856,93 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.nodeTemplates.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NodeTemplatesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeTemplatesSetIamPolicyWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeTemplatesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.nodeTemplates.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NodeTemplatesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeTemplatesTestIamPermissionsWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NodeTemplatesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 
@@ -14280,7 +15218,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -14292,7 +15230,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param project Project ID for this request.
  *  @param region The region for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_RegionDisksSetLabels
  */
@@ -14972,6 +15910,72 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
             instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Updates a managed instance group using the information that you specify in
+ *  the request. This operation is marked as DONE when the group is patched even
+ *  if the instances in the group are still in the process of being patched. You
+ *  must separately verify the status of the individual instances with the
+ *  listmanagedinstances method. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  Method: compute.regionInstanceGroupManagers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersPatchWithObject:project:region:instanceGroupManager:]
+
+/** The name of the instance group manager. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a managed instance group using the information that you specify in
+ *  the request. This operation is marked as DONE when the group is patched even
+ *  if the instances in the group are still in the process of being patched. You
+ *  must separately verify the status of the individual instances with the
+ *  listmanagedinstances method. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager The name of the instance group manager.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -17069,7 +18073,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
  *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snaphots.
+ *  For more information, see Deleting snapshots.
  *
  *  Method: compute.snapshots.delete
  *
@@ -17108,7 +18112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
  *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snaphots.
+ *  For more information, see Deleting snapshots.
  *
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to delete.
@@ -17154,6 +18158,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                         snapshot:(NSString *)snapshot;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.snapshots.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SnapshotsGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSnapshotsGetIamPolicyWithproject:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
 
 @end
 
@@ -17243,6 +18284,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.snapshots.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SnapshotsSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSnapshotsSetIamPolicyWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the labels on a snapshot. To learn more about labels, read the Labeling
  *  Resources documentation.
  *
@@ -17259,7 +18339,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -17271,11 +18351,49 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRComputeQuery_SnapshotsSetLabels
  */
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.snapshots.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SnapshotsTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSnapshotsTestIamPermissionsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
 
@@ -18091,6 +19209,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.subnetworks.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SubnetworksGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksGetIamPolicyWithproject:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SubnetworksGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a subnetwork in the specified project using the data included in the
  *  request.
  *
@@ -18315,9 +19475,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Patches the specified subnetwork with the data included in the request. Only
- *  the following fields within the subnetwork resource can be specified in the
- *  request: secondary_ip_range, allow_subnet_cidr_routes_overlap and role. It
- *  is also mandatory to specify the current fingeprint of the subnetwork
+ *  certain fields can up updated with a patch request as indicated in the field
+ *  descriptions. You must specify the current fingeprint of the subnetwork
  *  resource being patched.
  *
  *  Method: compute.subnetworks.patch
@@ -18357,9 +19516,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified subnetwork with the data included in the request. Only
- *  the following fields within the subnetwork resource can be specified in the
- *  request: secondary_ip_range, allow_subnet_cidr_routes_overlap and role. It
- *  is also mandatory to specify the current fingeprint of the subnetwork
+ *  certain fields can up updated with a patch request as indicated in the field
+ *  descriptions. You must specify the current fingeprint of the subnetwork
  *  resource being patched.
  *
  *  @param object The @c GTLRCompute_Subnetwork to include in the query.
@@ -18373,6 +19531,50 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                          region:(NSString *)region
                      subnetwork:(NSString *)subnetwork;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.subnetworks.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SubnetworksSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksSetIamPolicyWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SubnetworksSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 
@@ -18431,6 +19633,49 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                          region:(NSString *)region
                      subnetwork:(NSString *)subnetwork;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.subnetworks.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SubnetworksTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksTestIamPermissionsWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_SubnetworksTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 

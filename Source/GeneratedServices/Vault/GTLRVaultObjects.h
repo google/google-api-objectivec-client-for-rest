@@ -90,6 +90,34 @@ GTLR_EXTERN NSString * const kGTLRVault_Export_Status_Failed;
 GTLR_EXTERN NSString * const kGTLRVault_Export_Status_InProgress;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_ExportOptions.region
+
+/**
+ *  Any region.
+ *
+ *  Value: "ANY"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Any;
+/**
+ *  Europe region.
+ *
+ *  Value: "EUROPE"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Europe;
+/**
+ *  The region is unspecified. Will be treated the same as ANY.
+ *
+ *  Value: "EXPORT_REGION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified;
+/**
+ *  US region.
+ *
+ *  Value: "US"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_GroupsExportOptions.exportFormat
 
 /**
@@ -639,6 +667,20 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /** Option available for mail export. */
 @property(nonatomic, strong, nullable) GTLRVault_MailExportOptions *mailOptions;
 
+/**
+ *  The requested export location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_ExportOptions_Region_Any Any region. (Value: "ANY")
+ *    @arg @c kGTLRVault_ExportOptions_Region_Europe Europe region. (Value:
+ *        "EUROPE")
+ *    @arg @c kGTLRVault_ExportOptions_Region_ExportRegionUnspecified The region
+ *        is unspecified. Will be treated the same as ANY. (Value:
+ *        "EXPORT_REGION_UNSPECIFIED")
+ *    @arg @c kGTLRVault_ExportOptions_Region_Us US region. (Value: "US")
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 @end
 
 
@@ -1031,13 +1073,6 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
-
-/**
- *  Set to true to export confidential mode content
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *showConfidentialModeContent;
 
 @end
 

@@ -1736,8 +1736,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Pseudonymization method that generates surrogates via cryptographic hashing.
  *  Uses SHA-256.
  *  The key size must be either 32 or 64 bytes.
- *  Outputs a 32 byte digest as an uppercase hex string
- *  (for example, 41D1567F7F99F1DC2A5FAB886DEE5BEE).
+ *  Outputs a base64 encoded representation of the hashed output
+ *  (for example, L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=).
  *  Currently, only string and integer values can be hashed.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig : GTLRObject
@@ -4942,7 +4942,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldTransformation *> *fieldTransformations;
 
-/** Set if the transformation was limited to a specific info_type. */
+/** Set if the transformation was limited to a specific InfoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
 /** The specific suppression option these stats apply to. */

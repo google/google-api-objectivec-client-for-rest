@@ -28,6 +28,17 @@ NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Info    = @"INFO";
 NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None    = @"NONE";
 
+// GTLRCloudIot_GatewayConfig.gatewayAuthMethod
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken = @"ASSOCIATION_AND_DEVICE_AUTH_TOKEN";
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly = @"ASSOCIATION_ONLY";
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_DeviceAuthTokenOnly = @"DEVICE_AUTH_TOKEN_ONLY";
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified = @"GATEWAY_AUTH_METHOD_UNSPECIFIED";
+
+// GTLRCloudIot_GatewayConfig.gatewayType
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_Gateway = @"GATEWAY";
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_GatewayTypeUnspecified = @"GATEWAY_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway = @"NON_GATEWAY";
+
 // GTLRCloudIot_HttpConfig.httpEnabledState
 NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpDisabled = @"HTTP_DISABLED";
 NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled = @"HTTP_ENABLED";
@@ -48,6 +59,25 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256X509Pem = @"ES256
 NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaPem = @"RSA_PEM";
 NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem = @"RSA_X509_PEM";
 NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFormat = @"UNSPECIFIED_PUBLIC_KEY_FORMAT";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_BindDeviceToGatewayRequest
+//
+
+@implementation GTLRCloudIot_BindDeviceToGatewayRequest
+@dynamic deviceId, gatewayId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_BindDeviceToGatewayResponse
+//
+
+@implementation GTLRCloudIot_BindDeviceToGatewayResponse
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -73,10 +103,10 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_Device
-@dynamic blocked, config, credentials, identifier, lastConfigAckTime,
-         lastConfigSendTime, lastErrorStatus, lastErrorTime, lastEventTime,
-         lastHeartbeatTime, lastStateTime, logLevel, metadata, name, numId,
-         state;
+@dynamic blocked, config, credentials, gatewayConfig, identifier,
+         lastConfigAckTime, lastConfigSendTime, lastErrorStatus, lastErrorTime,
+         lastEventTime, lastHeartbeatTime, lastStateTime, logLevel, metadata,
+         name, numId, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -191,6 +221,17 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_GatewayConfig
+//
+
+@implementation GTLRCloudIot_GatewayConfig
+@dynamic gatewayAuthMethod, gatewayType, lastAccessedGatewayId,
+         lastAccessedGatewayTime;
 @end
 
 
@@ -469,6 +510,25 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_UnbindDeviceFromGatewayRequest
+//
+
+@implementation GTLRCloudIot_UnbindDeviceFromGatewayRequest
+@dynamic deviceId, gatewayId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_UnbindDeviceFromGatewayResponse
+//
+
+@implementation GTLRCloudIot_UnbindDeviceFromGatewayResponse
 @end
 
 

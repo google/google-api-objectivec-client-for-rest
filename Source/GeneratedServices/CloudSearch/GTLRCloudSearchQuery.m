@@ -39,9 +39,67 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_DebugDatasourcesItemsCheckAccess
+
+@dynamic debugOptionsEnableDebugging, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
+}
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_Principal *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/debug/{+name}:checkAccess";
+  GTLRCloudSearchQuery_DebugDatasourcesItemsCheckAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_CheckAccessResponse class];
+  query.loggingName = @"cloudsearch.debug.datasources.items.checkAccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_DebugDatasourcesItemsSearchByViewUrl
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_SearchItemsByViewUrlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/debug/{+name}/items:searchByViewUrl";
+  GTLRCloudSearchQuery_DebugDatasourcesItemsSearchByViewUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_SearchItemsByViewUrlResponse class];
+  query.loggingName = @"cloudsearch.debug.datasources.items.searchByViewUrl";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_DebugDatasourcesItemsUnmappedidsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic debugOptionsEnableDebugging, pageSize, pageToken, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -60,7 +118,12 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_DebugIdentitysourcesItemsListForunmappedidentity
 
-@dynamic groupResourceName, pageSize, pageToken, parent, userResourceName;
+@dynamic debugOptionsEnableDebugging, groupResourceName, pageSize, pageToken,
+         parent, userResourceName;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -79,7 +142,12 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_DebugIdentitysourcesUnmappedidsList
 
-@dynamic pageSize, pageToken, parent, resolutionStatusCode;
+@dynamic debugOptionsEnableDebugging, pageSize, pageToken, parent,
+         resolutionStatusCode;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

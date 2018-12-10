@@ -61,6 +61,8 @@
 @class GTLRAndroidEnterprise_TrackInfo;
 @class GTLRAndroidEnterprise_User;
 @class GTLRAndroidEnterprise_VariableSet;
+@class GTLRAndroidEnterprise_WebApp;
+@class GTLRAndroidEnterprise_WebAppIcon;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -2173,6 +2175,88 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The value of the placeholder, specific to the user. */
 @property(nonatomic, copy, nullable) NSString *userValue;
+
+@end
+
+
+/**
+ *  WebApp resource info.
+ */
+@interface GTLRAndroidEnterprise_WebApp : GTLRObject
+
+/** The display mode of the web app. */
+@property(nonatomic, copy, nullable) NSString *displayMode;
+
+/**
+ *  A list of icons representing this website. Must have at least one element.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_WebAppIcon *> *icons;
+
+/**
+ *  A flag whether the app has been published to the Play store yet.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPublished;
+
+/**
+ *  The start URL, i.e. the URL that should load when the user opens the
+ *  application.
+ */
+@property(nonatomic, copy, nullable) NSString *startUrl;
+
+/**
+ *  The title of the web application as displayed to the user (e.g., amongst a
+ *  list of other applications, or as a label for an icon).
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  The current version of the app.
+ *  Note that the version can automatically increase during the lifetime of the
+ *  web app, while Google does internal housekeeping to keep the web app
+ *  up-to-date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+/** The ID of the application. */
+@property(nonatomic, copy, nullable) NSString *webAppId;
+
+@end
+
+
+/**
+ *  Icon for a web app.
+ */
+@interface GTLRAndroidEnterprise_WebAppIcon : GTLRObject
+
+/**
+ *  The actual bytes of the image in a base64url encoded string (c.f. RFC4648,
+ *  section 5 "Base 64 Encoding with URL and Filename Safe Alphabet").
+ *  - The image type can be png or jpg.
+ *  - The image should ideally be square.
+ *  - The image should ideally have a size of 512x512.
+ */
+@property(nonatomic, copy, nullable) NSString *imageData;
+
+@end
+
+
+/**
+ *  The web app details for an enterprise.
+ */
+@interface GTLRAndroidEnterprise_WebAppsListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#webAppsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The manifest describing a web app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_WebApp *> *webApp;
 
 @end
 

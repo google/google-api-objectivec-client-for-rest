@@ -53,6 +53,7 @@
 @class GTLRBigquery_JobStatistics4;
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
+@class GTLRBigquery_MaterializedViewDefinition;
 @class GTLRBigquery_ModelDefinition;
 @class GTLRBigquery_ModelDefinition_ModelOptions;
 @class GTLRBigquery_ModelTraining;
@@ -425,8 +426,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The geographic location where the dataset should reside. The default value
- *  is US. See details at
- *  https://cloud.google.com/bigquery/docs/dataset-locations.
+ *  is US. See details at https://cloud.google.com/bigquery/docs/locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -575,7 +575,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetList_Datasets_Item_Labels *labels;
 
-/** [Experimental] The geographic location where the data resides. */
+/** The geographic location where the data resides. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 @end
@@ -1088,7 +1088,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Beta] [Optional] Range of a sheet to query from. Only used when non-empty.
- *  Typical format: !:
+ *  Typical format: sheet_name!top_left_cell_id:bottom_right_cell_id For
+ *  example: sheet1!A1:B20
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -1483,6 +1484,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *quote;
 
 /**
+ *  [TrustedTester] Range partitioning specification for this table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
+
+/**
  *  [Optional] The schema for the destination table. The schema can be omitted
  *  if the destination table already exists, or if you're loading data from
  *  Google Cloud Datastore.
@@ -1542,14 +1549,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
 
-/** Time-based partitioning specification for the destination table. */
+/**
+ *  Time-based partitioning specification for the destination table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  If sourceFormat is set to "AVRO", indicates whether to enable interpreting
- *  logical types into their corresponding types (ie. TIMESTAMP), instead of
- *  only using their raw types (ie. INTEGER). The default value will be true
- *  once this feature launches, but can be set now in preparation.
+ *  [Optional] If sourceFormat is set to "AVRO", indicates whether to enable
+ *  interpreting logical types into their corresponding types (ie. TIMESTAMP),
+ *  instead of only using their raw types (ie. INTEGER).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1678,6 +1687,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
+ *  [TrustedTester] Range partitioning specification for this table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
+
+/**
  *  Allows the schema of the destination table to be updated as a side effect of
  *  the query job. Schema update options are supported in two cases: when
  *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
@@ -1698,7 +1713,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery_TableDefinitions *tableDefinitions;
 
-/** Time-based partitioning specification for the destination table. */
+/**
+ *  Time-based partitioning specification for the destination table. Only one of
+ *  timePartitioning and rangePartitioning should be specified.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
@@ -2078,6 +2096,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
 
 /**
+ *  [Output-only] For dry-run jobs, totalBytesProcessed is an estimate and this
+ *  field specifies the accuracy of the estimate. Possible values can be:
+ *  UNKNOWN: accuracy of the estimate is unknown. PRECISE: estimate is precise.
+ *  LOWER_BOUND: estimate is lower bound of what the query would cost.
+ *  UPPER_BOUND: estiamte is upper bound of what the query would cost.
+ */
+@property(nonatomic, copy, nullable) NSString *totalBytesProcessedAccuracy;
+
+/**
  *  [Output-only] Total number of partitions processed from all partitioned
  *  tables referenced in the job.
  *
@@ -2221,6 +2248,25 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigquery_JsonObject : GTLRObject
+@end
+
+
+/**
+ *  GTLRBigquery_MaterializedViewDefinition
+ */
+@interface GTLRBigquery_MaterializedViewDefinition : GTLRObject
+
+/**
+ *  [Output-only] [TrustedTester] The time when this materialized view was last
+ *  modified, in milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastRefreshTime;
+
+/** [Required] A query whose result is persisted. */
+@property(nonatomic, copy, nullable) NSString *query;
+
 @end
 
 
@@ -2488,8 +2534,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The geographic location where the job should run. Required except for US and
- *  EU.
+ *  The geographic location where the job should run. See details at
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -2698,39 +2744,39 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_RangePartitioning : GTLRObject
 
 /**
- *  [Experimental] [Required] The table is partitioned by this field. The field
+ *  [TrustedTester] [Required] The table is partitioned by this field. The field
  *  must be a top-level NULLABLE/REQUIRED field. The only supported type is
  *  INTEGER/INT64.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
-/** [Experimental] [Required] Defines the ranges for range partitioning. */
+/** [TrustedTester] [Required] Defines the ranges for range partitioning. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning_Range *range;
 
 @end
 
 
 /**
- *  [Experimental] [Required] Defines the ranges for range partitioning.
+ *  [TrustedTester] [Required] Defines the ranges for range partitioning.
  */
 @interface GTLRBigquery_RangePartitioning_Range : GTLRObject
 
 /**
- *  [Experimental] [Required] The end of range partitioning, exclusive.
+ *  [TrustedTester] [Required] The end of range partitioning, exclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *end;
 
 /**
- *  [Experimental] [Required] The width of each interval.
+ *  [TrustedTester] [Required] The width of each interval.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *interval;
 
 /**
- *  [Experimental] [Required] The start of range partitioning, inclusive.
+ *  [TrustedTester] [Required] The start of range partitioning, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2778,9 +2824,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_Table : GTLRObject
 
 /**
- *  [Experimental] Clustering specification for the table. Must be specified
- *  with partitioning, data in the table will be first partitioned and
- *  subsequently clustered.
+ *  [Beta] Clustering specification for the table. Must be specified with
+ *  partitioning, data in the table will be first partitioned and subsequently
+ *  clustered.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
@@ -2865,6 +2911,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/** [Optional] Materialized view definition. */
+@property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewDefinition *materializedView;
+
 /**
  *  [Output-only, Beta] Present iff this table represents a ML model. Describes
  *  the training information for the model, and it is required to run 'PREDICT'
@@ -2889,7 +2938,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *numLongTermBytes;
 
 /**
- *  [Output-only] [Experimental] The physical size of this table in bytes,
+ *  [Output-only] [TrustedTester] The physical size of this table in bytes,
  *  excluding any data in the streaming buffer. This includes compression and
  *  storage used for time travel.
  *
@@ -2906,13 +2955,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *numRows;
 
 /**
- *  [Experimental] Range partitioning specification for this table. Only one of
+ *  [TrustedTester] Range partitioning specification for this table. Only one of
  *  timePartitioning and rangePartitioning should be specified.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
 /**
- *  [Experimental] [Optional] If set to true, queries over this table require a
+ *  [Beta] [Optional] If set to true, queries over this table require a
  *  partition filter that can be used for partition elimination to be specified.
  *
  *  Uses NSNumber of boolValue.
@@ -2944,8 +2993,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Output-only] Describes the table type. The following values are supported:
  *  TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL
- *  query. EXTERNAL: A table that references data stored in an external storage
- *  system, such as Google Cloud Storage. The default value is TABLE.
+ *  query. [TrustedTester] MATERIALIZED_VIEW: SQL query whose result is
+ *  persisted. EXTERNAL: A table that references data stored in an external
+ *  storage system, such as Google Cloud Storage. The default value is TABLE.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3017,10 +3067,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *skipInvalidRows;
 
 /**
- *  [Experimental] If specified, treats the destination table as a base
- *  template, and inserts the rows into an instance table named
- *  "{destination}{templateSuffix}". BigQuery will manage creation of the
- *  instance table, using the schema of the base template table. See
+ *  If specified, treats the destination table as a base template, and inserts
+ *  the rows into an instance table named "{destination}{templateSuffix}".
+ *  BigQuery will manage creation of the instance table, using the schema of the
+ *  base template table. See
  *  https://cloud.google.com/bigquery/streaming-data-into-bigquery#template-tables
  *  for considerations when working with templates tables.
  */

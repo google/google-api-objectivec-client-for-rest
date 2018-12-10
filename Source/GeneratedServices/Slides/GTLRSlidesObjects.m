@@ -22,6 +22,12 @@ NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified = @"UNIT_UNSPE
 NSString * const kGTLRSlides_AutoText_Type_SlideNumber     = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRSlides_CreateLineRequest.category
+NSString * const kGTLRSlides_CreateLineRequest_Category_Bent   = @"BENT";
+NSString * const kGTLRSlides_CreateLineRequest_Category_Curved = @"CURVED";
+NSString * const kGTLRSlides_CreateLineRequest_Category_LineCategoryUnspecified = @"LINE_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRSlides_CreateLineRequest_Category_Straight = @"STRAIGHT";
+
 // GTLRSlides_CreateLineRequest.lineCategory
 NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Bent = @"BENT";
 NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Curved = @"CURVED";
@@ -216,6 +222,12 @@ NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Title = @"TITLE";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndBody = @"TITLE_AND_BODY";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndTwoColumns = @"TITLE_AND_TWO_COLUMNS";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleOnly = @"TITLE_ONLY";
+
+// GTLRSlides_Line.lineCategory
+NSString * const kGTLRSlides_Line_LineCategory_Bent            = @"BENT";
+NSString * const kGTLRSlides_Line_LineCategory_Curved          = @"CURVED";
+NSString * const kGTLRSlides_Line_LineCategory_LineCategoryUnspecified = @"LINE_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRSlides_Line_LineCategory_Straight        = @"STRAIGHT";
 
 // GTLRSlides_Line.lineType
 NSString * const kGTLRSlides_Line_LineType_BentConnector2     = @"BENT_CONNECTOR_2";
@@ -628,6 +640,19 @@ NSString * const kGTLRSlides_ThemeColorPair_Type_Text1         = @"TEXT1";
 NSString * const kGTLRSlides_ThemeColorPair_Type_Text2         = @"TEXT2";
 NSString * const kGTLRSlides_ThemeColorPair_Type_ThemeColorTypeUnspecified = @"THEME_COLOR_TYPE_UNSPECIFIED";
 
+// GTLRSlides_UpdateLineCategoryRequest.lineCategory
+NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Bent = @"BENT";
+NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Curved = @"CURVED";
+NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_LineCategoryUnspecified = @"LINE_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Straight = @"STRAIGHT";
+
+// GTLRSlides_UpdatePageElementsZOrderRequest.operation
+NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward = @"BRING_FORWARD";
+NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront = @"BRING_TO_FRONT";
+NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward = @"SEND_BACKWARD";
+NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack = @"SEND_TO_BACK";
+NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_ZOrderOperationUnspecified = @"Z_ORDER_OPERATION_UNSPECIFIED";
+
 // GTLRSlides_UpdatePageElementTransformRequest.applyMode
 NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Absolute = @"ABSOLUTE";
 NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_ApplyModeUnspecified = @"APPLY_MODE_UNSPECIFIED";
@@ -769,7 +794,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_CreateLineRequest
-@dynamic elementProperties, lineCategory, objectId;
+@dynamic category, elementProperties, lineCategory, objectId;
 @end
 
 
@@ -1143,7 +1168,17 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Line
-@dynamic lineProperties, lineType;
+@dynamic lineCategory, lineProperties, lineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_LineConnection
+//
+
+@implementation GTLRSlides_LineConnection
+@dynamic connectedObjectId, connectionSiteIndex;
 @end
 
 
@@ -1163,7 +1198,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_LineProperties
-@dynamic dashStyle, endArrow, lineFill, link, startArrow, weight;
+@dynamic dashStyle, endArrow, endConnection, lineFill, link, startArrow,
+         startConnection, weight;
 @end
 
 
@@ -1543,13 +1579,24 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          duplicateObject, groupObjects, insertTableColumns, insertTableRows,
          insertText, mergeTableCells, refreshSheetsChart,
          replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
-         replaceAllText, replaceImage, ungroupObjects, unmergeTableCells,
-         updateImageProperties, updateLineProperties, updatePageElementAltText,
-         updatePageElementTransform, updatePageProperties, updateParagraphStyle,
-         updateShapeProperties, updateSlidesPosition,
-         updateTableBorderProperties, updateTableCellProperties,
-         updateTableColumnProperties, updateTableRowProperties, updateTextStyle,
-         updateVideoProperties;
+         replaceAllText, replaceImage, rerouteLine, ungroupObjects,
+         unmergeTableCells, updateImageProperties, updateLineCategory,
+         updateLineProperties, updatePageElementAltText,
+         updatePageElementsZOrder, updatePageElementTransform,
+         updatePageProperties, updateParagraphStyle, updateShapeProperties,
+         updateSlidesPosition, updateTableBorderProperties,
+         updateTableCellProperties, updateTableColumnProperties,
+         updateTableRowProperties, updateTextStyle, updateVideoProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_RerouteLineRequest
+//
+
+@implementation GTLRSlides_RerouteLineRequest
+@dynamic objectId;
 @end
 
 
@@ -1969,6 +2016,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_UpdateLineCategoryRequest
+//
+
+@implementation GTLRSlides_UpdateLineCategoryRequest
+@dynamic lineCategory, objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_UpdateLinePropertiesRequest
 //
 
@@ -1987,6 +2044,24 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdatePageElementsZOrderRequest
+//
+
+@implementation GTLRSlides_UpdatePageElementsZOrderRequest
+@dynamic operation, pageElementObjectIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageElementObjectIds" : [NSString class]
+  };
+  return map;
 }
 
 @end

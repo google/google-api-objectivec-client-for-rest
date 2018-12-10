@@ -34,6 +34,7 @@
 @class GTLRAndroidEnterprise_StoreLayout;
 @class GTLRAndroidEnterprise_StorePage;
 @class GTLRAndroidEnterprise_User;
+@class GTLRAndroidEnterprise_WebApp;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -2928,6 +2929,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Generates an authentication token which the device policy client can use to
  *  provision the given EMM-managed user account on a device. The generated
  *  token is single-use and expires after a few minutes.
+ *  You can provision a maximum of 10 devices per user.
  *  This call only works with EMM-managed accounts.
  *
  *  Method: androidenterprise.users.generateAuthenticationToken
@@ -2951,6 +2953,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Generates an authentication token which the device policy client can use to
  *  provision the given EMM-managed user account on a device. The generated
  *  token is single-use and expires after a few minutes.
+ *  You can provision a maximum of 10 devices per user.
  *  This call only works with EMM-managed accounts.
  *
  *  @param enterpriseId The ID of the enterprise.
@@ -3344,6 +3347,201 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Deletes an existing web app.
+ *
+ *  Method: androidenterprise.webapps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsDelete : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsDeleteWithenterpriseId:webAppId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the web app. */
+@property(nonatomic, copy, nullable) NSString *webAppId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes an existing web app.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param webAppId The ID of the web app.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsDelete
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                             webAppId:(NSString *)webAppId;
+
+@end
+
+/**
+ *  Gets an existing web app.
+ *
+ *  Method: androidenterprise.webapps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsGet : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsGetWithenterpriseId:webAppId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the web app. */
+@property(nonatomic, copy, nullable) NSString *webAppId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_WebApp.
+ *
+ *  Gets an existing web app.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param webAppId The ID of the web app.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsGet
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                             webAppId:(NSString *)webAppId;
+
+@end
+
+/**
+ *  Creates a new web app for the enterprise.
+ *
+ *  Method: androidenterprise.webapps.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsInsert : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsInsertWithObject:enterpriseId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_WebApp.
+ *
+ *  Creates a new web app for the enterprise.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_WebApp to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsInsert
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Retrieves the details of all web apps for a given enterprise.
+ *
+ *  Method: androidenterprise.webapps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsList : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsListWithenterpriseId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_WebAppsListResponse.
+ *
+ *  Retrieves the details of all web apps for a given enterprise.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsList
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Updates an existing web app. This method supports patch semantics.
+ *
+ *  Method: androidenterprise.webapps.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsPatch : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsPatchWithObject:enterpriseId:webAppId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the web app. */
+@property(nonatomic, copy, nullable) NSString *webAppId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_WebApp.
+ *
+ *  Updates an existing web app. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_WebApp to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param webAppId The ID of the web app.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId
+                       webAppId:(NSString *)webAppId;
+
+@end
+
+/**
+ *  Updates an existing web app.
+ *
+ *  Method: androidenterprise.webapps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_WebappsUpdate : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForWebappsUpdateWithObject:enterpriseId:webAppId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the web app. */
+@property(nonatomic, copy, nullable) NSString *webAppId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_WebApp.
+ *
+ *  Updates an existing web app.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_WebApp to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param webAppId The ID of the web app.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_WebappsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId
+                       webAppId:(NSString *)webAppId;
 
 @end
 

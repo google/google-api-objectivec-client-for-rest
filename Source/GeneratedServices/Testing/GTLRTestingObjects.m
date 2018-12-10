@@ -175,8 +175,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidInstrumentationTest
-@dynamic appApk, appPackageId, orchestratorOption, testApk, testPackageId,
-         testRunnerClass, testTargets;
+@dynamic appApk, appBundle, appPackageId, orchestratorOption, testApk,
+         testPackageId, testRunnerClass, testTargets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -241,8 +241,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidRoboTest
-@dynamic appApk, appInitialActivity, appPackageId, maxDepth, maxSteps,
-         roboDirectives, roboScript, startingIntents;
+@dynamic appApk, appBundle, appInitialActivity, appPackageId, maxDepth,
+         maxSteps, roboDirectives, roboScript, startingIntents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -280,7 +280,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidTestLoop
-@dynamic appApk, appPackageId, scenarioLabels, scenarios;
+@dynamic appApk, appBundle, appPackageId, scenarioLabels, scenarios;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -352,6 +352,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_AppBundle
+//
+
+@implementation GTLRTesting_AppBundle
+@dynamic bundleLocation;
 @end
 
 

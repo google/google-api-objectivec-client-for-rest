@@ -57,6 +57,7 @@
 @class GTLRVision_GoogleCloudVisionV1p1beta1InputConfig;
 @class GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p1beta1LocationInfo;
+@class GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex;
 @class GTLRVision_GoogleCloudVisionV1p1beta1OutputConfig;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Page;
 @class GTLRVision_GoogleCloudVisionV1p1beta1Paragraph;
@@ -3887,7 +3888,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -4793,7 +4794,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -4817,6 +4818,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  A bounding polygon for the detected image annotation.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly : GTLRObject
+
+/** The bounding polygon normalized vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex *> *normalizedVertices;
 
 /** The bounding polygon vertices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1Vertex *> *vertices;
@@ -5438,6 +5442,30 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
  *  Contains metadata for the BatchAnnotateImages operation.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata : GTLRObject
@@ -5551,7 +5579,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -6201,7 +6229,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -6368,7 +6396,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -7153,7 +7181,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -7803,7 +7831,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -8012,7 +8040,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -8820,7 +8848,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -9505,7 +9533,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -10333,7 +10361,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -11099,7 +11127,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  2----3
  *  | |
  *  1----0
- *  and the vertice order will still be (0, 1, 2, 3).
+ *  and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 

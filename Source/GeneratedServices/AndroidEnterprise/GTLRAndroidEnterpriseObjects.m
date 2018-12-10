@@ -1101,3 +1101,50 @@
 @implementation GTLRAndroidEnterprise_VariableSet
 @dynamic kind, placeholder, userValue;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_WebApp
+//
+
+@implementation GTLRAndroidEnterprise_WebApp
+@dynamic displayMode, icons, isPublished, startUrl, title, versionCode,
+         webAppId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"icons" : [GTLRAndroidEnterprise_WebAppIcon class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_WebAppIcon
+//
+
+@implementation GTLRAndroidEnterprise_WebAppIcon
+@dynamic imageData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_WebAppsListResponse
+//
+
+@implementation GTLRAndroidEnterprise_WebAppsListResponse
+@dynamic kind, webApp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"webApp" : [GTLRAndroidEnterprise_WebApp class]
+  };
+  return map;
+}
+
+@end
