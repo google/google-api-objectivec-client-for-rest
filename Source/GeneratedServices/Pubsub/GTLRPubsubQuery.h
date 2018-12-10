@@ -53,7 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a snapshot from the requested subscription. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.
@@ -68,11 +69,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  See also the `Snapshot.expire_time` field. If the name is not provided in
  *  the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription, conforming
- *  to the [resource name
- *  format](https://cloud.google.com/pubsub/docs/overview#names).
- *  The generated
- *  name is populated in the returned Snapshot object. Note that for REST API
- *  requests, you must specify a name in the request.
+ *  to the
+ *  [resource name format](https://cloud.google.com/pubsub/docs/overview#names).
+ *  The generated name is populated in the returned Snapshot object. Note that
+ *  for REST API requests, you must specify a name in the request.
  *
  *  Method: pubsub.projects.snapshots.create
  *
@@ -89,7 +89,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  If the name is not provided in the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription.
  *  Note that for REST API requests, you must specify a name. See the
- *  <a href="/pubsub/docs/admin#resource_names">resource name rules</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource name rules</a>.
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -98,7 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
  *  Creates a snapshot from the requested subscription. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.
@@ -113,11 +115,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  See also the `Snapshot.expire_time` field. If the name is not provided in
  *  the request, the server will assign a random
  *  name for this snapshot on the same project as the subscription, conforming
- *  to the [resource name
- *  format](https://cloud.google.com/pubsub/docs/overview#names).
- *  The generated
- *  name is populated in the returned Snapshot object. Note that for REST API
- *  requests, you must specify a name in the request.
+ *  to the
+ *  [resource name format](https://cloud.google.com/pubsub/docs/overview#names).
+ *  The generated name is populated in the returned Snapshot object. Note that
+ *  for REST API requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
@@ -126,7 +127,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    random
  *    name for this snapshot on the same project as the subscription.
  *    Note that for REST API requests, you must specify a name. See the
- *    <a href="/pubsub/docs/admin#resource_names">resource name rules</a>.
+ *    <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *    resource name rules</a>.
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsCreate
@@ -138,7 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Removes an existing snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -170,7 +173,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Empty.
  *
  *  Removes an existing snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -193,10 +197,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the configuration details of a snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
- *  you to manage message acknowledgments in bulk. That is, you can set the
- *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.<br><br>
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow you to manage message acknowledgments in bulk. That
+ *  is, you can set the acknowledgment state of messages in an existing
+ *  subscription to the state captured by a snapshot.<br><br>
  *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
@@ -221,10 +225,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
  *  Gets the configuration details of a snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
- *  you to manage message acknowledgments in bulk. That is, you can set the
- *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.<br><br>
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow you to manage message acknowledgments in bulk. That
+ *  is, you can set the acknowledgment state of messages in an existing
+ *  subscription to the state captured by a snapshot.<br><br>
  *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
  *  use. It is not subject to any SLA or deprecation policy.
@@ -278,7 +282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the existing snapshots. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -316,7 +321,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_ListSnapshotsResponse.
  *
  *  Lists the existing snapshots. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -339,7 +345,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an existing snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -365,7 +372,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
  *  Updates an existing snapshot. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -517,7 +525,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a subscription to a given topic. See the
- *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource name rules</a>.
  *  If the subscription already exists, returns `ALREADY_EXISTS`.
  *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
  *  If the name is not provided in the request, the server will assign a random
@@ -551,7 +560,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Subscription.
  *
  *  Creates a subscription to a given topic. See the
- *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource name rules</a>.
  *  If the subscription already exists, returns `ALREADY_EXISTS`.
  *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
  *  If the name is not provided in the request, the server will assign a random
@@ -911,7 +921,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
  *  whichever is provided in the request. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot. Note that both the subscription and the snapshot
@@ -938,7 +949,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
  *  whichever is provided in the request. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot. Note that both the subscription and the snapshot
@@ -1044,7 +1056,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates the given topic with the given name. See the
- *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource name rules</a>.
  *
  *  Method: pubsub.projects.topics.create
  *
@@ -1070,7 +1083,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Topic.
  *
  *  Creates the given topic with the given name. See the
- *  <a href="/pubsub/docs/admin#resource_names"> resource name rules</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource name rules</a>.
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
  *  @param name The name of the topic. It must have the format
@@ -1368,7 +1382,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the names of the snapshots on this topic. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -1406,7 +1421,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_ListTopicSnapshotsResponse.
  *
  *  Lists the names of the snapshots on this topic. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>

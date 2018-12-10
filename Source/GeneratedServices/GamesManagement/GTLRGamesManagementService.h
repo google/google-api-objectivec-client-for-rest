@@ -26,7 +26,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: Share your Google+ profile information and view and
@@ -35,13 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/games"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGamesManagementGames;
-/**
- *  Authorization scope: Know the list of people in your circles, your age
- *  range, and language
- *
- *  Value "https://www.googleapis.com/auth/plus.login"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesManagementPlusLogin;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesManagementService

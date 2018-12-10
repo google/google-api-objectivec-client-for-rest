@@ -156,6 +156,30 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 
 
 /**
+ *  Describes the progress of a long-running `LongRunningRecognize` call. It is
+ *  included in the `metadata` field of the `Operation` returned by the
+ *  `GetOperation` call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRSpeech_LongRunningRecognizeMetadata : GTLRObject
+
+/** Time of the most recent processing update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  Approximate percentage of audio processed thus far. Guaranteed to be 100
+ *  when the audio is fully processed and the results are available.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/** Time when the request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  The top-level message sent by the client for the `LongRunningRecognize`
  *  method.
  */
@@ -169,6 +193,25 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
+
+@end
+
+
+/**
+ *  The only message returned to the client by the `LongRunningRecognize`
+ *  method.
+ *  It contains the result as zero or more sequential `SpeechRecognitionResult`
+ *  messages. It is included in the `result.response` field of the `Operation`
+ *  returned by the `GetOperation` call of the `google::longrunning::Operations`
+ *  service.
+ */
+@interface GTLRSpeech_LongRunningRecognizeResponse : GTLRObject
+
+/**
+ *  Output only. Sequential list of transcription results corresponding to
+ *  sequential portions of audio.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
 
 @end
 
@@ -653,17 +696,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  vary.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
-
-/**
- *  Output only. A distinct integer value is assigned for every speaker within
- *  the audio. This field specifies which one of those speakers was detected to
- *  have spoken this word. Value ranges from '1' to diarization_speaker_count.
- *  speaker_tag is set if enable_speaker_diarization = 'true' and only in the
- *  top alternative.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *speakerTag;
 
 /**
  *  Output only. Time offset relative to the beginning of the audio,

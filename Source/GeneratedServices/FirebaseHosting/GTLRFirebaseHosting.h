@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Firebase Hosting API (firebasehosting/v1beta1)
+// Description:
+//   The Firebase Hosting REST API enables programmatic custom deployment for
+//   releasing versions of your Firebase hosted content and configuration files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 

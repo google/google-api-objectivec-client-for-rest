@@ -19,6 +19,8 @@
 #endif
 
 @class GTLRServiceConsumerManagement_AddTenantProjectRequest;
+@class GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest;
+@class GTLRServiceConsumerManagement_AttachTenantProjectRequest;
 @class GTLRServiceConsumerManagement_CancelOperationRequest;
 @class GTLRServiceConsumerManagement_CreateTenancyUnitRequest;
 @class GTLRServiceConsumerManagement_RemoveTenantProjectRequest;
@@ -322,6 +324,116 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRServiceConsumerManagement_AddTenantProjectRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Apply configuration to an existing tenant project.
+ *  This project must exist in active state and have the original owner
+ *  account. Caller must have the permission to add a project to the given
+ *  tenancy unit. Configuration will be applied, but any existing settings on
+ *  the project will not be modified.
+ *  Specified policy bindings will be applied. Existing binding will not be
+ *  modified.
+ *  Specified services will be activated. No service will be deactivated.
+ *  New billing configuration will be applied if specified.
+ *  Omit billing configuration to keep the existing one.
+ *  Service account in the project will be created if previously non existing.
+ *  Operation fails if any of the steps fail, but no rollback of already
+ *  applied configuration changes is attempted.
+ *  Operation<response: Empty>.
+ *
+ *  Method: serviceconsumermanagement.services.tenancyUnits.applyProjectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
+ */
+@interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig : GTLRServiceConsumerManagementQuery
+// Previous library name was
+//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsApplyProjectConfigWithObject:name:]
+
+/** Name of the tenancy unit. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceConsumerManagement_Operation.
+ *
+ *  Apply configuration to an existing tenant project.
+ *  This project must exist in active state and have the original owner
+ *  account. Caller must have the permission to add a project to the given
+ *  tenancy unit. Configuration will be applied, but any existing settings on
+ *  the project will not be modified.
+ *  Specified policy bindings will be applied. Existing binding will not be
+ *  modified.
+ *  Specified services will be activated. No service will be deactivated.
+ *  New billing configuration will be applied if specified.
+ *  Omit billing configuration to keep the existing one.
+ *  Service account in the project will be created if previously non existing.
+ *  Operation fails if any of the steps fail, but no rollback of already
+ *  applied configuration changes is attempted.
+ *  Operation<response: Empty>.
+ *
+ *  @param object The @c
+ *    GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest to include
+ *    in the query.
+ *  @param name Name of the tenancy unit.
+ *
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig
+ */
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Attach an existing project to the tenancy unit as a new tenant
+ *  resource. The project could be either the tenant project reserved by
+ *  calling AddTenantProject under tenancy unit for the producer project of
+ *  service, or from outside.
+ *  Caller will be checked against the permission as if calling
+ *  AddTenantProject on the same consumer.
+ *  To trigger the attachement, the targeted tenant project must be in a
+ *  folder. Please also make sure ServiceConsumerManagement service account is
+ *  the owner of that project. Note that these two requirements are already met
+ *  if the project is reserved through AddTenantProject.
+ *  Operation<response: Empty>.
+ *
+ *  Method: serviceconsumermanagement.services.tenancyUnits.attachProject
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
+ */
+@interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject : GTLRServiceConsumerManagementQuery
+// Previous library name was
+//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAttachProjectWithObject:name:]
+
+/** Name of the tenancy unit that project will be attached to. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceConsumerManagement_Operation.
+ *
+ *  Attach an existing project to the tenancy unit as a new tenant
+ *  resource. The project could be either the tenant project reserved by
+ *  calling AddTenantProject under tenancy unit for the producer project of
+ *  service, or from outside.
+ *  Caller will be checked against the permission as if calling
+ *  AddTenantProject on the same consumer.
+ *  To trigger the attachement, the targeted tenant project must be in a
+ *  folder. Please also make sure ServiceConsumerManagement service account is
+ *  the owner of that project. Note that these two requirements are already met
+ *  if the project is reserved through AddTenantProject.
+ *  Operation<response: Empty>.
+ *
+ *  @param object The @c
+ *    GTLRServiceConsumerManagement_AttachTenantProjectRequest to include in the
+ *    query.
+ *  @param name Name of the tenancy unit that project will be attached to.
+ *
+ *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject
+ */
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_AttachTenantProjectRequest *)object
+                           name:(NSString *)name;
 
 @end
 

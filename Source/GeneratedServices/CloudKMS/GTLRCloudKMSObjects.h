@@ -401,7 +401,11 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLe
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_KeyOperationAttestation.format
 
-/** Value: "ATTESTATION_FORMAT_UNSPECIFIED" */
+/**
+ *  Not specified.
+ *
+ *  Value: "ATTESTATION_FORMAT_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified;
 /**
  *  Cavium HSM attestation compressed with gzip. Note that this format is
@@ -1259,7 +1263,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified
- *        Value "ATTESTATION_FORMAT_UNSPECIFIED"
+ *        Not specified. (Value: "ATTESTATION_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed
  *        Cavium HSM attestation compressed with gzip. Note that this format is
  *        defined by Cavium and subject to change at any time. (Value:

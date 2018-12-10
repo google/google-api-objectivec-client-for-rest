@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Firebase Hosting API (firebasehosting/v1beta1)
+// Description:
+//   The Firebase Hosting REST API enables programmatic custom deployment for
+//   releasing versions of your Firebase hosted content and configuration files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
@@ -135,6 +138,25 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
+@implementation GTLRFirebaseHostingQuery_SitesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_SitesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
+  query.loggingName = @"firebasehosting.sites.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseHostingQuery_SitesReleasesCreate
 
 @dynamic parent, versionName;
@@ -174,6 +196,31 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
   query.parent = parent;
   query.expectedObjectClass = [GTLRFirebaseHosting_ListReleasesResponse class];
   query.loggingName = @"firebasehosting.sites.releases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_SitesUpdateConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_SiteConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_SitesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
+  query.loggingName = @"firebasehosting.sites.updateConfig";
   return query;
 }
 

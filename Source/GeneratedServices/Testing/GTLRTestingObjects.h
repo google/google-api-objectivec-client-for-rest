@@ -33,6 +33,7 @@
 @class GTLRTesting_Apk;
 @class GTLRTesting_ApkDetail;
 @class GTLRTesting_ApkManifest;
+@class GTLRTesting_AppBundle;
 @class GTLRTesting_ClientInfo;
 @class GTLRTesting_ClientInfoDetail;
 @class GTLRTesting_Date;
@@ -786,6 +787,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
 
+/** A multi-apk app bundle for the application under test. */
+@property(nonatomic, strong, nullable) GTLRTesting_AppBundle *appBundle;
+
 /**
  *  The java package for the application under test.
  *  Optional, default is determined by examining the application's manifest.
@@ -1037,6 +1041,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
 
+/** A multi-apk app bundle for the application under test. */
+@property(nonatomic, strong, nullable) GTLRTesting_AppBundle *appBundle;
+
 /**
  *  The initial activity that should be used to start the app.
  *  Optional
@@ -1123,6 +1130,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** The APK for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *appApk;
+
+/** A multi-apk app bundle for the application under test. */
+@property(nonatomic, strong, nullable) GTLRTesting_AppBundle *appBundle;
 
 /**
  *  The java package for the application under test.
@@ -1272,6 +1282,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  "com.example.foo".
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  An Android App Bundle file format, containing a BundleConfig.pb file,
+ *  a base module directory, zero or more dynamic feature module directories.
+ *  <p>See https://developer.android.com/guide/app-bundle/build for guidance on
+ *  building App Bundles.
+ */
+@interface GTLRTesting_AppBundle : GTLRObject
+
+/** .aab file representing the app bundle under test. */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *bundleLocation;
 
 @end
 

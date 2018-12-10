@@ -72,6 +72,8 @@ GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown;
 
 /** Value: "ADD_ON" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesAddOn;
+/** Value: "BATCH_TASK" */
+GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesBatchTask;
 /** Value: "EDITOR" */
 GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
@@ -130,6 +132,8 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesUnknown;
 
 /** Value: "ADD_ON" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesAddOn;
+/** Value: "BATCH_TASK" */
+GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesBatchTask;
 /** Value: "EDITOR" */
 GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
@@ -180,6 +184,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  such as process type and current status.
  *
  *  Method: script.processes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProcesses
  */
 @interface GTLRScriptQuery_ProcessesList : GTLRScriptQuery
 // Previous library name was
@@ -268,6 +275,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptUserProcessFilterTypesSimpleTrigger Value
  *        "SIMPLE_TRIGGER"
  *    @arg @c kGTLRScriptUserProcessFilterTypesMenu Value "MENU"
+ *    @arg @c kGTLRScriptUserProcessFilterTypesBatchTask Value "BATCH_TASK"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterTypes;
 
@@ -306,6 +314,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  and current status.
  *
  *  Method: script.processes.listScriptProcesses
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProcesses
  */
 @interface GTLRScriptQuery_ProcessesListScriptProcesses : GTLRScriptQuery
 // Previous library name was
@@ -385,6 +396,7 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *    @arg @c kGTLRScriptScriptProcessFilterTypesSimpleTrigger Value
  *        "SIMPLE_TRIGGER"
  *    @arg @c kGTLRScriptScriptProcessFilterTypesMenu Value "MENU"
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesBatchTask Value "BATCH_TASK"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterTypes;
 
@@ -423,6 +435,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  manifest file.
  *
  *  Method: script.projects.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsCreate : GTLRScriptQuery
 // Previous library name was
@@ -447,6 +462,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Creates a deployment of an Apps Script project.
  *
  *  Method: script.projects.deployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsCreate : GTLRScriptQuery
 // Previous library name was
@@ -474,6 +492,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Deletes a deployment of an Apps Script project.
  *
  *  Method: script.projects.deployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsDelete : GTLRScriptQuery
 // Previous library name was
@@ -504,6 +525,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Gets a deployment of an Apps Script project.
  *
  *  Method: script.projects.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptDeployments
+ *    @c kGTLRAuthScopeScriptDeploymentsReadonly
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsGet : GTLRScriptQuery
 // Previous library name was
@@ -534,6 +559,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Lists the deployments of an Apps Script project.
  *
  *  Method: script.projects.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptDeployments
+ *    @c kGTLRAuthScopeScriptDeploymentsReadonly
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsList : GTLRScriptQuery
 // Previous library name was
@@ -574,6 +603,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Updates a deployment of an Apps Script project.
  *
  *  Method: script.projects.deployments.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsUpdate : GTLRScriptQuery
 // Previous library name was
@@ -607,6 +639,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Gets a script project's metadata.
  *
  *  Method: script.projects.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
+ *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsGet : GTLRScriptQuery
 // Previous library name was
@@ -633,6 +669,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  metadata for each script file.
  *
  *  Method: script.projects.getContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
+ *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsGetContent : GTLRScriptQuery
 // Previous library name was
@@ -666,6 +706,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  active users.
  *
  *  Method: script.projects.getMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptMetrics
  */
 @interface GTLRScriptQuery_ProjectsGetMetrics : GTLRScriptQuery
 // Previous library name was
@@ -712,6 +755,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  existing files in the project.
  *
  *  Method: script.projects.updateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsUpdateContent : GTLRScriptQuery
 // Previous library name was
@@ -744,6 +790,9 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  version number.
  *
  *  Method: script.projects.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsVersionsCreate : GTLRScriptQuery
 // Previous library name was
@@ -772,6 +821,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  Gets a version of a script project.
  *
  *  Method: script.projects.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
+ *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsVersionsGet : GTLRScriptQuery
 // Previous library name was
@@ -802,6 +855,10 @@ GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
  *  List the versions of a script project.
  *
  *  Method: script.projects.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeScriptProjects
+ *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsVersionsList : GTLRScriptQuery
 // Previous library name was

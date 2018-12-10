@@ -24,9 +24,11 @@
 @class GTLRCloudSearch_IndexItemRequest;
 @class GTLRCloudSearch_Media;
 @class GTLRCloudSearch_PollItemsRequest;
+@class GTLRCloudSearch_Principal;
 @class GTLRCloudSearch_PushItemRequest;
 @class GTLRCloudSearch_ResetSearchApplicationRequest;
 @class GTLRCloudSearch_SearchApplication;
+@class GTLRCloudSearch_SearchItemsByViewUrlRequest;
 @class GTLRCloudSearch_SearchRequest;
 @class GTLRCloudSearch_StartUploadItemRequest;
 @class GTLRCloudSearch_SuggestRequest;
@@ -85,6 +87,85 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
+ *  Checks whether an item is accessible by specified principal.
+ *
+ *  Method: cloudsearch.debug.datasources.items.checkAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchDebug
+ */
+@interface GTLRCloudSearchQuery_DebugDatasourcesItemsCheckAccess : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsCheckAccessWithObject:name:]
+
+/**
+ *  If set, the request will enable debugging features of Cloud Search.
+ *  Only turn on this field, if asked by Google to help with debugging.
+ */
+@property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
+
+/**
+ *  Item name, format:
+ *  datasources/{source_id}/items/{item_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_CheckAccessResponse.
+ *
+ *  Checks whether an item is accessible by specified principal.
+ *
+ *  @param object The @c GTLRCloudSearch_Principal to include in the query.
+ *  @param name Item name, format:
+ *    datasources/{source_id}/items/{item_id}
+ *
+ *  @return GTLRCloudSearchQuery_DebugDatasourcesItemsCheckAccess
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_Principal *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches the item whose viewUrl exactly matches that of the URL provided
+ *  in the request.
+ *
+ *  Method: cloudsearch.debug.datasources.items.searchByViewUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchDebug
+ */
+@interface GTLRCloudSearchQuery_DebugDatasourcesItemsSearchByViewUrl : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsSearchByViewUrlWithObject:name:]
+
+/**
+ *  Source name, format:
+ *  datasources/{source_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_SearchItemsByViewUrlResponse.
+ *
+ *  Fetches the item whose viewUrl exactly matches that of the URL provided
+ *  in the request.
+ *
+ *  @param object The @c GTLRCloudSearch_SearchItemsByViewUrlRequest to include
+ *    in the query.
+ *  @param name Source name, format:
+ *    datasources/{source_id}
+ *
+ *  @return GTLRCloudSearchQuery_DebugDatasourcesItemsSearchByViewUrl
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_SearchItemsByViewUrlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List all unmapped identities for a specific item.
  *
  *  Method: cloudsearch.debug.datasources.items.unmappedids.list
@@ -96,6 +177,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @interface GTLRCloudSearchQuery_DebugDatasourcesItemsUnmappedidsList : GTLRCloudSearchQuery
 // Previous library name was
 //   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsUnmappedidsListWithparent:]
+
+/**
+ *  If set, the request will enable debugging features of Cloud Search.
+ *  Only turn on this field, if asked by Google to help with debugging.
+ */
+@property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
  *  Maximum number of items to fetch in a request.
@@ -145,6 +232,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 // Previous library name was
 //   +[GTLQueryCloudSearch queryForDebugIdentitysourcesItemsListForunmappedidentityWithparent:]
 
+/**
+ *  If set, the request will enable debugging features of Cloud Search.
+ *  Only turn on this field, if asked by Google to help with debugging.
+ */
+@property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
+
 @property(nonatomic, copy, nullable) NSString *groupResourceName;
 
 /**
@@ -192,6 +285,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @interface GTLRCloudSearchQuery_DebugIdentitysourcesUnmappedidsList : GTLRCloudSearchQuery
 // Previous library name was
 //   +[GTLQueryCloudSearch queryForDebugIdentitysourcesUnmappedidsListWithparent:]
+
+/**
+ *  If set, the request will enable debugging features of Cloud Search.
+ *  Only turn on this field, if asked by Google to help with debugging.
+ */
+@property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
  *  Maximum number of items to fetch in a request.

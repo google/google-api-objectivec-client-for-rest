@@ -612,6 +612,34 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint64;
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_InternalChecker.state
+
+/**
+ *  The checker is being created, provisioned, and configured. A checker in this
+ *  state can be returned by ListInternalCheckers or GetInternalChecker, as well
+ *  as by examining the longrunning.Operation that created it.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Creating;
+/**
+ *  The checker is running and available for use. A checker in this state can be
+ *  returned by ListInternalCheckers or GetInternalChecker as well as by
+ *  examining the longrunning.Operation that created it. If a checker is being
+ *  torn down, it is neither visible nor usable, so there is no "deleting" or
+ *  "down" state.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Running;
+/**
+ *  An internal checker should never be in the unspecified state.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_LabelDescriptor.valueType
 
 /**
@@ -1689,7 +1717,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  point to each of several time series. The new data point must be more recent
  *  than any other point in its time series. Each TimeSeries value must fully
  *  specify a unique time series by supplying all label values for the metric
- *  and the monitored resource.
+ *  and the monitored resource.The maximum number of TimeSeries objects per
+ *  Create request is 200.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
 
@@ -2270,6 +2299,27 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  as the workspace project.
  */
 @property(nonatomic, copy, nullable) NSString *peerProjectId;
+
+/**
+ *  The current operational state of the internal checker.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_InternalChecker_State_Creating The checker is
+ *        being created, provisioned, and configured. A checker in this state
+ *        can be returned by ListInternalCheckers or GetInternalChecker, as well
+ *        as by examining the longrunning.Operation that created it. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLRMonitoring_InternalChecker_State_Running The checker is
+ *        running and available for use. A checker in this state can be returned
+ *        by ListInternalCheckers or GetInternalChecker as well as by examining
+ *        the longrunning.Operation that created it. If a checker is being torn
+ *        down, it is neither visible nor usable, so there is no "deleting" or
+ *        "down" state. (Value: "RUNNING")
+ *    @arg @c kGTLRMonitoring_InternalChecker_State_Unspecified An internal
+ *        checker should never be in the unspecified state. (Value:
+ *        "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -3655,9 +3705,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  A time interval extending just after a start time through an end time. If
- *  the start time is the same as the end time, then the interval represents a
- *  single point in time.
+ *  A time interval extending just after a start time through an end time. The
+ *  start time must not be later than the end time. The default start time is
+ *  the end time, making the startTime value technically optional. Whether this
+ *  is useful depends on the MetricKind. If the start and end times are the
+ *  same, the interval represents a point in time. This is appropriate for GAUGE
+ *  metrics, but not for DELTA and CUMULATIVE metrics, which cover a span of
+ *  time.
  */
 @interface GTLRMonitoring_TimeInterval : GTLRObject
 

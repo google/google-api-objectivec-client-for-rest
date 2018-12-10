@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Content API for Shopping (content/v2)
+//   Content API for Shopping (content/v2.1)
 // Description:
 //   Manages product items, inventory, and Merchant Center accounts for Google
 //   Shopping.

@@ -2011,3 +2011,150 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 }
 
 @end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsDelete
+
+@dynamic enterpriseId, webAppId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                             webAppId:(NSString *)webAppId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"webAppId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  GTLRAndroidEnterpriseQuery_WebappsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.webAppId = webAppId;
+  query.loggingName = @"androidenterprise.webapps.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsGet
+
+@dynamic enterpriseId, webAppId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                             webAppId:(NSString *)webAppId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"webAppId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  GTLRAndroidEnterpriseQuery_WebappsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.webAppId = webAppId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_WebApp class];
+  query.loggingName = @"androidenterprise.webapps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsInsert
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps";
+  GTLRAndroidEnterpriseQuery_WebappsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_WebApp class];
+  query.loggingName = @"androidenterprise.webapps.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsList
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps";
+  GTLRAndroidEnterpriseQuery_WebappsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_WebAppsListResponse class];
+  query.loggingName = @"androidenterprise.webapps.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsPatch
+
+@dynamic enterpriseId, webAppId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId
+                       webAppId:(NSString *)webAppId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"enterpriseId", @"webAppId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  GTLRAndroidEnterpriseQuery_WebappsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.webAppId = webAppId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_WebApp class];
+  query.loggingName = @"androidenterprise.webapps.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_WebappsUpdate
+
+@dynamic enterpriseId, webAppId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
+                   enterpriseId:(NSString *)enterpriseId
+                       webAppId:(NSString *)webAppId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"enterpriseId", @"webAppId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  GTLRAndroidEnterpriseQuery_WebappsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.webAppId = webAppId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_WebApp class];
+  query.loggingName = @"androidenterprise.webapps.update";
+  return query;
+}
+
+@end

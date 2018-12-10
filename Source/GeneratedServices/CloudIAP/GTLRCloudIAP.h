@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Identity-Aware Proxy API (iap/v1beta1)
+//   Cloud Identity-Aware Proxy API (iap/v1)
 // Description:
 //   Controls access to cloud applications running on Google Cloud Platform.
 // Documentation:

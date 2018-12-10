@@ -21,6 +21,7 @@
 
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
+@class GTLRPubsub_ExpirationPolicy;
 @class GTLRPubsub_Expr;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
@@ -105,7 +106,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
 
-/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
+/**
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
@@ -125,7 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -146,6 +151,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRPubsub_Empty : GTLRObject
+@end
+
+
+/**
+ *  A policy that specifies the conditions for resource expiration (i.e.,
+ *  automatic resource deletion).
+ */
+@interface GTLRPubsub_ExpirationPolicy : GTLRObject
+
+/**
+ *  Specifies the "time-to-live" duration for an associated resource. The
+ *  resource expires if it is not active for a period of `ttl`. The definition
+ *  of "activity" depends on the type of the associated resource. The minimum
+ *  and maximum allowed values for `ttl` depend on the type of the associated
+ *  resource, as well. If `ttl` is not set, the associated resource never
+ *  expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
 @end
 
 
@@ -317,6 +341,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  A message that is published by publishers and consumed by subscribers. The
  *  message must contain either a non-empty data field or at least one
  *  attribute.
+ *  Note that client libraries represent this object differently
+ *  depending on the language. See the corresponding
+ *  <a href="https://cloud.google.com/pubsub/docs/reference/libraries">client
+ *  library documentation</a> for more information. See
+ *  <a href="https://cloud.google.com/pubsub/quotas">Quotas and limits</a>
+ *  for more information about message limits.
  */
 @interface GTLRPubsub_Message : GTLRObject
 
@@ -679,7 +709,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A snapshot resource. Snapshots are used in
- *  <a href="/pubsub/docs/replay-overview">Seek</a> operations, which allow
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.<br><br>
@@ -703,7 +734,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
-/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
+/**
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot_Labels *labels;
 
 /** The name of the snapshot. */
@@ -716,7 +750,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -733,11 +768,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Subscription : GTLRObject
 
 /**
- *  This value is the maximum time after a subscriber receives a message
- *  before the subscriber should acknowledge the message. After message
- *  delivery but before the ack deadline expires and before the message is
- *  acknowledged, it is an outstanding message and will not be delivered
- *  again during that time (on a best-effort basis).
+ *  The approximate amount of time (on a best-effort basis) Pub/Sub waits for
+ *  the subscriber to acknowledge receipt before resending the message. In the
+ *  interval after the message is delivered and before it is acknowledged, it
+ *  is considered to be <i>outstanding</i>. During that time period, the
+ *  message will not be redelivered (on a best-effort basis).
  *  For pull subscriptions, this value is used as the initial value for the ack
  *  deadline. To override this value for a given message, call
  *  `ModifyAckDeadline` with the corresponding `ack_id` if using
@@ -755,7 +790,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
-/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
+/**
+ *  A policy that specifies the conditions for this subscription's expiration.
+ *  A subscription is considered active as long as any connected subscriber is
+ *  successfully consuming messages from the subscription or is issuing
+ *  operations on the subscription. If `expiration_policy` is not set, a
+ *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
+ *  value for `expiration_policy.ttl` is 1 day.
+ *  <b>BETA:</b> This feature is part of a beta release. This API might be
+ *  changed in backward-incompatible ways and is not recommended for production
+ *  use. It is not subject to any SLA or deprecation policy.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_ExpirationPolicy *expirationPolicy;
+
+/**
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Labels *labels;
 
 /**
@@ -793,8 +844,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
  *  window. This must be true if you would like to
- *  <a href="/pubsub/docs/replay-overview#seek_to_a_time">Seek to a
- *  timestamp</a>.
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
+ *  Seek to a timestamp</a>.
  *  <br><br>
  *  <b>BETA:</b> This feature is part of a beta release. This API might be
  *  changed in backward-incompatible ways and is not recommended for production
@@ -816,7 +867,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -862,7 +914,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_Topic : GTLRObject
 
-/** See <a href="/pubsub/docs/labels"> Creating and managing labels</a>. */
+/**
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
 /**
@@ -879,7 +934,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="/pubsub/docs/labels"> Creating and managing labels</a>.
+ *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
+ *  managing labels</a>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

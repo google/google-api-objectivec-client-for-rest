@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Firebase Hosting API (firebasehosting/v1beta1)
+// Description:
+//   The Firebase Hosting REST API enables programmatic custom deployment for
+//   releasing versions of your Firebase hosted content and configuration files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
@@ -327,6 +330,16 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_SiteConfig
+//
+
+@implementation GTLRFirebaseHosting_SiteConfig
+@dynamic maxVersions;
 @end
 
 

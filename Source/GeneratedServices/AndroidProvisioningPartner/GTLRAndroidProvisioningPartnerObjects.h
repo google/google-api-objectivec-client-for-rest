@@ -309,6 +309,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /** Required. The device identifier of the device to claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
+/** Optional. The metadata to attach to the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
+
 /**
  *  Required. The section type of the device's provisioning record.
  *

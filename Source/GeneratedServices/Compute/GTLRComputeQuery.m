@@ -1010,6 +1010,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_DisksGetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/getIamPolicy";
+  GTLRComputeQuery_DisksGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.disks.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_DisksInsert
 
 @dynamic project, requestId, sourceImage, zoneProperty;
@@ -1105,6 +1134,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_DisksSetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/setIamPolicy";
+  GTLRComputeQuery_DisksSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.disks.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_DisksSetLabels
 
 @dynamic project, requestId, resource, zoneProperty;
@@ -1135,6 +1199,41 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.disks.setLabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_DisksTestIamPermissions
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/testIamPermissions";
+  GTLRComputeQuery_DisksTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.disks.testIamPermissions";
   return query;
 }
 
@@ -2349,6 +2448,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_ImagesGetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/images/{resource}/getIamPolicy";
+  GTLRComputeQuery_ImagesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.images.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ImagesInsert
 
 @dynamic forceCreate, project, requestId;
@@ -2393,6 +2515,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_ImagesSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/images/{resource}/setIamPolicy";
+  GTLRComputeQuery_ImagesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.images.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ImagesSetLabels
 
 @dynamic project, resource;
@@ -2417,6 +2568,35 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.images.setLabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ImagesTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/images/{resource}/testIamPermissions";
+  GTLRComputeQuery_ImagesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.images.testIamPermissions";
   return query;
 }
 
@@ -2658,6 +2838,41 @@
   query.instanceGroupManager = instanceGroupManager;
   query.expectedObjectClass = [GTLRCompute_InstanceGroupManagersListManagedInstancesResponse class];
   query.loggingName = @"compute.instanceGroupManagers.listManagedInstances";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceGroupManagersPatch
+
+@dynamic instanceGroupManager, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
+  GTLRComputeQuery_InstanceGroupManagersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.patch";
   return query;
 }
 
@@ -3291,6 +3506,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesGetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/getIamPolicy";
+  GTLRComputeQuery_InstancesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.instances.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesGetSerialPortOutput
 
 @dynamic instance, port, project, start, zoneProperty;
@@ -3496,6 +3740,41 @@
   query.deviceName = deviceName;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instances.setDiskAutoDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesSetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/setIamPolicy";
+  GTLRComputeQuery_InstancesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.instances.setIamPolicy";
   return query;
 }
 
@@ -3903,6 +4182,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesTestIamPermissions
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/testIamPermissions";
+  GTLRComputeQuery_InstancesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.instances.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesUpdateAccessConfig
 
 @dynamic instance, networkInterface, project, requestId, zoneProperty;
@@ -4023,6 +4337,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstanceTemplatesGetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/getIamPolicy";
+  GTLRComputeQuery_InstanceTemplatesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.instanceTemplates.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceTemplatesInsert
 
 @dynamic project, requestId;
@@ -4062,6 +4399,64 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_InstanceTemplateList class];
   query.loggingName = @"compute.instanceTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceTemplatesSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/setIamPolicy";
+  GTLRComputeQuery_InstanceTemplatesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.instanceTemplates.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceTemplatesTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/testIamPermissions";
+  GTLRComputeQuery_InstanceTemplatesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.instanceTemplates.testIamPermissions";
   return query;
 }
 
@@ -4501,6 +4896,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_LicensesGetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/licenses/{resource}/getIamPolicy";
+  GTLRComputeQuery_LicensesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.licenses.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_LicensesInsert
 
 @dynamic project, requestId;
@@ -4540,6 +4958,35 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_LicensesListResponse class];
   query.loggingName = @"compute.licenses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_LicensesSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/licenses/{resource}/setIamPolicy";
+  GTLRComputeQuery_LicensesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.licenses.setIamPolicy";
   return query;
 }
 
@@ -4996,6 +5443,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_NodeGroupsGetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy";
+  GTLRComputeQuery_NodeGroupsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.nodeGroups.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NodeGroupsInsert
 
 @dynamic initialNodeCount, project, requestId, zoneProperty;
@@ -5088,6 +5564,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_NodeGroupsSetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy";
+  GTLRComputeQuery_NodeGroupsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.nodeGroups.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NodeGroupsSetNodeTemplate
 
 @dynamic nodeGroup, project, requestId, zoneProperty;
@@ -5118,6 +5629,41 @@
   query.nodeGroup = nodeGroup;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.nodeGroups.setNodeTemplate";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeGroupsTestIamPermissions
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions";
+  GTLRComputeQuery_NodeGroupsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.nodeGroups.testIamPermissions";
   return query;
 }
 
@@ -5192,6 +5738,31 @@
 
 @end
 
+@implementation GTLRComputeQuery_NodeTemplatesGetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy";
+  GTLRComputeQuery_NodeTemplatesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.nodeTemplates.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NodeTemplatesInsert
 
 @dynamic project, region, requestId;
@@ -5239,6 +5810,68 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_NodeTemplateList class];
   query.loggingName = @"compute.nodeTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy";
+  GTLRComputeQuery_NodeTemplatesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.nodeTemplates.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NodeTemplatesTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions";
+  GTLRComputeQuery_NodeTemplatesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.nodeTemplates.testIamPermissions";
   return query;
 }
 
@@ -6541,6 +7174,37 @@
 
 @end
 
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersPatch
+
+@dynamic instanceGroupManager, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
+  GTLRComputeQuery_RegionInstanceGroupManagersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances
 
 @dynamic instanceGroupManager, project, region, requestId;
@@ -7508,6 +8172,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_SnapshotsGetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/getIamPolicy";
+  GTLRComputeQuery_SnapshotsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.snapshots.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SnapshotsList
 
 @dynamic filter, maxResults, orderBy, pageToken, project;
@@ -7522,6 +8209,35 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_SnapshotList class];
   query.loggingName = @"compute.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SnapshotsSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/setIamPolicy";
+  GTLRComputeQuery_SnapshotsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.snapshots.setIamPolicy";
   return query;
 }
 
@@ -7551,6 +8267,35 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.snapshots.setLabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SnapshotsTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/testIamPermissions";
+  GTLRComputeQuery_SnapshotsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.snapshots.testIamPermissions";
   return query;
 }
 
@@ -7884,6 +8629,31 @@
 
 @end
 
+@implementation GTLRComputeQuery_SubnetworksGetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/getIamPolicy";
+  GTLRComputeQuery_SubnetworksGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.subnetworks.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SubnetworksInsert
 
 @dynamic project, region, requestId;
@@ -7986,6 +8756,37 @@
 
 @end
 
+@implementation GTLRComputeQuery_SubnetworksSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/setIamPolicy";
+  GTLRComputeQuery_SubnetworksSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.subnetworks.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess
 
 @dynamic project, region, requestId, subnetwork;
@@ -8012,6 +8813,37 @@
   query.subnetwork = subnetwork;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.subnetworks.setPrivateIpGoogleAccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SubnetworksTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/testIamPermissions";
+  GTLRComputeQuery_SubnetworksTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.subnetworks.testIamPermissions";
   return query;
 }
 

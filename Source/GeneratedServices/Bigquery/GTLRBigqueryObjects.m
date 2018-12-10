@@ -456,9 +456,9 @@
          createDisposition, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
          ignoreUnknownValues, maxBadRecords, nullMarker, projectionFields,
-         quote, schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
-         skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
-         useAvroLogicalTypes, writeDisposition;
+         quote, rangePartitioning, schema, schemaInline, schemaInlineFormat,
+         schemaUpdateOptions, skipLeadingRows, sourceFormat, sourceUris,
+         timePartitioning, useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -481,9 +481,9 @@
 @dynamic allowLargeResults, clustering, createDisposition, defaultDataset,
          destinationEncryptionConfiguration, destinationTable, flattenResults,
          maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
-         priority, query, queryParameters, schemaUpdateOptions,
-         tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
-         userDefinedFunctionResources, writeDisposition;
+         priority, query, queryParameters, rangePartitioning,
+         schemaUpdateOptions, tableDefinitions, timePartitioning, useLegacySql,
+         useQueryCache, userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -615,8 +615,8 @@
          estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
          referencedTables, reservationUsage, schema, statementType, timeline,
-         totalBytesBilled, totalBytesProcessed, totalPartitionsProcessed,
-         totalSlotMs, undeclaredQueryParameters;
+         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
+         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -699,6 +699,16 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_MaterializedViewDefinition
+//
+
+@implementation GTLRBigquery_MaterializedViewDefinition
+@dynamic lastRefreshTime, query;
 @end
 
 
@@ -962,10 +972,10 @@
 @implementation GTLRBigquery_Table
 @dynamic clustering, creationTime, descriptionProperty, encryptionConfiguration,
          ETag, expirationTime, externalDataConfiguration, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, model, numBytes,
-         numLongTermBytes, numPhysicalBytes, numRows, rangePartitioning,
-         requirePartitionFilter, schema, selfLink, streamingBuffer,
-         tableReference, timePartitioning, type, view;
+         identifier, kind, labels, lastModifiedTime, location, materializedView,
+         model, numBytes, numLongTermBytes, numPhysicalBytes, numRows,
+         rangePartitioning, requirePartitionFilter, schema, selfLink,
+         streamingBuffer, tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

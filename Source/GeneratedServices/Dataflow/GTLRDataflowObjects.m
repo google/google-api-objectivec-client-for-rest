@@ -829,11 +829,11 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_Job
-@dynamic clientRequestId, createTime, currentState, currentStateTime,
-         environment, executionInfo, identifier, jobMetadata, labels, location,
-         name, pipelineDescription, projectId, replacedByJobId, replaceJobId,
-         requestedState, stageStates, startTime, steps, tempFiles,
-         transformNameMapping, type;
+@dynamic clientRequestId, createdFromSnapshotId, createTime, currentState,
+         currentStateTime, environment, executionInfo, identifier, jobMetadata,
+         labels, location, name, pipelineDescription, projectId,
+         replacedByJobId, replaceJobId, requestedState, stageStates, startTime,
+         steps, stepsLocation, tempFiles, transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1695,6 +1695,31 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_Snapshot
+//
+
+@implementation GTLRDataflow_Snapshot
+@dynamic creationTime, identifier, projectId, sourceJobId, ttl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SnapshotJobRequest
+//
+
+@implementation GTLRDataflow_SnapshotJobRequest
+@dynamic location, ttl;
 @end
 
 

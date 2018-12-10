@@ -204,6 +204,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Pdf;
 GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Presentation;
 /** Value: "SCRIPT" */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Script;
+/** Value: "SITE" */
+GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Site;
 /** Value: "SPREADSHEET" */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Spreadsheet;
 /** Value: "UNSPECIFIED" */
@@ -896,6 +898,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
+ *  GTLRCloudSearch_CheckAccessResponse
+ */
+@interface GTLRCloudSearch_CheckAccessResponse : GTLRObject
+
+/**
+ *  Returns true if principal has access. Returns false otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasAccess;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_CompositeFilter
  */
 @interface GTLRCloudSearch_CompositeFilter : GTLRObject
@@ -1311,6 +1328,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *    @arg @c kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Presentation Value
  *        "PRESENTATION"
  *    @arg @c kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Script Value "SCRIPT"
+ *    @arg @c kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Site Value "SITE"
  *    @arg @c kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Spreadsheet Value
  *        "SPREADSHEET"
  *    @arg @c kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Unspecified Value
@@ -1671,7 +1689,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 /**
  *  This property indicates the freshness level of the object in the index.
  *  If set, this property must be a top-level property within the
- *  PropertyDefinitions
+ *  property definitions
  *  and it must be a
  *  timestamp type
  *  or
@@ -3741,6 +3759,53 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /** Configuration for a sources specified in data_source_restrictions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SourceConfig *> *sourceConfig;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SearchItemsByViewUrlRequest
+ */
+@interface GTLRCloudSearch_SearchItemsByViewUrlRequest : GTLRObject
+
+/** Common debug options. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
+
+/** The next_page_token value returned from a previous request, if any. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Specify the full view URL to find the corresponding item.
+ *  The maximum length is 2048 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *viewUrl;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SearchItemsByViewUrlResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudSearch_SearchItemsByViewUrlResponse : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Item *> *items;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no
+ *  more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

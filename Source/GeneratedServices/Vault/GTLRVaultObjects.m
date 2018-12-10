@@ -19,6 +19,12 @@ NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified = @"EXPORT_STA
 NSString * const kGTLRVault_Export_Status_Failed               = @"FAILED";
 NSString * const kGTLRVault_Export_Status_InProgress           = @"IN_PROGRESS";
 
+// GTLRVault_ExportOptions.region
+NSString * const kGTLRVault_ExportOptions_Region_Any           = @"ANY";
+NSString * const kGTLRVault_ExportOptions_Region_Europe        = @"EUROPE";
+NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified = @"EXPORT_REGION_UNSPECIFIED";
+NSString * const kGTLRVault_ExportOptions_Region_Us            = @"US";
+
 // GTLRVault_GroupsExportOptions.exportFormat
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox = @"MBOX";
@@ -256,7 +262,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_ExportOptions
-@dynamic driveOptions, groupsOptions, hangoutsChatOptions, mailOptions;
+@dynamic driveOptions, groupsOptions, hangoutsChatOptions, mailOptions, region;
 @end
 
 
@@ -508,7 +514,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_MailExportOptions
-@dynamic exportFormat, showConfidentialModeContent;
+@dynamic exportFormat;
 @end
 
 

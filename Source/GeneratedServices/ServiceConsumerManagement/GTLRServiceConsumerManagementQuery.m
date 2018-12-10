@@ -144,6 +144,56 @@
 
 @end
 
+@implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:applyProjectConfig";
+  GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceConsumerManagement_Operation class];
+  query.loggingName = @"serviceconsumermanagement.services.tenancyUnits.applyProjectConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_AttachTenantProjectRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:attachProject";
+  GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceConsumerManagement_Operation class];
+  query.loggingName = @"serviceconsumermanagement.services.tenancyUnits.attachProject";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate
 
 @dynamic parent;

@@ -64,7 +64,7 @@
 
 @implementation GTLRAlertCenterQuery_AlertsFeedbackList
 
-@dynamic alertId, customerId;
+@dynamic alertId, customerId, filter;
 
 + (instancetype)queryWithAlertId:(NSString *)alertId {
   NSArray *pathParams = @[ @"alertId" ];
@@ -112,6 +112,31 @@
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAlertCenter_ListAlertsResponse class];
   query.loggingName = @"alertcenter.alerts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAlertCenterQuery_AlertsUndelete
+
+@dynamic alertId;
+
++ (instancetype)queryWithObject:(GTLRAlertCenter_UndeleteAlertRequest *)object
+                        alertId:(NSString *)alertId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"alertId" ];
+  NSString *pathURITemplate = @"v1beta1/alerts/{alertId}:undelete";
+  GTLRAlertCenterQuery_AlertsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.alertId = alertId;
+  query.expectedObjectClass = [GTLRAlertCenter_Alert class];
+  query.loggingName = @"alertcenter.alerts.undelete";
   return query;
 }
 

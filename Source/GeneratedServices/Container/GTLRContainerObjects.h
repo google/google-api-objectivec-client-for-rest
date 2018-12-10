@@ -4,9 +4,8 @@
 // API:
 //   Kubernetes Engine API (container/v1)
 // Description:
-//   The Google Kubernetes Engine API is used for building and managing
-//   container based applications, powered by the open source Kubernetes
-//   technology.
+//   Builds and manages container-based applications, powered by the open source
+//   Kubernetes technology.
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
@@ -47,9 +46,11 @@
 @class GTLRContainer_NodeManagement;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
+@class GTLRContainer_NodeTaint;
 @class GTLRContainer_Operation;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
+@class GTLRContainer_StatusCondition;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -180,6 +181,34 @@ GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_StatusUnspecified;
  *  Value: "STOPPING"
  */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodeTaint.effect
+
+/**
+ *  Not set
+ *
+ *  Value: "EFFECT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_EffectUnspecified;
+/**
+ *  NoExecute
+ *
+ *  Value: "NO_EXECUTE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoExecute;
+/**
+ *  NoSchedule
+ *
+ *  Value: "NO_SCHEDULE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoSchedule;
+/**
+ *  PreferNoSchedule
+ *
+ *  Value: "PREFER_NO_SCHEDULE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSchedule;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.operationType
@@ -352,6 +381,42 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsern
  */
 GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
+// ----------------------------------------------------------------------------
+// GTLRContainer_StatusCondition.code
+
+/**
+ *  Google Compute Engine quota was exceeded.
+ *
+ *  Value: "GCE_QUOTA_EXCEEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded;
+/**
+ *  GCE_STOCKOUT indicates a Google Compute Engine stockout.
+ *
+ *  Value: "GCE_STOCKOUT"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceStockout;
+/**
+ *  GKE_SERVICE_ACCOUNT_DELETED indicates that the user deleted their robot
+ *  service account.
+ *
+ *  Value: "GKE_SERVICE_ACCOUNT_DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted;
+/**
+ *  Cluster state was manually changed by an SRE due to a system logic error.
+ *  More codes TBA
+ *
+ *  Value: "SET_BY_OPERATOR"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator;
+/**
+ *  UNKNOWN indicates a generic condition.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
+
 /**
  *  AcceleratorConfig represents a Hardware Accelerator request.
  */
@@ -510,6 +575,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
+/** Which conditions caused the current cluster state. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
+
 /**
  *  [Output only] The time the cluster was created, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -520,7 +588,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *currentMasterVersion;
 
 /**
- *  [Output only] The number of nodes currently in the cluster.
+ *  [Output only] The number of nodes currently in the cluster. Deprecated.
+ *  Call Kubernetes API directly to retrieve node information.
  *
  *  Uses NSNumber of intValue.
  */
@@ -620,7 +689,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The list of Google Compute Engine
- *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  [zones](/compute/docs/zones#available) in which the cluster's nodes
  *  should be located.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
@@ -637,7 +706,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** Configure the maintenance policy for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
 
-/** The authentication information for accessing the master endpoint. */
+/**
+ *  The authentication information for accessing the master endpoint.
+ *  If unspecified, the defaults are used:
+ *  For clusters before v1.12, if master_auth is unspecified, `username` will
+ *  be set to "admin", a random password will be generated, and a client
+ *  certificate will be issued.
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
 /** The configuration options for master authorized networks feature. */
@@ -810,7 +885,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The desired list of Google Compute Engine
- *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  [zones](/compute/docs/zones#available) in which the cluster's nodes
  *  should be located. Changing the locations a cluster is in will result
  *  in nodes being either created or removed from the cluster, depending on
  *  whether locations are being added or removed.
@@ -1312,8 +1387,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The username to use for HTTP basic authentication to the master endpoint.
- *  For clusters v1.6.0 and later, you can disable basic authentication by
- *  providing an empty username.
+ *  For clusters v1.6.0 and later, basic authentication can be disabled by
+ *  leaving username unspecified (or setting it to the empty string).
  */
 @property(nonatomic, copy, nullable) NSString *username;
 
@@ -1549,6 +1624,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
+/**
+ *  List of kubernetes taints to be applied to each node.
+ *  For more information, including usage and the valid values, see:
+ *  https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeTaint *> *taints;
+
 @end
 
 
@@ -1648,6 +1730,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  only if a valid configuration is present.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
+
+/** Which conditions caused the current node pool state. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
 /** The node configuration of the pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *config;
@@ -1751,10 +1836,46 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  Kubernetes taint is comprised of three fields: key, value, and effect.
+ *  Effect
+ *  can only be one of three types: NoSchedule, PreferNoSchedule or NoExecute.
+ *  For more information, including usage and the valid values, see:
+ *  https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+ */
+@interface GTLRContainer_NodeTaint : GTLRObject
+
+/**
+ *  Effect for taint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeTaint_Effect_EffectUnspecified Not set (Value:
+ *        "EFFECT_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodeTaint_Effect_NoExecute NoExecute (Value:
+ *        "NO_EXECUTE")
+ *    @arg @c kGTLRContainer_NodeTaint_Effect_NoSchedule NoSchedule (Value:
+ *        "NO_SCHEDULE")
+ *    @arg @c kGTLRContainer_NodeTaint_Effect_PreferNoSchedule PreferNoSchedule
+ *        (Value: "PREFER_NO_SCHEDULE")
+ */
+@property(nonatomic, copy, nullable) NSString *effect;
+
+/** Key for taint. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Value for taint. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  This operation resource represents operations that may have happened or are
  *  happening on the cluster. All fields are output only.
  */
 @interface GTLRContainer_Operation : GTLRObject
+
+/** Which conditions caused the current cluster state. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *clusterConditions;
 
 /** Detailed operation progress, if available. */
 @property(nonatomic, copy, nullable) NSString *detail;
@@ -1775,6 +1896,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** The server-assigned ID for the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Which conditions caused the current node pool state. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *nodepoolConditions;
 
 /**
  *  The operation type.
@@ -2136,7 +2260,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  The desired list of Google Compute Engine
- *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  [zones](/compute/docs/zones#available) in which the cluster's nodes
  *  should be located. Changing the locations a cluster is in will result
  *  in nodes being either created or removed from the cluster, depending on
  *  whether locations are being added or removed.
@@ -2589,6 +2713,38 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  StatusCondition describes why a cluster or a node pool has a certain status
+ *  (e.g., ERROR or DEGRADED).
+ */
+@interface GTLRContainer_StatusCondition : GTLRObject
+
+/**
+ *  Machine-friendly representation of the condition
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_StatusCondition_Code_GceQuotaExceeded Google
+ *        Compute Engine quota was exceeded. (Value: "GCE_QUOTA_EXCEEDED")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_GceStockout GCE_STOCKOUT
+ *        indicates a Google Compute Engine stockout. (Value: "GCE_STOCKOUT")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted
+ *        GKE_SERVICE_ACCOUNT_DELETED indicates that the user deleted their
+ *        robot
+ *        service account. (Value: "GKE_SERVICE_ACCOUNT_DELETED")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_SetByOperator Cluster state
+ *        was manually changed by an SRE due to a system logic error.
+ *        More codes TBA (Value: "SET_BY_OPERATOR")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_Unknown UNKNOWN indicates a
+ *        generic condition. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** Human-friendly representation of the condition */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 

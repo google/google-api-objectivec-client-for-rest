@@ -622,6 +622,21 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 
 @end
 
+
+/**
+ *  A request to undelete a specific alert that was marked for deletion.
+ */
+@interface GTLRAlertCenter_UndeleteAlertRequest : GTLRObject
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alert is associated with.
+ *  Inferred from the caller identity if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

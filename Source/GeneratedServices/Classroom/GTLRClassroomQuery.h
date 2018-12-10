@@ -1506,7 +1506,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Reclaims a student submission on behalf of the student that owns it.
  *  Reclaiming a student submission transfers ownership of attached Drive
- *  files to the student and update the submission state.
+ *  files to the student and updates the submission state.
  *  Only the student that owns the requested student submission may call this
  *  method, and only for a student submission that has been turned in.
  *  This request must be made by the Developer Console project of the
@@ -1552,7 +1552,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  Reclaims a student submission on behalf of the student that owns it.
  *  Reclaiming a student submission transfers ownership of attached Drive
- *  files to the student and update the submission state.
+ *  files to the student and updates the submission state.
  *  Only the student that owns the requested student submission may call this
  *  method, and only for a student submission that has been turned in.
  *  This request must be made by the Developer Console project of the

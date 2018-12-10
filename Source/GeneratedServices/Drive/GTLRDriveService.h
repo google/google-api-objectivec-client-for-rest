@@ -30,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage the files in your Google Drive
+ *  Authorization scope: See, edit, create, and delete all of your Google Drive
+ *  files
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
@@ -69,7 +70,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDriveMetadataReadonly;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeDrivePhotosReadonly;
 /**
- *  Authorization scope: View the files in your Google Drive
+ *  Authorization scope: See and download all your Google Drive files
  *
  *  Value "https://www.googleapis.com/auth/drive.readonly"
  */

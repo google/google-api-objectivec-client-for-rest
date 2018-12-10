@@ -26,6 +26,7 @@
 @class GTLRDataflow_ReportWorkItemStatusRequest;
 @class GTLRDataflow_SendDebugCaptureRequest;
 @class GTLRDataflow_SendWorkerMessagesRequest;
+@class GTLRDataflow_SnapshotJobRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -537,6 +538,45 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Snapshot the state of a streaming job.
+ *
+ *  Method: dataflow.projects.jobs.snapshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsJobsSnapshot : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsJobsSnapshotWithObject:projectId:jobId:]
+
+/** The job to be snapshotted. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The project which owns the job to be snapshotted. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_Snapshot.
+ *
+ *  Snapshot the state of a streaming job.
+ *
+ *  @param object The @c GTLRDataflow_SnapshotJobRequest to include in the
+ *    query.
+ *  @param projectId The project which owns the job to be snapshotted.
+ *  @param jobId The job to be snapshotted.
+ *
+ *  @return GTLRDataflowQuery_ProjectsJobsSnapshot
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_SnapshotJobRequest *)object
+                      projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId;
 
 @end
 
@@ -1059,6 +1099,50 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Snapshot the state of a streaming job.
+ *
+ *  Method: dataflow.projects.locations.jobs.snapshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshot : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsSnapshotWithObject:projectId:location:jobId:]
+
+/** The job to be snapshotted. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location that contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project which owns the job to be snapshotted. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_Snapshot.
+ *
+ *  Snapshot the state of a streaming job.
+ *
+ *  @param object The @c GTLRDataflow_SnapshotJobRequest to include in the
+ *    query.
+ *  @param projectId The project which owns the job to be snapshotted.
+ *  @param location The location that contains this job.
+ *  @param jobId The job to be snapshotted.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsSnapshot
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_SnapshotJobRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
  *  Updates the state of an existing Cloud Dataflow job.
  *
  *  Method: dataflow.projects.locations.jobs.update
@@ -1248,7 +1332,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Required. A Cloud Storage path to the template from which to
  *  create the job.
- *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -1298,7 +1382,19 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsLocationsTemplatesLaunchWithObject:projectId:location:]
 
 /**
- *  Required. A Cloud Storage path to the template from which to create
+ *  Path to dynamic template spec file on GCS.
+ *  The file must be a Json serialized DynamicTemplateFieSpec object.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
+
+/**
+ *  Cloud Storage path for staging dependencies.
+ *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
+
+/**
+ *  A Cloud Storage path to the template from which to create
  *  the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */
@@ -1427,7 +1523,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Required. A Cloud Storage path to the template from which to
  *  create the job.
- *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -1475,7 +1571,19 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsTemplatesLaunchWithObject:projectId:]
 
 /**
- *  Required. A Cloud Storage path to the template from which to create
+ *  Path to dynamic template spec file on GCS.
+ *  The file must be a Json serialized DynamicTemplateFieSpec object.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
+
+/**
+ *  Cloud Storage path for staging dependencies.
+ *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
+
+/**
+ *  A Cloud Storage path to the template from which to create
  *  the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */

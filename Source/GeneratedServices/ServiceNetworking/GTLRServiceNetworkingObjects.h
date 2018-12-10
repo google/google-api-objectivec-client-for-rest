@@ -468,46 +468,44 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceNetworking_AddSubnetworkRequest : GTLRObject
 
 /**
- *  Required. Resource representing service consumer. It may be different from
- *  the project number in consumer network parameter in case of that network
- *  being a shared VPC network. In that case, Service Networking will validate
- *  that this resource belongs to that shared VPC.
- *  For example 'projects/123456'.
+ *  Required. A resource that represents the service consumer, such as
+ *  `projects/123456`. The project number can be different from the
+ *  value in the consumer network parameter. For example, the network might be
+ *  part of a Shared VPC network. In those cases, Service Networking validates
+ *  that this resource belongs to that Shared VPC.
  */
 @property(nonatomic, copy, nullable) NSString *consumer;
 
 /**
- *  Required. Network name in the consumer project. This network must have been
- *  already peered with a shared VPC network using CreateConnection
- *  method.
- *  Must be in a form 'projects/{project}/global/networks/{network}'.
- *  {project} is a project number, as in '12345'
- *  {network} is network name.
+ *  Required. The name of the service consumer's VPC network. The network
+ *  must have an existing private connection that was provisioned through the
+ *  connections.create method. The name must be in the following format:
+ *  `projects/{project}/global/networks/{network}`, where {project}
+ *  is a project number, such as `12345`. {network} is the name of a
+ *  VPC network in the project.
  */
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
 
 /**
- *  Optional. Description of the subnetwork.
+ *  An optional description of the subnet.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The prefix length of the IP range.
- *  Use usual CIDR range notation.
- *  For example, '30' to provision subnet with x.x.x.x/30 CIDR range.
- *  Actual range will be determined using allocated range for the consumer
- *  peered network and returned in the result.
+ *  Required. The prefix length of the subnet's IP address range. Use CIDR
+ *  range notation, such as `30` to provision a subnet with an
+ *  `x.x.x.x/30` CIDR range. The IP address range is drawn from a
+ *  pool of available ranges in the service consumer's allocated range.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
 
 /**
- *  Required. Cloud [region](/compute/docs/reference/rest/v1/regions) for the
- *  new
- *  subnetwork.
+ *  Required. The name of a [region](/compute/docs/regions-zones)
+ *  for the subnet, such `europe-west1`.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -521,15 +519,15 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *requestedAddress;
 
 /**
- *  Required. Name for the new subnetwork.
- *  Must be a legal [subnetwork](compute/docs/reference/rest/v1/subnetworks)
- *  name.
+ *  Required. A name for the new subnet. For information about the naming
+ *  requirements, see [subnetwork](/compute/docs/reference/rest/v1/subnetworks)
+ *  in the Compute API documentation.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  Optional. List of members that will be granted 'compute.networkUser' role
- *  on the newly added subnetwork.
+ *  A list of members that are granted the `compute.networkUser`
+ *  role on the subnet.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subnetworkUsers;
 
@@ -710,7 +708,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *audiences;
 
 /**
- *  Redirect URL if JWT token is required but no present or is expired.
+ *  Redirect URL if JWT token is required but not present or is expired.
  *  Implement authorizationUrl of securityDefinitions in OpenAPI spec.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationUrl;
@@ -896,32 +894,45 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Message returning the created service connection.
+ *  Represents a private connection resource. A private connection is
+ *  implemented
+ *  as a VPC Network Peering connection between a service producer's VPC network
+ *  and a service consumer's VPC network.
  */
 @interface GTLRServiceNetworking_Connection : GTLRObject
 
 /**
- *  Name of VPC network connected with service producer network.
- *  Must be in a form 'projects/{project}/global/networks/{network}'.
- *  {project} is a project number, as in '12345'
- *  {network} is a network name.
+ *  The name of service consumer's VPC network that's connected with service
+ *  producer network, in the following format:
+ *  `projects/{project}/global/networks/{network}`.
+ *  `{project}` is a project number, such as in `12345` that includes
+ *  the VPC service consumer's VPC network. `{network}` is the name of the
+ *  service consumer's VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Output only.
- *  Name of the peering connection that is created by the peering service.
+ *  The name of the VPC Network Peering connection that was created by the
+ *  service producer.
  */
 @property(nonatomic, copy, nullable) NSString *peering;
 
 /**
- *  Named IP address range(s) of PEERING type allocated for this service
- *  provider.
+ *  The name of one or more allocated IP address ranges for this service
+ *  producer of type `PEERING`.
  *  Note that invoking this method with a different range when connection is
  *  already established will not modify already provisioned service
  *  producer subnetworks.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reservedPeeringRanges;
+
+/**
+ *  Output only.
+ *  The name of the peering service that's associated with this connection, in
+ *  the following format: `services/{service name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -2811,6 +2822,35 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Request to search for an unused range within allocated ranges.
+ */
+@interface GTLRServiceNetworking_SearchRangeRequest : GTLRObject
+
+/**
+ *  Required. The prefix length of the IP range.
+ *  Use usual CIDR range notation.
+ *  For example, '30' to find unused x.x.x.x/30 CIDR range.
+ *  Actual range will be determined using allocated range for the consumer
+ *  peered network and returned in the result.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
+
+/**
+ *  Network name in the consumer project. This network must have been
+ *  already peered with a shared VPC network using CreateConnection
+ *  method.
+ *  Must be in a form 'projects/{project}/global/networks/{network}'.
+ *  {project} is a project number, as in '12345'
+ *  {network} is network name.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+@end
+
+
+/**
  *  `Service` is the root object of Google service configuration schema. It
  *  describes basic information about a service, such as the name and the
  *  title, and delegates other aspects to sub-sections. Each sub-section is
@@ -3096,11 +3136,11 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Message returning the created service subnetwork.
+ *  Represents a subnet that was created by a peered service.
  */
 @interface GTLRServiceNetworking_Subnetwork : GTLRObject
 
-/** Subnetwork CIDR range in "10.x.x.x/y" format. */
+/** Subnetwork CIDR range in `10.x.x.x/y` format. */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
 /**
@@ -3110,8 +3150,9 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Shared VPC host project network peered with consumer network.
- *  For example: projects/1234321/global/networks/host-network
+ *  In the Shared VPC host project, the VPC network that's peered with the
+ *  consumer network. For example:
+ *  `projects/1234321/global/networks/host-network`
  */
 @property(nonatomic, copy, nullable) NSString *network;
 

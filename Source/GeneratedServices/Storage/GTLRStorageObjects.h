@@ -22,6 +22,8 @@
 @class GTLRStorage_Bucket_Billing;
 @class GTLRStorage_Bucket_Cors_Item;
 @class GTLRStorage_Bucket_Encryption;
+@class GTLRStorage_Bucket_IamConfiguration;
+@class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item;
@@ -96,6 +98,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** HTTP 1.1 Entity tag for the bucket. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The bucket's IAM configuration. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration *iamConfiguration;
 
 /**
  *  The ID of the bucket. For buckets, the id and name properties are the same.
@@ -260,6 +265,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The bucket's IAM configuration.
+ */
+@interface GTLRStorage_Bucket_IamConfiguration : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
+
+@end
+
+
+/**
  *  User-provided labels, in key/value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -392,6 +407,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  bucket as the content for a 404 Not Found result.
  */
 @property(nonatomic, copy, nullable) NSString *notFoundPage;
+
+@end
+
+
+/**
+ *  GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
+ */
+@interface GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly : GTLRObject
+
+/**
+ *  If set, access checks only use bucket-level IAM policies or above.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The deadline time for changing iamConfiguration.bucketPolicyOnly.enabled
+ *  from true to false in RFC 3339 format.
+ *  iamConfiguration.bucketPolicyOnly.enabled may be changed from true to false
+ *  until the locked time, after which the field is immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lockedTime;
 
 @end
 

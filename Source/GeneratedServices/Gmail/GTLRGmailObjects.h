@@ -259,7 +259,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 
 /**
  *  Settings for a delegate. Delegates can read, send, and delete messages, as
- *  well as manage contacts, for the delegator's account. See "Set up mail
+ *  well as view and add contacts, for the delegator's account. See "Set up mail
  *  delegation" for more information about delegates.
  */
 @interface GTLRGmail_Delegate : GTLRObject

@@ -3682,7 +3682,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *usbFileTransferDisabled;
 
 /**
- *  Whether USB storage is enabled.
+ *  Whether USB storage is enabled. Deprecated.
  *
  *  Uses NSNumber of boolValue.
  */

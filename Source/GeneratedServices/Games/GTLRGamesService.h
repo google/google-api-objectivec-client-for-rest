@@ -42,13 +42,6 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGames;
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
-/**
- *  Authorization scope: Know the list of people in your circles, your age
- *  range, and language
- *
- *  Value "https://www.googleapis.com/auth/plus.login"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesPlusLogin;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

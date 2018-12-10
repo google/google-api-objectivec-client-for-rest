@@ -29,13 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Manage your contacts
+ *  Authorization scope: See, edit, download, and permanently delete your
+ *  contacts
  *
  *  Value "https://www.googleapis.com/auth/contacts"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
 /**
- *  Authorization scope: View your contacts
+ *  Authorization scope: See and download your contacts
  *
  *  Value "https://www.googleapis.com/auth/contacts.readonly"
  */

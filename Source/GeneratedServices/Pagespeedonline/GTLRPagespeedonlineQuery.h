@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v4)
+//   PageSpeed Insights API (pagespeedonline/v5)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
 // Documentation:
-//   https://developers.google.com/speed/docs/insights/v4/getting-started
+//   https://developers.google.com/speed/docs/insights/v5/get-started
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -28,6 +28,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// category
+
+/** Value: "accessibility" */
+GTLR_EXTERN NSString * const kGTLRPagespeedonlineCategoryAccessibility;
+/** Value: "best-practices" */
+GTLR_EXTERN NSString * const kGTLRPagespeedonlineCategoryBestPractices;
+/** Value: "performance" */
+GTLR_EXTERN NSString * const kGTLRPagespeedonlineCategoryPerformance;
+/** Value: "pwa" */
+GTLR_EXTERN NSString * const kGTLRPagespeedonlineCategoryPwa;
+/** Value: "seo" */
+GTLR_EXTERN NSString * const kGTLRPagespeedonlineCategorySeo;
 
 // ----------------------------------------------------------------------------
 // strategy
@@ -71,32 +85,20 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
 //   +[GTLQueryPagespeedonline queryForPagespeedapiRunpagespeedWithurl:]
 
 /**
- *  Indicates if third party resources should be filtered out before PageSpeed
- *  analysis.
+ *  A Lighthouse category to run; if none are given, only Performance category
+ *  will be run
  *
- *  @note If not set, the documented server-side default will be false.
+ *  Likely values:
+ *    @arg @c kGTLRPagespeedonlineCategoryAccessibility Value "accessibility"
+ *    @arg @c kGTLRPagespeedonlineCategoryBestPractices Value "best-practices"
+ *    @arg @c kGTLRPagespeedonlineCategoryPerformance Value "performance"
+ *    @arg @c kGTLRPagespeedonlineCategoryPwa Value "pwa"
+ *    @arg @c kGTLRPagespeedonlineCategorySeo Value "seo"
  */
-@property(nonatomic, assign) BOOL filterThirdPartyResources;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *category;
 
 /** The locale used to localize formatted results */
 @property(nonatomic, copy, nullable) NSString *locale;
-
-/** A PageSpeed rule to run; if none are given, all rules are run */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *rule;
-
-/**
- *  Indicates if binary data containing a screenshot should be included
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL screenshot;
-
-/**
- *  Indicates if binary data containing snapshot images should be included
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL snapshots;
 
 /**
  *  The analysis strategy (desktop or mobile) to use, and desktop is the default
@@ -119,7 +121,7 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
 @property(nonatomic, copy, nullable) NSString *utmSource;
 
 /**
- *  Fetches a @c GTLRPagespeedonline_PagespeedApiPagespeedResponseV4.
+ *  Fetches a @c GTLRPagespeedonline_PagespeedApiPagespeedResponseV5.
  *
  *  Runs PageSpeed analysis on the page at the specified URL, and returns
  *  PageSpeed scores, a list of suggestions to make that page faster, and other

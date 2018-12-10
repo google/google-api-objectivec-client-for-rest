@@ -1247,6 +1247,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 /**
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  The `Context ID` is always converted to lowercase, may only contain
+ *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1266,6 +1268,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    include in the query.
  *  @param name Required. The unique identifier of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *    The `Context ID` is always converted to lowercase, may only contain
+ *    characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch
  */

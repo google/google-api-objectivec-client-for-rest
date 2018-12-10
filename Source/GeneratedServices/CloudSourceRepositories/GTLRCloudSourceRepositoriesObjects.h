@@ -4,7 +4,7 @@
 // API:
 //   Cloud Source Repositories API (sourcerepo/v1)
 // Description:
-//   Access source code repositories hosted by Google.
+//   Accesses source code repositories hosted by Google.
 // Documentation:
 //   https://cloud.google.com/source-repositories/docs/apis
 

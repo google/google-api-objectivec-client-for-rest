@@ -11,10 +11,9 @@
 #import "GTLRGamesManagement.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-NSString * const kGTLRAuthScopeGamesManagementGames     = @"https://www.googleapis.com/auth/games";
-NSString * const kGTLRAuthScopeGamesManagementPlusLogin = @"https://www.googleapis.com/auth/plus.login";
+NSString * const kGTLRAuthScopeGamesManagementGames = @"https://www.googleapis.com/auth/games";
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesManagementService

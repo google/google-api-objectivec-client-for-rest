@@ -72,7 +72,7 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_ClaimDeviceRequest
-@dynamic customerId, deviceIdentifier, sectionType;
+@dynamic customerId, deviceIdentifier, deviceMetadata, sectionType;
 @end
 
 

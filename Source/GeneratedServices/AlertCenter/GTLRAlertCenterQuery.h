@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAlertCenter_AlertFeedback;
+@class GTLRAlertCenter_UndeleteAlertRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -45,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  for deletion results in a `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsDelete : GTLRAlertCenterQuery
 // Previous library name was
@@ -81,6 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates new feedback for an alert.
  *
  *  Method: alertcenter.alerts.feedback.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsFeedbackCreate : GTLRAlertCenterQuery
 // Previous library name was
@@ -120,6 +127,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the feedback for an alert.
  *
  *  Method: alertcenter.alerts.feedback.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsFeedbackList : GTLRAlertCenterQuery
 // Previous library name was
@@ -140,6 +150,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
+ *  Optional. A query string for filtering alert feedback results.
+ *  For more details, see [Query
+ *  filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
+ *  query filter
+ *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Fetches a @c GTLRAlertCenter_ListAlertFeedbackResponse.
  *
  *  Lists all the feedback for an alert.
@@ -158,6 +177,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the specified alert.
  *
  *  Method: alertcenter.alerts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsGet : GTLRAlertCenterQuery
 // Previous library name was
@@ -194,6 +216,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the alerts.
  *
  *  Method: alertcenter.alerts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsList : GTLRAlertCenterQuery
 // Previous library name was
@@ -210,7 +235,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. A query string for filtering alert results.
  *  For more details, see [Query
  *  filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
- *  query filter fields](/admin-sdk/alertcenter/reference/filter-fields).
+ *  query filter
+ *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -249,6 +275,45 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Restores, or "undeletes", an alert that was marked for deletion within the
+ *  past 30 days. Attempting to undelete an alert which was marked for deletion
+ *  over 30 days ago (which has been removed from the Alert Center database) or
+ *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to
+ *  undelete an alert which has not been marked for deletion has no effect.
+ *
+ *  Method: alertcenter.alerts.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_AlertsUndelete : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForAlertsUndeleteWithObject:alertId:]
+
+/** Required. The identifier of the alert to undelete. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Fetches a @c GTLRAlertCenter_Alert.
+ *
+ *  Restores, or "undeletes", an alert that was marked for deletion within the
+ *  past 30 days. Attempting to undelete an alert which was marked for deletion
+ *  over 30 days ago (which has been removed from the Alert Center database) or
+ *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to
+ *  undelete an alert which has not been marked for deletion has no effect.
+ *
+ *  @param object The @c GTLRAlertCenter_UndeleteAlertRequest to include in the
+ *    query.
+ *  @param alertId Required. The identifier of the alert to undelete.
+ *
+ *  @return GTLRAlertCenterQuery_AlertsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRAlertCenter_UndeleteAlertRequest *)object
+                        alertId:(NSString *)alertId;
 
 @end
 

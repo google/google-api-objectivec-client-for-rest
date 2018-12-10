@@ -28,6 +28,7 @@
 @class GTLRCloudIot_DeviceState;
 @class GTLRCloudIot_EventNotificationConfig;
 @class GTLRCloudIot_Expr;
+@class GTLRCloudIot_GatewayConfig;
 @class GTLRCloudIot_HttpConfig;
 @class GTLRCloudIot_MqttConfig;
 @class GTLRCloudIot_Policy;
@@ -118,6 +119,61 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspe
  *  Value: "NONE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIot_GatewayConfig.gatewayAuthMethod
+
+/**
+ *  The device is authenticated through both device credentials and gateway
+ *  association. The device must be bound to the gateway and must provide its
+ *  own credentials.
+ *
+ *  Value: "ASSOCIATION_AND_DEVICE_AUTH_TOKEN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken;
+/**
+ *  The device is authenticated through the gateway association only. Device
+ *  credentials are ignored even if provided.
+ *
+ *  Value: "ASSOCIATION_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly;
+/**
+ *  The device is authenticated through its own credentials. Gateway
+ *  association is not checked.
+ *
+ *  Value: "DEVICE_AUTH_TOKEN_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_DeviceAuthTokenOnly;
+/**
+ *  No authentication/authorization method specified. No devices are allowed to
+ *  access the gateway.
+ *
+ *  Value: "GATEWAY_AUTH_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIot_GatewayConfig.gatewayType
+
+/**
+ *  The device is a gateway.
+ *
+ *  Value: "GATEWAY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_Gateway;
+/**
+ *  If unspecified, the device is considered a non-gateway device.
+ *
+ *  Value: "GATEWAY_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_GatewayTypeUnspecified;
+/**
+ *  The device is not a gateway.
+ *
+ *  Value: "NON_GATEWAY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_HttpConfig.httpEnabledState
@@ -230,6 +286,34 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem
 GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFormat;
 
 /**
+ *  Request for `BindDeviceToGateway`.
+ */
+@interface GTLRCloudIot_BindDeviceToGatewayRequest : GTLRObject
+
+/**
+ *  The device to associate with the specified gateway. The value of
+ *  `device_id` can be either the device numeric ID or the user-defined device
+ *  identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  The value of `gateway_id` can be either the device numeric ID or the
+ *  user-defined device identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayId;
+
+@end
+
+
+/**
+ *  Response for `BindDeviceToGateway`.
+ */
+@interface GTLRCloudIot_BindDeviceToGatewayResponse : GTLRObject
+@end
+
+
+/**
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudIot_Binding : GTLRObject
@@ -301,6 +385,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  `DeviceRegistry.credentials` field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_DeviceCredential *> *credentials;
+
+/** Gateway-related configuration and state. */
+@property(nonatomic, strong, nullable) GTLRCloudIot_GatewayConfig *gatewayConfig;
 
 /**
  *  The user-defined device identifier. The device ID must be unique
@@ -695,6 +782,61 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Gateway-related configuration and state.
+ */
+@interface GTLRCloudIot_GatewayConfig : GTLRObject
+
+/**
+ *  Indicates how to authorize and/or authenticate devices to access the
+ *  gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken
+ *        The device is authenticated through both device credentials and
+ *        gateway
+ *        association. The device must be bound to the gateway and must provide
+ *        its
+ *        own credentials. (Value: "ASSOCIATION_AND_DEVICE_AUTH_TOKEN")
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly The
+ *        device is authenticated through the gateway association only. Device
+ *        credentials are ignored even if provided. (Value: "ASSOCIATION_ONLY")
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_DeviceAuthTokenOnly
+ *        The device is authenticated through its own credentials. Gateway
+ *        association is not checked. (Value: "DEVICE_AUTH_TOKEN_ONLY")
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified
+ *        No authentication/authorization method specified. No devices are
+ *        allowed to
+ *        access the gateway. (Value: "GATEWAY_AUTH_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayAuthMethod;
+
+/**
+ *  Indicates whether the device is a gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayType_Gateway The device is a
+ *        gateway. (Value: "GATEWAY")
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayType_GatewayTypeUnspecified If
+ *        unspecified, the device is considered a non-gateway device. (Value:
+ *        "GATEWAY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway The device is
+ *        not a gateway. (Value: "NON_GATEWAY")
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayType;
+
+/** [Output only] The ID of the gateway the device accessed most recently. */
+@property(nonatomic, copy, nullable) NSString *lastAccessedGatewayId;
+
+/**
+ *  [Output only] The most recent time at which the device accessed the gateway
+ *  specified in `last_accessed_gateway`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastAccessedGatewayTime;
 
 @end
 
@@ -1200,6 +1342,34 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Request for `UnbindDeviceFromGateway`.
+ */
+@interface GTLRCloudIot_UnbindDeviceFromGatewayRequest : GTLRObject
+
+/**
+ *  The device to disassociate from the specified gateway. The value of
+ *  `device_id` can be either the device numeric ID or the user-defined device
+ *  identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  The value of `gateway_id` can be either the device numeric ID or the
+ *  user-defined device identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayId;
+
+@end
+
+
+/**
+ *  Response for `UnbindDeviceFromGateway`.
+ */
+@interface GTLRCloudIot_UnbindDeviceFromGatewayResponse : GTLRObject
 @end
 
 

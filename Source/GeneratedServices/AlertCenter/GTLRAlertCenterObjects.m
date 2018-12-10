@@ -361,3 +361,13 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
 @dynamic deviceId, deviceModel, deviceProperty, deviceType, iosVendorId,
          newValue, oldValue, resourceId, serialNumber;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UndeleteAlertRequest
+//
+
+@implementation GTLRAlertCenter_UndeleteAlertRequest
+@dynamic customerId;
+@end

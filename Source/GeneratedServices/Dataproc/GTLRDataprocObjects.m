@@ -551,8 +551,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_Job
 @dynamic driverControlFilesUri, driverOutputResourceUri, hadoopJob, hiveJob,
-         labels, pigJob, placement, pysparkJob, reference, scheduling, sparkJob,
-         sparkSqlJob, status, statusHistory, yarnApplications;
+         jobUuid, labels, pigJob, placement, pysparkJob, reference, scheduling,
+         sparkJob, sparkSqlJob, status, statusHistory, yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1257,8 +1257,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_WorkflowMetadata
-@dynamic clusterName, createCluster, deleteCluster, endTime, graph, parameters,
-         startTime, state, templateProperty, version;
+@dynamic clusterName, clusterUuid, createCluster, deleteCluster, endTime, graph,
+         parameters, startTime, state, templateProperty, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"templateProperty" : @"template" };

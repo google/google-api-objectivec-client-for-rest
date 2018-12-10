@@ -529,6 +529,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckO
  *  the service configuration or specified using the quota metrics. If the
  *  amount is higher than the available quota, allocation error will be
  *  returned and no quota will be allocated.
+ *  If multiple quotas are part of the request, and one fails, none of the
+ *  quotas are allocated or released.
  *
  *  Value: "NORMAL"
  */
@@ -2271,7 +2273,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        AllocateQuota request, allocates quota for the amount specified in
  *        the service configuration or specified using the quota metrics. If the
  *        amount is higher than the available quota, allocation error will be
- *        returned and no quota will be allocated. (Value: "NORMAL")
+ *        returned and no quota will be allocated.
+ *        If multiple quotas are part of the request, and one fails, none of the
+ *        quotas are allocated or released. (Value: "NORMAL")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified Guard
  *        against implicit default. Must not be used. (Value: "UNSPECIFIED")
  */

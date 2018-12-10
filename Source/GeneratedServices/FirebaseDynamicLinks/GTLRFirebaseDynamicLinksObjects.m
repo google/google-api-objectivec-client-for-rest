@@ -307,7 +307,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_IosInfo
 @dynamic iosAppStoreId, iosBundleId, iosCustomScheme, iosFallbackLink,
-         iosIpadBundleId, iosIpadFallbackLink;
+         iosIpadBundleId, iosIpadFallbackLink, iosMinimumVersion;
 @end
 
 

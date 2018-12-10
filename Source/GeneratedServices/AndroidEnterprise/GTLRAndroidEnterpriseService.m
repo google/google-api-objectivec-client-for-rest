@@ -78,6 +78,7 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
     @"androidenterprise#usersListResponse" : [GTLRAndroidEnterprise_UsersListResponse class],
     @"androidenterprise#userToken" : [GTLRAndroidEnterprise_UserToken class],
     @"androidenterprise#variableSet" : [GTLRAndroidEnterprise_VariableSet class],
+    @"androidenterprise#webAppsListResponse" : [GTLRAndroidEnterprise_WebAppsListResponse class],
   };
 }
 

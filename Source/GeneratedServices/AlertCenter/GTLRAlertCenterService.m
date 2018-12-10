@@ -10,6 +10,15 @@
 
 #import "GTLRAlertCenter.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeAlertCenterAppsAlerts = @"https://www.googleapis.com/auth/apps.alerts";
+
+// ----------------------------------------------------------------------------
+//   GTLRAlertCenterService
+//
+
 @implementation GTLRAlertCenterService
 
 - (instancetype)init {

@@ -1039,6 +1039,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *autoRenewing;
 
 /**
+ *  Time at which the subscription will be automatically resumed, in
+ *  milliseconds since the Epoch. Only present if the user has requested to
+ *  pause the subscription.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoResumeTimeMillis;
+
+/**
  *  The reason why a subscription was canceled or is not auto-renewing. Possible
  *  values are:
  *  - User canceled the subscription

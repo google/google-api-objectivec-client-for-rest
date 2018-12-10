@@ -355,9 +355,9 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  [Experimental] The geographic location of the job. Required except for US
- *  and EU. See details at
- *  https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
+ *  The geographic location of the job. Required except for US and EU. See
+ *  details at
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -401,9 +401,9 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  [Experimental] The geographic location of the job. Required except for US
- *  and EU. See details at
- *  https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
+ *  The geographic location of the job. Required except for US and EU. See
+ *  details at
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -445,9 +445,9 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  [Experimental] The geographic location where the job should run. Required
- *  except for US and EU. See details at
- *  https://cloud.google.com/bigquery/docs/dataset-locations#specifying_your_location.
+ *  The geographic location where the job should run. Required except for US and
+ *  EU. See details at
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 

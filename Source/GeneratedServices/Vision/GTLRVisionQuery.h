@@ -516,8 +516,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Permanently deletes a ProductSet. All Products and ReferenceImages in the
- *  ProductSet will be deleted.
+ *  Permanently deletes a ProductSet. Products and ReferenceImages in the
+ *  ProductSet are not deleted.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
  *  * Returns NOT_FOUND if the ProductSet does not exist.
@@ -542,8 +542,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVision_Empty.
  *
- *  Permanently deletes a ProductSet. All Products and ReferenceImages in the
- *  ProductSet will be deleted.
+ *  Permanently deletes a ProductSet. Products and ReferenceImages in the
+ *  ProductSet are not deleted.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
  *  * Returns NOT_FOUND if the ProductSet does not exist.

@@ -123,6 +123,26 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest
+//
+
+@implementation GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest
+@dynamic projectConfig, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_AttachTenantProjectRequest
+//
+
+@implementation GTLRServiceConsumerManagement_AttachTenantProjectRequest
+@dynamic externalResource, reservedResource, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Authentication
 //
 

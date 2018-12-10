@@ -65,11 +65,39 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_LongRunningRecognizeMetadata
+//
+
+@implementation GTLRSpeech_LongRunningRecognizeMetadata
+@dynamic lastUpdateTime, progressPercent, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_LongRunningRecognizeRequest
 //
 
 @implementation GTLRSpeech_LongRunningRecognizeRequest
 @dynamic audio, config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_LongRunningRecognizeResponse
+//
+
+@implementation GTLRSpeech_LongRunningRecognizeResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRSpeech_RecognitionResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -243,5 +271,5 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_WordInfo
-@dynamic endTime, speakerTag, startTime, word;
+@dynamic endTime, startTime, word;
 @end

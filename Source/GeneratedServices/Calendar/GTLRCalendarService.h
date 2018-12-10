@@ -29,7 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Manage your calendars
+ *  Authorization scope: See, edit, share, and permanently delete all the
+ *  calendars you can access using Google Calendar
  *
  *  Value "https://www.googleapis.com/auth/calendar"
  */

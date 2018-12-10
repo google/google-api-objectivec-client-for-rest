@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  */
 @interface GTLRCloudAsset_Asset : GTLRObject
 
-/** Type of the asset. Example: "google.compute.disk". */
+/** Type of the asset. Example: "google.compute.Disk". */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
@@ -294,7 +294,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 
 /**
  *  A list of asset types of which to take a snapshot for. For example:
- *  "google.compute.disk". If specified, only matching assets will be returned.
+ *  "google.compute.Disk". If specified, only matching assets will be returned.
+ *  See [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
+ *  for all supported asset types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
@@ -376,8 +379,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 @interface GTLRCloudAsset_GcsDestination : GTLRObject
 
 /**
- *  The path of the Cloud Storage objects. It's the same path that is used by
- *  gsutil. For example: "gs://bucket_name/object_path". See [Viewing and
+ *  The uri of the Cloud Storage object. It's the same uri that is used by
+ *  gsutil. For example: "gs://bucket_name/object_name". See [Viewing and
  *  Editing Object
  *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
  *  for more information.
@@ -731,17 +734,17 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 
 
 /**
- *  A time window of [start_time, end_time).
+ *  A time window of (start_time, end_time].
  */
 @interface GTLRCloudAsset_TimeWindow : GTLRObject
 
 /**
- *  End time of the time window (exclusive).
+ *  End time of the time window (inclusive).
  *  Current timestamp if not specified.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Start time of the time window (inclusive). */
+/** Start time of the time window (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end

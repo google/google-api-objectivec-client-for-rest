@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Firebase Hosting API (firebasehosting/v1beta1)
+// Description:
+//   The Firebase Hosting REST API enables programmatic custom deployment for
+//   releasing versions of your Firebase hosted content and configuration files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
@@ -560,15 +563,15 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  A `Header` defines custom headers to add to a response should the request
- *  URL path match the pattern.
+ *  A [`header`](/docs/hosting/full-config#headers) defines custom headers to
+ *  add to a response should the request URL path match the pattern.
  */
 @interface GTLRFirebaseHosting_Header : GTLRObject
 
 /**
  *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#section-glob) to match against
- *  the request URL path.
+ *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
 
@@ -721,22 +724,23 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  A `Redirect` represents the configuration for returning an HTTP redirect
- *  response given a matching request URL path.
+ *  A [`redirect`](/docs/hosting/full-config#redirects) represents the
+ *  configuration for returning an HTTP redirect response given a matching
+ *  request URL path.
  */
 @interface GTLRFirebaseHosting_Redirect : GTLRObject
 
 /**
  *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#section-glob) to match against
- *  the request URL path.
+ *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
 
 /**
  *  Required. The value to put in the HTTP location header of the response.
- *  <br>The location can contain capture group values from the pattern using a
- *  `":"` prefix to identify the segment and an optional `"*"` to capture the
+ *  <br>The location can contain capture group values from the pattern using
+ *  a `:` prefix to identify the segment and an optional `*` to capture the
  *  rest of the URL.
  *  For example:
  *  <code>"glob": "/:capture*",
@@ -810,9 +814,10 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  A `Rewrite` represents an internal content rewrite on the version. If the
- *  pattern matches, the request will be handled as if it were to the
- *  destination path specified in the configuration.
+ *  A [`rewrite`](/docs/hosting/full-config#rewrites) represents an internal
+ *  content rewrite on the version. If the pattern matches, the request will be
+ *  handled as if it were to the destination path specified in the
+ *  configuration.
  */
 @interface GTLRFirebaseHosting_Rewrite : GTLRObject
 
@@ -831,8 +836,8 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 /**
  *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#section-glob) to match against
- *  the request URL path.
+ *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
 
@@ -846,7 +851,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *  The configuration for how incoming requests to a site should be routed and
  *  processed before serving content. The patterns are matched and applied
  *  according to a specific
- *  [priority order](/docs/hosting/url-redirects-rewrites#section-priorities).
+ *  [priority order](/docs/hosting/full-config#hosting_priority_order).
  */
 @interface GTLRFirebaseHosting_ServingConfig : GTLRObject
 
@@ -908,6 +913,26 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *        "TRAILING_SLASH_BEHAVIOR_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *trailingSlashBehavior;
+
+@end
+
+
+/**
+ *  A `SiteConfig` contains metadata associated with a specific site that
+ *  controls Firebase Hosting serving behavior
+ */
+@interface GTLRFirebaseHosting_SiteConfig : GTLRObject
+
+/**
+ *  The number of FINALIZED versions that will be held for a site before
+ *  automatic deletion. When a new version is deployed, content for versions
+ *  in storage in excess of this number will be deleted, and will no longer be
+ *  billed for storage usage. Oldest versions will be deleted first; sites are
+ *  created with an unlimited number of max_versions by default.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxVersions;
 
 @end
 

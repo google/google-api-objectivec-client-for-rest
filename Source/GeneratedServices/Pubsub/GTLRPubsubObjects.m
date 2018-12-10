@@ -82,6 +82,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_ExpirationPolicy
+//
+
+@implementation GTLRPubsub_ExpirationPolicy
+@dynamic ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Expr
 //
 
@@ -428,8 +438,8 @@
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, labels, messageRetentionDuration, name, pushConfig,
-         retainAckedMessages, topic;
+@dynamic ackDeadlineSeconds, expirationPolicy, labels, messageRetentionDuration,
+         name, pushConfig, retainAckedMessages, topic;
 @end
 
 

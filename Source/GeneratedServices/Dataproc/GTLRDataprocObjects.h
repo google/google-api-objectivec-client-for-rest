@@ -1391,6 +1391,13 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_HiveJob *hiveJob;
 
 /**
+ *  Output only. A UUID that uniquely identifies a job within the project over
+ *  time. This is in contrast to a user-settable reference.job_id that may be
+ *  reused over time.
+ */
+@property(nonatomic, copy, nullable) NSString *jobUuid;
+
+/**
  *  Optional. The labels to associate with this job. Label keys must contain 1
  *  to 63 characters, and must conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
@@ -2654,8 +2661,11 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @interface GTLRDataproc_WorkflowMetadata : GTLRObject
 
-/** Output only. The name of the managed cluster. */
+/** Output only. The name of the target cluster. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** Output only. The UUID of target cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /** Output only. The create cluster operation metadata. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *createCluster;

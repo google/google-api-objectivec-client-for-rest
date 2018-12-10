@@ -41,6 +41,7 @@ NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Map = @"MAP";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Pdf = @"PDF";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Presentation = @"PRESENTATION";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Script = @"SCRIPT";
+NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Site = @"SITE";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Spreadsheet = @"SPREADSHEET";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Video = @"VIDEO";
@@ -206,6 +207,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_BooleanPropertyOptions
 @dynamic operatorOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CheckAccessResponse
+//
+
+@implementation GTLRCloudSearch_CheckAccessResponse
+@dynamic hasAccess;
 @end
 
 
@@ -1620,6 +1631,34 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
     @"defaultFacetOptions" : [GTLRCloudSearch_FacetOptions class],
     @"operationIds" : [NSString class],
     @"sourceConfig" : [GTLRCloudSearch_SourceConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SearchItemsByViewUrlRequest
+//
+
+@implementation GTLRCloudSearch_SearchItemsByViewUrlRequest
+@dynamic debugOptions, pageToken, viewUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SearchItemsByViewUrlResponse
+//
+
+@implementation GTLRCloudSearch_SearchItemsByViewUrlResponse
+@dynamic items, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_Item class]
   };
   return map;
 }

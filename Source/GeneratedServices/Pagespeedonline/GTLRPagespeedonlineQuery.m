@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   PageSpeed Insights API (pagespeedonline/v4)
+//   PageSpeed Insights API (pagespeedonline/v5)
 // Description:
 //   Analyzes the performance of a web page and provides tailored suggestions to
 //   make that page faster.
 // Documentation:
-//   https://developers.google.com/speed/docs/insights/v4/getting-started
+//   https://developers.google.com/speed/docs/insights/v5/get-started
 
 #import "GTLRPagespeedonlineQuery.h"
 
@@ -15,6 +15,13 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// category
+NSString * const kGTLRPagespeedonlineCategoryAccessibility = @"accessibility";
+NSString * const kGTLRPagespeedonlineCategoryBestPractices = @"best-practices";
+NSString * const kGTLRPagespeedonlineCategoryPerformance   = @"performance";
+NSString * const kGTLRPagespeedonlineCategoryPwa           = @"pwa";
+NSString * const kGTLRPagespeedonlineCategorySeo           = @"seo";
 
 // strategy
 NSString * const kGTLRPagespeedonlineStrategyDesktop = @"desktop";
@@ -32,12 +39,10 @@ NSString * const kGTLRPagespeedonlineStrategyMobile  = @"mobile";
 
 @implementation GTLRPagespeedonlineQuery_PagespeedapiRunpagespeed
 
-@dynamic filterThirdPartyResources, locale, rule, screenshot, snapshots,
-         strategy, url, utmCampaign, utmSource;
+@dynamic category, locale, strategy, url, utmCampaign, utmSource;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
-    @"filterThirdPartyResources" : @"filter_third_party_resources",
     @"utmCampaign" : @"utm_campaign",
     @"utmSource" : @"utm_source"
   };
@@ -46,7 +51,7 @@ NSString * const kGTLRPagespeedonlineStrategyMobile  = @"mobile";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"rule" : [NSString class]
+    @"category" : [NSString class]
   };
   return map;
 }
@@ -58,7 +63,7 @@ NSString * const kGTLRPagespeedonlineStrategyMobile  = @"mobile";
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.url = url;
-  query.expectedObjectClass = [GTLRPagespeedonline_PagespeedApiPagespeedResponseV4 class];
+  query.expectedObjectClass = [GTLRPagespeedonline_PagespeedApiPagespeedResponseV5 class];
   query.loggingName = @"pagespeedonline.pagespeedapi.runpagespeed";
   return query;
 }
