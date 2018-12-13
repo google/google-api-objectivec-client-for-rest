@@ -176,6 +176,7 @@ static Class gAdditionalPropsClass = Nil;
 
   obj = [GTLRTestingObject object];
   dupe = [obj copy];
+  XCTAssertTrue(dupe != obj);
   XCTAssertNil(dupe.JSON);
 
   // Test an object representable as a plist.
@@ -188,6 +189,8 @@ static Class gAdditionalPropsClass = Nil;
   obj = [GTLRTestingObject objectWithJSON:json];
   obj.userProperties = @{ @"fish" : @"bass" };
   dupe = [obj copy];
+  XCTAssertTrue(dupe != obj);
+  XCTAssertTrue(dupe.JSON != obj.JSON);
   XCTAssertEqualObjects(dupe.JSON, json);
   XCTAssertNil(dupe.userProperties);  // userProperties are not copied.
 
@@ -201,8 +204,48 @@ static Class gAdditionalPropsClass = Nil;
   obj = [GTLRTestingObject objectWithJSON:json];
   obj.userProperties = @{ @"fish" : @"bass" };
   dupe = [obj copy];
+  XCTAssertTrue(dupe != obj);
+  XCTAssertTrue(dupe.JSON != obj.JSON);
   XCTAssertEqualObjects(dupe.JSON, json);
   XCTAssertNil(dupe.userProperties);  // userProperties are not copied.
+
+  // Test a sub object.
+  jsonStr = @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"child\":{\"a.num\":1234}}";
+  json = [self objectWithString:jsonStr error:&err];
+  XCTAssertEqual(json.count, 2U);
+  XCTAssertTrue(canCopyAsPlist(json));
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj.child);
+  obj.child.userProperties = @{ @"fish" : @"bass" };
+  dupe = [obj copy];
+  XCTAssertTrue(dupe != obj);
+  XCTAssertTrue(dupe.JSON != obj.JSON);
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNotNil(dupe.child);
+  XCTAssertTrue(dupe.child != obj.child);
+  XCTAssertTrue(dupe.child.JSON != obj.child.JSON);
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNil(dupe.child.userProperties);  // userProperties are not copied.
+
+  // Test a sub object not representable as a plist (due to a null).
+  jsonStr = @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"child\":{\"a.num\":null}}";
+  json = [self objectWithString:jsonStr error:&err];
+  XCTAssertEqual(json.count, 2U);
+  XCTAssertFalse(canCopyAsPlist(json));
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj.child);
+  obj.child.userProperties = @{ @"fish" : @"bass" };
+  dupe = [obj copy];
+  XCTAssertTrue(dupe != obj);
+  XCTAssertTrue(dupe.JSON != obj.JSON);
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNotNil(dupe.child);
+  XCTAssertTrue(dupe.child != obj.child);
+  XCTAssertTrue(dupe.child.JSON != obj.child.JSON);
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNil(dupe.child.userProperties);  // userProperties are not copied.
 }
 
 #pragma mark Getters and Setters
