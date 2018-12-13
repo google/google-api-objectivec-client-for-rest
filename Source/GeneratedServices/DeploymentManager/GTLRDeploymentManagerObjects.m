@@ -111,7 +111,7 @@
 
 @implementation GTLRDeploymentManager_Deployment
 @dynamic descriptionProperty, fingerprint, identifier, insertTime, labels,
-         manifest, name, operation, selfLink, target, update;
+         manifest, name, operation, selfLink, target, update, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

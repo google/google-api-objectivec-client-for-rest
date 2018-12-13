@@ -137,10 +137,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding. NOTE: an unsatisfied
- *  condition will not allow user access via current binding. Different
- *  bindings, including their conditions, are examined independently. This field
- *  is only visible as GOOGLE_INTERNAL or CONDITION_TRUSTED_TESTER.
+ *  Unimplemented. The condition that is associated with this binding. NOTE: an
+ *  unsatisfied condition will not allow user access via current binding.
+ *  Different bindings, including their conditions, are examined independently.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Expr *condition;
 
@@ -239,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  Output only. Unique identifier for the resource; defined by the server.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -247,10 +246,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Output only. Timestamp when the deployment was created, in RFC3339 text
- *  format .
- */
+/** Output only. Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
@@ -286,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation *operation;
 
-/** Output only. Self link for the deployment. */
+/** Output only. Server defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
@@ -300,6 +296,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  update to this deployment, the updated configuration appears here.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_DeploymentUpdate *update;
+
+/** Output only. Update timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *updateTime;
 
 @end
 
@@ -475,7 +474,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_GlobalSetPolicyRequest : GTLRObject
 
 /**
- *  Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use
+ *  Flatten Policy to create a backward compatible wire-format. Deprecated. Use
  *  'policy' to specify bindings.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Binding *> *bindings;
@@ -551,15 +550,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  exported metric names will have "/iam/policy" prepended.
  *  Field names correspond to IAM request parameters and field values are their
  *  respective values.
- *  At present the only supported field names are - "iam_principal",
- *  corresponding to IAMContext.principal; - "" (empty string), resulting in one
- *  aggretated counter with no field.
+ *  Supported field names: - "authority", which is "[token]" if IAMContext.token
+ *  is present, otherwise the value of IAMContext.authority_selector if present,
+ *  and otherwise a representation of IAMContext.principal; or -
+ *  "iam_principal", a representation of IAMContext.principal even if a token or
+ *  authority selector is present; or - "" (empty string), resulting in a
+ *  counter with no fields.
  *  Examples: counter { metric: "/debug_access_count" field: "iam_principal" }
  *  ==> increment counter /iam/policy/backend_debug_access_count
  *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support: * multiple field names (though this may be
- *  supported in the future) * decrementing the counter * incrementing it by
- *  anything other than 1
+ *  At this time we do not support multiple field names (though this may be
+ *  supported in the future).
  */
 @interface GTLRDeploymentManager_LogConfigCounterOptions : GTLRObject
 
@@ -580,6 +581,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Whether Gin logging should happen in a fail-closed manner at the caller.
  *  This is relevant only in the LocalIAM implementation, for now.
+ *  NOTE: Logging to Gin in a fail-closed manner is currently unsupported while
+ *  work is being done to satisfy the requirements of go/345. Currently, setting
+ *  LOG_FAIL_CLOSED mode will have no effect, but still exists because there is
+ *  active work being done to support it (b/115874152).
  */
 @property(nonatomic, copy, nullable) NSString *logMode;
 
@@ -601,7 +606,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *expandedConfig;
 
 /**
- *  Output only. Unique identifier for the resource; defined by the server.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -612,10 +617,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. The imported files for this manifest. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ImportFile *> *imports;
 
-/**
- *  Output only. Timestamp when the manifest was created, in RFC3339 text
- *  format.
- */
+/** Output only. Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /** Output only. The YAML layout for this manifest. */
@@ -1016,7 +1018,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *finalProperties;
 
 /**
- *  Output only. Unique identifier for the resource; defined by the server.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -1024,10 +1026,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Output only. Timestamp when the resource was created or acquired, in RFC3339
- *  text format .
- */
+/** Output only. Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
@@ -1057,10 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_ResourceUpdate *update;
 
-/**
- *  Output only. Timestamp when the resource was updated, in RFC3339 text format
- *  .
- */
+/** Output only. Update timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *updateTime;
 
 /** Output only. The URL of the actual resource. */
@@ -1386,7 +1382,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_Type : GTLRObject
 
 /**
- *  Output only. Unique identifier for the resource; defined by the server.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -1394,9 +1390,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Output only. Timestamp when the type was created, in RFC3339 text format.
- */
+/** Output only. Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /** Name of the type. */
@@ -1408,7 +1402,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation *operation;
 
-/** Output only. Self link for the type. */
+/** Output only. Server defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end

@@ -220,6 +220,36 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_AutoInstallConstraint
+//
+
+@implementation GTLRAndroidEnterprise_AutoInstallConstraint
+@dynamic chargingStateConstraint, deviceIdleStateConstraint,
+         networkTypeConstraint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AutoInstallPolicy
+//
+
+@implementation GTLRAndroidEnterprise_AutoInstallPolicy
+@dynamic autoInstallConstraint, autoInstallMode, autoInstallPriority,
+         minimumVersionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoInstallConstraint" : [GTLRAndroidEnterprise_AutoInstallConstraint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_ConfigurationVariables
 //
 
@@ -785,7 +815,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductPolicy
-@dynamic productId, trackIds, tracks;
+@dynamic autoInstallPolicy, productId, trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

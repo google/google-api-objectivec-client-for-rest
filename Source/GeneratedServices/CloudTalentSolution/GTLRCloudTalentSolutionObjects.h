@@ -1115,6 +1115,32 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSani
 GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_SimpleFormattingOnly;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_SearchJobsRequest.diversificationLevel
+
+/**
+ *  Disables diversification. Jobs that would normally be pushed to the last
+ *  page would not have their positions altered. This may result in highly
+ *  similar jobs appearing in sequence in the search results.
+ *
+ *  Value: "DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled;
+/**
+ *  The diversification level isn't specified.
+ *
+ *  Value: "DIVERSIFICATION_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified;
+/**
+ *  Default diversifying behavior. The result list is ordered so that
+ *  highly similar results are pushed to the end of the last page of search
+ *  results.
+ *
+ *  Value: "SIMPLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.jobView
 
 /**
@@ -3422,6 +3448,35 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableKeywordMatch;
+
+/**
+ *  Optional.
+ *  Controls whether highly similar jobs are returned next to each other in
+ *  the search results. Jobs are identified as highly similar based on
+ *  their titles, job categories, and locations. Highly similar results are
+ *  clustered so that only one representative job of the cluster is
+ *  displayed to the job seeker higher up in the results, with the other jobs
+ *  being displayed lower down in the results.
+ *  Defaults to DiversificationLevel.SIMPLE if no value
+ *  is specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled
+ *        Disables diversification. Jobs that would normally be pushed to the
+ *        last
+ *        page would not have their positions altered. This may result in highly
+ *        similar jobs appearing in sequence in the search results. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified
+ *        The diversification level isn't specified. (Value:
+ *        "DIVERSIFICATION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple
+ *        Default diversifying behavior. The result list is ordered so that
+ *        highly similar results are pushed to the end of the last page of
+ *        search
+ *        results. (Value: "SIMPLE")
+ */
+@property(nonatomic, copy, nullable) NSString *diversificationLevel;
 
 /**
  *  Optional.

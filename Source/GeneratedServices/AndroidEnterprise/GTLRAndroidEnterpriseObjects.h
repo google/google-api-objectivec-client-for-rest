@@ -29,6 +29,8 @@
 @class GTLRAndroidEnterprise_ApprovalUrlInfo;
 @class GTLRAndroidEnterprise_AppUpdateEvent;
 @class GTLRAndroidEnterprise_AppVersion;
+@class GTLRAndroidEnterprise_AutoInstallConstraint;
+@class GTLRAndroidEnterprise_AutoInstallPolicy;
 @class GTLRAndroidEnterprise_ConfigurationVariables;
 @class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_Enterprise;
@@ -443,6 +445,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  was generated.
  */
 @property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  The Auto install constraint. Defines a set of restrictions for installation.
+ *  At least one of the fields must be set.
+ */
+@interface GTLRAndroidEnterprise_AutoInstallConstraint : GTLRObject
+
+/** Charging state to constrain on. */
+@property(nonatomic, copy, nullable) NSString *chargingStateConstraint;
+
+/** The idle state of the device to constrain on. */
+@property(nonatomic, copy, nullable) NSString *deviceIdleStateConstraint;
+
+/** Network type to constrain on. */
+@property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AutoInstallPolicy
+ */
+@interface GTLRAndroidEnterprise_AutoInstallPolicy : GTLRObject
+
+/**
+ *  The constraints for the install. Currently there can be at most one
+ *  constraint.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AutoInstallConstraint *> *autoInstallConstraint;
+
+/** The auto install mode. If unset defaults to AVAILABLE. */
+@property(nonatomic, copy, nullable) NSString *autoInstallMode;
+
+/**
+ *  The priority of the install, as an unsigned integer. Lower number means
+ *  higher priority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoInstallPriority;
+
+/**
+ *  The minimum version of the app. If a lower version of the app is installed
+ *  then the app will be auto-updated according to the auto-install constraints,
+ *  instead of waiting for the regular auto-update.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumVersionCode;
 
 @end
 
@@ -1591,6 +1645,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The policy for a product.
  */
 @interface GTLRAndroidEnterprise_ProductPolicy : GTLRObject
+
+/** The auto install policy for the product. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AutoInstallPolicy *autoInstallPolicy;
 
 /** The ID of the product. For example, "app:com.google.android.gm". */
 @property(nonatomic, copy, nullable) NSString *productId;

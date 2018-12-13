@@ -297,6 +297,11 @@ NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_Htm
 NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified = @"HTML_SANITIZATION_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_SimpleFormattingOnly = @"SIMPLE_FORMATTING_ONLY";
 
+// GTLRCloudTalentSolution_SearchJobsRequest.diversificationLevel
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled = @"DISABLED";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified = @"DIVERSIFICATION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple = @"SIMPLE";
+
 // GTLRCloudTalentSolution_SearchJobsRequest.jobView
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewFull = @"JOB_VIEW_FULL";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnly = @"JOB_VIEW_ID_ONLY";
@@ -958,9 +963,9 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_SearchJobsRequest
-@dynamic disableKeywordMatch, enableBroadening, histogramFacets, jobQuery,
-         jobView, offset, orderBy, pageSize, pageToken, requestMetadata,
-         requirePreciseResultSize, searchMode;
+@dynamic disableKeywordMatch, diversificationLevel, enableBroadening,
+         histogramFacets, jobQuery, jobView, offset, orderBy, pageSize,
+         pageToken, requestMetadata, requirePreciseResultSize, searchMode;
 @end
 
 

@@ -99,6 +99,7 @@
 @class GTLRDataflow_ResourceUtilizationReport;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
+@class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_SdkVersion;
 @class GTLRDataflow_SeqMapTask;
 @class GTLRDataflow_SeqMapTask_UserFn;
@@ -1336,6 +1337,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fractionConsumed;
+
+/**
+ *  The fraction of the remainder of work to split the work item at, from 0.0
+ *  (split at the current position) to 1.0 (end of the input).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fractionOfRemainder;
 
 /** A Position at which to split the work item. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
@@ -4106,6 +4115,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Additional experiment flags for the job. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
 
+/** Additional user labels attached to the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
+
 /**
  *  Whether to bypass the safety checks for the job's temporary directory.
  *  Use with caution.
@@ -4134,6 +4146,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/**
+ *  The initial number of Google Compute Engine instnaces for the job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numWorkers;
+
 /** The email address of the service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
@@ -4158,6 +4177,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Additional user labels attached to the job.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels : GTLRObject
 @end
 
 

@@ -91,6 +91,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Acce
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
 /**
+ *  Nvidia Tesla T4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_T4"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
+/**
  *  Nvidia Tesla V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
@@ -108,6 +114,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
 /** Value: "NVIDIA_TESLA_P4" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
+/** Value: "NVIDIA_TESLA_T4" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
 /** Value: "NVIDIA_TESLA_V100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 
@@ -671,6 +679,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Nvidia Tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4
  *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4
+ *        Nvidia Tesla T4 GPU. (Value: "NVIDIA_TESLA_T4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
  *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
  */
@@ -1458,7 +1468,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents input parameters for a prediction job. Next field: 19
+ *  Represents input parameters for a prediction job. Next field: 20
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
@@ -1554,8 +1564,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The Google Cloud ML runtime version to use for this batch
- *  prediction. If not set, Google Cloud ML will pick the runtime version used
+ *  Optional. The Cloud ML Engine runtime version to use for this batch
+ *  prediction. If not set, Cloud ML Engine will pick the runtime version used
  *  during the CreateVersion request for this model version, or choose the
  *  latest stable version when model version information is not available
  *  such as when the model is specified by uri.
@@ -1796,7 +1806,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. The version of Python used in training. If not set, the default
  *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
- *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
+ *  to '1.4' and above. Python '2.7' works with all supported
+ *  <a href="/ml-engine/docs/runtime-version-list">runtime versions</a>.
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
@@ -1808,9 +1819,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The Google Cloud ML runtime version to use for training. If not
- *  set, Google Cloud ML will choose a stable version, which is defined in the
- *  documentation of runtime version list.
+ *  Optional. The Cloud ML Engine runtime version to use for training. If not
+ *  set, Cloud ML Engine uses the default stable version, 1.0. For more
+ *  information, see the
+ *  <a href="/ml-engine/docs/runtime-version-list">runtime version list</a>
+ *  and
+ *  <a href="/ml-engine/docs/versioning">how to manage runtime versions</a>.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
@@ -2059,8 +2073,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
- *  Optional. The Google Cloud ML runtime version to use for this deployment.
- *  If not set, Google Cloud ML will choose a version.
+ *  Optional. The Cloud ML Engine runtime version to use for this deployment.
+ *  If not set, Cloud ML Engine uses the default stable version, 1.0. For more
+ *  information, see the
+ *  [runtime version list](/ml-engine/docs/runtime-version-list) and
+ *  [how to manage runtime versions](/ml-engine/docs/versioning).
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 

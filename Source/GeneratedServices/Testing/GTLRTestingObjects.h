@@ -124,13 +124,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orchestrato
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified;
 /**
- *  Actual hardware
+ *  Actual hardware.
  *
  *  Value: "PHYSICAL"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Physical;
 /**
- *  A software stack that simulates the device
+ *  A software stack that simulates the device.
  *
  *  Value: "VIRTUAL"
  */
@@ -146,19 +146,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified;
 /**
- *  This device has the shape of a phone
+ *  This device has the shape of a phone.
  *
  *  Value: "PHONE"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
 /**
- *  This device has the shape of a tablet
+ *  This device has the shape of a tablet.
  *
  *  Value: "TABLET"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
 /**
- *  This device has the shape of a watch or other wearable
+ *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
@@ -261,19 +261,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Val
  */
 GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified;
 /**
- *  This device has the shape of a phone
+ *  This device has the shape of a phone.
  *
  *  Value: "PHONE"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
 /**
- *  This device has the shape of a tablet
+ *  This device has the shape of a tablet.
  *
  *  Value: "TABLET"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
 /**
- *  This device has the shape of a watch or other wearable
+ *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
@@ -463,7 +463,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
 /**
  *  The input IPA could not be parsed.
- *  NOT USED
+ *  Deprecated and not currently used.
  *
  *  Value: "MALFORMED_IPA"
  */
@@ -579,7 +579,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLo
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted;
 /**
  *  The APK is marked as "testOnly".
- *  NOT USED
+ *  Deprecated and not currently used.
  *
  *  Value: "TEST_ONLY_APK"
  */
@@ -686,11 +686,11 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_UnsupportedEnvironmen
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
- *  Identifies an account and how to log into it
+ *  Identifies an account and how to log into it.
  */
 @interface GTLRTesting_Account : GTLRObject
 
-/** An automatic google login account */
+/** An automatic google login account. */
 @property(nonatomic, strong, nullable) GTLRTesting_GoogleAuto *googleAuto;
 
 @end
@@ -702,30 +702,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_AndroidDevice : GTLRObject
 
 /**
- *  The id of the Android device to be used.
+ *  Required. The id of the Android device to be used.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *androidModelId;
 
 /**
- *  The id of the Android OS version to be used.
+ *  Required. The id of the Android OS version to be used.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *androidVersionId;
 
 /**
- *  The locale the test device used for testing.
+ *  Required. The locale the test device used for testing.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  How the device is oriented during the test.
+ *  Required. How the device is oriented during the test.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *orientation;
 
@@ -737,22 +733,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidDeviceCatalog : GTLRObject
 
-/**
- *  The set of supported Android device models.
- *  \@OutputOnly
- */
+/** The set of supported Android device models. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_AndroidModel *> *models;
 
-/**
- *  The set of supported runtime configurations.
- *  \@OutputOnly
- */
+/** The set of supported runtime configurations. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidRuntimeConfiguration *runtimeConfiguration;
 
-/**
- *  The set of supported Android OS versions.
- *  \@OutputOnly
- */
+/** The set of supported Android OS versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_AndroidVersion *> *versions;
 
 @end
@@ -763,10 +750,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidDeviceList : GTLRObject
 
-/**
- *  A list of Android devices
- *  Required
- */
+/** Required. A list of Android devices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_AndroidDevice *> *androidDevices;
 
 @end
@@ -792,7 +776,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The java package for the application under test.
- *  Optional, default is determined by examining the application's manifest.
+ *  The default value is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *appPackageId;
 
@@ -808,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  See
  *  <https://developer.android.com/training/testing/junit-runner.html#using-android-test-orchestrator>
  *  for more information about Android Test Orchestrator.
- *  Optional. If not set, the test will be run without the orchestrator.
+ *  If not set, the test will be run without the orchestrator.
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNotUseOrchestrator
@@ -828,21 +812,18 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *orchestratorOption;
 
-/**
- *  The APK containing the test code to be executed.
- *  Required
- */
+/** Required. The APK containing the test code to be executed. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *testApk;
 
 /**
  *  The java package for the test to be executed.
- *  Optional, default is determined by examining the application's manifest.
+ *  The default value is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *testPackageId;
 
 /**
  *  The InstrumentationTestRunner class.
- *  Optional, default is determined by examining the application's manifest.
+ *  The default value is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *testRunnerClass;
 
@@ -852,7 +833,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  - "package package_name"
  *  - "class package_name.class_name"
  *  - "class package_name.class_name#method_name"
- *  Optional, if empty, all targets in the module will be run.
+ *  If empty, all targets in the module will be run.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testTargets;
 
@@ -869,30 +850,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_AndroidMatrix : GTLRObject
 
 /**
- *  The ids of the set of Android device to be used.
+ *  Required. The ids of the set of Android device to be used.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidModelIds;
 
 /**
- *  The ids of the set of Android OS version to be used.
+ *  Required. The ids of the set of Android OS version to be used.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidVersionIds;
 
 /**
- *  The set of locales the test device will enable for testing.
+ *  Required. The set of locales the test device will enable for testing.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locales;
 
 /**
- *  The set of orientations to test with.
+ *  Required. The set of orientations to test with.
  *  Use the EnvironmentDiscoveryService to get supported options.
- *  Required
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orientations;
 
@@ -906,53 +883,48 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The company that this device is branded with.
- *  Example: "Google", "Samsung"
- *  \@OutputOnly
+ *  Example: "Google", "Samsung".
  */
 @property(nonatomic, copy, nullable) NSString *brand;
 
 /**
  *  The name of the industrial design.
- *  This corresponds to android.os.Build.DEVICE
- *  \@OutputOnly
+ *  This corresponds to android.os.Build.DEVICE.
  */
 @property(nonatomic, copy, nullable) NSString *codename;
 
 /**
  *  Whether this device is virtual or physical.
- *  \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified Do not use.
  *        For proto versioning only. (Value: "DEVICE_FORM_UNSPECIFIED")
- *    @arg @c kGTLRTesting_AndroidModel_Form_Physical Actual hardware (Value:
+ *    @arg @c kGTLRTesting_AndroidModel_Form_Physical Actual hardware. (Value:
  *        "PHYSICAL")
  *    @arg @c kGTLRTesting_AndroidModel_Form_Virtual A software stack that
- *        simulates the device (Value: "VIRTUAL")
+ *        simulates the device. (Value: "VIRTUAL")
  */
 @property(nonatomic, copy, nullable) NSString *form;
 
 /**
  *  Whether this device is a phone, tablet, wearable, etc.
- *  \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified
  *        Do not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Phone This device has the
- *        shape of a phone (Value: "PHONE")
+ *        shape of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tablet This device has the
- *        shape of a tablet (Value: "TABLET")
+ *        shape of a tablet. (Value: "TABLET")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Wearable This device has the
- *        shape of a watch or other wearable (Value: "WEARABLE")
+ *        shape of a watch or other wearable. (Value: "WEARABLE")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
  *  The unique opaque id for this model.
  *  Use this for invoking the TestExecutionService.
- *  \@OutputOnly
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -961,29 +933,23 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  True if and only if tests with this model are recorded by stitching
  *  together screenshots. See use_low_spec_video_recording in device config.
- *  \@OutputOnly
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lowFpsVideoRecording;
 
-/**
- *  The manufacturer of this device.
- *  \@OutputOnly
- */
+/** The manufacturer of this device. */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /**
  *  The human-readable marketing name for this device model.
- *  Examples: "Nexus 5", "Galaxy S5"
- *  \@OutputOnly
+ *  Examples: "Nexus 5", "Galaxy S5".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Screen density in DPI.
  *  This corresponds to ro.sf.lcd_density
- *  \@OutputOnly
  *
  *  Uses NSNumber of intValue.
  */
@@ -991,7 +957,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Screen size in the horizontal (X) dimension measured in pixels.
- *  \@OutputOnly
  *
  *  Uses NSNumber of intValue.
  */
@@ -999,7 +964,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Screen size in the vertical (Y) dimension measured in pixels.
- *  \@OutputOnly
  *
  *  Uses NSNumber of intValue.
  */
@@ -1013,19 +977,15 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Elements are optionally prefixed by "version_id:" (where version_id is
  *  the id of an AndroidVersion), denoting an ABI that is supported only on
  *  a particular version.
- *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedAbis;
 
-/**
- *  The set of Android versions this device supports.
- *  \@OutputOnly
- */
+/** The set of Android versions this device supports. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedVersionIds;
 
 /**
  *  Tags for this dimension.
- *  Examples: "default", "preview", "deprecated"
+ *  Examples: "default", "preview", "deprecated".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1044,15 +1004,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** A multi-apk app bundle for the application under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_AppBundle *appBundle;
 
-/**
- *  The initial activity that should be used to start the app.
- *  Optional
- */
+/** The initial activity that should be used to start the app. */
 @property(nonatomic, copy, nullable) NSString *appInitialActivity;
 
 /**
  *  The java package for the application under test.
- *  Optional, default is determined by examining the application's manifest.
+ *  The default value is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *appPackageId;
 
@@ -1060,7 +1017,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  The max depth of the traversal stack Robo can explore. Needs to be at least
  *  2 to make Robo explore the app beyond the first activity.
  *  Default is 50.
- *  Optional
  *
  *  Uses NSNumber of intValue.
  */
@@ -1069,7 +1025,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  The max number of steps Robo can execute.
  *  Default is no limit.
- *  Optional
  *
  *  Uses NSNumber of intValue.
  */
@@ -1079,14 +1034,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  A set of directives Robo should apply during the crawl.
  *  This allows users to customize the crawl. For example, the username and
  *  password for a test account can be provided.
- *  Optional
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_RoboDirective *> *roboDirectives;
 
 /**
  *  A JSON file with a sequence of actions Robo should perform as a prologue
  *  for the crawl.
- *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *roboScript;
 
@@ -1106,16 +1059,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_AndroidRuntimeConfiguration : GTLRObject
 
-/**
- *  The set of available locales.
- *  \@OutputOnly
- */
+/** The set of available locales. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Locale *> *locales;
 
-/**
- *  The set of available orientations.
- *  \@OutputOnly
- */
+/** The set of available orientations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Orientation *> *orientations;
 
 @end
@@ -1123,7 +1070,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A test of an Android Application with a Test Loop.
- *  The intent <intent-name> will be implicitly added, since Games is the only
+ *  The intent \\<intent-name\\> will be implicitly added, since Games is the
+ *  only
  *  user of this api, for the time being.
  */
 @interface GTLRTesting_AndroidTestLoop : GTLRObject
@@ -1136,7 +1084,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The java package for the application under test.
- *  Optional, default is determined by examining the application's manifest.
+ *  The default is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *appPackageId;
 
@@ -1147,13 +1095,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  com.google.test.loops.player_experience add all of the loops labeled in the
  *  manifest with the com.google.test.loops.player_experience name to the
  *  execution.
- *  Optional. Scenarios can also be specified in the scenarios field.
+ *  Scenarios can also be specified in the scenarios field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scenarioLabels;
 
 /**
  *  The list of scenarios that should be run during the test.
- *  Optional, default is all test loops, derived from the application's
+ *  The default is all test loops, derived from the application's
  *  manifest.
  *
  *  Uses NSNumber of intValue.
@@ -1164,14 +1112,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A version of the Android OS
+ *  A version of the Android OS.
  */
 @interface GTLRTesting_AndroidVersion : GTLRObject
 
 /**
  *  The API level for this Android version.
- *  Examples: 18, 19
- *  \@OutputOnly
+ *  Examples: 18, 19.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1179,42 +1126,33 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The code name for this Android version.
- *  Examples: "JellyBean", "KitKat"
- *  \@OutputOnly
+ *  Examples: "JellyBean", "KitKat".
  */
 @property(nonatomic, copy, nullable) NSString *codeName;
 
-/**
- *  Market share for this version.
- *  \@OutputOnly
- */
+/** Market share for this version. */
 @property(nonatomic, strong, nullable) GTLRTesting_Distribution *distribution;
 
 /**
  *  An opaque id for this Android version.
  *  Use this id to invoke the TestExecutionService.
- *  \@OutputOnly
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  The date this Android version became available in the market.
- *  \@OutputOnly
- */
+/** The date this Android version became available in the market. */
 @property(nonatomic, strong, nullable) GTLRTesting_Date *releaseDate;
 
 /**
  *  Tags for this dimension.
- *  Examples: "default", "preview", "deprecated"
+ *  Examples: "default", "preview", "deprecated".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
  *  A string representing this version of the Android OS.
- *  Examples: "4.3", "4.4"
- *  \@OutputOnly
+ *  Examples: "4.3", "4.4".
  */
 @property(nonatomic, copy, nullable) NSString *versionString;
 
@@ -1228,13 +1166,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The path to an APK to be installed on the device before the test begins.
- *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *location;
 
 /**
  *  The java package for the APK to be installed.
- *  Optional, value is determined by examining the application's manifest.
+ *  Value is determined by examining the application's manifest.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -1243,7 +1180,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Android application details based on application manifest and apk archive
- *  contents
+ *  contents.
  */
 @interface GTLRTesting_ApkDetail : GTLRObject
 
@@ -1371,10 +1308,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** The list of detailed information about client. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_ClientInfoDetail *> *clientInfoDetails;
 
-/**
- *  Client name, such as gcloud.
- *  Required
- */
+/** Required. Client name, such as gcloud. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1382,20 +1316,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Key-value pair of detailed information about the client which invoked the
- *  test. For example {'Version', '1.0'}, {'Release Track', 'BETA'}
+ *  test. Examples: {'Version', '1.0'}, {'Release Track', 'BETA'}.
  */
 @interface GTLRTesting_ClientInfoDetail : GTLRObject
 
-/**
- *  The key of detailed client information.
- *  Required
- */
+/** Required. The key of detailed client information. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/**
- *  The value of detailed client information.
- *  Required
- */
+/** Required. The value of detailed client information. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -1465,17 +1393,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_Distribution : GTLRObject
 
 /**
- *  The estimated fraction (0-1) of the total market with this configuration.
- *  \@OutputOnly
+ *  Output only. The estimated fraction (0-1) of the total market with this
+ *  configuration.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *marketShare;
 
-/**
- *  The time this distribution was measured.
- *  \@OutputOnly
- */
+/** Output only. The time this distribution was measured. */
 @property(nonatomic, strong, nullable) GTLRDateTime *measurementTime;
 
 @end
@@ -1516,14 +1441,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A key-value pair passed as an environment variable to the test
+ *  A key-value pair passed as an environment variable to the test.
  */
 @interface GTLRTesting_EnvironmentVariable : GTLRObject
 
-/** Key for the environment variable */
+/** Key for the environment variable. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** Value for the environment variable */
+/** Value for the environment variable. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -1575,11 +1500,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_GoogleCloudStorage : GTLRObject
 
 /**
- *  The path to a directory in GCS that will
+ *  Required. The path to a directory in GCS that will
  *  eventually contain the results for this test.
  *  The requesting user must have write access on the bucket in the supplied
  *  path.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -1592,13 +1516,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_IntentFilter : GTLRObject
 
-/** The android:name value of the <action> tag */
+/** The android:name value of the <action> tag. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actionNames;
 
-/** The android:name value of the <category> tag */
+/** The android:name value of the <category> tag. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categoryNames;
 
-/** The android:mimeType value of the <data> tag */
+/** The android:mimeType value of the <data> tag. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
@@ -1641,16 +1565,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_IosDeviceCatalog : GTLRObject
 
-/** Output only. The set of supported iOS device models. */
+/** The set of supported iOS device models. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosModel *> *models;
 
-/** Output only. The set of supported runtime configurations. */
+/** The set of supported runtime configurations. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosRuntimeConfiguration *runtimeConfiguration;
 
-/** Output only. The set of supported iOS software versions. */
+/** The set of supported iOS software versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosVersion *> *versions;
 
-/** Output only. The set of supported Xcode versions. */
+/** The set of supported Xcode versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_XcodeVersion *> *xcodeVersions;
 
 @end
@@ -1661,7 +1585,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_IosDeviceList : GTLRObject
 
-/** Required. A list of iOS devices */
+/** Required. A list of iOS devices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosDevice *> *iosDevices;
 
 @end
@@ -1673,7 +1597,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_IosModel : GTLRObject
 
 /**
- *  Output only. Device capabilities.
+ *  Device capabilities.
  *  Copied from
  *  https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html
  */
@@ -1681,23 +1605,22 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Whether this device is a phone, tablet, wearable, etc.
- *  \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified Do
  *        not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Phone This device has the shape
- *        of a phone (Value: "PHONE")
+ *        of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Tablet This device has the shape
- *        of a tablet (Value: "TABLET")
+ *        of a tablet. (Value: "TABLET")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Wearable This device has the
- *        shape of a watch or other wearable (Value: "WEARABLE")
+ *        shape of a watch or other wearable. (Value: "WEARABLE")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
- *  Output only. The unique opaque id for this model.
+ *  The unique opaque id for this model.
  *  Use this for invoking the TestExecutionService.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -1705,19 +1628,17 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Output only. The human-readable name for this device model.
- *  Examples: "iPhone 4s", "iPad Mini 2"
+ *  The human-readable name for this device model.
+ *  Examples: "iPhone 4s", "iPad Mini 2".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Output only. The set of iOS major software versions this device supports.
- */
+/** The set of iOS major software versions this device supports. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedVersionIds;
 
 /**
- *  Output only. Tags for this dimension.
- *  Examples: "default", "preview", "deprecated"
+ *  Tags for this dimension.
+ *  Examples: "default", "preview", "deprecated".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1729,10 +1650,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_IosRuntimeConfiguration : GTLRObject
 
-/** Output only. The set of available locales. */
+/** The set of available locales. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Locale *> *locales;
 
-/** Output only. The set of available orientations. */
+/** The set of available orientations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Orientation *> *orientations;
 
 @end
@@ -1744,7 +1665,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_IosTestSetup : GTLRObject
 
 /**
- *  Optional. The network traffic profile used for running the test.
+ *  The network traffic profile used for running the test.
  *  Available network profiles can be queried by using the
  *  NETWORK_CONFIGURATION environment type when calling
  *  TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
@@ -1755,12 +1676,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  An iOS version
+ *  An iOS version.
  */
 @interface GTLRTesting_IosVersion : GTLRObject
 
 /**
- *  Output only. An opaque id for this iOS version.
+ *  An opaque id for this iOS version.
  *  Use this id to invoke the TestExecutionService.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -1768,27 +1689,27 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Output only. An integer representing the major iOS version.
- *  Examples: "8", "9"
+ *  An integer representing the major iOS version.
+ *  Examples: "8", "9".
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *majorVersion;
 
 /**
- *  Output only. An integer representing the minor iOS version.
- *  Examples: "1", "2"
+ *  An integer representing the minor iOS version.
+ *  Examples: "1", "2".
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minorVersion;
 
-/** Output only. The available Xcode versions for this version. */
+/** The available Xcode versions for this version. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedXcodeVersionIds;
 
 /**
- *  Output only. Tags for this dimension.
- *  Examples: "default", "preview", "deprecated"
+ *  Tags for this dimension.
+ *  Examples: "default", "preview", "deprecated".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1814,14 +1735,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *testsZip;
 
 /**
- *  Optional. The Xcode version that should be used for the test.
+ *  The Xcode version that should be used for the test.
  *  Use the EnvironmentDiscoveryService to get supported options.
  *  Defaults to the latest Xcode version Firebase Test Lab supports.
  */
 @property(nonatomic, copy, nullable) NSString *xcodeVersion;
 
 /**
- *  Optional. An .xctestrun file that will override the .xctestrun file in the
+ *  An .xctestrun file that will override the .xctestrun file in the
  *  tests zip. Because the .xctestrun file contains environment variables along
  *  with test methods to run and/or ignore, this can be useful for sharding
  *  tests. Default is taken from the tests zip.
@@ -1845,8 +1766,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The id for this locale.
- *  Example: "en_US"
- *  \@OutputOnly
+ *  Example: "en_US".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1854,22 +1774,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A human-friendly name for this language/locale.
- *  Example: "English"
- *  \@OutputOnly
+ *  Example: "English".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A human-friendly string representing the region for this locale.
- *  Example: "United States"
- *  Not present for every locale.
- *  \@OutputOnly
+ *  A human-friendly string representing the region for this
+ *  locale. Example: "United States". Not present for every locale.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
  *  Tags for this dimension.
- *  Examples: "default"
+ *  Example: "default".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1881,18 +1798,17 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_NetworkConfiguration : GTLRObject
 
-/** The emulation rule applying to the download traffic */
+/** The emulation rule applying to the download traffic. */
 @property(nonatomic, strong, nullable) GTLRTesting_TrafficRule *downRule;
 
 /**
- *  The unique opaque id for this network traffic configuration
- *  \@OutputOnly
+ *  The unique opaque id for this network traffic configuration.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The emulation rule applying to the upload traffic */
+/** The emulation rule applying to the upload traffic. */
 @property(nonatomic, strong, nullable) GTLRTesting_TrafficRule *upRule;
 
 @end
@@ -1909,24 +1825,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  An opaque binary blob file to install on the device before the test starts
+ *  An opaque binary blob file to install on the device before the test starts.
  */
 @interface GTLRTesting_ObbFile : GTLRObject
 
-/**
- *  Opaque Binary Blob (OBB) file(s) to install on the device
- *  Required
- */
+/** Required. Opaque Binary Blob (OBB) file(s) to install on the device. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *obb;
 
 /**
- *  OBB file name which must conform to the format as specified by
+ *  Required. OBB file name which must conform to the format as specified by
  *  Android
  *  e.g. [main|patch].0300110.com.example.android.obb
  *  which will be installed into
- *  <shared-storage>/Android/obb/<package-name>/
- *  on the device
- *  Required
+ *  \\<shared-storage\\>/Android/obb/\\<package-name\\>/
+ *  on the device.
  */
 @property(nonatomic, copy, nullable) NSString *obbFileName;
 
@@ -1940,8 +1852,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The id for this orientation.
- *  Example: "portrait"
- *  \@OutputOnly
+ *  Example: "portrait".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1949,14 +1860,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A human-friendly name for this orientation.
- *  Example: "portrait"
- *  \@OutputOnly
+ *  Example: "portrait".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Tags for this dimension.
- *  Examples: "default"
+ *  Example: "default".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1969,8 +1879,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_ProvidedSoftwareCatalog : GTLRObject
 
 /**
- *  A string representing the current version of Android Test Orchestrator that
- *  is provided by TestExecutionService. Example: "1.0.2 beta"
+ *  A string representing the current version of Android Test
+ *  Orchestrator that is provided by TestExecutionService.
+ *  Example: "1.0.2 beta".
  */
 @property(nonatomic, copy, nullable) NSString *orchestratorVersion;
 
@@ -1978,16 +1889,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A file or directory to install on the device before the test starts
+ *  A file or directory to install on the device before the test starts.
  */
 @interface GTLRTesting_RegularFile : GTLRObject
 
-/** Required */
+/** Required. The source file. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *content;
 
 /**
- *  Where to put the content on the device. Must be an absolute, whitelisted
- *  path. If the file exists, it will be replaced.
+ *  Required. Where to put the content on the device. Must be an absolute,
+ *  whitelisted path. If the file exists, it will be replaced.
  *  The following device-side directories and any of their subdirectories are
  *  whitelisted:
  *  <p>${EXTERNAL_STORAGE}, or /sdcard</p>
@@ -2002,7 +1913,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  "http://developer.android.com/reference/android/os/Environment.html">
  *  Environment API</a> in app and test code to access files on the device in a
  *  portable way.
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *devicePath;
 
@@ -2017,16 +1927,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Required. */
 @property(nonatomic, strong, nullable) GTLRTesting_GoogleCloudStorage *googleCloudStorage;
 
-/**
- *  The tool results execution that results are written to.
- *  \@OutputOnly
- */
+/** Output only. The tool results execution that results are written to. */
 @property(nonatomic, strong, nullable) GTLRTesting_ToolResultsExecution *toolResultsExecution;
 
 /**
  *  The tool results history that contains the tool results execution that
  *  results are written to.
- *  Optional, if not provided the service will choose an appropriate value.
+ *  If not provided, the service will choose an appropriate value.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_ToolResultsHistory *toolResultsHistory;
 
@@ -2040,8 +1947,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_RoboDirective : GTLRObject
 
 /**
- *  The type of action that Robo should perform on the specified element.
- *  Required.
+ *  Required. The type of action that Robo should perform on the specified
+ *  element.
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified DO NOT
@@ -2059,19 +1966,17 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  The text that Robo is directed to set. If left empty, the directive will be
  *  treated as a CLICK on the element matching the resource_name.
- *  Optional
  */
 @property(nonatomic, copy, nullable) NSString *inputText;
 
 /**
- *  The android resource name of the target UI element
+ *  Required. The android resource name of the target UI element.
  *  For example,
  *  in Java: R.string.foo
  *  in xml: \@string/foo
- *  Only the “foo” part is needed.
+ *  Only the "foo" part is needed.
  *  Reference doc:
  *  https://developer.android.com/guide/topics/resources/accessing-resources.html
- *  Required
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -2079,7 +1984,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Message for specifying the start activities to crawl
+ *  Message for specifying the start activities to crawl.
  */
 @interface GTLRTesting_RoboStartingIntent : GTLRObject
 
@@ -2100,16 +2005,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
-/**
- *  Intent categories to set on the intent.
- *  Optional.
- */
+/** Intent categories to set on the intent. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
-/**
- *  URI for the action.
- *  Optional.
- */
+/** URI for the action. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -2121,18 +2020,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_TestDetails : GTLRObject
 
 /**
- *  If the TestState is ERROR, then this string will contain human-readable
- *  details about the error.
- *  \@OutputOnly
+ *  Output only. If the TestState is ERROR, then this string will contain
+ *  human-readable details about the error.
  */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  Human-readable, detailed descriptions of the test's progress.
+ *  Output only. Human-readable, detailed descriptions of the test's progress.
  *  For example: "Provisioning a device", "Starting Test".
  *  During the course of execution new data may be appended
  *  to the end of progress_messages.
- *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *progressMessages;
 
@@ -2144,13 +2041,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_TestEnvironmentCatalog : GTLRObject
 
-/** Android devices suitable for running Android Instrumentation Tests. */
+/** Supported Android devices. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDeviceCatalog *androidDeviceCatalog;
 
-/** Supported iOS devices */
+/** Supported iOS devices. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosDeviceCatalog *iosDeviceCatalog;
 
-/** Supported network configurations */
+/** Supported network configurations. */
 @property(nonatomic, strong, nullable) GTLRTesting_NetworkConfigurationCatalog *networkConfigurationCatalog;
 
 /** The software test environment provided by TestExecutionService. */
@@ -2164,35 +2061,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_TestExecution : GTLRObject
 
-/**
- *  How the host machine(s) are configured.
- *  \@OutputOnly
- */
+/** Output only. How the host machine(s) are configured. */
 @property(nonatomic, strong, nullable) GTLRTesting_Environment *environment;
 
 /**
- *  Unique id set by the backend.
- *  \@OutputOnly
+ *  Output only. Unique id set by the backend.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Id of the containing TestMatrix.
- *  \@OutputOnly
- */
+/** Output only. Id of the containing TestMatrix. */
 @property(nonatomic, copy, nullable) NSString *matrixId;
 
-/**
- *  The cloud project that owns the test execution.
- *  \@OutputOnly
- */
+/** Output only. The cloud project that owns the test execution. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Indicates the current progress of the test execution (e.g., FINISHED).
- *  \@OutputOnly
+ *  Output only. Indicates the current progress of the test execution
+ *  (e.g., FINISHED).
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_TestExecution_State_Cancelled The user cancelled the
@@ -2242,28 +2129,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  Additional details about the running test.
- *  \@OutputOnly
- */
+/** Output only. Additional details about the running test. */
 @property(nonatomic, strong, nullable) GTLRTesting_TestDetails *testDetails;
 
-/**
- *  How to run the test.
- *  \@OutputOnly
- */
+/** Output only. How to run the test. */
 @property(nonatomic, strong, nullable) GTLRTesting_TestSpecification *testSpecification;
 
-/**
- *  The time this test execution was initially created.
- *  \@OutputOnly
- */
+/** Output only. The time this test execution was initially created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
-/**
- *  Where the results for this execution are written.
- *  \@OutputOnly
- */
+/** Output only. Where the results for this execution are written. */
 @property(nonatomic, strong, nullable) GTLRTesting_ToolResultsStep *toolResultsStep;
 
 @end
@@ -2275,22 +2150,15 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_TestMatrix : GTLRObject
 
-/**
- *  Information about the client which invoked the test.
- *  Optional
- */
+/** Information about the client which invoked the test. */
 @property(nonatomic, strong, nullable) GTLRTesting_ClientInfo *clientInfo;
 
-/**
- *  How the host machine(s) are configured.
- *  Required
- */
+/** Required. How the host machine(s) are configured. */
 @property(nonatomic, strong, nullable) GTLRTesting_EnvironmentMatrix *environmentMatrix;
 
 /**
- *  Describes why the matrix is considered invalid.
+ *  Output only. Describes why the matrix is considered invalid.
  *  Only useful for matrices in the INVALID state.
- *  \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator
@@ -2331,7 +2199,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        input app APK could not be parsed. (Value: "MALFORMED_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa The
  *        input IPA could not be parsed.
- *        NOT USED (Value: "MALFORMED_IPA")
+ *        Deprecated and not currently used. (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip
@@ -2388,7 +2256,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "TEST_NOT_APP_HOSTED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk The APK
  *        is marked as "testOnly".
- *        NOT USED (Value: "TEST_ONLY_APK")
+ *        Deprecated and not currently used. (Value: "TEST_ONLY_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp The
  *        test package and app package are the same. (Value: "TEST_SAME_AS_APP")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts
@@ -2399,21 +2267,15 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *invalidMatrixDetails;
 
-/**
- *  The cloud project that owns the test matrix.
- *  \@OutputOnly
- */
+/** The cloud project that owns the test matrix. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  Where the results for the matrix are written.
- *  Required
- */
+/** Required. Where the results for the matrix are written. */
 @property(nonatomic, strong, nullable) GTLRTesting_ResultStorage *resultStorage;
 
 /**
- *  Indicates the current progress of the test matrix (e.g., FINISHED)
- *  \@OutputOnly
+ *  Output only. Indicates the current progress of the test matrix
+ *  (e.g., FINISHED).
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_TestMatrix_State_Cancelled The user cancelled the
@@ -2464,27 +2326,18 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The list of test executions that the service creates for this matrix.
- *  \@OutputOnly
+ *  Output only. The list of test executions that the service creates for
+ *  this matrix.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestExecution *> *testExecutions;
 
-/**
- *  Unique id set by the service.
- *  \@OutputOnly
- */
+/** Output only. Unique id set by the service. */
 @property(nonatomic, copy, nullable) NSString *testMatrixId;
 
-/**
- *  How to run the test.
- *  Required
- */
+/** Required. How to run the test. */
 @property(nonatomic, strong, nullable) GTLRTesting_TestSpecification *testSpecification;
 
-/**
- *  The time this test matrix was initially created.
- *  \@OutputOnly
- */
+/** Output only. The time this test matrix was initially created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
@@ -2497,14 +2350,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The device will be logged in on this account for the duration of the test.
- *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_Account *account;
 
 /**
  *  APKs to install in addition to those being directly tested.
  *  Currently capped at 100.
- *  Optional
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *additionalApks;
 
@@ -2516,7 +2367,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  implicit path substitutions. E.g. if /sdcard on a particular device does
  *  not map to external storage, the system will replace it with the external
  *  storage path prefix for that device.
- *  Optional
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directoriesToPull;
 
@@ -2526,14 +2376,11 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_EnvironmentVariable *> *environmentVariables;
 
-/**
- *  List of files to push to the device before starting the test.
- *  Optional
- */
+/** List of files to push to the device before starting the test. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceFile *> *filesToPush;
 
 /**
- *  Optional. The network traffic profile used for running the test.
+ *  The network traffic profile used for running the test.
  *  Available network profiles can be queried by using the
  *  NETWORK_CONFIGURATION environment type when calling
  *  TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
@@ -2554,7 +2401,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** An Android robo test. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidRoboTest *androidRoboTest;
 
-/** An Android Application with a Test Loop */
+/** An Android Application with a Test Loop. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidTestLoop *androidTestLoop;
 
 /**
@@ -2566,7 +2413,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  present on the device. Logging into the device with these generated
  *  accounts allows testing more functionalities.
  *  Default is false.
- *  Optional
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2586,23 +2432,22 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSNumber *disableVideoRecording;
 
-/** Optional. Test setup requirements for iOS. */
+/** Test setup requirements for iOS. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosTestSetup *iosTestSetup;
 
-/** An iOS XCTest, via an .xctestrun file */
+/** An iOS XCTest, via an .xctestrun file. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosXcTest *iosXcTest;
 
 /**
  *  Test setup requirements for Android e.g. files to install, bootstrap
  *  scripts.
- *  Optional
  */
 @property(nonatomic, strong, nullable) GTLRTesting_TestSetup *testSetup;
 
 /**
  *  Max time a test execution is allowed to run before it is
  *  automatically cancelled.
- *  Optional, default is 5 min.
+ *  The default value is 5 min.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *testTimeout;
 
@@ -2615,22 +2460,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_ToolResultsExecution : GTLRObject
 
-/**
- *  A tool results execution ID.
- *  \@OutputOnly
- */
+/** Output only. A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
-/**
- *  A tool results history ID.
- *  \@OutputOnly
- */
+/** Output only. A tool results history ID. */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
-/**
- *  The cloud project that owns the tool results execution.
- *  \@OutputOnly
- */
+/** Output only. The cloud project that owns the tool results execution. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -2641,16 +2477,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_ToolResultsHistory : GTLRObject
 
-/**
- *  A tool results history ID.
- *  Required
- */
+/** Required. A tool results history ID. */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
-/**
- *  The cloud project that owns the tool results history.
- *  Required
- */
+/** Required. The cloud project that owns the tool results history. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -2662,64 +2492,52 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_ToolResultsStep : GTLRObject
 
-/**
- *  A tool results execution ID.
- *  \@OutputOnly
- */
+/** Output only. A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
-/**
- *  A tool results history ID.
- *  \@OutputOnly
- */
+/** Output only. A tool results history ID. */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
-/**
- *  The cloud project that owns the tool results step.
- *  \@OutputOnly
- */
+/** Output only. The cloud project that owns the tool results step. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  A tool results step ID.
- *  \@OutputOnly
- */
+/** Output only. A tool results step ID. */
 @property(nonatomic, copy, nullable) NSString *stepId;
 
 @end
 
 
 /**
- *  Network emulation parameters
+ *  Network emulation parameters.
  */
 @interface GTLRTesting_TrafficRule : GTLRObject
 
 /**
- *  Bandwidth in kbits/second
+ *  Bandwidth in kbits/second.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bandwidth;
 
 /**
- *  Burst size in kbits
+ *  Burst size in kbits.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *burst;
 
-/** Packet delay, must be >= 0 */
+/** Packet delay, must be >= 0. */
 @property(nonatomic, strong, nullable) GTLRDuration *delay;
 
 /**
- *  Packet duplication ratio (0.0 - 1.0)
+ *  Packet duplication ratio (0.0 - 1.0).
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *packetDuplicationRatio;
 
 /**
- *  Packet loss ratio (0.0 - 1.0)
+ *  Packet loss ratio (0.0 - 1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2734,14 +2552,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_XcodeVersion : GTLRObject
 
 /**
- *  Output only. Tags for this Xcode version.
- *  Examples: "default"
+ *  Tags for this Xcode version.
+ *  Example: "default".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
- *  Output only. The id for this version.
- *  Example: "9.2"
+ *  The id for this version.
+ *  Example: "9.2".
  */
 @property(nonatomic, copy, nullable) NSString *version;
 

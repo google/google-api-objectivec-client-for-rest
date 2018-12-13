@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -211,7 +211,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  policy or resource exists.
  *
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
  */
@@ -459,7 +459,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -471,7 +471,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param object The @c GTLRDeploymentManager_GlobalSetPolicyRequest to include
  *    in the query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy
  */
@@ -536,7 +536,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the resource for this request. */
+/** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
@@ -547,7 +547,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @param object The @c GTLRDeploymentManager_TestPermissionsRequest to include
  *    in the query.
  *  @param project Project ID for this request.
- *  @param resource Name of the resource for this request.
+ *  @param resource Name or id of the resource for this request.
  *
  *  @return GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions
  */
