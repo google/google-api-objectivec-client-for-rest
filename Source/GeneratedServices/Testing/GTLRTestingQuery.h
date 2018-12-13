@@ -61,7 +61,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Request the details of an Android application APK.
+ *  Gets the details of an Android application APK.
  *
  *  Method: testing.applicationDetailService.getApkDetails
  *
@@ -75,7 +75,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_GetApkDetailsResponse.
  *
- *  Request the details of an Android application APK.
+ *  Gets the details of an Android application APK.
  *
  *  @param object The @c GTLRTesting_FileReference to include in the query.
  *
@@ -131,7 +131,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Request to run a matrix of tests according to the given specifications.
+ *  Creates and runs a matrix of tests according to the given specifications.
  *  Unsupported environments will be returned in the state UNSUPPORTED.
  *  Matrices are limited to at most 200 supported executions.
  *  May return any of the following canonical error codes:
@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_TestMatrix.
  *
- *  Request to run a matrix of tests according to the given specifications.
+ *  Creates and runs a matrix of tests according to the given specifications.
  *  Unsupported environments will be returned in the state UNSUPPORTED.
  *  Matrices are limited to at most 200 supported executions.
  *  May return any of the following canonical error codes:
@@ -182,7 +182,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Check the status of a test matrix.
+ *  Checks the status of a test matrix.
  *  May return any of the following canonical error codes:
  *  - PERMISSION_DENIED - if the user is not authorized to read project
  *  - INVALID_ARGUMENT - if the request is malformed
@@ -207,7 +207,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_TestMatrix.
  *
- *  Check the status of a test matrix.
+ *  Checks the status of a test matrix.
  *  May return any of the following canonical error codes:
  *  - PERMISSION_DENIED - if the user is not authorized to read project
  *  - INVALID_ARGUMENT - if the request is malformed
@@ -224,7 +224,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Get the catalog of supported test environments.
+ *  Gets the catalog of supported test environments.
  *  May return any of the following canonical error codes:
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the environment type does not exist
@@ -241,8 +241,7 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 //   +[GTLQueryTesting queryForTestEnvironmentCatalogGetWithenvironmentType:]
 
 /**
- *  The type of environment that should be listed.
- *  Required
+ *  Required. The type of environment that should be listed.
  *
  *  Likely values:
  *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value
@@ -258,21 +257,20 @@ GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 
 /**
  *  For authorization, the cloud project requesting the TestEnvironmentCatalog.
- *  Optional
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRTesting_TestEnvironmentCatalog.
  *
- *  Get the catalog of supported test environments.
+ *  Gets the catalog of supported test environments.
  *  May return any of the following canonical error codes:
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the environment type does not exist
  *  - INTERNAL - if an internal error occurred
  *
- *  @param environmentType The type of environment that should be listed.
- *    Required
+ *  @param environmentType Required. The type of environment that should be
+ *    listed.
  *
  *  Likely values for @c environmentType:
  *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value

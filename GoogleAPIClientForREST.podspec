@@ -456,10 +456,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ReplicaPool/*.{h,m}'
   end
-  s.subspec 'Replicapoolupdater' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Replicapoolupdater/*.{h,m}'
-  end
   s.subspec 'Reports' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Reports/*.{h,m}'

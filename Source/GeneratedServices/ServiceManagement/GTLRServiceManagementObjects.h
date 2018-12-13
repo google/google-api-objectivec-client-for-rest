@@ -996,7 +996,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *audiences;
 
 /**
- *  Redirect URL if JWT token is required but no present or is expired.
+ *  Redirect URL if JWT token is required but not present or is expired.
  *  Implement authorizationUrl of securityDefinitions in OpenAPI spec.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationUrl;

@@ -130,8 +130,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Invokes synchronously deployed function. To be used for testing, very
- *  limited traffic allowed.
+ *  Synchronously invokes a deployed Cloud Function. To be used for testing
+ *  purposes as very limited traffic is allowed. For more information on
+ *  the actual limits refer to [API Calls](
+ *  https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  Method: cloudfunctions.projects.locations.functions.call
  *
@@ -148,8 +150,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFunctions_CallFunctionResponse.
  *
- *  Invokes synchronously deployed function. To be used for testing, very
- *  limited traffic allowed.
+ *  Synchronously invokes a deployed Cloud Function. To be used for testing
+ *  purposes as very limited traffic is allowed. For more information on
+ *  the actual limits refer to [API Calls](
+ *  https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  @param object The @c GTLRCloudFunctions_CallFunctionRequest to include in
  *    the query.

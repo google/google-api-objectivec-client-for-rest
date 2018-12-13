@@ -227,7 +227,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ApproximateSplitRequest
-@dynamic fractionConsumed, position;
+@dynamic fractionConsumed, fractionOfRemainder, position;
 @end
 
 
@@ -1492,9 +1492,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_RuntimeEnvironment
-@dynamic additionalExperiments, bypassTempDirValidation, machineType,
-         maxWorkers, network, serviceAccountEmail, subnetwork, tempLocation,
-         zoneProperty;
+@dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
+         machineType, maxWorkers, network, numWorkers, serviceAccountEmail,
+         subnetwork, tempLocation, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1505,6 +1505,20 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
     @"additionalExperiments" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels
+//
+
+@implementation GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
