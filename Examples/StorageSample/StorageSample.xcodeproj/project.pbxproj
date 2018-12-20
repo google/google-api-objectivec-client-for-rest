@@ -10,9 +10,6 @@
 		4F22A2151186315400FFBAB6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F22A2141186315400FFBAB6 /* WebKit.framework */; };
 		4F43229917726CFD002A5E2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43229817726CFD002A5E2C /* Security.framework */; };
 		4F43229B17726D10002A5E2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43229A17726D10002A5E2C /* SystemConfiguration.framework */; };
-		4F95C09A1C87B26800598FE6 /* GTLRStorageObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95C0951C87B26800598FE6 /* GTLRStorageObjects.m */; };
-		4F95C09B1C87B26800598FE6 /* GTLRStorageQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95C0971C87B26800598FE6 /* GTLRStorageQuery.m */; };
-		4F95C09C1C87B26800598FE6 /* GTLRStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95C0991C87B26800598FE6 /* GTLRStorageService.m */; };
 		4F9B545B15816762005E917A /* StorageSampleAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B545815816762005E917A /* StorageSampleAppController.m */; };
 		4F9B545C15816762005E917A /* StorageSampleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B545A15816762005E917A /* StorageSampleWindowController.m */; };
 		4FA6F3D41034AEC400C5DFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6F3D11034AEC400C5DFA5 /* MainMenu.xib */; };
@@ -33,13 +30,6 @@
 		4F22A2141186315400FFBAB6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		4F43229817726CFD002A5E2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		4F43229A17726D10002A5E2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
-		4F95C0931C87B26800598FE6 /* GTLRStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStorage.h; path = ../../Source/GeneratedServices/Storage/GTLRStorage.h; sourceTree = "<group>"; };
-		4F95C0941C87B26800598FE6 /* GTLRStorageObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStorageObjects.h; path = ../../Source/GeneratedServices/Storage/GTLRStorageObjects.h; sourceTree = "<group>"; };
-		4F95C0951C87B26800598FE6 /* GTLRStorageObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStorageObjects.m; path = ../../Source/GeneratedServices/Storage/GTLRStorageObjects.m; sourceTree = "<group>"; };
-		4F95C0961C87B26800598FE6 /* GTLRStorageQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStorageQuery.h; path = ../../Source/GeneratedServices/Storage/GTLRStorageQuery.h; sourceTree = "<group>"; };
-		4F95C0971C87B26800598FE6 /* GTLRStorageQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStorageQuery.m; path = ../../Source/GeneratedServices/Storage/GTLRStorageQuery.m; sourceTree = "<group>"; };
-		4F95C0981C87B26800598FE6 /* GTLRStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStorageService.h; path = ../../Source/GeneratedServices/Storage/GTLRStorageService.h; sourceTree = "<group>"; };
-		4F95C0991C87B26800598FE6 /* GTLRStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStorageService.m; path = ../../Source/GeneratedServices/Storage/GTLRStorageService.m; sourceTree = "<group>"; };
 		4F9B545715816762005E917A /* StorageSampleAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = StorageSampleAppController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4F9B545815816762005E917A /* StorageSampleAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StorageSampleAppController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4F9B545915816762005E917A /* StorageSampleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = StorageSampleWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -111,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Sample App Classes */,
-				4FB25385138C3F9E00B5C1AE /* API Services */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -157,20 +146,6 @@
 				A40B7504884B7D5D08B8705D /* Pods-StorageSample.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		4FB25385138C3F9E00B5C1AE /* API Services */ = {
-			isa = PBXGroup;
-			children = (
-				4F95C0931C87B26800598FE6 /* GTLRStorage.h */,
-				4F95C0941C87B26800598FE6 /* GTLRStorageObjects.h */,
-				4F95C0951C87B26800598FE6 /* GTLRStorageObjects.m */,
-				4F95C0961C87B26800598FE6 /* GTLRStorageQuery.h */,
-				4F95C0971C87B26800598FE6 /* GTLRStorageQuery.m */,
-				4F95C0981C87B26800598FE6 /* GTLRStorageService.h */,
-				4F95C0991C87B26800598FE6 /* GTLRStorageService.m */,
-			);
-			name = "API Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,9 +272,6 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				4F9B545B15816762005E917A /* StorageSampleAppController.m in Sources */,
 				4F9B545C15816762005E917A /* StorageSampleWindowController.m in Sources */,
-				4F95C09A1C87B26800598FE6 /* GTLRStorageObjects.m in Sources */,
-				4F95C09C1C87B26800598FE6 /* GTLRStorageService.m in Sources */,
-				4F95C09B1C87B26800598FE6 /* GTLRStorageQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

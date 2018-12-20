@@ -15,9 +15,6 @@
 		4F16FBEA13E0C3A600811114 /* EditACLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F16FBE913E0C3A600811114 /* EditACLWindowController.m */; };
 		4F16FCCC13E0D0EE00811114 /* EditEventWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F16FCCB13E0D0EE00811114 /* EditEventWindowController.m */; };
 		4F22A2151186315400FFBAB6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F22A2141186315400FFBAB6 /* WebKit.framework */; };
-		4F57CC491C6EBB0F00F02F9D /* GTLRCalendarObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F57CC441C6EBB0F00F02F9D /* GTLRCalendarObjects.m */; };
-		4F57CC4A1C6EBB0F00F02F9D /* GTLRCalendarQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F57CC461C6EBB0F00F02F9D /* GTLRCalendarQuery.m */; };
-		4F57CC4B1C6EBB0F00F02F9D /* GTLRCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F57CC481C6EBB0F00F02F9D /* GTLRCalendarService.m */; };
 		4FA6F3D41034AEC400C5DFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6F3D11034AEC400C5DFA5 /* MainMenu.xib */; };
 		5FFFF27EDA3A87A95C4106E9 /* libPods-CalendarSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7672B94AB97AD7B6FE8CF /* libPods-CalendarSample.a */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -45,13 +42,6 @@
 		4F16FCCA13E0D0EE00811114 /* EditEventWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditEventWindowController.h; sourceTree = "<group>"; };
 		4F16FCCB13E0D0EE00811114 /* EditEventWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EditEventWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4F22A2141186315400FFBAB6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
-		4F57CC421C6EBB0F00F02F9D /* GTLRCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCalendar.h; path = ../../Source/GeneratedServices/Calendar/GTLRCalendar.h; sourceTree = "<group>"; };
-		4F57CC431C6EBB0F00F02F9D /* GTLRCalendarObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCalendarObjects.h; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarObjects.h; sourceTree = "<group>"; };
-		4F57CC441C6EBB0F00F02F9D /* GTLRCalendarObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCalendarObjects.m; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarObjects.m; sourceTree = "<group>"; };
-		4F57CC451C6EBB0F00F02F9D /* GTLRCalendarQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCalendarQuery.h; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarQuery.h; sourceTree = "<group>"; };
-		4F57CC461C6EBB0F00F02F9D /* GTLRCalendarQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCalendarQuery.m; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarQuery.m; sourceTree = "<group>"; };
-		4F57CC471C6EBB0F00F02F9D /* GTLRCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCalendarService.h; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarService.h; sourceTree = "<group>"; };
-		4F57CC481C6EBB0F00F02F9D /* GTLRCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCalendarService.m; path = ../../Source/GeneratedServices/Calendar/GTLRCalendarService.m; sourceTree = "<group>"; };
 		4FA6F3D21034AEC400C5DFA5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6BD5A33609A04EBB955DBF10 /* Pods-CalendarSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarSample/Pods-CalendarSample.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -117,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Sample App Classes */,
-				4FB25385138C3F9E00B5C1AE /* API Services */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -156,36 +145,6 @@
 				21F7672B94AB97AD7B6FE8CF /* libPods-CalendarSample.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4F57CC401C6EBAF400F02F9D /* GeneratedServices */ = {
-			isa = PBXGroup;
-			children = (
-				4F57CC411C6EBB0100F02F9D /* Calendar */,
-			);
-			name = GeneratedServices;
-			sourceTree = "<group>";
-		};
-		4F57CC411C6EBB0100F02F9D /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				4F57CC421C6EBB0F00F02F9D /* GTLRCalendar.h */,
-				4F57CC431C6EBB0F00F02F9D /* GTLRCalendarObjects.h */,
-				4F57CC441C6EBB0F00F02F9D /* GTLRCalendarObjects.m */,
-				4F57CC451C6EBB0F00F02F9D /* GTLRCalendarQuery.h */,
-				4F57CC461C6EBB0F00F02F9D /* GTLRCalendarQuery.m */,
-				4F57CC471C6EBB0F00F02F9D /* GTLRCalendarService.h */,
-				4F57CC481C6EBB0F00F02F9D /* GTLRCalendarService.m */,
-			);
-			name = Calendar;
-			sourceTree = "<group>";
-		};
-		4FB25385138C3F9E00B5C1AE /* API Services */ = {
-			isa = PBXGroup;
-			children = (
-				4F57CC401C6EBAF400F02F9D /* GeneratedServices */,
-			);
-			name = "API Services";
 			sourceTree = "<group>";
 		};
 		7EB79BC20DE72F4C63082C67 /* Pods */ = {
@@ -321,10 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				4F57CC491C6EBB0F00F02F9D /* GTLRCalendarObjects.m in Sources */,
 				4F16F58F13DF666100811114 /* CalendarSampleAppController.m in Sources */,
-				4F57CC4A1C6EBB0F00F02F9D /* GTLRCalendarQuery.m in Sources */,
-				4F57CC4B1C6EBB0F00F02F9D /* GTLRCalendarService.m in Sources */,
 				4F16F59013DF666100811114 /* CalendarSampleWindowController.m in Sources */,
 				4F16FBEA13E0C3A600811114 /* EditACLWindowController.m in Sources */,
 				4F16FCCC13E0D0EE00811114 /* EditEventWindowController.m in Sources */,

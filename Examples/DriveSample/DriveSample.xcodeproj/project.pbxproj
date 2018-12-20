@@ -11,8 +11,6 @@
 		4F22A2151186315400FFBAB6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F22A2141186315400FFBAB6 /* WebKit.framework */; };
 		4F43229917726CFD002A5E2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43229817726CFD002A5E2C /* Security.framework */; };
 		4F43229B17726D10002A5E2C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43229A17726D10002A5E2C /* SystemConfiguration.framework */; };
-		4F4B5A851C473F490031D179 /* GTLRDriveQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F4B5A701C473F490031D179 /* GTLRDriveQuery.m */; };
-		4F4B5A861C473F490031D179 /* GTLRDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F4B5A721C473F490031D179 /* GTLRDriveService.m */; };
 		4F9B545B15816762005E917A /* DriveSampleAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B545815816762005E917A /* DriveSampleAppController.m */; };
 		4F9B545C15816762005E917A /* DriveSampleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B545A15816762005E917A /* DriveSampleWindowController.m */; };
 		4FA6F3D41034AEC400C5DFA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6F3D11034AEC400C5DFA5 /* MainMenu.xib */; };
@@ -20,7 +18,6 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		F4469ECA1C593DF900BCFAA1 /* GTLRDriveObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = F4469EC91C593DF900BCFAA1 /* GTLRDriveObjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +30,6 @@
 		4F22A2141186315400FFBAB6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		4F43229817726CFD002A5E2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		4F43229A17726D10002A5E2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
-		4F4B5A4A1C473F490031D179 /* GTLRDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRDrive.h; sourceTree = "<group>"; };
-		4F4B5A6F1C473F490031D179 /* GTLRDriveQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRDriveQuery.h; sourceTree = "<group>"; };
-		4F4B5A701C473F490031D179 /* GTLRDriveQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLRDriveQuery.m; sourceTree = "<group>"; };
-		4F4B5A711C473F490031D179 /* GTLRDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRDriveService.h; sourceTree = "<group>"; };
-		4F4B5A721C473F490031D179 /* GTLRDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLRDriveService.m; sourceTree = "<group>"; };
 		4F9B545715816762005E917A /* DriveSampleAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DriveSampleAppController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4F9B545815816762005E917A /* DriveSampleAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DriveSampleAppController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4F9B545915816762005E917A /* DriveSampleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DriveSampleWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -48,8 +40,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DriveSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46522B0D3B278DD6AD79396 /* Pods-DriveSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DriveSample/Pods-DriveSample.debug.xcconfig"; sourceTree = "<group>"; };
-		F4469EC81C593DF900BCFAA1 /* GTLRDriveObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRDriveObjects.h; sourceTree = "<group>"; };
-		F4469EC91C593DF900BCFAA1 /* GTLRDriveObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLRDriveObjects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Sample App Classes */,
-				4FB25385138C3F9E00B5C1AE /* API Services */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -148,29 +137,6 @@
 				775716F0977505C5DFC0E5B4 /* libPods-DriveSample.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4F4B5A491C473F490031D179 /* Drive */ = {
-			isa = PBXGroup;
-			children = (
-				4F4B5A4A1C473F490031D179 /* GTLRDrive.h */,
-				F4469EC81C593DF900BCFAA1 /* GTLRDriveObjects.h */,
-				F4469EC91C593DF900BCFAA1 /* GTLRDriveObjects.m */,
-				4F4B5A6F1C473F490031D179 /* GTLRDriveQuery.h */,
-				4F4B5A701C473F490031D179 /* GTLRDriveQuery.m */,
-				4F4B5A711C473F490031D179 /* GTLRDriveService.h */,
-				4F4B5A721C473F490031D179 /* GTLRDriveService.m */,
-			);
-			name = Drive;
-			path = ../../Source/GeneratedServices/Drive;
-			sourceTree = "<group>";
-		};
-		4FB25385138C3F9E00B5C1AE /* API Services */ = {
-			isa = PBXGroup;
-			children = (
-				4F4B5A491C473F490031D179 /* Drive */,
-			);
-			name = "API Services";
 			sourceTree = "<group>";
 		};
 		FEA90BDC510F0C884DBEDDCF /* Pods */ = {
@@ -304,10 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				F4469ECA1C593DF900BCFAA1 /* GTLRDriveObjects.m in Sources */,
-				4F4B5A851C473F490031D179 /* GTLRDriveQuery.m in Sources */,
 				4F9B545B15816762005E917A /* DriveSampleAppController.m in Sources */,
-				4F4B5A861C473F490031D179 /* GTLRDriveService.m in Sources */,
 				4F9B545C15816762005E917A /* DriveSampleWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
