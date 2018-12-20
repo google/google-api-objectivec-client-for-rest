@@ -671,7 +671,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     GTLRDiscovery_RestDescription *api = (GTLRDiscovery_RestDescription *)
       [GTLRObject objectForJSON:json
                    defaultClass:nil
-            objectClassResolver:_discoveryService.objectClassResolver];
+            objectClassResolver:self.discoveryService.objectClassResolver];
 
     if (![api isKindOfClass:[GTLRDiscovery_RestDescription class]]) {
       [self reportError:@"The api description doesn't appear to be a discovery REST description"];
