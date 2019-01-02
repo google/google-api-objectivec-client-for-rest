@@ -3,7 +3,9 @@
 set -eu
 
 if [[ "$#" -ne 2 ]]; then
-  echo "Usage: $0 {iOS|OSX|tvOS} {Debug|Release|Both}"
+  echo "Usage: $0 CI_MODE {Debug|Release|Both}"
+  echo ""
+  echo "CI_MODE is one of the modes for the CI setup"
   exit 10
 fi
 
