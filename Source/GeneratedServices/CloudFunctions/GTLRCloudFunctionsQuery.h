@@ -94,10 +94,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudFunctions queryForOperationsList]
 
-/** The standard list filter. */
+/**
+ *  Required. A filter for matching the requested operations.<br><br> The
+ *  supported formats of <b>filter</b> are:<br> To query for specific function:
+ *  <code>project:*,location:*,function:*</code><br> To query for all of the
+ *  latest operations for a project: <code>project:*,latest:true</code>
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The name of the operation's parent resource. */
+/** Must not be set. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The standard list page size. */

@@ -1120,7 +1120,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsO
 
 /**
  *  All apps are available and any app that should not be on the device should
- *  be explicitly markeds as 'BLOCKED' in the applications policy.
+ *  be explicitly marked as 'BLOCKED' in the applications policy.
  *
  *  Value: "BLACKLIST"
  */
@@ -3534,7 +3534,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist All apps are
  *        available and any app that should not be on the device should be
- *        explicitly markeds as 'BLOCKED' in the applications policy. (Value:
+ *        explicitly marked as 'BLOCKED' in the applications policy. (Value:
  *        "BLACKLIST")
  *    @arg @c kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified
  *        Unspecified. Defaults to WHITELIST. (Value:

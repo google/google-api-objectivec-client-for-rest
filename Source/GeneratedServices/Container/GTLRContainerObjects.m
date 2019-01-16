@@ -291,6 +291,59 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_GetJSONWebKeysResponse
+//
+
+@implementation GTLRContainer_GetJSONWebKeysResponse
+@dynamic keys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [GTLRContainer_Jwk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GetOpenIDConfigResponse
+//
+
+@implementation GTLRContainer_GetOpenIDConfigResponse
+@dynamic claimsSupported, grantTypes, idTokenSigningAlgValuesSupported, issuer,
+         jwksUri, responseTypesSupported, subjectTypesSupported;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"claimsSupported" : @"claims_supported",
+    @"grantTypes" : @"grant_types",
+    @"idTokenSigningAlgValuesSupported" : @"id_token_signing_alg_values_supported",
+    @"jwksUri" : @"jwks_uri",
+    @"responseTypesSupported" : @"response_types_supported",
+    @"subjectTypesSupported" : @"subject_types_supported"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"claims_supported" : [NSString class],
+    @"grant_types" : [NSString class],
+    @"id_token_signing_alg_values_supported" : [NSString class],
+    @"response_types_supported" : [NSString class],
+    @"subject_types_supported" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_HorizontalPodAutoscaling
 //
 
@@ -319,6 +372,16 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
          createSubnetwork, nodeIpv4Cidr, nodeIpv4CidrBlock, servicesIpv4Cidr,
          servicesIpv4CidrBlock, servicesSecondaryRangeName, subnetworkName,
          useIpAliases;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_Jwk
+//
+
+@implementation GTLRContainer_Jwk
+@dynamic alg, crv, e, kid, kty, n, use, x, y;
 @end
 
 

@@ -1739,6 +1739,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Outputs a base64 encoded representation of the hashed output
  *  (for example, L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=).
  *  Currently, only string and integer values can be hashed.
+ *  See https://cloud.google.com/dlp/docs/pseudonymization to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig : GTLRObject
 
@@ -4237,6 +4238,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryKey *bigQueryKey;
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreKey *datastoreKey;
+
+/**
+ *  Values of identifying columns in the given row. Order of values matches
+ *  the order of field identifiers specified in the scanning request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *idValues;
 
 @end
 

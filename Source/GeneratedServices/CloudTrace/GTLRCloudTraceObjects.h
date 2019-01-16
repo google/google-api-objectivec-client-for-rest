@@ -123,8 +123,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
 /**
  *  The set of attributes. Each attribute's key can be up to 128 bytes
- *  long. The value can be a string up to 256 bytes, an integer, or the
- *  Boolean values `true` and `false`. For example:
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
+ *  or the Boolean values `true` and `false`. For example:
  *  "/instance_id": "my-instance"
  *  "/http/user_agent": ""
  *  "/http/request_bytes": 300
@@ -146,8 +146,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
 /**
  *  The set of attributes. Each attribute's key can be up to 128 bytes
- *  long. The value can be a string up to 256 bytes, an integer, or the
- *  Boolean values `true` and `false`. For example:
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
+ *  or the Boolean values `true` and `false`. For example:
  *  "/instance_id": "my-instance"
  *  "/http/user_agent": ""
  *  "/http/request_bytes": 300

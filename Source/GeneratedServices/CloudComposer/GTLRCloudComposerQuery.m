@@ -125,6 +125,25 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/imageVersions";
+  GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_ListImageVersionsResponse class];
+  query.loggingName = @"composer.projects.locations.imageVersions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsOperationsDelete
 
 @dynamic name;

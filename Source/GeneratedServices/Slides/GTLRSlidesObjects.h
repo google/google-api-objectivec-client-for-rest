@@ -8530,7 +8530,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  A table range with location = (0, 0), row span = 3 and column span = 2
  *  specifies the following cells:
  *  x x
- *  [ x ]
+ *  [ x x x ]
  */
 @interface GTLRSlides_TableRange : GTLRObject
 

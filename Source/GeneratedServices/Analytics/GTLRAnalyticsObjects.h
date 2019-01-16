@@ -23,8 +23,6 @@
 @class GTLRAnalytics_Account_Permissions;
 @class GTLRAnalytics_AccountRef;
 @class GTLRAnalytics_AccountSummary;
-@class GTLRAnalytics_AccountTreeRequest_AccountSettings;
-@class GTLRAnalytics_AccountTreeResponse_AccountSettings;
 @class GTLRAnalytics_AdWordsAccount;
 @class GTLRAnalytics_Column;
 @class GTLRAnalytics_Column_Attributes;
@@ -405,7 +403,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountTreeRequest : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *accountName;
-@property(nonatomic, strong, nullable) GTLRAnalytics_AccountTreeRequest_AccountSettings *accountSettings;
 
 /** Resource type for account ticket. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -414,42 +411,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *timezone;
 @property(nonatomic, copy, nullable) NSString *webpropertyName;
 @property(nonatomic, copy, nullable) NSString *websiteUrl;
-
-@end
-
-
-/**
- *  GTLRAnalytics_AccountTreeRequest_AccountSettings
- */
-@interface GTLRAnalytics_AccountTreeRequest_AccountSettings : GTLRObject
-
-/**
- *  shareAnonymouslyWithOthers
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareAnonymouslyWithOthers;
-
-/**
- *  shareWithGoogleProducts
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithGoogleProducts;
-
-/**
- *  shareWithSpecialists
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithSpecialists;
-
-/**
- *  shareWithSupport
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithSupport;
 
 @end
 
@@ -464,8 +425,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The account created. */
 @property(nonatomic, strong, nullable) GTLRAnalytics_Account *account;
 
-@property(nonatomic, strong, nullable) GTLRAnalytics_AccountTreeResponse_AccountSettings *accountSettings;
-
 /** Resource type for account ticket. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -479,58 +438,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_AccountTreeResponse_AccountSettings
- */
-@interface GTLRAnalytics_AccountTreeResponse_AccountSettings : GTLRObject
-
-/**
- *  shareAnonymouslyWithOthers
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareAnonymouslyWithOthers;
-
-/**
- *  shareWithGoogleProducts
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithGoogleProducts;
-
-/**
- *  shareWithSpecialists
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithSpecialists;
-
-/**
- *  shareWithSupport
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shareWithSupport;
-
-@end
-
-
-/**
- *  JSON template for an AdWords account.
+ *  JSON template for an Google Ads account.
  */
 @interface GTLRAnalytics_AdWordsAccount : GTLRObject
 
 /**
- *  True if auto-tagging is enabled on the AdWords account. Read-only after the
- *  insert operation.
+ *  True if auto-tagging is enabled on the Google Ads account. Read-only after
+ *  the insert operation.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoTaggingEnabled;
 
-/** Customer ID. This field is required when creating an AdWords link. */
+/** Customer ID. This field is required when creating a Google Ads link. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Resource type for AdWords account. */
+/** Resource type for Google Ads account. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -1059,13 +982,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Analytics Entity AdWords Link.
+ *  JSON template for Analytics Entity Google Ads Link.
  */
 @interface GTLRAnalytics_EntityAdWordsLink : GTLRObject
 
 /**
- *  A list of AdWords client accounts. These cannot be MCC accounts. This field
- *  is required when creating an AdWords link. It cannot be empty.
+ *  A list of Google Ads client accounts. These cannot be MCC accounts. This
+ *  field is required when creating a Google Ads link. It cannot be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_AdWordsAccount *> *adWordsAccounts;
 
@@ -1073,22 +996,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAnalytics_EntityAdWordsLink_Entity *entity;
 
 /**
- *  Entity AdWords link ID
+ *  Entity Google Ads link ID
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Resource type for entity AdWords link. */
+/** Resource type for entity Google Ads link. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Name of the link. This field is required when creating an AdWords link. */
+/**
+ *  Name of the link. This field is required when creating a Google Ads link.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** IDs of linked Views (Profiles) represented as strings. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profileIds;
 
-/** URL link for this Google Analytics - Google AdWords link. */
+/** URL link for this Google Analytics - Google Ads link. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -1105,8 +1030,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An entity AdWords link collection provides a list of GA-AdWords links Each
- *  resource in this collection corresponds to a single link.
+ *  An entity Google Ads link collection provides a list of GA-Google Ads links
+ *  Each resource in this collection corresponds to a single link.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -1114,7 +1039,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_EntityAdWordsLinks : GTLRCollectionObject
 
 /**
- *  A list of entity AdWords links.
+ *  A list of entity Google Ads links.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1134,10 +1059,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Collection type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Next link for this AdWords link collection. */
+/** Next link for this Google Ads link collection. */
 @property(nonatomic, copy, nullable) NSString *nextLink;
 
-/** Previous link for this AdWords link collection. */
+/** Previous link for this Google Ads link collection. */
 @property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
@@ -2716,8 +2641,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The foreign account ID. For example the an AdWords `linkedAccountId` has the
- *  following format XXX-XXX-XXXX.
+ *  The foreign account ID. For example the an Google Ads `linkedAccountId` has
+ *  the following format XXX-XXX-XXXX.
  */
 @property(nonatomic, copy, nullable) NSString *linkedAccountId;
 

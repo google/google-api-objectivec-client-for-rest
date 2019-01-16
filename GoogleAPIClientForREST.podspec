@@ -112,6 +112,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Bigquery/*.{h,m}'
   end
+  s.subspec 'BigtableAdmin' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BigtableAdmin/*.{h,m}'
+  end
   s.subspec 'BinaryAuthorization' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BinaryAuthorization/*.{h,m}'
@@ -163,6 +167,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudIAP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudIAP/*.{h,m}'
+  end
+  s.subspec 'CloudIdentity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudIdentity/*.{h,m}'
   end
   s.subspec 'CloudIot' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -247,6 +255,10 @@ Pod::Spec.new do |s|
   s.subspec 'Container' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Container/*.{h,m}'
+  end
+  s.subspec 'ContainerAnalysis' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ContainerAnalysis/*.{h,m}'
   end
   s.subspec 'Customsearch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -392,6 +404,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Kgsearch/*.{h,m}'
   end
+  s.subspec 'Libraryagent' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Libraryagent/*.{h,m}'
+  end
   s.subspec 'Licensing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Licensing/*.{h,m}'
@@ -451,6 +467,10 @@ Pod::Spec.new do |s|
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pubsub/*.{h,m}'
+  end
+  s.subspec 'RemoteBuildExecution' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/RemoteBuildExecution/*.{h,m}'
   end
   s.subspec 'ReplicaPool' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

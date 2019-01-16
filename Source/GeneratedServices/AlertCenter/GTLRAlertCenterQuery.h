@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAlertCenter_AlertFeedback;
+@class GTLRAlertCenter_Settings;
 @class GTLRAlertCenter_UndeleteAlertRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -314,6 +315,68 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAlertCenter_UndeleteAlertRequest *)object
                         alertId:(NSString *)alertId;
+
+@end
+
+/**
+ *  Returns customer-level settings.
+ *
+ *  Method: alertcenter.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_V1beta1GetSettings : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForGetSettings]
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alert settings are associated with.
+ *  Inferred from the caller identity if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c GTLRAlertCenter_Settings.
+ *
+ *  Returns customer-level settings.
+ *
+ *  @return GTLRAlertCenterQuery_V1beta1GetSettings
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Update the customer-level settings.
+ *
+ *  Method: alertcenter.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_V1beta1UpdateSettings : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForUpdateSettingsWithObject:]
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alert settings are associated with.
+ *  Inferred from the caller identity if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c GTLRAlertCenter_Settings.
+ *
+ *  Update the customer-level settings.
+ *
+ *  @param object The @c GTLRAlertCenter_Settings to include in the query.
+ *
+ *  @return GTLRAlertCenterQuery_V1beta1UpdateSettings
+ */
++ (instancetype)queryWithObject:(GTLRAlertCenter_Settings *)object;
 
 @end
 

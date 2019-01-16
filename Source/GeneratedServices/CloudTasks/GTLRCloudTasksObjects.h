@@ -126,8 +126,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_View
  *  [queue.yaml](https://cloud.google.com/appengine/docs/python/config/queueref)
  *  or
  *  [queue.xml](https://cloud.google.com/appengine/docs/standard/java/config/queueref)
- *  is uploaded
- *  which does not contain the queue. You cannot directly disable a queue.
+ *  is uploaded which does not contain the queue. You cannot directly disable
+ *  a queue.
  *  When a queue is disabled, tasks can still be added to a queue
  *  but the tasks are not dispatched.
  *  To permanently delete this queue and all of its tasks, call
@@ -538,7 +538,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *dispatchTime;
 
 /**
- *  Output only. The response from the target for this attempt.
+ *  Output only. The response from the worker for this attempt.
  *  If `response_time` is unset, then the task has not been attempted or is
  *  currently running and the `response_status` field is meaningless.
  */
@@ -975,8 +975,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @interface GTLRCloudTasks_Queue : GTLRObject
 
 /**
- *  App Engine HTTP queue.
- *  An App Engine queue is a queue that has an AppEngineHttpQueue type.
+ *  AppEngineHttpQueue settings apply only to
+ *  AppEngine tasks in this queue.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineHttpQueue *appEngineHttpQueue;
 
@@ -1014,10 +1014,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  Rate limits for task dispatches.
- *  rate_limits and
- *  retry_config are related because they both
- *  control task attempts however they control how tasks are
- *  attempted in different ways:
+ *  rate_limits and retry_config are
+ *  related because they both control task attempts. However they control task
+ *  attempts in different ways:
  *  * rate_limits controls the total rate of
  *  dispatches from a queue (i.e. all traffic dispatched from the
  *  queue, regardless of whether the dispatch is from a first
@@ -1026,6 +1025,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  particular a task after its first attempt fails. That is,
  *  retry_config controls task retries (the
  *  second attempt, third attempt, etc).
+ *  The queue's actual dispatch rate is the result of:
+ *  * Number of tasks in the queue
+ *  * User-specified throttling: rate limits
+ *  retry configuration, and the
+ *  queue's state.
+ *  * System throttling due to `429` (Too Many Requests) or `503` (Service
+ *  Unavailable) responses from the worker, high error rates, or to smooth
+ *  sudden large traffic spikes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_RateLimits *rateLimits;
 
@@ -1056,8 +1063,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *        [queue.yaml](https://cloud.google.com/appengine/docs/python/config/queueref)
  *        or
  *        [queue.xml](https://cloud.google.com/appengine/docs/standard/java/config/queueref)
- *        is uploaded
- *        which does not contain the queue. You cannot directly disable a queue.
+ *        is uploaded which does not contain the queue. You cannot directly
+ *        disable
+ *        a queue.
  *        When a queue is disabled, tasks can still be added to a queue
  *        but the tasks are not dispatched.
  *        To permanently delete this queue and all of its tasks, call
@@ -1410,10 +1418,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @interface GTLRCloudTasks_Task : GTLRObject
 
 /**
- *  App Engine HTTP request that is sent to the task's target. Can
- *  be set only if
- *  app_engine_http_queue is set
- *  on the queue.
+ *  HTTP request that is sent to the App Engine app handler.
  *  An App Engine task is a task that has AppEngineHttpRequest set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineHttpRequest *appEngineHttpRequest;

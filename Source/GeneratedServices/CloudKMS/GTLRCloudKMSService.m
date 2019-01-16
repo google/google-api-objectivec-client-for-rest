@@ -12,8 +12,9 @@
 #import "GTLRCloudKMS.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudKMS              = @"https://www.googleapis.com/auth/cloudkms";
 NSString * const kGTLRAuthScopeCloudKMSCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

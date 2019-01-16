@@ -592,6 +592,10 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  */
 @property(nonatomic, strong, nullable) GTLRFitness_Application *application;
 
+/**
+ *  DO NOT USE THIS FIELD. It is never populated in responses from the platform,
+ *  and is ignored in queries.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataQualityStandard;
 
 /**

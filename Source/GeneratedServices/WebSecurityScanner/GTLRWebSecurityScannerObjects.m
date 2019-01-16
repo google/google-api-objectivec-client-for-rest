@@ -280,8 +280,8 @@ NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success = @"SUCCESS
 //
 
 @implementation GTLRWebSecurityScanner_ScanConfig
-@dynamic authentication, blacklistPatterns, displayName, maxQps, name, schedule,
-         startingUrls, targetPlatforms, userAgent;
+@dynamic authentication, blacklistPatterns, displayName, latestRun, maxQps,
+         name, schedule, startingUrls, targetPlatforms, userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

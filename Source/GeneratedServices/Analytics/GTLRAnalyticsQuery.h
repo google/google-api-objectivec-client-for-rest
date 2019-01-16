@@ -3387,7 +3387,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Deletes a web property-AdWords link.
+ *  Deletes a web property-Google Ads link.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.delete
  *
@@ -3401,21 +3401,21 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Web property AdWords link ID. */
+/** Web property Google Ads link ID. */
 @property(nonatomic, copy, nullable) NSString *webPropertyAdWordsLinkId;
 
-/** Web property ID to delete the AdWords link for. */
+/** Web property ID to delete the Google Ads link for. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a web property-AdWords link.
+ *  Deletes a web property-Google Ads link.
  *
  *  @param accountId ID of the account which the given web property belongs to.
- *  @param webPropertyId Web property ID to delete the AdWords link for.
- *  @param webPropertyAdWordsLinkId Web property AdWords link ID.
+ *  @param webPropertyId Web property ID to delete the Google Ads link for.
+ *  @param webPropertyAdWordsLinkId Web property Google Ads link ID.
  *
  *  @return GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksDelete
  */
@@ -3426,7 +3426,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Returns a web property-AdWords link to which the user has access.
+ *  Returns a web property-Google Ads link to which the user has access.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.get
  *
@@ -3441,20 +3441,20 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Web property-AdWords link ID. */
+/** Web property-Google Ads link ID. */
 @property(nonatomic, copy, nullable) NSString *webPropertyAdWordsLinkId;
 
-/** Web property ID to retrieve the AdWords link for. */
+/** Web property ID to retrieve the Google Ads link for. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_EntityAdWordsLink.
  *
- *  Returns a web property-AdWords link to which the user has access.
+ *  Returns a web property-Google Ads link to which the user has access.
  *
  *  @param accountId ID of the account which the given web property belongs to.
- *  @param webPropertyId Web property ID to retrieve the AdWords link for.
- *  @param webPropertyAdWordsLinkId Web property-AdWords link ID.
+ *  @param webPropertyId Web property ID to retrieve the Google Ads link for.
+ *  @param webPropertyAdWordsLinkId Web property-Google Ads link ID.
  *
  *  @return GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksGet
  */
@@ -3465,7 +3465,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Creates a webProperty-AdWords link.
+ *  Creates a webProperty-Google Ads link.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.insert
  *
@@ -3485,7 +3485,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /**
  *  Fetches a @c GTLRAnalytics_EntityAdWordsLink.
  *
- *  Creates a webProperty-AdWords link.
+ *  Creates a webProperty-Google Ads link.
  *
  *  @param object The @c GTLRAnalytics_EntityAdWordsLink to include in the
  *    query.
@@ -3501,7 +3501,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Lists webProperty-AdWords links for a given web property.
+ *  Lists webProperty-Google Ads links for a given web property.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.list
  *
@@ -3517,26 +3517,27 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  The maximum number of webProperty-AdWords links to include in this response.
+ *  The maximum number of webProperty-Google Ads links to include in this
+ *  response.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  An index of the first webProperty-AdWords link to retrieve. Use this
+ *  An index of the first webProperty-Google Ads link to retrieve. Use this
  *  parameter as a pagination mechanism along with the max-results parameter.
  */
 @property(nonatomic, assign) NSInteger startIndex;
 
-/** Web property ID to retrieve the AdWords links for. */
+/** Web property ID to retrieve the Google Ads links for. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_EntityAdWordsLinks.
  *
- *  Lists webProperty-AdWords links for a given web property.
+ *  Lists webProperty-Google Ads links for a given web property.
  *
  *  @param accountId ID of the account which the given web property belongs to.
- *  @param webPropertyId Web property ID to retrieve the AdWords links for.
+ *  @param webPropertyId Web property ID to retrieve the Google Ads links for.
  *
  *  @return GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksList
  */
@@ -3546,7 +3547,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Updates an existing webProperty-AdWords link. This method supports patch
+ *  Updates an existing webProperty-Google Ads link. This method supports patch
  *  semantics.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.patch
@@ -3561,23 +3562,23 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Web property-AdWords link ID. */
+/** Web property-Google Ads link ID. */
 @property(nonatomic, copy, nullable) NSString *webPropertyAdWordsLinkId;
 
-/** Web property ID to retrieve the AdWords link for. */
+/** Web property ID to retrieve the Google Ads link for. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_EntityAdWordsLink.
  *
- *  Updates an existing webProperty-AdWords link. This method supports patch
+ *  Updates an existing webProperty-Google Ads link. This method supports patch
  *  semantics.
  *
  *  @param object The @c GTLRAnalytics_EntityAdWordsLink to include in the
  *    query.
  *  @param accountId ID of the account which the given web property belongs to.
- *  @param webPropertyId Web property ID to retrieve the AdWords link for.
- *  @param webPropertyAdWordsLinkId Web property-AdWords link ID.
+ *  @param webPropertyId Web property ID to retrieve the Google Ads link for.
+ *  @param webPropertyAdWordsLinkId Web property-Google Ads link ID.
  *
  *  @return GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksPatch
  */
@@ -3589,7 +3590,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Updates an existing webProperty-AdWords link.
+ *  Updates an existing webProperty-Google Ads link.
  *
  *  Method: analytics.management.webPropertyAdWordsLinks.update
  *
@@ -3603,22 +3604,22 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Web property-AdWords link ID. */
+/** Web property-Google Ads link ID. */
 @property(nonatomic, copy, nullable) NSString *webPropertyAdWordsLinkId;
 
-/** Web property ID to retrieve the AdWords link for. */
+/** Web property ID to retrieve the Google Ads link for. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_EntityAdWordsLink.
  *
- *  Updates an existing webProperty-AdWords link.
+ *  Updates an existing webProperty-Google Ads link.
  *
  *  @param object The @c GTLRAnalytics_EntityAdWordsLink to include in the
  *    query.
  *  @param accountId ID of the account which the given web property belongs to.
- *  @param webPropertyId Web property ID to retrieve the AdWords link for.
- *  @param webPropertyAdWordsLinkId Web property-AdWords link ID.
+ *  @param webPropertyId Web property ID to retrieve the Google Ads link for.
+ *  @param webPropertyAdWordsLinkId Web property-Google Ads link ID.
  *
  *  @return GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksUpdate
  */

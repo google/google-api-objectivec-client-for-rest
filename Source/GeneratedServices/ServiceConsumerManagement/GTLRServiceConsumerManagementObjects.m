@@ -17,6 +17,11 @@
 NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceConsumerManagement_BackendRule.pathTranslation
+NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
+NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
+NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
+
 // GTLRServiceConsumerManagement_Enum.syntax
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -82,6 +87,7 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchS
 
 // GTLRServiceConsumerManagement_TenantResource.status
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Active = @"ACTIVE";
+NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Deleted = @"DELETED";
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Failed = @"FAILED";
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_PendingCreate = @"PENDING_CREATE";
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_PendingDelete = @"PENDING_DELETE";
@@ -237,7 +243,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, minDeadline, operationDeadline, selector;
+@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
+         pathTranslation, selector;
 @end
 
 

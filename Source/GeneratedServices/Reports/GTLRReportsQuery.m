@@ -22,7 +22,7 @@
 @implementation GTLRReportsQuery_ActivitiesList
 
 @dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, maxResults, pageToken, startTime, userKey;
+         filters, maxResults, orgUnitID, pageToken, startTime, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {
@@ -46,7 +46,7 @@
 @implementation GTLRReportsQuery_ActivitiesWatch
 
 @dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, maxResults, pageToken, startTime, userKey;
+         filters, maxResults, orgUnitID, pageToken, startTime, userKey;
 
 + (instancetype)queryWithObject:(GTLRReports_Channel *)object
                         userKey:(NSString *)userKey
@@ -139,7 +139,8 @@
 
 @implementation GTLRReportsQuery_UserUsageReportGet
 
-@dynamic customerId, date, filters, maxResults, pageToken, parameters, userKey;
+@dynamic customerId, date, filters, maxResults, orgUnitID, pageToken,
+         parameters, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                             date:(NSString *)date {

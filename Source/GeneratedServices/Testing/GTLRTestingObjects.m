@@ -652,7 +652,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosXcTest
-@dynamic testsZip, xcodeVersion, xctestrun;
+@dynamic appBundleId, testsZip, xcodeVersion, xctestrun;
 @end
 
 
@@ -871,9 +871,9 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestMatrix
-@dynamic clientInfo, environmentMatrix, invalidMatrixDetails, projectId,
-         resultStorage, state, testExecutions, testMatrixId, testSpecification,
-         timestamp;
+@dynamic clientInfo, environmentMatrix, flakyTestAttempts, invalidMatrixDetails,
+         projectId, resultStorage, state, testExecutions, testMatrixId,
+         testSpecification, timestamp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

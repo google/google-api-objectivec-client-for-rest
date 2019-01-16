@@ -31,6 +31,7 @@
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_IPAllocationPolicy;
+@class GTLRContainer_Jwk;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_MaintenancePolicy;
@@ -1102,6 +1103,50 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 
 /**
+ *  GetJSONWebKeysResponse is a valid JSON Web Key Set as specififed in rfc 7517
+ */
+@interface GTLRContainer_GetJSONWebKeysResponse : GTLRObject
+
+/**
+ *  The public component of the keys used by the cluster to sign token
+ *  requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_Jwk *> *keys;
+
+@end
+
+
+/**
+ *  GetOpenIDConfigResponse is an OIDC discovery document for the cluster.
+ *  See the OpenID Connect Discovery 1.0 specification for details.
+ */
+@interface GTLRContainer_GetOpenIDConfigResponse : GTLRObject
+
+/** NOLINT */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *claimsSupported;
+
+/** NOLINT */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *grantTypes;
+
+/** NOLINT */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *idTokenSigningAlgValuesSupported;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *jwksUri;
+
+/** NOLINT */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *responseTypesSupported;
+
+/** NOLINT */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
+
+@end
+
+
+/**
  *  Configuration options for the horizontal pod autoscaling feature, which
  *  increases or decreases the number of replica pods a replication controller
  *  has based on the resource usage of the existing pods.
@@ -1237,6 +1282,47 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useIpAliases;
+
+@end
+
+
+/**
+ *  Jwk is a JSON Web Key as specified in RFC 7517
+ */
+@interface GTLRContainer_Jwk : GTLRObject
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *alg;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *crv;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *e;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *kid;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *kty;
+
+/**
+ *  Fields for RSA keys.
+ *  NOLINT
+ */
+@property(nonatomic, copy, nullable) NSString *n;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *use;
+
+/**
+ *  Fields for ECDSA keys.
+ *  NOLINT
+ */
+@property(nonatomic, copy, nullable) NSString *x;
+
+/** NOLINT */
+@property(nonatomic, copy, nullable) NSString *y;
 
 @end
 

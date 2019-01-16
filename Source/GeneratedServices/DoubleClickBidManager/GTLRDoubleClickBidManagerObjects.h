@@ -74,6 +74,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileType
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_Campaign;
 /** Value: "INSERTION_ORDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_InsertionOrder;
+/** Value: "INVENTORY_SOURCE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_InventorySource;
 /** Value: "LINE_ITEM" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_LineItem;
 
@@ -86,8 +88,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterTy
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_CampaignId;
 /** Value: "INSERTION_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId;
+/** Value: "INVENTORY_SOURCE_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InventorySourceId;
 /** Value: "LINE_ITEM_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_LineItemId;
+/** Value: "PARTNER_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_PartnerId;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_FilterPair.type
@@ -128,6 +134,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCo
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterConversionDelay;
 /** Value: "FILTER_COUNTRY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCountry;
+/** Value: "FILTER_CREATIVE_ATTRIBUTE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeAttribute;
 /** Value: "FILTER_CREATIVE_HEIGHT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeHeight;
 /** Value: "FILTER_CREATIVE_ID" */
@@ -166,8 +174,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFl
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGender;
 /** Value: "FILTER_INSERTION_ORDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder;
+/** Value: "FILTER_INVENTORY_COMMITMENT_TYPE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryCommitmentType;
+/** Value: "FILTER_INVENTORY_DELIVERY_METHOD" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryDeliveryMethod;
 /** Value: "FILTER_INVENTORY_FORMAT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryFormat;
+/** Value: "FILTER_INVENTORY_RATE_TYPE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryRateType;
 /** Value: "FILTER_INVENTORY_SOURCE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySource;
 /** Value: "FILTER_INVENTORY_SOURCE_TYPE" */
@@ -380,6 +394,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterConversionDelay;
 /** Value: "FILTER_COUNTRY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCountry;
+/** Value: "FILTER_CREATIVE_ATTRIBUTE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCreativeAttribute;
 /** Value: "FILTER_CREATIVE_HEIGHT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCreativeHeight;
 /** Value: "FILTER_CREATIVE_ID" */
@@ -418,8 +434,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGender;
 /** Value: "FILTER_INSERTION_ORDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrder;
+/** Value: "FILTER_INVENTORY_COMMITMENT_TYPE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryCommitmentType;
+/** Value: "FILTER_INVENTORY_DELIVERY_METHOD" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryDeliveryMethod;
 /** Value: "FILTER_INVENTORY_FORMAT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryFormat;
+/** Value: "FILTER_INVENTORY_RATE_TYPE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryRateType;
 /** Value: "FILTER_INVENTORY_SOURCE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySource;
 /** Value: "FILTER_INVENTORY_SOURCE_TYPE" */
@@ -1528,8 +1550,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 
 
 /**
- *  Request to fetch stored campaigns, insertion orders, line items, TrueView ad
- *  groups and ads.
+ *  Request to fetch stored inventory sources, campaigns, insertion orders, line
+ *  items, TrueView ad groups and ads.
  */
 @interface GTLRDoubleClickBidManager_DownloadRequest : GTLRObject
 
@@ -1541,6 +1563,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  - "CAMPAIGN"
  *  - "INSERTION_ORDER"
  *  - "LINE_ITEM"
+ *  - "INVENTORY_SOURCE"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -1562,8 +1585,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "CAMPAIGN_ID"
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId
  *        Value "INSERTION_ORDER_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InventorySourceId
+ *        Value "INVENTORY_SOURCE_ID"
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_LineItemId
  *        Value "LINE_ITEM_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_PartnerId
+ *        Value "PARTNER_ID"
  */
 @property(nonatomic, copy, nullable) NSString *filterType;
 
@@ -1592,6 +1619,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 
 /** Retrieved insertion orders in SDF format. */
 @property(nonatomic, copy, nullable) NSString *insertionOrders;
+
+@property(nonatomic, copy, nullable) NSString *inventorySources;
 
 /** Retrieved line items in SDF format. */
 @property(nonatomic, copy, nullable) NSString *lineItems;
@@ -1644,6 +1673,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_CONVERSION_DELAY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCountry Value
  *        "FILTER_COUNTRY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeAttribute
+ *        Value "FILTER_CREATIVE_ATTRIBUTE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeHeight
  *        Value "FILTER_CREATIVE_HEIGHT"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeId Value
@@ -1682,8 +1713,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_GENDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder
  *        Value "FILTER_INSERTION_ORDER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryCommitmentType
+ *        Value "FILTER_INVENTORY_COMMITMENT_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryDeliveryMethod
+ *        Value "FILTER_INVENTORY_DELIVERY_METHOD"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryFormat
  *        Value "FILTER_INVENTORY_FORMAT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryRateType
+ *        Value "FILTER_INVENTORY_RATE_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySource
  *        Value "FILTER_INVENTORY_SOURCE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceType

@@ -81,6 +81,24 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_ImageVersion
+//
+
+@implementation GTLRCloudComposer_ImageVersion
+@dynamic imageVersionId, isDefault, supportedPythonVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedPythonVersions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_ListEnvironmentsResponse
 //
 
@@ -96,6 +114,28 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 + (NSString *)collectionItemsKey {
   return @"environments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ListImageVersionsResponse
+//
+
+@implementation GTLRCloudComposer_ListImageVersionsResponse
+@dynamic imageVersions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageVersions" : [GTLRCloudComposer_ImageVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"imageVersions";
 }
 
 @end

@@ -22,6 +22,7 @@
 @class GTLRAlertCenter_Alert_Data;
 @class GTLRAlertCenter_AlertFeedback;
 @class GTLRAlertCenter_Attachment;
+@class GTLRAlertCenter_CloudPubsubTopic;
 @class GTLRAlertCenter_Csv;
 @class GTLRAlertCenter_CsvRow;
 @class GTLRAlertCenter_DeviceCompromisedSecurityDetail;
@@ -29,6 +30,7 @@
 @class GTLRAlertCenter_GmailMessageInfo;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
+@class GTLRAlertCenter_Notification;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
 
 // Generated comments include content from the discovery document; avoid them
@@ -68,6 +70,22 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful;
  *  Value: "VERY_USEFUL"
  */
 GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_CloudPubsubTopic.payloadFormat
+
+/**
+ *  Use JSON.
+ *
+ *  Value: "JSON"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json;
+/**
+ *  Payload format is not specified (will use JSON as default).
+ *
+ *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
 
 /**
  *  Alerts for user account warning events.
@@ -134,7 +152,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 @property(nonatomic, copy, nullable) NSString *securityInvestigationToolLink;
 
 /**
- *  Required. A unique identifier for the system that is reported the alert.
+ *  Required. A unique identifier for the system that reported the alert.
  *  Supported sources are any of the following:
  *  * Google Operations
  *  * Mobile device management
@@ -246,6 +264,36 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
  *  `127.0.0.1`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
+
+@end
+
+
+/**
+ *  A reference to a Cloud Pubsub topic.
+ *  To register for notifications, the owner of the topic must grant
+ *  `alerts-api-push-notifications\@system.gserviceaccount.com` the
+ *  `projects.topics.publish` permission.
+ */
+@interface GTLRAlertCenter_CloudPubsubTopic : GTLRObject
+
+/**
+ *  Optional. The format of the payload that would be sent.
+ *  If not specified the format will be JSON.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json Use JSON.
+ *        (Value: "JSON")
+ *    @arg @c kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified
+ *        Payload format is not specified (will use JSON as default). (Value:
+ *        "PAYLOAD_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *payloadFormat;
+
+/**
+ *  The `name` field of a Cloud Pubsub [Topic]
+ *  (https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#Topic).
+ */
+@property(nonatomic, copy, nullable) NSString *topicName;
 
 @end
 
@@ -537,6 +585,19 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 
 
 /**
+ *  Settings for callback notifications.
+ *  For more details see [G Suite Alert
+ *  Notification](/admin-sdk/alertcenter/guides/notifications).
+ */
+@interface GTLRAlertCenter_Notification : GTLRObject
+
+/** A Google Cloud Pub/sub topic destination. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_CloudPubsubTopic *cloudPubsubTopic;
+
+@end
+
+
+/**
  *  Alert for a spike in user reported phishing.
  *  <aside class="warning"><b>Warning</b>: This type has been deprecated. Use
  *  [MailPhishing](/admin-sdk/alertcenter/reference/rest/v1beta1/MailPhishing)
@@ -559,6 +620,17 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 
 /** The list of messages contained by this alert. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_GmailMessageInfo *> *messages;
+
+@end
+
+
+/**
+ *  Customer-level settings.
+ */
+@interface GTLRAlertCenter_Settings : GTLRObject
+
+/** The list of notifications. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_Notification *> *notifications;
 
 @end
 

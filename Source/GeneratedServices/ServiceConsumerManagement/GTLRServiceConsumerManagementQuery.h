@@ -483,7 +483,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Delete a tenancy unit. Before the tenancy unit is deleted, there should be
- *  no tenant resources in it.
+ *  no tenant resources in it not in DELETED state.
  *  Operation<response: Empty>.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.delete
@@ -502,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Delete a tenancy unit. Before the tenancy unit is deleted, there should be
- *  no tenant resources in it.
+ *  no tenant resources in it not in DELETED state.
  *  Operation<response: Empty>.
  *
  *  @param name Name of the tenancy unit to be deleted.
@@ -580,8 +580,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Removes specified project resource identified by tenant resource tag.
  *  It will remove project lien with 'TenantManager' origin if that was added.
- *  It will then attempt to delete the project.
- *  If that operation fails, this method fails.
+ *  It will then attempt to delete the project. If that operation fails, this
+ *  method fails.
+ *  After the project has been deleted, or if was already in DELETED state,
+ *  resource metadata is permanently removed from the tenancy unit.
  *  Operation<response: Empty>.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.removeProject
@@ -604,8 +606,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Removes specified project resource identified by tenant resource tag.
  *  It will remove project lien with 'TenantManager' origin if that was added.
- *  It will then attempt to delete the project.
- *  If that operation fails, this method fails.
+ *  It will then attempt to delete the project. If that operation fails, this
+ *  method fails.
+ *  After the project has been deleted, or if was already in DELETED state,
+ *  resource metadata is permanently removed from the tenancy unit.
  *  Operation<response: Empty>.
  *
  *  @param object The @c

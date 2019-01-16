@@ -328,7 +328,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Combo;
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Line;
 /**
- *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter chart</a>.
+ *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter
+ *  chart</a>.
  *
  *  Value: "SCATTER"
  */
@@ -381,7 +382,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Combo;
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line;
 /**
- *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter chart</a>.
+ *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter
+ *  chart</a>.
  *
  *  Value: "SCATTER"
  */
@@ -3146,7 +3148,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *        chart</a>. (Value: "SCATTER")
  *    @arg @c kGTLRSheets_BasicChartSeries_Type_SteppedArea A
  *        <a href="/chart/interactive/docs/gallery/steppedareachart">stepped
- *        area chart</a>. (Value: "STEPPED_AREA")
+ *        area
+ *        chart</a>. (Value: "STEPPED_AREA")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3188,7 +3191,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *        chart</a>. (Value: "SCATTER")
  *    @arg @c kGTLRSheets_BasicChartSpec_ChartType_SteppedArea A
  *        <a href="/chart/interactive/docs/gallery/steppedareachart">stepped
- *        area chart</a>. (Value: "STEPPED_AREA")
+ *        area
+ *        chart</a>. (Value: "STEPPED_AREA")
  */
 @property(nonatomic, copy, nullable) NSString *chartType;
 

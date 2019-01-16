@@ -150,19 +150,7 @@
 //
 
 @implementation GTLRAnalytics_AccountTreeRequest
-@dynamic accountName, accountSettings, kind, profileName, timezone,
-         webpropertyName, websiteUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalytics_AccountTreeRequest_AccountSettings
-//
-
-@implementation GTLRAnalytics_AccountTreeRequest_AccountSettings
-@dynamic shareAnonymouslyWithOthers, shareWithGoogleProducts,
-         shareWithSpecialists, shareWithSupport;
+@dynamic accountName, kind, profileName, timezone, webpropertyName, websiteUrl;
 @end
 
 
@@ -172,18 +160,7 @@
 //
 
 @implementation GTLRAnalytics_AccountTreeResponse
-@dynamic account, accountSettings, kind, profile, webproperty;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalytics_AccountTreeResponse_AccountSettings
-//
-
-@implementation GTLRAnalytics_AccountTreeResponse_AccountSettings
-@dynamic shareAnonymouslyWithOthers, shareWithGoogleProducts,
-         shareWithSpecialists, shareWithSupport;
+@dynamic account, kind, profile, webproperty;
 @end
 
 

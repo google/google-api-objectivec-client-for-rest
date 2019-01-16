@@ -119,6 +119,7 @@
 @class GTLRShoppingContent_PostalCodeRange;
 @class GTLRShoppingContent_Price;
 @class GTLRShoppingContent_Product;
+@class GTLRShoppingContent_ProductAmount;
 @class GTLRShoppingContent_ProductsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductsCustomBatchResponseEntry;
 @class GTLRShoppingContent_ProductShipping;
@@ -1096,6 +1097,27 @@ NS_ASSUME_NONNULL_BEGIN
 /** User's email address. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
+/**
+ *  Whether user is an order manager.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderManager;
+
+/**
+ *  Whether user can access payment statements.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *paymentsAnalyst;
+
+/**
+ *  Whether user can manage payment settings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *paymentsManager;
+
 @end
 
 
@@ -1128,11 +1150,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_Amount : GTLRObject
 
-/** [required] Value before taxes. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *pretax;
+/**
+ *  [required] The pre-tax or post-tax price depending on the location of the
+ *  order.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
 
 /** [required] Tax value. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *tax;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
 
 @end
 
@@ -2682,6 +2707,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The status of the order. */
 @property(nonatomic, copy, nullable) NSString *status;
 
+/** The party responsible for collecting and remitting taxes. */
+@property(nonatomic, copy, nullable) NSString *taxCollector;
+
 @end
 
 
@@ -3552,7 +3580,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderId;
 
 /** Total amount for the items. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Amount *productAmount;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductAmount *productAmount;
 
 /** The date of the transaction, in ISO 8601 format. */
 @property(nonatomic, copy, nullable) NSString *transactionDate;
@@ -4186,8 +4214,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The amount to be refunded. This may be pre-tax or post-tax depending on the
- *  location of the order. If omitted, refundless return is assumed. Optional,
- *  but if filled then both priceAmount and taxAmount must be set.
+ *  location of the order. If omitted, refundless return is assumed.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
 
@@ -4210,7 +4237,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The explanation of the reason. */
 @property(nonatomic, copy, nullable) NSString *reasonText;
 
-/** The amount of tax to be refunded. */
+/**
+ *  The amount of tax to be refunded. Optional, but if filled, then priceAmount
+ *  must be set. Calculated automatically if not provided.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
 
 @end
@@ -5283,6 +5313,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The measure and dimension of an item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductUnitPricingMeasure *unitPricingMeasure;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ProductAmount
+ */
+@interface GTLRShoppingContent_ProductAmount : GTLRObject
+
+/** The pre-tax or post-tax price depending on the location of the order. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
+
+/** Remitted tax value. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *remittedTaxAmount;
+
+/** Tax value. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
 
 @end
 

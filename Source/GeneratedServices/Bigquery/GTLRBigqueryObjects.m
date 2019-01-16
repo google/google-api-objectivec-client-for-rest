@@ -121,7 +121,7 @@
 //
 
 @implementation GTLRBigquery_Dataset_Access_Item
-@dynamic domain, groupByEmail, role, specialGroup, userByEmail, view;
+@dynamic domain, groupByEmail, iamMember, role, specialGroup, userByEmail, view;
 @end
 
 
@@ -593,15 +593,27 @@
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, query,
-         quotaDeferments, startTime, totalBytesProcessed;
+         quotaDeferments, reservationUsage, startTime, totalBytesProcessed,
+         totalSlotMs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"quotaDeferments" : [NSString class]
+    @"quotaDeferments" : [NSString class],
+    @"reservationUsage" : [GTLRBigquery_JobStatistics_ReservationUsage_Item class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_JobStatistics_ReservationUsage_Item
+//
+
+@implementation GTLRBigquery_JobStatistics_ReservationUsage_Item
+@dynamic name, slotMs;
 @end
 
 

@@ -224,6 +224,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  This header can be modified, but Cloud Scheduler will append
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
  *  modified `User-Agent`.
+ *  * `X-CloudScheduler`: This header will be set to true.
  *  If the job has an body, Cloud Scheduler sets the
  *  following headers:
  *  * `Content-Type`: By default, the `Content-Type` header is set to
@@ -235,13 +236,9 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  output only. It cannot be changed.
  *  The headers below are output only. They cannot be set or overridden:
  *  * `X-Google-*`: For Google internal use only.
- *  * `X-AppEngine-*`: For Google internal use only. See
- *  [Reading request
- *  headers](https://cloud.google.com/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
+ *  * `X-AppEngine-*`: For Google internal use only.
  *  In addition, some App Engine headers, which contain
- *  job-specific information, are also be sent to the job handler; see
- *  [request
- *  headers](https://cloud.google.comappengine/docs/standard/python/config/cron#securing_urls_for_cron).
+ *  job-specific information, are also be sent to the job handler.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_AppEngineHttpTarget_Headers *headers;
 
@@ -292,6 +289,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  This header can be modified, but Cloud Scheduler will append
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
  *  modified `User-Agent`.
+ *  * `X-CloudScheduler`: This header will be set to true.
  *  If the job has an body, Cloud Scheduler sets the
  *  following headers:
  *  * `Content-Type`: By default, the `Content-Type` header is set to
@@ -303,13 +301,9 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  output only. It cannot be changed.
  *  The headers below are output only. They cannot be set or overridden:
  *  * `X-Google-*`: For Google internal use only.
- *  * `X-AppEngine-*`: For Google internal use only. See
- *  [Reading request
- *  headers](https://cloud.google.com/appengine/docs/python/taskqueue/push/creating-handlers#reading_request_headers).
+ *  * `X-AppEngine-*`: For Google internal use only.
  *  In addition, some App Engine headers, which contain
- *  job-specific information, are also be sent to the job handler; see
- *  [request
- *  headers](https://cloud.google.comappengine/docs/standard/python/config/cron#securing_urls_for_cron).
+ *  job-specific information, are also be sent to the job handler.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

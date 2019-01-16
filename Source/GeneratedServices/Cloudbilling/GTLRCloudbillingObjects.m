@@ -297,7 +297,7 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 //
 
 @implementation GTLRCloudbilling_Service
-@dynamic displayName, name, serviceId;
+@dynamic businessEntityName, displayName, name, serviceId;
 @end
 
 

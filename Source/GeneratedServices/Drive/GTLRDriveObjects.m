@@ -224,12 +224,12 @@
 @implementation GTLRDrive_File
 @dynamic appProperties, capabilities, contentHints,
          copyRequiresWriterPermission, createdTime, descriptionProperty,
-         explicitlyTrashed, fileExtension, folderColorRgb, fullFileExtension,
-         hasAugmentedPermissions, hasThumbnail, headRevisionId, iconLink,
-         identifier, imageMediaMetadata, isAppAuthorized, kind,
-         lastModifyingUser, md5Checksum, mimeType, modifiedByMe,
-         modifiedByMeTime, modifiedTime, name, originalFilename, ownedByMe,
-         owners, parents, permissionIds, permissions, properties,
+         explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
+         fullFileExtension, hasAugmentedPermissions, hasThumbnail,
+         headRevisionId, iconLink, identifier, imageMediaMetadata,
+         isAppAuthorized, kind, lastModifyingUser, md5Checksum, mimeType,
+         modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
+         ownedByMe, owners, parents, permissionIds, permissions, properties,
          quotaBytesUsed, shared, sharedWithMeTime, sharingUser, size, spaces,
          starred, teamDriveId, thumbnailLink, thumbnailVersion, trashed,
          trashedTime, trashingUser, version, videoMediaMetadata, viewedByMe,
@@ -296,6 +296,20 @@
 
 @implementation GTLRDrive_File_ContentHints
 @dynamic indexableText, thumbnail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_File_ExportLinks
+//
+
+@implementation GTLRDrive_File_ExportLinks
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -496,12 +510,26 @@
 //
 
 @implementation GTLRDrive_Revision
-@dynamic identifier, keepForever, kind, lastModifyingUser, md5Checksum,
-         mimeType, modifiedTime, originalFilename, publishAuto, published,
-         publishedOutsideDomain, size;
+@dynamic exportLinks, identifier, keepForever, kind, lastModifyingUser,
+         md5Checksum, mimeType, modifiedTime, originalFilename, publishAuto,
+         published, publishedOutsideDomain, size;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Revision_ExportLinks
+//
+
+@implementation GTLRDrive_Revision_ExportLinks
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

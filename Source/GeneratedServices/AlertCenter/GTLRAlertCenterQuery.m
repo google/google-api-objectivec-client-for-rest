@@ -141,3 +141,42 @@
 }
 
 @end
+
+@implementation GTLRAlertCenterQuery_V1beta1GetSettings
+
+@dynamic customerId;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1beta1/settings";
+  GTLRAlertCenterQuery_V1beta1GetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRAlertCenter_Settings class];
+  query.loggingName = @"alertcenter.getSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRAlertCenterQuery_V1beta1UpdateSettings
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRAlertCenter_Settings *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1beta1/settings";
+  GTLRAlertCenterQuery_V1beta1UpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAlertCenter_Settings class];
+  query.loggingName = @"alertcenter.updateSettings";
+  return query;
+}
+
+@end

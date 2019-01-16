@@ -21,6 +21,7 @@
 @class GTLRCloudComposer_Environment;
 @class GTLRCloudComposer_Environment_Labels;
 @class GTLRCloudComposer_EnvironmentConfig;
+@class GTLRCloudComposer_ImageVersion;
 @class GTLRCloudComposer_NodeConfig;
 @class GTLRCloudComposer_Operation;
 @class GTLRCloudComposer_Operation_Metadata;
@@ -292,6 +293,31 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 
 
 /**
+ *  ImageVersion information
+ */
+@interface GTLRCloudComposer_ImageVersion : GTLRObject
+
+/**
+ *  The string identifier of the ImageVersion, in the form:
+ *  "composer-x.y.z-airflow-a.b(.c)"
+ */
+@property(nonatomic, copy, nullable) NSString *imageVersionId;
+
+/**
+ *  Whether this is the default ImageVersion used by Composer during
+ *  environment creation if no input ImageVersion is specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/** supported python versions */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPythonVersions;
+
+@end
+
+
+/**
  *  The environments in a project and location.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -308,6 +334,30 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_Environment *> *environments;
+
+/** The page token used to query for the next page if one exists. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The ImageVersions in a project and location.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "imageVersions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudComposer_ListImageVersionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of supported ImageVersions in a location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_ImageVersion *> *imageVersions;
 
 /** The page token used to query for the next page if one exists. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;

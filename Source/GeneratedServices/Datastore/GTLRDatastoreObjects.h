@@ -1294,7 +1294,6 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  A minimal index definition.
- *  Next tag: 8
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1Index : GTLRObject
 
@@ -1373,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  Next tag: 3
+ *  A property of an index.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty : GTLRObject
 

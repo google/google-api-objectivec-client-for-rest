@@ -81,6 +81,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
+/**
+ *  the organizational unit's(OU) ID to filter activities from users belonging
+ *  to a specific OU or one of its sub-OU(s)
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitID;
+
 /** Token to specify next page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -158,6 +164,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note The documented range is 1..1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
+
+/**
+ *  the organizational unit's(OU) ID to filter activities from users belonging
+ *  to a specific OU or one of its sub-OU(s)
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitID;
 
 /** Token to specify next page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -354,6 +366,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Maximum number of results to return. Maximum allowed is 1000 */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  the organizational unit's ID to filter usage parameters from users belonging
+ *  to a specific OU or one of its sub-OU(s).
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitID;
 
 /** Token to specify next page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;

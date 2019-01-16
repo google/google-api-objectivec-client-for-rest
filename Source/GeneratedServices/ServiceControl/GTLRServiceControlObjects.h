@@ -272,7 +272,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_RefererBlocked;
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhausted;
 /**
- *  Backend server for evaluating security policy is unavailable.
+ *  NOTE: for customers in the scope of Beta/GA of
+ *  https://cloud.google.com/vpc-service-controls, this error
+ *  is no longer returned. If the security backend is unavailable, rpc
+ *  UNAVAILABLE status will be returned instead. It should be ignored and
+ *  should not be used to reject client requests.
  *
  *  Value: "SECURITY_POLICY_BACKEND_UNAVAILABLE"
  */
@@ -942,6 +946,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
+ *  The name of the service account key used to create or exchange
+ *  credentials for authenticating the service account making the request.
+ *  This is a scheme-less URI full resource name. For example:
+ *  "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}"
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyName;
+
+/**
  *  The third party identification (if any) of the authenticated user making
  *  the request.
  *  When the JSON object represented here has a proto equivalent, the proto
@@ -1095,7 +1107,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        failed. Same as google.rpc.Code.RESOURCE_EXHAUSTED. (Value:
  *        "RESOURCE_EXHAUSTED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable
- *        Backend server for evaluating security policy is unavailable. (Value:
+ *        NOTE: for customers in the scope of Beta/GA of
+ *        https://cloud.google.com/vpc-service-controls, this error
+ *        is no longer returned. If the security backend is unavailable, rpc
+ *        UNAVAILABLE status will be returned instead. It should be ignored and
+ *        should not be used to reject client requests. (Value:
  *        "SECURITY_POLICY_BACKEND_UNAVAILABLE")
  *    @arg @c kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated Request
  *        is not allowed as per security policies defined in Org Policy. (Value:
@@ -2670,6 +2686,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The locations of a resource after the execution of the operation.
+ *  Requests to create or delete a location based resource must populate
+ *  the 'current_locations' field and not the 'original_locations' field.
  *  For example:
  *  "europe-west1-a"
  *  "us-east1"
@@ -2679,6 +2697,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The locations of a resource prior to the execution of the operation.
+ *  Requests that mutate the resource's location must populate both the
+ *  'original_locations' as well as the 'current_locations' fields.
  *  For example:
  *  "europe-west1-a"
  *  "us-east1"

@@ -345,6 +345,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List ImageVersions for provided location.
+ *
+ *  Method: composer.projects.locations.imageVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList : GTLRCloudComposerQuery
+// Previous library name was
+//   +[GTLQueryCloudComposer queryForProjectsLocationsImageVersionsListWithparent:]
+
+/** The maximum number of image_versions to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  List ImageVersions in the given project and location, in the form:
+ *  "projects/{projectId}/locations/{locationId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_ListImageVersionsResponse.
+ *
+ *  List ImageVersions for provided location.
+ *
+ *  @param parent List ImageVersions in the given project and location, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a long-running operation. This method indicates that the client is
  *  no longer interested in the operation result. It does not cancel the
  *  operation. If the server doesn't support this method, it returns

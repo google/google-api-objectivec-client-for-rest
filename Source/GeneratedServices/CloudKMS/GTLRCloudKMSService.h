@@ -27,8 +27,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: View and manage your keys and secrets stored in Cloud
+ *  Key Management Service
+ *
+ *  Value "https://www.googleapis.com/auth/cloudkms"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudKMS;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services

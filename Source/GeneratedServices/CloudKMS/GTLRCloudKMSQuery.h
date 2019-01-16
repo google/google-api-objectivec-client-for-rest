@@ -78,6 +78,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsGet : GTLRCloudKMSQuery
@@ -106,6 +107,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate : GTLRCloudKMSQuery
@@ -150,6 +152,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate : GTLRCloudKMSQuery
@@ -195,6 +198,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricDecrypt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricDecrypt : GTLRCloudKMSQuery
@@ -234,6 +238,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricSign
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricSign : GTLRCloudKMSQuery
@@ -271,6 +276,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreate : GTLRCloudKMSQuery
@@ -317,6 +323,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroy : GTLRCloudKMSQuery
@@ -357,6 +364,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet : GTLRCloudKMSQuery
@@ -388,6 +396,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.getPublicKey
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKey : GTLRCloudKMSQuery
@@ -423,6 +432,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList : GTLRCloudKMSQuery
@@ -490,6 +500,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch : GTLRCloudKMSQuery
@@ -544,6 +555,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestore : GTLRCloudKMSQuery
@@ -581,6 +593,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.decrypt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDecrypt : GTLRCloudKMSQuery
@@ -619,6 +632,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.encrypt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysEncrypt : GTLRCloudKMSQuery
@@ -660,6 +674,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGet : GTLRCloudKMSQuery
@@ -691,6 +706,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy : GTLRCloudKMSQuery
@@ -726,6 +742,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList : GTLRCloudKMSQuery
@@ -787,6 +804,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysPatch : GTLRCloudKMSQuery
@@ -829,6 +847,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy : GTLRCloudKMSQuery
@@ -871,6 +890,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions : GTLRCloudKMSQuery
@@ -913,6 +933,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersion : GTLRCloudKMSQuery
@@ -945,6 +966,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet : GTLRCloudKMSQuery
@@ -975,6 +997,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy : GTLRCloudKMSQuery
@@ -1012,6 +1035,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.importJobs.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy : GTLRCloudKMSQuery
@@ -1048,6 +1072,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.importJobs.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy : GTLRCloudKMSQuery
@@ -1090,6 +1115,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.importJobs.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions : GTLRCloudKMSQuery
@@ -1131,6 +1157,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList : GTLRCloudKMSQuery
@@ -1183,6 +1210,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy : GTLRCloudKMSQuery
@@ -1225,6 +1253,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.keyRings.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions : GTLRCloudKMSQuery
@@ -1266,6 +1295,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Method: cloudkms.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery

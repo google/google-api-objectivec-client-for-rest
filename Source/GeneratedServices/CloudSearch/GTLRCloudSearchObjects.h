@@ -1156,7 +1156,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_DateValues : GTLRObject
 
-/** The maximum number of elements is 100. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Date *> *values;
 
 @end
@@ -1253,7 +1252,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_DoubleValues : GTLRObject
 
 /**
- *  The maximum number of elements is 100.
+ *  values
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1502,10 +1501,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_EnumValues : GTLRObject
 
-/**
- *  The maximum allowable length for string values is 32 characters.
- *  The maximum number of elements is 100.
- */
+/** The maximum allowable length for string values is 32 characters. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -1798,10 +1794,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_HtmlValues : GTLRObject
 
-/**
- *  The maximum allowable length for html values is 2048 characters.
- *  The maximum number of string elements is 100.
- */
+/** The maximum allowable length for html values is 2048 characters. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -1953,7 +1946,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_IntegerValues : GTLRObject
 
 /**
- *  The maximum number of elements is 100.
+ *  values
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2782,7 +2775,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_ObjectValues : GTLRObject
 
-/** The maximum number of elements is 100. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_StructuredDataObject *> *values;
 
 @end
@@ -4416,10 +4408,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_TextValues : GTLRObject
 
-/**
- *  The maximum allowable length for text values is 2048 characters.
- *  The maximum number of string elements is 100.
- */
+/** The maximum allowable length for text values is 2048 characters. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -4491,7 +4480,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_TimestampValues : GTLRObject
 
-/** The maximum number of elements is 100. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDateTime *> *values;
 
 @end

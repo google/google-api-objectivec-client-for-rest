@@ -19,6 +19,10 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
 
+// GTLRAlertCenter_CloudPubsubTopic.payloadFormat
+NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
+NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAlertCenter_AccountWarning
@@ -89,6 +93,16 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_CloudPubsubTopic
+//
+
+@implementation GTLRAlertCenter_CloudPubsubTopic
+@dynamic payloadFormat, topicName;
 @end
 
 
@@ -308,6 +322,16 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_Notification
+//
+
+@implementation GTLRAlertCenter_Notification
+@dynamic cloudPubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_PhishingSpike
 //
 
@@ -317,6 +341,24 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Settings
+//
+
+@implementation GTLRAlertCenter_Settings
+@dynamic notifications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notifications" : [GTLRAlertCenter_Notification class]
   };
   return map;
 }
