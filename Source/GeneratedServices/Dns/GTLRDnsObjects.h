@@ -131,7 +131,13 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Done;
 GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
- *  An atomic update to a collection of ResourceRecordSets.
+ *  A Change represents a set of ResourceRecordSet additions and deletions
+ *  applied atomically to a ManagedZone. ResourceRecordSets within a ManagedZone
+ *  are modified by creating a new Change element in the Changes collection. In
+ *  turn the Changes collection also records the past modifications to the
+ *  ResourceRecordSets in a ManagedZone. The current state of the ManagedZone is
+ *  the sum effect of applying all Change elements in the Changes collection in
+ *  sequence.
  */
 @interface GTLRDns_Change : GTLRObject
 
@@ -168,7 +174,9 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  Status of the operation (output only).
+ *  Status of the operation (output only). A status of "done" means that the
+ *  request to update the authoritative servers has been sent, but the servers
+ *  might not be updated yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Change_Status_Done Value "done"
@@ -385,11 +393,11 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, strong, nullable) NSNumber *keyLength;
 
 /**
- *  One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the
- *  Secure Entry Point flag set and, when active, will be used to sign only
- *  resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag
- *  will be cleared and this key will be used to sign only resource record sets
- *  of other types.
+ *  Specifies whether this is a key signing key (KSK) or a zone signing key
+ *  (ZSK). Key signing keys have the Secure Entry Point flag set and, when
+ *  active, will only be used to sign resource record sets of type DNSKEY. Zone
+ *  signing keys do not have the Secure Entry Point flag set and will be used to
+ *  sign all other types of resource record sets.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_KeyType_KeySigning Value "keySigning"
@@ -663,7 +671,9 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
  *  Status of the operation. Can be one of the following: "PENDING" or "DONE"
- *  (output only).
+ *  (output only). A status of "DONE" means that the request to update the
+ *  authoritative servers has been sent, but the servers might not be updated
+ *  yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Operation_Status_Done Value "done"
@@ -848,8 +858,8 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, strong, nullable) NSNumber *ttl;
 
 /**
- *  The identifier of a supported record type, for example, A, AAAA, MX, TXT,
- *  and so on.
+ *  The identifier of a supported record type. See the list of Supported DNS
+ *  record types.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

@@ -19,6 +19,11 @@
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceUsage_BackendRule.pathTranslation
+NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
+NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
+NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
+
 // GTLRServiceUsage_Enum.syntax
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -207,7 +212,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, minDeadline, operationDeadline, selector;
+@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
+         pathTranslation, selector;
 @end
 
 

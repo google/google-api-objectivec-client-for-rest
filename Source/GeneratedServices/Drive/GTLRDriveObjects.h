@@ -33,6 +33,7 @@
 @class GTLRDrive_File_Capabilities;
 @class GTLRDrive_File_ContentHints;
 @class GTLRDrive_File_ContentHints_Thumbnail;
+@class GTLRDrive_File_ExportLinks;
 @class GTLRDrive_File_ImageMediaMetadata;
 @class GTLRDrive_File_ImageMediaMetadata_Location;
 @class GTLRDrive_File_Properties;
@@ -41,6 +42,7 @@
 @class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
 @class GTLRDrive_Reply;
 @class GTLRDrive_Revision;
+@class GTLRDrive_Revision_ExportLinks;
 @class GTLRDrive_TeamDrive;
 @class GTLRDrive_TeamDrive_BackgroundImageFile;
 @class GTLRDrive_TeamDrive_Capabilities;
@@ -547,6 +549,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *explicitlyTrashed;
+
+/** Links for exporting Google Docs to specific formats. */
+@property(nonatomic, strong, nullable) GTLRDrive_File_ExportLinks *exportLinks;
 
 /**
  *  The final component of fullFileExtension. This is only available for files
@@ -1079,6 +1084,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ContentHints_Thumbnail *thumbnail;
 
+@end
+
+
+/**
+ *  Links for exporting Google Docs to specific formats.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDrive_File_ExportLinks : GTLRObject
 @end
 
 
@@ -1618,6 +1635,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_Revision : GTLRObject
 
+/** Links for exporting Google Docs to specific formats. */
+@property(nonatomic, strong, nullable) GTLRDrive_Revision_ExportLinks *exportLinks;
+
 /**
  *  The ID of the revision.
  *
@@ -1694,6 +1714,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
+@end
+
+
+/**
+ *  Links for exporting Google Docs to specific formats.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDrive_Revision_ExportLinks : GTLRObject
 @end
 
 

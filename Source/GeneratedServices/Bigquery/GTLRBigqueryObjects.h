@@ -51,6 +51,7 @@
 @class GTLRBigquery_JobStatistics2_ReservationUsage_Item;
 @class GTLRBigquery_JobStatistics3;
 @class GTLRBigquery_JobStatistics4;
+@class GTLRBigquery_JobStatistics_ReservationUsage_Item;
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
 @class GTLRBigquery_MaterializedViewDefinition;
@@ -446,12 +447,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Pick one] A domain to grant access to. Any users signed in with the domain
- *  specified will be granted the specified access. Example: "example.com".
+ *  specified will be granted the specified access. Example: "example.com". Maps
+ *  to IAM policy member "domain:DOMAIN".
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
-/** [Pick one] An email address of a Google Group to grant access to. */
+/**
+ *  [Pick one] An email address of a Google Group to grant access to. Maps to
+ *  IAM policy member "group:GROUP".
+ */
 @property(nonatomic, copy, nullable) NSString *groupByEmail;
+
+/**
+ *  [Pick one] Some other type of member that appears in the IAM Policy but
+ *  isn't a user, group, domain, or special group.
+ */
+@property(nonatomic, copy, nullable) NSString *iamMember;
 
 /**
  *  [Required] Describes the rights granted to the user specified by the other
@@ -464,13 +475,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Pick one] A special group to grant access to. Possible values include:
  *  projectOwners: Owners of the enclosing project. projectReaders: Readers of
  *  the enclosing project. projectWriters: Writers of the enclosing project.
- *  allAuthenticatedUsers: All authenticated BigQuery users.
+ *  allAuthenticatedUsers: All authenticated BigQuery users. Maps to
+ *  similarly-named IAM members.
  */
 @property(nonatomic, copy, nullable) NSString *specialGroup;
 
 /**
  *  [Pick one] An email address of a user to grant access to. For example:
- *  fred\@example.com.
+ *  fred\@example.com. Maps to IAM policy member "user:EMAIL" or
+ *  "serviceAccount:EMAIL".
  */
 @property(nonatomic, copy, nullable) NSString *userByEmail;
 
@@ -1957,6 +1970,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Output-only] Quotas which delayed this job's start time. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *quotaDeferments;
 
+/** [Output-only] Job resource usage breakdown by reservation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics_ReservationUsage_Item *> *reservationUsage;
+
 /**
  *  [Output-only] Start time of this job, in milliseconds since the epoch. This
  *  field will be present when the job transitions from the PENDING state to
@@ -1973,6 +1989,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
+
+/**
+ *  [Output-only] Slot-milliseconds for the job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
+
+@end
+
+
+/**
+ *  GTLRBigquery_JobStatistics_ReservationUsage_Item
+ */
+@interface GTLRBigquery_JobStatistics_ReservationUsage_Item : GTLRObject
+
+/**
+ *  [Output-only] Reservation name or "unreserved" for on-demand resources
+ *  usage.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output-only] Slot-milliseconds the job spent in the given reservation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slotMs;
 
 @end
 
@@ -2064,17 +2108,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of query statement, if valid. Possible values (new values might be
  *  added in the future): "SELECT": SELECT query. "INSERT": INSERT query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
  *  "UPDATE": UPDATE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
  *  "DELETE": DELETE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
  *  "MERGE": MERGE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
  *  "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT.
- *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ...
+ *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ... .
  *  "DROP_TABLE": DROP TABLE query. "CREATE_VIEW": CREATE [OR REPLACE] VIEW ...
- *  AS SELECT ... "DROP_VIEW": DROP VIEW query.
+ *  AS SELECT ... . "DROP_VIEW": DROP VIEW query. "ALTER_TABLE": ALTER TABLE
+ *  query. "ALTER_VIEW": ALTER VIEW query.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
 
@@ -3398,8 +3443,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *field;
 
 /**
- *  [Beta] [Optional] If set to true, queries over this table require a
- *  partition filter that can be used for partition elimination to be specified.
+ *  requirePartitionFilter
  *
  *  Uses NSNumber of boolValue.
  */

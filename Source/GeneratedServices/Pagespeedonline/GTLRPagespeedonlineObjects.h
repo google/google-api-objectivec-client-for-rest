@@ -248,14 +248,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Map of categories in the LHR.
- *
- *  @note This class is documented as having more properties of
- *        GTLRPagespeedonline_LighthouseCategoryV5. Use @c -additionalJSONKeys
- *        and @c -additionalPropertyForName: to get the list of properties and
- *        then fetch them; or @c -additionalProperties to fetch them all at
- *        once.
  */
 @interface GTLRPagespeedonline_LighthouseResultV5_Categories : GTLRObject
+
+/**
+ *  The accessibility category, containing all accessibility related audits.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseCategoryV5 *accessibility;
+
+/**
+ *  The best practices category, containing all web best practice related
+ *  audits.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseCategoryV5 *bestPractices;
+
+/** The performance category, containing all performance related audits. */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseCategoryV5 *performance;
+
+/**
+ *  The Progressive-Web-App (PWA) category, containing all pwa related audits.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseCategoryV5 *pwa;
+
+/**
+ *  The Search-Engine-Optimization (SEO) category, containing all seo related
+ *  audits.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseCategoryV5 *seo;
+
 @end
 
 

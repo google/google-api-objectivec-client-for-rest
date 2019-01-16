@@ -767,8 +767,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists log entries. Use this method to retrieve log entries from Logging. For
- *  ways to export log entries, see Exporting Logs.
+ *  Lists log entries. Use this method to retrieve log entries that originated
+ *  from a project/folder/organization/billing account. For ways to export log
+ *  entries, see Exporting Logs.
  *
  *  Method: logging.entries.list
  *
@@ -785,8 +786,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLogEntriesResponse.
  *
- *  Lists log entries. Use this method to retrieve log entries from Logging. For
- *  ways to export log entries, see Exporting Logs.
+ *  Lists log entries. Use this method to retrieve log entries that originated
+ *  from a project/folder/organization/billing account. For ways to export log
+ *  entries, see Exporting Logs.
  *
  *  @param object The @c GTLRLogging_ListLogEntriesRequest to include in the
  *    query.

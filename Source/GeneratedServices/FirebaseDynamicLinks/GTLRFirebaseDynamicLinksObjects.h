@@ -1135,6 +1135,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 @property(nonatomic, copy, nullable) NSString *invitationId;
 
 /**
+ *  FDL input value of the "&imv=" parameter, minimum app version to be
+ *  returned to Google Firebase SDK running on iOS-9.
+ */
+@property(nonatomic, copy, nullable) NSString *iosMinAppVersion;
+
+/**
  *  The entire FDL, expanded from a short link. It is the same as the
  *  requested_link, if it is long.
  */

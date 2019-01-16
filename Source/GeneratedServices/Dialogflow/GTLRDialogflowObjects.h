@@ -168,42 +168,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateI
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
-
-/**
- *  An existing conversation has closed. This is fired when a telephone call
- *  is terminated, or a conversation is closed via the API.
- *
- *  Value: "CONVERSATION_FINISHED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished;
-/**
- *  A new conversation has been opened. This is fired when a telephone call
- *  is answered, or a conversation is created via the API.
- *
- *  Value: "CONVERSATION_STARTED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted;
-/**
- *  Type not set.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified;
-/**
- *  Unrecoverable error during a telephone call.
- *  In general non-recoverable errors only occur if something was
- *  misconfigured in the ConversationProfile corresponding to the call. After
- *  a non-recoverable error, Dialogflow may stop responding.
- *  We don't fire this event:
- *  * in an API call because we can directly return the error, or,
- *  * when we can recover from an error.
- *
- *  Value: "UNRECOVERABLE_ERROR"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError;
-
-// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 
 /**
@@ -244,23 +208,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
  *  Value: "KIND_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent.type
-
-/**
- *  A new suggestion has been sent.
- *  This is fired when a suggestion comes from an agent assistant.
- *
- *  Value: "NEW_SUGGESTION"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_NewSuggestion;
-/**
- *  Type not set.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
@@ -1209,55 +1156,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Represents a notification sent to Cloud Pub/Sub subscribers for conversation
- *  lifecycle events.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent : GTLRObject
-
-/**
- *  Required. The unique identifier of the conversation this notification
- *  refers to. Format: `projects/<Project ID>/conversations/<Conversation ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *conversation;
-
-/**
- *  Optional. More detailed information about an error. Only set for type
- *  UNRECOVERABLE_ERROR_IN_PHONE_CALL.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *errorStatus;
-
-/**
- *  Required. The type of the event that this notification refers to.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished
- *        An existing conversation has closed. This is fired when a telephone
- *        call
- *        is terminated, or a conversation is closed via the API. (Value:
- *        "CONVERSATION_FINISHED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted
- *        A new conversation has been opened. This is fired when a telephone
- *        call
- *        is answered, or a conversation is created via the API. (Value:
- *        "CONVERSATION_STARTED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified
- *        Type not set. (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError
- *        Unrecoverable error during a telephone call.
- *        In general non-recoverable errors only occur if something was
- *        misconfigured in the ConversationProfile corresponding to the call.
- *        After
- *        a non-recoverable error, Dialogflow may stop responding.
- *        We don't fire this event:
- *        * in an API call because we can directly return the error, or,
- *        * when we can recover from an error. (Value: "UNRECOVERABLE_ERROR")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  Represents an entity type.
  *  Entity types serve as a tool for extracting parameter values from natural
  *  language queries.
@@ -1408,34 +1306,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  only if `agent_uri` is specified in `ExportAgentRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
-
-@end
-
-
-/**
- *  Represents a notification sent to Cloud Pub/Sub subscribers for
- *  agent assistant events in a specific conversation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent : GTLRObject
-
-/**
- *  Required. The conversation this notification refers to.
- *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *conversation;
-
-/**
- *  Required. The type of the event that this notification refers to.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_NewSuggestion
- *        A new suggestion has been sent.
- *        This is fired when a suggestion comes from an agent assistant. (Value:
- *        "NEW_SUGGESTION")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent_Type_TypeUnspecified
- *        Type not set. (Value: "TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2481,8 +2351,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *allRequiredParamsPresent;
 
 /**
- *  The free-form diagnostic info. For example, this field
- *  could contain webhook call latency.
+ *  The free-form diagnostic info. For example, this field could contain
+ *  webhook call latency. The string keys of the Struct's fields map can change
+ *  without notice.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_DiagnosticInfo *diagnosticInfo;
 
@@ -2580,8 +2451,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  The free-form diagnostic info. For example, this field
- *  could contain webhook call latency.
+ *  The free-form diagnostic info. For example, this field could contain
+ *  webhook call latency. The string keys of the Struct's fields map can change
+ *  without notice.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4255,8 +4127,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *allRequiredParamsPresent;
 
 /**
- *  The free-form diagnostic info. For example, this field
- *  could contain webhook call latency.
+ *  The free-form diagnostic info. For example, this field could contain
+ *  webhook call latency. The string keys of the Struct's fields map can change
+ *  without notice.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo *diagnosticInfo;
 
@@ -4342,8 +4215,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  The free-form diagnostic info. For example, this field
- *  could contain webhook call latency.
+ *  The free-form diagnostic info. For example, this field could contain
+ *  webhook call latency. The string keys of the Struct's fields map can change
+ *  without notice.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4510,7 +4384,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The UTF-8 encoded natural language text to be processed.
- *  Text length must not exceed 256 bytes.
+ *  Text length must not exceed 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 

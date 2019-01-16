@@ -9557,8 +9557,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the specified instance template. Deleting an instance template is
- *  permanent and cannot be undone. It's not possible to delete templates which
- *  are in use by an instance group.
+ *  permanent and cannot be undone. It is not possible to delete templates that
+ *  are already in use by a managed instance group.
  *
  *  Method: compute.instanceTemplates.delete
  *
@@ -9594,8 +9594,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes the specified instance template. Deleting an instance template is
- *  permanent and cannot be undone. It's not possible to delete templates which
- *  are in use by an instance group.
+ *  permanent and cannot be undone. It is not possible to delete templates that
+ *  are already in use by a managed instance group.
  *
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template to delete.
@@ -9734,7 +9734,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of instance templates that are contained within the
- *  specified project and zone.
+ *  specified project.
  *
  *  Method: compute.instanceTemplates.list
  *
@@ -9803,7 +9803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
  *
  *  Retrieves a list of instance templates that are contained within the
- *  specified project and zone.
+ *  specified project.
  *
  *  @param project Project ID for this request.
  *
@@ -12409,7 +12409,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForNodeGroupsSetNodeTemplateWithObject:project:zoneProperty:nodeGroup:]
 
-/** Name of the NodeGroup resource to delete. */
+/** Name of the NodeGroup resource to update. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
 
 /** Project ID for this request. */
@@ -12445,7 +12445,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param nodeGroup Name of the NodeGroup resource to delete.
+ *  @param nodeGroup Name of the NodeGroup resource to update.
  *
  *  @return GTLRComputeQuery_NodeGroupsSetNodeTemplate
  */

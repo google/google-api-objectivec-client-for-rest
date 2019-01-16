@@ -273,6 +273,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  GetJSONWebKeys gets the public component of the cluster signing keys in
+ *  JSON Web Key format.
+ *  This API is not yet intended for general use, and is not available for all
+ *  clusters.
+ *
+ *  Method: container.projects.locations.clusters.getJwks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersGetJwks : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsLocationsClustersGetJwksWithparent:]
+
+/**
+ *  The cluster (project, location, cluster id) to get keys for. Specified in
+ *  the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainer_GetJSONWebKeysResponse.
+ *
+ *  GetJSONWebKeys gets the public component of the cluster signing keys in
+ *  JSON Web Key format.
+ *  This API is not yet intended for general use, and is not available for all
+ *  clusters.
+ *
+ *  @param parent The cluster (project, location, cluster id) to get keys for.
+ *    Specified in
+ *    the format 'projects/ * /locations/ * /clusters/ *'.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersGetJwks
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists all clusters owned by a project in either the specified zone or all
  *  zones.
  *
@@ -1177,6 +1216,47 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRContainer_UpdateMasterRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  GetOpenIDConfig gets the OIDC discovery document for the cluster.
+ *  See the OpenID Connect Discovery 1.0 specification for details.
+ *  https://openid.net/specs/openid-connect-discovery-1_0.html
+ *  This API is not yet intended for general use, and is not available for all
+ *  clusters.
+ *
+ *  Method: container.projects.locations.clusters.well-known.getOpenid-configuration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsLocationsClustersWellKnownGetOpenidConfigurationWithparent:]
+
+/**
+ *  The cluster (project, location, cluster id) to get the discovery document
+ *  for. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainer_GetOpenIDConfigResponse.
+ *
+ *  GetOpenIDConfig gets the OIDC discovery document for the cluster.
+ *  See the OpenID Connect Discovery 1.0 specification for details.
+ *  https://openid.net/specs/openid-connect-discovery-1_0.html
+ *  This API is not yet intended for general use, and is not available for all
+ *  clusters.
+ *
+ *  @param parent The cluster (project, location, cluster id) to get the
+ *    discovery document
+ *    for. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

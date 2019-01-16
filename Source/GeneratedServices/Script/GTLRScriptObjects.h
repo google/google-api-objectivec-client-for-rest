@@ -562,7 +562,8 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 /**
  *  The name of the function to execute in the given script. The name does not
- *  include parentheses or parameters.
+ *  include parentheses or parameters. It can reference a function in an
+ *  included library such as `Library.libFunction1`.
  */
 @property(nonatomic, copy, nullable) NSString *function;
 

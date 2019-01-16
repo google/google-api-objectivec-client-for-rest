@@ -147,8 +147,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /**
  *  An `AccessLevel` is a label that can be applied to requests to GCP services,
  *  along with a list of requirements necessary for the label to be applied.
- *  `AccessLevels` can be referenced in `AccessZones` and in the `Cloud Org
- *  Policy` API.
  */
 @interface GTLRAccessContextManager_AccessLevel : GTLRObject
 

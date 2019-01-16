@@ -1876,7 +1876,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2RecordKey
-@dynamic bigQueryKey, datastoreKey;
+@dynamic bigQueryKey, datastoreKey, idValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"idValues" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

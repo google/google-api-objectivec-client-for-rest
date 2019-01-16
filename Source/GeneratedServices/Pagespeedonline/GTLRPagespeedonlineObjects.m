@@ -127,9 +127,10 @@
 //
 
 @implementation GTLRPagespeedonline_LighthouseResultV5_Categories
+@dynamic accessibility, bestPractices, performance, pwa, seo;
 
-+ (Class)classForAdditionalProperties {
-  return [GTLRPagespeedonline_LighthouseCategoryV5 class];
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"bestPractices" : @"best-practices" };
 }
 
 @end

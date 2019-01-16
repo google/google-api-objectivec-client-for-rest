@@ -115,6 +115,25 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsLocationsClustersGetJwks
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/jwks";
+  GTLRContainerQuery_ProjectsLocationsClustersGetJwks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainer_GetJSONWebKeysResponse class];
+  query.loggingName = @"container.projects.locations.clusters.getJwks";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsLocationsClustersList
 
 @dynamic parent, projectId, zoneProperty;
@@ -652,6 +671,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.locations.clusters.updateMaster";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/.well-known/openid-configuration";
+  GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainer_GetOpenIDConfigResponse class];
+  query.loggingName = @"container.projects.locations.clusters.well-known.getOpenid-configuration";
   return query;
 }
 

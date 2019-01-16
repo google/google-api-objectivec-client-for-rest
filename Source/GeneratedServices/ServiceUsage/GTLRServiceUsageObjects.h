@@ -110,6 +110,51 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2;
 GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceUsage_BackendRule.pathTranslation
+
+/**
+ *  The request path will be appended to the backend address.
+ *  # Examples
+ *  Given the following operation config:
+ *  Method path: /api/company/{cid}/user/{uid}
+ *  Backend address: https://example.appspot.com
+ *  Requests to the following request paths will call the backend at the
+ *  translated path:
+ *  Request path: /api/company/widgetworks/user/johndoe
+ *  Translated: https://example.appspot.com/api/company/widgetworks/user/johndoe
+ *  Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+ *  Translated:
+ *  https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
+ *
+ *  Value: "APPEND_PATH_TO_ADDRESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress;
+/**
+ *  Use the backend address as-is, with no modification to the path. If the
+ *  URL pattern contains variables, the variable names and values will be
+ *  appended to the query string. If a query string parameter and a URL
+ *  pattern variable have the same name, this may result in duplicate keys in
+ *  the query string.
+ *  # Examples
+ *  Given the following operation config:
+ *  Method path: /api/company/{cid}/user/{uid}
+ *  Backend address: https://example.cloudfunctions.net/getUser
+ *  Requests to the following request paths will call the backend at the
+ *  translated path:
+ *  Request path: /api/company/widgetworks/user/johndoe
+ *  Translated:
+ *  https://example.cloudfunctions.net/getUser?cid=widgetworks&uid=johndoe
+ *  Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+ *  Translated:
+ *  https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe
+ *
+ *  Value: "CONSTANT_ADDRESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress;
+/** Value: "PATH_TRANSLATION_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceUsage_Enum.syntax
 
 /**
@@ -771,6 +816,11 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *deadline;
 
 /**
+ *  The JWT audience is used when generating a JWT id token for the backend.
+ */
+@property(nonatomic, copy, nullable) NSString *jwtAudience;
+
+/**
  *  Minimum deadline in seconds needed for this method. Calls having deadline
  *  value lower than this will be rejected.
  *
@@ -785,6 +835,50 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *operationDeadline;
+
+/**
+ *  pathTranslation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress
+ *        The request path will be appended to the backend address.
+ *        # Examples
+ *        Given the following operation config:
+ *        Method path: /api/company/{cid}/user/{uid}
+ *        Backend address: https://example.appspot.com
+ *        Requests to the following request paths will call the backend at the
+ *        translated path:
+ *        Request path: /api/company/widgetworks/user/johndoe
+ *        Translated:
+ *        https://example.appspot.com/api/company/widgetworks/user/johndoe
+ *        Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+ *        Translated:
+ *        https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
+ *        (Value: "APPEND_PATH_TO_ADDRESS")
+ *    @arg @c kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress Use
+ *        the backend address as-is, with no modification to the path. If the
+ *        URL pattern contains variables, the variable names and values will be
+ *        appended to the query string. If a query string parameter and a URL
+ *        pattern variable have the same name, this may result in duplicate keys
+ *        in
+ *        the query string.
+ *        # Examples
+ *        Given the following operation config:
+ *        Method path: /api/company/{cid}/user/{uid}
+ *        Backend address: https://example.cloudfunctions.net/getUser
+ *        Requests to the following request paths will call the backend at the
+ *        translated path:
+ *        Request path: /api/company/widgetworks/user/johndoe
+ *        Translated:
+ *        https://example.cloudfunctions.net/getUser?cid=widgetworks&uid=johndoe
+ *        Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+ *        Translated:
+ *        https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe
+ *        (Value: "CONSTANT_ADDRESS")
+ *    @arg @c kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified
+ *        Value "PATH_TRANSLATION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *pathTranslation;
 
 /**
  *  Selects the methods to which this rule applies.
@@ -1600,8 +1694,10 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Monitoring *monitoring;
 
 /**
- *  The DNS address at which this service is available,
- *  e.g. `calendar.googleapis.com`.
+ *  The service name, which is a DNS-like logical identifier for the
+ *  service, such as `calendar.googleapis.com`. The service name
+ *  typically goes through DNS verification to make sure the owner
+ *  of the service also owns the DNS name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2764,17 +2860,21 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Monitoring configurations for sending metrics to the consumer project.
- *  There can be multiple consumer destinations, each one must have a
- *  different monitored resource type. A metric can be used in at most
- *  one consumer destination.
+ *  There can be multiple consumer destinations. A monitored resouce type may
+ *  appear in multiple monitoring destinations if different aggregations are
+ *  needed for different sets of metrics associated with that monitored
+ *  resource type. A monitored resource and metric pair may only be used once
+ *  in the Monitoring configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MonitoringDestination *> *consumerDestinations;
 
 /**
  *  Monitoring configurations for sending metrics to the producer project.
- *  There can be multiple producer destinations, each one must have a
- *  different monitored resource type. A metric can be used in at most
- *  one producer destination.
+ *  There can be multiple producer destinations. A monitored resouce type may
+ *  appear in multiple monitoring destinations if different aggregations are
+ *  needed for different sets of metrics associated with that monitored
+ *  resource type. A monitored resource and metric pair may only be used once
+ *  in the Monitoring configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MonitoringDestination *> *producerDestinations;
 
@@ -2788,8 +2888,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_MonitoringDestination : GTLRObject
 
 /**
- *  Names of the metrics to report to this monitoring destination.
- *  Each name must be defined in Service.metrics section.
+ *  Types of the metrics to report to this monitoring destination.
+ *  Each type must be defined in Service.metrics section.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 

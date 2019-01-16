@@ -1156,6 +1156,49 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
 /**
+ *  Adds the given value to the field's current value.
+ *  This must be an integer or a double value.
+ *  If the field is not an integer or double, or if the field does not yet
+ *  exist, the transformation will set the field to the given value.
+ *  If either of the given value or the current field value are doubles,
+ *  both values will be interpreted as doubles. Double arithmetic and
+ *  representation of double values follow IEEE 754 semantics.
+ *  If there is positive/negative integer overflow, the field is resolved
+ *  to the largest magnitude positive/negative integer.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Value *increment;
+
+/**
+ *  Sets the field to the maximum of its current value and the given value.
+ *  This must be an integer or a double value.
+ *  If the field is not an integer or double, or if the field does not yet
+ *  exist, the transformation will set the field to the given value.
+ *  If a maximum operation is applied where the field and the input value
+ *  are of mixed types (that is - one is an integer and one is a double)
+ *  the field takes on the type of the larger operand. If the operands are
+ *  equivalent (e.g. 3 and 3.0), the field does not change.
+ *  0, 0.0, and -0.0 are all zero. The maximum of a zero stored value and
+ *  zero input value is always the stored value.
+ *  The maximum of any numeric value x and NaN is NaN.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Value *maximum;
+
+/**
+ *  Sets the field to the minimum of its current value and the given value.
+ *  This must be an integer or a double value.
+ *  If the field is not an integer or double, or if the field does not yet
+ *  exist, the transformation will set the field to the input value.
+ *  If a minimum operation is applied where the field and the input value
+ *  are of mixed types (that is - one is an integer and one is a double)
+ *  the field takes on the type of the smaller operand. If the operands are
+ *  equivalent (e.g. 3 and 3.0), the field does not change.
+ *  0, 0.0, and -0.0 are all zero. The minimum of a zero stored value and
+ *  zero input value is always the stored value.
+ *  The minimum of any numeric value x and NaN is NaN.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Value *minimum;
+
+/**
  *  Remove all of the given elements from the array in the field.
  *  If the field is not an array, or if the field does not yet exist, it is
  *  set to the empty array.

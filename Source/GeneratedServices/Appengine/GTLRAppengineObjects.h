@@ -3289,6 +3289,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, copy, nullable) NSString *runtimeChannel;
 
+/** The path or name of the app's main executable. */
+@property(nonatomic, copy, nullable) NSString *runtimeMainExecutablePath;
+
 /**
  *  Current serving status of this version. Only the versions with a SERVING
  *  status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an

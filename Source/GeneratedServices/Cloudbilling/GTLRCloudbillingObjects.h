@@ -780,6 +780,12 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUns
  */
 @interface GTLRCloudbilling_Service : GTLRObject
 
+/**
+ *  The business under which the service is offered.
+ *  Ex. "businessEntities/GCP", "businessEntities/Maps"
+ */
+@property(nonatomic, copy, nullable) NSString *businessEntityName;
+
 /** A human readable display name for this service. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

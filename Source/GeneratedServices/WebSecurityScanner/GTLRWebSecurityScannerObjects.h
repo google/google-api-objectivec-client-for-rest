@@ -870,6 +870,7 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
 
 /**
  *  A ScanConfig resource contains the configurations to launch a scan.
+ *  next id: 12
  */
 @interface GTLRWebSecurityScanner_ScanConfig : GTLRObject
 
@@ -890,6 +891,9 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *  The user provided display name of the ScanConfig.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Latest ScanRun if available. */
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_ScanRun *latestRun;
 
 /**
  *  The maximum QPS during scanning. A valid value ranges from 5 to 20

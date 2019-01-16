@@ -441,7 +441,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_FieldTransform
-@dynamic appendMissingElements, fieldPath, removeAllFromArray, setToServerValue;
+@dynamic appendMissingElements, fieldPath, increment, maximum, minimum,
+         removeAllFromArray, setToServerValue;
 @end
 
 

@@ -511,7 +511,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountUser
-@dynamic admin, emailAddress;
+@dynamic admin, emailAddress, orderManager, paymentsAnalyst, paymentsManager;
 @end
 
 
@@ -531,7 +531,7 @@
 //
 
 @implementation GTLRShoppingContent_Amount
-@dynamic pretax, tax;
+@dynamic priceAmount, taxAmount;
 @end
 
 
@@ -1358,7 +1358,7 @@
 @dynamic acknowledged, billingAddress, channelType, customer, deliveryDetails,
          identifier, kind, lineItems, merchantId, merchantOrderId, netAmount,
          paymentStatus, placedDate, promotions, refunds, shipments,
-         shippingCost, shippingCostTax, shippingOption, status;
+         shippingCost, shippingCostTax, shippingOption, status, taxCollector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2555,6 +2555,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductAmount
+//
+
+@implementation GTLRShoppingContent_ProductAmount
+@dynamic priceAmount, remittedTaxAmount, taxAmount;
 @end
 
 

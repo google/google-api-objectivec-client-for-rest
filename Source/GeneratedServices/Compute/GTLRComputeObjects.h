@@ -166,6 +166,7 @@
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Items;
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Warning;
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Warning_Data_Item;
+@class GTLRCompute_InstanceGroupManagerAutoHealingPolicy;
 @class GTLRCompute_InstanceGroupManagerList_Warning;
 @class GTLRCompute_InstanceGroupManagerList_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupManagersScopedList;
@@ -1555,6 +1556,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete;
 
 /** Value: "CREATING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Creating;
+/** Value: "DELETING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Deleting;
 /** Value: "FAILED" */
 GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Failed;
 /** Value: "READY" */
@@ -2345,6 +2348,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Image_SourceType_Raw;
 // ----------------------------------------------------------------------------
 // GTLRCompute_Image.status
 
+/** Value: "DELETING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Deleting;
 /** Value: "FAILED" */
 GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Failed;
 /** Value: "PENDING" */
@@ -3403,6 +3408,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Europe;
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_NorthAmerica;
 /** Value: "SOUTH_AMERICA" */
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_SouthAmerica;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectLocation.status
+
+/** Value: "AVAILABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Available;
+/** Value: "CLOSED" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Closed;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectLocationList_Warning.code
@@ -7095,8 +7108,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Full or partial URL of the accelerator type resource to attach to this
- *  instance. If you are creating an instance template, specify only the
- *  accelerator name.
+ *  instance. For example:
+ *  projects/my-project/zones/us-central1-c/acceleratorTypes/nvidia-tesla-p100
+ *  If you are creating an instance template, specify only the accelerator name.
+ *  See GPUs on Compute Engine for a full list of accelerator types.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -8224,7 +8239,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  instance. This name can be used to reference the device for mounting,
  *  resizing, and so on, from within the instance.
  *  If not specified, the server chooses a default device name to apply to this
- *  disk, in the form persistent-disks-x, where x is a number assigned by Google
+ *  disk, in the form persistent-disk-x, where x is a number assigned by Google
  *  Compute Engine. This field is only applicable for persistent disks.
  */
 @property(nonatomic, copy, nullable) NSString *deviceName;
@@ -9181,7 +9196,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_AutoscalingPolicyLoadBalancingUtilization : GTLRObject
 
 /**
- *  Fraction of backend capacity utilization (set in HTTP(s) load balancing
+ *  Fraction of backend capacity utilization (set in HTTP(S) load balancing
  *  configuration) that autoscaler should maintain. Must be a positive float
  *  value. If not defined, the default is 0.8.
  *
@@ -11160,6 +11175,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Disk_Status_Creating Value "CREATING"
+ *    @arg @c kGTLRCompute_Disk_Status_Deleting Value "DELETING"
  *    @arg @c kGTLRCompute_Disk_Status_Failed Value "FAILED"
  *    @arg @c kGTLRCompute_Disk_Status_Ready Value "READY"
  *    @arg @c kGTLRCompute_Disk_Status_Restoring Value "RESTORING"
@@ -14450,6 +14466,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  or READY.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_Image_Status_Deleting Value "DELETING"
  *    @arg @c kGTLRCompute_Image_Status_Failed Value "FAILED"
  *    @arg @c kGTLRCompute_Image_Status_Pending Value "PENDING"
  *    @arg @c kGTLRCompute_Image_Status_Ready Value "READY"
@@ -14687,6 +14704,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  A list of the type and count of accelerator cards attached to the instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *guestAccelerators;
+
+@property(nonatomic, copy, nullable) NSString *hostname;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -15390,6 +15409,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_InstanceGroupManager : GTLRObject
 
 /**
+ *  The autohealing policy for this managed instance group. You can specify only
+ *  one value.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupManagerAutoHealingPolicy *> *autoHealingPolicies;
+
+/**
  *  The base instance name to use for instances in this group. The value must be
  *  1-58 characters long. Instances are named by appending a hyphen and a random
  *  four-character string to the base instance name. The base instance name must
@@ -15747,6 +15772,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagerAutoHealingPolicy
+ */
+@interface GTLRCompute_InstanceGroupManagerAutoHealingPolicy : GTLRObject
+
+/** The URL for the health check that signals autohealing. */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+/**
+ *  The number of seconds that the managed instance group waits before it
+ *  applies autohealing policies to new instances or recently recreated
+ *  instances. This initial delay allows instances to initialize and run their
+ *  startup scripts before the instance group determines that they are
+ *  UNHEALTHY. This prevents the managed instance group from recreating its
+ *  instances prematurely. This value must be from range [0, 3600].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initialDelaySec;
 
 @end
 
@@ -17405,8 +17453,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Type of link requested. This field indicates speed of each of the links in
- *  the bundle, not the entire bundle. Only 10G per link is allowed for a
- *  dedicated interconnect. Options: Ethernet_10G_LR
+ *  the bundle, not the entire bundle.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr Value
@@ -18569,6 +18616,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output Only] The status of this InterconnectLocation. If the status is
+ *  AVAILABLE, new Interconnects may be provisioned in this
+ *  InterconnectLocation. Otherwise, no new Interconnects may be provisioned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectLocation_Status_Available Value
+ *        "AVAILABLE"
+ *    @arg @c kGTLRCompute_InterconnectLocation_Status_Closed Value "CLOSED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -23234,6 +23293,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_VpnTunnels Value "VPN_TUNNELS"
  */
 @property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  [Output Only] Owning resource. This is the resource on which this quota is
+ *  applied.
+ */
+@property(nonatomic, copy, nullable) NSString *owner;
 
 /**
  *  [Output Only] Current usage of this metric.
@@ -31777,8 +31842,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_XpnResourceId : GTLRObject
 
 /**
- *  The ID of the service resource. In the case of projects, this field matches
- *  the project ID (e.g., my-project), not the project number (e.g., 12345678).
+ *  The ID of the service resource. In the case of projects, this field supports
+ *  project id (e.g., my-project-123) and project number (e.g. 12345678).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

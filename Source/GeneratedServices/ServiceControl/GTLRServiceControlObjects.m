@@ -280,7 +280,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuthenticationInfo
-@dynamic authoritySelector, principalEmail, thirdPartyPrincipal;
+@dynamic authoritySelector, principalEmail, serviceAccountKeyName,
+         thirdPartyPrincipal;
 @end
 
 

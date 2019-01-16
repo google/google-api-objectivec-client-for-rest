@@ -6,7 +6,7 @@
 // Description:
 //   Manages OS login configuration for Google account users.
 // Documentation:
-//   https://cloud.google.com/compute/docs/oslogin/rest/
+//   https://cloud.google.com/compute/docs/oslogin/
 
 #import "GTLRCloudOSLogin.h"
 

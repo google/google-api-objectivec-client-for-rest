@@ -1726,6 +1726,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_IosXcTest : GTLRObject
 
+/** Output only. The bundle id for the application under test. */
+@property(nonatomic, copy, nullable) NSString *appBundleId;
+
 /**
  *  Required. The .zip containing the .xctestrun file and the contents of the
  *  DerivedData/Build/Products directory.
@@ -2155,6 +2158,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Required. How the host machine(s) are configured. */
 @property(nonatomic, strong, nullable) GTLRTesting_EnvironmentMatrix *environmentMatrix;
+
+/**
+ *  The number of times a TestExecution should be re-attempted if one or more
+ *  of its test cases fail for any reason.
+ *  The maximum number of reruns allowed is 10.
+ *  Default is 0, which implies no reruns.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flakyTestAttempts;
 
 /**
  *  Output only. Describes why the matrix is considered invalid.

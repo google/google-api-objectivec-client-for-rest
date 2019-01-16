@@ -18,6 +18,11 @@
 NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceNetworking_BackendRule.pathTranslation
+NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
+NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
+NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
+
 // GTLRServiceNetworking_Enum.syntax
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -224,7 +229,8 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, minDeadline, operationDeadline, selector;
+@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
+         pathTranslation, selector;
 @end
 
 
@@ -500,6 +506,16 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_GoogleCloudServicenetworkingV1betaSubnetwork
+//
+
+@implementation GTLRServiceNetworking_GoogleCloudServicenetworkingV1betaSubnetwork
+@dynamic ipCidrRange, name, network, outsideAllocation;
 @end
 
 
@@ -922,6 +938,16 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_Range
+//
+
+@implementation GTLRServiceNetworking_Range
+@dynamic ipCidrRange, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_SearchRangeRequest
 //
 
@@ -1043,7 +1069,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_Subnetwork
-@dynamic ipCidrRange, name, network;
+@dynamic ipCidrRange, name, network, outsideAllocation;
 @end
 
 
