@@ -25,6 +25,11 @@ NSString * const kGTLRServiceManagement_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRServiceManagement_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRServiceManagement_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRServiceManagement_BackendRule.pathTranslation
+NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
+NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
+NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
+
 // GTLRServiceManagement_ConfigChange.changeType
 NSString * const kGTLRServiceManagement_ConfigChange_ChangeType_Added = @"ADDED";
 NSString * const kGTLRServiceManagement_ConfigChange_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
@@ -294,7 +299,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_BackendRule
-@dynamic address, deadline, minDeadline, operationDeadline, selector;
+@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
+         pathTranslation, selector;
 @end
 
 

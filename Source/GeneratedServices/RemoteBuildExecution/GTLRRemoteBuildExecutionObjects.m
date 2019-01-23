@@ -346,7 +346,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteResponse
-@dynamic cachedResult, result, serverLogs, status;
+@dynamic cachedResult, message, result, serverLogs, status;
 @end
 
 
@@ -722,7 +722,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance
-@dynamic location, name, state;
+@dynamic location, loggingEnabled, name, state;
 @end
 
 
@@ -1063,11 +1063,11 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult
-@dynamic duration, exitCode, outputs, overhead, statistics, status;
+@dynamic duration, exitCode, metadata, outputs, overhead, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"statistics" : [GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Statistics_Item class]
+    @"metadata" : [GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Metadata_Item class]
   };
   return map;
 }
@@ -1077,10 +1077,10 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Statistics_Item
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Metadata_Item
 //
 
-@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Statistics_Item
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Metadata_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

@@ -298,8 +298,8 @@
 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, bigtableOptions, compression, csvOptions,
-         googleSheetsOptions, ignoreUnknownValues, maxBadRecords, schema,
-         sourceFormat, sourceUris;
+         googleSheetsOptions, hivePartitioningMode, ignoreUnknownValues,
+         maxBadRecords, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -455,10 +455,10 @@
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
          createDisposition, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
-         ignoreUnknownValues, maxBadRecords, nullMarker, projectionFields,
-         quote, rangePartitioning, schema, schemaInline, schemaInlineFormat,
-         schemaUpdateOptions, skipLeadingRows, sourceFormat, sourceUris,
-         timePartitioning, useAvroLogicalTypes, writeDisposition;
+         hivePartitioningMode, ignoreUnknownValues, maxBadRecords, nullMarker,
+         projectionFields, quote, rangePartitioning, schema, schemaInline,
+         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
+         sourceUris, timePartitioning, useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

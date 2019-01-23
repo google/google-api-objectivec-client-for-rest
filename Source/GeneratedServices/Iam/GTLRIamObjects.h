@@ -997,6 +997,23 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  The patch service account request.
+ */
+@interface GTLRIam_PatchServiceAccountRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *serviceAccount;
+
+/**
+ *  updateMask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  A permission which can be included by a role.
  */
 @interface GTLRIam_Permission : GTLRObject

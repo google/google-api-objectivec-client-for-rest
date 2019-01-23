@@ -610,9 +610,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.billingAccounts.sinks.patch
  *
@@ -667,9 +666,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -689,9 +687,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.billingAccounts.sinks.update
  *
@@ -746,9 +743,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1652,9 +1648,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.folders.sinks.patch
  *
@@ -1709,9 +1704,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1731,9 +1725,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.folders.sinks.update
  *
@@ -1788,9 +1781,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -2531,9 +2523,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.organizations.sinks.patch
  *
@@ -2588,9 +2579,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -2610,9 +2600,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.organizations.sinks.update
  *
@@ -2667,9 +2656,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -3460,9 +3448,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.projects.sinks.patch
  *
@@ -3517,9 +3504,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -3539,9 +3525,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -3596,9 +3581,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -3828,9 +3812,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.sinks.update
  *
@@ -3885,9 +3868,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter. The updated
- *  sink might also have a new writer_identity; see the unique_writer_identity
- *  field.
+ *  sink with values from the new sink: destination, and filter.The updated sink
+ *  might also have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,

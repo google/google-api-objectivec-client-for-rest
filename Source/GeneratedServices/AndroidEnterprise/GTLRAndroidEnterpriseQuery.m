@@ -317,25 +317,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
-@implementation GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig
-
-@dynamic enterpriseId;
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
-  NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/androidDevicePolicyConfig";
-  GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.enterpriseId = enterpriseId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_AndroidDevicePolicyConfig class];
-  query.loggingName = @"androidenterprise.enterprises.getAndroidDevicePolicyConfig";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount
 
 @dynamic enterpriseId, keyType;

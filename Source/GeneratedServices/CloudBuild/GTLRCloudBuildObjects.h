@@ -1283,8 +1283,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  Output only. Hash(es) of the build source, which can be used to verify that
- *  the originalsource integrity was maintained in the build. Note that
- *  `FileHashes` willonly be populated if `BuildOptions` has requested a
+ *  the original source integrity was maintained in the build. Note that
+ *  `FileHashes` will only be populated if `BuildOptions` has requested a
  *  `SourceProvenanceHash`.
  *  The keys to this map are file paths used as build source and the values
  *  contain the hash values for those files.
@@ -1310,8 +1310,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  Output only. Hash(es) of the build source, which can be used to verify that
- *  the originalsource integrity was maintained in the build. Note that
- *  `FileHashes` willonly be populated if `BuildOptions` has requested a
+ *  the original source integrity was maintained in the build. Note that
+ *  `FileHashes` will only be populated if `BuildOptions` has requested a
  *  `SourceProvenanceHash`.
  *  The keys to this map are file paths used as build source and the values
  *  contain the hash values for those files.

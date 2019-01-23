@@ -135,7 +135,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
 
 /**
- *  The default algorithm used by hyperparameter tuning service.
+ *  The default algorithm used by the hyperparameter tuning service. This is
+ *  a Bayesian optimization algorithm.
  *
  *  Value: "ALGORITHM_UNSPECIFIED"
  */
@@ -494,7 +495,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
 
 /**
- *  Unspecified framework. Defaults to TensorFlow.
+ *  Unspecified framework. Assigns a value based on the file suffix.
  *
  *  Value: "FRAMEWORK_UNSPECIFIED"
  */
@@ -622,11 +623,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleApiHttpBody : GTLRObject
 
-/** The HTTP Content-Type string representing the content type of the body. */
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
- *  HTTP body binary data.
+ *  The HTTP request/response body as raw binary.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -878,8 +881,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified
- *        The default algorithm used by hyperparameter tuning service. (Value:
- *        "ALGORITHM_UNSPECIFIED")
+ *        The default algorithm used by the hyperparameter tuning service. This
+ *        is
+ *        a Bayesian optimization algorithm. (Value: "ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch
  *        Simple grid search within the feasible space. To use grid search,
  *        all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
@@ -1468,7 +1472,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents input parameters for a prediction job. Next field: 20
+ *  Represents input parameters for a prediction job.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
@@ -1740,26 +1744,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  <dt>standard_v100</dt>
  *  <dd>
  *  A machine equivalent to <i>standard</i> that
- *  also includes a single NVIDIA Tesla V100 GPU. The availability of these
- *  GPUs is in the <i>Beta</i> launch stage.
+ *  also includes a single NVIDIA Tesla V100 GPU.
  *  </dd>
  *  <dt>large_model_v100</dt>
  *  <dd>
  *  A machine equivalent to <i>large_model</i> that
- *  also includes a single NVIDIA Tesla V100 GPU. The availability of these
- *  GPUs is in the <i>Beta</i> launch stage.
+ *  also includes a single NVIDIA Tesla V100 GPU.
  *  </dd>
  *  <dt>complex_model_m_v100</dt>
  *  <dd>
  *  A machine equivalent to <i>complex_model_m</i> that
- *  also includes four NVIDIA Tesla V100 GPUs. The availability of these
- *  GPUs is in the <i>Beta</i> launch stage.
+ *  also includes four NVIDIA Tesla V100 GPUs.
  *  </dd>
  *  <dt>complex_model_l_v100</dt>
  *  <dd>
  *  A machine equivalent to <i>complex_model_l</i> that
- *  also includes eight NVIDIA Tesla V100 GPUs. The availability of these
- *  GPUs is in the <i>Beta</i> launch stage.
+ *  also includes eight NVIDIA Tesla V100 GPUs.
  *  </dd>
  *  <dt>cloud_tpu</dt>
  *  <dd>
@@ -1785,6 +1785,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  `parameter_server_type`.
  *  This value can only be used when `scale_tier` is set to `CUSTOM`.If you
  *  set this value, you must also set `parameter_server_type`.
+ *  The default value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1880,6 +1881,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  replica in the cluster will be of the type specified in `worker_type`.
  *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
  *  set this value, you must also set `worker_type`.
+ *  The default value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2003,8 +2005,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
- *        Unspecified framework. Defaults to TensorFlow. (Value:
- *        "FRAMEWORK_UNSPECIFIED")
+ *        Unspecified framework. Assigns a value based on the file suffix.
+ *        (Value: "FRAMEWORK_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn
  *        Scikit-learn framework. (Value: "SCIKIT_LEARN")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow

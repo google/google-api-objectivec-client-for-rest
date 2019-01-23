@@ -813,7 +813,9 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListMessagesResponse : GTLRCollectionObject
 
 /**
- *  List of messages.
+ *  List of messages. Note that each message resource contains only an id and a
+ *  threadId. Additional message details can be fetched using the messages.get
+ *  method.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -876,7 +878,9 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @property(nonatomic, strong, nullable) NSNumber *resultSizeEstimate;
 
 /**
- *  List of threads.
+ *  List of threads. Note that each thread resource does not contain a list of
+ *  messages. The list of messages for a given thread can be fetched using the
+ *  threads.get method.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

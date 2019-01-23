@@ -1152,6 +1152,14 @@ NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Singl
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_InstanceGroupManagerUpdatePolicy.minimalAction
+NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Replace = @"REPLACE";
+NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Restart = @"RESTART";
+
+// GTLRCompute_InstanceGroupManagerUpdatePolicy.type
+NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Opportunistic = @"OPPORTUNISTIC";
+NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Proactive = @"PROACTIVE";
+
 // GTLRCompute_InstanceGroupsListInstances_Warning.code
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -2121,6 +2129,7 @@ NSString * const kGTLRCompute_Quota_Metric_Interconnects       = @"INTERCONNECTS
 NSString * const kGTLRCompute_Quota_Metric_InternalAddresses   = @"INTERNAL_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_InUseAddresses      = @"IN_USE_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_InUseBackupSchedules = @"IN_USE_BACKUP_SCHEDULES";
+NSString * const kGTLRCompute_Quota_Metric_InUseSnapshotSchedules = @"IN_USE_SNAPSHOT_SCHEDULES";
 NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_Networks            = @"NETWORKS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus       = @"NVIDIA_K80_GPUS";
@@ -5268,14 +5277,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_FixedOrPercent
+//
+
+@implementation GTLRCompute_FixedOrPercent
+@dynamic calculated, fixed, percent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ForwardingRule
 //
 
 @implementation GTLRCompute_ForwardingRule
 @dynamic backendService, creationTimestamp, descriptionProperty, identifier,
          IPAddress, IPProtocol, ipVersion, kind, loadBalancingScheme, name,
-         network, networkTier, portRange, ports, region, selfLink, subnetwork,
-         target;
+         network, networkTier, portRange, ports, region, selfLink, serviceLabel,
+         serviceName, subnetwork, target;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6137,7 +6156,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic autoHealingPolicies, baseInstanceName, creationTimestamp,
          currentActions, descriptionProperty, distributionPolicy, fingerprint,
          identifier, instanceGroup, instanceTemplate, kind, name, namedPorts,
-         region, selfLink, targetPools, targetSize, zoneProperty;
+         region, selfLink, status, targetPools, targetSize, updatePolicy,
+         versions, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6152,7 +6172,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   NSDictionary<NSString *, Class> *map = @{
     @"autoHealingPolicies" : [GTLRCompute_InstanceGroupManagerAutoHealingPolicy class],
     @"namedPorts" : [GTLRCompute_NamedPort class],
-    @"targetPools" : [NSString class]
+    @"targetPools" : [NSString class],
+    @"versions" : [GTLRCompute_InstanceGroupManagerVersion class]
   };
   return map;
 }
@@ -6431,6 +6452,36 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerStatus
+//
+
+@implementation GTLRCompute_InstanceGroupManagerStatus
+@dynamic isStable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerUpdatePolicy
+//
+
+@implementation GTLRCompute_InstanceGroupManagerUpdatePolicy
+@dynamic maxSurge, maxUnavailable, minimalAction, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerVersion
+//
+
+@implementation GTLRCompute_InstanceGroupManagerVersion
+@dynamic instanceTemplate, name, targetSize;
 @end
 
 

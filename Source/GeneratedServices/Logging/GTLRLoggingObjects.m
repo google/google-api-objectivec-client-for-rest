@@ -388,7 +388,7 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 //
 
 @implementation GTLRLogging_LogExclusion
-@dynamic descriptionProperty, disabled, filter, name;
+@dynamic createTime, descriptionProperty, disabled, filter, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -413,8 +413,9 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 //
 
 @implementation GTLRLogging_LogMetric
-@dynamic bucketOptions, descriptionProperty, filter, labelExtractors,
-         metricDescriptor, name, valueExtractor, version;
+@dynamic bucketOptions, createTime, descriptionProperty, filter,
+         labelExtractors, metricDescriptor, name, updateTime, valueExtractor,
+         version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -443,8 +444,8 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic destination, filter, includeChildren, name, outputVersionFormat,
-         writerIdentity;
+@dynamic createTime, destination, filter, includeChildren, name,
+         outputVersionFormat, updateTime, writerIdentity;
 @end
 
 

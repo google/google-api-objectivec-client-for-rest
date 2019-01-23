@@ -383,6 +383,18 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) NSNumber *enableAutomaticPunctuation;
 
 /**
+ *  This needs to be set to `true` explicitly and `audio_channel_count` > 1
+ *  to get each channel recognized separately. The recognition result will
+ *  contain a `channel_tag` field to state which channel that result belongs
+ *  to. If this is not true, we will only recognize the first channel. The
+ *  request is billed cumulatively for all channels recognized:
+ *  `audio_channel_count` multiplied by the length of the audio.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSeparateRecognitionPerChannel;
+
+/**
  *  *Optional* If `true`, the top result includes a list of words and
  *  the start and end time offsets (timestamps) for those words. If
  *  `false`, no word-level time offset information is returned. The default is
@@ -563,6 +575,15 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  alternative being the most probable, as ranked by the recognizer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
+
+/**
+ *  For multi-channel audio, this is the channel number corresponding to the
+ *  recognized result for the audio from that channel.
+ *  For audio_channel_count = N, its output values can range from '1' to 'N'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channelTag;
 
 @end
 
