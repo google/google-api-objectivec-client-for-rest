@@ -823,6 +823,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  values are:
  *  - Test (i.e. purchased from a license testing account)
  *  - Promo (i.e. purchased using a promo code)
+ *  - Rewarded (i.e. from watching a video ad instead of paying)
  *
  *  Uses NSNumber of intValue.
  */

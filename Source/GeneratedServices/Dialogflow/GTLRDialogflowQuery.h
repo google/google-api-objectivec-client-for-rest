@@ -70,9 +70,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Deletes entity types in the specified agent.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.entityTypes.batchDelete
  *
@@ -94,9 +92,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Deletes entity types in the specified agent.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest to
@@ -114,9 +110,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Updates/Creates multiple entity types in the specified agent.
- *  Operation
- *  <response: BatchUpdateEntityTypesResponse, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: BatchUpdateEntityTypesResponse>
  *
  *  Method: dialogflow.projects.agent.entityTypes.batchUpdate
  *
@@ -138,9 +132,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Updates/Creates multiple entity types in the specified agent.
- *  Operation
- *  <response: BatchUpdateEntityTypesResponse, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: BatchUpdateEntityTypesResponse>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest to
@@ -276,9 +268,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Deletes entities in the specified entity type.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchDelete
  *
@@ -300,9 +290,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Deletes entities in the specified entity type.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntitiesRequest to
@@ -322,9 +310,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Updates or creates multiple entities in the specified entity type. This
  *  method does not affect entities in the entity type that aren't explicitly
  *  specified in the request.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.entityTypes.entities.batchUpdate
  *
@@ -348,9 +334,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Updates or creates multiple entities in the specified entity type. This
  *  method does not affect entities in the entity type that aren't explicitly
  *  specified in the request.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntitiesRequest to
@@ -488,10 +472,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
- *  The unique identifier of the entity type. Format:
- *  `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  The unique identifier of the entity type.
+ *  Required for EntityTypes.UpdateEntityType and
+ *  EntityTypes.BatchUpdateEntityTypes methods.
+ *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -509,11 +493,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2EntityType to
  *    include in the query.
- *  @param name Required for all methods except `create` (`create` populates the
- *    name
- *    automatically.
- *    The unique identifier of the entity type. Format:
- *    `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  @param name The unique identifier of the entity type.
+ *    Required for EntityTypes.UpdateEntityType and
+ *    EntityTypes.BatchUpdateEntityTypes methods.
+ *    Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentEntityTypesPatch
  */
@@ -524,9 +507,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Exports the specified agent to a ZIP file.
- *  Operation
- *  <response: ExportAgentResponse, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: ExportAgentResponse>
  *
  *  Method: dialogflow.projects.agent.export
  *
@@ -548,9 +529,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Exports the specified agent to a ZIP file.
- *  Operation
- *  <response: ExportAgentResponse, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: ExportAgentResponse>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest to include in the
@@ -571,9 +550,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Uploads new intents and entity types without deleting the existing ones.
  *  Intents and entity types with the same name are replaced with the new
  *  versions from ImportAgentRequest.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.import
  *
@@ -598,9 +575,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Uploads new intents and entity types without deleting the existing ones.
  *  Intents and entity types with the same name are replaced with the new
  *  versions from ImportAgentRequest.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest to include in the
@@ -939,9 +914,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
  *  The unique identifier of this intent.
+ *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
+ *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -960,10 +935,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Intent to include
  *    in the query.
- *  @param name Required for all methods except `create` (`create` populates the
- *    name
- *    automatically.
- *    The unique identifier of this intent.
+ *  @param name The unique identifier of this intent.
+ *    Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
+ *    methods.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentIntentsPatch
@@ -977,9 +951,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Restores the specified agent from a ZIP file.
  *  Replaces the current agent version with a new one. All the intents and
  *  entity types in the older version are deleted.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.restore
  *
@@ -1003,9 +975,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Restores the specified agent from a ZIP file.
  *  Replaces the current agent version with a new one. All the intents and
  *  entity types in the older version are deleted.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowV2RestoreAgentRequest to include in
@@ -1581,9 +1551,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Trains the specified agent.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  Method: dialogflow.projects.agent.train
  *
@@ -1605,9 +1573,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Trains the specified agent.
- *  Operation
- *  <response: google.protobuf.Empty, 
-            metadata: google.protobuf.Struct>
+ *  Operation <response: google.protobuf.Empty>
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest
  *    to include in the query.

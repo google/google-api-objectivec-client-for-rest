@@ -931,7 +931,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
- *  Output only. Additional metadata about the monitored resource. Only
+ *  Output only. Additional metadata about the monitored resource.Only
  *  k8s_container, k8s_pod, and k8s_node MonitoredResources have this field
  *  populated.
  */
@@ -953,10 +953,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, strong, nullable) GTLRDateTime *receiveTimestamp;
 
 /**
- *  Required. The primary monitored resource associated with this log entry.
- *  Example: a log entry that reports a database error would be associated with
- *  the monitored resource designating the particular database that reported the
- *  error.
+ *  Required. The primary monitored resource associated with this log
+ *  entry.Example: a log entry that reports a database error would be associated
+ *  with the monitored resource designating the particular database that
+ *  reported the error.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;
 
@@ -994,7 +994,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntrySourceLocation *sourceLocation;
 
 /**
- *  Optional. The span ID within the trace associated with the log entry. For
+ *  Optional. The span ID within the trace associated with the log entry.For
  *  Trace spans, this is the same format that the Trace API v2 uses: a
  *  16-character hexadecimal encoding of an 8-byte array, such as
  *  <code>"000000000000004a"</code>.
@@ -1027,10 +1027,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, copy, nullable) NSString *trace;
 
 /**
- *  Optional. The sampling decision of the trace associated with the log entry.
- *  True means that the trace resource name in the trace field was sampled for
- *  storage in a trace backend. False means that the trace was not sampled for
- *  storage when this log entry was written, or the sampling decision was
+ *  Optional. The sampling decision of the trace associated with the log
+ *  entry.True means that the trace resource name in the trace field was sampled
+ *  for storage in a trace backend. False means that the trace was not sampled
+ *  for storage when this log entry was written, or the sampling decision was
  *  unknown at the time. A non-sampled trace value is still useful as a request
  *  correlation identifier. The default is False.
  *
@@ -1160,6 +1160,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @interface GTLRLogging_LogExclusion : GTLRObject
 
 /**
+ *  Output only. The creation timestamp of the exclusion.This field may not be
+ *  present for older exclusions.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  Optional. A description of this exclusion.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1168,7 +1174,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  Optional. If set to True, then this exclusion is disabled and it does not
- *  exclude any log entries. You can use exclusions.patch to change the value of
+ *  exclude any log entries. You can update an exclusion to change the value of
  *  this field.
  *
  *  Uses NSNumber of boolValue.
@@ -1191,6 +1197,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  *  digits, underscores, hyphens, and periods.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The last update timestamp of the exclusion.This field may not
+ *  be present for older exclusions.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1256,6 +1268,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, strong, nullable) GTLRLogging_BucketOptions *bucketOptions;
 
 /**
+ *  Output only. The creation timestamp of the metric.This field may not be
+ *  present for older metrics.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  Optional. A description of this metric, which is used in documentation. The
  *  maximum length of the description is 8000 characters.
  *
@@ -1317,6 +1335,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
  *  "projects/my-project/metrics/nginx%2Frequests".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The last update timestamp of the metric.This field may not be
+ *  present for older metrics.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  Optional. A value_extractor is required when using a distribution logs-based
@@ -1381,13 +1405,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @interface GTLRLogging_LogSink : GTLRObject
 
 /**
+ *  Output only. The creation timestamp of the sink.This field may not be
+ *  present for older sinks.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  Required. The export destination:
  *  "storage.googleapis.com/[GCS_BUCKET]"
  *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
  *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]"
  *  The sink's writer_identity, set when the sink is created, must have
  *  permission to write to the destination or else the log entries are not
- *  exported. For more information, see Exporting Logs With Sinks.
+ *  exported. For more information, see Exporting Logs with Sinks.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
@@ -1441,12 +1471,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
 
 /**
+ *  Output only. The last update timestamp of the sink.This field may not be
+ *  present for older sinks.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
  *  Output only. An IAM identity&mdash;a service account or group&mdash;under
  *  which Logging writes the exported log entries to the sink's destination.
- *  This field is set by sinks.create and sinks.update, based on the setting of
+ *  This field is set by sinks.create and sinks.update based on the value of
  *  unique_writer_identity in those methods.Until you grant this identity
  *  write-access to the destination, log entry exports from this sink will fail.
- *  For more information, see Granting access for a resource. Consult the
+ *  For more information, see Granting Access for a Resource. Consult the
  *  destination service's documentation to determine the appropriate IAM roles
  *  to assign to the identity.
  */

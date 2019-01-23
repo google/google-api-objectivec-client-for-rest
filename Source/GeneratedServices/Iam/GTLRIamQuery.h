@@ -24,6 +24,7 @@
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
+@class GTLRIam_PatchServiceAccountRequest;
 @class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
 @class GTLRIam_QueryTestablePermissionsRequest;
@@ -1125,6 +1126,62 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Patches a ServiceAccount.
+ *  Currently, only the following fields are updatable:
+ *  `display_name` and `description`.
+ *  Only fields specified in the request are garaunteed to be returned in
+ *  the response. Other fields in the response may be empty.
+ *  Note: The field mask is required.
+ *
+ *  Method: iam.projects.serviceAccounts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsPatch : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsPatchWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *  project from the `account` and the `ACCOUNT` value can be the `email`
+ *  address or the `unique_id` of the service account.
+ *  In responses the resource name will always be in the format
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_ServiceAccount.
+ *
+ *  Patches a ServiceAccount.
+ *  Currently, only the following fields are updatable:
+ *  `display_name` and `description`.
+ *  Only fields specified in the request are garaunteed to be returned in
+ *  the response. Other fields in the response may be empty.
+ *  Note: The field mask is required.
+ *
+ *  @param object The @c GTLRIam_PatchServiceAccountRequest to include in the
+ *    query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *    project from the `account` and the `ACCOUNT` value can be the `email`
+ *    address or the `unique_id` of the service account.
+ *    In responses the resource name will always be in the format
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_PatchServiceAccountRequest *)object
+                           name:(NSString *)name;
 
 @end
 

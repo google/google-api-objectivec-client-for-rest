@@ -393,6 +393,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentT
 /**
  *  Templates are not annotated with entity types, but they can contain
  *  \@-prefixed entity type names as substrings.
+ *  Template mode has been deprecated. Example mode is the only supported
+ *  way to create new training phrases. If you have existing training
+ *  phrases that you've created in template mode, those will continue to
+ *  work.
  *
  *  Value: "TEMPLATE"
  */
@@ -748,6 +752,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
 /**
  *  Templates are not annotated with entity types, but they can contain
  *  \@-prefixed entity type names as substrings.
+ *  Template mode has been deprecated. Example mode is the only supported
+ *  way to create new training phrases. If you have existing training
+ *  phrases that you've created in template mode, those will continue to
+ *  work.
  *
  *  Value: "TEMPLATE"
  */
@@ -1202,10 +1210,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
- *  The unique identifier of the entity type. Format:
- *  `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  The unique identifier of the entity type.
+ *  Required for EntityTypes.UpdateEntityType and
+ *  EntityTypes.BatchUpdateEntityTypes methods.
+ *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1402,9 +1410,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *mlEnabled;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
  *  The unique identifier of this intent.
+ *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
+ *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1458,7 +1466,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
 
 /**
- *  Optional. The collection of examples/templates that the agent is
+ *  Optional. The collection of examples that the agent is
  *  trained on.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase *> *trainingPhrases;
@@ -2097,7 +2105,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Represents an example or template that the agent is trained on.
+ *  Represents an example that the agent is trained on.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase : GTLRObject
 
@@ -2112,7 +2120,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart *> *parts;
 
 /**
- *  Optional. Indicates how many times this example or template was added to
+ *  Optional. Indicates how many times this example was added to
  *  the intent. Each time a developer adds an existing sample by editing an
  *  intent or training, this counter is increased.
  *
@@ -2130,7 +2138,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *        can be annotated with entity types. (Value: "EXAMPLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template
  *        Templates are not annotated with entity types, but they can contain
- *        \@-prefixed entity type names as substrings. (Value: "TEMPLATE")
+ *        \@-prefixed entity type names as substrings.
+ *        Template mode has been deprecated. Example mode is the only supported
+ *        way to create new training phrases. If you have existing training
+ *        phrases that you've created in template mode, those will continue to
+ *        work. (Value: "TEMPLATE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified
  *        Not specified. This value should never be used. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -2159,7 +2171,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
- *  Required. The text corresponding to the example or template,
+ *  Required. The text corresponding to the example,
  *  if there are no annotations. For
  *  annotated examples, it is the text for one of the example's parts.
  */
@@ -2360,7 +2372,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** The collection of rich messages to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *fulfillmentMessages;
 
-/** The text to be pronounced to the user or shown on the screen. */
+/**
+ *  The text to be pronounced to the user or shown on the screen.
+ *  Note: This is a legacy field, `fulfillment_messages` should be preferred.
+ */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
@@ -2817,10 +2832,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
- *  The unique identifier of the entity type. Format:
- *  `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  The unique identifier of the entity type.
+ *  Required for EntityTypes.UpdateEntityType and
+ *  EntityTypes.BatchUpdateEntityTypes methods.
+ *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3142,9 +3157,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSNumber *mlDisabled;
 
 /**
- *  Required for all methods except `create` (`create` populates the name
- *  automatically.
  *  The unique identifier of this intent.
+ *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
+ *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3198,7 +3213,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
 
 /**
- *  Optional. The collection of examples/templates that the agent is
+ *  Optional. The collection of examples that the agent is
  *  trained on.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase *> *trainingPhrases;
@@ -3776,7 +3791,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Represents an example or template that the agent is trained on.
+ *  Represents an example that the agent is trained on.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase : GTLRObject
 
@@ -3791,7 +3806,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart *> *parts;
 
 /**
- *  Optional. Indicates how many times this example or template was added to
+ *  Optional. Indicates how many times this example was added to
  *  the intent. Each time a developer adds an existing sample by editing an
  *  intent or training, this counter is increased.
  *
@@ -3809,7 +3824,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *        can be annotated with entity types. (Value: "EXAMPLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template
  *        Templates are not annotated with entity types, but they can contain
- *        \@-prefixed entity type names as substrings. (Value: "TEMPLATE")
+ *        \@-prefixed entity type names as substrings.
+ *        Template mode has been deprecated. Example mode is the only supported
+ *        way to create new training phrases. If you have existing training
+ *        phrases that you've created in template mode, those will continue to
+ *        work. (Value: "TEMPLATE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified
  *        Not specified. This value should never be used. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -3838,7 +3857,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
- *  Required. The text corresponding to the example or template,
+ *  Required. The text corresponding to the example,
  *  if there are no annotations. For
  *  annotated examples, it is the text for one of the example's parts.
  */
@@ -4136,7 +4155,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** The collection of rich messages to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *fulfillmentMessages;
 
-/** The text to be pronounced to the user or shown on the screen. */
+/**
+ *  The text to be pronounced to the user or shown on the screen.
+ *  Note: This is a legacy field, `fulfillment_messages` should be preferred.
+ */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**

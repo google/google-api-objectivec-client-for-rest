@@ -8407,8 +8407,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs a reset on the instance. For more information, see Resetting an
- *  instance.
+ *  Performs a reset on the instance. This is a hard reset; the VM does not do a
+ *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  Method: compute.instances.reset
  *
@@ -8450,8 +8450,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Performs a reset on the instance. For more information, see Resetting an
- *  instance.
+ *  Performs a reset on the instance. This is a hard reset; the VM does not do a
+ *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.

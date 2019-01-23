@@ -173,9 +173,9 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic enableAutomaticPunctuation, enableWordTimeOffsets, encoding,
-         languageCode, maxAlternatives, model, profanityFilter, sampleRateHertz,
-         speechContexts, useEnhanced;
+@dynamic enableAutomaticPunctuation, enableSeparateRecognitionPerChannel,
+         enableWordTimeOffsets, encoding, languageCode, maxAlternatives, model,
+         profanityFilter, sampleRateHertz, speechContexts, useEnhanced;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -193,7 +193,7 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionResult
-@dynamic alternatives;
+@dynamic alternatives, channelTag;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

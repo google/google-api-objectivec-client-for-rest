@@ -338,6 +338,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_PatchServiceAccountRequest
+//
+
+@implementation GTLRIam_PatchServiceAccountRequest
+@dynamic serviceAccount, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_Permission
 //
 

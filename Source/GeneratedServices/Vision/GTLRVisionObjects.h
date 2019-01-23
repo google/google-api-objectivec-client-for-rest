@@ -4105,7 +4105,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon for the crop region. The coordinates of the bounding
- *  box are in the original image's scale, as returned in `ImageParams`.
+ *  box are in the original image's scale.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
@@ -4368,7 +4368,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale, as returned in `ImageParams`.
+ *  are in the original image's scale.
  *  The bounding box is computed to "frame" the face in accordance with human
  *  expectations. It is based on the landmarker results.
  *  Note that one or more x and/or y coordinates may not be generated in the
@@ -4862,7 +4862,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon for the crop region. The coordinates of the bounding
- *  box are in the original image's scale, as returned in `ImageParams`.
+ *  box are in the original image's scale.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingPoly;
 
@@ -5039,7 +5039,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale, as returned in `ImageParams`.
+ *  are in the original image's scale.
  *  The bounding box is computed to "frame" the face in accordance with human
  *  expectations. It is based on the landmarker results.
  *  Note that one or more x and/or y coordinates may not be generated in the
@@ -6464,7 +6464,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon for the crop region. The coordinates of the bounding
- *  box are in the original image's scale, as returned in `ImageParams`.
+ *  box are in the original image's scale.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingPoly;
 
@@ -6641,7 +6641,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale, as returned in `ImageParams`.
+ *  are in the original image's scale.
  *  The bounding box is computed to "frame" the face in accordance with human
  *  expectations. It is based on the landmarker results.
  *  Note that one or more x and/or y coordinates may not be generated in the
@@ -8108,7 +8108,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon for the crop region. The coordinates of the bounding
- *  box are in the original image's scale, as returned in `ImageParams`.
+ *  box are in the original image's scale.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingPoly;
 
@@ -8285,7 +8285,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale, as returned in `ImageParams`.
+ *  are in the original image's scale.
  *  The bounding box is computed to "frame" the face in accordance with human
  *  expectations. It is based on the landmarker results.
  *  Note that one or more x and/or y coordinates may not be generated in the
@@ -10545,7 +10545,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /**
  *  Output only. The time at which this ProductSet was last indexed. Query
  *  results will reflect all updates before this time. If this ProductSet has
- *  never been indexed, this field is 0.
+ *  never been indexed, this timestamp is the default value
+ *  "1970-01-01T00:00:00Z".
  *  This field is ignored when creating a ProductSet.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *indexTime;

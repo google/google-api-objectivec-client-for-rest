@@ -100,6 +100,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  *  This is only available for:
  *  * Suspicious login
  *  * Suspicious login (less secure app)
+ *  * Suspicious programmatic login
  *  * User suspended (suspicious activity)
  */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_LoginDetails *loginDetails;

@@ -536,34 +536,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Deprecated and unused.
- *
- *  Method: androidenterprise.enterprises.getAndroidDevicePolicyConfig
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetAndroidDevicePolicyConfigWithenterpriseId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig.
- *
- *  Deprecated and unused.
- *
- *  @param enterpriseId The ID of the enterprise.
- *
- *  @return GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig
- */
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
-
-@end
-
-/**
  *  Returns a service account and credentials. The service account can be bound
  *  to the enterprise by calling setAccount. The service account is unique to
  *  this enterprise and EMM, and will be deleted if the enterprise is unbound.

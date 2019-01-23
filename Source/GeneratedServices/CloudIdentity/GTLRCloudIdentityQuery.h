@@ -153,9 +153,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsList]
 
 /**
- *  Maximum number of Groups to return.
+ *  Maximum number of groups to return.
  *  View | Default | Maximum
- *  -----|---------|--------
+ *  ----- | ------- | -------
  *  BASIC | 200 | 1000
  *  FULL | 50 | 500
  */
@@ -355,7 +355,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Maximum number of Memberships to return.
  *  View | Default | Maximum
  *  -----|---------|--------
- *  BASIC | 200 | 1000
+ *  BASIC| 200 | 1000
  *  FULL | 50 | 500
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -510,9 +510,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsSearch]
 
 /**
- *  Maximum number of Groups to return.
+ *  Maximum number of groups to return.
  *  View | Default | Maximum
- *  -----|---------|--------
+ *  ----- | ------- | -------
  *  BASIC | 200 | 1000
  *  FULL | 50 | 500
  */

@@ -936,6 +936,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
 /**
+ *  [Optional, Experimental] If hive partitioning is enabled, which mode to use.
+ *  Two modes are supported: - AUTO: automatically infer partition key name(s)
+ *  and type(s). - STRINGS: automatic infer partition key name(s). All types are
+ *  strings. Not all storage formats support hive partitioning -- requesting
+ *  hive partitioning on an unsupported format will lead to an error.
+ */
+@property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
+
+/**
  *  [Optional] Indicates if BigQuery should allow extra values that are not
  *  represented in the table schema. If true, the extra values are ignored. If
  *  false, records with extra columns are treated as bad records, and if there
@@ -1441,6 +1450,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  (',').
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
+
+/**
+ *  [Optional, Experimental] If hive partitioning is enabled, which mode to use.
+ *  Two modes are supported: - AUTO: automatically infer partition key name(s)
+ *  and type(s). - STRINGS: automatic infer partition key name(s). All types are
+ *  strings. Not all storage formats support hive partitioning -- requesting
+ *  hive partitioning on an unsupported format will lead to an error.
+ */
+@property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
 
 /**
  *  [Optional] Indicates if BigQuery should allow extra values that are not

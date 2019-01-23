@@ -478,7 +478,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AutoInstallConstraint *> *autoInstallConstraint;
 
-/** The auto install mode. If unset defaults to AVAILABLE. */
+/** The auto install mode. If unset defaults to "doNotAutoInstall". */
 @property(nonatomic, copy, nullable) NSString *autoInstallMode;
 
 /**
@@ -2245,7 +2245,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayMode;
 
 /**
- *  A list of icons representing this website. Must have at least one element.
+ *  A list of icons representing this website. If absent, a default icon (for
+ *  create) or the current icon (for update) will be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_WebAppIcon *> *icons;
 

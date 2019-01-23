@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Filestore API (file/v1beta1)
+//   Cloud Filestore API (file/v1)
 // Description:
 //   The Cloud Filestore API is used for creating and managing cloud file
 //   servers.
