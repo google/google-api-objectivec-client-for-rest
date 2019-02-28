@@ -219,7 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
- *  Operation<response: BatchEnableServicesResponse>
  *
  *  Method: serviceusage.services.batchEnable
  *
@@ -245,7 +244,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
- *  Operation<response: BatchEnableServicesResponse>
  *
  *  @param object The @c GTLRServiceUsage_BatchEnableServicesRequest to include
  *    in the query.
@@ -269,7 +267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  It is not valid to call the disable method on a service that is not
  *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
  *  the target service is not currently enabled.
- *  Operation<response: DisableServiceResponse>
  *
  *  Method: serviceusage.services.disable
  *
@@ -299,7 +296,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  It is not valid to call the disable method on a service that is not
  *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
  *  the target service is not currently enabled.
- *  Operation<response: DisableServiceResponse>
  *
  *  @param object The @c GTLRServiceUsage_DisableServiceRequest to include in
  *    the query.
@@ -318,7 +314,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Enable a service so that it can be used with a project.
- *  Operation<response: EnableServiceResponse>
  *
  *  Method: serviceusage.services.enable
  *
@@ -346,7 +341,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceUsage_Operation.
  *
  *  Enable a service so that it can be used with a project.
- *  Operation<response: EnableServiceResponse>
  *
  *  @param object The @c GTLRServiceUsage_EnableServiceRequest to include in the
  *    query.

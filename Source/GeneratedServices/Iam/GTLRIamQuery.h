@@ -24,7 +24,6 @@
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
-@class GTLRIam_PatchServiceAccountRequest;
 @class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
 @class GTLRIam_QueryTestablePermissionsRequest;
@@ -35,6 +34,7 @@
 @class GTLRIam_SignJwtRequest;
 @class GTLRIam_TestIamPermissionsRequest;
 @class GTLRIam_UndeleteRoleRequest;
+@class GTLRIam_UndeleteServiceAccountRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1130,62 +1130,6 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Patches a ServiceAccount.
- *  Currently, only the following fields are updatable:
- *  `display_name` and `description`.
- *  Only fields specified in the request are garaunteed to be returned in
- *  the response. Other fields in the response may be empty.
- *  Note: The field mask is required.
- *
- *  Method: iam.projects.serviceAccounts.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIamCloudPlatform
- */
-@interface GTLRIamQuery_ProjectsServiceAccountsPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsPatchWithObject:name:]
-
-/**
- *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
- *  Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
- *  project from the `account` and the `ACCOUNT` value can be the `email`
- *  address or the `unique_id` of the service account.
- *  In responses the resource name will always be in the format
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRIam_ServiceAccount.
- *
- *  Patches a ServiceAccount.
- *  Currently, only the following fields are updatable:
- *  `display_name` and `description`.
- *  Only fields specified in the request are garaunteed to be returned in
- *  the response. Other fields in the response may be empty.
- *  Note: The field mask is required.
- *
- *  @param object The @c GTLRIam_PatchServiceAccountRequest to include in the
- *    query.
- *  @param name The resource name of the service account in the following
- *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
- *    Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
- *    project from the `account` and the `ACCOUNT` value can be the `email`
- *    address or the `unique_id` of the service account.
- *    In responses the resource name will always be in the format
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
- *
- *  @return GTLRIamQuery_ProjectsServiceAccountsPatch
- */
-+ (instancetype)queryWithObject:(GTLRIam_PatchServiceAccountRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Sets the IAM access control policy for a
  *  ServiceAccount.
  *
@@ -1223,6 +1167,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  **Note**: This method is in the process of being deprecated. Call the
+ *  [`signBlob()`](/iam/credentials/reference/rest/v1/projects.serviceAccounts/signBlob)
+ *  method of the Cloud IAM Service Account Credentials API instead.
  *  Signs a blob using a service account's system-managed private key.
  *
  *  Method: iam.projects.serviceAccounts.signBlob
@@ -1246,6 +1193,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignBlobResponse.
  *
+ *  **Note**: This method is in the process of being deprecated. Call the
+ *  [`signBlob()`](/iam/credentials/reference/rest/v1/projects.serviceAccounts/signBlob)
+ *  method of the Cloud IAM Service Account Credentials API instead.
  *  Signs a blob using a service account's system-managed private key.
  *
  *  @param object The @c GTLRIam_SignBlobRequest to include in the query.
@@ -1264,6 +1214,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  **Note**: This method is in the process of being deprecated. Call the
+ *  [`signJwt()`](/iam/credentials/reference/rest/v1/projects.serviceAccounts/signJwt)
+ *  method of the Cloud IAM Service Account Credentials API instead.
  *  Signs a JWT using a service account's system-managed private key.
  *  If no expiry time (`exp`) is provided in the `SignJwtRequest`, IAM sets an
  *  an expiry time of one hour by default. If you request an expiry time of
@@ -1290,6 +1243,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignJwtResponse.
  *
+ *  **Note**: This method is in the process of being deprecated. Call the
+ *  [`signJwt()`](/iam/credentials/reference/rest/v1/projects.serviceAccounts/signJwt)
+ *  method of the Cloud IAM Service Account Credentials API instead.
  *  Signs a JWT using a service account's system-managed private key.
  *  If no expiry time (`exp`) is provided in the `SignJwtRequest`, IAM sets an
  *  an expiry time of one hour by default. If you request an expiry time of
@@ -1345,6 +1301,46 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  */
 + (instancetype)queryWithObject:(GTLRIam_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Restores a deleted ServiceAccount.
+ *
+ *  Method: iam.projects.serviceAccounts.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsUndelete : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsUndeleteWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_UndeleteServiceAccountResponse.
+ *
+ *  Restores a deleted ServiceAccount.
+ *
+ *  @param object The @c GTLRIam_UndeleteServiceAccountRequest to include in the
+ *    query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRIam_UndeleteServiceAccountRequest *)object
+                           name:(NSString *)name;
 
 @end
 

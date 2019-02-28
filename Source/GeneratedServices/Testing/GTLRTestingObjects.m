@@ -52,6 +52,7 @@ NSString * const kGTLRTesting_IosModel_FormFactor_Wearable     = @"WEARABLE";
 // GTLRTesting_RoboDirective.actionType
 NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText = @"ENTER_TEXT";
+NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore  = @"IGNORE";
 NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick = @"SINGLE_CLICK";
 
 // GTLRTesting_TestExecution.state
@@ -76,6 +77,7 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrc
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk = @"INVALID_APK_PREVIEW_SDK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk = @"INVALID_INPUT_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName = @"INVALID_PACKAGE_NAME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
@@ -798,7 +800,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_RoboStartingIntent
-@dynamic launcherActivity, startActivity;
+@dynamic launcherActivity, startActivity, timeout;
 @end
 
 

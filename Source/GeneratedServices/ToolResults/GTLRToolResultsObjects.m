@@ -49,8 +49,17 @@ NSString * const kGTLRToolResults_Execution_State_InProgress   = @"inProgress";
 NSString * const kGTLRToolResults_Execution_State_Pending      = @"pending";
 NSString * const kGTLRToolResults_Execution_State_UnknownState = @"unknownState";
 
+// GTLRToolResults_IndividualOutcome.outcomeSummary
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure = @"failure";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky = @"flaky";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive = @"inconclusive";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped = @"skipped";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success = @"success";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset = @"unset";
+
 // GTLRToolResults_Outcome.summary
 NSString * const kGTLRToolResults_Outcome_Summary_Failure      = @"failure";
+NSString * const kGTLRToolResults_Outcome_Summary_Flaky        = @"flaky";
 NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive = @"inconclusive";
 NSString * const kGTLRToolResults_Outcome_Summary_Skipped      = @"skipped";
 NSString * const kGTLRToolResults_Outcome_Summary_Success      = @"success";
@@ -62,6 +71,14 @@ NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics = @"gr
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"memory";
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"network";
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
+
+// GTLRToolResults_PrimaryStep.rollUp
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure   = @"failure";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky     = @"flaky";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive = @"inconclusive";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped   = @"skipped";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success   = @"success";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset     = @"unset";
 
 // GTLRToolResults_Step.state
 NSString * const kGTLRToolResults_Step_State_Complete     = @"complete";
@@ -334,6 +351,16 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboD
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_IndividualOutcome
+//
+
+@implementation GTLRToolResults_IndividualOutcome
+@dynamic outcomeSummary, stepId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_ListExecutionsResponse
 //
 
@@ -490,6 +517,16 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboD
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_MultiStep
+//
+
+@implementation GTLRToolResults_MultiStep
+@dynamic multistepNumber, primaryStep, primaryStepId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_Outcome
 //
 
@@ -546,6 +583,24 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboD
 @implementation GTLRToolResults_PerfSampleSeries
 @dynamic basicPerfSampleSeries, executionId, historyId, projectId,
          sampleSeriesId, stepId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_PrimaryStep
+//
+
+@implementation GTLRToolResults_PrimaryStep
+@dynamic individualOutcome, rollUp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"individualOutcome" : [GTLRToolResults_IndividualOutcome class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -660,8 +715,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboD
 
 @implementation GTLRToolResults_Step
 @dynamic completionTime, creationTime, descriptionProperty, deviceUsageDuration,
-         dimensionValue, hasImages, labels, name, outcome, runDuration, state,
-         stepId, testExecutionStep, toolExecutionStep;
+         dimensionValue, hasImages, labels, multiStep, name, outcome,
+         runDuration, state, stepId, testExecutionStep, toolExecutionStep;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Speech API (speech/v1)
+//   Cloud Speech-to-Text API (speech/v1)
 // Description:
 //   Converts audio to text by applying powerful neural network models.
 // Documentation:
@@ -22,6 +22,37 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16 = @"LINEAR16";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus = @"OGG_OPUS";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"SPEEX_WITH_HEADER_BYTE";
+
+// GTLRSpeech_RecognitionMetadata.interactionType
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation = @"DICTATION";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion = @"DISCUSSION";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified = @"INTERACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall = @"PHONE_CALL";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Presentation = @"PRESENTATION";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_ProfessionallyProduced = @"PROFESSIONALLY_PRODUCED";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceCommand = @"VOICE_COMMAND";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Voicemail = @"VOICEMAIL";
+NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceSearch = @"VOICE_SEARCH";
+
+// GTLRSpeech_RecognitionMetadata.microphoneDistance
+NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Farfield = @"FARFIELD";
+NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_MicrophoneDistanceUnspecified = @"MICROPHONE_DISTANCE_UNSPECIFIED";
+NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield = @"MIDFIELD";
+NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield = @"NEARFIELD";
+
+// GTLRSpeech_RecognitionMetadata.originalMediaType
+NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Audio = @"AUDIO";
+NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_OriginalMediaTypeUnspecified = @"ORIGINAL_MEDIA_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Video = @"VIDEO";
+
+// GTLRSpeech_RecognitionMetadata.recordingDeviceType
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherIndoorDevice = @"OTHER_INDOOR_DEVICE";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherOutdoorDevice = @"OTHER_OUTDOOR_DEVICE";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Pc = @"PC";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_PhoneLine = @"PHONE_LINE";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDeviceTypeUnspecified = @"RECORDING_DEVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone = @"SMARTPHONE";
+NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @"VEHICLE";
 
 // ----------------------------------------------------------------------------
 //
@@ -173,9 +204,10 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic enableAutomaticPunctuation, enableSeparateRecognitionPerChannel,
-         enableWordTimeOffsets, encoding, languageCode, maxAlternatives, model,
-         profanityFilter, sampleRateHertz, speechContexts, useEnhanced;
+@dynamic audioChannelCount, enableAutomaticPunctuation,
+         enableSeparateRecognitionPerChannel, enableWordTimeOffsets, encoding,
+         languageCode, maxAlternatives, metadata, model, profanityFilter,
+         sampleRateHertz, speechContexts, useEnhanced;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -184,6 +216,18 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_RecognitionMetadata
+//
+
+@implementation GTLRSpeech_RecognitionMetadata
+@dynamic audioTopic, industryNaicsCodeOfAudio, interactionType,
+         microphoneDistance, obfuscatedId, originalMediaType, originalMimeType,
+         recordingDeviceName, recordingDeviceType;
 @end
 
 

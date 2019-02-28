@@ -83,7 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates new feedback for an alert.
+ *  Creates new feedback for an alert. Attempting to create a feedback for
+ *  a non-existent alert returns `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.feedback.create
  *
@@ -94,10 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAlertCenter queryForAlertsFeedbackCreateWithObject:alertId:]
 
-/**
- *  Required. The identifier of the alert this feedback belongs to.
- *  Returns a `NOT_FOUND` error if no such alert.
- */
+/** Required. The identifier of the alert this feedback belongs to. */
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
@@ -110,12 +108,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAlertCenter_AlertFeedback.
  *
- *  Creates new feedback for an alert.
+ *  Creates new feedback for an alert. Attempting to create a feedback for
+ *  a non-existent alert returns `NOT_FOUND` error.
  *
  *  @param object The @c GTLRAlertCenter_AlertFeedback to include in the query.
  *  @param alertId Required. The identifier of the alert this feedback belongs
  *    to.
- *    Returns a `NOT_FOUND` error if no such alert.
  *
  *  @return GTLRAlertCenterQuery_AlertsFeedbackCreate
  */
@@ -125,7 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the feedback for an alert.
+ *  Lists all the feedback for an alert. Attempting to list feedbacks for
+ *  a non-existent alert returns `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.feedback.list
  *
@@ -139,7 +138,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The alert identifier.
  *  The "-" wildcard could be used to represent all alerts.
- *  If alert does not exist returns a `NOT_FOUND` error.
  */
 @property(nonatomic, copy, nullable) NSString *alertId;
 
@@ -162,11 +160,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAlertCenter_ListAlertFeedbackResponse.
  *
- *  Lists all the feedback for an alert.
+ *  Lists all the feedback for an alert. Attempting to list feedbacks for
+ *  a non-existent alert returns `NOT_FOUND` error.
  *
  *  @param alertId Required. The alert identifier.
  *    The "-" wildcard could be used to represent all alerts.
- *    If alert does not exist returns a `NOT_FOUND` error.
  *
  *  @return GTLRAlertCenterQuery_AlertsFeedbackList
  */
@@ -175,7 +173,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the specified alert.
+ *  Gets the specified alert. Attempting to get a nonexistent alert returns
+ *  `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.get
  *
@@ -186,10 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryAlertCenter queryForAlertsGetWithalertId:]
 
-/**
- *  Required. The identifier of the alert to retrieve.
- *  Returns a NOT_FOUND error if no such alert.
- */
+/** Required. The identifier of the alert to retrieve. */
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
@@ -202,10 +198,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAlertCenter_Alert.
  *
- *  Gets the specified alert.
+ *  Gets the specified alert. Attempting to get a nonexistent alert returns
+ *  `NOT_FOUND` error.
  *
  *  @param alertId Required. The identifier of the alert to retrieve.
- *    Returns a NOT_FOUND error if no such alert.
  *
  *  @return GTLRAlertCenterQuery_AlertsGet
  */
@@ -349,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update the customer-level settings.
+ *  Updates the customer-level settings.
  *
  *  Method: alertcenter.updateSettings
  *
@@ -370,7 +366,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAlertCenter_Settings.
  *
- *  Update the customer-level settings.
+ *  Updates the customer-level settings.
  *
  *  @param object The @c GTLRAlertCenter_Settings to include in the query.
  *

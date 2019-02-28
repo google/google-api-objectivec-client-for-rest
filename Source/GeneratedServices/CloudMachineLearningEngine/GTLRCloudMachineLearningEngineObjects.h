@@ -38,6 +38,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -91,17 +92,17 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Acce
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
 /**
- *  Nvidia Tesla T4 GPU.
- *
- *  Value: "NVIDIA_TESLA_T4"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
-/**
  *  Nvidia Tesla V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100;
+/**
+ *  TPU v2.
+ *
+ *  Value: "TPU_V2"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -114,10 +115,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
 /** Value: "NVIDIA_TESLA_P4" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
-/** Value: "NVIDIA_TESLA_T4" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
 /** Value: "NVIDIA_TESLA_V100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
+/** Value: "TPU_V2" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -670,7 +671,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  The available types of accelerators.
+ *  The type of accelerator to use.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified
@@ -682,10 +683,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Nvidia Tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4
  *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4
- *        Nvidia Tesla T4 GPU. (Value: "NVIDIA_TESLA_T4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
  *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2
+ *        TPU v2. (Value: "TPU_V2")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -726,8 +727,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  </pre>
  *  HTTP request:
  *  <pre>
- *  PATCH https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
- *  *}?update_mask=autoScaling.minNodes -d \@./update_body.json
+ *  PATCH
+ *  https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
+ *  *}?update_mask=autoScaling.minNodes
+ *  -d \@./update_body.json
  *  </pre>
  *
  *  Uses NSNumber of intValue.
@@ -1650,6 +1653,28 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  Represents the configuration for a replica in a cluster.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig : GTLRObject
+
+/**
+ *  Represents the type and number of accelerators used by the replica.
+ *  [Learn about restrictions on accelerator configurations for
+ *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
+
+/**
+ *  The Docker image to run on the replica. This image must be in Container
+ *  Registry. Learn more about [configuring custom
+ *  containers](/ml-engine/docs/distributed-training-containers).
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+@end
+
+
+/**
  *  Request message for the SetDefaultVersion request.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest : GTLRObject
@@ -1681,6 +1706,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  this field is that Cloud ML validates the path for use in training.
  */
 @property(nonatomic, copy, nullable) NSString *jobDir;
+
+/**
+ *  Optional. The configuration for your master worker.
+ *  You should only set `masterConfig.acceleratorConfig` if `masterType` is set
+ *  to a Compute Engine machine type. Learn about [restrictions on accelerator
+ *  configurations for
+ *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  Set `masterConfig.imageUri` only if you build a custom image. Only one of
+ *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more about
+ *  [configuring custom
+ *  containers](/ml-engine/docs/distributed-training-containers).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *masterConfig;
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
@@ -1768,6 +1806,27 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  your model</a>.
  *  </dd>
  *  </dl>
+ *  You may also use certain Compute Engine machine types directly in this
+ *  field. The following types are supported:
+ *  - `n1-standard-4`
+ *  - `n1-standard-8`
+ *  - `n1-standard-16`
+ *  - `n1-standard-32`
+ *  - `n1-standard-64`
+ *  - `n1-standard-96`
+ *  - `n1-highmem-2`
+ *  - `n1-highmem-4`
+ *  - `n1-highmem-8`
+ *  - `n1-highmem-16`
+ *  - `n1-highmem-32`
+ *  - `n1-highmem-64`
+ *  - `n1-highmem-96`
+ *  - `n1-highcpu-16`
+ *  - `n1-highcpu-32`
+ *  - `n1-highcpu-64`
+ *  - `n1-highcpu-96`
+ *  See more about [using Compute Engine machine
+ *  types](/ml-engine/docs/tensorflow/machine-types#compute-engine-machine-types).
  *  You must set this value when `scaleTier` is set to `CUSTOM`.
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
@@ -1778,6 +1837,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The maximum number of package URIs is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageUris;
+
+/**
+ *  Optional. The configuration for parameter servers.
+ *  You should only set `parameterServerConfig.acceleratorConfig` if
+ *  `parameterServerConfigType` is set to a Compute Engine machine type. [Learn
+ *  about restrictions on accelerator configurations for
+ *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  Set `parameterServerConfig.imageUri` only if you build a custom image for
+ *  your parameter server. If `parameterServerConfig.imageUri` has not been
+ *  set, Cloud ML Engine uses the value of `masterConfig.imageUri`.
+ *  Learn more about [configuring custom
+ *  containers](/ml-engine/docs/distributed-training-containers).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *parameterServerConfig;
 
 /**
  *  Optional. The number of parameter server replicas to use for the training
@@ -1796,6 +1869,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  job's parameter server.
  *  The supported values are the same as those described in the entry for
  *  `master_type`.
+ *  This value must be consistent with the category of machine type that
+ *  `masterType` uses. In other words, both must be Cloud ML Engine machine
+ *  types or both must be Compute Engine machine types.
  *  This value must be present when `scaleTier` is set to `CUSTOM` and
  *  `parameter_server_count` is greater than zero.
  */
@@ -1877,6 +1953,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *scaleTier;
 
 /**
+ *  Optional. The configuration for workers.
+ *  You should only set `workerConfig.acceleratorConfig` if `workerType` is set
+ *  to a Compute Engine machine type. [Learn about restrictions on accelerator
+ *  configurations for
+ *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  Set `workerConfig.imageUri` only if you build a custom image for your
+ *  worker. If `workerConfig.imageUri` has not been set, Cloud ML Engine uses
+ *  the value of `masterConfig.imageUri`. Learn more about
+ *  [configuring custom
+ *  containers](/ml-engine/docs/distributed-training-containers).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *workerConfig;
+
+/**
  *  Optional. The number of worker replicas to use for the training job. Each
  *  replica in the cluster will be of the type specified in `worker_type`.
  *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
@@ -1892,6 +1982,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  job's worker nodes.
  *  The supported values are the same as those described in the entry for
  *  `masterType`.
+ *  This value must be consistent with the category of machine type that
+ *  `masterType` uses. In other words, both must be Cloud ML Engine machine
+ *  types or both must be Compute Engine machine types.
+ *  If you use `cloud_tpu` for this value, see special instructions for
+ *  [configuring a custom TPU
+ *  machine](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
  *  This value must be present when `scaleTier` is set to `CUSTOM` and
  *  `workerCount` is greater than zero.
  */
@@ -1942,6 +2038,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
+ *  Next ID: 29
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -2041,13 +2138,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. The type of machine on which to serve the model. Currently only
  *  applies to online prediction service.
- *  The following are currently supported and will be deprecated in
- *  Beta release.
- *  mls1-highmem-1 1 core 2 Gb RAM
- *  mls1-highcpu-4 4 core 2 Gb RAM
- *  The following are available in Beta:
- *  mls1-c1-m2 1 core 2 Gb RAM Default
- *  mls1-c4-m2 4 core 2 Gb RAM
+ *  <dl>
+ *  <dt>mls1-c1-m2</dt>
+ *  <dd>
+ *  The <b>default</b> machine type, with 1 core and 2 GB RAM. The deprecated
+ *  name for this machine type is "mls1-highmem-1".
+ *  </dd>
+ *  <dt>mls1-c4-m2</dt>
+ *  <dd>
+ *  In <b>Beta</b>. This machine type has 4 cores and 2 GB RAM. The
+ *  deprecated name for this machine type is "mls1-highcpu-4".
+ *  </dd>
+ *  </dl>
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 

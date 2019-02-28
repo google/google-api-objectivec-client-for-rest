@@ -2267,7 +2267,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  A pagination token is contained in a request''s response when there are more
+ *  A pagination token is contained in a request's response when there are more
  *  products. The token can be used in a subsequent request to obtain more
  *  products, and so forth. This parameter cannot be used in the initial
  *  request.

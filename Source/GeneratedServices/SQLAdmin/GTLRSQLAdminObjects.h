@@ -644,11 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
-/**
- *  Options for exporting data as CSV.
- *  Exporting in CSV format using the Cloud SQL Admin API is not supported for
- *  PostgreSQL instances.
- */
+/** Options for exporting data as CSV. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
@@ -658,8 +654,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  CSV, you can specify one database, either by using this property or by using
  *  the csvExportOptions.selectQuery property, which takes precedence over this
  *  property.
- *  PostgreSQL instances: If fileType is SQL, you must specify one database to
- *  be exported. A fileType of CSV is not supported for PostgreSQL instances.
+ *  PostgreSQL instances: Specify exactly one database to be exported. If
+ *  fileType is CSV, this database must match the database used in the
+ *  csvExportOptions.selectQuery property.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
@@ -667,7 +664,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
- *  CSV is not supported for PostgreSQL instances.
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
@@ -690,8 +686,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Options for exporting data as CSV.
- *  Exporting in CSV format using the Cloud SQL Admin API is not supported for
- *  PostgreSQL instances.
  */
 @interface GTLRSQLAdmin_ExportContext_CsvExportOptions : GTLRObject
 
@@ -777,6 +771,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
 
+/**
+ *  True if the flag is only released in Beta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inBeta;
+
 /** This is always sql#flag. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -845,11 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ImportContext : GTLRObject
 
-/**
- *  Options for importing data as CSV.
- *  Importing CSV data using the Cloud SQL Admin API is not supported for
- *  PostgreSQL instances.
- */
+/** Options for importing data as CSV. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
 /**
@@ -864,14 +861,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
- *  Importing CSV data using the Cloud SQL Admin API is not supported for
- *  PostgreSQL instances.
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  The PostgreSQL user for this import operation. Defaults to
- *  cloudsqlsuperuser. PostgreSQL instances only.
+ *  The PostgreSQL user for this import operation. PostgreSQL instances only.
  */
 @property(nonatomic, copy, nullable) NSString *importUser;
 
@@ -891,8 +885,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Options for importing data as CSV.
- *  Importing CSV data using the Cloud SQL Admin API is not supported for
- *  PostgreSQL instances.
  */
 @interface GTLRSQLAdmin_ImportContext_CsvImportOptions : GTLRObject
 

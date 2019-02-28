@@ -83,6 +83,7 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software
 // GTLRCloudKMS_KeyOperationAttestation.format
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
+NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed = @"CAVIUM_V2_COMPRESSED";
 
 // GTLRCloudKMS_PublicKey.algorithm
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";

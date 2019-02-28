@@ -35,11 +35,14 @@
 @class GTLRToolResults_History;
 @class GTLRToolResults_Image;
 @class GTLRToolResults_InconclusiveDetail;
+@class GTLRToolResults_IndividualOutcome;
 @class GTLRToolResults_MemoryInfo;
+@class GTLRToolResults_MultiStep;
 @class GTLRToolResults_Outcome;
 @class GTLRToolResults_PerfEnvironment;
 @class GTLRToolResults_PerfSample;
 @class GTLRToolResults_PerfSampleSeries;
+@class GTLRToolResults_PrimaryStep;
 @class GTLRToolResults_Screen;
 @class GTLRToolResults_ScreenshotCluster;
 @class GTLRToolResults_SkippedDetail;
@@ -145,10 +148,28 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_Pending;
 GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_UnknownState;
 
 // ----------------------------------------------------------------------------
+// GTLRToolResults_IndividualOutcome.outcomeSummary
+
+/** Value: "failure" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure;
+/** Value: "flaky" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky;
+/** Value: "inconclusive" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive;
+/** Value: "skipped" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped;
+/** Value: "success" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success;
+/** Value: "unset" */
+GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset;
+
+// ----------------------------------------------------------------------------
 // GTLRToolResults_Outcome.summary
 
 /** Value: "failure" */
 GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Failure;
+/** Value: "flaky" */
+GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Flaky;
 /** Value: "inconclusive" */
 GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive;
 /** Value: "skipped" */
@@ -171,6 +192,22 @@ GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Mem
 GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network;
 /** Value: "perfMetricTypeUnspecified" */
 GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_PrimaryStep.rollUp
+
+/** Value: "failure" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure;
+/** Value: "flaky" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky;
+/** Value: "inconclusive" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive;
+/** Value: "skipped" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped;
+/** Value: "success" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success;
+/** Value: "unset" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Step.state
@@ -984,6 +1021,36 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
 
 
 /**
+ *  Step Id and outcome of each individual step that was run as a group with
+ *  other steps with the same configuration.
+ */
+@interface GTLRToolResults_IndividualOutcome : GTLRObject
+
+/**
+ *  outcomeSummary
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure Value
+ *        "failure"
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky Value
+ *        "flaky"
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive
+ *        Value "inconclusive"
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped Value
+ *        "skipped"
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success Value
+ *        "success"
+ *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset Value
+ *        "unset"
+ */
+@property(nonatomic, copy, nullable) NSString *outcomeSummary;
+
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+@end
+
+
+/**
  *  GTLRToolResults_ListExecutionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1177,6 +1244,28 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
 
 
 /**
+ *  Details when multiple steps are run with the same configuration as a group.
+ */
+@interface GTLRToolResults_MultiStep : GTLRObject
+
+/**
+ *  Unique int given to each step. Ranges from 0(inclusive) to total number of
+ *  steps(exclusive). The primary step is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multistepNumber;
+
+/** Present if it is a primary (original) step. */
+@property(nonatomic, strong, nullable) GTLRToolResults_PrimaryStep *primaryStep;
+
+/** Step Id of the primary (original) step, which might be this step. */
+@property(nonatomic, copy, nullable) NSString *primaryStepId;
+
+@end
+
+
+/**
  *  Interprets a result so that humans and machines can act on it.
  */
 @interface GTLRToolResults_Outcome : GTLRObject
@@ -1219,6 +1308,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_Outcome_Summary_Failure Value "failure"
+ *    @arg @c kGTLRToolResults_Outcome_Summary_Flaky Value "flaky"
  *    @arg @c kGTLRToolResults_Outcome_Summary_Inconclusive Value "inconclusive"
  *    @arg @c kGTLRToolResults_Outcome_Summary_Skipped Value "skipped"
  *    @arg @c kGTLRToolResults_Outcome_Summary_Success Value "success"
@@ -1319,6 +1409,33 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
 
 /** A tool results step ID. */
 @property(nonatomic, copy, nullable) NSString *stepId;
+
+@end
+
+
+/**
+ *  Stores rollup test status of multiple steps that were run as a group and
+ *  outcome of each individual step.
+ */
+@interface GTLRToolResults_PrimaryStep : GTLRObject
+
+/** Step Id and outcome of each individual step. */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_IndividualOutcome *> *individualOutcome;
+
+/**
+ *  Rollup test status of multiple steps that were run with the same
+ *  configuration as a group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Failure Value "failure"
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Flaky Value "flaky"
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Inconclusive Value
+ *        "inconclusive"
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Skipped Value "skipped"
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Success Value "success"
+ *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Unset Value "unset"
+ */
+@property(nonatomic, copy, nullable) NSString *rollUp;
 
 @end
 
@@ -1624,6 +1741,15 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
  *  for an existing key will update that key's value
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepLabelsEntry *> *labels;
+
+/**
+ *  Details when multiple steps are run with the same configuration as a group.
+ *  These details can be used identify which group this step is part of. It also
+ *  identifies the groups 'primary step' which indexes all the group members.
+ *  - In response: present if previously set. - In create request: optional, set
+ *  iff this step was performed more than once. - In update request: optional
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_MultiStep *multiStep;
 
 /**
  *  A short human-readable name to display in the UI. Maximum of 100 characters.

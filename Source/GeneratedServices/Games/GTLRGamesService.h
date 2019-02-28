@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Share your Google+ profile information and view and
- *  manage your game activity
+ *  Authorization scope: Create, edit, and delete your Google Play Games
+ *  activity
  *
  *  Value "https://www.googleapis.com/auth/games"
  */
@@ -42,6 +42,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGames;
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
+/**
+ *  Authorization scope: Know who you are on Google
+ *
+ *  Value "https://www.googleapis.com/auth/plus.me"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGamesPlusMe;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

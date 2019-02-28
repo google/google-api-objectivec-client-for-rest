@@ -26,6 +26,7 @@
 @class GTLRTagManager_ContainerAccess;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_ContainerVersionHeader;
+@class GTLRTagManager_CustomTemplate;
 @class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
@@ -39,11 +40,8 @@
 @class GTLRTagManager_Trigger;
 @class GTLRTagManager_UserPermission;
 @class GTLRTagManager_Variable;
+@class GTLRTagManager_VariableFormatValue;
 @class GTLRTagManager_Workspace;
-@class GTLRTagManager_WorkspaceProposalHistory;
-@class GTLRTagManager_WorkspaceProposalHistoryComment;
-@class GTLRTagManager_WorkspaceProposalHistoryStatusChange;
-@class GTLRTagManager_WorkspaceProposalUser;
 @class GTLRTagManager_Zone;
 @class GTLRTagManager_ZoneBoundary;
 @class GTLRTagManager_ZoneChildContainer;
@@ -464,86 +462,14 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded;
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTubeVideo;
 
 // ----------------------------------------------------------------------------
-// GTLRTagManager_UpdateWorkspaceProposalRequest.status
+// GTLRTagManager_VariableFormatValue.caseConversionType
 
-/** Value: "approved" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved;
-/** Value: "cancelled" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled;
-/** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed;
-/** Value: "requested" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested;
-/** Value: "reviewed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed;
-/** Value: "statusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRTagManager_WorkspaceProposal.status
-
-/** Value: "approved" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Approved;
-/** Value: "cancelled" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Cancelled;
-/** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Completed;
-/** Value: "requested" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Requested;
-/** Value: "reviewed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Reviewed;
-/** Value: "statusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRTagManager_WorkspaceProposalHistory.type
-
-/** Value: "comment" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Comment;
-/** Value: "statusChange" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange;
-/** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRTagManager_WorkspaceProposalHistoryStatusChange.newStatus
-
-/** Value: "approved" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved;
-/** Value: "cancelled" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled;
-/** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed;
-/** Value: "requested" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested;
-/** Value: "reviewed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed;
-/** Value: "statusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRTagManager_WorkspaceProposalHistoryStatusChange.oldStatus
-
-/** Value: "approved" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved;
-/** Value: "cancelled" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled;
-/** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed;
-/** Value: "requested" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested;
-/** Value: "reviewed" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed;
-/** Value: "statusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRTagManager_WorkspaceProposalUser.type
-
-/** Value: "gaiaId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId;
-/** Value: "system" */
-GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
+/** Value: "lowercase" */
+GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Lowercase;
+/** Value: "none" */
+GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_None;
+/** Value: "uppercase" */
+GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase;
 
 /**
  *  Represents a Google Tag Manager Account.
@@ -952,6 +878,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 /** The Container Version ID uniquely identifies the GTM Container Version. */
 @property(nonatomic, copy, nullable) NSString *containerVersionId;
 
+/** The custom templates in the container that this version was taken from. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_CustomTemplate *> *customTemplate;
+
 /**
  *  A value of true indicates this container version has been deleted.
  *
@@ -1026,6 +955,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 /** Container version display name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Number of custom templates in the container version. */
+@property(nonatomic, copy, nullable) NSString *numCustomTemplates;
 
 /** Number of macros in the container version. */
 @property(nonatomic, copy, nullable) NSString *numMacros;
@@ -1108,17 +1040,39 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 
 /**
- *  Creates a workspace proposal to start a review of a workspace.
+ *  Represents a Google Tag Manager Custom Template's contents.
  */
-@interface GTLRTagManager_CreateWorkspaceProposalRequest : GTLRObject
+@interface GTLRTagManager_CustomTemplate : GTLRObject
+
+/** GTM Account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** GTM Container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
- *  If present, an initial comment to associate with the workspace proposal.
+ *  The fingerprint of the GTM Custom Template as computed at storage time. This
+ *  value is recomputed whenever the template is modified.
  */
-@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *initialComment;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** List of users to review the workspace proposal. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
+/** Custom Template display name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** GTM Custom Template's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/** The custom template in text format. */
+@property(nonatomic, copy, nullable) NSString *templateData;
+
+/** The Custom Template ID uniquely identifies the GTM custom template. */
+@property(nonatomic, copy, nullable) NSString *templateId;
+
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
 
 @end
 
@@ -1573,6 +1527,32 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 
 /**
+ *  GTLRTagManager_ListZonesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "zoneProperty" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTagManager_ListZonesResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Zones of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Zone *> *zoneProperty;
+
+@end
+
+
+/**
  *  Represents a merge conflict.
  */
 @interface GTLRTagManager_MergeConflict : GTLRObject
@@ -1753,6 +1733,23 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
  *  the variable was deleted in the latest container version.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Variable *variable;
+
+@end
+
+
+/**
+ *  The result of reverting a zone in a workspace.
+ */
+@interface GTLRTagManager_RevertZoneResponse : GTLRObject
+
+/**
+ *  Zone as it appears in the latest container version since the last workspace
+ *  synchronization operation. If no zone is present, that means the zone was
+ *  deleted in the latest container version.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Zone *zoneProperty;
 
 @end
 
@@ -1969,16 +1966,17 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 
 /**
- *  A Timestamp represents a point in time independent of any time zone or
- *  calendar, represented as seconds and fractions of seconds at nanosecond
- *  resolution in UTC Epoch time. It is encoded using the Proleptic Gregorian
- *  Calendar which extends the Gregorian calendar backwards to year one. It is
- *  encoded assuming all minutes are 60 seconds long, i.e. leap seconds are
- *  "smeared" so that no leap second table is needed for interpretation. Range
- *  is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
- *  restricting to that range, we ensure that we can convert to and from RFC
- *  3339 date strings. See
- *  [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).
+ *  A Timestamp represents a point in time independent of any time zone or local
+ *  calendar, encoded as a count of seconds and fractions of seconds at
+ *  nanosecond resolution. The count is relative to an epoch at UTC midnight on
+ *  January 1, 1970, in the proleptic Gregorian calendar which extends the
+ *  Gregorian calendar backwards to year one.
+ *  All minutes are 60 seconds long. Leap seconds are "smeared" so that no leap
+ *  second table is needed for interpretation, using a [24-hour linear
+ *  smear](https://developers.google.com/time/smear).
+ *  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+ *  restricting to that range, we ensure that we can convert to and from [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
  *  # Examples
  *  Example 1: Compute Timestamp from POSIX `time()`.
  *  Timestamp timestamp; timestamp.set_seconds(time(NULL));
@@ -2007,20 +2005,22 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
  *  always expressed using four digits while {month}, {day}, {hour}, {min}, and
  *  {sec} are zero-padded to two digits each. The fractional seconds, which can
  *  go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The
- *  "Z" suffix indicates the timezone ("UTC"); the timezone is required, though
- *  only UTC (as indicated by "Z") is presently supported.
+ *  "Z" suffix indicates the timezone ("UTC"); the timezone is required. A
+ *  proto3 JSON serializer should always use UTC (as indicated by "Z") when
+ *  printing the Timestamp type and a proto3 JSON parser should be able to
+ *  accept both UTC and other timezones (as indicated by an offset).
  *  For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30 UTC
  *  on January 15, 2017.
  *  In JavaScript, one can convert a Date object to this format using the
  *  standard
- *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString]
+ *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
  *  method. In Python, a standard `datetime.datetime` object can be converted to
  *  this format using
  *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
  *  the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
  *  the Joda Time's [`ISODateTimeFormat.dateTime()`](
- *  http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
- *  to obtain a formatter capable of generating timestamps in this format.
+ *  http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D
+ *  ) to obtain a formatter capable of generating timestamps in this format.
  */
 @interface GTLRTagManager_Timestamp : GTLRObject
 
@@ -2262,45 +2262,6 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 
 /**
- *  Updates a workspace proposal with patch-like semantics.
- */
-@interface GTLRTagManager_UpdateWorkspaceProposalRequest : GTLRObject
-
-/**
- *  When provided, this fingerprint must match the fingerprint of the proposal
- *  in storage.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/** If present, a new comment is added to the workspace proposal history. */
-@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *newComment NS_RETURNS_NOT_RETAINED;
-
-/** If present, the list of reviewers of the workspace proposal is updated. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
-
-/**
- *  If present, the status of the workspace proposal is updated.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved
- *        Value "approved"
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled
- *        Value "cancelled"
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed
- *        Value "completed"
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested
- *        Value "requested"
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed
- *        Value "reviewed"
- *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified
- *        Value "statusUnspecified"
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
  *  Represents a user's permissions to an account and its container.
  */
 @interface GTLRTagManager_UserPermission : GTLRObject
@@ -2354,6 +2315,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
+/** Option to convert a variable value to other value. */
+@property(nonatomic, strong, nullable) GTLRTagManager_VariableFormatValue *formatValue;
+
 /** Variable display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2399,6 +2363,40 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 
 /**
+ *  GTLRTagManager_VariableFormatValue
+ */
+@interface GTLRTagManager_VariableFormatValue : GTLRObject
+
+/**
+ *  The option to convert a string-type variable value to either lowercase or
+ *  uppercase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_VariableFormatValue_CaseConversionType_Lowercase
+ *        Value "lowercase"
+ *    @arg @c kGTLRTagManager_VariableFormatValue_CaseConversionType_None Value
+ *        "none"
+ *    @arg @c kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase
+ *        Value "uppercase"
+ */
+@property(nonatomic, copy, nullable) NSString *caseConversionType;
+
+/** The value to convert if a variable value is false. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertFalseToValue;
+
+/** The value to convert if a variable value is null. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertNullToValue;
+
+/** The value to convert if a variable value is true. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertTrueToValue;
+
+/** The value to convert if a variable value is undefined. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertUndefinedToValue;
+
+@end
+
+
+/**
  *  Represents a Google Tag Manager Container Workspace.
  */
 @interface GTLRTagManager_Workspace : GTLRObject
@@ -2433,164 +2431,6 @@ GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 /** The Workspace ID uniquely identifies the GTM Workspace. */
 @property(nonatomic, copy, nullable) NSString *workspaceId;
-
-@end
-
-
-/**
- *  A workspace proposal represents an ongoing review of workspace changes in an
- *  effort to gain approval for container version creation.
- */
-@interface GTLRTagManager_WorkspaceProposal : GTLRObject
-
-/** List of authors for the workspace proposal. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *authors;
-
-/**
- *  The fingerprint of the GTM workspace proposal as computed at storage time.
- *  This value is recomputed whenever the proposal is modified.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/** Records the history of comments and status changes. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalHistory *> *history;
-
-/** GTM workspace proposal's relative path. */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/** Lists of reviewers for the workspace proposal. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
-
-/**
- *  The status of the workspace proposal as it goes through review.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Approved Value "approved"
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Cancelled Value
- *        "cancelled"
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Completed Value
- *        "completed"
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Requested Value
- *        "requested"
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Reviewed Value "reviewed"
- *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified Value
- *        "statusUnspecified"
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  A history event that represents a comment or status change in the proposal.
- */
-@interface GTLRTagManager_WorkspaceProposalHistory : GTLRObject
-
-/** A user or reviewer comment. */
-@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *comment;
-
-/** The party responsible for the change in history. */
-@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalUser *createdBy;
-
-/** When this history event was added to the workspace proposal. */
-@property(nonatomic, strong, nullable) GTLRTagManager_Timestamp *createdTimestamp;
-
-/** A change in the proposal's status. */
-@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryStatusChange *statusChange;
-
-/**
- *  The history type distinguishing between comments and status changes.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_Comment Value
- *        "comment"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange Value
- *        "statusChange"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified Value
- *        "unspecified"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  A comment from the reviewer or author.
- */
-@interface GTLRTagManager_WorkspaceProposalHistoryComment : GTLRObject
-
-/** The contents of the reviewer or author comment. */
-@property(nonatomic, copy, nullable) NSString *content;
-
-@end
-
-
-/**
- *  A change in the proposal's status.
- */
-@interface GTLRTagManager_WorkspaceProposalHistoryStatusChange : GTLRObject
-
-/**
- *  The new proposal status after that status change.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved
- *        Value "approved"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled
- *        Value "cancelled"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed
- *        Value "completed"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested
- *        Value "requested"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed
- *        Value "reviewed"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified
- *        Value "statusUnspecified"
- */
-@property(nonatomic, copy, nullable) NSString *newStatus NS_RETURNS_NOT_RETAINED;
-
-/**
- *  The old proposal status before the status change.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved
- *        Value "approved"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled
- *        Value "cancelled"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed
- *        Value "completed"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested
- *        Value "requested"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed
- *        Value "reviewed"
- *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified
- *        Value "statusUnspecified"
- */
-@property(nonatomic, copy, nullable) NSString *oldStatus;
-
-@end
-
-
-/**
- *  Represents an external user or internal Google Tag Manager system.
- */
-@interface GTLRTagManager_WorkspaceProposalUser : GTLRObject
-
-/**
- *  Gaia id associated with a user, absent for the Google Tag Manager system.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *gaiaId;
-
-/**
- *  User type distinguishes between a user and the Google Tag Manager system.
- *
- *  Likely values:
- *    @arg @c kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId Value "gaiaId"
- *    @arg @c kGTLRTagManager_WorkspaceProposalUser_Type_System Value "system"
- */
-@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

@@ -791,6 +791,31 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_ProjectsJobTriggersActivate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:activate";
+  GTLRDLPQuery_ProjectsJobTriggersActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DlpJob class];
+  query.loggingName = @"dlp.projects.jobTriggers.activate";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_ProjectsJobTriggersCreate
 
 @dynamic parent;
@@ -856,7 +881,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsJobTriggersList
 
-@dynamic orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

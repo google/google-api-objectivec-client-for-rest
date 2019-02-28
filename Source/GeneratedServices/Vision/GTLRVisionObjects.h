@@ -166,6 +166,50 @@
 @class GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebLabel;
 @class GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebPage;
 @class GTLRVision_GoogleCloudVisionV1p3beta1Word;
+@class GTLRVision_GoogleCloudVisionV1p4beta1AnnotateFileResponse;
+@class GTLRVision_GoogleCloudVisionV1p4beta1AnnotateImageResponse;
+@class GTLRVision_GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Block;
+@class GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo;
+@class GTLRVision_GoogleCloudVisionV1p4beta1CropHint;
+@class GTLRVision_GoogleCloudVisionV1p4beta1CropHintsAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1DominantColorsAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark;
+@class GTLRVision_GoogleCloudVisionV1p4beta1GcsDestination;
+@class GTLRVision_GoogleCloudVisionV1p4beta1GcsSource;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ImageProperties;
+@class GTLRVision_GoogleCloudVisionV1p4beta1InputConfig;
+@class GTLRVision_GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1LocationInfo;
+@class GTLRVision_GoogleCloudVisionV1p4beta1NormalizedVertex;
+@class GTLRVision_GoogleCloudVisionV1p4beta1OutputConfig;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Page;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Paragraph;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Position;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Product;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ProductKeyValue;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResults;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Property;
+@class GTLRVision_GoogleCloudVisionV1p4beta1ReferenceImage;
+@class GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Symbol;
+@class GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotation;
+@class GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak;
+@class GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage;
+@class GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Vertex;
+@class GTLRVision_GoogleCloudVisionV1p4beta1WebDetection;
+@class GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebEntity;
+@class GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage;
+@class GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebLabel;
+@class GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebPage;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Word;
 @class GTLRVision_GroupedResult;
 @class GTLRVision_Image;
 @class GTLRVision_ImageAnnotationContext;
@@ -3171,6 +3215,852 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotatio
 GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata.state
+
+/**
+ *  The request is done after the longrunning.Operations.CancelOperation has
+ *  been called by the user. Any records that were processed before the
+ *  cancel command are output as specified in the request.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Cancelled;
+/**
+ *  The request is done and no item has been successfully processed.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Failed;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Processing;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_StateUnspecified;
+/**
+ *  The request is done and at least one item has been successfully
+ *  processed.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1Block.blockType
+
+/**
+ *  Barcode block.
+ *
+ *  Value: "BARCODE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Barcode;
+/**
+ *  Image block.
+ *
+ *  Value: "PICTURE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Picture;
+/**
+ *  Horizontal/vertical line box.
+ *
+ *  Value: "RULER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Ruler;
+/**
+ *  Table block.
+ *
+ *  Value: "TABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Table;
+/**
+ *  Regular text block.
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Text;
+/**
+ *  Unknown block type.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.angerLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.blurredLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.headwearLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.joyLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.sorrowLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.surpriseLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.underExposedLikelihood
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark.type
+
+/**
+ *  Chin gnathion.
+ *
+ *  Value: "CHIN_GNATHION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinGnathion;
+/**
+ *  Chin left gonion.
+ *
+ *  Value: "CHIN_LEFT_GONION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
+/**
+ *  Chin right gonion.
+ *
+ *  Value: "CHIN_RIGHT_GONION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinRightGonion;
+/**
+ *  Forehead glabella.
+ *
+ *  Value: "FOREHEAD_GLABELLA"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
+/**
+ *  Left ear tragion.
+ *
+ *  Value: "LEFT_EAR_TRAGION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion;
+/**
+ *  Left eye.
+ *
+ *  Value: "LEFT_EYE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye;
+/**
+ *  Left eye, bottom boundary.
+ *
+ *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
+/**
+ *  Left eyebrow, upper midpoint.
+ *
+ *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
+/**
+ *  Left eye, left corner.
+ *
+ *  Value: "LEFT_EYE_LEFT_CORNER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
+/**
+ *  Left eye pupil.
+ *
+ *  Value: "LEFT_EYE_PUPIL"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyePupil;
+/**
+ *  Left eye, right corner.
+ *
+ *  Value: "LEFT_EYE_RIGHT_CORNER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
+/**
+ *  Left eye, top boundary.
+ *
+ *  Value: "LEFT_EYE_TOP_BOUNDARY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
+/**
+ *  Left of left eyebrow.
+ *
+ *  Value: "LEFT_OF_LEFT_EYEBROW"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
+/**
+ *  Left of right eyebrow.
+ *
+ *  Value: "LEFT_OF_RIGHT_EYEBROW"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
+/**
+ *  Lower lip.
+ *
+ *  Value: "LOWER_LIP"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LowerLip;
+/**
+ *  Midpoint between eyes.
+ *
+ *  Value: "MIDPOINT_BETWEEN_EYES"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
+/**
+ *  Mouth center.
+ *
+ *  Value: "MOUTH_CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthCenter;
+/**
+ *  Mouth left.
+ *
+ *  Value: "MOUTH_LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthLeft;
+/**
+ *  Mouth right.
+ *
+ *  Value: "MOUTH_RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthRight;
+/**
+ *  Nose, bottom center.
+ *
+ *  Value: "NOSE_BOTTOM_CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
+/**
+ *  Nose, bottom left.
+ *
+ *  Value: "NOSE_BOTTOM_LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
+/**
+ *  Nose, bottom right.
+ *
+ *  Value: "NOSE_BOTTOM_RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomRight;
+/**
+ *  Nose tip.
+ *
+ *  Value: "NOSE_TIP"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip;
+/**
+ *  Right ear tragion.
+ *
+ *  Value: "RIGHT_EAR_TRAGION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion;
+/**
+ *  Right eye.
+ *
+ *  Value: "RIGHT_EYE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye;
+/**
+ *  Right eye, bottom boundary.
+ *
+ *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
+/**
+ *  Right eyebrow, upper midpoint.
+ *
+ *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
+/**
+ *  Right eye, left corner.
+ *
+ *  Value: "RIGHT_EYE_LEFT_CORNER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
+/**
+ *  Right eye pupil.
+ *
+ *  Value: "RIGHT_EYE_PUPIL"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyePupil;
+/**
+ *  Right eye, right corner.
+ *
+ *  Value: "RIGHT_EYE_RIGHT_CORNER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
+/**
+ *  Right eye, top boundary.
+ *
+ *  Value: "RIGHT_EYE_TOP_BOUNDARY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
+/**
+ *  Right of left eyebrow.
+ *
+ *  Value: "RIGHT_OF_LEFT_EYEBROW"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
+/**
+ *  Right of right eyebrow.
+ *
+ *  Value: "RIGHT_OF_RIGHT_EYEBROW"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
+/**
+ *  Unknown face landmark detected. Should not be filled.
+ *
+ *  Value: "UNKNOWN_LANDMARK"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UnknownLandmark;
+/**
+ *  Upper lip.
+ *
+ *  Value: "UPPER_LIP"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UpperLip;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata.state
+
+/**
+ *  The batch processing was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Cancelled;
+/**
+ *  Request is received.
+ *
+ *  Value: "CREATED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Created;
+/**
+ *  The batch processing is done.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Done;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Running;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.adult
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.medical
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.racy
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.spoof
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.violence
+
+/**
+ *  It is likely that the image belongs to the specified vertical.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Likely;
+/**
+ *  It is possible that the image belongs to the specified vertical.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unknown;
+/**
+ *  It is unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unlikely;
+/**
+ *  It is very likely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryLikely;
+/**
+ *  It is very unlikely that the image belongs to the specified vertical.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak.type
+
+/**
+ *  Line-wrapping break.
+ *
+ *  Value: "EOL_SURE_SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
+/**
+ *  End-line hyphen that is not present in text; does not co-occur with
+ *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *
+ *  Value: "HYPHEN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Hyphen;
+/**
+ *  Line break that ends a paragraph.
+ *
+ *  Value: "LINE_BREAK"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_LineBreak;
+/**
+ *  Regular space.
+ *
+ *  Value: "SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Space;
+/**
+ *  Sure space (very wide).
+ *
+ *  Value: "SURE_SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_SureSpace;
+/**
+ *  Unknown break label type.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRVision_Landmark.type
 
 /**
@@ -3650,7 +4540,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  Request for performing Google Cloud Vision API tasks over a user-provided
- *  image, with user-requested features.
+ *  image, with user-requested features, and with context information.
  */
 @interface GTLRVision_AnnotateImageRequest : GTLRObject
 
@@ -9552,6 +10442,1752 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  The order of the symbols follows the natural reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1Symbol *> *symbols;
+
+@end
+
+
+/**
+ *  Response to a single file annotation request. A file may contain one or more
+ *  images, which individually have their own responses.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1AnnotateFileResponse : GTLRObject
+
+/** Information about the file for which this response is generated. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1InputConfig *inputConfig;
+
+/** Individual responses to images found within the file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1AnnotateImageResponse *> *responses;
+
+/**
+ *  This field gives the total number of pages in the file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalPages;
+
+@end
+
+
+/**
+ *  Response to an image annotation request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1AnnotateImageResponse : GTLRObject
+
+/**
+ *  If present, contextual information is needed to understand where this image
+ *  comes from.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext *context;
+
+/** If present, crop hints have completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1CropHintsAnnotation *cropHintsAnnotation;
+
+/**
+ *  If set, represents the error message for the operation.
+ *  Note that filled-in image annotations are guaranteed to be
+ *  correct, even when `error` is set.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_Status *error;
+
+/** If present, face detection has completed successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation *> *faceAnnotations;
+
+/**
+ *  If present, text (OCR) detection or document (OCR) text detection has
+ *  completed successfully.
+ *  This annotation provides the structural hierarchy for the OCR detected
+ *  text.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotation *fullTextAnnotation;
+
+/** If present, image properties were extracted successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ImageProperties *imagePropertiesAnnotation;
+
+/** If present, label detection has completed successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *labelAnnotations;
+
+/** If present, landmark detection has completed successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *landmarkAnnotations;
+
+/**
+ *  If present, localized object detection has completed successfully.
+ *  This will be sorted descending by confidence score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
+
+/** If present, logo detection has completed successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *logoAnnotations;
+
+/** If present, product search has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResults *productSearchResults;
+
+/** If present, safe-search annotation has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation *safeSearchAnnotation;
+
+/** If present, text (OCR) detection has completed successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *textAnnotations;
+
+/** If present, web detection has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1WebDetection *webDetection;
+
+@end
+
+
+/**
+ *  The response for a single offline file annotation request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse : GTLRObject
+
+/** The output location and metadata from AsyncAnnotateFileRequest. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  Response to an async batch file annotation request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1AsyncBatchAnnotateFilesResponse : GTLRObject
+
+/**
+ *  The list of file annotation responses, one for each request in
+ *  AsyncBatchAnnotateFilesRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse *> *responses;
+
+@end
+
+
+/**
+ *  Response to an async batch image annotation request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1AsyncBatchAnnotateImagesResponse : GTLRObject
+
+/** The output location and metadata from AsyncBatchAnnotateImagesRequest. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  A list of file annotation responses.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1BatchAnnotateFilesResponse : GTLRObject
+
+/**
+ *  The list of file annotation responses, each response corresponding to each
+ *  AnnotateFileRequest in BatchAnnotateFilesRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1AnnotateFileResponse *> *responses;
+
+@end
+
+
+/**
+ *  Metadata for the batch operations such as the current state.
+ *  This is included in the `metadata` field of the `Operation` returned by the
+ *  `GetOperation` call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata : GTLRObject
+
+/**
+ *  The time when the batch request is finished and
+ *  google.longrunning.Operation.done is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Cancelled
+ *        The request is done after the longrunning.Operations.CancelOperation
+ *        has
+ *        been called by the user. Any records that were processed before the
+ *        cancel command are output as specified in the request. (Value:
+ *        "CANCELLED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Failed
+ *        The request is done and no item has been successfully processed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_StateUnspecified
+ *        Invalid. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Successful
+ *        The request is done and at least one item has been successfully
+ *        processed. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the batch request was submitted to the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *submitTime;
+
+@end
+
+
+/**
+ *  Logical element on the page.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Block : GTLRObject
+
+/**
+ *  Detected block type (text, image etc) for this block.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Barcode
+ *        Barcode block. (Value: "BARCODE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Picture
+ *        Image block. (Value: "PICTURE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Ruler
+ *        Horizontal/vertical line box. (Value: "RULER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Table Table
+ *        block. (Value: "TABLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Text Regular
+ *        text block. (Value: "TEXT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Unknown
+ *        Unknown block type. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *blockType;
+
+/**
+ *  The bounding box for the block.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
+
+/**
+ *  Confidence of the OCR results on the block. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** List of paragraphs in this block (if this blocks is of type text). */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Paragraph *> *paragraphs;
+
+/** Additional information detected for the block. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
+
+@end
+
+
+/**
+ *  A bounding polygon for the detected image annotation.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly : GTLRObject
+
+/** The bounding polygon normalized vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1NormalizedVertex *> *normalizedVertices;
+
+/** The bounding polygon vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Vertex *> *vertices;
+
+@end
+
+
+/**
+ *  Color information consists of RGB channels, score, and the fraction of
+ *  the image that the color occupies in the image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo : GTLRObject
+
+/** RGB components of the color. */
+@property(nonatomic, strong, nullable) GTLRVision_Color *color;
+
+/**
+ *  The fraction of pixels the color occupies in the image.
+ *  Value in range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pixelFraction;
+
+/**
+ *  Image-specific score for this color. Value in range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Single crop hint that is used to generate a new crop when serving an image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1CropHint : GTLRObject
+
+/**
+ *  The bounding polygon for the crop region. The coordinates of the bounding
+ *  box are in the original image's scale.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
+
+/**
+ *  Confidence of this being a salient region. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Fraction of importance of this salient region with respect to the original
+ *  image.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importanceFraction;
+
+@end
+
+
+/**
+ *  Set of crop hints that are used to generate new crops when serving images.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1CropHintsAnnotation : GTLRObject
+
+/** Crop hint results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1CropHint *> *cropHints;
+
+@end
+
+
+/**
+ *  Set of dominant colors and their corresponding scores.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1DominantColorsAnnotation : GTLRObject
+
+/** RGB color values with their score and pixel fraction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo *> *colors;
+
+@end
+
+
+/**
+ *  Set of detected entity features.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation : GTLRObject
+
+/**
+ *  Image region to which this entity belongs. Not produced
+ *  for `LABEL_DETECTION` features.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
+
+/**
+ *  **Deprecated. Use `score` instead.**
+ *  The accuracy of the entity detection in an image.
+ *  For example, for an image in which the "Eiffel Tower" entity is detected,
+ *  this field represents the confidence that there is a tower in the query
+ *  image. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Entity textual description, expressed in its `locale` language.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The language code for the locale in which the entity textual
+ *  `description` is expressed.
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/**
+ *  The location information for the detected entity. Multiple
+ *  `LocationInfo` elements can be present because one location may
+ *  indicate the location of the scene in the image, and another location
+ *  may indicate the location of the place where the image was taken.
+ *  Location information is usually present for landmarks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1LocationInfo *> *locations;
+
+/**
+ *  Opaque entity ID. Some IDs may be available in
+ *  [Google Knowledge Graph Search
+ *  API](https://developers.google.com/knowledge-graph/).
+ */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/**
+ *  Some entities may have optional user-supplied `Property` (name/value)
+ *  fields, such a score or string that qualifies the entity.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Property *> *properties;
+
+/**
+ *  Overall score of the result. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  The relevancy of the ICA (Image Content Annotation) label to the
+ *  image. For example, the relevancy of "tower" is likely higher to an image
+ *  containing the detected "Eiffel Tower" than to an image containing a
+ *  detected distant towering building, even though the confidence that
+ *  there is a tower in each image may be the same. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicality;
+
+@end
+
+
+/**
+ *  A face annotation object contains the results of face detection.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation : GTLRObject
+
+/**
+ *  Anger likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+
+/**
+ *  Blurred likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *blurredLikelihood;
+
+/**
+ *  The bounding polygon around the face. The coordinates of the bounding box
+ *  are in the original image's scale.
+ *  The bounding box is computed to "frame" the face in accordance with human
+ *  expectations. It is based on the landmarker results.
+ *  Note that one or more x and/or y coordinates may not be generated in the
+ *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
+ *  appears in the image to be annotated.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
+
+/**
+ *  Detection confidence. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
+
+/**
+ *  The `fd_bounding_poly` bounding polygon is tighter than the
+ *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
+ *  is used to eliminate the face from any image analysis that detects the
+ *  "amount of skin" visible in an image. It is not based on the
+ *  landmarker results, only on the initial face detection, hence
+ *  the <code>fd</code> (face detection) prefix.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *fdBoundingPoly;
+
+/**
+ *  Headwear likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *headwearLikelihood;
+
+/**
+ *  Joy likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+
+/**
+ *  Face landmarking confidence. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *landmarkingConfidence;
+
+/** Detected face landmarks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark *> *landmarks;
+
+/**
+ *  Yaw angle, which indicates the leftward/rightward angle that the face is
+ *  pointing relative to the vertical plane perpendicular to the image. Range
+ *  [-180,180].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *panAngle;
+
+/**
+ *  Roll angle, which indicates the amount of clockwise/anti-clockwise rotation
+ *  of the face relative to the image vertical about the axis perpendicular to
+ *  the face. Range [-180,180].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rollAngle;
+
+/**
+ *  Sorrow likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+
+/**
+ *  Surprise likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+
+/**
+ *  Pitch angle, which indicates the upwards/downwards angle that the face is
+ *  pointing relative to the image's horizontal plane. Range [-180,180].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tiltAngle;
+
+/**
+ *  Under-exposed likelihood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *underExposedLikelihood;
+
+@end
+
+
+/**
+ *  A face-specific landmark (for example, a face feature).
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark : GTLRObject
+
+/** Face landmark position. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1Position *position;
+
+/**
+ *  Face landmark type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinGnathion
+ *        Chin gnathion. (Value: "CHIN_GNATHION")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinLeftGonion
+ *        Chin left gonion. (Value: "CHIN_LEFT_GONION")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinRightGonion
+ *        Chin right gonion. (Value: "CHIN_RIGHT_GONION")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella
+ *        Forehead glabella. (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion
+ *        Left ear tragion. (Value: "LEFT_EAR_TRAGION")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye
+ *        Left eye. (Value: "LEFT_EYE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary
+ *        Left eye, bottom boundary. (Value: "LEFT_EYE_BOTTOM_BOUNDARY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint
+ *        Left eyebrow, upper midpoint. (Value: "LEFT_EYEBROW_UPPER_MIDPOINT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner
+ *        Left eye, left corner. (Value: "LEFT_EYE_LEFT_CORNER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyePupil
+ *        Left eye pupil. (Value: "LEFT_EYE_PUPIL")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner
+ *        Left eye, right corner. (Value: "LEFT_EYE_RIGHT_CORNER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary
+ *        Left eye, top boundary. (Value: "LEFT_EYE_TOP_BOUNDARY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow
+ *        Left of left eyebrow. (Value: "LEFT_OF_LEFT_EYEBROW")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow
+ *        Left of right eyebrow. (Value: "LEFT_OF_RIGHT_EYEBROW")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LowerLip
+ *        Lower lip. (Value: "LOWER_LIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes
+ *        Midpoint between eyes. (Value: "MIDPOINT_BETWEEN_EYES")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthCenter
+ *        Mouth center. (Value: "MOUTH_CENTER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthLeft
+ *        Mouth left. (Value: "MOUTH_LEFT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthRight
+ *        Mouth right. (Value: "MOUTH_RIGHT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomCenter
+ *        Nose, bottom center. (Value: "NOSE_BOTTOM_CENTER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomLeft
+ *        Nose, bottom left. (Value: "NOSE_BOTTOM_LEFT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomRight
+ *        Nose, bottom right. (Value: "NOSE_BOTTOM_RIGHT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip
+ *        Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion
+ *        Right ear tragion. (Value: "RIGHT_EAR_TRAGION")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye
+ *        Right eye. (Value: "RIGHT_EYE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary
+ *        Right eye, bottom boundary. (Value: "RIGHT_EYE_BOTTOM_BOUNDARY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint
+ *        Right eyebrow, upper midpoint. (Value: "RIGHT_EYEBROW_UPPER_MIDPOINT")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner
+ *        Right eye, left corner. (Value: "RIGHT_EYE_LEFT_CORNER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyePupil
+ *        Right eye pupil. (Value: "RIGHT_EYE_PUPIL")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeRightCorner
+ *        Right eye, right corner. (Value: "RIGHT_EYE_RIGHT_CORNER")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary
+ *        Right eye, top boundary. (Value: "RIGHT_EYE_TOP_BOUNDARY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow
+ *        Right of left eyebrow. (Value: "RIGHT_OF_LEFT_EYEBROW")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow
+ *        Right of right eyebrow. (Value: "RIGHT_OF_RIGHT_EYEBROW")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UnknownLandmark
+ *        Unknown face landmark detected. Should not be filled. (Value:
+ *        "UNKNOWN_LANDMARK")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UpperLip
+ *        Upper lip. (Value: "UPPER_LIP")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location where the output will be written to.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1GcsDestination : GTLRObject
+
+/**
+ *  Google Cloud Storage URI where the results will be stored. Results will
+ *  be in JSON format and preceded by its corresponding input URI. This field
+ *  can either represent a single file, or a prefix for multiple outputs.
+ *  Prefixes must end in a `/`.
+ *  Examples:
+ *  * File: gs://bucket-name/filename.json
+ *  * Prefix: gs://bucket-name/prefix/here/
+ *  * File: gs://bucket-name/prefix/here
+ *  If multiple outputs, each response is still AnnotateFileResponse, each of
+ *  which contains some subset of the full list of AnnotateImageResponse.
+ *  Multiple outputs can happen if, for example, the output JSON is too large
+ *  and overflows into multiple sharded files.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location where the input will be read from.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1GcsSource : GTLRObject
+
+/**
+ *  Google Cloud Storage URI for the input file. This must only be a
+ *  Google Cloud Storage object. Wildcards are not currently supported.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  If an image was produced from a file (e.g. a PDF), this message gives
+ *  information about the source of that image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext : GTLRObject
+
+/**
+ *  If the file was a PDF or TIFF, this field gives the page number within
+ *  the file used to produce the image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumber;
+
+/** The URI of the file used to produce the image. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Stores image properties, such as dominant colors.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ImageProperties : GTLRObject
+
+/** If present, dominant colors completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1DominantColorsAnnotation *dominantColors;
+
+@end
+
+
+/**
+ *  Response message for the `ImportProductSets` method.
+ *  This message is returned by the
+ *  google.longrunning.Operations.GetOperation method in the returned
+ *  google.longrunning.Operation.response field.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ImportProductSetsResponse : GTLRObject
+
+/** The list of reference_images that are imported successfully. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ReferenceImage *> *referenceImages;
+
+/**
+ *  The rpc status for each ImportProductSet request, including both successes
+ *  and errors.
+ *  The number of statuses here matches the number of lines in the csv file,
+ *  and statuses[i] stores the success or failure status of processing the i-th
+ *  line of the csv, starting from line 0.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
+
+@end
+
+
+/**
+ *  The desired input location and metadata.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1InputConfig : GTLRObject
+
+/**
+ *  File content, represented as a stream of bytes.
+ *  Note: As with all `bytes` fields, protobuffers use a pure binary
+ *  representation, whereas JSON representations use base64.
+ *  Currently, this field only works for BatchAnnotateFiles requests. It does
+ *  not work for AsyncBatchAnnotateFiles requests.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The Google Cloud Storage location to read the input from. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1GcsSource *gcsSource;
+
+/**
+ *  The type of the file. Currently only "application/pdf" and "image/tiff"
+ *  are supported. Wildcards are not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Set of detected objects with bounding boxes.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation : GTLRObject
+
+/** Image region to which this object belongs. This must be populated. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Object ID that should align with EntityAnnotation mid. */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/** Object name, expressed in its `language_code` language. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Score of the result. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Detected entity location information.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1LocationInfo : GTLRObject
+
+/** lat/long location coordinates. */
+@property(nonatomic, strong, nullable) GTLRVision_LatLng *latLng;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Contains metadata for the BatchAnnotateImages operation.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata : GTLRObject
+
+/** The time when the batch request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Cancelled
+ *        The batch processing was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Created
+ *        Request is received. (Value: "CREATED")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Done
+ *        The batch processing is done. (Value: "DONE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Running
+ *        Request is actively being processed. (Value: "RUNNING")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified
+ *        Invalid. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the operation result was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The desired output location and metadata.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1OutputConfig : GTLRObject
+
+/**
+ *  The max number of response protos to put into each output JSON file on
+ *  Google Cloud Storage.
+ *  The valid range is [1, 100]. If not specified, the default value is 20.
+ *  For example, for one pdf file with 100 pages, 100 response protos will
+ *  be generated. If `batch_size` = 20, then 5 json files each
+ *  containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`.
+ *  Currently, batch_size only applies to GcsDestination, with potential future
+ *  support for other output configurations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/** The Google Cloud Storage location to write the output(s) to. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1GcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  Detected page from OCR.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Page : GTLRObject
+
+/** List of blocks of text, images etc on this page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Block *> *blocks;
+
+/**
+ *  Confidence of the OCR results on the page. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Page height. For PDFs the unit is points. For images (including
+ *  TIFFs) the unit is pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** Additional information detected on the page. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
+
+/**
+ *  Page width. For PDFs the unit is points. For images (including
+ *  TIFFs) the unit is pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Structural unit of text representing a number of words in certain order.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Paragraph : GTLRObject
+
+/**
+ *  The bounding box for the paragraph.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
+
+/**
+ *  Confidence of the OCR results for the paragraph. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Additional information detected for the paragraph. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
+
+/** List of words in this paragraph. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Word *> *words;
+
+@end
+
+
+/**
+ *  A 3D position in the image, used primarily for Face detection landmarks.
+ *  A valid Position must have both x and y coordinates.
+ *  The position coordinates are in the same scale as the original image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Position : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+/**
+ *  Z coordinate (or depth).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *z;
+
+@end
+
+
+/**
+ *  A Product contains ReferenceImages.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Product : GTLRObject
+
+/**
+ *  User-provided metadata to be stored with this product. Must be at most 4096
+ *  characters long.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The user-provided name for this Product. Must not be empty. Must be at most
+ *  4096 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the product.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
+ *  This field is ignored when creating a product.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The category for the product identified by the reference image. This should
+ *  be either "homegoods", "apparel", or "toys".
+ *  This field is immutable.
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+/**
+ *  Key-value pairs that can be attached to a product. At query time,
+ *  constraints can be specified based on the product_labels.
+ *  Note that integer values can be provided as strings, e.g. "1199". Only
+ *  strings with integer values can match a range-based restriction which is
+ *  to be supported soon.
+ *  Multiple values can be assigned to the same key. One product may have up to
+ *  100 product_labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ProductKeyValue *> *productLabels;
+
+@end
+
+
+/**
+ *  A product label represented as a key-value pair.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ProductKeyValue : GTLRObject
+
+/**
+ *  The key of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The value of the label attached to the product. Cannot be empty and
+ *  cannot exceed 128 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Results for a product search request.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResults : GTLRObject
+
+/**
+ *  Timestamp of the index which provided these results. Changes made after
+ *  this time are not reflected in the current results.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
+
+/**
+ *  List of results grouped by products detected in the query image. Each entry
+ *  corresponds to one bounding polygon in the query image, and contains the
+ *  matching products specific to that region. There may be duplicate product
+ *  matches in the union of all the per-product results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult *> *productGroupedResults;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about the products similar to a single product in a query
+ *  image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult : GTLRObject
+
+/** The bounding polygon around the product detected in the query image. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
+
+/** List of results, one for each product match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult *> *results;
+
+@end
+
+
+/**
+ *  Information about a product.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult : GTLRObject
+
+/**
+ *  The resource name of the image from the product that is the closest match
+ *  to the query.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** The Product. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1Product *product;
+
+/**
+ *  A confidence level on the match, ranging from 0 (no confidence) to
+ *  1 (full confidence).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  A `Property` consists of a user-supplied name/value pair.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Property : GTLRObject
+
+/** Name of the property. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Value of numeric properties.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uint64Value;
+
+/** Value of the property. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A `ReferenceImage` represents a product image and its associated metadata,
+ *  such as bounding boxes.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1ReferenceImage : GTLRObject
+
+/**
+ *  Bounding polygons around the areas of interest in the reference image.
+ *  Optional. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used.
+ *  The provided shape is converted into a non-rotated rectangle. Once
+ *  converted, the small edge of the rectangle must be greater than or equal
+ *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
+ *  is not).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *> *boundingPolys;
+
+/**
+ *  The resource name of the reference image.
+ *  Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
+ *  This field is ignored when creating a reference image.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Google Cloud Storage URI of the reference image.
+ *  The URI must start with `gs://`.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Set of features pertaining to the image, computed by computer vision
+ *  methods over safe-search verticals (for example, adult, spoof, medical,
+ *  violence).
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation : GTLRObject
+
+/**
+ *  Represents the adult content likelihood for the image. Adult content may
+ *  contain elements such as nudity, pornographic images or cartoons, or
+ *  sexual activities.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *adult;
+
+/**
+ *  Likelihood that this is a medical image.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *medical;
+
+/**
+ *  Likelihood that the request image contains racy content. Racy content may
+ *  include (but is not limited to) skimpy or sheer clothing, strategically
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive
+ *  body areas.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *racy;
+
+/**
+ *  Spoof likelihood. The likelihood that an modification
+ *  was made to the image's canonical version to make it appear
+ *  funny or offensive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *spoof;
+
+/**
+ *  Likelihood that this image contains violent content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Likely
+ *        It is likely that the image belongs to the specified vertical. (Value:
+ *        "LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Possible
+ *        It is possible that the image belongs to the specified vertical.
+ *        (Value: "POSSIBLE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unlikely
+ *        It is unlikely that the image belongs to the specified vertical.
+ *        (Value: "UNLIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryLikely
+ *        It is very likely that the image belongs to the specified vertical.
+ *        (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryUnlikely
+ *        It is very unlikely that the image belongs to the specified vertical.
+ *        (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *violence;
+
+@end
+
+
+/**
+ *  A single symbol representation.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Symbol : GTLRObject
+
+/**
+ *  The bounding box for the symbol.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertice order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
+
+/**
+ *  Confidence of the OCR results for the symbol. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Additional information detected for the symbol. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
+
+/** The actual UTF-8 representation of the symbol. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  TextAnnotation contains a structured representation of OCR extracted text.
+ *  The hierarchy of an OCR extracted text structure is like this:
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
+ *  Each structural component, starting from Page, may further have their own
+ *  properties. Properties describe detected languages, breaks etc.. Please
+ *  refer
+ *  to the TextAnnotation.TextProperty message definition below for more
+ *  detail.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotation : GTLRObject
+
+/** List of pages detected by OCR. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Page *> *pages;
+
+/** UTF-8 text detected on the pages. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Detected start or end of a structural component.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak : GTLRObject
+
+/**
+ *  True if break prepends the element.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrefix;
+
+/**
+ *  Detected break type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_EolSureSpace
+ *        Line-wrapping break. (Value: "EOL_SURE_SPACE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Hyphen
+ *        End-line hyphen that is not present in text; does not co-occur with
+ *        `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`. (Value: "HYPHEN")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_LineBreak
+ *        Line break that ends a paragraph. (Value: "LINE_BREAK")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Space
+ *        Regular space. (Value: "SPACE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_SureSpace
+ *        Sure space (very wide). (Value: "SURE_SPACE")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Unknown
+ *        Unknown break label type. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Detected language for a structural component.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage : GTLRObject
+
+/**
+ *  Confidence of detected language. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Additional information detected on the structural component.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty : GTLRObject
+
+/** Detected start or end of a text segment. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak *detectedBreak;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage *> *detectedLanguages;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the vertex coordinates are in the same scale as the original image.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Vertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Relevant information for the image from the Internet.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetection : GTLRObject
+
+/**
+ *  The service's best guess as to the topic of the request image.
+ *  Inferred from similar images on the open web.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebLabel *> *bestGuessLabels;
+
+/**
+ *  Fully matching images from the Internet.
+ *  Can include resized copies of the query image.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *fullMatchingImages;
+
+/** Web pages containing the matching images from the Internet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebPage *> *pagesWithMatchingImages;
+
+/**
+ *  Partial matching images from the Internet.
+ *  Those images are similar enough to share some key-point features. For
+ *  example an original image will likely have partial matching for its crops.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *partialMatchingImages;
+
+/** The visually similar image results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *visuallySimilarImages;
+
+/** Deduced entities from similar images on the Internet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebEntity *> *webEntities;
+
+@end
+
+
+/**
+ *  Entity deduced from similar images on the Internet.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebEntity : GTLRObject
+
+/**
+ *  Canonical description of the entity, in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Opaque entity ID. */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/**
+ *  Overall relevancy score for the entity.
+ *  Not normalized and not comparable across different image queries.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Metadata for online images.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage : GTLRObject
+
+/**
+ *  (Deprecated) Overall relevancy score for the image.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The result image URL. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Label to provide extra metadata for the web detection.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebLabel : GTLRObject
+
+/** Label for extra metadata. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
+ *  For more information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Metadata for web pages.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebPage : GTLRObject
+
+/**
+ *  Fully matching images on the page.
+ *  Can include resized copies of the query image.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *fullMatchingImages;
+
+/** Title for the web page, may contain HTML markups. */
+@property(nonatomic, copy, nullable) NSString *pageTitle;
+
+/**
+ *  Partial matching images on the page.
+ *  Those images are similar enough to share some key-point features. For
+ *  example an original image will likely have partial matching for its
+ *  crops.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *partialMatchingImages;
+
+/**
+ *  (Deprecated) Overall relevancy score for the web page.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The result web page URL. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A word representation.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Word : GTLRObject
+
+/**
+ *  The bounding box for the word.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
+
+/**
+ *  Confidence of the OCR results for the word. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Additional information detected for the word. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
+
+/**
+ *  List of symbols in the word.
+ *  The order of the symbols follows the natural reading order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Symbol *> *symbols;
 
 @end
 

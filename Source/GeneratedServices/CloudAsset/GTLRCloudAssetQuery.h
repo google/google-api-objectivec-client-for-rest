@@ -55,11 +55,91 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @end
 
 /**
+ *  Exports assets with time and resource types to a given Cloud Storage
+ *  location. The output format is newline-delimited JSON.
+ *  This API implements the google.longrunning.Operation API allowing you
+ *  to keep track of the export.
+ *
+ *  Method: cloudasset.folders.exportAssets
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_FoldersExportAssets : GTLRCloudAssetQuery
+// Previous library name was
+//   +[GTLQueryCloudAsset queryForFoldersExportAssetsWithObject:parent:]
+
+/**
+ *  Required. The relative name of the root asset. This can only be an
+ *  organization number (such as "organizations/123"), a project ID (such as
+ *  "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *  a folder number (such as "folders/123").
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_Operation.
+ *
+ *  Exports assets with time and resource types to a given Cloud Storage
+ *  location. The output format is newline-delimited JSON.
+ *  This API implements the google.longrunning.Operation API allowing you
+ *  to keep track of the export.
+ *
+ *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
+ *    query.
+ *  @param parent Required. The relative name of the root asset. This can only
+ *    be an
+ *    organization number (such as "organizations/123"), a project ID (such as
+ *    "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *    a folder number (such as "folders/123").
+ *
+ *  @return GTLRCloudAssetQuery_FoldersExportAssets
+ */
++ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: cloudasset.folders.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_FoldersOperationsGet : GTLRCloudAssetQuery
+// Previous library name was
+//   +[GTLQueryCloudAsset queryForFoldersOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudAssetQuery_FoldersOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Batch gets the update history of assets that overlap a time window.
  *  For RESOURCE content, this API outputs history with asset in both
  *  non-delete or deleted status.
  *  For IAM_POLICY content, this API outputs history when the asset and its
  *  attached IAM POLICY both exist. This can create gaps in the output history.
+ *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
+ *  error.
  *
  *  Method: cloudasset.organizations.batchGetAssetsHistory
  *
@@ -116,6 +196,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  non-delete or deleted status.
  *  For IAM_POLICY content, this API outputs history when the asset and its
  *  attached IAM POLICY both exist. This can create gaps in the output history.
+ *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
+ *  error.
  *
  *  @param parent Required. The relative name of the root asset. It can only be
  *    an
@@ -146,9 +228,9 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Required. The relative name of the root asset. This can only be an
- *  organization
- *  number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id"), or a project number (such as "projects/12345").
+ *  organization number (such as "organizations/123"), a project ID (such as
+ *  "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *  a folder number (such as "folders/123").
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -163,9 +245,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
  *    query.
  *  @param parent Required. The relative name of the root asset. This can only
- *    be an organization
- *    number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), or a project number (such as "projects/12345").
+ *    be an
+ *    organization number (such as "organizations/123"), a project ID (such as
+ *    "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *    a folder number (such as "folders/123").
  *
  *  @return GTLRCloudAssetQuery_OrganizationsExportAssets
  */
@@ -212,6 +295,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  non-delete or deleted status.
  *  For IAM_POLICY content, this API outputs history when the asset and its
  *  attached IAM POLICY both exist. This can create gaps in the output history.
+ *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
+ *  error.
  *
  *  Method: cloudasset.projects.batchGetAssetsHistory
  *
@@ -268,6 +353,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  non-delete or deleted status.
  *  For IAM_POLICY content, this API outputs history when the asset and its
  *  attached IAM POLICY both exist. This can create gaps in the output history.
+ *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
+ *  error.
  *
  *  @param parent Required. The relative name of the root asset. It can only be
  *    an
@@ -298,9 +385,9 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Required. The relative name of the root asset. This can only be an
- *  organization
- *  number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id"), or a project number (such as "projects/12345").
+ *  organization number (such as "organizations/123"), a project ID (such as
+ *  "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *  a folder number (such as "folders/123").
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -315,9 +402,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
  *    query.
  *  @param parent Required. The relative name of the root asset. This can only
- *    be an organization
- *    number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), or a project number (such as "projects/12345").
+ *    be an
+ *    organization number (such as "organizations/123"), a project ID (such as
+ *    "projects/my-project-id"), a project number (such as "projects/12345"), or
+ *    a folder number (such as "folders/123").
  *
  *  @return GTLRCloudAssetQuery_ProjectsExportAssets
  */

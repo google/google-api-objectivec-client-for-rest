@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: Share your Google+ profile information and view and
- *  manage your game activity
+ *  Authorization scope: Create, edit, and delete your Google Play Games
+ *  activity
  *
  *  Value "https://www.googleapis.com/auth/games"
  */

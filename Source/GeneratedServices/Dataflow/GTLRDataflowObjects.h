@@ -73,6 +73,8 @@
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
+@class GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest;
+@class GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
@@ -96,6 +98,8 @@
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
+@class GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest;
+@class GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse;
 @class GTLRDataflow_ResourceUtilizationReport;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
@@ -134,6 +138,7 @@
 @class GTLRDataflow_Step_Properties;
 @class GTLRDataflow_StreamingApplianceSnapshotConfig;
 @class GTLRDataflow_StreamingComputationConfig;
+@class GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily;
 @class GTLRDataflow_StreamingComputationRanges;
 @class GTLRDataflow_StreamingComputationTask;
 @class GTLRDataflow_StreamingConfigTask;
@@ -428,6 +433,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDe
  *  Value: "SOURCE_DERIVATION_MODE_UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_Environment.flexResourceSchedulingGoal
+
+/**
+ *  Optimize for lower cost.
+ *
+ *  Value: "FLEXRS_COST_OPTIMIZED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized;
+/**
+ *  Optimize for lower execution time.
+ *
+ *  Value: "FLEXRS_SPEED_OPTIMIZED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized;
+/**
+ *  Run in the default mode.
+ *
+ *  Value: "FLEXRS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageState.executionStageState
@@ -1868,7 +1895,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Required. The job name to use for the created job. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The runtime parameters to pass to the job. */
@@ -2170,6 +2201,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The list of experiments to enable. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
+/**
+ *  Which Flexible Resource Scheduling mode to run in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized
+ *        Optimize for lower cost. (Value: "FLEXRS_COST_OPTIMIZED")
+ *    @arg @c kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized
+ *        Optimize for lower execution time. (Value: "FLEXRS_SPEED_OPTIMIZED")
+ *    @arg @c kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified
+ *        Run in the default mode. (Value: "FLEXRS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *flexResourceSchedulingGoal;
+
 /** Experimental settings. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_InternalExperiments *internalExperiments;
 
@@ -2426,11 +2470,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Indicates which location failed to respond to a request for data.
+ *  Indicates which [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) failed
+ *  to respond to a request for data.
  */
 @interface GTLRDataflow_FailedLocation : GTLRObject
 
-/** The name of the failed location. */
+/**
+ *  The name of the [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  failed to respond.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2502,7 +2552,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *componentId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The worker id, i.e., VM hostname. */
@@ -2845,7 +2899,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_Labels *labels;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -3166,7 +3224,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Metadata available primarily for filtering jobs. Will be included in the
- *  ListJob response and Job SUMMARY view+.
+ *  ListJob response and Job SUMMARY view.
  */
 @interface GTLRDataflow_JobMetadata : GTLRObject
 
@@ -3195,7 +3253,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  JobMetrics contains a collection of metrics descibing the detailed progress
+ *  JobMetrics contains a collection of metrics describing the detailed progress
  *  of a Dataflow job. Metrics correspond to user-defined and system-defined
  *  metrics in the job.
  *  This resource captures only the most recent values of each metric;
@@ -3325,11 +3383,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The current timestamp at the worker. */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentWorkerTime;
 
-/** The location which contains the WorkItem's job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the WorkItem's job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The initial lease period. */
 @property(nonatomic, strong, nullable) GTLRDuration *requestedLeaseDuration;
+
+/** Untranslated bag-of-bytes WorkRequest from UnifiedWorker. */
+@property(nonatomic, strong, nullable) GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest *unifiedWorkerRequest;
 
 /**
  *  Worker capabilities. WorkItems might be limited to workers with specific
@@ -3350,13 +3415,40 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Untranslated bag-of-bytes WorkRequest from UnifiedWorker.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest : GTLRObject
+@end
+
+
+/**
  *  Response to a request to lease WorkItems.
  */
 @interface GTLRDataflow_LeaseWorkItemResponse : GTLRObject
 
+/** Untranslated bag-of-bytes WorkResponse for UnifiedWorker. */
+@property(nonatomic, strong, nullable) GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse *unifiedWorkerResponse;
+
 /** A list of the leased WorkItems. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkItem *> *workItems;
 
+@end
+
+
+/**
+ *  Untranslated bag-of-bytes WorkResponse for UnifiedWorker.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse : GTLRObject
 @end
 
 
@@ -3383,7 +3475,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_ListJobsResponse : GTLRObject
 
-/** Zero or more messages describing locations that failed to respond. */
+/**
+ *  Zero or more messages describing the [regional endpoints]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  failed to respond.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_FailedLocation *> *failedLocation;
 
 /** A subset of the requested job information. */
@@ -3873,7 +3969,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  A descriptive representation of submitted pipeline as well as the executed
  *  form. This data is provided by the Dataflow service for ease of visualizing
- *  the pipeline and interpretting Dataflow provided metrics.
+ *  the pipeline and interpreting Dataflow provided metrics.
  */
 @interface GTLRDataflow_PipelineDescription : GTLRObject
 
@@ -4050,8 +4146,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The current timestamp at the worker. */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentWorkerTime;
 
-/** The location which contains the WorkItem's job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the WorkItem's job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest *unifiedWorkerRequest;
 
 /**
  *  The ID of the worker reporting the WorkItem status. If this
@@ -4072,9 +4175,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest : GTLRObject
+@end
+
+
+/**
  *  Response from a request to report the status of WorkItems.
  */
 @interface GTLRDataflow_ReportWorkItemStatusResponse : GTLRObject
+
+/** Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse *unifiedWorkerResponse;
 
 /**
  *  A set of messages indicating the service-side state for each
@@ -4084,6 +4202,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkItemServiceState *> *workItemServiceStates;
 
+@end
+
+
+/**
+ *  Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse : GTLRObject
 @end
 
 
@@ -4193,7 +4323,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  The version of the SDK used to run the jobl
+ *  The version of the SDK used to run the job.
  */
 @interface GTLRDataflow_SdkVersion : GTLRObject
 
@@ -4219,7 +4349,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The version of the SDK used to run the job. */
 @property(nonatomic, copy, nullable) NSString *version;
 
-/** A readable string describing the version of the sdk. */
+/** A readable string describing the version of the SDK. */
 @property(nonatomic, copy, nullable) NSString *versionDisplayName;
 
 @end
@@ -4236,7 +4366,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The encoded debug information. */
 @property(nonatomic, copy, nullable) NSString *data;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The worker id, i.e., VM hostname. */
@@ -4258,7 +4392,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_SendWorkerMessagesRequest : GTLRObject
 
-/** The location which contains the job */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The WorkerMessages to send. */
@@ -5060,6 +5198,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** System defined name for this computation. */
 @property(nonatomic, copy, nullable) NSString *systemName;
 
+/**
+ *  Map from user name of stateful transforms in this stage to their state
+ *  family.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily *transformUserNameToStateFamily;
+
+@end
+
+
+/**
+ *  Map from user name of stateful transforms in this stage to their state
+ *  family.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily : GTLRObject
 @end
 
 
@@ -5114,6 +5271,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  A task that carries configuration information for streaming computations.
  */
 @interface GTLRDataflow_StreamingConfigTask : GTLRObject
+
+/**
+ *  Maximum size for work item commit supported windmill storage layer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWorkItemCommitBytes;
 
 /** Set of computation configuration information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StreamingComputationConfig *> *streamingComputationConfigs;
@@ -5261,7 +5425,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_StructuredMessage : GTLRObject
 
 /**
- *  Idenfier for this message type. Used by external systems to
+ *  Identifier for this message type. Used by external systems to
  *  internationalize or personalize message.
  */
 @property(nonatomic, copy, nullable) NSString *messageKey;

@@ -39,6 +39,7 @@
 @class GTLRStorage_Channel_Params;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
+@class GTLRStorage_Expr;
 @class GTLRStorage_Notification;
 @class GTLRStorage_Notification_CustomAttributes;
 @class GTLRStorage_Object;
@@ -269,6 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorage_Bucket_IamConfiguration : GTLRObject
 
+/** The bucket's Bucket Policy Only configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
 
 @end
@@ -412,7 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
+ *  The bucket's Bucket Policy Only configuration.
  */
 @interface GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly : GTLRObject
 
@@ -789,6 +791,49 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ifGenerationMatch;
+
+@end
+
+
+/**
+ *  Represents an expression text. Example: title: "User account presence"
+ *  description: "Determines whether the request has a user account" expression:
+ *  "size(request.user) > 0"
+ */
+@interface GTLRStorage_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax. The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  The kind of item this is. For storage, this is always storage#expr. This
+ *  field is ignored on input.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1303,11 +1348,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_Policy_Bindings_Item : GTLRObject
 
 /**
- *  condition
- *
- *  Can be any valid JSON type.
+ *  The condition that is associated with this binding. NOTE: an unsatisfied
+ *  condition will not allow user access via current binding. Different
+ *  bindings, including their conditions, are examined independently.
  */
-@property(nonatomic, strong, nullable) id condition;
+@property(nonatomic, strong, nullable) GTLRStorage_Expr *condition;
 
 /**
  *  A collection of identifiers for members who may assume the provided role.

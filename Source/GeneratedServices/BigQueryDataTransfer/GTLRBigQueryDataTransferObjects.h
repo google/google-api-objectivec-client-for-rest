@@ -24,6 +24,7 @@
 @class GTLRBigQueryDataTransfer_Location;
 @class GTLRBigQueryDataTransfer_Location_Labels;
 @class GTLRBigQueryDataTransfer_Location_Metadata;
+@class GTLRBigQueryDataTransfer_ScheduleOptions;
 @class GTLRBigQueryDataTransfer_Status;
 @class GTLRBigQueryDataTransfer_Status_Details_Item;
 @class GTLRBigQueryDataTransfer_TransferConfig;
@@ -768,6 +769,41 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 
 /**
+ *  Options customizing the data transfer schedule.
+ */
+@interface GTLRBigQueryDataTransfer_ScheduleOptions : GTLRObject
+
+/**
+ *  If true, automatic scheduling of data transfer runs for this configuration
+ *  will be disabled. The runs can be started on ad-hoc basis using
+ *  StartManualTransferRuns API. When automatic scheduling is disabled, the
+ *  TransferConfig.schedule field will be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAutoScheduling;
+
+/**
+ *  Defines time to stop scheduling transfer runs. A transfer run cannot be
+ *  scheduled at or after the end time. The end time can be changed at any
+ *  moment. The time when a data transfer can be trigerred manually is not
+ *  limited by this option.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Specifies time to start scheduling transfer runs. The first run will be
+ *  scheduled at or after the start time according to a recurrence pattern
+ *  defined in the schedule string. The start time can be changed at any
+ *  moment. The time when a data transfer can be trigerred manually is not
+ *  limited by this option.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  A request to schedule transfer runs for a time range.
  */
 @interface GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest : GTLRObject
@@ -954,6 +990,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  NOTE: the granularity should be at least 8 hours, or less frequent.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
+
+/** Options customizing the data transfer schedule. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ScheduleOptions *scheduleOptions;
 
 /**
  *  Output only. State of the most recently updated transfer run.

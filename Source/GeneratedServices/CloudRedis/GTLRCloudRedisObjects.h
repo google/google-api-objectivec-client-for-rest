@@ -70,8 +70,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Maintenance;
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Ready;
 /**
- *  Redis instance is being repaired and may be unusable. Details can be
- *  found in the `status_message` field.
+ *  Redis instance is being repaired and may be unusable.
  *
  *  Value: "REPAIRING"
  */
@@ -319,8 +318,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *    @arg @c kGTLRCloudRedis_Instance_State_Ready Redis instance has been
  *        created and is fully usable. (Value: "READY")
  *    @arg @c kGTLRCloudRedis_Instance_State_Repairing Redis instance is being
- *        repaired and may be unusable. Details can be
- *        found in the `status_message` field. (Value: "REPAIRING")
+ *        repaired and may be unusable. (Value: "REPAIRING")
  *    @arg @c kGTLRCloudRedis_Instance_State_StateUnspecified Not set. (Value:
  *        "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_Instance_State_Updating Redis instance

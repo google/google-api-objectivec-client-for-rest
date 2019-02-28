@@ -244,6 +244,7 @@
 @class GTLRCompute_ManagedInstanceLastAttempt;
 @class GTLRCompute_ManagedInstanceLastAttempt_Errors;
 @class GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item;
+@class GTLRCompute_ManagedInstanceVersion;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Metadata_Items_Item;
 @class GTLRCompute_NamedPort;
@@ -658,6 +659,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Standard;
 GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
 /** Value: "GCE_ENDPOINT" */
 GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
+/** Value: "NAT_AUTO" */
+GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
 /** Value: "VPC_PEERING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_VpcPeering;
 
@@ -7772,6 +7775,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver Value "DNS_RESOLVER"
  *    @arg @c kGTLRCompute_Address_Purpose_GceEndpoint Value "GCE_ENDPOINT"
+ *    @arg @c kGTLRCompute_Address_Purpose_NatAuto Value "NAT_AUTO"
  *    @arg @c kGTLRCompute_Address_Purpose_VpcPeering Value "VPC_PEERING"
  */
 @property(nonatomic, copy, nullable) NSString *purpose;
@@ -10875,10 +10879,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *sys;
 
-/** DEPRECATED. Use 'values' instead. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-/** The objects of the condition. This is mutually exclusive with 'value'. */
+/** The objects of the condition. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -12709,6 +12710,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_ForwardingRule : GTLRObject
 
 /**
+ *  This field is used along with the backend_service field for internal load
+ *  balancing or with the target field for internal TargetInstance. This field
+ *  cannot be used with port or portRange fields.
+ *  When the load balancing scheme is INTERNAL and protocol is TCP/UDP, specify
+ *  this field to allow packets addressed to any ports will be forwarded to the
+ *  backends configured with this forwarding rule.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allPorts;
+
+/**
  *  This field is only used for INTERNAL load balancing.
  *  For internal load balancing, this field identifies the BackendService
  *  resource to receive the matched traffic.
@@ -12930,7 +12943,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  forwarding rules, this target must live in the same region as the forwarding
  *  rule. For global forwarding rules, this target must be a global load
  *  balancing resource. The forwarded traffic must be of a type appropriate to
- *  the target object. For INTERNAL_SELF_MANAGED" load balancing, only HTTP and
+ *  the target object. For INTERNAL_SELF_MANAGED load balancing, only HTTP and
  *  HTTPS targets are valid.
  */
 @property(nonatomic, copy, nullable) NSString *target;
@@ -14584,7 +14597,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *containerType;
 
 /**
- *  An optional SHA1 checksum of the disk image before unpackaging; provided by
+ *  An optional SHA1 checksum of the disk image before unpackaging provided by
  *  the client when the disk image is created.
  */
 @property(nonatomic, copy, nullable) NSString *sha1Checksum;
@@ -17621,7 +17634,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *googleIpAddress;
 
 /**
- *  [Output Only] Google reference ID; to be used when raising support tickets
+ *  [Output Only] Google reference ID to be used when raising support tickets
  *  with Google or otherwise to debug backend connectivity issues.
  */
 @property(nonatomic, copy, nullable) NSString *googleReferenceId;
@@ -18523,7 +18536,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_InterconnectDiagnosticsLinkOpticalPower : GTLRObject
 
 /**
- *  state
+ *  The status of the current value when compared to the warning and alarm
+ *  levels for the receiving or transmitting transceiver. Possible states
+ *  include:
+ *  - OK: The value has not crossed a warning threshold.
+ *  - LOW_WARNING: The value has crossed below the low warning threshold.
+ *  - HIGH_WARNING: The value has crossed above the high warning threshold.
+ *  - LOW_ALARM: The value has crossed below the low alarm threshold.
+ *  - HIGH_ALARM: The value has crossed above the high alarm threshold.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighAlarm
@@ -18540,10 +18560,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Value of the current optical power, read in dBm. Take a known good optical
- *  value, give it a 10% margin and trigger warnings relative to that value. In
- *  general, a -7dBm warning and a -11dBm alarm are good optical value estimates
- *  for most links.
+ *  Value of the current receiving or transmitting optical power, read in dBm.
+ *  Take a known good optical value, give it a 10% margin and trigger warnings
+ *  relative to that value. In general, a -7dBm warning and a -11dBm alarm are
+ *  good optical value estimates for most links.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -18571,7 +18591,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *googleDemarc;
 
 @property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkLACPStatus *lacpStatus;
+
+/**
+ *  An InterconnectDiagnostics.LinkOpticalPower object, describing the current
+ *  value and status of the received light level.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkOpticalPower *receivingOpticalPower;
+
+/**
+ *  An InterconnectDiagnostics.LinkOpticalPower object, describing the current
+ *  value and status of the transmitted light level.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkOpticalPower *transmittingOpticalPower;
 
 @end
@@ -20130,6 +20160,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceLastAttempt *lastAttempt;
 
+/** [Output Only] Intended version of this instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceVersion *version;
+
 @end
 
 
@@ -20178,6 +20211,23 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] An optional, human-readable error message. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_ManagedInstanceVersion
+ */
+@interface GTLRCompute_ManagedInstanceVersion : GTLRObject
+
+/**
+ *  [Output Only] The intended template of the instance. This field is empty
+ *  when current_action is one of { DELETING, ABANDONING }.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+/** [Output Only] Name of the version. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -20312,9 +20362,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The range of internal addresses that are legal on this network. This range
- *  is a CIDR specification, for example: 192.168.0.0/16. Provided by the client
- *  when the network is created.
+ *  Deprecated in favor of subnet mode networks. The range of internal addresses
+ *  that are legal on this network. This range is a CIDR specification, for
+ *  example: 192.168.0.0/16. Provided by the client when the network is created.
  */
 @property(nonatomic, copy, nullable) NSString *IPv4Range;
 
@@ -20587,7 +20637,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_NetworkPeering : GTLRObject
 
 /**
- *  Indicates whether full mesh connectivity is created and managed
+ *  This field will be deprecated soon. Prefer using exchange_subnet_routes
+ *  instead. Indicates whether full mesh connectivity is created and managed
  *  automatically. When it is set to true, Google Compute Engine will
  *  automatically create and manage the routes between two networks when the
  *  state is ACTIVE. Otherwise, user needs to create routes manually to route
@@ -20596,6 +20647,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoCreateRoutes;
+
+/**
+ *  Whether full mesh connectivity is created and managed automatically. When it
+ *  is set to true, Google Compute Engine will automatically create and manage
+ *  the routes between two networks when the peering state is ACTIVE. Otherwise,
+ *  user needs to create routes manually to route packets to peer network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exchangeSubnetRoutes;
 
 /**
  *  Name of this peering. Provided by the client when the peering is created.
@@ -20660,7 +20721,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_NetworksAddPeeringRequest : GTLRObject
 
 /**
- *  Whether Google Compute Engine manages the routes automatically.
+ *  This field will be deprecated soon. Prefer using exchange_subnet_routes in
+ *  network_peering instead. Whether Google Compute Engine manages the routes
+ *  automatically.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -20668,6 +20731,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Name of the peering, which should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Network peering parameters. In order to specify route policies for peering
+ *  using import/export custom routes, you will have to fill all peering related
+ *  parameters (name, peer network, exchange_subnet_routes) in
+ *  network_peeringfield. Corresponding fields in NetworksAddPeeringRequest will
+ *  be deprecated soon.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkPeering *networkPeering;
 
 /**
  *  URL of the peer network. It can be either full URL or partial URL. The peer

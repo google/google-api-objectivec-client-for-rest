@@ -813,7 +813,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Optional. To filter out false positive results and still get variety in
  *  matched natural language inputs for your agent, you can tune the machine
  *  learning classification threshold. If the returned score value is less than
- *  the threshold value, then a fallback intent is be triggered or, if there
+ *  the threshold value, then a fallback intent will be triggered or, if there
  *  are no fallback intents defined, no intent will be triggered. The score
  *  values range from 0.0 (completely uncertain) to 1.0 (completely certain).
  *  If set to 0.0, the default of 0.3 is used.
@@ -1119,7 +1119,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The number of conversational query requests after which the
  *  context expires. If set to `0` (the default) the context expires
- *  immediately. Contexts expire automatically after 10 minutes even if there
+ *  immediately. Contexts expire automatically after 20 minutes if there
  *  are no matching queries.
  *
  *  Uses NSNumber of intValue.
@@ -1187,7 +1187,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** Required. The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Optional. The collection of entities associated with the entity type. */
+/**
+ *  Optional. The collection of entity entries associated with the entity type.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity *> *entities;
 
 /**
@@ -1221,22 +1223,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Optional. Represents an entity.
+ *  An **entity entry** for an associated entity type.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity : GTLRObject
 
 /**
- *  Required. A collection of synonyms. For `KIND_LIST` entity types this
- *  must contain exactly one synonym equal to `value`.
+ *  Required. A collection of value synonyms. For example, if the entity type
+ *  is *vegetable*, and `value` is *scallions*, a synonym could be *green
+ *  onions*.
+ *  For `KIND_LIST` entity types:
+ *  * This collection must contain exactly one synonym equal to `value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
 /**
- *  Required.
+ *  Required. The primary value associated with this entity entry.
+ *  For example, if the entity type is *vegetable*, the value could be
+ *  *scallions*.
  *  For `KIND_MAP` entity types:
- *  A canonical name to be used in place of synonyms.
+ *  * A canonical value to be used in place of synonyms.
  *  For `KIND_LIST` entity types:
- *  A string that can contain references to other entity types (with or
+ *  * A string that can contain references to other entity types (with or
  *  without aliases).
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -1247,11 +1254,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Events allow for matching intents by event name instead of the natural
  *  language input. For instance, input
- *  `<event: { name: “welcome_event”, 
- parameters: { name: “Sam” } }>` can
+ *  `<event: { name: "welcome_event", 
+ parameters: { name: "Sam" } }>` can
  *  trigger a personalized welcome response.
  *  The parameter `name` may be used by the agent in the response:
- *  `“Hello #welcome_event.name! What can I do for you today?”`.
+ *  `"Hello #welcome_event.name! What can I do for you today?"`.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput : GTLRObject
 
@@ -2113,9 +2120,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The collection of training phrase parts (can be annotated).
- *  Fields: `entity_type`, `alias` and `user_defined` should be populated
- *  only for the annotated parts of the training phrase.
+ *  Required. The ordered list of training phrase parts.
+ *  The parts are concatenated in order to form the training phrase.
+ *  Note: The API does not automatically annotate training phrases like the
+ *  Dialogflow Console does.
+ *  Note: Do not forget to include whitespace at part boundaries,
+ *  so the training phrase is well formatted when the parts are concatenated.
+ *  If the training phrase does not need to be annotated with parameters,
+ *  you just need a single part with only the Part.text field set.
+ *  If you want to annotate the training phrase, you must create multiple
+ *  parts, where the fields of each part are populated in one of two ways:
+ *  - `Part.text` is set to a part of the phrase that has no parameters.
+ *  - `Part.text` is set to a part of the phrase that you want to annotate,
+ *  and the `entity_type`, `alias`, and `user_defined` fields are all
+ *  set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart *> *parts;
 
@@ -2160,26 +2178,24 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The parameter name for the value extracted from the
  *  annotated part of the example.
+ *  This field is required for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Optional. The entity type name prefixed with `\@`. This field is
- *  required for the annotated part of the text and applies only to
- *  examples.
+ *  Optional. The entity type name prefixed with `\@`.
+ *  This field is required for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
-/**
- *  Required. The text corresponding to the example,
- *  if there are no annotations. For
- *  annotated examples, it is the text for one of the example's parts.
- */
+/** Required. The text for this part. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Optional. Indicates whether the text was manually annotated by the
- *  developer.
+ *  Optional. Indicates whether the text was manually annotated.
+ *  This field is set to true when the Dialogflow Console is used to
+ *  manually annotate the part. When creating an annotated part with the
+ *  API, you must set this to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2693,7 +2709,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The number of conversational query requests after which the
  *  context expires. If set to `0` (the default) the context expires
- *  immediately. Contexts expire automatically after 20 minutes even if there
+ *  immediately. Contexts expire automatically after 20 minutes if there
  *  are no matching queries.
  *
  *  Uses NSNumber of intValue.
@@ -2809,7 +2825,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /** Required. The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Optional. The collection of entities associated with the entity type. */
+/**
+ *  Optional. The collection of entity entries associated with the entity type.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
@@ -2854,22 +2872,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
- *  Optional. Represents an entity.
+ *  An **entity entry** for an associated entity type.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity : GTLRObject
 
 /**
- *  Required. A collection of synonyms. For `KIND_LIST` entity types this
- *  must contain exactly one synonym equal to `value`.
+ *  Required. A collection of value synonyms. For example, if the entity type
+ *  is *vegetable*, and `value` is *scallions*, a synonym could be *green
+ *  onions*.
+ *  For `KIND_LIST` entity types:
+ *  * This collection must contain exactly one synonym equal to `value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
 /**
- *  Required.
+ *  Required. The primary value associated with this entity entry.
+ *  For example, if the entity type is *vegetable*, the value could be
+ *  *scallions*.
  *  For `KIND_MAP` entity types:
- *  A canonical name to be used in place of synonyms.
+ *  * A canonical value to be used in place of synonyms.
  *  For `KIND_LIST` entity types:
- *  A string that can contain references to other entity types (with or
+ *  * A string that can contain references to other entity types (with or
  *  without aliases).
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -2880,11 +2903,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Events allow for matching intents by event name instead of the natural
  *  language input. For instance, input
- *  `<event: { name: “welcome_event”, 
- parameters: { name: “Sam” } }>` can
+ *  `<event: { name: "welcome_event", 
+ parameters: { name: "Sam" } }>` can
  *  trigger a personalized welcome response.
  *  The parameter `name` may be used by the agent in the response:
- *  `“Hello #welcome_event.name! What can I do for you today?”`.
+ *  `"Hello #welcome_event.name! What can I do for you today?"`.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2EventInput : GTLRObject
 
@@ -3799,9 +3822,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The collection of training phrase parts (can be annotated).
- *  Fields: `entity_type`, `alias` and `user_defined` should be populated
- *  only for the annotated parts of the training phrase.
+ *  Required. The ordered list of training phrase parts.
+ *  The parts are concatenated in order to form the training phrase.
+ *  Note: The API does not automatically annotate training phrases like the
+ *  Dialogflow Console does.
+ *  Note: Do not forget to include whitespace at part boundaries,
+ *  so the training phrase is well formatted when the parts are concatenated.
+ *  If the training phrase does not need to be annotated with parameters,
+ *  you just need a single part with only the Part.text field set.
+ *  If you want to annotate the training phrase, you must create multiple
+ *  parts, where the fields of each part are populated in one of two ways:
+ *  - `Part.text` is set to a part of the phrase that has no parameters.
+ *  - `Part.text` is set to a part of the phrase that you want to annotate,
+ *  and the `entity_type`, `alias`, and `user_defined` fields are all
+ *  set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart *> *parts;
 
@@ -3846,26 +3880,24 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The parameter name for the value extracted from the
  *  annotated part of the example.
+ *  This field is required for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Optional. The entity type name prefixed with `\@`. This field is
- *  required for the annotated part of the text and applies only to
- *  examples.
+ *  Optional. The entity type name prefixed with `\@`.
+ *  This field is required for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
-/**
- *  Required. The text corresponding to the example,
- *  if there are no annotations. For
- *  annotated examples, it is the text for one of the example's parts.
- */
+/** Required. The text for this part. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Optional. Indicates whether the text was manually annotated by the
- *  developer.
+ *  Optional. Indicates whether the text was manually annotated.
+ *  This field is set to true when the Dialogflow Console is used to
+ *  manually annotate the part. When creating an annotated part with the
+ *  API, you must set this to true.
  *
  *  Uses NSNumber of boolValue.
  */

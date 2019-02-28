@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -2422,61 +2422,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
-@implementation GTLRDfareportingQuery_DirectorySiteContactsGet
-
-@dynamic identifier, profileId;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        identifier:(long long)identifier {
-  NSArray *pathParams = @[
-    @"id", @"profileId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/directorySiteContacts/{id}";
-  GTLRDfareportingQuery_DirectorySiteContactsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.identifier = identifier;
-  query.expectedObjectClass = [GTLRDfareporting_DirectorySiteContact class];
-  query.loggingName = @"dfareporting.directorySiteContacts.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_DirectorySiteContactsList
-
-@dynamic directorySiteIds, ids, maxResults, pageToken, profileId, searchString,
-         sortField, sortOrder;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"directorySiteIds" : [NSNumber class],
-    @"ids" : [NSNumber class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId {
-  NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/directorySiteContacts";
-  GTLRDfareportingQuery_DirectorySiteContactsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.expectedObjectClass = [GTLRDfareporting_DirectorySiteContactsListResponse class];
-  query.loggingName = @"dfareporting.directorySiteContacts.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRDfareportingQuery_DirectorySitesGet
 
 @dynamic identifier, profileId;
@@ -2532,9 +2477,8 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 @implementation GTLRDfareportingQuery_DirectorySitesList
 
 @dynamic acceptsInStreamVideoPlacements, acceptsInterstitialPlacements,
-         acceptsPublisherPaidPlacements, active, countryId, dfpNetworkCode, ids,
-         maxResults, pageToken, parentId, profileId, searchString, sortField,
-         sortOrder;
+         acceptsPublisherPaidPlacements, active, dfpNetworkCode, ids,
+         maxResults, pageToken, profileId, searchString, sortField, sortOrder;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -284,7 +284,7 @@
 //
 
 @implementation GTLRSQLAdmin_Flag
-@dynamic allowedStringValues, appliesTo, kind, maxValue, minValue, name,
+@dynamic allowedStringValues, appliesTo, inBeta, kind, maxValue, minValue, name,
          requiresRestart, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

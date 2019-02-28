@@ -632,61 +632,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified data source. The dataStreamId, dataType, type,
  *  dataStreamName, and device properties with the exception of version, cannot
  *  be modified.
- *  Data sources are identified by their dataStreamId. This method supports
- *  patch semantics.
- *
- *  Method: fitness.users.dataSources.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeFitnessActivityWrite
- *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
- *    @c kGTLRAuthScopeFitnessBloodPressureWrite
- *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
- *    @c kGTLRAuthScopeFitnessBodyWrite
- *    @c kGTLRAuthScopeFitnessLocationWrite
- *    @c kGTLRAuthScopeFitnessNutritionWrite
- *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
- *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
- */
-@interface GTLRFitnessQuery_UsersDataSourcesPatch : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesPatchWithObject:userId:dataSourceId:]
-
-/** The data stream ID of the data source to update. */
-@property(nonatomic, copy, nullable) NSString *dataSourceId;
-
-/**
- *  Update the data source for the person identified. Use me to indicate the
- *  authenticated user. Only me is supported at this time.
- */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRFitness_DataSource.
- *
- *  Updates the specified data source. The dataStreamId, dataType, type,
- *  dataStreamName, and device properties with the exception of version, cannot
- *  be modified.
- *  Data sources are identified by their dataStreamId. This method supports
- *  patch semantics.
- *
- *  @param object The @c GTLRFitness_DataSource to include in the query.
- *  @param userId Update the data source for the person identified. Use me to
- *    indicate the authenticated user. Only me is supported at this time.
- *  @param dataSourceId The data stream ID of the data source to update.
- *
- *  @return GTLRFitnessQuery_UsersDataSourcesPatch
- */
-+ (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
-                         userId:(NSString *)userId
-                   dataSourceId:(NSString *)dataSourceId;
-
-@end
-
-/**
- *  Updates the specified data source. The dataStreamId, dataType, type,
- *  dataStreamName, and device properties with the exception of version, cannot
- *  be modified.
  *  Data sources are identified by their dataStreamId.
  *
  *  Method: fitness.users.dataSources.update

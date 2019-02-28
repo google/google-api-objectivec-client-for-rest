@@ -74,6 +74,18 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Hea
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified;
 /**
+ *  HTTP OPTIONS
+ *
+ *  Value: "OPTIONS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Options;
+/**
+ *  HTTP PATCH
+ *
+ *  Value: "PATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Patch;
+/**
  *  HTTP POST
  *
  *  Value: "POST"
@@ -380,6 +392,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *        (Value: "HEAD")
  *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified
  *        HTTP method unspecified (Value: "HTTP_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Options HTTP
+ *        OPTIONS (Value: "OPTIONS")
+ *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Patch HTTP PATCH
+ *        (Value: "PATCH")
  *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post HTTP POST
  *        (Value: "POST")
  *    @arg @c kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put HTTP PUT
@@ -976,7 +992,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  AppEngineHttpQueue settings apply only to
- *  AppEngine tasks in this queue.
+ *  App Engine tasks in this queue.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineHttpQueue *appEngineHttpQueue;
 
@@ -1431,12 +1447,40 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  Output only. The number of attempts dispatched.
- *  This count includes tasks which have been dispatched but haven't
+ *  This count includes attempts which have been dispatched but haven't
  *  received a response.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dispatchCount;
+
+/**
+ *  The deadline for requests sent to the worker. If the worker does not
+ *  respond by this deadline then the request is cancelled and the attempt
+ *  is marked as a `DEADLINE_EXCEEDED` failure. Cloud Tasks will retry the
+ *  task according to the RetryConfig.
+ *  Note that when the request is cancelled, Cloud Tasks will stop listing for
+ *  the response, but whether the worker stops processing depends on the
+ *  worker. For example, if the worker is stuck, it may not react to cancelled
+ *  requests.
+ *  The default and maximum values depend on the type of request:
+ *  * For App Engine tasks, 0 indicates that the
+ *  request has the default deadline. The default deadline depends on the
+ *  [scaling
+ *  type](https://cloud.google.com/appengine/docs/standard/go/how-instances-are-managed#instance_scaling)
+ *  of the service: 10 minutes for standard apps with automatic scaling, 24
+ *  hours for standard apps with manual and basic scaling, and 60 minutes for
+ *  flex apps. If the request deadline is set, it must be in the interval [15
+ *  seconds, 24 hours 15 seconds]. Regardless of the task's
+ *  `dispatch_deadline`, the app handler will not run for longer than than
+ *  the service's timeout. We recommend setting the `dispatch_deadline` to
+ *  at most a few seconds more than the app handler's timeout. For more
+ *  information see
+ *  [Timeouts](https://cloud.google.com/tasks/docs/creating-appengine-handlers#timeouts).
+ *  `dispatch_deadline` will be truncated to the nearest millisecond. The
+ *  deadline is an approximate deadline.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *dispatchDeadline;
 
 /**
  *  Output only. The status of the task's first attempt.

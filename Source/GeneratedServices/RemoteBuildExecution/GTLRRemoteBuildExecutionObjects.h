@@ -1734,6 +1734,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @property(nonatomic, strong, nullable) NSNumber *dockerCacheHit;
 
 /**
+ *  The input cache miss ratio.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputCacheMiss;
+
+/**
  *  The number of errors reported.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -1765,7 +1772,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  ID of the created instance.
  *  A valid `instance_id` must:
  *  be 6-50 characters long,
- *  contains only lowercase letters, digits, hyphens and underscores,
+ *  contain only lowercase letters, digits, hyphens and underscores,
  *  start with a lowercase letter, and
  *  end with a lowercase letter or a digit.
  */
@@ -2021,9 +2028,10 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
- *  Required. Machine type of the worker, such as n1-standard-2.
+ *  Required. Machine type of the worker, such as `n1-standard-2`.
  *  See https://cloud.google.com/compute/docs/machine-types for a list of
- *  supported machine types.
+ *  supported machine types. Note that `f1-micro` and `g1-small` are not yet
+ *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -2034,8 +2042,8 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Determines whether the worker is reserved (and therefore won't be
- *  preempted).
+ *  Determines whether the worker is reserved (equivalent to a Compute Engine
+ *  on-demand VM and therefore won't be preempted).
  *  See [Preemptible VMs](https://cloud.google.com/preemptible-vms/) for more
  *  details.
  *

@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRCloudFilestore_CancelOperationRequest;
+@class GTLRCloudFilestore_Instance;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -63,6 +64,221 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an instance.
+ *
+ *  Method: file.projects.locations.instances.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate : GTLRCloudFilestoreQuery
+// Previous library name was
+//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesCreateWithObject:parent:]
+
+/**
+ *  The name of the instance to create.
+ *  The name must be unique for the specified project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/**
+ *  The instance's project and location, in the format
+ *  projects/{project_id}/locations/{location}. In Cloud Filestore,
+ *  locations map to GCP zones, for example **us-west1-b**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Creates an instance.
+ *
+ *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
+ *  @param parent The instance's project and location, in the format
+ *    projects/{project_id}/locations/{location}. In Cloud Filestore,
+ *    locations map to GCP zones, for example **us-west1-b**.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Instance *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an instance.
+ *
+ *  Method: file.projects.locations.instances.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete : GTLRCloudFilestoreQuery
+// Previous library name was
+//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesDeleteWithname:]
+
+/**
+ *  The instance resource name, in the format
+ *  projects/{project_id}/locations/{location}/instances/{instance_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Deletes an instance.
+ *
+ *  @param name The instance resource name, in the format
+ *    projects/{project_id}/locations/{location}/instances/{instance_id}
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific instance.
+ *
+ *  Method: file.projects.locations.instances.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet : GTLRCloudFilestoreQuery
+// Previous library name was
+//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesGetWithname:]
+
+/**
+ *  The instance resource name, in the format
+ *  projects/{project_id}/locations/{location}/instances/{instance_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Instance.
+ *
+ *  Gets the details of a specific instance.
+ *
+ *  @param name The instance resource name, in the format
+ *    projects/{project_id}/locations/{location}/instances/{instance_id}.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all instances in a project for either a specified location
+ *  or for all locations.
+ *
+ *  Method: file.projects.locations.instances.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList : GTLRCloudFilestoreQuery
+// Previous library name was
+//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesListWithparent:]
+
+/** List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sort results. Supported values are "name", "name desc" or "" (unsorted).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value to use if there are additional
+ *  results to retrieve for this list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The project and location for which to retrieve instance information,
+ *  in the format projects/{project_id}/locations/{location}. In Cloud
+ *  Filestore, locations map to GCP zones, for example **us-west1-b**. To
+ *  retrieve instance information for all locations, use "-" for the {location}
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_ListInstancesResponse.
+ *
+ *  Lists all instances in a project for either a specified location
+ *  or for all locations.
+ *
+ *  @param parent The project and location for which to retrieve instance
+ *    information,
+ *    in the format projects/{project_id}/locations/{location}. In Cloud
+ *    Filestore, locations map to GCP zones, for example **us-west1-b**. To
+ *    retrieve instance information for all locations, use "-" for the
+ *    {location}
+ *    value.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a specific instance.
+ *
+ *  Method: file.projects.locations.instances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch : GTLRCloudFilestoreQuery
+// Previous library name was
+//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesPatchWithObject:name:]
+
+/**
+ *  Output only.
+ *  The resource name of the instance, in the format
+ *  projects/{project_id}/locations/{location_id}/instances/{instance_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask of fields to update. At least one path must be supplied in this
+ *  field. The elements of the repeated paths field may only include these
+ *  fields:
+ *  "description"
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Updates the settings of a specific instance.
+ *
+ *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
+ *  @param name Output only.
+ *    The resource name of the instance, in the format
+ *    projects/{project_id}/locations/{location_id}/instances/{instance_id}.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Instance *)object
+                           name:(NSString *)name;
 
 @end
 

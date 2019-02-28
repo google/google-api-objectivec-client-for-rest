@@ -210,7 +210,7 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate
 
-@dynamic authorizationCode, parent;
+@dynamic authorizationCode, parent, versionInfo;
 
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                          parent:(NSString *)parent {
@@ -299,7 +299,7 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch
 
-@dynamic authorizationCode, name, updateMask;
+@dynamic authorizationCode, name, updateMask, versionInfo;
 
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                            name:(NSString *)name {
@@ -439,7 +439,7 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
 
-@dynamic authorizationCode, parent;
+@dynamic authorizationCode, parent, versionInfo;
 
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                          parent:(NSString *)parent {
@@ -528,7 +528,7 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch
 
-@dynamic authorizationCode, name, updateMask;
+@dynamic authorizationCode, name, updateMask, versionInfo;
 
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                            name:(NSString *)name {

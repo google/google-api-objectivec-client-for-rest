@@ -43,13 +43,20 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBinaryAuthorization_AdmissionRule.enforcementMode
 
 /**
+ *  Dryrun mode: Audit logging only. This will allow the pod creation as if
+ *  the admission request had specified break-glass.
+ *
+ *  Value: "DRYRUN_AUDIT_LOG_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_DryrunAuditLogOnly;
+/**
  *  Enforce the admission rule by blocking the pod creation.
  *
  *  Value: "ENFORCED_BLOCK_AND_AUDIT_LOG"
  */
 GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcedBlockAndAuditLog;
 /**
- *  Mandatory.
+ *  Do not use.
  *
  *  Value: "ENFORCEMENT_MODE_UNSPECIFIED"
  */
@@ -71,7 +78,7 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  */
 GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDeny;
 /**
- *  Mandatory.
+ *  Do not use.
  *
  *  Value: "EVALUATION_MODE_UNSPECIFIED"
  */
@@ -99,11 +106,16 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *  Required. The action when a pod creation is denied by the admission rule.
  *
  *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_DryrunAuditLogOnly
+ *        Dryrun mode: Audit logging only. This will allow the pod creation as
+ *        if
+ *        the admission request had specified break-glass. (Value:
+ *        "DRYRUN_AUDIT_LOG_ONLY")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcedBlockAndAuditLog
  *        Enforce the admission rule by blocking the pod creation. (Value:
  *        "ENFORCED_BLOCK_AND_AUDIT_LOG")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcementModeUnspecified
- *        Mandatory. (Value: "ENFORCEMENT_MODE_UNSPECIFIED")
+ *        Do not use. (Value: "ENFORCEMENT_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *enforcementMode;
 
@@ -116,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDeny
  *        This rule denies all pod creations. (Value: "ALWAYS_DENY")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified
- *        Mandatory. (Value: "EVALUATION_MODE_UNSPECIFIED")
+ *        Do not use. (Value: "EVALUATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation
  *        This rule allows a pod creation if all the attestors listed in
  *        'require_attestations_by' have valid attestations for all of the

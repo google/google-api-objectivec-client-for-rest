@@ -793,7 +793,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Ends a session, releasing server resources associated with it.
+ *  Ends a session, releasing server resources associated with it. This will
+ *  asynchronously trigger cancellation of any operations that are running with
+ *  this session.
  *
  *  Method: spanner.projects.instances.databases.sessions.delete
  *
@@ -811,7 +813,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Ends a session, releasing server resources associated with it.
+ *  Ends a session, releasing server resources associated with it. This will
+ *  asynchronously trigger cancellation of any operations that are running with
+ *  this session.
  *
  *  @param name Required. The name of the session to delete.
  *

@@ -40,6 +40,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgno
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile = @"BINARY_FILE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image = @"IMAGE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile = @"TEXT_FILE";
 
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
@@ -194,7 +195,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Action
-@dynamic publishSummaryToCscc, pubSub, saveFindings;
+@dynamic jobNotificationEmails, publishSummaryToCscc, pubSub, saveFindings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest
 @end
 
 
@@ -1038,7 +1048,11 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
-@dynamic displayName, name, supportedBy;
+@dynamic descriptionProperty, displayName, name, supportedBy;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1236,6 +1250,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails
 @end
 
 
@@ -1970,7 +1993,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Regex
-@dynamic pattern;
+@dynamic groupIndexes, pattern;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupIndexes" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

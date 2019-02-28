@@ -23,6 +23,7 @@
 @class GTLRFirebaseHosting_ActingUser;
 @class GTLRFirebaseHosting_CertDnsChallenge;
 @class GTLRFirebaseHosting_CertHttpChallenge;
+@class GTLRFirebaseHosting_CloudRunRewrite;
 @class GTLRFirebaseHosting_Domain;
 @class GTLRFirebaseHosting_DomainProvisioning;
 @class GTLRFirebaseHosting_DomainRedirect;
@@ -289,8 +290,8 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Created;
  */
 GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Deleted;
 /**
- *  The version has fallen out of the site-configured retention window and its
- *  associated files in GCS have been/been scheduled for deletion.
+ *  The version is outside the site-configured limit for the number of
+ *  retained versions, so the version's content is scheduled for deletion.
  *
  *  Value: "EXPIRED"
  */
@@ -383,6 +384,29 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *  challenge.
  */
 @property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  A configured rewrite that will direct any requests to a Cloud Run service.
+ *  If
+ *  the Cloud Run service does not exist when setting or updating your Firebase
+ *  Hosting configuration then the request will fail. Any errors from the Cloud
+ *  Run service (including when the service has been deleted) will be passed
+ *  back
+ *  down to the end user.
+ */
+@interface GTLRFirebaseHosting_CloudRunRewrite : GTLRObject
+
+/**
+ *  Optional. The region where the Cloud Run service is hosted. Defaults to
+ *  `us-central1` if not supplied.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Required. User supplied ID of the Cloud Run service. */
+@property(nonatomic, copy, nullable) NSString *serviceId;
 
 @end
 
@@ -845,6 +869,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 /** The URL path to rewrite the request to. */
 @property(nonatomic, copy, nullable) NSString *path;
 
+/** The request will be forwarded to Cloud Run. */
+@property(nonatomic, strong, nullable) GTLRFirebaseHosting_CloudRunRewrite *run;
+
 @end
 
 
@@ -1012,10 +1039,10 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *        version. (Value: "CREATED")
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Deleted The version has been
  *        deleted. (Value: "DELETED")
- *    @arg @c kGTLRFirebaseHosting_Version_Status_Expired The version has fallen
- *        out of the site-configured retention window and its
- *        associated files in GCS have been/been scheduled for deletion. (Value:
- *        "EXPIRED")
+ *    @arg @c kGTLRFirebaseHosting_Version_Status_Expired The version is outside
+ *        the site-configured limit for the number of
+ *        retained versions, so the version's content is scheduled for deletion.
+ *        (Value: "EXPIRED")
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Finalized All content has been
  *        added to the version, and the version can no longer be
  *        changed. (Value: "FINALIZED")

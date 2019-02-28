@@ -42,8 +42,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
 /**
- *  Authorization scope: Know the list of people in your circles, your age
- *  range, and language
+ *  Authorization scope: View your basic profile info, including your age range
+ *  and language
  *
  *  Value "https://www.googleapis.com/auth/plus.login"
  */

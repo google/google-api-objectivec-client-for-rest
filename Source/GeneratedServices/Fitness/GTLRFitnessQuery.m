@@ -244,35 +244,6 @@
 
 @end
 
-@implementation GTLRFitnessQuery_UsersDataSourcesPatch
-
-@dynamic dataSourceId, userId;
-
-+ (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
-                         userId:(NSString *)userId
-                   dataSourceId:(NSString *)dataSourceId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"dataSourceId", @"userId"
-  ];
-  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}";
-  GTLRFitnessQuery_UsersDataSourcesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.userId = userId;
-  query.dataSourceId = dataSourceId;
-  query.expectedObjectClass = [GTLRFitness_DataSource class];
-  query.loggingName = @"fitness.users.dataSources.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRFitnessQuery_UsersDataSourcesUpdate
 
 @dynamic dataSourceId, userId;

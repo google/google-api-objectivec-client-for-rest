@@ -7,7 +7,7 @@
 //   Transfers data from external data sources to a Google Cloud Storage bucket
 //   or between Google Cloud Storage buckets.
 // Documentation:
-//   https://cloud.google.com/storage/transfer
+//   https://cloud.google.com/storage-transfer/docs
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

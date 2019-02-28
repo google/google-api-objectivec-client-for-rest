@@ -18,16 +18,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfi
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2 = @"TPU_V2";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2 = @"TPU_V2";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction = @"BATCH_PREDICTION";
@@ -556,6 +556,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig
+@dynamic acceleratorConfig, imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest
 //
 
@@ -569,9 +579,10 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
-@dynamic args, hyperparameters, jobDir, masterType, packageUris,
-         parameterServerCount, parameterServerType, pythonModule, pythonVersion,
-         region, runtimeVersion, scaleTier, workerCount, workerType;
+@dynamic args, hyperparameters, jobDir, masterConfig, masterType, packageUris,
+         parameterServerConfig, parameterServerCount, parameterServerType,
+         pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
+         workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

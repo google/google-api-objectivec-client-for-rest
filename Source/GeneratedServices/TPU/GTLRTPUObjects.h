@@ -47,6 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRTPU_Node.health
 
 /**
+ *  The resource is unhealthy.
+ *
+ *  Value: "DEPRECATED_UNHEALTHY"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy;
+/**
  *  Health status is unknown: not initialized or failed to retrieve.
  *
  *  Value: "HEALTH_UNSPECIFIED"
@@ -65,11 +71,18 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Healthy;
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Timeout;
 /**
- *  The resource is unhealthy.
+ *  The node is under maintenance/priority boost caused rescheduling and
+ *  will resume running once rescheduled.
  *
- *  Value: "UNHEALTHY"
+ *  Value: "UNHEALTHY_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Unhealthy;
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyMaintenance;
+/**
+ *  The in-guest ML stack is unhealthy.
+ *
+ *  Value: "UNHEALTHY_TENSORFLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_Node.state
@@ -420,14 +433,19 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *  The health status of the TPU node.
  *
  *  Likely values:
+ *    @arg @c kGTLRTPU_Node_Health_DeprecatedUnhealthy The resource is
+ *        unhealthy. (Value: "DEPRECATED_UNHEALTHY")
  *    @arg @c kGTLRTPU_Node_Health_HealthUnspecified Health status is unknown:
  *        not initialized or failed to retrieve. (Value: "HEALTH_UNSPECIFIED")
  *    @arg @c kGTLRTPU_Node_Health_Healthy The resource is healthy. (Value:
  *        "HEALTHY")
  *    @arg @c kGTLRTPU_Node_Health_Timeout The resource is unresponsive. (Value:
  *        "TIMEOUT")
- *    @arg @c kGTLRTPU_Node_Health_Unhealthy The resource is unhealthy. (Value:
- *        "UNHEALTHY")
+ *    @arg @c kGTLRTPU_Node_Health_UnhealthyMaintenance The node is under
+ *        maintenance/priority boost caused rescheduling and
+ *        will resume running once rescheduled. (Value: "UNHEALTHY_MAINTENANCE")
+ *    @arg @c kGTLRTPU_Node_Health_UnhealthyTensorflow The in-guest ML stack is
+ *        unhealthy. (Value: "UNHEALTHY_TENSORFLOW")
  */
 @property(nonatomic, copy, nullable) NSString *health;
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Speech API (speech/v1)
+//   Cloud Speech-to-Text API (speech/v1)
 // Description:
 //   Converts audio to text by applying powerful neural network models.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeSpeechCloudPlatform;
 //
 
 /**
- *  Service for executing Cloud Speech API queries.
+ *  Service for executing Cloud Speech-to-Text API queries.
  *
  *  Converts audio to text by applying powerful neural network models.
  */

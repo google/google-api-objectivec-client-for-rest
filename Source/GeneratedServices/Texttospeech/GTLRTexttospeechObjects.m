@@ -38,7 +38,16 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AudioConfig
-@dynamic audioEncoding, pitch, sampleRateHertz, speakingRate, volumeGainDb;
+@dynamic audioEncoding, effectsProfileId, pitch, sampleRateHertz, speakingRate,
+         volumeGainDb;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectsProfileId" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

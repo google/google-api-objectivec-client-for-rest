@@ -45,6 +45,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: ml.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_OperationsDelete : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudMachineLearningEngineQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get the service account information associated with your project. You need
  *  this information in order to grant the service account permissions for
  *  the Google Cloud Storage location where you put your model training code
@@ -1163,40 +1197,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the operation resource to be cancelled.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: ml.projects.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
- */
-@interface GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsOperationsDeleteWithname:]
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 

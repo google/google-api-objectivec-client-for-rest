@@ -1158,7 +1158,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Creates data source.
+ *  Creates a datasource.
  *
  *  Method: cloudsearch.settings.datasources.create
  *
@@ -1174,7 +1174,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Creates data source.
+ *  Creates a datasource.
  *
  *  @param object The @c GTLRCloudSearch_DataSource to include in the query.
  *
@@ -1185,7 +1185,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Deletes a data source.
+ *  Deletes a datasource.
  *
  *  Method: cloudsearch.settings.datasources.delete
  *
@@ -1205,7 +1205,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the data source.
+ *  Name of the datasource.
  *  Format: datasources/{source_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1213,9 +1213,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Deletes a data source.
+ *  Deletes a datasource.
  *
- *  @param name Name of the data source.
+ *  @param name Name of the datasource.
  *    Format: datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesDelete
@@ -1225,7 +1225,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Gets a data source.
+ *  Gets a datasource.
  *
  *  Method: cloudsearch.settings.datasources.get
  *
@@ -1245,7 +1245,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the data source resource.
+ *  Name of the datasource resource.
  *  Format: datasources/{source_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1253,9 +1253,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Fetches a @c GTLRCloudSearch_DataSource.
  *
- *  Gets a data source.
+ *  Gets a datasource.
  *
- *  @param name Name of the data source resource.
+ *  @param name Name of the datasource resource.
  *    Format: datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesGet
@@ -1265,7 +1265,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Lists data sources.
+ *  Lists datasources.
  *
  *  Method: cloudsearch.settings.datasources.list
  *
@@ -1285,7 +1285,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Maximum number of data sources to fetch in a request.
+ *  Maximum number of datasources to fetch in a request.
  *  The max value is 100.
  *  <br />The default value is 10
  */
@@ -1297,7 +1297,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Fetches a @c GTLRCloudSearch_ListDataSourceResponse.
  *
- *  Lists data sources.
+ *  Lists datasources.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesList
  *
@@ -1310,7 +1310,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Updates a data source.
+ *  Updates a datasource.
  *
  *  Method: cloudsearch.settings.datasources.update
  *
@@ -1324,22 +1324,22 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsDatasourcesUpdateWithObject:name:]
 
 /**
- *  Name of the data source resource.
+ *  Name of the datasource resource.
  *  Format: datasources/{source_id}.
- *  <br />The name is ignored when creating a data source.
+ *  <br />The name is ignored when creating a datasource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Updates a data source.
+ *  Updates a datasource.
  *
  *  @param object The @c GTLRCloudSearch_UpdateDataSourceRequest to include in
  *    the query.
- *  @param name Name of the data source resource.
+ *  @param name Name of the datasource resource.
  *    Format: datasources/{source_id}.
- *    <br />The name is ignored when creating a data source.
+ *    <br />The name is ignored when creating a datasource.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesUpdate
  */

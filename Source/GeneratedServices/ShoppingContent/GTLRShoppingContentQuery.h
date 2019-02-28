@@ -32,10 +32,6 @@
 @class GTLRShoppingContent_LiasettingsCustomBatchRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest;
-@class GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedRequest;
-@class GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedRequest;
-@class GTLRShoppingContent_OrderpaymentsNotifyChargeRequest;
-@class GTLRShoppingContent_OrderpaymentsNotifyRefundRequest;
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
 @class GTLRShoppingContent_OrdersCancelLineItemRequest;
 @class GTLRShoppingContent_OrdersCancelRequest;
@@ -57,6 +53,8 @@
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
+@class GTLRShoppingContent_RegionalInventory;
+@class GTLRShoppingContent_RegionalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequest;
 
@@ -433,7 +431,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  GTLRShoppingContentQuery_AccountstatusesCustombatch
+ *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  Method: content.accountstatuses.custombatch
  *
@@ -446,6 +444,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountstatusesCustomBatchResponse.
+ *
+ *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  @param object The @c GTLRShoppingContent_AccountstatusesCustomBatchRequest
  *    to include in the query.
@@ -1644,172 +1644,6 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Notify about successfully authorizing user's payment method for a given
- *  amount.
- *
- *  Method: content.orderpayments.notifyauthapproved
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_OrderpaymentsNotifyauthapproved : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderpaymentsNotifyauthapprovedWithObject:merchantId:orderId:]
-
-/**
- *  The ID of the account that manages the order. This cannot be a multi-client
- *  account.
- */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The ID of the order for for which payment authorization is happening. */
-@property(nonatomic, copy, nullable) NSString *orderId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedResponse.
- *
- *  Notify about successfully authorizing user's payment method for a given
- *  amount.
- *
- *  @param object The @c
- *    GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedRequest to include in
- *    the query.
- *  @param merchantId The ID of the account that manages the order. This cannot
- *    be a multi-client account.
- *  @param orderId The ID of the order for for which payment authorization is
- *    happening.
- *
- *  @return GTLRShoppingContentQuery_OrderpaymentsNotifyauthapproved
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedRequest *)object
-                     merchantId:(unsigned long long)merchantId
-                        orderId:(NSString *)orderId;
-
-@end
-
-/**
- *  Notify about failure to authorize user's payment method.
- *
- *  Method: content.orderpayments.notifyauthdeclined
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_OrderpaymentsNotifyauthdeclined : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderpaymentsNotifyauthdeclinedWithObject:merchantId:orderId:]
-
-/**
- *  The ID of the account that manages the order. This cannot be a multi-client
- *  account.
- */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The ID of the order for which payment authorization was declined. */
-@property(nonatomic, copy, nullable) NSString *orderId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedResponse.
- *
- *  Notify about failure to authorize user's payment method.
- *
- *  @param object The @c
- *    GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedRequest to include in
- *    the query.
- *  @param merchantId The ID of the account that manages the order. This cannot
- *    be a multi-client account.
- *  @param orderId The ID of the order for which payment authorization was
- *    declined.
- *
- *  @return GTLRShoppingContentQuery_OrderpaymentsNotifyauthdeclined
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedRequest *)object
-                     merchantId:(unsigned long long)merchantId
-                        orderId:(NSString *)orderId;
-
-@end
-
-/**
- *  Notify about charge on user's selected payments method.
- *
- *  Method: content.orderpayments.notifycharge
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_OrderpaymentsNotifycharge : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderpaymentsNotifychargeWithObject:merchantId:orderId:]
-
-/**
- *  The ID of the account that manages the order. This cannot be a multi-client
- *  account.
- */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The ID of the order for which charge is happening. */
-@property(nonatomic, copy, nullable) NSString *orderId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_OrderpaymentsNotifyChargeResponse.
- *
- *  Notify about charge on user's selected payments method.
- *
- *  @param object The @c GTLRShoppingContent_OrderpaymentsNotifyChargeRequest to
- *    include in the query.
- *  @param merchantId The ID of the account that manages the order. This cannot
- *    be a multi-client account.
- *  @param orderId The ID of the order for which charge is happening.
- *
- *  @return GTLRShoppingContentQuery_OrderpaymentsNotifycharge
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_OrderpaymentsNotifyChargeRequest *)object
-                     merchantId:(unsigned long long)merchantId
-                        orderId:(NSString *)orderId;
-
-@end
-
-/**
- *  Notify about refund on user's selected payments method.
- *
- *  Method: content.orderpayments.notifyrefund
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_OrderpaymentsNotifyrefund : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderpaymentsNotifyrefundWithObject:merchantId:orderId:]
-
-/**
- *  The ID of the account that manages the order. This cannot be a multi-client
- *  account.
- */
-@property(nonatomic, assign) unsigned long long merchantId;
-
-/** The ID of the order for which charge is happening. */
-@property(nonatomic, copy, nullable) NSString *orderId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_OrderpaymentsNotifyRefundResponse.
- *
- *  Notify about refund on user's selected payments method.
- *
- *  @param object The @c GTLRShoppingContent_OrderpaymentsNotifyRefundRequest to
- *    include in the query.
- *  @param merchantId The ID of the account that manages the order. This cannot
- *    be a multi-client account.
- *  @param orderId The ID of the order for which charge is happening.
- *
- *  @return GTLRShoppingContentQuery_OrderpaymentsNotifyrefund
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_OrderpaymentsNotifyRefundRequest *)object
-                     merchantId:(unsigned long long)merchantId
-                        orderId:(NSString *)orderId;
-
-@end
-
-/**
  *  Retrieves a report for disbursements from your Merchant Center account.
  *
  *  Method: content.orderreports.listdisbursements
@@ -2674,7 +2508,11 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Sets (overrides) merchant provided annotations on the line item.
+ *  Sets (or overrides if it already exists) merchant provided annotations in
+ *  the form of key-value pairs. A common use case would be to supply us with
+ *  additional structured information about a line item that cannot be provided
+ *  via other methods. Submitted key-value pairs can be retrieved as part of the
+ *  orders resource.
  *
  *  Method: content.orders.setlineitemmetadata
  *
@@ -2697,7 +2535,11 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersSetLineItemMetadataResponse.
  *
- *  Sets (overrides) merchant provided annotations on the line item.
+ *  Sets (or overrides if it already exists) merchant provided annotations in
+ *  the form of key-value pairs. A common use case would be to supply us with
+ *  additional structured information about a line item that cannot be provided
+ *  via other methods. Submitted key-value pairs can be retrieved as part of the
+ *  orders resource.
  *
  *  @param object The @c GTLRShoppingContent_OrdersSetLineItemMetadataRequest to
  *    include in the query.
@@ -3418,6 +3260,79 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Updates regional inventory for multiple products or regions in a single
+ *  request.
+ *
+ *  Method: content.regionalinventory.custombatch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionalinventoryCustombatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionalinventoryCustombatchWithObject:]
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RegionalinventoryCustomBatchResponse.
+ *
+ *  Updates regional inventory for multiple products or regions in a single
+ *  request.
+ *
+ *  @param object The @c GTLRShoppingContent_RegionalinventoryCustomBatchRequest
+ *    to include in the query.
+ *
+ *  @return GTLRShoppingContentQuery_RegionalinventoryCustombatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RegionalinventoryCustomBatchRequest *)object;
+
+@end
+
+/**
+ *  Update the regional inventory of a product in your Merchant Center account.
+ *  If a regional inventory with the same region ID already exists, this method
+ *  updates that entry.
+ *
+ *  Method: content.regionalinventory.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionalinventoryInsert : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionalinventoryInsertWithObject:merchantId:productId:]
+
+/**
+ *  The ID of the account that contains the product. This account cannot be a
+ *  multi-client account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The REST id of the product for which to update the regional inventory. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RegionalInventory.
+ *
+ *  Update the regional inventory of a product in your Merchant Center account.
+ *  If a regional inventory with the same region ID already exists, this method
+ *  updates that entry.
+ *
+ *  @param object The @c GTLRShoppingContent_RegionalInventory to include in the
+ *    query.
+ *  @param merchantId The ID of the account that contains the product. This
+ *    account cannot be a multi-client account.
+ *  @param productId The REST id of the product for which to update the regional
+ *    inventory.
+ *
+ *  @return GTLRShoppingContentQuery_RegionalinventoryInsert
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RegionalInventory *)object
+                     merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId;
 
 @end
 

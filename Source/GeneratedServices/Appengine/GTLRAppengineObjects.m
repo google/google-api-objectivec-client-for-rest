@@ -811,7 +811,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Network
-@dynamic forwardedPorts, instanceTag, name, subnetworkName;
+@dynamic forwardedPorts, instanceTag, name, sessionAffinity, subnetworkName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -874,16 +874,6 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppengine_OperationMetadata
-//
-
-@implementation GTLRAppengine_OperationMetadata
-@dynamic endTime, insertTime, method, operationType, target, user;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppengine_OperationMetadataV1
 //
 
@@ -936,16 +926,6 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAppengine_OperationMetadataV1Beta5
-//
-
-@implementation GTLRAppengine_OperationMetadataV1Beta5
-@dynamic endTime, insertTime, method, target, user;
 @end
 
 

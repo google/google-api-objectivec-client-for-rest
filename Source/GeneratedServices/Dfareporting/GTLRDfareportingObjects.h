@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -60,10 +60,11 @@
 @class GTLRDfareporting_CreativeGroupAssignment;
 @class GTLRDfareporting_CreativeOptimizationConfiguration;
 @class GTLRDfareporting_CreativeRotation;
-@class GTLRDfareporting_CreativeSettings;
 @class GTLRDfareporting_CrossDimensionReachReportCompatibleFields;
 @class GTLRDfareporting_CustomFloodlightVariable;
 @class GTLRDfareporting_CustomRichMediaEvents;
+@class GTLRDfareporting_CustomViewabilityMetric;
+@class GTLRDfareporting_CustomViewabilityMetricConfiguration;
 @class GTLRDfareporting_DateRange;
 @class GTLRDfareporting_DayPartTargeting;
 @class GTLRDfareporting_DeepLink;
@@ -74,8 +75,6 @@
 @class GTLRDfareporting_DimensionFilter;
 @class GTLRDfareporting_DimensionValue;
 @class GTLRDfareporting_DirectorySite;
-@class GTLRDfareporting_DirectorySiteContact;
-@class GTLRDfareporting_DirectorySiteContactAssignment;
 @class GTLRDfareporting_DirectorySiteSettings;
 @class GTLRDfareporting_DynamicTargetingKey;
 @class GTLRDfareporting_EncryptionInfo;
@@ -149,8 +148,12 @@
 @class GTLRDfareporting_RichMediaExitOverride;
 @class GTLRDfareporting_Rule;
 @class GTLRDfareporting_Site;
+@class GTLRDfareporting_SiteCompanionSetting;
 @class GTLRDfareporting_SiteContact;
 @class GTLRDfareporting_SiteSettings;
+@class GTLRDfareporting_SiteSkippableSetting;
+@class GTLRDfareporting_SiteTranscodeSetting;
+@class GTLRDfareporting_SiteVideoSettings;
 @class GTLRDfareporting_Size;
 @class GTLRDfareporting_SkippableSetting;
 @class GTLRDfareporting_SortedDimension;
@@ -1470,36 +1473,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagForm
 GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_DirectorySiteContact.role
-
-/** Value: "ADMIN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Role_Admin;
-/** Value: "EDIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Role_Edit;
-/** Value: "VIEW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Role_View;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_DirectorySiteContact.type
-
-/** Value: "BILLING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Billing;
-/** Value: "OTHER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Other;
-/** Value: "SALES" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Sales;
-/** Value: "TECHNICAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Technical;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_DirectorySiteContactAssignment.visibility
-
-/** Value: "PRIVATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Private;
-/** Value: "PUBLIC" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Public;
-
-// ----------------------------------------------------------------------------
 // GTLRDfareporting_DynamicTargetingKey.objectType
 
 /** Value: "OBJECT_AD" */
@@ -2272,6 +2245,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTe
 GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash;
 /** Value: "HTML5" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_SiteVideoSettings.orientation
+
+/** Value: "ANY" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Any;
+/** Value: "LANDSCAPE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape;
+/** Value: "PORTRAIT" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_SortedDimension.sortOrder
@@ -4251,9 +4234,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
 
-/** Lookback window settings for the campaign. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LookbackConfiguration *lookbackConfiguration;
-
 /**
  *  Name of this campaign. This is a required field and must be less than 256
  *  characters long and unique among campaigns of the same advertiser.
@@ -5547,14 +5527,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *overrideCss;
 
 /**
- *  The asset ID of the polite load image asset. Applicable to the creative
- *  type: DISPLAY.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *politeLoadAssetId;
-
-/**
  *  Amount of time to play the video before counting a view. Applicable to the
  *  following creative types: all INSTREAM_VIDEO.
  */
@@ -5864,6 +5836,22 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) GTLRDfareporting_CreativeAssetId *assetIdentifier;
 
 /**
+ *  Audio stream bit rate in kbps. This is a read-only field. Applicable to the
+ *  following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *audioBitRate;
+
+/**
+ *  Audio sample bit rate in hertz. This is a read-only field. Applicable to the
+ *  following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *audioSampleRate;
+
+/**
  *  Exit event configured for the backup image. Applicable to the following
  *  creative types: all RICH_MEDIA.
  */
@@ -6007,6 +5995,15 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *flashVersion;
 
 /**
+ *  Video frame rate for video asset in frames per second. This is a read-only
+ *  field. Applicable to the following creative types: INSTREAM_VIDEO and all
+ *  VPAID.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frameRate;
+
+/**
  *  Whether to hide Flash objects flag for an asset. Applicable to the following
  *  creative types: all RICH_MEDIA.
  *
@@ -6090,6 +6087,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *originalBackup;
+
+/**
+ *  Whether this asset is used as a polite load asset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *politeLoad;
 
 /**
  *  Offset position for an asset. Applicable to the following creative types:
@@ -7053,26 +7057,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Creative Settings
- */
-@interface GTLRDfareporting_CreativeSettings : GTLRObject
-
-/**
- *  Header text for iFrames for this site. Must be less than or equal to 2000
- *  characters long.
- */
-@property(nonatomic, copy, nullable) NSString *iFrameFooter;
-
-/**
- *  Header text for iFrames for this site. Must be less than or equal to 2000
- *  characters long.
- */
-@property(nonatomic, copy, nullable) NSString *iFrameHeader;
-
-@end
-
-
-/**
  *  Creative List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7285,6 +7269,71 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  dfareporting#customRichMediaEvents.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Custom Viewability Metric
+ */
+@interface GTLRDfareporting_CustomViewabilityMetric : GTLRObject
+
+/** Configuration of the custom viewability metric. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CustomViewabilityMetricConfiguration *configuration;
+
+/**
+ *  ID of the custom viewability metric.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Name of the custom viewability metric. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The attributes, like playtime and percent onscreen, that define the Custom
+ *  Viewability Metric.
+ */
+@interface GTLRDfareporting_CustomViewabilityMetricConfiguration : GTLRObject
+
+/**
+ *  Whether the video must be audible to count an impression.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *audible;
+
+/**
+ *  The time in milliseconds the video must play for the Custom Viewability
+ *  Metric to count an impression. If both this and timePercent are specified,
+ *  the earlier of the two will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeMillis;
+
+/**
+ *  The percentage of video that must play for the Custom Viewability Metric to
+ *  count an impression. If both this and timeMillis are specified, the earlier
+ *  of the two will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timePercent;
+
+/**
+ *  The percentage of video that must be on screen for the Custom Viewability
+ *  Metric to count an impression.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewabilityPercent;
 
 @end
 
@@ -7728,80 +7777,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *active;
 
-/** Directory site contacts. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DirectorySiteContactAssignment *> *contactAssignments;
-
-/**
- *  Country ID of this directory site. This is a read-only field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *countryId;
-
-/**
- *  Currency ID of this directory site. This is a read-only field.
- *  Possible values are:
- *  - "1" for USD
- *  - "2" for GBP
- *  - "3" for ESP
- *  - "4" for SEK
- *  - "5" for CAD
- *  - "6" for JPY
- *  - "7" for DEM
- *  - "8" for AUD
- *  - "9" for FRF
- *  - "10" for ITL
- *  - "11" for DKK
- *  - "12" for NOK
- *  - "13" for FIM
- *  - "14" for ZAR
- *  - "15" for IEP
- *  - "16" for NLG
- *  - "17" for EUR
- *  - "18" for KRW
- *  - "19" for TWD
- *  - "20" for SGD
- *  - "21" for CNY
- *  - "22" for HKD
- *  - "23" for NZD
- *  - "24" for MYR
- *  - "25" for BRL
- *  - "26" for PTE
- *  - "27" for MXP
- *  - "28" for CLP
- *  - "29" for TRY
- *  - "30" for ARS
- *  - "31" for PEN
- *  - "32" for ILS
- *  - "33" for CHF
- *  - "34" for VEF
- *  - "35" for COP
- *  - "36" for GTQ
- *  - "37" for PLN
- *  - "39" for INR
- *  - "40" for THB
- *  - "41" for IDR
- *  - "42" for CZK
- *  - "43" for RON
- *  - "44" for HUF
- *  - "45" for RUB
- *  - "46" for AED
- *  - "47" for BGN
- *  - "48" for HRK
- *  - "49" for MXN
- *  - "50" for NGN
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *currencyId;
-
-/**
- *  Description of this directory site. This is a read-only field.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
 /**
  *  ID of this directory site. This is a read-only, auto-generated field.
  *
@@ -7845,142 +7820,11 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 /** Name of this directory site. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Parent directory site ID.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *parentId;
-
 /** Directory site settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DirectorySiteSettings *settings;
 
 /** URL of this directory site. */
 @property(nonatomic, copy, nullable) NSString *url;
-
-@end
-
-
-/**
- *  Contains properties of a Site Directory contact.
- */
-@interface GTLRDfareporting_DirectorySiteContact : GTLRObject
-
-/** Address of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *address;
-
-/** Email address of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *email;
-
-/** First name of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *firstName;
-
-/**
- *  ID of this directory site contact. This is a read-only, auto-generated
- *  field.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#directorySiteContact".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Last name of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *lastName;
-
-/** Phone number of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *phone;
-
-/**
- *  Directory site contact role.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Role_Admin Value "ADMIN"
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Role_Edit Value "EDIT"
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Role_View Value "VIEW"
- */
-@property(nonatomic, copy, nullable) NSString *role;
-
-/** Title or designation of this directory site contact. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/**
- *  Directory site contact type.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Type_Billing Value
- *        "BILLING"
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Type_Other Value "OTHER"
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Type_Sales Value "SALES"
- *    @arg @c kGTLRDfareporting_DirectorySiteContact_Type_Technical Value
- *        "TECHNICAL"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Directory Site Contact Assignment
- */
-@interface GTLRDfareporting_DirectorySiteContactAssignment : GTLRObject
-
-/**
- *  ID of this directory site contact. This is a read-only, auto-generated
- *  field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contactId;
-
-/**
- *  Visibility of this directory site contact assignment. When set to PUBLIC
- *  this contact assignment is visible to all account and agency users; when set
- *  to PRIVATE it is visible only to the site.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Private
- *        Value "PRIVATE"
- *    @arg @c kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Public
- *        Value "PUBLIC"
- */
-@property(nonatomic, copy, nullable) NSString *visibility;
-
-@end
-
-
-/**
- *  Directory Site Contact List Response
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "directorySiteContacts" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRDfareporting_DirectorySiteContactsListResponse : GTLRCollectionObject
-
-/**
- *  Directory site contact collection
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DirectorySiteContact *> *directorySiteContacts;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#directorySiteContactsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Pagination token to be used for the next list operation. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -8013,29 +7857,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *interstitialPlacementAccepted;
-
-/**
- *  Whether this directory site has disabled Nielsen OCR reach ratings.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nielsenOcrOptOut;
-
-/**
- *  Whether this directory site has disabled generation of Verification ins
- *  tags.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *verificationTagOptOut;
-
-/**
- *  Whether this directory site has disabled active view for in-stream video
- *  creatives. This is a read-only field.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoActiveViewOptOut;
 
 @end
 
@@ -9076,6 +8897,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *analyticsDataSharingEnabled;
+
+/** Custom Viewability metric for the floodlight configuration. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CustomViewabilityMetric *customViewabilityMetric;
 
 /**
  *  Whether the exposure-to-conversion report is enabled. This report shows
@@ -13028,6 +12852,47 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *subaccountId;
 
+/**
+ *  Default video settings for new placements created under this site. This
+ *  value will be used to populate the placements.videoSettings field, when no
+ *  value is specified for the new placement.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_SiteVideoSettings *videoSettings;
+
+@end
+
+
+/**
+ *  Companion Settings
+ */
+@interface GTLRDfareporting_SiteCompanionSetting : GTLRObject
+
+/**
+ *  Whether companions are disabled for this site template.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *companionsDisabled;
+
+/**
+ *  Whitelist of companion sizes to be served via this site template. Set this
+ *  list to null or empty to serve all companion sizes.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *enabledSizes;
+
+/**
+ *  Whether to serve only static images as companions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageOnly;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#siteCompanionSetting".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
 @end
 
 
@@ -13099,18 +12964,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *adBlockingOptOut;
 
-/** Site-wide creative settings. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CreativeSettings *creativeSettings;
-
 /**
  *  Whether new cookies are disabled for this site.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableNewCookie;
-
-/** Lookback window settings for this site. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LookbackConfiguration *lookbackConfiguration;
 
 /** Configuration settings for dynamic and image floodlight tags. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_TagSetting *tagSetting;
@@ -13152,6 +13011,40 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
+ *  Skippable Settings
+ */
+@interface GTLRDfareporting_SiteSkippableSetting : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#siteSkippableSetting".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Amount of time to play videos served to this site template before counting a
+ *  view. Applicable when skippable is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_VideoOffset *progressOffset;
+
+/**
+ *  Amount of time to play videos served to this site before the skip button
+ *  should appear. Applicable when skippable is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_VideoOffset *skipOffset;
+
+/**
+ *  Whether the user can skip creatives served to this site. This will act as
+ *  default for new placements created under this site.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippable;
+
+@end
+
+
+/**
  *  Site List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -13177,6 +13070,72 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Site *> *sites;
+
+@end
+
+
+/**
+ *  Transcode Settings
+ */
+@interface GTLRDfareporting_SiteTranscodeSetting : GTLRObject
+
+/**
+ *  Whitelist of video formats to be served to this site template. Set this list
+ *  to null or empty to serve all video formats.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *enabledVideoFormats;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#siteTranscodeSetting".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Video Settings
+ */
+@interface GTLRDfareporting_SiteVideoSettings : GTLRObject
+
+/**
+ *  Settings for the companion creatives of video creatives served to this site.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_SiteCompanionSetting *companionSettings;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#siteVideoSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Orientation of a site template used for video. This will act as default for
+ *  new placements created under this site.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_SiteVideoSettings_Orientation_Any Value "ANY"
+ *    @arg @c kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape Value
+ *        "LANDSCAPE"
+ *    @arg @c kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait Value
+ *        "PORTRAIT"
+ */
+@property(nonatomic, copy, nullable) NSString *orientation;
+
+/**
+ *  Settings for the skippability of video creatives served to this site. This
+ *  will act as default for new placements created under this site.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_SiteSkippableSetting *skippableSettings;
+
+/**
+ *  Settings for the transcodes of video creatives served to this site. This
+ *  will act as default for new placements created under this site.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_SiteTranscodeSetting *transcodeSettings;
 
 @end
 

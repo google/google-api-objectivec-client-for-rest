@@ -491,6 +491,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  If this field is true, then the request means to delete a group with all its
+ *  descendants. Otherwise, the request means to delete a group only when it has
+ *  no descendants. The default value is false.
+ */
+@property(nonatomic, assign) BOOL recursive;
+
+/**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
  *  Deletes an existing group.

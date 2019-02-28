@@ -29,6 +29,7 @@
 @class GTLRBigquery_DatasetList_Datasets_Item_Labels;
 @class GTLRBigquery_DatasetReference;
 @class GTLRBigquery_DestinationTableProperties;
+@class GTLRBigquery_DestinationTableProperties_Labels;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_ErrorProto;
 @class GTLRBigquery_ExplainQueryStage;
@@ -74,6 +75,7 @@
 @class GTLRBigquery_TableDataInsertAllRequest_Rows_Item;
 @class GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item;
 @class GTLRBigquery_TableFieldSchema;
+@class GTLRBigquery_TableFieldSchema_Categories;
 @class GTLRBigquery_TableList_Tables_Item;
 @class GTLRBigquery_TableList_Tables_Item_Labels;
 @class GTLRBigquery_TableList_Tables_Item_View;
@@ -647,6 +649,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
+/**
+ *  [Optional] The labels associated with this table. You can use these to
+ *  organize and group your tables. This will only be used if the destination
+ *  table is newly created. If the table already exists and labels are different
+ *  than the current labels are provided, the job will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DestinationTableProperties_Labels *labels;
+
+@end
+
+
+/**
+ *  [Optional] The labels associated with this table. You can use these to
+ *  organize and group your tables. This will only be used if the destination
+ *  table is newly created. If the table already exists and labels are different
+ *  than the current labels are provided, the job will fail.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_DestinationTableProperties_Labels : GTLRObject
 @end
 
 
@@ -1982,6 +2007,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Output-only] Statistics for a load job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics3 *load;
 
+/**
+ *  [Output-only] Number of child jobs executed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numChildJobs;
+
+/** [Output-only] If this is a child job, the id of the parent. */
+@property(nonatomic, copy, nullable) NSString *parentJobId;
+
 /** [Output-only] Statistics for a query job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics2 *query;
 
@@ -2273,6 +2308,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *destinationUriFileCounts;
+
+/**
+ *  [Output-only] Number of user bytes extracted into the result. This is the
+ *  byte count as computed by BigQuery for billing purposes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputBytes;
 
 @end
 
@@ -3231,6 +3274,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_TableFieldSchema : GTLRObject
 
 /**
+ *  [Optional] The categories attached to this field, used for field-level
+ *  access control.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_Categories *categories;
+
+/**
  *  [Optional] The field description. The maximum length is 1,024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3264,6 +3313,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  RECORD).
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  [Optional] The categories attached to this field, used for field-level
+ *  access control.
+ */
+@interface GTLRBigquery_TableFieldSchema_Categories : GTLRObject
+
+/**
+ *  A list of category resource names. For example,
+ *  "projects/1/taxonomies/2/categories/3". At most 5 categories are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
 @end
 

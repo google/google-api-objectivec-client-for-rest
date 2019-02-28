@@ -160,6 +160,17 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_S
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
+ *  An identifier which selects 'audio effects' profiles that are applied on
+ *  (post synthesized) text to speech.
+ *  Effects are applied on top of each other in the order they are given.
+ *  See
+ *  [audio-profiles](https:
+ *  //cloud.google.com/text-to-speech/docs/audio-profiles)
+ *  for current supported profile ids.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectsProfileId;
+
+/**
  *  Optional speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20
  *  semitones from the original pitch. -20 means decrease 20 semitones from the
  *  original pitch.

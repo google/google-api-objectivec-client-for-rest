@@ -103,6 +103,16 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseHosting_CloudRunRewrite
+//
+
+@implementation GTLRFirebaseHosting_CloudRunRewrite
+@dynamic region, serviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseHosting_Domain
 //
 
@@ -309,7 +319,7 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 //
 
 @implementation GTLRFirebaseHosting_Rewrite
-@dynamic dynamicLinks, function, glob, path;
+@dynamic dynamicLinks, function, glob, path, run;
 @end
 
 

@@ -1273,8 +1273,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsGetServerConfigWithname:]
 
 /**
- *  The name (project and location) of the server config to get
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  The name (project and location) of the server config to get,
+ *  specified in the format 'projects/ * /locations/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1299,8 +1299,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns configuration info about the Kubernetes Engine service.
  *
- *  @param name The name (project and location) of the server config to get
- *    Specified in the format 'projects/ * /locations/ *'.
+ *  @param name The name (project and location) of the server config to get,
+ *    specified in the format 'projects/ * /locations/ *'.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsGetServerConfig
  */
@@ -3170,8 +3170,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesGetServerconfigWithprojectId:zoneProperty:]
 
 /**
- *  The name (project and location) of the server config to get
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  The name (project and location) of the server config to get,
+ *  specified in the format 'projects/ * /locations/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRCloudTalentSolution_BatchDeleteJobsRequest;
+@class GTLRCloudTalentSolution_CreateClientEventRequest;
 @class GTLRCloudTalentSolution_CreateCompanyRequest;
 @class GTLRCloudTalentSolution_CreateJobRequest;
 @class GTLRCloudTalentSolution_SearchJobsRequest;
@@ -83,6 +84,50 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Report events issued when end user interacts with customer's application
+ *  that uses Cloud Talent Solution. You may inspect the created events in
+ *  [self service
+ *  tools](https://console.cloud.google.com/talent-solution/overview).
+ *  [Learn
+ *  more](https://cloud.google.com/talent-solution/job-search/docs/management-tools)
+ *  about self service tools.
+ *
+ *  Method: jobs.projects.clientEvents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTalentSolution
+ *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
+ */
+@interface GTLRCloudTalentSolutionQuery_ProjectsClientEventsCreate : GTLRCloudTalentSolutionQuery
+// Previous library name was
+//   +[GTLQueryCloudTalentSolution queryForProjectsClientEventsCreateWithObject:parent:]
+
+/** Parent project name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudTalentSolution_ClientEvent.
+ *
+ *  Report events issued when end user interacts with customer's application
+ *  that uses Cloud Talent Solution. You may inspect the created events in
+ *  [self service
+ *  tools](https://console.cloud.google.com/talent-solution/overview).
+ *  [Learn
+ *  more](https://cloud.google.com/talent-solution/job-search/docs/management-tools)
+ *  about self service tools.
+ *
+ *  @param object The @c GTLRCloudTalentSolution_CreateClientEventRequest to
+ *    include in the query.
+ *  @param parent Parent project name.
+ *
+ *  @return GTLRCloudTalentSolutionQuery_ProjectsClientEventsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateClientEventRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

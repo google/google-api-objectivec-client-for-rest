@@ -563,31 +563,6 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
-@implementation GTLRIamQuery_ProjectsServiceAccountsPatch
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRIam_PatchServiceAccountRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRIamQuery_ProjectsServiceAccountsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRIam_ServiceAccount class];
-  query.loggingName = @"iam.projects.serviceAccounts.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRIamQuery_ProjectsServiceAccountsSetIamPolicy
 
 @dynamic resource;
@@ -683,6 +658,31 @@ NSString * const kGTLRIamViewFull  = @"FULL";
   query.resource = resource;
   query.expectedObjectClass = [GTLRIam_TestIamPermissionsResponse class];
   query.loggingName = @"iam.projects.serviceAccounts.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsServiceAccountsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UndeleteServiceAccountRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRIamQuery_ProjectsServiceAccountsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_UndeleteServiceAccountResponse class];
+  query.loggingName = @"iam.projects.serviceAccounts.undelete";
   return query;
 }
 

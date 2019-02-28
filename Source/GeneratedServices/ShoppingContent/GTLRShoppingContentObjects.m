@@ -891,7 +891,8 @@
 
 @implementation GTLRShoppingContent_DeliveryTime
 @dynamic cutoffTime, holidayCutoffs, maxHandlingTimeInDays,
-         maxTransitTimeInDays, minHandlingTimeInDays, minTransitTimeInDays;
+         maxTransitTimeInDays, minHandlingTimeInDays, minTransitTimeInDays,
+         transitTimeTable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1024,13 +1025,11 @@
 //
 
 @implementation GTLRShoppingContent_InvoiceSummary
-@dynamic additionalChargeSummaries, customerBalance, googleBalance,
-         merchantBalance, productTotal, promotionSummaries;
+@dynamic additionalChargeSummaries, productTotal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalChargeSummaries" : [GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary class],
-    @"promotionSummaries" : [GTLRShoppingContent_Promotion class]
+    @"additionalChargeSummaries" : [GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary class]
   };
   return map;
 }
@@ -1356,9 +1355,10 @@
 
 @implementation GTLRShoppingContent_Order
 @dynamic acknowledged, billingAddress, channelType, customer, deliveryDetails,
-         identifier, kind, lineItems, merchantId, merchantOrderId, netAmount,
-         paymentStatus, placedDate, promotions, refunds, shipments,
-         shippingCost, shippingCostTax, shippingOption, status, taxCollector;
+         identifier, kind, lineItems, merchantId, merchantOrderId,
+         netPriceAmount, netTaxAmount, paymentStatus, placedDate, promotions,
+         refunds, shipments, shippingCost, shippingCostTax, status,
+         taxCollector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1640,108 +1640,12 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedRequest
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedRequest
-@dynamic authAmountPretax, authAmountTax;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedResponse
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyAuthApprovedResponse
-@dynamic executionStatus, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedRequest
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedRequest
-@dynamic declineReason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedResponse
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyAuthDeclinedResponse
-@dynamic executionStatus, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyChargeRequest
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyChargeRequest
-@dynamic chargeState, invoiceIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"invoiceIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyChargeResponse
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyChargeResponse
-@dynamic executionStatus, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyRefundRequest
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyRefundRequest
-@dynamic invoiceIds, refundState;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"invoiceIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderpaymentsNotifyRefundResponse
-//
-
-@implementation GTLRShoppingContent_OrderpaymentsNotifyRefundResponse
-@dynamic executionStatus, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_OrderPromotion
 //
 
 @implementation GTLRShoppingContent_OrderPromotion
-@dynamic applicableItems, appliedItems, funder, merchantPromotionId,
-         pretaxValue, shortTitle, subtype, taxValue, title, type;
+@dynamic applicableItems, appliedItems, funder, merchantPromotionId, priceValue,
+         shortTitle, subtype, taxValue, title, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2842,16 +2746,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_Promotion
-//
-
-@implementation GTLRShoppingContent_Promotion
-@dynamic promotionAmount, promotionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_RateGroup
 //
 
@@ -2888,11 +2782,87 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_RegionalInventory
+//
+
+@implementation GTLRShoppingContent_RegionalInventory
+@dynamic availability, customAttributes, kind, price, regionId, salePrice,
+         salePriceEffectiveDate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customAttributes" : [GTLRShoppingContent_CustomAttribute class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionalinventoryCustomBatchRequest
+//
+
+@implementation GTLRShoppingContent_RegionalinventoryCustomBatchRequest
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_RegionalinventoryCustomBatchRequestEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionalinventoryCustomBatchRequestEntry
+//
+
+@implementation GTLRShoppingContent_RegionalinventoryCustomBatchRequestEntry
+@dynamic batchId, merchantId, method, productId, regionalInventory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionalinventoryCustomBatchResponse
+//
+
+@implementation GTLRShoppingContent_RegionalinventoryCustomBatchResponse
+@dynamic entries, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_RegionalinventoryCustomBatchResponseEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionalinventoryCustomBatchResponseEntry
+//
+
+@implementation GTLRShoppingContent_RegionalinventoryCustomBatchResponseEntry
+@dynamic batchId, errors, kind, regionalInventory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ReturnShipment
 //
 
 @implementation GTLRShoppingContent_ReturnShipment
-@dynamic creationDate, returnMethodType, shipmentId, shipmentTrackingInfos;
+@dynamic creationDate, deliveryDate, returnMethodType, shipmentId,
+         shipmentTrackingInfos, shippingDate, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3146,7 +3116,7 @@
 @implementation GTLRShoppingContent_TestOrder
 @dynamic customer, enableOrderinvoices, kind, lineItems, notificationMode,
          predefinedBillingAddress, predefinedDeliveryAddress, promotions,
-         shippingCost, shippingCostTax, shippingOption;
+         shippingCost, shippingOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3185,7 +3155,7 @@
 //
 
 @implementation GTLRShoppingContent_TestOrderLineItem
-@dynamic product, quantityOrdered, returnInfo, shippingDetails, unitTax;
+@dynamic product, quantityOrdered, returnInfo, shippingDetails;
 @end
 
 
@@ -3211,16 +3181,63 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_TransitTable
+//
+
+@implementation GTLRShoppingContent_TransitTable
+@dynamic postalCodeGroupNames, rows, transitTimeLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postalCodeGroupNames" : [NSString class],
+    @"rows" : [GTLRShoppingContent_TransitTableTransitTimeRow class],
+    @"transitTimeLabels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TransitTableTransitTimeRow
+//
+
+@implementation GTLRShoppingContent_TransitTableTransitTimeRow
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue
+//
+
+@implementation GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue
+@dynamic maxTransitTimeInDays, minTransitTimeInDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_UnitInvoice
 //
 
 @implementation GTLRShoppingContent_UnitInvoice
-@dynamic additionalCharges, promotions, unitPricePretax, unitPriceTaxes;
+@dynamic additionalCharges, unitPrice, unitPriceTaxes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalCharges" : [GTLRShoppingContent_UnitInvoiceAdditionalCharge class],
-    @"promotions" : [GTLRShoppingContent_Promotion class],
     @"unitPriceTaxes" : [GTLRShoppingContent_UnitInvoiceTaxLine class]
   };
   return map;
@@ -3235,15 +3252,7 @@
 //
 
 @implementation GTLRShoppingContent_UnitInvoiceAdditionalCharge
-@dynamic additionalChargeAmount, additionalChargePromotions, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalChargePromotions" : [GTLRShoppingContent_Promotion class]
-  };
-  return map;
-}
-
+@dynamic additionalChargeAmount, type;
 @end
 
 

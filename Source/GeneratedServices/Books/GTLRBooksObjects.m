@@ -732,7 +732,8 @@
 @implementation GTLRBooks_Notification
 @dynamic body, crmExperimentIds, docId, docType, dontShowNotification, iconUrl,
          isDocumentMature, kind, notificationType, notificationGroup,
-         pcampaignId, reason, showNotificationSettingsAction, targetUrl, title;
+         pcampaignId, reason, showNotificationSettingsAction, targetUrl,
+         timeToExpireMs, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

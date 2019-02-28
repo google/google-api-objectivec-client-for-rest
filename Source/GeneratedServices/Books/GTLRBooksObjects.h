@@ -1402,6 +1402,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *showNotificationSettingsAction;
 
 @property(nonatomic, copy, nullable) NSString *targetUrl;
+
+/**
+ *  timeToExpireMs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeToExpireMs;
+
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end

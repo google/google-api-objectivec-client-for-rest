@@ -46,6 +46,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked = 
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled = @"FORCE_INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup = @"REQUIRED_FOR_SETUP";
 
 // GTLRAndroidManagement_ApplicationReport.applicationSource
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified = @"APPLICATION_SOURCE_UNSPECIFIED";
@@ -603,6 +604,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_LaunchAppAction
+//
+
+@implementation GTLRAndroidManagement_LaunchAppAction
+@dynamic packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_ListDevicesResponse
 //
 
@@ -900,11 +911,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordPolicies, passwordRequirements, permissionGrants,
          permittedInputMethods, persistentPreferredActivities, playStoreMode,
          privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
-         safeBootDisabled, screenCaptureDisabled, setUserIconDisabled,
-         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
-         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
-         statusReportingSettings, stayOnPluggedModes, systemUpdate,
-         tetheringConfigDisabled, uninstallAppsDisabled,
+         safeBootDisabled, screenCaptureDisabled, setupActions,
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -921,6 +932,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"passwordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],
+    @"setupActions" : [GTLRAndroidManagement_SetupAction class],
     @"stayOnPluggedModes" : [NSString class]
   };
   return map;
@@ -966,6 +978,21 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"excludedHosts" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SetupAction
+//
+
+@implementation GTLRAndroidManagement_SetupAction
+@dynamic descriptionProperty, launchApp, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

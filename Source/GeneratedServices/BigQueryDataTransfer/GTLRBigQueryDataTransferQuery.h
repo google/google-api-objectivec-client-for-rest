@@ -470,6 +470,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional version info. If users want to find a very recent access token,
+ *  that is, immediately after approving access, users have to set the
+ *  version_info claim in the token request. To obtain the version_info, users
+ *  must use the “none+gsession” response type. which be return a
+ *  version_info back in the authorization response which be be put in a JWT
+ *  claim in the token request.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
+
+/**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.
  *
  *  Creates a new data transfer configuration.
@@ -664,6 +674,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional version info. If users want to find a very recent access token,
+ *  that is, immediately after approving access, users have to set the
+ *  version_info claim in the token request. To obtain the version_info, users
+ *  must use the “none+gsession” response type. which be return a
+ *  version_info back in the authorization response which be be put in a JWT
+ *  claim in the token request.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.
@@ -979,6 +999,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional version info. If users want to find a very recent access token,
+ *  that is, immediately after approving access, users have to set the
+ *  version_info claim in the token request. To obtain the version_info, users
+ *  must use the “none+gsession” response type. which be return a
+ *  version_info back in the authorization response which be be put in a JWT
+ *  claim in the token request.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
+
+/**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.
  *
  *  Creates a new data transfer configuration.
@@ -1173,6 +1203,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional version info. If users want to find a very recent access token,
+ *  that is, immediately after approving access, users have to set the
+ *  version_info claim in the token request. To obtain the version_info, users
+ *  must use the “none+gsession” response type. which be return a
+ *  version_info back in the authorization response which be be put in a JWT
+ *  claim in the token request.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.

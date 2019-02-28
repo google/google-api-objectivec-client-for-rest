@@ -290,6 +290,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_ScheduleOptions
+//
+
+@implementation GTLRBigQueryDataTransfer_ScheduleOptions
+@dynamic disableAutoScheduling, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest
 //
 
@@ -356,7 +366,7 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, name, nextRunTime, params,
-         schedule, state, updateTime, userId;
+         schedule, scheduleOptions, state, updateTime, userId;
 @end
 
 

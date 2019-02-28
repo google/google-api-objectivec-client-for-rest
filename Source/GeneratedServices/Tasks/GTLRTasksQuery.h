@@ -4,7 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Lets you manage your tasks and task lists.
+//   Manages your tasks and task lists.
 // Documentation:
 //   https://developers.google.com/google-apps/tasks/firstapp
 
@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximum number of task lists returned on one page. Optional. The default is
- *  100.
+ *  20 (max allowed: 100).
  */
 @property(nonatomic, assign) long long maxResults;
 
@@ -402,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximum number of task lists returned on one page. Optional. The default is
- *  100.
+ *  20 (max allowed: 100).
  */
 @property(nonatomic, assign) long long maxResults;
 

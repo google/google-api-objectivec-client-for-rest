@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAndroidEnterprise_Administrator;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecManagedConfigurations;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder;
@@ -117,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Options for displaying the Managed Configuration page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecManagedConfigurations *managedConfigurations;
+
 /**
  *  The URI of the parent frame hosting the iframe. To prevent XSS, the iframe
  *  may not be hosted at other URIs. This URI must be https.
@@ -137,6 +141,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Options for displaying the Web Apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps *webApps;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecManagedConfigurations
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecManagedConfigurations : GTLRObject
+
+/**
+ *  Whether the Managed Configuration page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -450,18 +469,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The Auto install constraint. Defines a set of restrictions for installation.
+ *  The auto-install constraint. Defines a set of restrictions for installation.
  *  At least one of the fields must be set.
  */
 @interface GTLRAndroidEnterprise_AutoInstallConstraint : GTLRObject
 
-/** Charging state to constrain on. */
+/** Charging state constraint. */
 @property(nonatomic, copy, nullable) NSString *chargingStateConstraint;
 
-/** The idle state of the device to constrain on. */
+/** Device idle state constraint. */
 @property(nonatomic, copy, nullable) NSString *deviceIdleStateConstraint;
 
-/** Network type to constrain on. */
+/** Network type constraint. */
 @property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
 
 @end
@@ -473,16 +492,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AutoInstallPolicy : GTLRObject
 
 /**
- *  The constraints for the install. Currently there can be at most one
- *  constraint.
+ *  The constraints for auto-installing the app. You can specify a maximum of
+ *  one constraint.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AutoInstallConstraint *> *autoInstallConstraint;
 
-/** The auto install mode. If unset defaults to "doNotAutoInstall". */
+/** The auto-install mode. If unset defaults to "doNotAutoInstall". */
 @property(nonatomic, copy, nullable) NSString *autoInstallMode;
 
 /**
- *  The priority of the install, as an unsigned integer. Lower number means
+ *  The priority of the install, as an unsigned integer. A lower number means
  *  higher priority.
  *
  *  Uses NSNumber of intValue.
@@ -490,7 +509,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *autoInstallPriority;
 
 /**
- *  The minimum version of the app. If a lower version of the app is installed
+ *  The minimum version of the app. If a lower version of the app is installed,
  *  then the app will be auto-updated according to the auto-install constraints,
  *  instead of waiting for the regular auto-update.
  *
@@ -1646,7 +1665,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ProductPolicy : GTLRObject
 
-/** The auto install policy for the product. */
+/** The auto-install policy for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AutoInstallPolicy *autoInstallPolicy;
 
 /** The ID of the product. For example, "app:com.google.android.gm". */

@@ -7,7 +7,7 @@
 //   Transfers data from external data sources to a Google Cloud Storage bucket
 //   or between Google Cloud Storage buckets.
 // Documentation:
-//   https://cloud.google.com/storage/transfer
+//   https://cloud.google.com/storage-transfer/docs
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -561,7 +561,11 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @property(nonatomic, strong, nullable) NSNumber *errorCount;
 
-/** Error samples. */
+/**
+ *  Error samples.
+ *  No more than 100 error log entries may be recorded for a given
+ *  error code for a single task.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorLogEntry *> *errorLogEntries;
 
 @end
@@ -708,9 +712,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  If `includePrefixes` is specified, objects that satisfy the object
  *  conditions must have names that start with one of the `includePrefixes`
  *  and that do not start with any of the `excludePrefixes`. If
- *  `includePrefixes`
- *  is not specified, all objects except those that have names starting with
- *  one of the `excludePrefixes` must satisfy the object conditions.
+ *  `includePrefixes` is not specified, all objects except those that have
+ *  names starting with one of the `excludePrefixes` must satisfy the object
+ *  conditions.
  *  Requirements:
  *  * Each include-prefix and exclude-prefix can contain any sequence of
  *  Unicode characters, of max length 1024 bytes when UTF8-encoded, and
@@ -1157,7 +1161,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The ID of the Google Cloud Platform Console project that owns the job. */
+/** The ID of the Google Cloud Platform Project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Schedule specification. */
@@ -1211,7 +1215,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The ID of the Google Cloud Platform Console project that owns the operation.
+ *  The ID of the Google Cloud Platform Project that owns the operation.
  *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;

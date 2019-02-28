@@ -4,7 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Lets you manage your tasks and task lists.
+//   Manages your tasks and task lists.
 // Documentation:
 //   https://developers.google.com/google-apps/tasks/firstapp
 
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeTasksReadonly;
 /**
  *  Service for executing Tasks API queries.
  *
- *  Lets you manage your tasks and task lists.
+ *  Manages your tasks and task lists.
  */
 @interface GTLRTasksService : GTLRService
 
