@@ -47,6 +47,7 @@ NSString * const kGTLRAuthScopeStorageDevstorageReadWrite   = @"https://www.goog
     @"storage#bucketAccessControls" : [GTLRStorage_BucketAccessControls class],
     @"storage#buckets" : [GTLRStorage_Buckets class],
     @"storage#composeRequest" : [GTLRStorage_ComposeRequest class],
+    @"storage#expr" : [GTLRStorage_Expr class],
     @"storage#notification" : [GTLRStorage_Notification class],
     @"storage#notifications" : [GTLRStorage_Notifications class],
     @"storage#object" : [GTLRStorage_Object class],

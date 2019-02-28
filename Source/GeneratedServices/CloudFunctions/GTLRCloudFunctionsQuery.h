@@ -137,8 +137,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Synchronously invokes a deployed Cloud Function. To be used for testing
  *  purposes as very limited traffic is allowed. For more information on
- *  the actual limits refer to [API Calls](
- *  https://cloud.google.com/functions/quotas#rate_limits).
+ *  the actual limits, refer to
+ *  [Rate Limits](https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  Method: cloudfunctions.projects.locations.functions.call
  *
@@ -157,8 +157,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Synchronously invokes a deployed Cloud Function. To be used for testing
  *  purposes as very limited traffic is allowed. For more information on
- *  the actual limits refer to [API Calls](
- *  https://cloud.google.com/functions/quotas#rate_limits).
+ *  the actual limits, refer to
+ *  [Rate Limits](https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  @param object The @c GTLRCloudFunctions_CallFunctionRequest to include in
  *    the query.
@@ -298,9 +298,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  these restrictions:
  *  * Source file type should be a zip file.
  *  * Source file size should not exceed 100MB limit.
+ *  * No credentials should be attached - the signed URLs provide access to the
+ *  target bucket using internal service identity; if credentials were
+ *  attached, the identity from the credentials would be used, but that
+ *  identity does not have permissions to upload files to the URL.
  *  When making a HTTP PUT request, these two headers need to be specified:
  *  * `content-type: application/zip`
  *  * `x-goog-content-length-range: 0,104857600`
+ *  And this header SHOULD NOT be specified:
+ *  * `Authorization: Bearer YOUR_TOKEN`
  *
  *  Method: cloudfunctions.projects.locations.functions.generateUploadUrl
  *
@@ -330,9 +336,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  these restrictions:
  *  * Source file type should be a zip file.
  *  * Source file size should not exceed 100MB limit.
+ *  * No credentials should be attached - the signed URLs provide access to the
+ *  target bucket using internal service identity; if credentials were
+ *  attached, the identity from the credentials would be used, but that
+ *  identity does not have permissions to upload files to the URL.
  *  When making a HTTP PUT request, these two headers need to be specified:
  *  * `content-type: application/zip`
  *  * `x-goog-content-length-range: 0,104857600`
+ *  And this header SHOULD NOT be specified:
+ *  * `Authorization: Bearer YOUR_TOKEN`
  *
  *  @param object The @c GTLRCloudFunctions_GenerateUploadUrlRequest to include
  *    in the query.
@@ -376,8 +388,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
+ *  Gets the IAM access control policy for a function.
+ *  Returns an empty policy if the function exists and does not have a policy
  *  set.
  *
  *  Method: cloudfunctions.projects.locations.functions.getIamPolicy
@@ -398,8 +410,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFunctions_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
+ *  Gets the IAM access control policy for a function.
+ *  Returns an empty policy if the function exists and does not have a policy
  *  set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
@@ -508,8 +520,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM access control policy on the specified function.
+ *  Replaces any existing policy.
  *
  *  Method: cloudfunctions.projects.locations.functions.setIamPolicy
  *
@@ -529,8 +541,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFunctions_Policy.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM access control policy on the specified function.
+ *  Replaces any existing policy.
  *
  *  @param object The @c GTLRCloudFunctions_SetIamPolicyRequest to include in
  *    the query.
@@ -546,12 +558,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
+ *  Tests the specified permissions against the IAM access control policy
+ *  for a function.
+ *  If the function does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
  *
  *  Method: cloudfunctions.projects.locations.functions.testIamPermissions
  *
@@ -571,12 +581,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFunctions_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
+ *  Tests the specified permissions against the IAM access control policy
+ *  for a function.
+ *  If the function does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudFunctions_TestIamPermissionsRequest to include
  *    in the query.

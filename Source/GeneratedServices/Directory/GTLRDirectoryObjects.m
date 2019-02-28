@@ -118,8 +118,8 @@
 //
 
 @implementation GTLRDirectory_Building
-@dynamic buildingId, buildingName, coordinates, descriptionProperty, etags,
-         floorNames, kind;
+@dynamic address, buildingId, buildingName, coordinates, descriptionProperty,
+         etags, floorNames, kind;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -128,6 +128,25 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"floorNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BuildingAddress
+//
+
+@implementation GTLRDirectory_BuildingAddress
+@dynamic addressLines, administrativeArea, languageCode, locality, postalCode,
+         regionCode, sublocality;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressLines" : [NSString class]
   };
   return map;
 }

@@ -296,6 +296,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUns
  */
 GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText;
 /**
+ *  Direct Robo to ignore interactions with a specific element.
+ *
+ *  Value: "IGNORE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore;
+/**
  *  Direct Robo to click on the specified element. No-op if specified element
  *  is not clickable.
  *
@@ -449,6 +455,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *  Value: "INVALID_MATRIX_DETAILS_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified;
+/**
+ *  The APK application ID (aka package name) is invalid.
+ *  See also
+ *  https://developer.android.com/studio/build/application-id
+ *
+ *  Value: "INVALID_PACKAGE_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName;
 /**
  *  There is a conflict in the provided robo_directives.
  *
@@ -1960,6 +1974,8 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        enter text on the specified element. No-op if specified
  *        element is not enabled or does not allow text entry. (Value:
  *        "ENTER_TEXT")
+ *    @arg @c kGTLRTesting_RoboDirective_ActionType_Ignore Direct Robo to ignore
+ *        interactions with a specific element. (Value: "IGNORE")
  *    @arg @c kGTLRTesting_RoboDirective_ActionType_SingleClick Direct Robo to
  *        click on the specified element. No-op if specified element
  *        is not clickable. (Value: "SINGLE_CLICK")
@@ -1993,6 +2009,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 @property(nonatomic, strong, nullable) GTLRTesting_LauncherActivityIntent *launcherActivity;
 @property(nonatomic, strong, nullable) GTLRTesting_StartActivityIntent *startActivity;
+
+/** Timeout in seconds for each intent. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 @end
 
@@ -2205,6 +2224,11 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified
  *        Do not use. For proto versioning only. (Value:
  *        "INVALID_MATRIX_DETAILS_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName
+ *        The APK application ID (aka package name) is invalid.
+ *        See also
+ *        https://developer.android.com/studio/build/application-id (Value:
+ *        "INVALID_PACKAGE_NAME")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives
  *        There is a conflict in the provided robo_directives. (Value:
  *        "INVALID_ROBO_DIRECTIVES")

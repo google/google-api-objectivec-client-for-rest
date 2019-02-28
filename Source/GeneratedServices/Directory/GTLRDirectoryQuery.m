@@ -16,6 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// coordinatesSource
+NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified = @"CLIENT_SPECIFIED";
+NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress = @"RESOLVED_FROM_ADDRESS";
+NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified = @"SOURCE_UNSPECIFIED";
+
 // event
 NSString * const kGTLRDirectoryEventAdd       = @"add";
 NSString * const kGTLRDirectoryEventDelete    = @"delete";
@@ -1399,7 +1404,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesBuildingsInsert
 
-@dynamic customer;
+@dynamic coordinatesSource, customer;
 
 + (instancetype)queryWithObject:(GTLRDirectory_Building *)object
                        customer:(NSString *)customer {
@@ -1443,7 +1448,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesBuildingsPatch
 
-@dynamic buildingId, customer;
+@dynamic buildingId, coordinatesSource, customer;
 
 + (instancetype)queryWithObject:(GTLRDirectory_Building *)object
                        customer:(NSString *)customer
@@ -1472,7 +1477,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ResourcesBuildingsUpdate
 
-@dynamic buildingId, customer;
+@dynamic buildingId, coordinatesSource, customer;
 
 + (instancetype)queryWithObject:(GTLRDirectory_Building *)object
                        customer:(NSString *)customer

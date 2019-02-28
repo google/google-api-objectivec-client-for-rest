@@ -120,7 +120,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -165,6 +169,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Creates a Cloud Dataflow job.
+ *  To create a job, we recommend using `projects.locations.jobs.create` with a
+ *  [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.create` is not recommended, as your job will always start
+ *  in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.create
  *
@@ -178,7 +187,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsCreateWithObject:projectId:]
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -202,6 +215,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Creates a Cloud Dataflow job.
+ *  To create a job, we recommend using `projects.locations.jobs.create` with a
+ *  [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.create` is not recommended, as your job will always start
+ *  in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -294,6 +312,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Gets the state of the specified Cloud Dataflow job.
+ *  To get the state of a job, we recommend using `projects.locations.jobs.get`
+ *  with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.get` is not recommended, as you can only get the state of
+ *  jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.get
  *
@@ -310,7 +333,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -331,6 +358,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Gets the state of the specified Cloud Dataflow job.
+ *  To get the state of a job, we recommend using `projects.locations.jobs.get`
+ *  with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.get` is not recommended, as you can only get the state of
+ *  jobs that are running in `us-central1`.
  *
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
@@ -345,6 +377,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.getMetrics` is not recommended, as you can only request the
+ *  status of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.getMetrics
  *
@@ -361,7 +398,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job to get messages for. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** A project id. */
@@ -377,6 +418,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_JobMetrics.
  *
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.getMetrics` is not recommended, as you can only request the
+ *  status of jobs that are running in `us-central1`.
  *
  *  @param projectId A project id.
  *  @param jobId The job to get messages for.
@@ -389,7 +435,13 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project in a given region.
+ *  List the jobs of a project.
+ *  To list the jobs of a project in a region, we recommend using
+ *  `projects.locations.jobs.get` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
+ *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
+ *  `projects.jobs.list` is not recommended, as you can only get the list of
+ *  jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.list
  *
@@ -414,7 +466,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -447,7 +503,13 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project in a given region.
+ *  List the jobs of a project.
+ *  To list the jobs of a project in a region, we recommend using
+ *  `projects.locations.jobs.get` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
+ *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
+ *  `projects.jobs.list` is not recommended, as you can only get the list of
+ *  jobs that are running in `us-central1`.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -459,6 +521,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.messages.list` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.messages.list` is not recommended, as you can only request
+ *  the status of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.messages.list
  *
@@ -481,7 +548,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job to get messages about. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -530,6 +601,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
  *
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.messages.list` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.messages.list` is not recommended, as you can only request
+ *  the status of jobs that are running in `us-central1`.
  *
  *  @param projectId A project id.
  *  @param jobId The job to get messages about.
@@ -582,6 +658,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Updates the state of an existing Cloud Dataflow job.
+ *  To update the state of an existing job, we recommend using
+ *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.update` is not recommended, as you can only update the state
+ *  of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.jobs.update
  *
@@ -598,7 +679,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -608,6 +693,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Updates the state of an existing Cloud Dataflow job.
+ *  To update the state of an existing job, we recommend using
+ *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.update` is not recommended, as you can only update the state
+ *  of jobs that are running in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -702,6 +792,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Creates a Cloud Dataflow job.
+ *  To create a job, we recommend using `projects.locations.jobs.create` with a
+ *  [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.create` is not recommended, as your job will always start
+ *  in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.create
  *
@@ -715,7 +810,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsCreateWithObject:projectId:location:]
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -739,11 +838,18 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Creates a Cloud Dataflow job.
+ *  To create a job, we recommend using `projects.locations.jobs.create` with a
+ *  [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.create` is not recommended, as your job will always start
+ *  in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
- *  @param location The location that contains this job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains this job.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsCreate
  */
@@ -771,7 +877,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job id. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The project id. */
@@ -785,7 +895,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_GetDebugConfigRequest to include in the
  *    query.
  *  @param projectId The project id.
- *  @param location The location which contains the job specified by job_id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
  *  @param jobId The job id.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig
@@ -815,7 +927,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job id. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The project id. */
@@ -829,7 +945,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_SendDebugCaptureRequest to include in the
  *    query.
  *  @param projectId The project id.
- *  @param location The location which contains the job specified by job_id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
  *  @param jobId The job id.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture
@@ -843,6 +961,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Gets the state of the specified Cloud Dataflow job.
+ *  To get the state of a job, we recommend using `projects.locations.jobs.get`
+ *  with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.get` is not recommended, as you can only get the state of
+ *  jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.get
  *
@@ -859,7 +982,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -880,10 +1007,17 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Gets the state of the specified Cloud Dataflow job.
+ *  To get the state of a job, we recommend using `projects.locations.jobs.get`
+ *  with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.get` is not recommended, as you can only get the state of
+ *  jobs that are running in `us-central1`.
  *
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
- *  @param location The location that contains this job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains this job.
  *  @param jobId The job ID.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsGet
@@ -896,6 +1030,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.getMetrics` is not recommended, as you can only request the
+ *  status of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.getMetrics
  *
@@ -912,7 +1051,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job to get messages for. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** A project id. */
@@ -928,9 +1071,16 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_JobMetrics.
  *
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.getMetrics` is not recommended, as you can only request the
+ *  status of jobs that are running in `us-central1`.
  *
  *  @param projectId A project id.
- *  @param location The location which contains the job specified by job_id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
  *  @param jobId The job to get messages for.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
@@ -942,7 +1092,13 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project in a given region.
+ *  List the jobs of a project.
+ *  To list the jobs of a project in a region, we recommend using
+ *  `projects.locations.jobs.get` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
+ *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
+ *  `projects.jobs.list` is not recommended, as you can only get the list of
+ *  jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.list
  *
@@ -967,7 +1123,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -1000,10 +1160,18 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project in a given region.
+ *  List the jobs of a project.
+ *  To list the jobs of a project in a region, we recommend using
+ *  `projects.locations.jobs.get` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
+ *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
+ *  `projects.jobs.list` is not recommended, as you can only get the list of
+ *  jobs that are running in `us-central1`.
  *
  *  @param projectId The project which owns the jobs.
- *  @param location The location that contains this job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains this job.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsList
  */
@@ -1014,6 +1182,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.messages.list` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.messages.list` is not recommended, as you can only request
+ *  the status of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.messages.list
  *
@@ -1036,7 +1209,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job to get messages about. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the job specified by job_id. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -1085,9 +1262,16 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
  *
  *  Request the job status.
+ *  To request the status of a job, we recommend using
+ *  `projects.locations.jobs.messages.list` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.messages.list` is not recommended, as you can only request
+ *  the status of jobs that are running in `us-central1`.
  *
  *  @param projectId A project id.
- *  @param location The location which contains the job specified by job_id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
  *  @param jobId The job to get messages about.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsMessagesList
@@ -1144,6 +1328,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Updates the state of an existing Cloud Dataflow job.
+ *  To update the state of an existing job, we recommend using
+ *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.update` is not recommended, as you can only update the state
+ *  of jobs that are running in `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.update
  *
@@ -1160,7 +1349,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location that contains this job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains this job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
@@ -1170,11 +1363,18 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Updates the state of an existing Cloud Dataflow job.
+ *  To update the state of an existing job, we recommend using
+ *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.jobs.update` is not recommended, as you can only update the state
+ *  of jobs that are running in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
- *  @param location The location that contains this job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains this job.
  *  @param jobId The job ID.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsUpdate
@@ -1204,7 +1404,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** Identifies the workflow job this worker belongs to. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the WorkItem's job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the WorkItem's job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Identifies the project this worker belongs to. */
@@ -1218,7 +1422,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_LeaseWorkItemRequest to include in the
  *    query.
  *  @param projectId Identifies the project this worker belongs to.
- *  @param location The location which contains the WorkItem's job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the WorkItem's job.
  *  @param jobId Identifies the workflow job this worker belongs to.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease
@@ -1248,7 +1454,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The job which the WorkItem is part of. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains the WorkItem's job. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the WorkItem's job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The project which owns the WorkItem's job. */
@@ -1262,7 +1472,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_ReportWorkItemStatusRequest to include in
  *    the query.
  *  @param projectId The project which owns the WorkItem's job.
- *  @param location The location which contains the WorkItem's job.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the WorkItem's job.
  *  @param jobId The job which the WorkItem is part of.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus
@@ -1289,7 +1501,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsTemplatesCreateWithObject:projectId:location:]
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
@@ -1304,7 +1520,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    the query.
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
- *  @param location The location to which to direct the request.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *    which to direct the request.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesCreate
  */
@@ -1336,7 +1554,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
@@ -1357,7 +1579,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
- *  @param location The location to which to direct the request.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *    which to direct the request.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesGet
  */
@@ -1400,7 +1624,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
@@ -1421,7 +1649,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    query.
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
- *  @param location The location to which to direct the request.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *    which to direct the request.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch
  */
@@ -1446,7 +1676,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsWorkerMessagesWithObject:projectId:location:]
 
-/** The location which contains the job */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The project to send the WorkerMessages to. */
@@ -1460,7 +1694,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_SendWorkerMessagesRequest to include in
  *    the query.
  *  @param projectId The project to send the WorkerMessages to.
- *  @param location The location which contains the job
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsWorkerMessages
  */
@@ -1527,7 +1763,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
@@ -1589,7 +1829,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
-/** The location to which to direct the request. */
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */

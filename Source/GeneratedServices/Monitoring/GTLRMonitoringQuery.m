@@ -227,7 +227,7 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 
 @implementation GTLRMonitoringQuery_ProjectsGroupsDelete
 
-@dynamic name;
+@dynamic name, recursive;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

@@ -112,6 +112,7 @@ NSString * const kGTLRCompute_Address_NetworkTier_Standard = @"STANDARD";
 // GTLRCompute_Address.purpose
 NSString * const kGTLRCompute_Address_Purpose_DnsResolver = @"DNS_RESOLVER";
 NSString * const kGTLRCompute_Address_Purpose_GceEndpoint = @"GCE_ENDPOINT";
+NSString * const kGTLRCompute_Address_Purpose_NatAuto     = @"NAT_AUTO";
 NSString * const kGTLRCompute_Address_Purpose_VpcPeering  = @"VPC_PEERING";
 
 // GTLRCompute_Address.status
@@ -4635,7 +4636,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Condition
-@dynamic iam, op, svc, sys, value, values;
+@dynamic iam, op, svc, sys, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5291,10 +5292,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ForwardingRule
-@dynamic backendService, creationTimestamp, descriptionProperty, identifier,
-         IPAddress, IPProtocol, ipVersion, kind, loadBalancingScheme, name,
-         network, networkTier, portRange, ports, region, selfLink, serviceLabel,
-         serviceName, subnetwork, target;
+@dynamic allPorts, backendService, creationTimestamp, descriptionProperty,
+         identifier, IPAddress, IPProtocol, ipVersion, kind,
+         loadBalancingScheme, name, network, networkTier, portRange, ports,
+         region, selfLink, serviceLabel, serviceName, subnetwork, target;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7886,7 +7887,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ManagedInstance
-@dynamic currentAction, identifier, instance, instanceStatus, lastAttempt;
+@dynamic currentAction, identifier, instance, instanceStatus, lastAttempt,
+         version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -7930,6 +7932,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item
 @dynamic code, location, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ManagedInstanceVersion
+//
+
+@implementation GTLRCompute_ManagedInstanceVersion
+@dynamic instanceTemplate, name;
 @end
 
 
@@ -8076,7 +8088,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkPeering
-@dynamic autoCreateRoutes, name, network, state, stateDetails;
+@dynamic autoCreateRoutes, exchangeSubnetRoutes, name, network, state,
+         stateDetails;
 @end
 
 
@@ -8096,7 +8109,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworksAddPeeringRequest
-@dynamic autoCreateRoutes, name, peerNetwork;
+@dynamic autoCreateRoutes, name, networkPeering, peerNetwork;
 @end
 
 

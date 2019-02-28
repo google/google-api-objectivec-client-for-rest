@@ -160,6 +160,7 @@
   GTLRYouTubeReportingQuery_MediaDownload *query =
     [self queryWithResourceName:resourceName];
   query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
   query.loggingName = @"Download youtubereporting.media.download";
   return query;
 }

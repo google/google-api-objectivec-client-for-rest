@@ -107,31 +107,6 @@
 
 @end
 
-@implementation GTLRServiceNetworkingQuery_ServicesPatch
-
-@dynamic force, name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
-  GTLRServiceNetworkingQuery_ServicesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
-  query.loggingName = @"servicenetworking.services.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRServiceNetworkingQuery_ServicesSearchRange
 
 @dynamic parent;
@@ -152,6 +127,31 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
   query.loggingName = @"servicenetworking.services.searchRange";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesUpdateConnections
+
+@dynamic force, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}/connections";
+  GTLRServiceNetworkingQuery_ServicesUpdateConnections *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.updateConnections";
   return query;
 }
 

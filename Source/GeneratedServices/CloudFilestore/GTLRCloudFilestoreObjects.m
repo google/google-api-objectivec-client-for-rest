@@ -12,6 +12,26 @@
 #import "GTLRCloudFilestoreObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCloudFilestore_Instance.state
+NSString * const kGTLRCloudFilestore_Instance_State_Creating   = @"CREATING";
+NSString * const kGTLRCloudFilestore_Instance_State_Deleting   = @"DELETING";
+NSString * const kGTLRCloudFilestore_Instance_State_Error      = @"ERROR";
+NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
+NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
+NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudFilestore_Instance.tier
+NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
+NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
+NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
+
+// GTLRCloudFilestore_NetworkConfig.modes
+NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRCloudFilestore_CancelOperationRequest
 //
@@ -26,6 +46,81 @@
 //
 
 @implementation GTLRCloudFilestore_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_FileShareConfig
+//
+
+@implementation GTLRCloudFilestore_FileShareConfig
+@dynamic capacityGb, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Instance
+//
+
+@implementation GTLRCloudFilestore_Instance
+@dynamic createTime, descriptionProperty, ETag, fileShares, labels, name,
+         networks, state, statusMessage, tier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileShares" : [GTLRCloudFilestore_FileShareConfig class],
+    @"networks" : [GTLRCloudFilestore_NetworkConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Instance_Labels
+//
+
+@implementation GTLRCloudFilestore_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_ListInstancesResponse
+//
+
+@implementation GTLRCloudFilestore_ListInstancesResponse
+@dynamic instances, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRCloudFilestore_Instance class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instances";
+}
+
 @end
 
 
@@ -106,6 +201,25 @@
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_NetworkConfig
+//
+
+@implementation GTLRCloudFilestore_NetworkConfig
+@dynamic ipAddresses, modes, network, reservedIpRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipAddresses" : [NSString class],
+    @"modes" : [NSString class]
+  };
+  return map;
 }
 
 @end

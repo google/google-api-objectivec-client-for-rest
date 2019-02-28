@@ -164,6 +164,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudFunctions/*.{h,m}'
   end
+  s.subspec 'CloudHealthcare' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudHealthcare/*.{h,m}'
+  end
   s.subspec 'CloudIAP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudIAP/*.{h,m}'
@@ -311,6 +315,10 @@ Pod::Spec.new do |s|
   s.subspec 'Dns' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dns/*.{h,m}'
+  end
+  s.subspec 'Docs' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Docs/*.{h,m}'
   end
   s.subspec 'DoubleClickBidManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

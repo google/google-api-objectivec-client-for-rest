@@ -1139,10 +1139,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The maximum number of results to return. If unspecified, defaults to
- *  256. The maximum value is 2048.
- */
+/** The maximum number of results to return. The maximum value is 256. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The standard list page token. */

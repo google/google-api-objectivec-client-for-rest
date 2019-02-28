@@ -15,6 +15,7 @@
 // Constants
 
 // GTLRBinaryAuthorization_AdmissionRule.enforcementMode
+NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_DryrunAuditLogOnly = @"DRYRUN_AUDIT_LOG_ONLY";
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcedBlockAndAuditLog = @"ENFORCED_BLOCK_AND_AUDIT_LOG";
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcementModeUnspecified = @"ENFORCEMENT_MODE_UNSPECIFIED";
 

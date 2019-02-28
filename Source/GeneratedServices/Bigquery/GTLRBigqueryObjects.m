@@ -210,10 +210,24 @@
 //
 
 @implementation GTLRBigquery_DestinationTableProperties
-@dynamic descriptionProperty, friendlyName;
+@dynamic descriptionProperty, friendlyName, labels;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DestinationTableProperties_Labels
+//
+
+@implementation GTLRBigquery_DestinationTableProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -592,9 +606,9 @@
 //
 
 @implementation GTLRBigquery_JobStatistics
-@dynamic completionRatio, creationTime, endTime, extract, load, query,
-         quotaDeferments, reservationUsage, startTime, totalBytesProcessed,
-         totalSlotMs;
+@dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
+         parentJobId, query, quotaDeferments, reservationUsage, startTime,
+         totalBytesProcessed, totalSlotMs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -670,7 +684,7 @@
 //
 
 @implementation GTLRBigquery_JobStatistics4
-@dynamic destinationUriFileCounts;
+@dynamic destinationUriFileCounts, inputBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1117,7 +1131,7 @@
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic descriptionProperty, fields, mode, name, type;
+@dynamic categories, descriptionProperty, fields, mode, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1126,6 +1140,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fields" : [GTLRBigquery_TableFieldSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableFieldSchema_Categories
+//
+
+@implementation GTLRBigquery_TableFieldSchema_Categories
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
   };
   return map;
 }

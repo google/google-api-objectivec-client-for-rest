@@ -55,6 +55,30 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// coordinatesSource
+
+/**
+ *  Building.coordinates are set to the coordinates included in the request.
+ *
+ *  Value: "CLIENT_SPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified;
+/**
+ *  Building.coordinates are automatically populated based on the postal
+ *  address.
+ *
+ *  Value: "RESOLVED_FROM_ADDRESS"
+ */
+GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress;
+/**
+ *  Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
+ *  defaults to CLIENT_SPECIFIED if coordinates are provided.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // event
 
 /** Value: "add" */
@@ -2401,6 +2425,26 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForResourcesBuildingsInsertWithObject:customer:]
 
 /**
+ *  Source from which Building.coordinates are derived.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
+ *        Building.coordinates are set to the coordinates included in the
+ *        request. (Value: "CLIENT_SPECIFIED")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceResolvedFromAddress
+ *        Building.coordinates are automatically populated based on the postal
+ *        address. (Value: "RESOLVED_FROM_ADDRESS")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
+ *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
+ *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        "SOURCE_UNSPECIFIED")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDirectoryCoordinatesSourceSourceUnspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *coordinatesSource;
+
+/**
  *  The unique ID for the customer's G Suite account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
@@ -2489,6 +2533,26 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
+ *  Source from which Building.coordinates are derived.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
+ *        Building.coordinates are set to the coordinates included in the
+ *        request. (Value: "CLIENT_SPECIFIED")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceResolvedFromAddress
+ *        Building.coordinates are automatically populated based on the postal
+ *        address. (Value: "RESOLVED_FROM_ADDRESS")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
+ *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
+ *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        "SOURCE_UNSPECIFIED")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDirectoryCoordinatesSourceSourceUnspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *coordinatesSource;
+
+/**
  *  The unique ID for the customer's G Suite account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
@@ -2528,6 +2592,26 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /** The ID of the building to update. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  Source from which Building.coordinates are derived.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
+ *        Building.coordinates are set to the coordinates included in the
+ *        request. (Value: "CLIENT_SPECIFIED")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceResolvedFromAddress
+ *        Building.coordinates are automatically populated based on the postal
+ *        address. (Value: "RESOLVED_FROM_ADDRESS")
+ *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
+ *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
+ *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        "SOURCE_UNSPECIFIED")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDirectoryCoordinatesSourceSourceUnspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *coordinatesSource;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account

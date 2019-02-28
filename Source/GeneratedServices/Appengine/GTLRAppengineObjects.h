@@ -2160,6 +2160,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Enable session affinity. Only applicable in the App Engine flexible
+ *  environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
+
+/**
  *  Google Cloud Platform sub-network where the virtual machines are created.
  *  Specify the short name, not the resource path.If a subnetwork name is
  *  specified, a network name will also be required unless it is for the default
@@ -2300,41 +2308,6 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Metadata for the given google.longrunning.Operation.
  */
-@interface GTLRAppengine_OperationMetadata : GTLRObject
-
-/** Timestamp that this operation completed.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Timestamp that this operation was created.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
-
-/**
- *  API method that initiated this operation. Example:
- *  google.appengine.v1beta4.Version.CreateVersion.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *method;
-
-/**
- *  Type of this operation. Deprecated, use method field instead. Example:
- *  "create_version".\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/**
- *  Name of the resource that this operation is acting on. Example:
- *  apps/myapp/modules/default.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** User who requested this operation.\@OutputOnly */
-@property(nonatomic, copy, nullable) NSString *user;
-
-@end
-
-
-/**
- *  Metadata for the given google.longrunning.Operation.
- */
 @interface GTLRAppengine_OperationMetadataV1 : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRAppengine_CreateVersionMetadataV1 *createVersionMetadata;
@@ -2448,35 +2421,6 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /** Durable messages that persist on every operation poll. \@OutputOnly */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *warning;
-
-@end
-
-
-/**
- *  Metadata for the given google.longrunning.Operation.
- */
-@interface GTLRAppengine_OperationMetadataV1Beta5 : GTLRObject
-
-/** Timestamp that this operation completed.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Timestamp that this operation was created.\@OutputOnly */
-@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
-
-/**
- *  API method name that initiated this operation. Example:
- *  google.appengine.v1beta5.Version.CreateVersion.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *method;
-
-/**
- *  Name of the resource that this operation is acting on. Example:
- *  apps/myapp/services/default.\@OutputOnly
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** User who requested this operation.\@OutputOnly */
-@property(nonatomic, copy, nullable) NSString *user;
 
 @end
 
@@ -3331,7 +3275,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  The Google Compute Engine zones that are supported by this version in the
- *  App Engine flexible environment.
+ *  App Engine flexible environment. Deprecated.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *zones;
 

@@ -2582,7 +2582,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /**
  *  A creative and its classification data.
- *  Next ID: 39
+ *  Next ID: 40
  */
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 
@@ -5119,7 +5119,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 /**
  *  The reason why the proposal is being paused.
  *  This human readable message will be displayed in the seller's UI.
- *  (Max length: 100 unicode code units.)
+ *  (Max length: 1000 unicode code units.)
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 

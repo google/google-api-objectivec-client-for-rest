@@ -62,6 +62,11 @@ NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationMode
 NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeSiblingOfCurrent = @"SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT";
 NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown = @"SOURCE_DERIVATION_MODE_UNKNOWN";
 
+// GTLRDataflow_Environment.flexResourceSchedulingGoal
+NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized = @"FLEXRS_COST_OPTIMIZED";
+NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized = @"FLEXRS_SPEED_OPTIMIZED";
+NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified = @"FLEXRS_UNSPECIFIED";
+
 // GTLRDataflow_ExecutionStageState.executionStageState
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -523,9 +528,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_Environment
-@dynamic clusterManagerApiService, dataset, experiments, internalExperiments,
-         sdkPipelineOptions, serviceAccountEmail, tempStoragePrefix, userAgent,
-         version, workerPools;
+@dynamic clusterManagerApiService, dataset, experiments,
+         flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
+         serviceAccountEmail, tempStoragePrefix, userAgent, version,
+         workerPools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1039,7 +1045,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_LeaseWorkItemRequest
 @dynamic currentWorkerTime, location, requestedLeaseDuration,
-         workerCapabilities, workerId, workItemTypes;
+         unifiedWorkerRequest, workerCapabilities, workerId, workItemTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1054,17 +1060,45 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest
+//
+
+@implementation GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_LeaseWorkItemResponse
 //
 
 @implementation GTLRDataflow_LeaseWorkItemResponse
-@dynamic workItems;
+@dynamic unifiedWorkerResponse, workItems;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"workItems" : [GTLRDataflow_WorkItem class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse
+//
+
+@implementation GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1429,7 +1463,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ReportWorkItemStatusRequest
-@dynamic currentWorkerTime, location, workerId, workItemStatuses;
+@dynamic currentWorkerTime, location, unifiedWorkerRequest, workerId,
+         workItemStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1443,17 +1478,45 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest
+//
+
+@implementation GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_ReportWorkItemStatusResponse
 //
 
 @implementation GTLRDataflow_ReportWorkItemStatusResponse
-@dynamic workItemServiceStates;
+@dynamic unifiedWorkerResponse, workItemServiceStates;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"workItemServiceStates" : [GTLRDataflow_WorkItemServiceState class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse
+//
+
+@implementation GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -2025,13 +2088,28 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_StreamingComputationConfig
-@dynamic computationId, instructions, stageName, systemName;
+@dynamic computationId, instructions, stageName, systemName,
+         transformUserNameToStateFamily;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"instructions" : [GTLRDataflow_ParallelInstruction class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily
+//
+
+@implementation GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2080,8 +2158,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_StreamingConfigTask
-@dynamic streamingComputationConfigs, userStepToStateFamilyNameMap,
-         windmillServiceEndpoint, windmillServicePort;
+@dynamic maxWorkItemCommitBytes, streamingComputationConfigs,
+         userStepToStateFamilyNameMap, windmillServiceEndpoint,
+         windmillServicePort;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

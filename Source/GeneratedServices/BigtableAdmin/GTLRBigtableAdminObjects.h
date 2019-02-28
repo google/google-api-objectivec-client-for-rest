@@ -597,7 +597,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_ClusterState : GTLRObject
 
 /**
- *  (`OutputOnly`)
+ *  Output only.
  *  The state of replication for the table in this cluster.
  *
  *  Likely values:
@@ -1627,7 +1627,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_Table : GTLRObject
 
 /**
- *  (`OutputOnly`)
+ *  Output only.
  *  Map from cluster ID to per-cluster table state.
  *  If it could not be determined whether or not the table has data in a
  *  particular cluster (for example, if its zone is unavailable), then
@@ -1648,7 +1648,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  The granularity (i.e. `MILLIS`) at which timestamps are stored in
  *  this table. Timestamps not matching the granularity will be rejected.
  *  If unspecified at creation time, the value will be set to `MILLIS`.
- *  Views: `SCHEMA_VIEW`, `FULL`
+ *  Views: `SCHEMA_VIEW`, `FULL`.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Millis The table keeps data
@@ -1661,7 +1661,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *granularity;
 
 /**
- *  (`OutputOnly`)
+ *  Output only.
  *  The unique name of the table. Values are of the form
  *  `projects/<project>/instances/<instance>/tables/_a-zA-Z0-9*`.
  *  Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
@@ -1672,7 +1672,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 
 
 /**
- *  (`OutputOnly`)
+ *  Output only.
  *  Map from cluster ID to per-cluster table state.
  *  If it could not be determined whether or not the table has data in a
  *  particular cluster (for example, if its zone is unavailable), then

@@ -22,16 +22,15 @@
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_CreateContainerVersionRequestVersionOptions;
-@class GTLRTagManager_CreateWorkspaceProposalRequest;
 @class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
 @class GTLRTagManager_Tag;
 @class GTLRTagManager_Trigger;
-@class GTLRTagManager_UpdateWorkspaceProposalRequest;
 @class GTLRTagManager_UserPermission;
 @class GTLRTagManager_Variable;
 @class GTLRTagManager_Workspace;
+@class GTLRTagManager_Zone;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -468,46 +467,6 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a GTM Environment. This method supports patch semantics.
- *
- *  Method: tagmanager.accounts.containers.environments.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersEnvironmentsPatch : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsPatchWithObject:path:]
-
-/**
- *  When provided, this fingerprint must match the fingerprint of the
- *  environment in storage.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/**
- *  GTM Environment's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/**
- *  Fetches a @c GTLRTagManager_Environment.
- *
- *  Updates a GTM Environment. This method supports patch semantics.
- *
- *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param path GTM Environment's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
- *
- *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsPatch
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
-                           path:(NSString *)path;
 
 @end
 
@@ -2028,35 +1987,6 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
- *  Gets a GTM Workspace Proposal.
- *
- *  Method: tagmanager.accounts.containers.workspaces.getProposal
- */
-@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGetProposal : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetProposalWithpath:]
-
-/**
- *  GTM workspace proposal's relative path: Example:
- *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/**
- *  Fetches a @c GTLRTagManager_WorkspaceProposal.
- *
- *  Gets a GTM Workspace Proposal.
- *
- *  @param path GTM workspace proposal's relative path: Example:
- *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- *
- *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGetProposal
- */
-+ (instancetype)queryWithPath:(NSString *)path;
-
-@end
-
-/**
  *  Finds conflicting and modified entities in the workspace.
  *
  *  Method: tagmanager.accounts.containers.workspaces.getStatus
@@ -2126,68 +2056,6 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a GTM Workspace Proposal.
- *
- *  Method: tagmanager.accounts.containers.workspaces.proposal.create
- */
-@interface GTLRTagManagerQuery_AccountsContainersWorkspacesProposalCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesProposalCreateWithObject:parent:]
-
-/**
- *  GTM Workspace's API relative path. Example:
- *  accounts/{aid}/containers/{cid}/workspace/{wid}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRTagManager_WorkspaceProposal.
- *
- *  Creates a GTM Workspace Proposal.
- *
- *  @param object The @c GTLRTagManager_CreateWorkspaceProposalRequest to
- *    include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
- *    accounts/{aid}/containers/{cid}/workspace/{wid}
- *
- *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesProposalCreate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_CreateWorkspaceProposalRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a GTM Workspace Proposal.
- *
- *  Method: tagmanager.accounts.containers.workspaces.proposal.delete
- */
-@interface GTLRTagManagerQuery_AccountsContainersWorkspacesProposalDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesProposalDeleteWithpath:]
-
-/**
- *  GTM workspace proposal's relative path: Example:
- *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a GTM Workspace Proposal.
- *
- *  @param path GTM workspace proposal's relative path: Example:
- *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- *
- *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesProposalDelete
- */
-+ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -2779,38 +2647,6 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
- *  Updates a GTM Workspace Proposal.
- *
- *  Method: tagmanager.accounts.containers.workspaces.updateProposal
- */
-@interface GTLRTagManagerQuery_AccountsContainersWorkspacesUpdateProposal : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateProposalWithObject:path:]
-
-/**
- *  GTM workspace proposal's relative path: Example:
- *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/**
- *  Fetches a @c GTLRTagManager_WorkspaceProposal.
- *
- *  Updates a GTM Workspace Proposal.
- *
- *  @param object The @c GTLRTagManager_UpdateWorkspaceProposalRequest to
- *    include in the query.
- *  @param path GTM workspace proposal's relative path: Example:
- *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
- *
- *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesUpdateProposal
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_UpdateWorkspaceProposalRequest *)object
-                           path:(NSString *)path;
-
-@end
-
-/**
  *  Creates a GTM Variable.
  *
  *  Method: tagmanager.accounts.containers.workspaces.variables.create
@@ -3024,6 +2860,224 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Variable *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a GTM Zone.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesCreateWithObject:parent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Zone.
+ *
+ *  Creates a GTM Zone.
+ *
+ *  @param object The @c GTLRTagManager_Zone to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Zone *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Zone.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesDeleteWithpath:]
+
+/**
+ *  GTM Zone's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Zone.
+ *
+ *  @param path GTM Zone's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Zone.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesGetWithpath:]
+
+/**
+ *  GTM Zone's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Zone.
+ *
+ *  Gets a GTM Zone.
+ *
+ *  @param path GTM Zone's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Zones of a GTM container workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListZonesResponse.
+ *
+ *  Lists all GTM Zones of a GTM container workspace.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Zone in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesRevertWithpath:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the zone in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Zone's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertZoneResponse.
+ *
+ *  Reverts changes to a GTM Zone in a GTM Workspace.
+ *
+ *  @param path GTM Zone's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Zone.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.zones.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the zone in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Zone's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Zone.
+ *
+ *  Updates a GTM Zone.
+ *
+ *  @param object The @c GTLRTagManager_Zone to include in the query.
+ *  @param path GTM Zone's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Zone *)object
                            path:(NSString *)path;
 
 @end

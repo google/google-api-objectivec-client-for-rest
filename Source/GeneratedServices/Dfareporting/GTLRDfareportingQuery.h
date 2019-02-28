@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -4468,139 +4468,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Gets one directory site contact by ID.
- *
- *  Method: dfareporting.directorySiteContacts.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_DirectorySiteContactsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDirectorySiteContactsGetWithprofileId:identifier:]
-
-/**
- *  Directory site contact ID.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, assign) long long identifier;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_DirectorySiteContact.
- *
- *  Gets one directory site contact by ID.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param identifier Directory site contact ID.
- *
- *  @return GTLRDfareportingQuery_DirectorySiteContactsGet
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        identifier:(long long)identifier;
-
-@end
-
-/**
- *  Retrieves a list of directory site contacts, possibly filtered. This method
- *  supports paging.
- *
- *  Method: dfareporting.directorySiteContacts.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_DirectorySiteContactsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDirectorySiteContactsListWithprofileId:]
-
-/**
- *  Select only directory site contacts with these directory site IDs. This is a
- *  required field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *directorySiteIds;
-
-/**
- *  Select only directory site contacts with these IDs.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ids;
-
-/**
- *  Maximum number of results to return.
- *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
- */
-@property(nonatomic, assign) NSInteger maxResults;
-
-/** Value of the nextPageToken from the previous result page. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Allows searching for objects by name, ID or email. Wildcards (*) are
- *  allowed. For example, "directory site contact*2015" will return objects with
- *  names like "directory site contact June 2015", "directory site contact April
- *  2015", or simply "directory site contact 2015". Most of the searches also
- *  add wildcards implicitly at the start and the end of the search string. For
- *  example, a search string of "directory site contact" will match objects with
- *  name "my directory site contact", "directory site contact 2015", or simply
- *  "directory site contact".
- */
-@property(nonatomic, copy, nullable) NSString *searchString;
-
-/**
- *  Field by which to sort the list.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareportingSortFieldId Value "ID"
- *    @arg @c kGTLRDfareportingSortFieldName Value "NAME"
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRDfareportingSortFieldId.
- */
-@property(nonatomic, copy, nullable) NSString *sortField;
-
-/**
- *  Order of sorted results.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRDfareportingSortOrderAscending.
- */
-@property(nonatomic, copy, nullable) NSString *sortOrder;
-
-/**
- *  Fetches a @c GTLRDfareporting_DirectorySiteContactsListResponse.
- *
- *  Retrieves a list of directory site contacts, possibly filtered. This method
- *  supports paging.
- *
- *  @param profileId User profile ID associated with this request.
- *
- *  @return GTLRDfareportingQuery_DirectorySiteContactsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProfileId:(long long)profileId;
-
-@end
-
-/**
  *  Gets one directory site by ID.
  *
  *  Method: dfareporting.directorySites.get
@@ -4704,9 +4571,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @property(nonatomic, assign) BOOL active;
 
-/** Select only directory sites with this country ID. */
-@property(nonatomic, assign) long long countryId;
-
 /** Select only directory sites with this Ad Manager network code. */
 @property(nonatomic, copy, nullable) NSString *dfpNetworkCode;
 
@@ -4727,9 +4591,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 
 /** Value of the nextPageToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Select only directory sites with this parent ID. */
-@property(nonatomic, assign) long long parentId;
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;

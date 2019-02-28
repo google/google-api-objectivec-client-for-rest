@@ -652,7 +652,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents
-@dynamic dockerCacheHit, numErrors, numWarnings;
+@dynamic dockerCacheHit, inputCacheMiss, numErrors, numWarnings;
 @end
 
 

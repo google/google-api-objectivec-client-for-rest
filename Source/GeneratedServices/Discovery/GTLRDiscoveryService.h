@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   APIs Discovery Service (discovery/v1)
+//   API Discovery Service (discovery/v1)
 // Description:
 //   Provides information about other Google APIs, such as what APIs are
 //   available, the resource, and method details for each API.
@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Service for executing APIs Discovery Service queries.
+ *  Service for executing API Discovery Service queries.
  *
  *  Provides information about other Google APIs, such as what APIs are
  *  available, the resource, and method details for each API.

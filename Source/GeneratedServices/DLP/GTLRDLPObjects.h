@@ -90,6 +90,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2InspectJobConfig;
 @class GTLRDLP_GooglePrivacyDlpV2InspectResult;
 @class GTLRDLP_GooglePrivacyDlpV2InspectTemplate;
+@class GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails;
 @class GTLRDLP_GooglePrivacyDlpV2JobTrigger;
 @class GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig;
 @class GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass;
@@ -256,6 +257,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonChar
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile;
 /** Value: "FILE_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
+/** Value: "IMAGE" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
 /** Value: "TEXT_FILE" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
 
@@ -282,7 +285,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_Samp
 // GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
 
 /**
- *  Equal.
+ *  Equal. Attempts to match even with incompatible types.
  *
  *  Value: "EQUAL_TO"
  */
@@ -318,7 +321,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProper
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThanOrEquals;
 /**
- *  Not equal to.
+ *  Not equal to. Attempts to match even with incompatible types.
  *
  *  Value: "NOT_EQUAL_TO"
  */
@@ -876,6 +879,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
+/**
+ *  Enable email notification to project owners and editors on job's
+ *  completion/failure.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
+
 /** Publish summary to Cloud Security Command Center (Alpha). */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc *publishSummaryToCscc;
 
@@ -885,6 +894,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /** Save resulting findings in a provided location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SaveFindings *saveFindings;
 
+@end
+
+
+/**
+ *  Request message for ActivateJobTrigger.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest : GTLRObject
 @end
 
 
@@ -1510,6 +1526,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The field type of `value` and `field` do not need to match to be
  *  considered equal, but not all comparisons are possible.
+ *  EQUAL_TO and NOT_EQUAL_TO attempt to compare even with incompatible types,
+ *  but all other comparisons are invalid with incompatible types.
  *  A `value` of type:
  *  - `string` can be compared against all other types
  *  - `boolean` can only be compared against other booleans
@@ -1534,7 +1552,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo
- *        Equal. (Value: "EQUAL_TO")
+ *        Equal. Attempts to match even with incompatible types. (Value:
+ *        "EQUAL_TO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_Exists
  *        Exists (Value: "EXISTS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThan
@@ -1546,7 +1565,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThanOrEquals
  *        Less than or equals. (Value: "LESS_THAN_OR_EQUALS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_NotEqualTo
- *        Not equal to. (Value: "NOT_EQUAL_TO")
+ *        Not equal to. Attempts to match even with incompatible types. (Value:
+ *        "NOT_EQUAL_TO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified
  *        Value "RELATIONAL_OPERATOR_UNSPECIFIED"
  *
@@ -2681,7 +2701,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Max number of findings that will be returned for each item scanned.
  *  When set within `InspectDataSourceRequest`,
- *  the maximum returned is 1000 regardless if this is set higher.
+ *  the maximum returned is 2000 regardless if this is set higher.
  *  When set within `InspectContentRequest`, this field is ignored.
  *
  *  Uses NSNumber of intValue.
@@ -2690,7 +2710,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Max number of findings that will be returned per request/job.
- *  When set within `InspectContentRequest`, the maximum returned is 1000
+ *  When set within `InspectContentRequest`, the maximum returned is 2000
  *  regardless if this is set higher.
  *
  *  Uses NSNumber of intValue.
@@ -2836,6 +2856,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  InfoType description.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription : GTLRObject
+
+/**
+ *  Description of the infotype. Translated when language is provided in the
+ *  request.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Human readable form of the infoType name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -3180,6 +3208,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /** The last update timestamp of a inspectTemplate, output only field. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Enable email notification to project owners and editors on jobs's
+ *  completion/failure.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails : GTLRObject
 @end
 
 
@@ -4365,6 +4401,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2Regex : GTLRObject
 
 /**
+ *  The index of the submatch to extract as findings. When not
+ *  specified, the entire match is returned. No more than 3 may be included.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *groupIndexes;
+
+/**
  *  Pattern defining the regular expression. Its syntax
  *  (https://github.com/google/re2/wiki/Syntax) can be found under the
  *  google/re2 repository on GitHub.
@@ -4468,7 +4512,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2Result
+ *  All result fields mentioned below are updated while the job is processing.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
 

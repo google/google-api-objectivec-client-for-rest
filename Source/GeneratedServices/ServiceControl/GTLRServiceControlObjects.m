@@ -280,8 +280,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuthenticationInfo
-@dynamic authoritySelector, principalEmail, serviceAccountKeyName,
-         thirdPartyPrincipal;
+@dynamic authoritySelector, principalEmail, serviceAccountDelegationInfo,
+         serviceAccountKeyName, thirdPartyPrincipal;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAccountDelegationInfo" : [GTLRServiceControl_ServiceAccountDelegationInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -315,7 +323,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_CheckError
-@dynamic code, detail, subject;
+@dynamic code, detail, status, subject;
 @end
 
 
@@ -420,6 +428,30 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 @implementation GTLRServiceControl_ExponentialBuckets
 @dynamic growthFactor, numFiniteBuckets, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_FirstPartyPrincipal
+//
+
+@implementation GTLRServiceControl_FirstPartyPrincipal
+@dynamic principalEmail, serviceMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata
+//
+
+@implementation GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -883,6 +915,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_ServiceAccountDelegationInfo
+//
+
+@implementation GTLRServiceControl_ServiceAccountDelegationInfo
+@dynamic firstPartyPrincipal, thirdPartyPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_Status
 //
 
@@ -905,6 +947,30 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ThirdPartyPrincipal
+//
+
+@implementation GTLRServiceControl_ThirdPartyPrincipal
+@dynamic thirdPartyClaims;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims
+//
+
+@implementation GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

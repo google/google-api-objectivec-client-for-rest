@@ -34,6 +34,7 @@
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
+@class GTLRAndroidManagement_LaunchAppAction;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables;
 @class GTLRAndroidManagement_ManagedProperty;
@@ -54,6 +55,7 @@
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
+@class GTLRAndroidManagement_SetupAction;
 @class GTLRAndroidManagement_SigninDetail;
 @class GTLRAndroidManagement_SoftwareInfo;
 @class GTLRAndroidManagement_Status;
@@ -214,6 +216,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  *  Value: "PREINSTALLED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled;
+/**
+ *  The app is automatically installed and can't be removed by the user and will
+ *  prevent setup from completion until installation is complete.
+ *
+ *  Value: "REQUIRED_FOR_SETUP"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationReport.applicationSource
@@ -1419,6 +1428,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled
  *        The app is automatically installed and can be removed by the user.
  *        (Value: "PREINSTALLED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup
+ *        The app is automatically installed and can't be removed by the user
+ *        and will prevent setup from completion until installation is complete.
+ *        (Value: "REQUIRED_FOR_SETUP")
  */
 @property(nonatomic, copy, nullable) NSString *installType;
 
@@ -2393,6 +2406,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *skinTemperatures;
+
+@end
+
+
+/**
+ *  An action to launch an app.
+ */
+@interface GTLRAndroidManagement_LaunchAppAction : GTLRObject
+
+/** Package name of app to be launched */
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 @end
 
@@ -3585,6 +3609,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSNumber *screenCaptureDisabled;
 
+/** Actions to take during the setup process. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SetupAction *> *setupActions;
+
 /**
  *  Whether changing the user icon is disabled.
  *
@@ -3711,8 +3738,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled;
 
 /**
- *  Whether Wi-Fi networks defined in Open Network Configuration are locked so
- *  they can't be edited by the user.
+ *  DEPRECATED - Use wifi_config_disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3801,6 +3827,27 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+@end
+
+
+/**
+ *  An action executed during setup.
+ */
+@interface GTLRAndroidManagement_SetupAction : GTLRObject
+
+/**
+ *  Description of this action.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *descriptionProperty;
+
+/** An action to launch an app. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_LaunchAppAction *launchApp;
+
+/** Title of this action. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *title;
 
 @end
 

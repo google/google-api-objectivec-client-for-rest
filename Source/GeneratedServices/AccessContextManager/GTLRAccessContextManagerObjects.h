@@ -273,14 +273,12 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
 
 /**
- *  The signed-in user originating the request must be a part of one of the
- *  provided members.
+ *  The request must be made by one of the provided user or service
+ *  accounts. Groups are not supported.
  *  Syntax:
  *  `user:{emailid}`
- *  `group:{emailid}`
  *  `serviceAccount:{emailid}`
- *  If not specified, a request may come from any user (logged in/not logged
- *  in, not present in any groups, etc.).
+ *  If not specified, a request may come from any user.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -618,8 +616,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  must be in the same policy as this `ServicePerimeter`. Referencing a
  *  nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
  *  listed, resources within the perimeter can only be accessed via GCP calls
- *  with
- *  request origins within the perimeter. Example:
+ *  with request origins within the perimeter. Example:
  *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
  *  For Service Perimeter Bridge, must be empty.
  */
@@ -651,8 +648,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  May contain a list of services or a single wildcard "*". For example, if
  *  `logging.googleapis.com` is unrestricted, users can access logs inside the
  *  perimeter as if the perimeter doesn't exist, and it also means VMs inside
- *  the perimeter
- *  can access logs outside the perimeter.
+ *  the perimeter can access logs outside the perimeter.
  *  The wildcard means that unless explicitly specified by
  *  "restricted_services" list, any service is treated as unrestricted. One of
  *  the fields "restricted_services", "unrestricted_services" must contain a

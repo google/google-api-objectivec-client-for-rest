@@ -482,6 +482,9 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  If the data point is contained in a dataset for a derived data source, this
  *  field will be populated with the data source stream ID that created the data
  *  point originally.
+ *  WARNING: do not rely on this field for anything other than debugging. The
+ *  value of this field, if it is set at all, is an implementation detail and is
+ *  not guaranteed to remain consistent.
  */
 @property(nonatomic, copy, nullable) NSString *originDataSourceId;
 

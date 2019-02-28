@@ -339,6 +339,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  New billing configuration will be applied if specified.
  *  Omit billing configuration to keep the existing one.
  *  Service account in the project will be created if previously non existing.
+ *  Specified folder will be ignored, moving tenant project to a different
+ *  folder is not supported.
  *  Operation fails if any of the steps fail, but no rollback of already
  *  applied configuration changes is attempted.
  *  Operation<response: Empty>.
@@ -369,6 +371,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  New billing configuration will be applied if specified.
  *  Omit billing configuration to keep the existing one.
  *  Service account in the project will be created if previously non existing.
+ *  Specified folder will be ignored, moving tenant project to a different
+ *  folder is not supported.
  *  Operation fails if any of the steps fail, but no rollback of already
  *  applied configuration changes is attempted.
  *  Operation<response: Empty>.
@@ -582,6 +586,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  It will remove project lien with 'TenantManager' origin if that was added.
  *  It will then attempt to delete the project. If that operation fails, this
  *  method fails.
+ *  Calls to remove already removed or non-existent tenant project
+ *  will succeed.
  *  After the project has been deleted, or if was already in DELETED state,
  *  resource metadata is permanently removed from the tenancy unit.
  *  Operation<response: Empty>.
@@ -608,6 +614,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  It will remove project lien with 'TenantManager' origin if that was added.
  *  It will then attempt to delete the project. If that operation fails, this
  *  method fails.
+ *  Calls to remove already removed or non-existent tenant project
+ *  will succeed.
  *  After the project has been deleted, or if was already in DELETED state,
  *  resource metadata is permanently removed from the tenancy unit.
  *  Operation<response: Empty>.

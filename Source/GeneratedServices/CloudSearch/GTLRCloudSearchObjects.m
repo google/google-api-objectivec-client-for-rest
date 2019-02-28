@@ -59,6 +59,57 @@ NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending =
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending = @"DESCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder = @"NO_ORDER";
 
+// GTLRCloudSearch_GmailActionRestrict.type
+NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Muted = @"MUTED";
+NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Read = @"READ";
+NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_RepliedTo = @"REPLIED_TO";
+NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Unread = @"UNREAD";
+NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_GmailAttachmentRestrict.type
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasAttachment = @"HAS_ATTACHMENT";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDocument = @"HAS_DOCUMENT";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDrive = @"HAS_DRIVE";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPdf = @"HAS_PDF";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPhoto = @"HAS_PHOTO";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPresentation = @"HAS_PRESENTATION";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasSpreadsheet = @"HAS_SPREADSHEET";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasYoutube = @"HAS_YOUTUBE";
+NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_GmailFolderRestrict.type
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_Chats = @"CHATS";
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InDraft = @"IN_DRAFT";
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InSent = @"IN_SENT";
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InTrash = @"IN_TRASH";
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_UserGeneratedLabel = @"USER_GENERATED_LABEL";
+
+// GTLRCloudSearch_GmailIntelligentRestrict.type
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_BusReservation = @"BUS_RESERVATION";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_CarReservation = @"CAR_RESERVATION";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_FlightReservation = @"FLIGHT_RESERVATION";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Forums = @"FORUMS";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Important = @"IMPORTANT";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_LodgingReservation = @"LODGING_RESERVATION";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Promotions = @"PROMOTIONS";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Social = @"SOCIAL";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Updates = @"UPDATES";
+
+// GTLRCloudSearch_GmailTimeRestrict.type
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromCertainMonth = @"FROM_CERTAIN_MONTH";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisMonth = @"FROM_THIS_MONTH";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisWeek = @"FROM_THIS_WEEK";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromToday = @"FROM_TODAY";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromYesterday = @"FROM_YESTERDAY";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAMonth = @"OLDER_THAN_A_MONTH";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAWeek = @"OLDER_THAN_A_WEEK";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanOneYear = @"OLDER_THAN_ONE_YEAR";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanToday = @"OLDER_THAN_TODAY";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanYesterday = @"OLDER_THAN_YESTERDAY";
+NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_Unspecified = @"UNSPECIFIED";
+
 // GTLRCloudSearch_IndexItemRequest.mode
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous = @"ASYNCHRONOUS";
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous = @"SYNCHRONOUS";
@@ -685,6 +736,56 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_GmailActionRestrict
+//
+
+@implementation GTLRCloudSearch_GmailActionRestrict
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GmailAttachmentRestrict
+//
+
+@implementation GTLRCloudSearch_GmailAttachmentRestrict
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GmailFolderRestrict
+//
+
+@implementation GTLRCloudSearch_GmailFolderRestrict
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GmailIntelligentRestrict
+//
+
+@implementation GTLRCloudSearch_GmailIntelligentRestrict
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GmailTimeRestrict
+//
+
+@implementation GTLRCloudSearch_GmailTimeRestrict
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GSuitePrincipal
 //
 
@@ -733,11 +834,21 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_IndexItemOptions
+//
+
+@implementation GTLRCloudSearch_IndexItemOptions
+@dynamic allowUnknownGsuitePrincipals;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_IndexItemRequest
 //
 
 @implementation GTLRCloudSearch_IndexItemRequest
-@dynamic connectorName, debugOptions, item, mode;
+@dynamic connectorName, debugOptions, indexItemOptions, item, mode;
 @end
 
 
@@ -1499,7 +1610,9 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_RestrictItem
 @dynamic driveFollowUpRestrict, driveLocationRestrict, driveMimeTypeRestrict,
-         driveTimeSpanRestrict, searchOperator;
+         driveTimeSpanRestrict, gmailActionRestrict, gmailAttachmentRestrict,
+         gmailFolderRestrict, gmailIntelligentRestrict, gmailTimeRestrict,
+         searchOperator;
 @end
 
 

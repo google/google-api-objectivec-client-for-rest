@@ -22,6 +22,8 @@
 @class GTLRCloudTalentSolution_ApplicationInfo;
 @class GTLRCloudTalentSolution_BucketizedCount;
 @class GTLRCloudTalentSolution_BucketRange;
+@class GTLRCloudTalentSolution_ClientEvent;
+@class GTLRCloudTalentSolution_ClientEvent_ExtraInfo;
 @class GTLRCloudTalentSolution_CommuteFilter;
 @class GTLRCloudTalentSolution_CommuteInfo;
 @class GTLRCloudTalentSolution_Company;
@@ -45,6 +47,7 @@
 @class GTLRCloudTalentSolution_Job;
 @class GTLRCloudTalentSolution_Job_CustomAttributes;
 @class GTLRCloudTalentSolution_JobDerivedInfo;
+@class GTLRCloudTalentSolution_JobEvent;
 @class GTLRCloudTalentSolution_JobQuery;
 @class GTLRCloudTalentSolution_LatLng;
 @class GTLRCloudTalentSolution_Location;
@@ -904,6 +907,155 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategori
 GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_TransportationAndLogistics;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_JobEvent.type
+
+/**
+ *  This event should be used when a company submits an application
+ *  on behalf of a job seeker. This event is intended for use by staffing
+ *  agencies attempting to place candidates.
+ *
+ *  Value: "APPLICATION_COMPANY_SUBMIT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationCompanySubmit;
+/**
+ *  The job seeker or other entity interacting with the service
+ *  submitted an application for a job.
+ *
+ *  Value: "APPLICATION_FINISH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationFinish;
+/**
+ *  The job seeker or other entity interacting with the service
+ *  submitted an application for a job with a single click without
+ *  entering information. If a job seeker performs this action, send only
+ *  this event to the service. Do not also send
+ *  JobEventType.APPLICATION_START or JobEventType.APPLICATION_FINISH
+ *  events.
+ *
+ *  Value: "APPLICATION_QUICK_SUBMISSION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQuickSubmission;
+/**
+ *  The job seeker or other entity interacting with the service
+ *  performed an action to apply to a job and was redirected to a different
+ *  website to complete the application.
+ *
+ *  Value: "APPLICATION_REDIRECT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirect;
+/**
+ *  The job seeker, or other entity interacting with the service, performs an
+ *  action with a single click from the search results page to apply to a job
+ *  (without viewing the details of the job posting), and is redirected
+ *  to a different website to complete the application. If a candidate
+ *  performs this action, send only this event to the service. Do not also
+ *  send JobEventType.APPLICATION_START,
+ *  JobEventType.APPLICATION_FINISH or JobEventType.VIEW events.
+ *
+ *  Value: "APPLICATION_REDIRECT_FROM_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirectFromSearch;
+/**
+ *  The job seeker or other entity interacting with the service
+ *  began the process or demonstrated the intention of applying for a job.
+ *
+ *  Value: "APPLICATION_START"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStart;
+/**
+ *  The job seeker or other entity interacting with the service began the
+ *  process or demonstrated the intention of applying for a job from the
+ *  search results page without viewing the details of the job posting.
+ *  If sending this event, JobEventType.VIEW event shouldn't be sent.
+ *
+ *  Value: "APPLICATION_START_FROM_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStartFromSearch;
+/**
+ *  The job seeker or other entity interacting with the service demonstrated
+ *  an interest in a job by bookmarking or saving it.
+ *
+ *  Value: "BOOKMARK"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Bookmark;
+/**
+ *  The job seeker or other entity interacting with the service was
+ *  employed by the hiring entity (employer). Send this event
+ *  only if the job seeker was hired through an application that was
+ *  initiated by a search conducted through the Cloud Talent Solution
+ *  service.
+ *
+ *  Value: "HIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Hired;
+/**
+ *  The job seeker or other entity interacting with the service has
+ *  had a job rendered in their view, such as in a list of search results in
+ *  a compressed or clipped format. This event is typically associated with
+ *  the viewing of a jobs list on a single page by a job seeker.
+ *
+ *  Value: "IMPRESSION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression;
+/**
+ *  The entity interacting with the service (for example, the job seeker),
+ *  was granted an initial interview by the hiring entity (employer). This
+ *  event should only be sent if the job seeker was granted an interview as
+ *  part of an application that was initiated by a search conducted through /
+ *  recommendation provided by the Cloud Talent Solution service.
+ *
+ *  Value: "INTERVIEW_GRANTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted;
+/**
+ *  The event is unspecified by other provided values.
+ *
+ *  Value: "JOB_EVENT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified;
+/**
+ *  The job seeker or other entity interacting with the service was
+ *  sent a notification, such as an email alert or device notification,
+ *  containing one or more jobs listings generated by the service.
+ *
+ *  Value: "NOTIFICATION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification;
+/**
+ *  The job seeker or other entity interacting with the service showed
+ *  no interest in the job.
+ *
+ *  Value: "NOT_INTERESTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested;
+/**
+ *  A recruiter or staffing agency submitted an application on behalf of the
+ *  candidate after interacting with the service to identify a suitable job
+ *  posting.
+ *
+ *  Value: "SENT_CV"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv;
+/**
+ *  The job seeker, or other entity interacting with the service, has
+ *  viewed the details of a job, including the full description. This
+ *  event doesn't apply to the viewing a snippet of a job appearing as a
+ *  part of the job search results. Viewing a snippet is associated with an
+ *  impression).
+ *
+ *  Value: "VIEW"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View;
+/**
+ *  The job seeker or other entity interacting with the service
+ *  performed an action to view a job and was redirected to a different
+ *  website for job.
+ *
+ *  Value: "VIEW_REDIRECT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_JobQuery.employmentTypes
 
 /** Value: "CONTRACTOR" */
@@ -1312,6 +1464,84 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 
 /**
+ *  An event issued when an end user interacts with the application that
+ *  implements Cloud Talent Solution. Providing this information improves the
+ *  quality of search and recommendation for the API clients, enabling the
+ *  service to perform optimally. The number of events sent must be consistent
+ *  with other calls, such as job searches, issued to the service by the client.
+ */
+@interface GTLRCloudTalentSolution_ClientEvent : GTLRObject
+
+/**
+ *  Required.
+ *  The timestamp of the event.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required.
+ *  A unique identifier, generated by the client application. This `event_id`
+ *  is used to establish the relationship between different events
+ *  (see parent_event_id).
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  Optional.
+ *  Extra information about this event. Used for storing information with no
+ *  matching field in event payload, for example, user application specific
+ *  context or details.
+ *  At most 20 keys are supported. The maximum total size of all keys and
+ *  values is 2 KB.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ClientEvent_ExtraInfo *extraInfo;
+
+/**
+ *  A event issued when a job seeker interacts with the application that
+ *  implements Cloud Talent Solution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobEvent *jobEvent;
+
+/**
+ *  Required except the first event.
+ *  The event_id of an event that resulted in the current event. For example, a
+ *  Job view event usually follows a parent
+ *  impression event: A job seeker first does a
+ *  search where a list of jobs appears
+ *  (impression). The job seeker then selects a
+ *  result and views the description of a particular job (Job
+ *  view).
+ */
+@property(nonatomic, copy, nullable) NSString *parentEventId;
+
+/**
+ *  Required.
+ *  A unique ID generated in the API responses. It can be found in
+ *  ResponseMetadata.request_id.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Optional.
+ *  Extra information about this event. Used for storing information with no
+ *  matching field in event payload, for example, user application specific
+ *  context or details.
+ *  At most 20 keys are supported. The maximum total size of all keys and
+ *  values is 2 KB.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudTalentSolution_ClientEvent_ExtraInfo : GTLRObject
+@end
+
+
+/**
  *  Input only.
  *  Parameters needed for commute search.
  */
@@ -1348,7 +1578,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 /**
  *  Optional.
  *  The departure time used to calculate traffic impact, represented as
- *  .google.type.TimeOfDay in local time zone.
+ *  google.type.TimeOfDay in local time zone.
  *  Currently traffic model is restricted to hour level resolution.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_TimeOfDay *departureTime;
@@ -1900,6 +2130,21 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *        suggest job titles. (Value: "JOB_TITLE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The report event request.
+ */
+@interface GTLRCloudTalentSolution_CreateClientEventRequest : GTLRObject
+
+/**
+ *  Required.
+ *  Events issued when end user interacts with customer's application that
+ *  uses Cloud Talent Solution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ClientEvent *clientEvent;
 
 @end
 
@@ -2492,9 +2737,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *  The job PostingRegion (for example, state, country) throughout which
  *  the job is available. If this field is set, a
  *  LocationFilter in a search query within the job region
- *  finds this job posting if an exact location match is not specified.
- *  If this field is set to PostingRegion.NATION_WIDE or
- *  [PostingRegion.ADMINISTRATIVE_AREA], setting job addresses
+ *  finds this job posting if an exact location match isn't specified.
+ *  If this field is set to PostingRegion.NATION or
+ *  PostingRegion.ADMINISTRATIVE_AREA, setting job Job.addresses
  *  to the same location level as this field is strongly recommended.
  *
  *  Likely values:
@@ -2648,6 +2893,127 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *  order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_Location *> *locations;
+
+@end
+
+
+/**
+ *  An event issued when a job seeker interacts with the application that
+ *  implements Cloud Talent Solution.
+ */
+@interface GTLRCloudTalentSolution_JobEvent : GTLRObject
+
+/**
+ *  Required.
+ *  The job name(s) associated with this event.
+ *  For example, if this is an impression event,
+ *  this field contains the identifiers of all jobs shown to the job seeker.
+ *  If this was a view event, this field contains the
+ *  identifier of the viewed job.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
+
+/**
+ *  Required.
+ *  The type of the event (see JobEventType).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationCompanySubmit
+ *        This event should be used when a company submits an application
+ *        on behalf of a job seeker. This event is intended for use by staffing
+ *        agencies attempting to place candidates. (Value:
+ *        "APPLICATION_COMPANY_SUBMIT")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationFinish The job
+ *        seeker or other entity interacting with the service
+ *        submitted an application for a job. (Value: "APPLICATION_FINISH")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQuickSubmission
+ *        The job seeker or other entity interacting with the service
+ *        submitted an application for a job with a single click without
+ *        entering information. If a job seeker performs this action, send only
+ *        this event to the service. Do not also send
+ *        JobEventType.APPLICATION_START or JobEventType.APPLICATION_FINISH
+ *        events. (Value: "APPLICATION_QUICK_SUBMISSION")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirect The job
+ *        seeker or other entity interacting with the service
+ *        performed an action to apply to a job and was redirected to a
+ *        different
+ *        website to complete the application. (Value: "APPLICATION_REDIRECT")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirectFromSearch
+ *        The job seeker, or other entity interacting with the service, performs
+ *        an
+ *        action with a single click from the search results page to apply to a
+ *        job
+ *        (without viewing the details of the job posting), and is redirected
+ *        to a different website to complete the application. If a candidate
+ *        performs this action, send only this event to the service. Do not also
+ *        send JobEventType.APPLICATION_START,
+ *        JobEventType.APPLICATION_FINISH or JobEventType.VIEW events. (Value:
+ *        "APPLICATION_REDIRECT_FROM_SEARCH")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStart The job
+ *        seeker or other entity interacting with the service
+ *        began the process or demonstrated the intention of applying for a job.
+ *        (Value: "APPLICATION_START")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStartFromSearch
+ *        The job seeker or other entity interacting with the service began the
+ *        process or demonstrated the intention of applying for a job from the
+ *        search results page without viewing the details of the job posting.
+ *        If sending this event, JobEventType.VIEW event shouldn't be sent.
+ *        (Value: "APPLICATION_START_FROM_SEARCH")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_Bookmark The job seeker or
+ *        other entity interacting with the service demonstrated
+ *        an interest in a job by bookmarking or saving it. (Value: "BOOKMARK")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_Hired The job seeker or
+ *        other entity interacting with the service was
+ *        employed by the hiring entity (employer). Send this event
+ *        only if the job seeker was hired through an application that was
+ *        initiated by a search conducted through the Cloud Talent Solution
+ *        service. (Value: "HIRED")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_Impression The job seeker
+ *        or other entity interacting with the service has
+ *        had a job rendered in their view, such as in a list of search results
+ *        in
+ *        a compressed or clipped format. This event is typically associated
+ *        with
+ *        the viewing of a jobs list on a single page by a job seeker. (Value:
+ *        "IMPRESSION")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted The entity
+ *        interacting with the service (for example, the job seeker),
+ *        was granted an initial interview by the hiring entity (employer). This
+ *        event should only be sent if the job seeker was granted an interview
+ *        as
+ *        part of an application that was initiated by a search conducted
+ *        through /
+ *        recommendation provided by the Cloud Talent Solution service. (Value:
+ *        "INTERVIEW_GRANTED")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified The
+ *        event is unspecified by other provided values. (Value:
+ *        "JOB_EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_Notification The job seeker
+ *        or other entity interacting with the service was
+ *        sent a notification, such as an email alert or device notification,
+ *        containing one or more jobs listings generated by the service. (Value:
+ *        "NOTIFICATION")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_NotInterested The job
+ *        seeker or other entity interacting with the service showed
+ *        no interest in the job. (Value: "NOT_INTERESTED")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_SentCv A recruiter or
+ *        staffing agency submitted an application on behalf of the
+ *        candidate after interacting with the service to identify a suitable
+ *        job
+ *        posting. (Value: "SENT_CV")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_View The job seeker, or
+ *        other entity interacting with the service, has
+ *        viewed the details of a job, including the full description. This
+ *        event doesn't apply to the viewing a snippet of a job appearing as a
+ *        part of the job search results. Viewing a snippet is associated with
+ *        an
+ *        impression). (Value: "VIEW")
+ *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect The job seeker
+ *        or other entity interacting with the service
+ *        performed an action to view a job and was redirected to a different
+ *        website for job. (Value: "VIEW_REDIRECT")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

@@ -36,6 +36,8 @@
 @class GTLRServiceControl_Distribution;
 @class GTLRServiceControl_ExplicitBuckets;
 @class GTLRServiceControl_ExponentialBuckets;
+@class GTLRServiceControl_FirstPartyPrincipal;
+@class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
 @class GTLRServiceControl_HttpRequest;
 @class GTLRServiceControl_LinearBuckets;
 @class GTLRServiceControl_LogEntry;
@@ -67,8 +69,11 @@
 @class GTLRServiceControl_Resource_Labels;
 @class GTLRServiceControl_ResourceInfo;
 @class GTLRServiceControl_ResourceLocation;
+@class GTLRServiceControl_ServiceAccountDelegationInfo;
 @class GTLRServiceControl_Status;
 @class GTLRServiceControl_Status_Details_Item;
+@class GTLRServiceControl_ThirdPartyPrincipal;
+@class GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -516,6 +521,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
  *  configuration or specified using the quota metrics. If the amount is
  *  higher than the available quota, request does not fail but all available
  *  quota will be allocated.
+ *  For rate quota, BEST_EFFORT will continue to deduct from other groups
+ *  even if one does not have enough quota. For allocation, it will find the
+ *  minimum available amount across all groups and deduct that amount from
+ *  all the affected groups.
  *
  *  Value: "BEST_EFFORT"
  */
@@ -946,6 +955,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
+ *  Identity delegation history of an authenticated service account that makes
+ *  the request. It contains information on the real authorities that try to
+ *  access GCP resources by delegating on a service account. When multiple
+ *  authorities present, they are guaranteed to be sorted based on the original
+ *  ordering of the identity delegation events.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ServiceAccountDelegationInfo *> *serviceAccountDelegationInfo;
+
+/**
  *  The name of the service account key used to create or exchange
  *  credentials for authenticating the service account making the request.
  *  This is a scheme-less URI full resource name. For example:
@@ -1133,6 +1151,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** Free-form text providing details on the error cause of the error. */
 @property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Contains public information about the check error. If available,
+ *  `status.code` will be non zero and client can propagate it out as public
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 
 /**
  *  Subject to whom this error applies. See the specific code enum for more
@@ -1410,6 +1435,39 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
 
+@end
+
+
+/**
+ *  First party identity principal.
+ */
+@interface GTLRServiceControl_FirstPartyPrincipal : GTLRObject
+
+/**
+ *  The email address of a Google account.
+ *  .
+ */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+/**
+ *  Metadata about the service that uses the service account.
+ *  .
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata *serviceMetadata;
+
+@end
+
+
+/**
+ *  Metadata about the service that uses the service account.
+ *  .
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata : GTLRObject
 @end
 
 
@@ -1865,10 +1923,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  This field should be filled in for the operations initiated by a
  *  consumer, but not for service-initiated operations that are
  *  not related to a specific consumer.
- *  This can be in one of the following formats:
- *  project:<project_id>,
- *  project_number:<project_number>,
- *  api_key:<api_key>.
+ *  - This can be in one of the following formats:
+ *  - project:PROJECT_ID,
+ *  - project`_`number:PROJECT_NUMBER,
+ *  - projects/RPOJECT_ID or PROJECT_NUMBER,
+ *  - folders/FOLDER_NUMBER,
+ *  - organizations/ORGANIZATION_NUMBER,
+ *  - api`_`key:API_KEY.
  */
 @property(nonatomic, copy, nullable) NSString *consumerId;
 
@@ -2280,7 +2341,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        configuration or specified using the quota metrics. If the amount is
  *        higher than the available quota, request does not fail but all
  *        available
- *        quota will be allocated. (Value: "BEST_EFFORT")
+ *        quota will be allocated.
+ *        For rate quota, BEST_EFFORT will continue to deduct from other groups
+ *        even if one does not have enough quota. For allocation, it will find
+ *        the
+ *        minimum available amount across all groups and deduct that amount from
+ *        all the affected groups. (Value: "BEST_EFFORT")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly For
  *        AllocateQuota request, only checks if there is enough quota
  *        available and does not change the available quota. No lock is placed
@@ -2711,6 +2777,20 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
+ *  Identity delegation history of an authenticated service account.
+ */
+@interface GTLRServiceControl_ServiceAccountDelegationInfo : GTLRObject
+
+/** First party (Google) identity as the real authority. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_FirstPartyPrincipal *firstPartyPrincipal;
+
+/** Third party identity as the real authority. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ThirdPartyPrincipal *thirdPartyPrincipal;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different
  *  programming environments, including REST APIs and RPC APIs. It is used by
@@ -2789,6 +2869,29 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Third party identity principal.
+ */
+@interface GTLRServiceControl_ThirdPartyPrincipal : GTLRObject
+
+/** Metadata about third party identity. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims *thirdPartyClaims;
+
+@end
+
+
+/**
+ *  Metadata about third party identity.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

@@ -30,6 +30,50 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
+@implementation GTLRCloudAssetQuery_FoldersExportAssets
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}:exportAssets";
+  GTLRCloudAssetQuery_FoldersExportAssets *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
+  query.loggingName = @"cloudasset.folders.exportAssets";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_FoldersOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRCloudAssetQuery_FoldersOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
+  query.loggingName = @"cloudasset.folders.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_OrganizationsBatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,

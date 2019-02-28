@@ -21,6 +21,7 @@
 
 @class GTLRDirectory_Asp;
 @class GTLRDirectory_Building;
+@class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel_Params;
@@ -243,6 +244,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Building : GTLRObject
 
 /**
+ *  The postal address of the building. See PostalAddress for details. Note that
+ *  only a single address line and region code are required.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_BuildingAddress *address;
+
+/**
  *  Unique identifier for the building. The maximum length is 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *buildingId;
@@ -279,6 +286,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  JSON template for the postal address of a building in Directory API.
+ */
+@interface GTLRDirectory_BuildingAddress : GTLRObject
+
+/** Unstructured address lines describing the lower levels of an address. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
+
+/**
+ *  Optional. Highest administrative subdivision which is used for postal
+ *  addresses of a country or region.
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Optional. BCP-47 language code of the contents of this address (if known).
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. Generally refers to the city/town portion of the address.
+ *  Examples: US city, IT comune, UK post town. In regions of the world where
+ *  localities are not well defined or do not fit into this structure well,
+ *  leave locality empty and use addressLines.
+ */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/** Optional. Postal code of the address. */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/** Required. CLDR region code of the country/region of the address. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/** Optional. Sublocality of the address. */
+@property(nonatomic, copy, nullable) NSString *sublocality;
 
 @end
 
@@ -2876,7 +2922,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDirectory_UserPosixAccount : GTLRObject
 
-/** A POSIX account field identifier. (Read-only) */
+/** A POSIX account field identifier. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GECOS (user information) for this account. */

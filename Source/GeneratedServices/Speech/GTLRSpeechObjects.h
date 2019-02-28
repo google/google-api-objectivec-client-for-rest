@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Speech API (speech/v1)
+//   Cloud Speech-to-Text API (speech/v1)
 // Description:
 //   Converts audio to text by applying powerful neural network models.
 // Documentation:
@@ -25,6 +25,7 @@
 @class GTLRSpeech_RecognitionAlternative;
 @class GTLRSpeech_RecognitionAudio;
 @class GTLRSpeech_RecognitionConfig;
+@class GTLRSpeech_RecognitionMetadata;
 @class GTLRSpeech_RecognitionResult;
 @class GTLRSpeech_Status;
 @class GTLRSpeech_Status_Details_Item;
@@ -110,6 +111,169 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
  *  Value: "SPEEX_WITH_HEADER_BYTE"
  */
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_RecognitionMetadata.interactionType
+
+/**
+ *  Transcribe speech to text to create a written document, such as a
+ *  text-message, email or report.
+ *
+ *  Value: "DICTATION"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation;
+/**
+ *  Multiple people in a conversation or discussion. For example in a
+ *  meeting with two or more people actively participating. Typically
+ *  all the primary people speaking would be in the same room (if not,
+ *  see PHONE_CALL)
+ *
+ *  Value: "DISCUSSION"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion;
+/**
+ *  Use case is either unknown or is something other than one of the other
+ *  values below.
+ *
+ *  Value: "INTERACTION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified;
+/**
+ *  A phone-call or video-conference in which two or more people, who are
+ *  not in the same room, are actively participating.
+ *
+ *  Value: "PHONE_CALL"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall;
+/**
+ *  One or more persons lecturing or presenting to others, mostly
+ *  uninterrupted.
+ *
+ *  Value: "PRESENTATION"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Presentation;
+/**
+ *  Professionally produced audio (eg. TV Show, Podcast).
+ *
+ *  Value: "PROFESSIONALLY_PRODUCED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_ProfessionallyProduced;
+/**
+ *  Transcribe voice commands, such as for controlling a device.
+ *
+ *  Value: "VOICE_COMMAND"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceCommand;
+/**
+ *  A recorded message intended for another person to listen to.
+ *
+ *  Value: "VOICEMAIL"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Voicemail;
+/**
+ *  Transcribe spoken questions and queries into text.
+ *
+ *  Value: "VOICE_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_RecognitionMetadata.microphoneDistance
+
+/**
+ *  The speaker is more than 3 meters away from the microphone.
+ *
+ *  Value: "FARFIELD"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Farfield;
+/**
+ *  Audio type is not known.
+ *
+ *  Value: "MICROPHONE_DISTANCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_MicrophoneDistanceUnspecified;
+/**
+ *  The speaker if within 3 meters of the microphone.
+ *
+ *  Value: "MIDFIELD"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield;
+/**
+ *  The audio was captured from a closely placed microphone. Eg. phone,
+ *  dictaphone, or handheld microphone. Generally if there speaker is within
+ *  1 meter of the microphone.
+ *
+ *  Value: "NEARFIELD"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield;
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_RecognitionMetadata.originalMediaType
+
+/**
+ *  The speech data is an audio recording.
+ *
+ *  Value: "AUDIO"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Audio;
+/**
+ *  Unknown original media type.
+ *
+ *  Value: "ORIGINAL_MEDIA_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_OriginalMediaTypeUnspecified;
+/**
+ *  The speech data originally recorded on a video.
+ *
+ *  Value: "VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_RecognitionMetadata.recordingDeviceType
+
+/**
+ *  Speech was recorded indoors.
+ *
+ *  Value: "OTHER_INDOOR_DEVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherIndoorDevice;
+/**
+ *  Speech was recorded outdoors.
+ *
+ *  Value: "OTHER_OUTDOOR_DEVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherOutdoorDevice;
+/**
+ *  Speech was recorded using a personal computer or tablet.
+ *
+ *  Value: "PC"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Pc;
+/**
+ *  Speech was recorded over a phone line.
+ *
+ *  Value: "PHONE_LINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_PhoneLine;
+/**
+ *  The recording device is unknown.
+ *
+ *  Value: "RECORDING_DEVICE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDeviceTypeUnspecified;
+/**
+ *  Speech was recorded on a smartphone.
+ *
+ *  Value: "SMARTPHONE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone;
+/**
+ *  Speech was recorded in a vehicle.
+ *
+ *  Value: "VEHICLE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle;
 
 /**
  *  Provides "hints" to the speech recognizer to favor specific words and
@@ -370,6 +534,21 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
+ *  *Optional* The number of channels in the input audio data.
+ *  ONLY set this for MULTI-CHANNEL recognition.
+ *  Valid values for LINEAR16 and FLAC are `1`-`8`.
+ *  Valid values for OGG_OPUS are '1'-'254'.
+ *  Valid value for MULAW, AMR, AMR_WB and SPEEX_WITH_HEADER_BYTE is only `1`.
+ *  If `0` or omitted, defaults to one channel (mono).
+ *  Note: We only recognize the first channel by default.
+ *  To perform independent recognition on each channel set
+ *  `enable_separate_recognition_per_channel` to 'true'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *audioChannelCount;
+
+/**
  *  *Optional* If 'true', adds punctuation to recognition result hypotheses.
  *  This feature is only available in select languages. Setting this for
  *  requests in other languages has no effect at all.
@@ -475,6 +654,9 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  */
 @property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
 
+/** *Optional* Metadata regarding this request. */
+@property(nonatomic, strong, nullable) GTLRSpeech_RecognitionMetadata *metadata;
+
 /**
  *  *Optional* Which model to select for the given request. Select the model
  *  best suited to your domain to get best results. If a model is not
@@ -527,8 +709,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  16000 is optimal. For best results, set the sampling rate of the audio
  *  source to 16000 Hz. If that's not possible, use the native sample rate of
  *  the audio source (instead of re-sampling).
- *  This field is optional for `FLAC` and `WAV` audio files and required
- *  for all other audio formats. For details, see AudioEncoding.
+ *  This field is optional for `FLAC`, `WAV`. and 'MP3' audio files, and is
+ *  required for all other audio formats. For details, see AudioEncoding.
  *
  *  Uses NSNumber of intValue.
  */
@@ -559,6 +741,145 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useEnhanced;
+
+@end
+
+
+/**
+ *  Description of audio data to be recognized.
+ */
+@interface GTLRSpeech_RecognitionMetadata : GTLRObject
+
+/**
+ *  Description of the content. Eg. "Recordings of federal supreme court
+ *  hearings from 2012".
+ */
+@property(nonatomic, copy, nullable) NSString *audioTopic;
+
+/**
+ *  The industry vertical to which this speech recognition request most
+ *  closely applies. This is most indicative of the topics contained
+ *  in the audio. Use the 6-digit NAICS code to identify the industry
+ *  vertical - see https://www.naics.com/search/.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *industryNaicsCodeOfAudio;
+
+/**
+ *  The use case most closely describing the audio content to be recognized.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation
+ *        Transcribe speech to text to create a written document, such as a
+ *        text-message, email or report. (Value: "DICTATION")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion
+ *        Multiple people in a conversation or discussion. For example in a
+ *        meeting with two or more people actively participating. Typically
+ *        all the primary people speaking would be in the same room (if not,
+ *        see PHONE_CALL) (Value: "DISCUSSION")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified
+ *        Use case is either unknown or is something other than one of the other
+ *        values below. (Value: "INTERACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall A
+ *        phone-call or video-conference in which two or more people, who are
+ *        not in the same room, are actively participating. (Value:
+ *        "PHONE_CALL")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_Presentation One
+ *        or more persons lecturing or presenting to others, mostly
+ *        uninterrupted. (Value: "PRESENTATION")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_ProfessionallyProduced
+ *        Professionally produced audio (eg. TV Show, Podcast). (Value:
+ *        "PROFESSIONALLY_PRODUCED")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceCommand
+ *        Transcribe voice commands, such as for controlling a device. (Value:
+ *        "VOICE_COMMAND")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_Voicemail A
+ *        recorded message intended for another person to listen to. (Value:
+ *        "VOICEMAIL")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceSearch
+ *        Transcribe spoken questions and queries into text. (Value:
+ *        "VOICE_SEARCH")
+ */
+@property(nonatomic, copy, nullable) NSString *interactionType;
+
+/**
+ *  The audio type that most closely describes the audio being recognized.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Farfield The
+ *        speaker is more than 3 meters away from the microphone. (Value:
+ *        "FARFIELD")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_MicrophoneDistanceUnspecified
+ *        Audio type is not known. (Value: "MICROPHONE_DISTANCE_UNSPECIFIED")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield The
+ *        speaker if within 3 meters of the microphone. (Value: "MIDFIELD")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield The
+ *        audio was captured from a closely placed microphone. Eg. phone,
+ *        dictaphone, or handheld microphone. Generally if there speaker is
+ *        within
+ *        1 meter of the microphone. (Value: "NEARFIELD")
+ */
+@property(nonatomic, copy, nullable) NSString *microphoneDistance;
+
+/**
+ *  Obfuscated (privacy-protected) ID of the user, to identify number of
+ *  unique users using the service.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *obfuscatedId;
+
+/**
+ *  The original media the speech was recorded on.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Audio The speech
+ *        data is an audio recording. (Value: "AUDIO")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_OriginalMediaType_OriginalMediaTypeUnspecified
+ *        Unknown original media type. (Value:
+ *        "ORIGINAL_MEDIA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Video The speech
+ *        data originally recorded on a video. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *originalMediaType;
+
+/**
+ *  Mime type of the original audio file. For example `audio/m4a`,
+ *  `audio/x-alaw-basic`, `audio/mp3`, `audio/3gpp`.
+ *  A list of possible audio mime types is maintained at
+ *  http://www.iana.org/assignments/media-types/media-types.xhtml#audio
+ */
+@property(nonatomic, copy, nullable) NSString *originalMimeType;
+
+/**
+ *  The device used to make the recording. Examples 'Nexus 5X' or
+ *  'Polycom SoundStation IP 6000' or 'POTS' or 'VoIP' or
+ *  'Cardioid Microphone'.
+ */
+@property(nonatomic, copy, nullable) NSString *recordingDeviceName;
+
+/**
+ *  The type of device the speech was recorded with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherIndoorDevice
+ *        Speech was recorded indoors. (Value: "OTHER_INDOOR_DEVICE")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherOutdoorDevice
+ *        Speech was recorded outdoors. (Value: "OTHER_OUTDOOR_DEVICE")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Pc Speech was
+ *        recorded using a personal computer or tablet. (Value: "PC")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_PhoneLine
+ *        Speech was recorded over a phone line. (Value: "PHONE_LINE")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDeviceTypeUnspecified
+ *        The recording device is unknown. (Value:
+ *        "RECORDING_DEVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone
+ *        Speech was recorded on a smartphone. (Value: "SMARTPHONE")
+ *    @arg @c kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle Speech
+ *        was recorded in a vehicle. (Value: "VEHICLE")
+ */
+@property(nonatomic, copy, nullable) NSString *recordingDeviceType;
 
 @end
 

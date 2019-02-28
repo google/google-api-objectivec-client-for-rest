@@ -110,7 +110,6 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /**
  *  An alert affecting a customer.
- *  All fields are read-only once created.
  */
 @interface GTLRAlertCenter_Alert : GTLRObject
 
@@ -141,7 +140,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 /**
  *  Optional. The time the event that caused this alert ceased being active.
  *  If provided, the end time must not be earlier than the start time.
- *  If not provided, the end time defaults to the start time.
+ *  If not provided, it indicates an ongoing alert.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -154,6 +153,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /**
  *  Required. A unique identifier for the system that reported the alert.
+ *  This is output only after alert is created.
  *  Supported sources are any of the following:
  *  * Google Operations
  *  * Mobile device management
@@ -172,6 +172,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /**
  *  Required. The type of the alert.
+ *  This is output only after alert is created.
  *  For a list of available alert types see
  *  [G Suite Alert types](/admin-sdk/alertcenter/reference/alert-types).
  */

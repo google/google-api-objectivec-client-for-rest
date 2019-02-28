@@ -281,7 +281,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 @implementation GTLRBigqueryQuery_JobsList
 
 @dynamic allUsers, maxCreationTime, maxResults, minCreationTime, pageToken,
-         projectId, projection, stateFilter;
+         parentJobId, projectId, projection, stateFilter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

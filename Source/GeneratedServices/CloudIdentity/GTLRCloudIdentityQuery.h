@@ -153,11 +153,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsList]
 
 /**
- *  Maximum number of groups to return.
- *  View | Default | Maximum
- *  ----- | ------- | -------
- *  BASIC | 200 | 1000
- *  FULL | 50 | 500
+ *  The default page size is 200 (max 1000) for the BASIC view, and 50
+ *  (max 500) for the FULL view.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -352,11 +349,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsMembershipsListWithparent:]
 
 /**
- *  Maximum number of Memberships to return.
- *  View | Default | Maximum
- *  -----|---------|--------
- *  BASIC| 200 | 1000
- *  FULL | 50 | 500
+ *  The default page size is 200 (max 1000) for the BASIC view, and 50
+ *  (max 500) for the FULL view.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -510,11 +504,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsSearch]
 
 /**
- *  Maximum number of groups to return.
- *  View | Default | Maximum
- *  ----- | ------- | -------
- *  BASIC | 200 | 1000
- *  FULL | 50 | 500
+ *  The default page size is 200 (max 1000) for the BASIC view, and 50
+ *  (max 500) for the FULL view.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

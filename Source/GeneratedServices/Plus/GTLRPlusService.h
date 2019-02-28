@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Know the list of people in your circles, your age
- *  range, and language
+ *  Authorization scope: View your basic profile info, including your age range
+ *  and language
  *
  *  Value "https://www.googleapis.com/auth/plus.login"
  */

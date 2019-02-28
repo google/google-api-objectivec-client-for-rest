@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -655,21 +655,6 @@ NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_IframeJa
 NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_InternalRedirectInterstitial = @"INTERNAL_REDIRECT_INTERSTITIAL";
 NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial = @"JAVASCRIPT_INTERSTITIAL";
 
-// GTLRDfareporting_DirectorySiteContact.role
-NSString * const kGTLRDfareporting_DirectorySiteContact_Role_Admin = @"ADMIN";
-NSString * const kGTLRDfareporting_DirectorySiteContact_Role_Edit = @"EDIT";
-NSString * const kGTLRDfareporting_DirectorySiteContact_Role_View = @"VIEW";
-
-// GTLRDfareporting_DirectorySiteContact.type
-NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Billing = @"BILLING";
-NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Other = @"OTHER";
-NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Sales = @"SALES";
-NSString * const kGTLRDfareporting_DirectorySiteContact_Type_Technical = @"TECHNICAL";
-
-// GTLRDfareporting_DirectorySiteContactAssignment.visibility
-NSString * const kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Private = @"PRIVATE";
-NSString * const kGTLRDfareporting_DirectorySiteContactAssignment_Visibility_Public = @"PUBLIC";
-
 // GTLRDfareporting_DynamicTargetingKey.objectType
 NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAd = @"OBJECT_AD";
 NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAdvertiser = @"OBJECT_ADVERTISER";
@@ -1056,6 +1041,11 @@ NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both 
 NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Default = @"DEFAULT";
 NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash = @"FLASH";
 NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5 = @"HTML5";
+
+// GTLRDfareporting_SiteVideoSettings.orientation
+NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Any = @"ANY";
+NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape = @"LANDSCAPE";
+NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait = @"PORTRAIT";
 
 // GTLRDfareporting_SortedDimension.sortOrder
 NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Ascending = @"ASCENDING";
@@ -1707,8 +1697,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          creativeOptimizationConfiguration,
          defaultClickThroughEventTagProperties, defaultLandingPageId, endDate,
          eventTagOverrides, externalId, identifier, idDimensionValue, kind,
-         lastModifiedInfo, lookbackConfiguration, name, nielsenOcrEnabled,
-         startDate, subaccountId, traffickerEmails;
+         lastModifiedInfo, name, nielsenOcrEnabled, startDate, subaccountId,
+         traffickerEmails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2159,8 +2149,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          creativeFieldAssignments, customKeyValues, dynamicAssetSelection,
          exitCustomEvents, fsCommand, htmlCode, htmlCodeLocked, identifier,
          idDimensionValue, kind, lastModifiedInfo, latestTraffickedCreativeId,
-         mediaDescription, mediaDuration, name, overrideCss, politeLoadAssetId,
-         progressOffset, redirectUrl, renderingId, renderingIdDimensionValue,
+         mediaDescription, mediaDuration, name, overrideCss, progressOffset,
+         redirectUrl, renderingId, renderingIdDimensionValue,
          requiredFlashPluginVersion, requiredFlashVersion, size, skipOffset,
          skippable, sslCompliant, sslOverride, studioAdvertiserId,
          studioCreativeId, studioTraffickedCreativeId, subaccountId,
@@ -2201,16 +2191,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_CreativeAsset
 @dynamic actionScript3, active, additionalSizes, alignment, artworkType,
-         assetIdentifier, backupImageExit, bitRate, childAssetType,
-         collapsedSize, companionCreativeIds, customStartTimeValue,
-         detectedFeatures, displayType, duration, durationType,
-         expandedDimension, fileSize, flashVersion, hideFlashObjects,
-         hideSelectionBoxes, horizontallyLocked, identifier, idDimensionValue,
-         mediaDuration, mimeType, offset, orientation, originalBackup, position,
-         positionLeftUnit, positionTopUnit, progressiveServingUrl, pushdown,
-         pushdownDuration, role, size, sslCompliant, startTimeType,
-         streamingServingUrl, transparency, verticallyLocked, windowMode,
-         zIndex, zipFilename, zipFilesize;
+         assetIdentifier, audioBitRate, audioSampleRate, backupImageExit,
+         bitRate, childAssetType, collapsedSize, companionCreativeIds,
+         customStartTimeValue, detectedFeatures, displayType, duration,
+         durationType, expandedDimension, fileSize, flashVersion, frameRate,
+         hideFlashObjects, hideSelectionBoxes, horizontallyLocked, identifier,
+         idDimensionValue, mediaDuration, mimeType, offset, orientation,
+         originalBackup, politeLoad, position, positionLeftUnit,
+         positionTopUnit, progressiveServingUrl, pushdown, pushdownDuration,
+         role, size, sslCompliant, startTimeType, streamingServingUrl,
+         transparency, verticallyLocked, windowMode, zIndex, zipFilename,
+         zipFilesize;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2508,16 +2499,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_CreativeSettings
-//
-
-@implementation GTLRDfareporting_CreativeSettings
-@dynamic iFrameFooter, iFrameHeader;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDfareporting_CreativesListResponse
 //
 
@@ -2584,6 +2565,31 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomViewabilityMetric
+//
+
+@implementation GTLRDfareporting_CustomViewabilityMetric
+@dynamic configuration, identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomViewabilityMetricConfiguration
+//
+
+@implementation GTLRDfareporting_CustomViewabilityMetricConfiguration
+@dynamic audible, timeMillis, timePercent, viewabilityPercent;
 @end
 
 
@@ -2750,73 +2756,19 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_DirectorySite
-@dynamic active, contactAssignments, countryId, currencyId, descriptionProperty,
-         identifier, idDimensionValue, inpageTagFormats, interstitialTagFormats,
-         kind, name, parentId, settings, url;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"contactAssignments" : [GTLRDfareporting_DirectorySiteContactAssignment class],
-    @"inpageTagFormats" : [NSString class],
-    @"interstitialTagFormats" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_DirectorySiteContact
-//
-
-@implementation GTLRDfareporting_DirectorySiteContact
-@dynamic address, email, firstName, identifier, kind, lastName, phone, role,
-         title, type;
+@dynamic active, identifier, idDimensionValue, inpageTagFormats,
+         interstitialTagFormats, kind, name, settings, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_DirectorySiteContactAssignment
-//
-
-@implementation GTLRDfareporting_DirectorySiteContactAssignment
-@dynamic contactId, visibility;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_DirectorySiteContactsListResponse
-//
-
-@implementation GTLRDfareporting_DirectorySiteContactsListResponse
-@dynamic directorySiteContacts, kind, nextPageToken;
-
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"directorySiteContacts" : [GTLRDfareporting_DirectorySiteContact class]
+    @"inpageTagFormats" : [NSString class],
+    @"interstitialTagFormats" : [NSString class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"directorySiteContacts";
 }
 
 @end
@@ -2829,8 +2781,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_DirectorySiteSettings
 @dynamic activeViewOptOut, dfpSettings, instreamVideoPlacementAccepted,
-         interstitialPlacementAccepted, nielsenOcrOptOut, verificationTagOptOut,
-         videoActiveViewOptOut;
+         interstitialPlacementAccepted;
 @end
 
 
@@ -3150,12 +3101,12 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_FloodlightConfiguration
 @dynamic accountId, advertiserId, advertiserIdDimensionValue,
-         analyticsDataSharingEnabled, exposureToConversionEnabled,
-         firstDayOfWeek, identifier, idDimensionValue,
-         inAppAttributionTrackingEnabled, kind, lookbackConfiguration,
-         naturalSearchConversionAttributionOption, omnitureSettings,
-         subaccountId, tagSettings, thirdPartyAuthenticationTokens,
-         userDefinedVariableConfigurations;
+         analyticsDataSharingEnabled, customViewabilityMetric,
+         exposureToConversionEnabled, firstDayOfWeek, identifier,
+         idDimensionValue, inAppAttributionTrackingEnabled, kind,
+         lookbackConfiguration, naturalSearchConversionAttributionOption,
+         omnitureSettings, subaccountId, tagSettings,
+         thirdPartyAuthenticationTokens, userDefinedVariableConfigurations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4575,7 +4526,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_Site
 @dynamic accountId, approved, directorySiteId, directorySiteIdDimensionValue,
          identifier, idDimensionValue, keyName, kind, name, siteContacts,
-         siteSettings, subaccountId;
+         siteSettings, subaccountId, videoSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4584,6 +4535,24 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"siteContacts" : [GTLRDfareporting_SiteContact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_SiteCompanionSetting
+//
+
+@implementation GTLRDfareporting_SiteCompanionSetting
+@dynamic companionsDisabled, enabledSizes, imageOnly, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledSizes" : [GTLRDfareporting_Size class]
   };
   return map;
 }
@@ -4613,9 +4582,18 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_SiteSettings
-@dynamic activeViewOptOut, adBlockingOptOut, creativeSettings, disableNewCookie,
-         lookbackConfiguration, tagSetting, videoActiveViewOptOutTemplate,
-         vpaidAdapterChoiceTemplate;
+@dynamic activeViewOptOut, adBlockingOptOut, disableNewCookie, tagSetting,
+         videoActiveViewOptOutTemplate, vpaidAdapterChoiceTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_SiteSkippableSetting
+//
+
+@implementation GTLRDfareporting_SiteSkippableSetting
+@dynamic kind, progressOffset, skipOffset, skippable;
 @end
 
 
@@ -4638,6 +4616,35 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return @"sites";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_SiteTranscodeSetting
+//
+
+@implementation GTLRDfareporting_SiteTranscodeSetting
+@dynamic enabledVideoFormats, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledVideoFormats" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_SiteVideoSettings
+//
+
+@implementation GTLRDfareporting_SiteVideoSettings
+@dynamic companionSettings, kind, orientation, skippableSettings,
+         transcodeSettings;
 @end
 
 

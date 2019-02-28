@@ -338,16 +338,6 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_PatchServiceAccountRequest
-//
-
-@implementation GTLRIam_PatchServiceAccountRequest
-@dynamic serviceAccount, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIam_Permission
 //
 
@@ -528,7 +518,8 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_ServiceAccount
-@dynamic displayName, email, ETag, name, oauth2ClientId, projectId, uniqueId;
+@dynamic disabled, displayName, email, ETag, name, oauth2ClientId, projectId,
+         uniqueId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -646,4 +637,23 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
   return @{ @"ETag" : @"etag" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_UndeleteServiceAccountRequest
+//
+
+@implementation GTLRIam_UndeleteServiceAccountRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_UndeleteServiceAccountResponse
+//
+
+@implementation GTLRIam_UndeleteServiceAccountResponse
+@dynamic restoredAccount;
 @end

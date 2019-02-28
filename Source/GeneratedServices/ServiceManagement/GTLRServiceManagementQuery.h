@@ -279,7 +279,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
 // Previous library name was
 //   +[GTLQueryServiceManagement queryForServicesConfigsListWithserviceName:]
 
-/** The max number of items to include in the response list. */
+/**
+ *  The max number of items to include in the response list. Page size is 50
+ *  if not specified. Maximum value is 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The token of the page to retrieve. */
@@ -868,7 +871,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  */
 @property(nonatomic, copy, nullable) NSString *consumerId;
 
-/** Requested size of the next page of data. */
+/**
+ *  The max number of items to include in the response list. Page size is 50
+ *  if not specified. Maximum value is 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -1026,7 +1032,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The max number of items to include in the response list. */
+/**
+ *  The max number of items to include in the response list. Page size is 50
+ *  if not specified. Maximum value is 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The token of the page to retrieve. */

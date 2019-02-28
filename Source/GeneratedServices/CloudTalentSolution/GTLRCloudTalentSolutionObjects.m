@@ -228,6 +228,25 @@ NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SocialSer
 NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SportsFitnessAndRecreation = @"SPORTS_FITNESS_AND_RECREATION";
 NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_TransportationAndLogistics = @"TRANSPORTATION_AND_LOGISTICS";
 
+// GTLRCloudTalentSolution_JobEvent.type
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationCompanySubmit = @"APPLICATION_COMPANY_SUBMIT";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationFinish = @"APPLICATION_FINISH";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQuickSubmission = @"APPLICATION_QUICK_SUBMISSION";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirect = @"APPLICATION_REDIRECT";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirectFromSearch = @"APPLICATION_REDIRECT_FROM_SEARCH";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStart = @"APPLICATION_START";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStartFromSearch = @"APPLICATION_START_FROM_SEARCH";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Bookmark = @"BOOKMARK";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Hired  = @"HIRED";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression = @"IMPRESSION";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted = @"INTERVIEW_GRANTED";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified = @"JOB_EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification = @"NOTIFICATION";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested = @"NOT_INTERESTED";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv = @"SENT_CV";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View   = @"VIEW";
+NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect = @"VIEW_REDIRECT";
+
 // GTLRCloudTalentSolution_JobQuery.employmentTypes
 NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Contractor = @"CONTRACTOR";
 NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_ContractToHire = @"CONTRACT_TO_HIRE";
@@ -360,6 +379,30 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 @implementation GTLRCloudTalentSolution_BucketRange
 @dynamic from, to;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_ClientEvent
+//
+
+@implementation GTLRCloudTalentSolution_ClientEvent
+@dynamic createTime, eventId, extraInfo, jobEvent, parentEventId, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_ClientEvent_ExtraInfo
+//
+
+@implementation GTLRCloudTalentSolution_ClientEvent_ExtraInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -522,6 +565,16 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 @implementation GTLRCloudTalentSolution_CompletionResult
 @dynamic imageUri, suggestion, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_CreateClientEventRequest
+//
+
+@implementation GTLRCloudTalentSolution_CreateClientEventRequest
+@dynamic clientEvent;
 @end
 
 
@@ -745,6 +798,24 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
   NSDictionary<NSString *, Class> *map = @{
     @"jobCategories" : [NSString class],
     @"locations" : [GTLRCloudTalentSolution_Location class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_JobEvent
+//
+
+@implementation GTLRCloudTalentSolution_JobEvent
+@dynamic jobs, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [NSString class]
   };
   return map;
 }

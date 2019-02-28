@@ -215,46 +215,10 @@ NSString * const kGTLRTagManager_Trigger_Type_Timer            = @"timer";
 NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded     = @"windowLoaded";
 NSString * const kGTLRTagManager_Trigger_Type_YouTubeVideo     = @"youTubeVideo";
 
-// GTLRTagManager_UpdateWorkspaceProposalRequest.status
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved = @"approved";
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled = @"cancelled";
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed = @"completed";
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested = @"requested";
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed = @"reviewed";
-NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified = @"statusUnspecified";
-
-// GTLRTagManager_WorkspaceProposal.status
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_Approved = @"approved";
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_Cancelled = @"cancelled";
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_Completed = @"completed";
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_Requested = @"requested";
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_Reviewed = @"reviewed";
-NSString * const kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified = @"statusUnspecified";
-
-// GTLRTagManager_WorkspaceProposalHistory.type
-NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Comment = @"comment";
-NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange = @"statusChange";
-NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified = @"unspecified";
-
-// GTLRTagManager_WorkspaceProposalHistoryStatusChange.newStatus
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved = @"approved";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled = @"cancelled";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed = @"completed";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested = @"requested";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed = @"reviewed";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified = @"statusUnspecified";
-
-// GTLRTagManager_WorkspaceProposalHistoryStatusChange.oldStatus
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved = @"approved";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled = @"cancelled";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed = @"completed";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested = @"requested";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed = @"reviewed";
-NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified = @"statusUnspecified";
-
-// GTLRTagManager_WorkspaceProposalUser.type
-NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId = @"gaiaId";
-NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
+// GTLRTagManager_VariableFormatValue.caseConversionType
+NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Lowercase = @"lowercase";
+NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_None = @"none";
+NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase = @"uppercase";
 
 // ----------------------------------------------------------------------------
 //
@@ -341,8 +305,8 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 @implementation GTLRTagManager_ContainerVersion
 @dynamic accountId, builtInVariable, container, containerId, containerVersionId,
-         deleted, descriptionProperty, fingerprint, folder, name, path, tag,
-         tagManagerUrl, trigger, variable, zoneProperty;
+         customTemplate, deleted, descriptionProperty, fingerprint, folder,
+         name, path, tag, tagManagerUrl, trigger, variable, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -355,6 +319,7 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"builtInVariable" : [GTLRTagManager_BuiltInVariable class],
+    @"customTemplate" : [GTLRTagManager_CustomTemplate class],
     @"folder" : [GTLRTagManager_Folder class],
     @"tag" : [GTLRTagManager_Tag class],
     @"trigger" : [GTLRTagManager_Trigger class],
@@ -373,8 +338,9 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 //
 
 @implementation GTLRTagManager_ContainerVersionHeader
-@dynamic accountId, containerId, containerVersionId, deleted, name, numMacros,
-         numRules, numTags, numTriggers, numVariables, numZones, path;
+@dynamic accountId, containerId, containerVersionId, deleted, name,
+         numCustomTemplates, numMacros, numRules, numTags, numTriggers,
+         numVariables, numZones, path;
 @end
 
 
@@ -418,19 +384,12 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_CreateWorkspaceProposalRequest
+//   GTLRTagManager_CustomTemplate
 //
 
-@implementation GTLRTagManager_CreateWorkspaceProposalRequest
-@dynamic initialComment, reviewers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
-  };
-  return map;
-}
-
+@implementation GTLRTagManager_CustomTemplate
+@dynamic accountId, containerId, fingerprint, name, path, tagManagerUrl,
+         templateData, templateId, workspaceId;
 @end
 
 
@@ -755,6 +714,32 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_ListZonesResponse
+//
+
+@implementation GTLRTagManager_ListZonesResponse
+@dynamic nextPageToken, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zone" : [GTLRTagManager_Zone class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"zoneProperty";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_MergeConflict
 //
 
@@ -849,6 +834,21 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 @implementation GTLRTagManager_RevertVariableResponse
 @dynamic variable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertZoneResponse
+//
+
+@implementation GTLRTagManager_RevertZoneResponse
+@dynamic zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
 @end
 
 
@@ -968,24 +968,6 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_UpdateWorkspaceProposalRequest
-//
-
-@implementation GTLRTagManager_UpdateWorkspaceProposalRequest
-@dynamic fingerprint, newComment, reviewers, status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRTagManager_UserPermission
 //
 
@@ -1009,7 +991,7 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 @implementation GTLRTagManager_Variable
 @dynamic accountId, containerId, disablingTriggerId, enablingTriggerId,
-         fingerprint, name, notes, parameter, parentFolderId, path,
+         fingerprint, formatValue, name, notes, parameter, parentFolderId, path,
          scheduleEndMs, scheduleStartMs, tagManagerUrl, type, variableId,
          workspaceId;
 
@@ -1027,6 +1009,17 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_VariableFormatValue
+//
+
+@implementation GTLRTagManager_VariableFormatValue
+@dynamic caseConversionType, convertFalseToValue, convertNullToValue,
+         convertTrueToValue, convertUndefinedToValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_Workspace
 //
 
@@ -1038,66 +1031,6 @@ NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_WorkspaceProposal
-//
-
-@implementation GTLRTagManager_WorkspaceProposal
-@dynamic authors, fingerprint, history, path, reviewers, status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"authors" : [GTLRTagManager_WorkspaceProposalUser class],
-    @"history" : [GTLRTagManager_WorkspaceProposalHistory class],
-    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_WorkspaceProposalHistory
-//
-
-@implementation GTLRTagManager_WorkspaceProposalHistory
-@dynamic comment, createdBy, createdTimestamp, statusChange, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_WorkspaceProposalHistoryComment
-//
-
-@implementation GTLRTagManager_WorkspaceProposalHistoryComment
-@dynamic content;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_WorkspaceProposalHistoryStatusChange
-//
-
-@implementation GTLRTagManager_WorkspaceProposalHistoryStatusChange
-@dynamic newStatus, oldStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_WorkspaceProposalUser
-//
-
-@implementation GTLRTagManager_WorkspaceProposalUser
-@dynamic gaiaId, type;
 @end
 
 

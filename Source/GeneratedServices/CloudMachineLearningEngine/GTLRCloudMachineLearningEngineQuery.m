@@ -18,6 +18,25 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"ml.operations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig
 
 @dynamic name;
@@ -579,25 +598,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
   query.loggingName = @"ml.projects.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
-  query.loggingName = @"ml.projects.operations.delete";
   return query;
 }
 

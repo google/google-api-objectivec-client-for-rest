@@ -7747,7 +7747,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether to force attach the disk even if it's currently attached to another
- *  instance. This is only available for regional disks.
+ *  instance.
  */
 @property(nonatomic, assign) BOOL forceAttach;
 
@@ -8407,7 +8407,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs a reset on the instance. This is a hard reset; the VM does not do a
+ *  Performs a reset on the instance. This is a hard reset the VM does not do a
  *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  Method: compute.instances.reset
@@ -8450,7 +8450,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Performs a reset on the instance. This is a hard reset; the VM does not do a
+ *  Performs a reset on the instance. This is a hard reset the VM does not do a
  *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  @param project Project ID for this request.

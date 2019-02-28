@@ -247,65 +247,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the allocated ranges that are assigned to a connection.
- *  The response from the `get` operation will be of type `Connection` if the
- *  operation successfully completes.
- *
- *  Method: servicenetworking.services.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
- *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
- */
-@interface GTLRServiceNetworkingQuery_ServicesPatch : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesPatchWithObject:name:]
-
-/**
- *  If a previously defined allocated range is removed, force flag must be
- *  set to true.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
- *  The service producer peering service that is managing peering connectivity
- *  for a service producer organization.
- *  For Google services that support this functionality, this is
- *  `services/servicenetworking.googleapis.com`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The update mask. If this is omitted, it defaults to "*". You can only
- *  update the listed peering ranges.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRServiceNetworking_Operation.
- *
- *  Updates the allocated ranges that are assigned to a connection.
- *  The response from the `get` operation will be of type `Connection` if the
- *  operation successfully completes.
- *
- *  @param object The @c GTLRServiceNetworking_Connection to include in the
- *    query.
- *  @param name The service producer peering service that is managing peering
- *    connectivity
- *    for a service producer organization.
- *    For Google services that support this functionality, this is
- *    `services/servicenetworking.googleapis.com`.
- *
- *  @return GTLRServiceNetworkingQuery_ServicesPatch
- */
-+ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Service producers can use this method to find a currently unused range
  *  within consumer allocated ranges. This returned range is not reserved,
  *  and not guaranteed to remain unused.
@@ -354,6 +295,65 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_SearchRangeRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  Method: servicenetworking.services.updateConnections
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesUpdateConnections : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesUpdateConnectionsWithObject:name:]
+
+/**
+ *  If a previously defined allocated range is removed, force flag must be
+ *  set to true.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  The service producer peering service that is managing peering connectivity
+ *  for a service producer organization.
+ *  For Google services that support this functionality, this is
+ *  `services/servicenetworking.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask. If this is omitted, it defaults to "*". You can only
+ *  update the listed peering ranges.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  @param object The @c GTLRServiceNetworking_Connection to include in the
+ *    query.
+ *  @param name The service producer peering service that is managing peering
+ *    connectivity
+ *    for a service producer organization.
+ *    For Google services that support this functionality, this is
+ *    `services/servicenetworking.googleapis.com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesUpdateConnections
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
+                           name:(NSString *)name;
 
 @end
 

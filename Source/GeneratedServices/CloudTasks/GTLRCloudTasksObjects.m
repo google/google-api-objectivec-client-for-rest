@@ -18,6 +18,8 @@ NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete = @"DELE
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get = @"GET";
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Head = @"HEAD";
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified = @"HTTP_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Options = @"OPTIONS";
+NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Patch = @"PATCH";
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post = @"POST";
 NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put = @"PUT";
 
@@ -398,8 +400,8 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_Task
-@dynamic appEngineHttpRequest, createTime, dispatchCount, firstAttempt,
-         lastAttempt, name, responseCount, scheduleTime, view;
+@dynamic appEngineHttpRequest, createTime, dispatchCount, dispatchDeadline,
+         firstAttempt, lastAttempt, name, responseCount, scheduleTime, view;
 @end
 
 

@@ -70,8 +70,10 @@ NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps   = @"30fps";
 NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps   = @"60fps";
 
 // GTLRYouTube_CdnSettings.ingestionType
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash = @"dash";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp = @"rtmp";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash   = @"dash";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Http   = @"http";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp   = @"rtmp";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc = @"webrtc";
 
 // GTLRYouTube_CdnSettings.resolution
 NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable = @"variable";
@@ -272,6 +274,7 @@ NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc12    = @"cnc12";
 NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc16    = @"cnc16";
 NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc18    = @"cnc18";
 NSString * const kGTLRYouTube_ContentRating_CncRating_CncE     = @"cncE";
+NSString * const kGTLRYouTube_ContentRating_CncRating_CncInterdiction = @"cncInterdiction";
 NSString * const kGTLRYouTube_ContentRating_CncRating_CncT     = @"cncT";
 NSString * const kGTLRYouTube_ContentRating_CncRating_CncUnrated = @"cncUnrated";
 
@@ -303,11 +306,27 @@ NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmUnrated = @"czfil
 
 // GTLRYouTube_ContentRating.djctqRating
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq10 = @"djctq10";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1012 = @"djctq1012";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1014 = @"djctq1014";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1016 = @"djctq1016";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1018 = @"djctq1018";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq12 = @"djctq12";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1214 = @"djctq1214";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1216 = @"djctq1216";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1218 = @"djctq1218";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq14 = @"djctq14";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1416 = @"djctq1416";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1418 = @"djctq1418";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq16 = @"djctq16";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1618 = @"djctq1618";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq18 = @"djctq18";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqEr = @"djctqEr";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL = @"djctqL";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL10 = @"djctqL10";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL12 = @"djctqL12";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL14 = @"djctqL14";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL16 = @"djctqL16";
+NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL18 = @"djctqL18";
 NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated = @"djctqUnrated";
 
 // GTLRYouTube_ContentRating.djctqRatingReasons
@@ -601,6 +620,7 @@ NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg  = @"mpaaPg";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13 = @"mpaaPg13";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR   = @"mpaaR";
 NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated = @"mpaaUnrated";
+NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaX   = @"mpaaX";
 
 // GTLRYouTube_ContentRating.mpaatRating
 NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatGb = @"mpaatGb";
@@ -789,14 +809,11 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono = @"
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom = @"top_bottom";
 
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
-NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Abandoned = @"abandoned";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete = @"complete";
-NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_CompleteStarting = @"completeStarting";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created = @"created";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Live = @"live";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_LiveStarting = @"liveStarting";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Ready = @"ready";
-NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Reclaimed = @"reclaimed";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Revoked = @"revoked";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Testing = @"testing";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_TestStarting = @"testStarting";
@@ -834,6 +851,7 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent = @"pol
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent = @"sponsorOnlyModeEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent = @"sponsorOnlyModeStartedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent = @"superChatEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent = @"superStickerEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent = @"textMessageEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone = @"tombstone";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent = @"userBannedEvent";
@@ -1367,7 +1385,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_ChannelAuditDetails
 @dynamic communityGuidelinesGoodStanding, contentIdClaimsGoodStanding,
-         copyrightStrikesGoodStanding, overallGoodStanding;
+         copyrightStrikesGoodStanding;
 @end
 
 
@@ -2329,7 +2347,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
          hasDisplayContent, liveChatId, messageDeletedDetails,
          messageRetractedDetails, pollClosedDetails, pollEditedDetails,
          pollOpenedDetails, pollVotedDetails, publishedAt, superChatDetails,
-         textMessageDetails, type, userBannedDetails;
+         superStickerDetails, textMessageDetails, type, userBannedDetails;
 @end
 
 
@@ -2471,6 +2489,17 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatSuperChatDetails
 @dynamic amountDisplayString, amountMicros, currency, tier, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatSuperStickerDetails
+//
+
+@implementation GTLRYouTube_LiveChatSuperStickerDetails
+@dynamic amountDisplayString, amountMicros, currency, superStickerMetadata,
+         tier;
 @end
 
 
@@ -3169,8 +3198,18 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_SuperChatEventSnippet
 @dynamic amountMicros, channelId, commentText, createdAt, currency,
-         displayString, isSuperChatForGood, messageType, nonprofit,
-         supporterDetails;
+         displayString, isSuperChatForGood, isSuperStickerEvent, messageType,
+         nonprofit, superStickerMetadata, supporterDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_SuperStickerMetadata
+//
+
+@implementation GTLRYouTube_SuperStickerMetadata
+@dynamic altText, altTextLanguage, stickerId;
 @end
 
 

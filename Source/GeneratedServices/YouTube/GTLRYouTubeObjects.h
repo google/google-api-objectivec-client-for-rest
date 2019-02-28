@@ -98,6 +98,7 @@
 @class GTLRYouTube_LiveChatPollOpenedDetails;
 @class GTLRYouTube_LiveChatPollVotedDetails;
 @class GTLRYouTube_LiveChatSuperChatDetails;
+@class GTLRYouTube_LiveChatSuperStickerDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
 @class GTLRYouTube_LiveChatUserBannedMessageDetails;
 @class GTLRYouTube_LiveStream;
@@ -137,6 +138,7 @@
 @class GTLRYouTube_SubscriptionSubscriberSnippet;
 @class GTLRYouTube_SuperChatEvent;
 @class GTLRYouTube_SuperChatEventSnippet;
+@class GTLRYouTube_SuperStickerMetadata;
 @class GTLRYouTube_Thumbnail;
 @class GTLRYouTube_ThumbnailDetails;
 @class GTLRYouTube_TokenPagination;
@@ -295,8 +297,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps;
 
 /** Value: "dash" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
+/** Value: "http" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Http;
 /** Value: "rtmp" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
+/** Value: "webrtc" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.resolution
@@ -697,6 +703,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc16;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc18;
 /** Value: "cncE" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncE;
+/** Value: "cncInterdiction" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncInterdiction;
 /** Value: "cncT" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncT;
 /** Value: "cncUnrated" */
@@ -759,16 +767,48 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmUnrat
 
 /** Value: "djctq10" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq10;
+/** Value: "djctq1012" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1012;
+/** Value: "djctq1014" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1014;
+/** Value: "djctq1016" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1016;
+/** Value: "djctq1018" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1018;
 /** Value: "djctq12" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq12;
+/** Value: "djctq1214" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1214;
+/** Value: "djctq1216" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1216;
+/** Value: "djctq1218" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1218;
 /** Value: "djctq14" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq14;
+/** Value: "djctq1416" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1416;
+/** Value: "djctq1418" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1418;
 /** Value: "djctq16" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq16;
+/** Value: "djctq1618" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1618;
 /** Value: "djctq18" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq18;
+/** Value: "djctqEr" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqEr;
 /** Value: "djctqL" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL;
+/** Value: "djctqL10" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL10;
+/** Value: "djctqL12" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL12;
+/** Value: "djctqL14" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL14;
+/** Value: "djctqL16" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL16;
+/** Value: "djctqL18" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL18;
 /** Value: "djctqUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated;
 
@@ -1355,6 +1395,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR;
 /** Value: "mpaaUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated;
+/** Value: "mpaaX" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mpaatRating
@@ -1731,12 +1773,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayo
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 
-/** Value: "abandoned" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Abandoned;
 /** Value: "complete" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete;
-/** Value: "completeStarting" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_CompleteStarting;
 /** Value: "created" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created;
 /** Value: "live" */
@@ -1745,8 +1783,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Li
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_LiveStarting;
 /** Value: "ready" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Ready;
-/** Value: "reclaimed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Reclaimed;
 /** Value: "revoked" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Revoked;
 /** Value: "testing" */
@@ -1821,6 +1857,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnl
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent;
 /** Value: "superChatEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent;
+/** Value: "superStickerEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent;
 /** Value: "textMessageEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent;
 /** Value: "tombstone" */
@@ -2998,7 +3036,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Dash Value "dash"
+ *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Http Value "http"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Rtmp Value "rtmp"
+ *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Webrtc Value "webrtc"
  */
 @property(nonatomic, copy, nullable) NSString *ingestionType;
 
@@ -3142,17 +3182,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *copyrightStrikesGoodStanding;
-
-/**
- *  Describes the general state of the channel. This field will always show if
- *  there are any issues whatsoever with the channel. Currently this field
- *  represents the result of the logical and operation over the community
- *  guidelines good standing, the copyright strikes good standing and the
- *  content ID claims good standing, but this may change in the future.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *overallGoodStanding;
 
 @end
 
@@ -3731,6 +3760,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A map of thumbnail images associated with the channel. For each object in
  *  the map, the key is the name of the thumbnail image, and the value is an
  *  object that contains other information about the thumbnail.
+ *  When displaying thumbnails in your application, make sure that your code
+ *  uses the image URLs exactly as they are returned in API responses. For
+ *  example, your application should not use the http domain instead of the
+ *  https domain in a URL returned in an API response.
+ *  Beginning in July 2018, channel thumbnail URLs will only be available in the
+ *  https domain, which is how the URLs appear in API responses. After that
+ *  time, you might see broken images in your application if it tries to load
+ *  YouTube images from the http domain.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
@@ -4422,6 +4459,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_Cnc16 Value "cnc16"
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_Cnc18 Value "cnc18"
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncE Value "cncE"
+ *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncInterdiction Value
+ *        "cncInterdiction"
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncT Value "cncT"
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncUnrated Value "cncUnrated"
  */
@@ -4479,11 +4518,27 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq10 Value "djctq10"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1012 Value "djctq1012"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1014 Value "djctq1014"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1016 Value "djctq1016"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1018 Value "djctq1018"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq12 Value "djctq12"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1214 Value "djctq1214"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1216 Value "djctq1216"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1218 Value "djctq1218"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq14 Value "djctq14"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1416 Value "djctq1416"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1418 Value "djctq1418"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq16 Value "djctq16"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq1618 Value "djctq1618"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_Djctq18 Value "djctq18"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqEr Value "djctqEr"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL Value "djctqL"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL10 Value "djctqL10"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL12 Value "djctqL12"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL14 Value "djctqL14"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL16 Value "djctqL16"
+ *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqL18 Value "djctqL18"
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated Value
  *        "djctqUnrated"
  */
@@ -4983,6 +5038,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MpaaRating_MpaaR Value "mpaaR"
  *    @arg @c kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated Value
  *        "mpaaUnrated"
+ *    @arg @c kGTLRYouTube_ContentRating_MpaaRating_MpaaX Value "mpaaX"
  */
 @property(nonatomic, copy, nullable) NSString *mpaaRating;
 
@@ -6217,12 +6273,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  liveBroadcasts.transition method.
  *
  *  Likely values:
- *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Abandoned Value
- *        "abandoned"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete Value
  *        "complete"
- *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_CompleteStarting
- *        Value "completeStarting"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created Value
  *        "created"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Live Value "live"
@@ -6230,8 +6282,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        Value "liveStarting"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Ready Value
  *        "ready"
- *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Reclaimed Value
- *        "reclaimed"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Revoked Value
  *        "revoked"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Testing Value
@@ -6588,6 +6638,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatSuperChatDetails *superChatDetails;
 
 /**
+ *  Details about the Super Sticker event, this is only set if the type is
+ *  'superStickerEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatSuperStickerDetails *superStickerDetails;
+
+/**
  *  Details about the text message, this is only set if the type is
  *  'textMessageEvent'.
  */
@@ -6622,6 +6678,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        Value "sponsorOnlyModeStartedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent Value
  *        "superChatEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent Value
+ *        "superStickerEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent Value
  *        "textMessageEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone Value
@@ -6850,8 +6908,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *currency;
 
 /**
- *  The tier in which the amount belongs to. Lower amounts belong to lower
- *  tiers. Starts at 1.
+ *  The tier in which the amount belongs. Lower amounts belong to lower tiers.
+ *  The lowest tier is 1.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -6859,6 +6917,40 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /** The comment added by the user to this Super Chat event. */
 @property(nonatomic, copy, nullable) NSString *userComment;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatSuperStickerDetails
+ */
+@interface GTLRYouTube_LiveChatSuperStickerDetails : GTLRObject
+
+/**
+ *  A rendered string that displays the fund amount and currency to the user.
+ */
+@property(nonatomic, copy, nullable) NSString *amountDisplayString;
+
+/**
+ *  The amount purchased by the user, in micros (1,750,000 micros = 1.75).
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
+
+/** The currency in which the purchase was made. */
+@property(nonatomic, copy, nullable) NSString *currency;
+
+/** Information about the Super Sticker. */
+@property(nonatomic, strong, nullable) GTLRYouTube_SuperStickerMetadata *superStickerMetadata;
+
+/**
+ *  The tier in which the amount belongs. Lower amounts belong to lower tiers.
+ *  The lowest tier is 1.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tier;
 
 @end
 
@@ -8499,6 +8591,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) NSNumber *isSuperChatForGood;
 
 /**
+ *  True if this event is a Super Sticker event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSuperStickerEvent;
+
+/**
  *  The tier for the paid message, which is based on the amount of money spent
  *  to purchase the message.
  *
@@ -8512,8 +8611,38 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_Nonprofit *nonprofit;
 
+/**
+ *  If this event is a Super Sticker event, this field will contain metadata
+ *  about the Super Sticker.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_SuperStickerMetadata *superStickerMetadata;
+
 /** Details about the supporter. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *supporterDetails;
+
+@end
+
+
+/**
+ *  GTLRYouTube_SuperStickerMetadata
+ */
+@interface GTLRYouTube_SuperStickerMetadata : GTLRObject
+
+/**
+ *  Internationalized alt text that describes the sticker image and any
+ *  animation associated with it.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** Specifies the localization language in which the alt text is returned. */
+@property(nonatomic, copy, nullable) NSString *altTextLanguage;
+
+/**
+ *  Unique identifier of the Super Sticker. This is a shorter form of the
+ *  alt_text that includes pack name and a recognizable characteristic of the
+ *  sticker.
+ */
+@property(nonatomic, copy, nullable) NSString *stickerId;
 
 @end
 

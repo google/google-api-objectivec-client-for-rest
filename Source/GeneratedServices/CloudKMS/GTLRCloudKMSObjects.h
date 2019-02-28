@@ -414,6 +414,13 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_Attest
  *  Value: "CAVIUM_V1_COMPRESSED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed;
+/**
+ *  Cavium HSM attestation V2 compressed with gzip. This is a new format
+ *  introduced in Cavium's version 3.2-08.
+ *
+ *  Value: "CAVIUM_V2_COMPRESSED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_PublicKey.algorithm
@@ -715,7 +722,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -1245,7 +1252,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 
 
 /**
- *  Contains an HSM-generated attestation about a key operation.
+ *  Contains an HSM-generated attestation about a key operation. For more
+ *  information, see [Verifying attestations]
+ *  (https://cloud.google.com/kms/docs/attest-key).
  */
 @interface GTLRCloudKMS_KeyOperationAttestation : GTLRObject
 
@@ -1268,6 +1277,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *        Cavium HSM attestation compressed with gzip. Note that this format is
  *        defined by Cavium and subject to change at any time. (Value:
  *        "CAVIUM_V1_COMPRESSED")
+ *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed
+ *        Cavium HSM attestation V2 compressed with gzip. This is a new format
+ *        introduced in Cavium's version 3.2-08. (Value: "CAVIUM_V2_COMPRESSED")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

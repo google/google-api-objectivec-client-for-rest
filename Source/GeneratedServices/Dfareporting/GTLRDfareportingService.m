@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.2)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -28,10 +28,10 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"dfareporting/v3.2/";
+    self.servicePath = @"dfareporting/v3.3/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/dfareporting/v3.2";
+    self.batchPath = @"batch/dfareporting/v3.3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -101,8 +101,6 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#dimensionValueList" : [GTLRDfareporting_DimensionValueList class],
     @"dfareporting#dimensionValueRequest" : [GTLRDfareporting_DimensionValueRequest class],
     @"dfareporting#directorySite" : [GTLRDfareporting_DirectorySite class],
-    @"dfareporting#directorySiteContact" : [GTLRDfareporting_DirectorySiteContact class],
-    @"dfareporting#directorySiteContactsListResponse" : [GTLRDfareporting_DirectorySiteContactsListResponse class],
     @"dfareporting#directorySitesListResponse" : [GTLRDfareporting_DirectorySitesListResponse class],
     @"dfareporting#dynamicTargetingKey" : [GTLRDfareporting_DynamicTargetingKey class],
     @"dfareporting#dynamicTargetingKeysListResponse" : [GTLRDfareporting_DynamicTargetingKeysListResponse class],
@@ -165,7 +163,11 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#reportCompatibleFields" : [GTLRDfareporting_ReportCompatibleFields class],
     @"dfareporting#reportList" : [GTLRDfareporting_ReportList class],
     @"dfareporting#site" : [GTLRDfareporting_Site class],
+    @"dfareporting#siteCompanionSetting" : [GTLRDfareporting_SiteCompanionSetting class],
+    @"dfareporting#siteSkippableSetting" : [GTLRDfareporting_SiteSkippableSetting class],
     @"dfareporting#sitesListResponse" : [GTLRDfareporting_SitesListResponse class],
+    @"dfareporting#siteTranscodeSetting" : [GTLRDfareporting_SiteTranscodeSetting class],
+    @"dfareporting#siteVideoSettings" : [GTLRDfareporting_SiteVideoSettings class],
     @"dfareporting#size" : [GTLRDfareporting_Size class],
     @"dfareporting#sizesListResponse" : [GTLRDfareporting_SizesListResponse class],
     @"dfareporting#skippableSetting" : [GTLRDfareporting_SkippableSetting class],

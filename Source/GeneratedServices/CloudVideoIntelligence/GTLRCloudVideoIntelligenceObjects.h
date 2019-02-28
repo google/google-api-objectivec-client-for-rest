@@ -6,6 +6,7 @@
 // Description:
 //   Detects objects, explicit content, and scene changes in videos. It also
 //   specifies the region for annotation and transcribes speech to text.
+//   Supports both asynchronous API and streaming API.
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
@@ -25,8 +26,16 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingPoly;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedVertex;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment;
@@ -39,14 +48,27 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingBox;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingPoly;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedVertex;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingBox;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingPoly;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedVertex;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechTranscription;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment;
@@ -76,11 +98,36 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextDetectionConfig;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoContext;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingBox;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingPoly;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingVideoAnnotationResults;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation_Metadata;
 @class GTLRCloudVideoIntelligence_GoogleLongrunningOperation_Response;
@@ -106,10 +153,14 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_FeatureUnspecified;
 /** Value: "LABEL_DETECTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LabelDetection;
+/** Value: "OBJECT_TRACKING" */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ObjectTracking;
 /** Value: "SHOT_CHANGE_DETECTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ShotChangeDetection;
 /** Value: "SPEECH_TRANSCRIPTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_SpeechTranscription;
+/** Value: "TEXT_DETECTION" */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame.pornographyLikelihood
@@ -298,6 +349,46 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Value: "VERY_UNLIKELY"
  */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame.pornographyLikelihood
+
+/**
+ *  Unspecified likelihood.
+ *
+ *  Value: "LIKELIHOOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Possible;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 /**
  *  Video annotation progress. Included in the `metadata`
@@ -542,6 +633,155 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Normalized bounding box.
+ *  The normalized vertex coordinates are relative to the original image.
+ *  Range: [0, 1].
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox : GTLRObject
+
+/**
+ *  Bottom Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottom;
+
+/**
+ *  Left X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *left;
+
+/**
+ *  Right X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *right;
+
+/**
+ *  Top Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *top;
+
+@end
+
+
+/**
+ *  Normalized bounding polygon for text (that might not be aligned with axis).
+ *  Contains list of the corner points in clockwise order starting from
+ *  top-left corner. For example, for a rectangular bounding box:
+ *  When the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  When it's clockwise rotated 180 degrees around the top-left corner it
+ *  becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3). Note that values can be
+ *  less
+ *  than 0, or greater than 1 due to trignometric calculations for location of
+ *  the box.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingPoly : GTLRObject
+
+/** Normalized vertices of the bounding polygon. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedVertex *> *vertices;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Annotations corresponding to one tracked object.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation : GTLRObject
+
+/**
+ *  Object category's labeling confidence of this track.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Entity to specify the object category that this track is labeled as. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Entity *entity;
+
+/**
+ *  Information corresponding to all frames where this object track appears.
+ *  Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
+ *  messages in frames.
+ *  Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingFrame *> *frames;
+
+/**
+ *  Non-streaming batch mode ONLY.
+ *  Each object track corresponds to one video segment where it appears.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
+
+/**
+ *  Streaming mode ONLY.
+ *  In streaming mode, we do not know the end time of a tracked object
+ *  before it is completed. Hence, there is no VideoSegment info returned.
+ *  Instead, we provide a unique identifiable integer track_id so that
+ *  the customers can correlate the results of the ongoing
+ *  ObjectTrackAnnotation of the same track_id over time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackId;
+
+@end
+
+
+/**
+ *  Video frame level annotations for object detection and tracking. This field
+ *  stores per frame location, time offset, and confidence.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingFrame : GTLRObject
+
+/**
+ *  The normalized bounding box location of this object track for the frame.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox *normalizedBoundingBox;
+
+/** The timestamp of the frame in microseconds. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative : GTLRObject
@@ -587,6 +827,60 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Annotations related to one detected OCR text snippet. This will contain the
+ *  corresponding text, confidence value, and frame level information for each
+ *  detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation : GTLRObject
+
+/** All video segments where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextSegment *> *segments;
+
+/** The detected text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for text annotation (OCR).
+ *  Contains information regarding timestamp and bounding box locations for the
+ *  frames containing detected OCR text snippets.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextFrame : GTLRObject
+
+/** Bounding polygon of the detected text for this frame. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingPoly *rotatedBoundingBox;
+
+/** Timestamp of this frame. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for text detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextSegment : GTLRObject
+
+/**
+ *  Confidence for the track of detected text. It is calculated as the highest
+ *  over all frames where OCR detected text appears.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Information related to the frames where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextFrame *> *frames;
+
+/** Video segment where a text snippet was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
 
 @end
 
@@ -645,6 +939,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
+/** Annotations for list of objects detected and tracked in video. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation *> *objectAnnotations;
+
 /**
  *  Label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
@@ -662,6 +959,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription *> *speechTranscriptions;
+
+/**
+ *  OCR text detection and tracking.
+ *  Annotations for list of detected text snippets. Each will have list of
+ *  frame information associated with it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation *> *textAnnotations;
 
 @end
 
@@ -930,6 +1234,155 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Normalized bounding box.
+ *  The normalized vertex coordinates are relative to the original image.
+ *  Range: [0, 1].
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingBox : GTLRObject
+
+/**
+ *  Bottom Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottom;
+
+/**
+ *  Left X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *left;
+
+/**
+ *  Right X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *right;
+
+/**
+ *  Top Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *top;
+
+@end
+
+
+/**
+ *  Normalized bounding polygon for text (that might not be aligned with axis).
+ *  Contains list of the corner points in clockwise order starting from
+ *  top-left corner. For example, for a rectangular bounding box:
+ *  When the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  When it's clockwise rotated 180 degrees around the top-left corner it
+ *  becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3). Note that values can be
+ *  less
+ *  than 0, or greater than 1 due to trignometric calculations for location of
+ *  the box.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingPoly : GTLRObject
+
+/** Normalized vertices of the bounding polygon. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedVertex *> *vertices;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Annotations corresponding to one tracked object.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation : GTLRObject
+
+/**
+ *  Object category's labeling confidence of this track.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Entity to specify the object category that this track is labeled as. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity *entity;
+
+/**
+ *  Information corresponding to all frames where this object track appears.
+ *  Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
+ *  messages in frames.
+ *  Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingFrame *> *frames;
+
+/**
+ *  Non-streaming batch mode ONLY.
+ *  Each object track corresponds to one video segment where it appears.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
+
+/**
+ *  Streaming mode ONLY.
+ *  In streaming mode, we do not know the end time of a tracked object
+ *  before it is completed. Hence, there is no VideoSegment info returned.
+ *  Instead, we provide a unique identifiable integer track_id so that
+ *  the customers can correlate the results of the ongoing
+ *  ObjectTrackAnnotation of the same track_id over time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackId;
+
+@end
+
+
+/**
+ *  Video frame level annotations for object detection and tracking. This field
+ *  stores per frame location, time offset, and confidence.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingFrame : GTLRObject
+
+/**
+ *  The normalized bounding box location of this object track for the frame.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingBox *normalizedBoundingBox;
+
+/** The timestamp of the frame in microseconds. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
  *  Video annotation progress. Included in the `metadata`
  *  field of the `Operation` returned by the `GetOperation`
  *  call of the `google::longrunning::Operations` service.
@@ -1091,6 +1544,155 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Normalized bounding box.
+ *  The normalized vertex coordinates are relative to the original image.
+ *  Range: [0, 1].
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingBox : GTLRObject
+
+/**
+ *  Bottom Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottom;
+
+/**
+ *  Left X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *left;
+
+/**
+ *  Right X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *right;
+
+/**
+ *  Top Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *top;
+
+@end
+
+
+/**
+ *  Normalized bounding polygon for text (that might not be aligned with axis).
+ *  Contains list of the corner points in clockwise order starting from
+ *  top-left corner. For example, for a rectangular bounding box:
+ *  When the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  When it's clockwise rotated 180 degrees around the top-left corner it
+ *  becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3). Note that values can be
+ *  less
+ *  than 0, or greater than 1 due to trignometric calculations for location of
+ *  the box.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingPoly : GTLRObject
+
+/** Normalized vertices of the bounding polygon. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedVertex *> *vertices;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Annotations corresponding to one tracked object.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation : GTLRObject
+
+/**
+ *  Object category's labeling confidence of this track.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Entity to specify the object category that this track is labeled as. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity *entity;
+
+/**
+ *  Information corresponding to all frames where this object track appears.
+ *  Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
+ *  messages in frames.
+ *  Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingFrame *> *frames;
+
+/**
+ *  Non-streaming batch mode ONLY.
+ *  Each object track corresponds to one video segment where it appears.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
+
+/**
+ *  Streaming mode ONLY.
+ *  In streaming mode, we do not know the end time of a tracked object
+ *  before it is completed. Hence, there is no VideoSegment info returned.
+ *  Instead, we provide a unique identifiable integer track_id so that
+ *  the customers can correlate the results of the ongoing
+ *  ObjectTrackAnnotation of the same track_id over time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackId;
+
+@end
+
+
+/**
+ *  Video frame level annotations for object detection and tracking. This field
+ *  stores per frame location, time offset, and confidence.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingFrame : GTLRObject
+
+/**
+ *  The normalized bounding box location of this object track for the frame.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingBox *normalizedBoundingBox;
+
+/** The timestamp of the frame in microseconds. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative : GTLRObject
@@ -1136,6 +1738,60 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Annotations related to one detected OCR text snippet. This will contain the
+ *  corresponding text, confidence value, and frame level information for each
+ *  detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation : GTLRObject
+
+/** All video segments where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextSegment *> *segments;
+
+/** The detected text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for text annotation (OCR).
+ *  Contains information regarding timestamp and bounding box locations for the
+ *  frames containing detected OCR text snippets.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextFrame : GTLRObject
+
+/** Bounding polygon of the detected text for this frame. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingPoly *rotatedBoundingBox;
+
+/** Timestamp of this frame. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for text detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextSegment : GTLRObject
+
+/**
+ *  Confidence for the track of detected text. It is calculated as the highest
+ *  over all frames where OCR detected text appears.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Information related to the frames where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextFrame *> *frames;
+
+/** Video segment where a text snippet was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
 
 @end
 
@@ -1194,6 +1850,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
+/** Annotations for list of objects detected and tracked in video. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
 /**
  *  Label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
@@ -1211,6 +1870,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechTranscription *> *speechTranscriptions;
+
+/**
+ *  OCR text detection and tracking.
+ *  Annotations for list of detected text snippets. Each will have list of
+ *  frame information associated with it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation *> *textAnnotations;
 
 @end
 
@@ -2035,6 +2701,76 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Annotations related to one detected OCR text snippet. This will contain the
+ *  corresponding text, confidence value, and frame level information for each
+ *  detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextAnnotation : GTLRObject
+
+/** All video segments where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextSegment *> *segments;
+
+/** The detected text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Config for TEXT_DETECTION.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextDetectionConfig : GTLRObject
+
+/**
+ *  Language hint can be specified if the language to be detected is known a
+ *  priori. It can increase the accuracy of the detection. Language hint must
+ *  be language code in BCP-47 format.
+ *  Automatic language detection is performed if no hint is provided.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageHints;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for text annotation (OCR).
+ *  Contains information regarding timestamp and bounding box locations for the
+ *  frames containing detected OCR text snippets.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextFrame : GTLRObject
+
+/** Bounding polygon of the detected text for this frame. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingPoly *rotatedBoundingBox;
+
+/** Timestamp of this frame. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for text detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextSegment : GTLRObject
+
+/**
+ *  Confidence for the track of detected text. It is calculated as the highest
+ *  over all frames where OCR detected text appears.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Information related to the frames where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextFrame *> *frames;
+
+/** Video segment where a text snippet was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
+
+@end
+
+
+/**
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress : GTLRObject
@@ -2088,6 +2824,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
+/** Annotations for list of objects detected and tracked in video. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation *> *objectAnnotations;
+
 /**
  *  Label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
@@ -2105,6 +2844,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription *> *speechTranscriptions;
+
+/**
+ *  OCR text detection and tracking.
+ *  Annotations for list of detected text snippets. Each will have list of
+ *  frame information associated with it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextAnnotation *> *textAnnotations;
 
 @end
 
@@ -2132,6 +2878,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Config for SPEECH_TRANSCRIPTION. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig *speechTranscriptionConfig;
+
+/** Config for TEXT_DETECTION. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextDetectionConfig *textDetectionConfig;
 
 @end
 
@@ -2162,6 +2911,624 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  as `enable_word_time_offsets`.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo : GTLRObject
+
+/**
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the end of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
+ *  and is only set if speaker diarization is enabled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
+/**
+ *  Time offset relative to the beginning of the audio, and
+ *  corresponding to the start of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
+
+/** The word corresponding to this set of information. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
+ *  Video annotation progress. Included in the `metadata`
+ *  field of the `Operation` returned by the `GetOperation`
+ *  call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoProgress : GTLRObject
+
+/** Progress metadata for all videos specified in `AnnotateVideoRequest`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress *> *annotationProgress;
+
+@end
+
+
+/**
+ *  Video annotation response. Included in the `response`
+ *  field of the `Operation` returned by the `GetOperation`
+ *  call of the `google::longrunning::Operations` service.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoResponse : GTLRObject
+
+/** Annotation results for all videos specified in `AnnotateVideoRequest`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults *> *annotationResults;
+
+@end
+
+
+/**
+ *  Detected entity from video analysis.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity : GTLRObject
+
+/**
+ *  Textual description, e.g. `Fixed-gear bicycle`.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Opaque entity ID. Some IDs may be available in
+ *  [Google Knowledge Graph Search
+ *  API](https://developers.google.com/knowledge-graph/).
+ */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/** Language code for `description` in BCP-47 format. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Explicit content annotation (based on per-frame visual signals only).
+ *  If no explicit content has been detected in a frame, no annotations are
+ *  present for that frame.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation : GTLRObject
+
+/** All video frames where explicit content was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame *> *frames;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for explicit content.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame : GTLRObject
+
+/**
+ *  Likelihood of the pornography content..
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified
+ *        Unspecified likelihood. (Value: "LIKELIHOOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *pornographyLikelihood;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Label annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation : GTLRObject
+
+/**
+ *  Common categories for the detected entity.
+ *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
+ *  cases there might be more than one categories e.g. `Terrier` could also be
+ *  a `pet`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity *> *categoryEntities;
+
+/** Detected entity. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity *entity;
+
+/** All video frames where a label was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame *> *frames;
+
+/** All video segments where a label was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment *> *segments;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for label detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame : GTLRObject
+
+/**
+ *  Confidence that the label is accurate. Range: [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for label detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment : GTLRObject
+
+/**
+ *  Confidence that the label is accurate. Range: [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Video segment where a label was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment *segment;
+
+@end
+
+
+/**
+ *  Normalized bounding box.
+ *  The normalized vertex coordinates are relative to the original image.
+ *  Range: [0, 1].
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingBox : GTLRObject
+
+/**
+ *  Bottom Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottom;
+
+/**
+ *  Left X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *left;
+
+/**
+ *  Right X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *right;
+
+/**
+ *  Top Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *top;
+
+@end
+
+
+/**
+ *  Normalized bounding polygon for text (that might not be aligned with axis).
+ *  Contains list of the corner points in clockwise order starting from
+ *  top-left corner. For example, for a rectangular bounding box:
+ *  When the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  When it's clockwise rotated 180 degrees around the top-left corner it
+ *  becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertex order will still be (0, 1, 2, 3). Note that values can be
+ *  less
+ *  than 0, or greater than 1 due to trignometric calculations for location of
+ *  the box.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingPoly : GTLRObject
+
+/** Normalized vertices of the bounding polygon. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex *> *vertices;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image.
+ *  NOTE: the normalized vertex coordinates are relative to the original image
+ *  and range from 0 to 1.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Annotations corresponding to one tracked object.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation : GTLRObject
+
+/**
+ *  Object category's labeling confidence of this track.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Entity to specify the object category that this track is labeled as. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity *entity;
+
+/**
+ *  Information corresponding to all frames where this object track appears.
+ *  Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
+ *  messages in frames.
+ *  Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame *> *frames;
+
+/**
+ *  Non-streaming batch mode ONLY.
+ *  Each object track corresponds to one video segment where it appears.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment *segment;
+
+/**
+ *  Streaming mode ONLY.
+ *  In streaming mode, we do not know the end time of a tracked object
+ *  before it is completed. Hence, there is no VideoSegment info returned.
+ *  Instead, we provide a unique identifiable integer track_id so that
+ *  the customers can correlate the results of the ongoing
+ *  ObjectTrackAnnotation of the same track_id over time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackId;
+
+@end
+
+
+/**
+ *  Video frame level annotations for object detection and tracking. This field
+ *  stores per frame location, time offset, and confidence.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame : GTLRObject
+
+/**
+ *  The normalized bounding box location of this object track for the frame.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingBox *normalizedBoundingBox;
+
+/** The timestamp of the frame in microseconds. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Alternative hypotheses (a.k.a. n-best list).
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative : GTLRObject
+
+/**
+ *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is typically provided only for the top hypothesis, and
+ *  only for `is_final=true` results. Clients should not rely on the
+ *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Transcript text representing the words that the user spoke. */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/** A list of word-specific information for each recognized word. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo *> *words;
+
+@end
+
+
+/**
+ *  A speech recognition result corresponding to a portion of the audio.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription : GTLRObject
+
+/**
+ *  May contain one or more recognition hypotheses (up to the maximum specified
+ *  in `max_alternatives`). These alternatives are ordered in terms of
+ *  accuracy, with the top (first) alternative being the most probable, as
+ *  ranked by the recognizer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative *> *alternatives;
+
+/**
+ *  Output only. The
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
+ *  language in this result. This language code was detected to have the most
+ *  likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  `StreamingAnnotateVideoResponse` is the only message returned to the client
+ *  by `StreamingAnnotateVideo`. A series of zero or more
+ *  `StreamingAnnotateVideoResponse` messages are streamed back to the client.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingAnnotateVideoResponse : GTLRObject
+
+/** Streaming annotation results. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingVideoAnnotationResults *annotationResults;
+
+/**
+ *  GCS URI that stores annotation results of one streaming session.
+ *  It is a directory that can hold multiple files in JSON format.
+ *  Example uri format:
+ *  gs://bucket_id/object_id/cloud_project_name-session_id
+ */
+@property(nonatomic, copy, nullable) NSString *annotationResultsUri;
+
+/**
+ *  If set, returns a google.rpc.Status message that
+ *  specifies the error for the operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *error;
+
+@end
+
+
+/**
+ *  Streaming annotation results corresponding to a portion of the video
+ *  that is currently being processed.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingVideoAnnotationResults : GTLRObject
+
+/** Explicit content annotation results. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation *explicitAnnotation;
+
+/** Label annotation results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation *> *labelAnnotations;
+
+/** Object tracking results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Shot annotation results. Each shot is represented as a video segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment *> *shotAnnotations;
+
+@end
+
+
+/**
+ *  Annotations related to one detected OCR text snippet. This will contain the
+ *  corresponding text, confidence value, and frame level information for each
+ *  detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation : GTLRObject
+
+/** All video segments where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment *> *segments;
+
+/** The detected text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Video frame level annotation results for text annotation (OCR).
+ *  Contains information regarding timestamp and bounding box locations for the
+ *  frames containing detected OCR text snippets.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame : GTLRObject
+
+/** Bounding polygon of the detected text for this frame. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingPoly *rotatedBoundingBox;
+
+/** Timestamp of this frame. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for text detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment : GTLRObject
+
+/**
+ *  Confidence for the track of detected text. It is calculated as the highest
+ *  over all frames where OCR detected text appears.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Information related to the frames where OCR detected text appears. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame *> *frames;
+
+/** Video segment where a text snippet was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment *segment;
+
+@end
+
+
+/**
+ *  Annotation progress for a single video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress : GTLRObject
+
+/**
+ *  Video file location in
+ *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ */
+@property(nonatomic, copy, nullable) NSString *inputUri;
+
+/**
+ *  Approximate percentage processed thus far. Guaranteed to be
+ *  100 when fully processed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/** Time when the request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Time of the most recent update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Annotation results for a single video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults : GTLRObject
+
+/**
+ *  If set, indicates an error. Note that for a single `AnnotateVideoRequest`
+ *  some videos may succeed and some may fail.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleRpcStatus *error;
+
+/** Explicit content annotation. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation *explicitAnnotation;
+
+/**
+ *  Label annotations on frame level.
+ *  There is exactly one element for each unique label.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation *> *frameLabelAnnotations;
+
+/**
+ *  Video file location in
+ *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ */
+@property(nonatomic, copy, nullable) NSString *inputUri;
+
+/** Annotations for list of objects detected and tracked in video. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/**
+ *  Label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation *> *segmentLabelAnnotations;
+
+/** Shot annotations. Each shot is represented as a video segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment *> *shotAnnotations;
+
+/**
+ *  Label annotations on shot level.
+ *  There is exactly one element for each unique label.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation *> *shotLabelAnnotations;
+
+/** Speech transcription. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription *> *speechTranscriptions;
+
+/**
+ *  OCR text detection and tracking.
+ *  Annotations for list of detected text snippets. Each will have list of
+ *  frame information associated with it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation *> *textAnnotations;
+
+@end
+
+
+/**
+ *  Video segment.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment : GTLRObject
+
+/**
+ *  Time-offset, relative to the beginning of the video,
+ *  corresponding to the end of the segment (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTimeOffset;
+
+/**
+ *  Time-offset, relative to the beginning of the video,
+ *  corresponding to the start of the segment (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTimeOffset;
+
+@end
+
+
+/**
+ *  Word-specific information for recognized words. Word information is only
+ *  included in the response when certain request parameters are set, such
+ *  as `enable_word_time_offsets`.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo : GTLRObject
 
 /**
  *  Output only. The confidence estimate between 0.0 and 1.0. A higher number

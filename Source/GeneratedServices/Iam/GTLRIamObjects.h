@@ -677,8 +677,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  The ServiceAccount resource to create.
- *  Currently, only the following values are user assignable:
+ *  The ServiceAccount resource to
+ *  create. Currently, only the following values are user assignable:
  *  `display_name` .
  */
 @property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *serviceAccount;
@@ -992,23 +992,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  to this value.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The patch service account request.
- */
-@interface GTLRIam_PatchServiceAccountRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *serviceAccount;
-
-/**
- *  updateMask
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -1412,6 +1395,13 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @interface GTLRIam_ServiceAccount : GTLRObject
 
 /**
+ *  \@OutputOnly A bool indicate if the service account is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
  *  Optional. A user-specified name for the service account.
  *  Must be less than or equal to 100 UTF-8 bytes.
  */
@@ -1675,6 +1665,24 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
+ *  The service account undelete request.
+ */
+@interface GTLRIam_UndeleteServiceAccountRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRIam_UndeleteServiceAccountResponse
+ */
+@interface GTLRIam_UndeleteServiceAccountResponse : GTLRObject
+
+/** Metadata for the restored service account. */
+@property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *restoredAccount;
 
 @end
 
