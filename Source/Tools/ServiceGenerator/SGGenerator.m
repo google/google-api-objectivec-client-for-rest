@@ -3733,6 +3733,10 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"CAMLType",
       @"CA_prepareRenderValue",
       @"CA_copyRenderValue",
+      // New as of Mojave
+      @"bs_encoded",
+      @"bs_isPlistableType",
+      @"bs_secureEncoded",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
