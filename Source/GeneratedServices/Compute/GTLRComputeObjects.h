@@ -138,6 +138,7 @@
 @class GTLRCompute_HealthCheckReference;
 @class GTLRCompute_HealthStatus;
 @class GTLRCompute_HostRule;
+@class GTLRCompute_HTTP2HealthCheck;
 @class GTLRCompute_HTTPHealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpHealthCheckList_Warning;
@@ -1155,6 +1156,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Inv
 
 /** Value: "HTTP" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http;
+/** Value: "HTTP2" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http2;
 /** Value: "HTTPS" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Https;
 /** Value: "SSL" */
@@ -1551,6 +1554,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Service;
 // ----------------------------------------------------------------------------
 // GTLRCompute_DeprecationStatus.state
 
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Active;
 /** Value: "DELETED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deleted;
 /** Value: "DEPRECATED" */
@@ -2163,6 +2168,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Windows;
 
 /** Value: "HTTP" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http;
+/** Value: "HTTP2" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http2;
 /** Value: "HTTPS" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Https;
 /** Value: "INVALID" */
@@ -2229,6 +2236,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Unreachab
 GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy;
 /** Value: "UNHEALTHY" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HTTP2HealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPHealthCheck.proxyHeader
@@ -2425,6 +2440,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
 
 /** Value: "PROVISIONING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Provisioning;
+/** Value: "REPAIRING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Repairing;
 /** Value: "RUNNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Running;
 /** Value: "STAGING" */
@@ -3069,6 +3086,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_Unre
 
 /** Value: "PROVISIONING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning;
+/** Value: "REPAIRING" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Repairing;
 /** Value: "RUNNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Running;
 /** Value: "STAGING" */
@@ -3793,6 +3812,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifyin
 
 /** Value: "PROVISIONING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning;
+/** Value: "REPAIRING" */
+GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Repairing;
 /** Value: "RUNNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Running;
 /** Value: "STAGING" */
@@ -9596,6 +9617,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
+/** Headers that the HTTP/S load balancer should add to proxied requests. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customRequestHeaders;
+
 /**
  *  An optional description of this resource. Provide this property when you
  *  create the resource.
@@ -9706,6 +9730,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http Value "HTTP"
+ *    @arg @c kGTLRCompute_BackendService_Protocol_Http2 Value "HTTP2"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Https Value "HTTPS"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Ssl Value "SSL"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Tcp Value "TCP"
@@ -10251,8 +10276,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the users
- *  of that domain. For example, `google.com` or `example.com`.
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
+ *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -10978,13 +11003,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *replacement;
 
 /**
- *  The deprecation state of this resource. This can be DEPRECATED, OBSOLETE, or
- *  DELETED. Operations which create a new resource using a DEPRECATED resource
- *  will return successfully, but with a warning indicating the deprecated
- *  resource and recommending its replacement. Operations which use OBSOLETE or
- *  DELETED resources will be rejected and result in an error.
+ *  The deprecation state of this resource. This can be ACTIVE DEPRECATED,
+ *  OBSOLETE, or DELETED. Operations which communicate the end of life date for
+ *  an image, can use ACTIVE. Operations which create a new resource using a
+ *  DEPRECATED resource will return successfully, but with a warning indicating
+ *  the deprecated resource and recommending its replacement. Operations which
+ *  use OBSOLETE or DELETED resources will be rejected and result in an error.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_DeprecationStatus_State_Active Value "ACTIVE"
  *    @arg @c kGTLRCompute_DeprecationStatus_State_Deleted Value "DELETED"
  *    @arg @c kGTLRCompute_DeprecationStatus_State_Deprecated Value "DEPRECATED"
  *    @arg @c kGTLRCompute_DeprecationStatus_State_Obsolete Value "OBSOLETE"
@@ -13485,6 +13512,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSNumber *healthyThreshold;
 
+@property(nonatomic, strong, nullable) GTLRCompute_HTTP2HealthCheck *http2HealthCheck;
 @property(nonatomic, strong, nullable) GTLRCompute_HTTPHealthCheck *httpHealthCheck;
 @property(nonatomic, strong, nullable) GTLRCompute_HTTPSHealthCheck *httpsHealthCheck;
 
@@ -13534,6 +13562,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthCheck_Type_Http Value "HTTP"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Http2 Value "HTTP2"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Https Value "HTTPS"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Invalid Value "INVALID"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Ssl Value "SSL"
@@ -13762,6 +13791,57 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  the hostRule matches the URL's host portion.
  */
 @property(nonatomic, copy, nullable) NSString *pathMatcher;
+
+@end
+
+
+/**
+ *  GTLRCompute_HTTP2HealthCheck
+ */
+@interface GTLRCompute_HTTP2HealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTP/2 health check request. If left
+ *  empty (default value), the IP on behalf of which this health check is
+ *  performed will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 443.
+ *  Valid values are 1 through 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTP/2 health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
+
+/**
+ *  The string to match anywhere in the first 1024 bytes of the response body.
+ *  If left empty (the default value), the status code determines health. The
+ *  response data can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 
@@ -14912,6 +14992,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Instance_Status_Provisioning Value "PROVISIONING"
+ *    @arg @c kGTLRCompute_Instance_Status_Repairing Value "REPAIRING"
  *    @arg @c kGTLRCompute_Instance_Status_Running Value "RUNNING"
  *    @arg @c kGTLRCompute_Instance_Status_Staging Value "STAGING"
  *    @arg @c kGTLRCompute_Instance_Status_Stopped Value "STOPPED"
@@ -17566,6 +17647,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning Value
  *        "PROVISIONING"
+ *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Repairing Value
+ *        "REPAIRING"
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Running Value "RUNNING"
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Staging Value "STAGING"
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Stopped Value "STOPPED"
@@ -20137,6 +20220,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Likely values:
  *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning Value
  *        "PROVISIONING"
+ *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Repairing Value
+ *        "REPAIRING"
  *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Running Value
  *        "RUNNING"
  *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Staging Value
@@ -26032,7 +26117,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  Status of a NAT contained in this router.
+ *  Status of a NAT contained in this router. Next tag: 9
  */
 @interface GTLRCompute_RouterStatusNatStatus : GTLRObject
 
@@ -30204,7 +30289,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  [Output Only] A list of URLs to the ForwardingRule resources.
  *  ForwardingRules are created using compute.forwardingRules.insert and
- *  associated to a VPN gateway.
+ *  associated with a VPN gateway.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
 
@@ -30252,7 +30337,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output Only] The status of the VPN gateway.
+ *  [Output Only] The status of the VPN gateway, which can be one of the
+ *  following: CREATING, READY, FAILED, or DELETING.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_TargetVpnGateway_Status_Creating Value "CREATING"
@@ -30264,7 +30350,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] A list of URLs to VpnTunnel resources. VpnTunnels are created
- *  using compute.vpntunnels.insert method and associated to a VPN gateway.
+ *  using the compute.vpntunnels.insert method and associated with a VPN
+ *  gateway.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tunnels;
 
@@ -30563,7 +30650,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_TargetVpnGatewaysScopedList : GTLRObject
 
-/** [Output Only] A list of target vpn gateways contained in this scope. */
+/** [Output Only] A list of target VPN gateways contained in this scope. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetVpnGateway *> *targetVpnGateways;
 
 /**
@@ -31495,8 +31582,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  IKE protocol version to use when establishing the VPN tunnel with peer VPN
- *  gateway. Acceptable IKE versions are 1 or 2. Default version is 2.
+ *  IKE protocol version to use when establishing the VPN tunnel with the peer
+ *  VPN gateway. Acceptable IKE versions are 1 or 2. The default version is 2.
  *
  *  Uses NSNumber of intValue.
  */
@@ -31508,9 +31595,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Local traffic selector to use when establishing the VPN tunnel with peer VPN
- *  gateway. The value should be a CIDR formatted string, for example:
- *  192.168.0.0/16. The ranges should be disjoint. Only IPv4 is supported.
+ *  Local traffic selector to use when establishing the VPN tunnel with the peer
+ *  VPN gateway. The value should be a CIDR formatted string, for example:
+ *  192.168.0.0/16. The ranges must be disjoint. Only IPv4 is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *localTrafficSelector;
 
@@ -31536,13 +31623,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Remote traffic selectors to use when establishing the VPN tunnel with peer
- *  VPN gateway. The value should be a CIDR formatted string, for example:
+ *  Remote traffic selectors to use when establishing the VPN tunnel with the
+ *  peer VPN gateway. The value should be a CIDR formatted string, for example:
  *  192.168.0.0/16. The ranges should be disjoint. Only IPv4 is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *remoteTrafficSelector;
 
-/** URL of router resource to be used for dynamic routing. */
+/** URL of the router resource to be used for dynamic routing. */
 @property(nonatomic, copy, nullable) NSString *router;
 
 /** [Output Only] Server-defined URL for the resource. */
@@ -31558,7 +31645,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *sharedSecretHash;
 
 /**
- *  [Output Only] The status of the VPN tunnel.
+ *  [Output Only] The status of the VPN tunnel, which can be one of the
+ *  following:
+ *  - PROVISIONING: Resource is being allocated for the VPN tunnel.
+ *  - WAITING_FOR_FULL_CONFIG: Waiting to receive all VPN-related configs from
+ *  the user. Network, TargetVpnGateway, VpnTunnel, ForwardingRule, and Route
+ *  resources are needed to setup the VPN tunnel.
+ *  - FIRST_HANDSHAKE: Successful first handshake with the peer VPN.
+ *  - ESTABLISHED: Secure session is successfully established with the peer VPN.
+ *  - NETWORK_ERROR: Deprecated, replaced by NO_INCOMING_PACKETS
+ *  - AUTHORIZATION_ERROR: Auth error (for example, bad shared secret).
+ *  - NEGOTIATION_FAILURE: Handshake failed.
+ *  - DEPROVISIONING: Resources are being deallocated for the VPN tunnel.
+ *  - FAILED: Tunnel creation has failed and the tunnel is not ready to be used.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_VpnTunnel_Status_AllocatingResources Value
@@ -31881,7 +31980,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_VpnTunnelsScopedList : GTLRObject
 
-/** A list of vpn tunnels contained in this scope. */
+/** A list of VPN tunnels contained in this scope. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnTunnel *> *vpnTunnels;
 
 /**

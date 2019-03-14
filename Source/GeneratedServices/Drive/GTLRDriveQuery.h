@@ -1708,8 +1708,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Permanently deletes a revision. This method is only applicable to files with
- *  binary content in Drive.
+ *  Permanently deletes a file version. You can only delete revisions for files
+ *  with binary content, like images or videos. Revisions for other files, like
+ *  Google Docs or Sheets, and the last remaining file version can't be deleted.
  *
  *  Method: drive.revisions.delete
  *
@@ -1732,8 +1733,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Permanently deletes a revision. This method is only applicable to files with
- *  binary content in Drive.
+ *  Permanently deletes a file version. You can only delete revisions for files
+ *  with binary content, like images or videos. Revisions for other files, like
+ *  Google Docs or Sheets, and the last remaining file version can't be deleted.
  *
  *  @param fileId The ID of the file.
  *  @param revisionId The ID of the revision.

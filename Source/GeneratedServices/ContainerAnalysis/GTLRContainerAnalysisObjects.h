@@ -353,19 +353,19 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_Sha256;
 // GTLRContainerAnalysis_Layer.directive
 
 /**
- *  https://docs.docker.com/reference/builder/#add
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ADD"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Add;
 /**
- *  https://docs.docker.com/reference/builder/#arg
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ARG"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Arg;
 /**
- *  https://docs.docker.com/reference/builder/#cmd
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "CMD"
  */
@@ -383,79 +383,79 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Copy;
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified;
 /**
- *  https://docs.docker.com/reference/builder/#entrypoint
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ENTRYPOINT"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Entrypoint;
 /**
- *  https://docs.docker.com/reference/builder/#env
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ENV"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Env;
 /**
- *  https://docs.docker.com/reference/builder/#expose
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "EXPOSE"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Expose;
 /**
- *  https://docs.docker.com/reference/builder/#healthcheck
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "HEALTHCHECK"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Healthcheck;
 /**
- *  https://docs.docker.com/reference/builder/#label
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "LABEL"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Label;
 /**
- *  https://docs.docker.com/reference/builder/#maintainer
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "MAINTAINER"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Maintainer;
 /**
- *  https://docs.docker.com/reference/builder/#onbuild
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ONBUILD"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Onbuild;
 /**
- *  https://docs.docker.com/reference/builder/#run
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "RUN"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Run;
 /**
- *  https://docs.docker.com/reference/builder/#shell
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "SHELL"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Shell;
 /**
- *  https://docs.docker.com/reference/builder/#stopsignal
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "STOPSIGNAL"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Stopsignal;
 /**
- *  https://docs.docker.com/reference/builder/#user
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "USER"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_User;
 /**
- *  https://docs.docker.com/reference/builder/#volume
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "VOLUME"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Volume;
 /**
- *  https://docs.docker.com/reference/builder/#workdir
+ *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "WORKDIR"
  */
@@ -647,6 +647,46 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum;
  *  Value: "NORMAL"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityDetails.effectiveSeverity
+
+/**
+ *  Critical Impact
+ *
+ *  Value: "CRITICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical;
+/**
+ *  High Impact
+ *
+ *  Value: "HIGH"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_High;
+/**
+ *  Low Impact
+ *
+ *  Value: "LOW"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Low;
+/**
+ *  Medium Impact
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Medium;
+/**
+ *  Minimal Impact
+ *
+ *  Value: "MINIMAL"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Minimal;
+/**
+ *  Unknown Impact
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityDetails.severity
@@ -980,7 +1020,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -1836,46 +1876,46 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Add
- *        https://docs.docker.com/reference/builder/#add (Value: "ADD")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "ADD")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Arg
- *        https://docs.docker.com/reference/builder/#arg (Value: "ARG")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "ARG")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Cmd
- *        https://docs.docker.com/reference/builder/#cmd (Value: "CMD")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "CMD")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Copy
  *        https://docs.docker.com/reference/builder/#copy (Value: "COPY")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified
  *        Default value for unsupported/missing directive (Value:
  *        "DIRECTIVE_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Entrypoint
- *        https://docs.docker.com/reference/builder/#entrypoint (Value:
+ *        https://docs.docker.com/engine/reference/builder/ (Value:
  *        "ENTRYPOINT")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Env
- *        https://docs.docker.com/reference/builder/#env (Value: "ENV")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "ENV")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Expose
- *        https://docs.docker.com/reference/builder/#expose (Value: "EXPOSE")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "EXPOSE")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Healthcheck
- *        https://docs.docker.com/reference/builder/#healthcheck (Value:
+ *        https://docs.docker.com/engine/reference/builder/ (Value:
  *        "HEALTHCHECK")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Label
- *        https://docs.docker.com/reference/builder/#label (Value: "LABEL")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "LABEL")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Maintainer
- *        https://docs.docker.com/reference/builder/#maintainer (Value:
+ *        https://docs.docker.com/engine/reference/builder/ (Value:
  *        "MAINTAINER")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Onbuild
- *        https://docs.docker.com/reference/builder/#onbuild (Value: "ONBUILD")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "ONBUILD")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Run
- *        https://docs.docker.com/reference/builder/#run (Value: "RUN")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "RUN")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Shell
- *        https://docs.docker.com/reference/builder/#shell (Value: "SHELL")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "SHELL")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Stopsignal
- *        https://docs.docker.com/reference/builder/#stopsignal (Value:
+ *        https://docs.docker.com/engine/reference/builder/ (Value:
  *        "STOPSIGNAL")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_User
- *        https://docs.docker.com/reference/builder/#user (Value: "USER")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "USER")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Volume
- *        https://docs.docker.com/reference/builder/#volume (Value: "VOLUME")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "VOLUME")
  *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Workdir
- *        https://docs.docker.com/reference/builder/#workdir (Value: "WORKDIR")
+ *        https://docs.docker.com/engine/reference/builder/ (Value: "WORKDIR")
  */
 @property(nonatomic, copy, nullable) NSString *directive;
 
@@ -2294,7 +2334,6 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 /** The location of the available fix for vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *fixedLocation;
 
-/** The severity (eg: distro assigned severity) for this vulnerability. */
 @property(nonatomic, copy, nullable) NSString *severityName;
 
 @end
@@ -2657,15 +2696,13 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing
@@ -2866,6 +2903,27 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
+
+/**
+ *  The distro assigned severity for this vulnerability when that is
+ *  available and note provider assigned severity when distro has not yet
+ *  assigned a severity for this vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical
+ *        Critical Impact (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_High
+ *        High Impact (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Low
+ *        Low Impact (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Medium
+ *        Medium Impact (Value: "MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Minimal
+ *        Minimal Impact (Value: "MINIMAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified
+ *        Unknown Impact (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveSeverity;
 
 /**
  *  The set of affected locations and their fixes (if available) within

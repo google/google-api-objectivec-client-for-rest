@@ -514,7 +514,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_MailExportOptions
-@dynamic exportFormat;
+@dynamic exportFormat, showConfidentialModeContent;
 @end
 
 

@@ -292,6 +292,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective;
 /** Value: "usedRoboDirective" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
+/** Value: "usedRoboIgnoreDirective" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective;
 
 /**
  *  Android app information.
@@ -2009,6 +2011,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
  *        "unusedRoboDirective"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UsedRoboDirective Value
  *        "usedRoboDirective"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective Value
+ *        "usedRoboIgnoreDirective"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

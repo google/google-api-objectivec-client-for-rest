@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Partners API (partners/v2)
+//   Cloud Private Catalog Producer API (cloudprivatecatalogproducer/v1beta1)
 // Description:
-//   Searches certified companies and creates contact leads with them, and also
-//   audits the usage of clients.
+//   Enables cloud users to manage and share enterprise catalogs intheir
+//   organizations.
 // Documentation:
-//   https://developers.google.com/partners/
+//   https://sites.google.com/corp/google.com/cloudprivatecatalog
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -26,19 +26,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
 /**
- *  Service for executing Google Partners API queries.
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Searches certified companies and creates contact leads with them, and also
- *  audits the usage of clients.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-@interface GTLRPartnersService : GTLRService
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudPrivateCatalogProducerCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudPrivateCatalogProducerService
+//
+
+/**
+ *  Service for executing Cloud Private Catalog Producer API queries.
+ *
+ *  Enables cloud users to manage and share enterprise catalogs intheir
+ *  organizations.
+ */
+@interface GTLRCloudPrivateCatalogProducerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRPartnersQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudPrivateCatalogProducerQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

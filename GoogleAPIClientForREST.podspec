@@ -196,6 +196,14 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudOSLogin/*.{h,m}'
   end
+  s.subspec 'CloudPrivateCatalog' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudPrivateCatalog/*.{h,m}'
+  end
+  s.subspec 'CloudPrivateCatalogProducer' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudPrivateCatalogProducer/*.{h,m}'
+  end
   s.subspec 'CloudProfiler' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudProfiler/*.{h,m}'
@@ -443,10 +451,6 @@ Pod::Spec.new do |s|
   s.subspec 'Pagespeedonline' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pagespeedonline/*.{h,m}'
-  end
-  s.subspec 'Partners' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Partners/*.{h,m}'
   end
   s.subspec 'PeopleService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

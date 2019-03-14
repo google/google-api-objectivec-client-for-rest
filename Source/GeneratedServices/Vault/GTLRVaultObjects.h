@@ -1074,6 +1074,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
+/**
+ *  Set to true to export confidential mode content.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showConfidentialModeContent;
+
 @end
 
 

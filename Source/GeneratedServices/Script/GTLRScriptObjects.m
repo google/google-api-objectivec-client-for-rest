@@ -286,8 +286,8 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 //
 
 @implementation GTLRScript_GoogleAppsScriptTypeProcess
-@dynamic duration, executingUser, functionName, processStatus, processType,
-         projectName, startTime, userAccessLevel;
+@dynamic duration, functionName, processStatus, processType, projectName,
+         startTime, userAccessLevel;
 @end
 
 

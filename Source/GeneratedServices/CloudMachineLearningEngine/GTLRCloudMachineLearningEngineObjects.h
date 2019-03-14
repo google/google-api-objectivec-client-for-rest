@@ -930,6 +930,17 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
 
 /**
+ *  Optional. How many failed trials that need to be seen before failing the
+ *  hyperparameter tuning job. User can specify this field to override the
+ *  default failing criteria for CloudML Engine hyperparameter tuning jobs.
+ *  Defaults to zero, which means to let the service decide when a
+ *  hyperparameter job should fail.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxFailedTrials;
+
+/**
  *  Optional. The number of training trials to run concurrently.
  *  You can reduce the time it takes to perform hyperparameter tuning by adding
  *  trials in parallel. However, each trail only benefits from the information
@@ -1478,12 +1489,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Represents input parameters for a prediction job.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
-
-/**
- *  Optional. The type and number of accelerators to be attached to each
- *  machine running the job.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *accelerator;
 
 /**
  *  Optional. Number of records per batch, defaults to 64.
@@ -2367,7 +2372,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;

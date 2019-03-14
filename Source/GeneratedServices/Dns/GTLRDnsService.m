@@ -46,6 +46,8 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#managedZone" : [GTLRDns_ManagedZone class],
     @"dns#managedZoneDnsSecConfig" : [GTLRDns_ManagedZoneDnsSecConfig class],
     @"dns#managedZoneOperationsListResponse" : [GTLRDns_ManagedZoneOperationsListResponse class],
+    @"dns#managedZonePrivateVisibilityConfig" : [GTLRDns_ManagedZonePrivateVisibilityConfig class],
+    @"dns#managedZonePrivateVisibilityConfigNetwork" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class],
     @"dns#managedZonesListResponse" : [GTLRDns_ManagedZonesListResponse class],
     @"dns#operation" : [GTLRDns_Operation class],
     @"dns#project" : [GTLRDns_Project class],

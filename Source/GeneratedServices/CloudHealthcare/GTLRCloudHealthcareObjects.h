@@ -21,6 +21,7 @@
 @class GTLRCloudHealthcare_AnnotationStore_Labels;
 @class GTLRCloudHealthcare_AuditConfig;
 @class GTLRCloudHealthcare_AuditLogConfig;
+@class GTLRCloudHealthcare_BigQueryDestination;
 @class GTLRCloudHealthcare_Binding;
 @class GTLRCloudHealthcare_BoundingPoly;
 @class GTLRCloudHealthcare_Dataset;
@@ -35,6 +36,7 @@
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_Finding;
+@class GTLRCloudHealthcare_GcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsSource;
@@ -150,13 +152,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_Content
 
 /**
  *  Analytics schema defined by the FHIR community.
- *  See https://github.com/rbrush/sql-on-fhir/blob/master/sql-on-fhir.md.
+ *  See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
  *
  *  Value: "ANALYTICS"
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
 /**
- *  Schema generated from original FHIR data.
+ *  A data-driven schema generated from the fields present in the FHIR data
+ *  being exported, with no additional simplification.
  *
  *  Value: "LOSSLESS"
  */
@@ -359,6 +362,30 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  The BigQuery table for export.
+ */
+@interface GTLRCloudHealthcare_BigQueryDestination : GTLRObject
+
+/**
+ *  If the destination table already exists and this flag is `TRUE`, the table
+ *  will be overwritten by the contents of the input store. If the flag is not
+ *  set and the destination table already exists, the export call returns an
+ *  error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  BigQuery URI to a table, up to 2000 characters long, must be of the form
+ *  bq://projectId.bqDatasetId.tableId.
+ */
+@property(nonatomic, copy, nullable) NSString *tableUri;
 
 @end
 
@@ -597,6 +624,33 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Request to export
+ *  Annotations. The
+ *  export operation is not atomic; in the event of a failure any annotations
+ *  already exported will not be removed.
+ */
+@interface GTLRCloudHealthcare_ExportAnnotationsRequest : GTLRObject
+
+/**
+ *  The BigQuery output destination.
+ *  The table schema is the flattened version of
+ *  Annotation
+ *  For now, only exporting to a dataset in the current project is supported.
+ *  The BigQuery location requires two IAM roles:
+ *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BigQueryDestination *bigqueryDestination;
+
+/**
+ *  The Cloud Storage destination, which requires the
+ *  `roles/storage.objectAdmin` Cloud IAM role.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GcsDestination *gcsDestination;
+
+@end
+
+
+/**
  *  Exports data from the specified DICOM store.
  *  If a given resource (e.g., a DICOM object with the same SOPInstance UID)
  *  already exists in the output, it is overwritten with the version
@@ -634,12 +688,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The BigQuery location requires two IAM roles:
  *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
  *  The output will be one BigQuery table per resource type.
- *  The server implements a data-driven FHIR-to-SQL schema mapping in support
- *  of analytics workloads with BigQuery. Incompatible changes to the output
- *  schema may be introduced in the future as a result of continuous
- *  collaboration with the FHIR community to refine the
- *  [desired SQL projection of FHIR
- *  resources](https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md)
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirBigQueryDestination *bigqueryDestination;
 
@@ -842,6 +890,24 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  The Cloud Storage location for export.
+ */
+@interface GTLRCloudHealthcare_GcsDestination : GTLRObject
+
+/**
+ *  The Cloud Storage destination to export to.
+ *  URI for a Cloud Storage directory where result files should be written (in
+ *  the format `gs://{bucket-id}/{path/to/destination/dir}`). If there is no
+ *  trailing slash, the service will append one when composing the object path.
+ *  The user is responsible for creating the Cloud Storage bucket referenced in
+ *  `uri_prefix`.
+ */
+@property(nonatomic, copy, nullable) NSString *uriPrefix;
+
+@end
+
+
+/**
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudHealthcare_GetIamPolicyRequest : GTLRObject
@@ -864,9 +930,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
- *  BigQuery URI to a table, up to 2000 characters long.
- *  Accepted forms:
- *  * BigQuery gs path e.g. bq://projectId.bqDatasetId.tableId
+ *  BigQuery URI to a table, up to 2000 characters long, in the format
+ *  `bq://projectId.bqDatasetId.tableId`
  */
 @property(nonatomic, copy, nullable) NSString *tableUri;
 
@@ -943,9 +1008,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirBigQueryDestination : GTLRObject
 
 /**
- *  BigQuery URI to a dataset, up to 2000 characters long.
- *  Accepted forms:
- *  * BigQuery gs path e.g. bq://projectId.bqDatasetId
+ *  BigQuery URI to a dataset, up to 2000 characters long, in the format
+ *  `bq://projectId.bqDatasetId`
  */
 @property(nonatomic, copy, nullable) NSString *datasetUri;
 
@@ -998,17 +1062,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Specifies the Cloud Storage destination for exporting errors to.
+ *  Specifies the Cloud Storage destination where errors will be recorded.
  */
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirRestGcsErrorDestination : GTLRObject
 
 /**
- *  URI for a Cloud Storage directory to which result files
- *  should be written (in the
- *  format `gs://{bucket-id}/{path/to/destination/dir}`). If there is no
- *  trailing slash, the service will append one when composing the object path.
- *  The user is responsible for creating the Cloud Storage bucket referenced in
- *  `uri_prefix`.
+ *  URI for a Cloud Storage directory to which error report files should be
+ *  written (in the format `gs://{bucket-id}/{path/to/destination/dir}`). If
+ *  there is no trailing slash, the service will append one when composing the
+ *  object path. The user is responsible for creating the Cloud Storage bucket
+ *  referenced in `uri_prefix`.
  */
 @property(nonatomic, copy, nullable) NSString *uriPrefix;
 
@@ -1021,20 +1084,19 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirRestGcsSource : GTLRObject
 
 /**
- *  Points to a Cloud Storage URI containing file(s) with
- *  content only. The URI must be in the following format:
- *  `gs://{bucket_id}/{object_id}`. The URI can include wildcards in
- *  `object_id` and thus identify multiple files. Supported wildcards:
- *  '*' to match 0 or more non-separator characters
- *  '**' to match 0 or more characters (including separators). Must be used at
- *  the end of a path and with no other wildcards in the
- *  path. Can also be used with a file extension (such as .dcm), which
+ *  Points to a Cloud Storage URI containing file(s) to import.
+ *  The URI must be in the following format: `gs://{bucket_id}/{object_id}`.
+ *  The URI can include wildcards in `object_id` and thus identify multiple
+ *  files. Supported wildcards:
+ *  * `*` to match 0 or more non-separator characters
+ *  * `**` to match 0 or more characters (including separators). Must be used
+ *  at the end of a path and with no other wildcards in the
+ *  path. Can also be used with a file extension (such as .ndjson), which
  *  imports all files with the extension in the specified directory and
- *  its sub-directories. For example,
- *  `gs://my-bucket/my-directory/ **.dcm` imports all files with .dcm
- *  extensions in `my-directory/` and its sub-directories.
- *  '?' to match 1 character
- *  All other URI formats are invalid.
+ *  its sub-directories. For example, `gs://my-bucket/my-directory/ **.ndjson`
+ *  imports all files with `.ndjson` extensions in `my-directory/` and its
+ *  sub-directories.
+ *  * `?` to match 1 character
  *  Files matching the wildcard are expected to contain content only, no
  *  metadata.
  */
@@ -2051,7 +2113,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  The depth for all recursive structures in the output analytics
- *  schema. For example, concept in the CodeSystem resource is a recursive
+ *  schema. For example, `concept` in the CodeSystem resource is a recursive
  *  structure; when the depth is 2, the CodeSystem table will have a column
  *  called `concept.concept` but not `concept.concept.concept`. If not
  *  specified or set to 0, the server will use the default value 2.
@@ -2067,10 +2129,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics Analytics
  *        schema defined by the FHIR community.
- *        See https://github.com/rbrush/sql-on-fhir/blob/master/sql-on-fhir.md.
+ *        See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
  *        (Value: "ANALYTICS")
- *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Lossless Schema
- *        generated from original FHIR data. (Value: "LOSSLESS")
+ *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Lossless A
+ *        data-driven schema generated from the fields present in the FHIR data
+ *        being exported, with no additional simplification. (Value: "LOSSLESS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. Same as `LOSSLESS`. (Value:
  *        "SCHEMA_TYPE_UNSPECIFIED")
@@ -2214,15 +2277,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

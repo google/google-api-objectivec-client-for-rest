@@ -61,6 +61,13 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off 
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace = @"TRACE";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
+// GTLRDataproc_SoftwareConfig.optionalComponents
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
+
 // GTLRDataproc_WorkflowMetadata.state
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Done    = @"DONE";
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending = @"PENDING";
@@ -1014,7 +1021,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SoftwareConfig
-@dynamic imageVersion, properties;
+@dynamic imageVersion, optionalComponents, properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"optionalComponents" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

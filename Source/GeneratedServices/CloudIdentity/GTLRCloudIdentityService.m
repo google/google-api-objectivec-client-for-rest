@@ -10,6 +10,16 @@
 
 #import "GTLRCloudIdentity.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups = @"https://www.googleapis.com/auth/cloud-identity.groups";
+NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly = @"https://www.googleapis.com/auth/cloud-identity.groups.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudIdentityService
+//
+
 @implementation GTLRCloudIdentityService
 
 - (instancetype)init {

@@ -2974,6 +2974,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Blob *> *inlineBlobs;
 
+/**
+ *  Directory from which a command is executed. It is a relative directory
+ *  with respect to the bot's working directory (i.e., "./"). If it is
+ *  non-empty, then it must exist under "./". Otherwise, "./" will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *workingDirectory;
+
 @end
 
 
@@ -3253,15 +3260,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

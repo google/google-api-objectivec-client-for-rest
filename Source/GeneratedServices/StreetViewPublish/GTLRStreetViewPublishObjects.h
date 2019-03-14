@@ -127,8 +127,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 @interface GTLRStreetViewPublish_BatchDeletePhotosRequest : GTLRObject
 
 /**
- *  Required. IDs of the Photos. For HTTP
- *  GET requests, the URL query parameter should be
+ *  Required. IDs of the Photos. HTTP
+ *  GET requests require the following syntax for the URL query parameter:
  *  `photoIds=<id1>&photoIds=<id2>&...`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *photoIds;
@@ -293,9 +293,9 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  List of photos. The maximum number of items returned is based on the
+ *  List of photos. The
  *  pageSize field
- *  in the request.
+ *  in the request determines the number of items returned.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -415,8 +415,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /**
- *  Output only. Status in Google Maps, whether this photo was published, or
- *  rejected for a possibly specified reason.
+ *  Output only. Status in Google Maps, whether this photo was published or
+ *  rejected.
  *
  *  Likely values:
  *    @arg @c kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published The photo
@@ -596,10 +596,9 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
  *  Latitude and longitude pair of the pose, as explained here:
  *  https://cloud.google.com/datastore/docs/reference/rest/Shared.Types/LatLng
  *  When creating a Photo, if the
- *  latitude and longitude pair are not provided here, the geolocation from the
- *  exif header will be used. If the latitude and longitude pair is not
- *  provided and cannot be found in the exif header, the create photo process
- *  will fail.
+ *  latitude and longitude pair are not provided, the geolocation from the
+ *  exif header is used. A latitude and longitude pair not provided in the
+ *  photo or exif header causes the photo process to fail.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLng *latLngPair;
 
@@ -630,15 +629,13 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing
@@ -726,7 +723,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 /**
  *  Mask that identifies fields on the photo metadata to update.
  *  If not present, the old Photo
- *  metadata will be entirely replaced with the
+ *  metadata is entirely replaced with the
  *  new Photo metadata in this request.
  *  The update fails if invalid fields are specified. Multiple fields can be
  *  specified in a comma-delimited list.
@@ -739,13 +736,13 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
  *  * `pose.altitude`
  *  * `connections`
  *  * `places`
- *  <aside class="note"><b>Note:</b> Repeated fields in
+ *  <aside class="note"><b>Note:</b> When
  *  updateMask
- *  mean the entire set of repeated values will be replaced with the new
- *  contents. For example, if
+ *  contains repeated fields, the entire set of repeated values get replaced
+ *  with the new contents. For example, if
  *  updateMask
  *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
- *  all connections will be removed.</aside>
+ *  all connections are removed.</aside>
  *
  *  String format is a comma-separated list of fields.
  */

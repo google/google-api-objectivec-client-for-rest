@@ -249,6 +249,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsPatchWithObject:name:]
 
 /**
+ *  Optionally caller-specified in CreateJob, after
+ *  which it becomes output only.
  *  The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
@@ -284,7 +286,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  until a successful response is received.
  *
  *  @param object The @c GTLRCloudScheduler_Job to include in the query.
- *  @param name The job name. For example:
+ *  @param name Optionally caller-specified in CreateJob, after
+ *    which it becomes output only.
+ *    The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *    * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
  *    hyphens (-), colons (:), or periods (.).

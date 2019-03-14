@@ -25,6 +25,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: See, change, create, and delete any of the Cloud
+ *  Identity Groups that you can access, including the members of each group
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.groups"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups;
+/**
+ *  Authorization scope: See any Cloud Identity Groups that you can access,
+ *  including group members and their emails
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.groups.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudIdentityService
+//
+
 /**
  *  Service for executing Cloud Identity API queries.
  *

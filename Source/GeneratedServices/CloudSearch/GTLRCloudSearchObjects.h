@@ -1203,9 +1203,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
- *  Datasource is a logical namespace for items to be indexed.
- *  All items must belong to a datasource. This is the prerequisite before
- *  items can be indexed into Cloud Search.
+ *  Frontend protos implement autoconverters for this message type. If you add
+ *  fields to this proto, please add corresponding fields to the frontend proto
+ *  with the same names.
+ *  LINT.IfChange
  */
 @interface GTLRCloudSearch_DataSource : GTLRObject
 
@@ -2579,7 +2580,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  List of principals who are allowed to see the item in search results.
  *  Optional if inheriting permissions from another item or if the item
  *  is not intended to be visible, such as
- *  virtual containers.
+ *  virtual
+ *  containers.
  *  The maximum number of elements is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Principal *> *readers;
@@ -4126,7 +4128,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  IDs of the Long Running Operations (LROs) currently running for this
- *  schema. After modifying the schema, wait for opeations to complete
+ *  schema. After modifying the schema, wait for operations to complete
  *  before indexing additional content.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;

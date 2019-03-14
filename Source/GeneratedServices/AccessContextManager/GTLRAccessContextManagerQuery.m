@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Access Context Manager API (accesscontextmanager/v1beta)
+//   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to GCP
 //   services.
@@ -42,7 +42,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/accessLevels";
+  NSString *pathURITemplate = @"v1/{+parent}/accessLevels";
   GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -62,7 +62,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -81,7 +81,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -100,7 +100,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/accessLevels";
+  NSString *pathURITemplate = @"v1/{+parent}/accessLevels";
   GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -124,7 +124,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -145,7 +145,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta/accessPolicies";
+  NSString *pathURITemplate = @"v1/accessPolicies";
   GTLRAccessContextManagerQuery_AccessPoliciesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -164,7 +164,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -183,7 +183,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -201,7 +201,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta/accessPolicies";
+  NSString *pathURITemplate = @"v1/accessPolicies";
   GTLRAccessContextManagerQuery_AccessPoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -224,7 +224,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -249,7 +249,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/servicePerimeters";
+  NSString *pathURITemplate = @"v1/{+parent}/servicePerimeters";
   GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -269,7 +269,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -288,7 +288,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -307,7 +307,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/servicePerimeters";
+  NSString *pathURITemplate = @"v1/{+parent}/servicePerimeters";
   GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -331,7 +331,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -345,13 +345,57 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @end
 
+@implementation GTLRAccessContextManagerQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRAccessContextManagerQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Empty class];
+  query.loggingName = @"accesscontextmanager.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Empty class];
+  query.loggingName = @"accesscontextmanager.operations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessContextManagerQuery_OperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAccessContextManagerQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -359,6 +403,25 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.name = name;
   query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
   query.loggingName = @"accesscontextmanager.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_ListOperationsResponse class];
+  query.loggingName = @"accesscontextmanager.operations.list";
   return query;
 }
 

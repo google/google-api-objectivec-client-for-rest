@@ -44,6 +44,10 @@ NSString * const kGTLRDns_KeyDigest_Type_Sha1   = @"sha1";
 NSString * const kGTLRDns_KeyDigest_Type_Sha256 = @"sha256";
 NSString * const kGTLRDns_KeyDigest_Type_Sha384 = @"sha384";
 
+// GTLRDns_ManagedZone.visibility
+NSString * const kGTLRDns_ManagedZone_Visibility_Private = @"private";
+NSString * const kGTLRDns_ManagedZone_Visibility_Public  = @"public";
+
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
 NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec = @"nsec";
 NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 = @"nsec3";
@@ -178,7 +182,8 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 @implementation GTLRDns_ManagedZone
 @dynamic creationTime, descriptionProperty, dnsName, dnssecConfig, identifier,
-         kind, labels, name, nameServers, nameServerSet;
+         kind, labels, name, nameServers, nameServerSet,
+         privateVisibilityConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -249,6 +254,34 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZonePrivateVisibilityConfig
+//
+
+@implementation GTLRDns_ManagedZonePrivateVisibilityConfig
+@dynamic kind, networks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networks" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZonePrivateVisibilityConfigNetwork
+//
+
+@implementation GTLRDns_ManagedZonePrivateVisibilityConfigNetwork
+@dynamic kind, networkUrl;
 @end
 
 
@@ -331,7 +364,8 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_Quota
-@dynamic dnsKeysPerManagedZone, kind, managedZones, resourceRecordsPerRrset,
+@dynamic dnsKeysPerManagedZone, kind, managedZones, managedZonesPerNetwork,
+         networksPerManagedZone, resourceRecordsPerRrset,
          rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 

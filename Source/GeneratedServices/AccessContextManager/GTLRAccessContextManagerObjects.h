@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Access Context Manager API (accesscontextmanager/v1beta)
+//   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to GCP
 //   services.
@@ -24,6 +24,7 @@
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Condition;
 @class GTLRAccessContextManager_DevicePolicy;
+@class GTLRAccessContextManager_Operation;
 @class GTLRAccessContextManager_Operation_Metadata;
 @class GTLRAccessContextManager_Operation_Response;
 @class GTLRAccessContextManager_OsConstraint;
@@ -86,12 +87,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncry
 // GTLRAccessContextManager_OsConstraint.osType
 
 /**
- *  An Android operating system.
- *
- *  Value: "ANDROID"
- */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android;
-/**
  *  A desktop ChromeOS operating system.
  *
  *  Value: "DESKTOP_CHROME_OS"
@@ -115,12 +110,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Deskt
  *  Value: "DESKTOP_WINDOWS"
  */
 GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows;
-/**
- *  An iOS operating system.
- *
- *  Value: "IOS"
- */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios;
 /**
  *  The operating system of the device is not specified or not known.
  *
@@ -244,6 +233,13 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRAccessContextManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  A condition necessary for an `AccessLevel` to be granted. The Condition is
  *  an
  *  AND over its fields. So a Condition is true if: 1) the request IP is from
@@ -292,6 +288,12 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 @property(nonatomic, strong, nullable) NSNumber *negate;
 
 /**
+ *  The request must originate from one of the provided countries/regions.
+ *  Must be valid ISO 3166-1 alpha-2 codes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+/**
  *  A list of other access levels defined in the same `Policy`, referenced by
  *  resource name. Referencing an `AccessLevel` which does not exist is an
  *  error. All access levels listed must be granted for the Condition
@@ -330,6 +332,20 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_OsConstraint *> *osConstraints;
 
 /**
+ *  Whether the device needs to be approved by the customer admin.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireAdminApproval;
+
+/**
+ *  Whether the device needs to be corp owned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCorpOwned;
+
+/**
  *  Whether or not screenlock is required for the DevicePolicy to be true.
  *  Defaults to `false`.
  *
@@ -337,6 +353,19 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  */
 @property(nonatomic, strong, nullable) NSNumber *requireScreenlock;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRAccessContextManager_Empty : GTLRObject
 @end
 
 
@@ -390,6 +419,30 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  empty, no further results remain.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAccessContextManager_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Operation *> *operations;
 
 @end
 
@@ -519,8 +572,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  Required. The allowed OS type.
  *
  *  Likely values:
- *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_Android An Android
- *        operating system. (Value: "ANDROID")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs A
  *        desktop ChromeOS operating system. (Value: "DESKTOP_CHROME_OS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux A
@@ -529,13 +580,21 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *        Mac operating system. (Value: "DESKTOP_MAC")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows A
  *        desktop Windows operating system. (Value: "DESKTOP_WINDOWS")
- *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_Ios An iOS operating
- *        system. (Value: "IOS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified The
  *        operating system of the device is not specified or not known. (Value:
  *        "OS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *osType;
+
+/**
+ *  Only allows requests from devices with a verified Chrome OS.
+ *  Verifications includes requirements that the device is enterprise-managed,
+ *  conformant to Dasher domain policies, and the caller has permission to call
+ *  the API targeted by the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireVerifiedChromeOs;
 
 @end
 
@@ -577,7 +636,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  allowed to be a member of single regular perimeter, but multiple service
  *  perimeter bridges. A project cannot be a included in a perimeter bridge
  *  without being included in regular perimeter. For perimeter bridges,
- *  restricted/unrestricted service lists as well as access lists must be
+ *  the restricted service list as well as access level lists must be
  *  empty.
  *
  *  Likely values:
@@ -590,7 +649,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
- *  restricted/unrestricted services and access levels that determine perimeter
+ *  restricted services and access levels that determine perimeter
  *  content and boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_ServicePerimeterConfig *status;
@@ -629,50 +688,24 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 /**
- *  GCP services that are subject to the Service Perimeter restrictions. May
- *  contain a list of services or a single wildcard "*". For example, if
- *  `storage.googleapis.com` is specified, access to the storage buckets
- *  inside the perimeter must meet the perimeter's access restrictions.
- *  Wildcard means that unless explicitly specified by "unrestricted_services"
- *  list, any service is treated as restricted. One of the fields
- *  "restricted_services", "unrestricted_services" must contain a wildcard "*",
- *  otherwise the Service Perimeter specification is invalid. It also means
- *  that both field being empty is invalid as well. "restricted_services" can
- *  be empty if and only if "unrestricted_services" list contains a "*"
- *  wildcard.
+ *  GCP services that are subject to the Service Perimeter restrictions. For
+ *  example, if `storage.googleapis.com` is specified, access to the storage
+ *  buckets inside the perimeter must meet the perimeter's access restrictions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
-
-/**
- *  GCP services that are not subject to the Service Perimeter restrictions.
- *  May contain a list of services or a single wildcard "*". For example, if
- *  `logging.googleapis.com` is unrestricted, users can access logs inside the
- *  perimeter as if the perimeter doesn't exist, and it also means VMs inside
- *  the perimeter can access logs outside the perimeter.
- *  The wildcard means that unless explicitly specified by
- *  "restricted_services" list, any service is treated as unrestricted. One of
- *  the fields "restricted_services", "unrestricted_services" must contain a
- *  wildcard "*", otherwise the Service Perimeter specification is invalid. It
- *  also means that both field being empty is invalid as well.
- *  "unrestricted_services" can be empty if and only if "restricted_services"
- *  list contains a "*" wildcard.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unrestrictedServices;
 
 @end
 
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

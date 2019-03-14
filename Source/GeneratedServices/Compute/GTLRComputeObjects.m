@@ -360,6 +360,7 @@ NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InvalidLoadBala
 
 // GTLRCompute_BackendService.protocol
 NSString * const kGTLRCompute_BackendService_Protocol_Http  = @"HTTP";
+NSString * const kGTLRCompute_BackendService_Protocol_Http2 = @"HTTP2";
 NSString * const kGTLRCompute_BackendService_Protocol_Https = @"HTTPS";
 NSString * const kGTLRCompute_BackendService_Protocol_Ssl   = @"SSL";
 NSString * const kGTLRCompute_BackendService_Protocol_Tcp   = @"TCP";
@@ -558,6 +559,7 @@ NSString * const kGTLRCompute_Condition_Sys_Region  = @"REGION";
 NSString * const kGTLRCompute_Condition_Sys_Service = @"SERVICE";
 
 // GTLRCompute_DeprecationStatus.state
+NSString * const kGTLRCompute_DeprecationStatus_State_Active   = @"ACTIVE";
 NSString * const kGTLRCompute_DeprecationStatus_State_Deleted  = @"DELETED";
 NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated = @"DEPRECATED";
 NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete = @"OBSOLETE";
@@ -864,6 +866,7 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_Windows      = @"WINDOWS";
 
 // GTLRCompute_HealthCheck.type
 NSString * const kGTLRCompute_HealthCheck_Type_Http    = @"HTTP";
+NSString * const kGTLRCompute_HealthCheck_Type_Http2   = @"HTTP2";
 NSString * const kGTLRCompute_HealthCheck_Type_Https   = @"HTTPS";
 NSString * const kGTLRCompute_HealthCheck_Type_Invalid = @"INVALID";
 NSString * const kGTLRCompute_HealthCheck_Type_Ssl     = @"SSL";
@@ -897,6 +900,10 @@ NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Unreachable = @"UNREA
 // GTLRCompute_HealthStatus.healthState
 NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy = @"HEALTHY";
 NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy = @"UNHEALTHY";
+
+// GTLRCompute_HTTP2HealthCheck.proxyHeader
+NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
 // GTLRCompute_HTTPHealthCheck.proxyHeader
 NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_None = @"NONE";
@@ -995,6 +1002,7 @@ NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable = @"UNREACHABLE
 
 // GTLRCompute_Instance.status
 NSString * const kGTLRCompute_Instance_Status_Provisioning = @"PROVISIONING";
+NSString * const kGTLRCompute_Instance_Status_Repairing    = @"REPAIRING";
 NSString * const kGTLRCompute_Instance_Status_Running      = @"RUNNING";
 NSString * const kGTLRCompute_Instance_Status_Staging      = @"STAGING";
 NSString * const kGTLRCompute_Instance_Status_Stopped      = @"STOPPED";
@@ -1317,6 +1325,7 @@ NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_Unreachable = @"
 
 // GTLRCompute_InstanceWithNamedPorts.status
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning = @"PROVISIONING";
+NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Repairing = @"REPAIRING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Running = @"RUNNING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Staging = @"STAGING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Stopped = @"STOPPED";
@@ -1679,6 +1688,7 @@ NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifying = @"VERIFY
 
 // GTLRCompute_ManagedInstance.instanceStatus
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning = @"PROVISIONING";
+NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Repairing = @"REPAIRING";
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Running = @"RUNNING";
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Staging = @"STAGING";
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Stopped = @"STOPPED";
@@ -4178,10 +4188,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendService
 @dynamic affinityCookieTtlSec, backends, cdnPolicy, connectionDraining,
-         creationTimestamp, descriptionProperty, enableCDN, fingerprint,
-         healthChecks, iap, identifier, kind, loadBalancingScheme, name, port,
-         portName, protocol, region, securityPolicy, selfLink, sessionAffinity,
-         timeoutSec;
+         creationTimestamp, customRequestHeaders, descriptionProperty,
+         enableCDN, fingerprint, healthChecks, iap, identifier, kind,
+         loadBalancingScheme, name, port, portName, protocol, region,
+         securityPolicy, selfLink, sessionAffinity, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4194,6 +4204,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"backends" : [GTLRCompute_Backend class],
+    @"customRequestHeaders" : [NSString class],
     @"healthChecks" : [NSString class]
   };
   return map;
@@ -5531,9 +5542,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthCheck
 @dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
-         healthyThreshold, httpHealthCheck, httpsHealthCheck, identifier, kind,
-         name, selfLink, sslHealthCheck, tcpHealthCheck, timeoutSec, type,
-         unhealthyThreshold;
+         healthyThreshold, http2HealthCheck, httpHealthCheck, httpsHealthCheck,
+         identifier, kind, name, selfLink, sslHealthCheck, tcpHealthCheck,
+         timeoutSec, type, unhealthyThreshold;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5635,6 +5646,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HTTP2HealthCheck
+//
+
+@implementation GTLRCompute_HTTP2HealthCheck
+@dynamic host, port, portName, proxyHeader, requestPath, response;
 @end
 
 

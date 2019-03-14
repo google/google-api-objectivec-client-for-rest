@@ -39,7 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  on the service account that is specified in the `name` field of the
  *  request.
  *  The delegates must have the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
@@ -179,7 +180,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  on the service account that is specified in the `name` field of the
  *  request.
  *  The delegates must have the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
@@ -218,7 +220,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  on the service account that is specified in the `name` field of the
  *  request.
  *  The delegates must have the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
@@ -265,7 +268,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  on the service account that is specified in the `name` field of the
  *  request.
  *  The delegates must have the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 

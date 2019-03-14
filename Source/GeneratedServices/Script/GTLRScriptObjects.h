@@ -795,9 +795,6 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 /** Duration the execution spent executing. */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
-/** User-facing name for the user executing the script. */
-@property(nonatomic, copy, nullable) NSString *executingUser;
-
 /** Name of the function the started the execution. */
 @property(nonatomic, copy, nullable) NSString *functionName;
 

@@ -121,6 +121,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"start
 NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
 NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";
 NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboDirective";
+NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"usedRoboIgnoreDirective";
 
 // ----------------------------------------------------------------------------
 //

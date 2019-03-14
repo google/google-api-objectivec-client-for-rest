@@ -66,6 +66,10 @@ NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
+// GTLRCloudBuild_PullRequestFilter.commentControl
+NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled = @"COMMENTS_DISABLED";
+NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudBuild_ArtifactObjects
@@ -242,8 +246,9 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildTrigger
-@dynamic build, createTime, descriptionProperty, disabled, filename, identifier,
-         ignoredFiles, includedFiles, substitutions, triggerTemplate;
+@dynamic build, createTime, descriptionProperty, disabled, filename, github,
+         identifier, ignoredFiles, includedFiles, substitutions,
+         triggerTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -308,6 +313,15 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CheckSuiteFilter
+//
+
+@implementation GTLRCloudBuild_CheckSuiteFilter
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Empty
 //
 
@@ -330,6 +344,16 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitHubEventsConfig
+//
+
+@implementation GTLRCloudBuild_GitHubEventsConfig
+@dynamic checkSuite, installationId, name, owner, pullRequest, push;
 @end
 
 
@@ -445,6 +469,26 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_PullRequestFilter
+//
+
+@implementation GTLRCloudBuild_PullRequestFilter
+@dynamic branch, commentControl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_PushFilter
+//
+
+@implementation GTLRCloudBuild_PushFilter
+@dynamic branch, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_RepoSource
 //
 
@@ -459,8 +503,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_Results
-@dynamic artifactManifest, buildStepImages, buildStepOutputs, images,
-         numArtifacts;
+@dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
+         images, numArtifacts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

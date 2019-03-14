@@ -571,7 +571,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_L
 
 /**
  *  The user agent sent by the client. Example: "Mozilla/4.0 (compatible; MSIE
- *  6.0; Windows 98; Q312461; .NET CLR 1.0.3705)".
+ *  6.0; Windows 98; Q312461; .NET
+ *  CLR 1.0.3705)".
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 

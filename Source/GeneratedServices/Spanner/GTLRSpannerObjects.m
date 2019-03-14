@@ -201,6 +201,42 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ExecuteBatchDmlRequest
+//
+
+@implementation GTLRSpanner_ExecuteBatchDmlRequest
+@dynamic seqno, statements, transaction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statements" : [GTLRSpanner_Statement class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ExecuteBatchDmlResponse
+//
+
+@implementation GTLRSpanner_ExecuteBatchDmlResponse
+@dynamic resultSets, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resultSets" : [GTLRSpanner_ResultSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ExecuteSqlRequest
 //
 
@@ -900,6 +936,44 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Statement
+//
+
+@implementation GTLRSpanner_Statement
+@dynamic params, paramTypes, sql;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Statement_Params
+//
+
+@implementation GTLRSpanner_Statement_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Statement_ParamTypes
+//
+
+@implementation GTLRSpanner_Statement_ParamTypes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSpanner_Type class];
 }
 
 @end

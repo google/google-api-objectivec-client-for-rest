@@ -100,6 +100,18 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Creating;
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Deleting;
 /**
+ *  TPU node has been hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Hidden;
+/**
+ *  TPU node is currently hiding.
+ *
+ *  Value: "HIDING"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Hiding;
+/**
  *  TPU node has been preempted. Only applies to Preemptible TPU Nodes.
  *
  *  Value: "PREEMPTED"
@@ -162,6 +174,12 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
  *  Value: "TERMINATED"
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
+/**
+ *  TPU node is currently unhiding.
+ *
+ *  Value: "UNHIDING"
+ */
+GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  A accelerator type that a Node can be configured with.
@@ -515,6 +533,10 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *        "CREATING")
  *    @arg @c kGTLRTPU_Node_State_Deleting TPU node is being deleted. (Value:
  *        "DELETING")
+ *    @arg @c kGTLRTPU_Node_State_Hidden TPU node has been hidden. (Value:
+ *        "HIDDEN")
+ *    @arg @c kGTLRTPU_Node_State_Hiding TPU node is currently hiding. (Value:
+ *        "HIDING")
  *    @arg @c kGTLRTPU_Node_State_Preempted TPU node has been preempted. Only
  *        applies to Preemptible TPU Nodes. (Value: "PREEMPTED")
  *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created and is fully
@@ -537,6 +559,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *    @arg @c kGTLRTPU_Node_State_Terminated TPU node has been terminated due to
  *        maintenance or has reached the end of
  *        its life cycle (for preemptible nodes). (Value: "TERMINATED")
+ *    @arg @c kGTLRTPU_Node_State_Unhiding TPU node is currently unhiding.
+ *        (Value: "UNHIDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

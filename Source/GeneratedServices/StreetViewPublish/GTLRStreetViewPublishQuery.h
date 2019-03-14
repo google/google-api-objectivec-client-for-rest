@@ -66,9 +66,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Currently, the only way to set heading, pitch, and roll in CreatePhoto is
  *  through the [Photo Sphere XMP
  *  metadata](https://developers.google.com/streetview/spherical-metadata) in
- *  the photo bytes. The `pose.heading`, `pose.pitch`, `pose.roll`,
- *  `pose.altitude`, and `pose.level` fields in Pose are ignored for
- *  CreatePhoto.
+ *  the photo bytes. CreatePhoto ignores the `pose.heading`, `pose.pitch`,
+ *  `pose.roll`, `pose.altitude`, and `pose.level` fields in Pose.
  *  This method returns the following error codes:
  *  * google.rpc.Code.INVALID_ARGUMENT if the request is malformed or if
  *  the uploaded photo is not a 360 photo.
@@ -96,9 +95,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Currently, the only way to set heading, pitch, and roll in CreatePhoto is
  *  through the [Photo Sphere XMP
  *  metadata](https://developers.google.com/streetview/spherical-metadata) in
- *  the photo bytes. The `pose.heading`, `pose.pitch`, `pose.roll`,
- *  `pose.altitude`, and `pose.level` fields in Pose are ignored for
- *  CreatePhoto.
+ *  the photo bytes. CreatePhoto ignores the `pose.heading`, `pose.pitch`,
+ *  `pose.roll`, `pose.altitude`, and `pose.level` fields in Pose.
  *  This method returns the following error codes:
  *  * google.rpc.Code.INVALID_ARGUMENT if the request is malformed or if
  *  the uploaded photo is not a 360 photo.
@@ -175,7 +173,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  If language_code is unspecified, the user's language preference for Google
- *  services will be used.
+ *  services is used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -219,11 +217,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  metadata.
  *  Note that if
  *  BatchDeletePhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchDeletePhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchDeletePhotosResponse.results.
@@ -247,11 +245,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  metadata.
  *  Note that if
  *  BatchDeletePhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchDeletePhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchDeletePhotosResponse.results.
@@ -273,11 +271,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Photo batch.
  *  Note that if
  *  BatchGetPhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchGetPhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchGetPhotosResponse.results.
@@ -299,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  If language_code is unspecified, the user's language preference for Google
- *  services will be used.
+ *  services is used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -328,11 +326,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Photo batch.
  *  Note that if
  *  BatchGetPhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchGetPhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchGetPhotosResponse.results.
@@ -352,11 +350,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  is not supported.
  *  Note that if
  *  BatchUpdatePhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchUpdatePhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchUpdatePhotosResponse.results.
@@ -394,11 +392,11 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  is not supported.
  *  Note that if
  *  BatchUpdatePhotos
- *  fails, either critical fields are missing or there was an authentication
+ *  fails, either critical fields are missing or there is an authentication
  *  error. Even if
  *  BatchUpdatePhotos
- *  succeeds, there may have been failures for single photos in the batch.
- *  These failures will be specified in each
+ *  succeeds, individual photos in the batch may have failures.
+ *  These failures are specified in each
  *  PhotoResponse.status
  *  in
  *  BatchUpdatePhotosResponse.results.
@@ -454,14 +452,14 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  If language_code is unspecified, the user's language preference for Google
- *  services will be used.
+ *  services is used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The maximum number of photos to return.
  *  `pageSize` must be non-negative. If `pageSize` is zero or is not provided,
- *  the default page size of 100 will be used.
+ *  the default page size of 100 is used.
  *  The number of photos returned in the response may be less than `pageSize`
  *  if the number of photos that belong to the user is less than `pageSize`.
  */
@@ -506,20 +504,21 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @end
 
 /**
- *  Creates an upload session to start uploading photo bytes. The upload URL of
- *  the returned UploadRef is used to
- *  upload the bytes for the Photo.
+ *  Creates an upload session to start uploading photo bytes. The method uses
+ *  the upload URL of the returned
+ *  UploadRef to upload the bytes for
+ *  the Photo.
  *  In addition to the photo requirements shown in
  *  https://support.google.com/maps/answer/7012050?hl=en&ref_topic=6275604,
- *  the photo must also meet the following requirements:
+ *  the photo must meet the following requirements:
  *  * Photo Sphere XMP metadata must be included in the photo medadata. See
  *  https://developers.google.com/streetview/spherical-metadata for the
  *  required fields.
  *  * The pixel size of the photo must meet the size requirements listed in
  *  https://support.google.com/maps/answer/7012050?hl=en&ref_topic=6275604, and
  *  the photo must be a full 360 horizontally.
- *  After the upload is complete, the
- *  UploadRef is used with
+ *  After the upload completes, the method uses
+ *  UploadRef with
  *  CreatePhoto
  *  to create the Photo object entry.
  *
@@ -535,20 +534,21 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Fetches a @c GTLRStreetViewPublish_UploadRef.
  *
- *  Creates an upload session to start uploading photo bytes. The upload URL of
- *  the returned UploadRef is used to
- *  upload the bytes for the Photo.
+ *  Creates an upload session to start uploading photo bytes. The method uses
+ *  the upload URL of the returned
+ *  UploadRef to upload the bytes for
+ *  the Photo.
  *  In addition to the photo requirements shown in
  *  https://support.google.com/maps/answer/7012050?hl=en&ref_topic=6275604,
- *  the photo must also meet the following requirements:
+ *  the photo must meet the following requirements:
  *  * Photo Sphere XMP metadata must be included in the photo medadata. See
  *  https://developers.google.com/streetview/spherical-metadata for the
  *  required fields.
  *  * The pixel size of the photo must meet the size requirements listed in
  *  https://support.google.com/maps/answer/7012050?hl=en&ref_topic=6275604, and
  *  the photo must be a full 360 horizontally.
- *  After the upload is complete, the
- *  UploadRef is used with
+ *  After the upload completes, the method uses
+ *  UploadRef with
  *  CreatePhoto
  *  to create the Photo object entry.
  *
@@ -568,10 +568,6 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  updateMask
  *  field are used. If `updateMask` is not present, the update applies to all
  *  fields.
- *  <aside class="note"><b>Note:</b> To update
- *  Pose.altitude,
- *  Pose.latLngPair has to be
- *  filled as well. Otherwise, the request will fail.</aside>
  *  This method returns the following error codes:
  *  * google.rpc.Code.PERMISSION_DENIED if the requesting user did not
  *  create the requested photo.
@@ -599,7 +595,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Mask that identifies fields on the photo metadata to update.
  *  If not present, the old Photo
- *  metadata will be entirely replaced with the
+ *  metadata is entirely replaced with the
  *  new Photo metadata in this request.
  *  The update fails if invalid fields are specified. Multiple fields can be
  *  specified in a comma-delimited list.
@@ -612,13 +608,13 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  * `pose.altitude`
  *  * `connections`
  *  * `places`
- *  <aside class="note"><b>Note:</b> Repeated fields in
+ *  <aside class="note"><b>Note:</b> When
  *  updateMask
- *  mean the entire set of repeated values will be replaced with the new
- *  contents. For example, if
+ *  contains repeated fields, the entire set of repeated values get replaced
+ *  with the new contents. For example, if
  *  updateMask
  *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
- *  all connections will be removed.</aside>
+ *  all connections are removed.</aside>
  *
  *  String format is a comma-separated list of fields.
  */
@@ -634,10 +630,6 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  updateMask
  *  field are used. If `updateMask` is not present, the update applies to all
  *  fields.
- *  <aside class="note"><b>Note:</b> To update
- *  Pose.altitude,
- *  Pose.latLngPair has to be
- *  filled as well. Otherwise, the request will fail.</aside>
  *  This method returns the following error codes:
  *  * google.rpc.Code.PERMISSION_DENIED if the requesting user did not
  *  create the requested photo.

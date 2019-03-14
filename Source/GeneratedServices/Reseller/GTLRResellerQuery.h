@@ -45,34 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeCancel;
 /**
- *  Downgrades a G Suite subscription to a Google Apps Free edition subscription
- *  only if the customer was initially subscribed to a Google Apps Free edition
- *  (also known as the Standard edition). Once downgraded, the customer no
- *  longer has access to the previous G Suite subscription and is no longer
- *  managed by the reseller.
- *  A G Suite subscription's downgrade cannot be invoked if an active or
- *  suspended Google Drive or Google Vault subscription is present. The Google
- *  Drive or Google Vault subscription must be cancelled before the G Suite
- *  subscription's downgrade is invoked.
- *  The downgrade deletionType does not apply to other products or G Suite SKUs.
- *
- *  Value: "downgrade"
- */
-GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeDowngrade;
-/**
- *  (DEPRECATED) The G Suite account is suspended for four days and then
- *  cancelled. Once suspended, an administrator has access to the suspended
- *  account, but the account users can not access their services. A suspension
- *  can be lifted, using the reseller tools.
- *  A G Suite subscription's suspension can not be invoked if an active or
- *  suspended Google Drive or Google Vault subscription is present. The Google
- *  Drive or Google Vault subscription must be cancelled before the G Suite
- *  subscription's suspension is invoked.
- *
- *  Value: "suspend"
- */
-GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeSuspend;
-/**
  *  Transfers a subscription directly to Google. The customer is immediately
  *  transferred to a direct billing relationship with Google and is given a
  *  short amount of time with no service interruption. The customer can then
@@ -537,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Cancel, suspend or transfer a subscription to direct.
+ *  Cancel or transfer a subscription to direct.
  *
  *  Method: reseller.subscriptions.delete
  *
@@ -564,27 +536,6 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @arg @c kGTLRResellerDeletionTypeCancel Cancels the subscription
  *        immediately. This does not apply to a G Suite subscription. (Value:
  *        "cancel")
- *    @arg @c kGTLRResellerDeletionTypeDowngrade Downgrades a G Suite
- *        subscription to a Google Apps Free edition subscription only if the
- *        customer was initially subscribed to a Google Apps Free edition (also
- *        known as the Standard edition). Once downgraded, the customer no
- *        longer has access to the previous G Suite subscription and is no
- *        longer managed by the reseller.
- *        A G Suite subscription's downgrade cannot be invoked if an active or
- *        suspended Google Drive or Google Vault subscription is present. The
- *        Google Drive or Google Vault subscription must be cancelled before the
- *        G Suite subscription's downgrade is invoked.
- *        The downgrade deletionType does not apply to other products or G Suite
- *        SKUs. (Value: "downgrade")
- *    @arg @c kGTLRResellerDeletionTypeSuspend (DEPRECATED) The G Suite account
- *        is suspended for four days and then cancelled. Once suspended, an
- *        administrator has access to the suspended account, but the account
- *        users can not access their services. A suspension can be lifted, using
- *        the reseller tools.
- *        A G Suite subscription's suspension can not be invoked if an active or
- *        suspended Google Drive or Google Vault subscription is present. The
- *        Google Drive or Google Vault subscription must be cancelled before the
- *        G Suite subscription's suspension is invoked. (Value: "suspend")
  *    @arg @c kGTLRResellerDeletionTypeTransferToDirect Transfers a subscription
  *        directly to Google. The customer is immediately transferred to a
  *        direct billing relationship with Google and is given a short amount of
@@ -607,7 +558,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Cancel, suspend or transfer a subscription to direct.
+ *  Cancel or transfer a subscription to direct.
  *
  *  @param customerId Either the customer's primary domain name or the
  *    customer's unique identifier. If using the domain name, we do not
@@ -625,27 +576,6 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @arg @c kGTLRResellerDeletionTypeCancel Cancels the subscription
  *        immediately. This does not apply to a G Suite subscription. (Value:
  *        "cancel")
- *    @arg @c kGTLRResellerDeletionTypeDowngrade Downgrades a G Suite
- *        subscription to a Google Apps Free edition subscription only if the
- *        customer was initially subscribed to a Google Apps Free edition (also
- *        known as the Standard edition). Once downgraded, the customer no
- *        longer has access to the previous G Suite subscription and is no
- *        longer managed by the reseller.
- *        A G Suite subscription's downgrade cannot be invoked if an active or
- *        suspended Google Drive or Google Vault subscription is present. The
- *        Google Drive or Google Vault subscription must be cancelled before the
- *        G Suite subscription's downgrade is invoked.
- *        The downgrade deletionType does not apply to other products or G Suite
- *        SKUs. (Value: "downgrade")
- *    @arg @c kGTLRResellerDeletionTypeSuspend (DEPRECATED) The G Suite account
- *        is suspended for four days and then cancelled. Once suspended, an
- *        administrator has access to the suspended account, but the account
- *        users can not access their services. A suspension can be lifted, using
- *        the reseller tools.
- *        A G Suite subscription's suspension can not be invoked if an active or
- *        suspended Google Drive or Google Vault subscription is present. The
- *        Google Drive or Google Vault subscription must be cancelled before the
- *        G Suite subscription's suspension is invoked. (Value: "suspend")
  *    @arg @c kGTLRResellerDeletionTypeTransferToDirect Transfers a subscription
  *        directly to Google. The customer is immediately transferred to a
  *        direct billing relationship with Google and is given a short amount of
