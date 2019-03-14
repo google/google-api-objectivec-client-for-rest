@@ -585,8 +585,9 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
- *  The path of the resource file relative to the root file.
- *  For root or thumbnail files, this is just the filename.
+ *  The path of the resource file relative to the
+ *  root file. For root or thumbnail files,
+ *  this is just the filename.
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
 
@@ -624,8 +625,8 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 
 /**
  *  The root of the file hierarchy. This will always be populated.
- *  For some format_types - such as `TILT`, which are self-contained -
- *  this is all of the data.
+ *  For some format_types - such as `TILT`, which are
+ *  self-contained - this is all of the data.
  *  Other types - such as `OBJ` - often reference other data elements.
  *  These are contained in the resources field.
  */

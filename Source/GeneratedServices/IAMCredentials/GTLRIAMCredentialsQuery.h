@@ -57,7 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -71,7 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *    character is required; replacing it with a project ID is invalid.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateAccessToken
  */
@@ -92,7 +94,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -105,7 +108,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *    character is required; replacing it with a project ID is invalid.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken
  */
@@ -129,7 +133,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -143,7 +148,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *    character is required; replacing it with a project ID is invalid.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdToken
  */
@@ -167,7 +173,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -181,7 +188,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *    character is required; replacing it with a project ID is invalid.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignBlob
  */
@@ -205,7 +213,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The resource name of the service account for which the credentials
  *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -219,7 +228,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`.
+ *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
+ *    character is required; replacing it with a project ID is invalid.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignJwt
  */

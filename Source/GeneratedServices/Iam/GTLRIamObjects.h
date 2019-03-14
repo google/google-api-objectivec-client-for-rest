@@ -549,7 +549,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -687,6 +687,13 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  The service account disable request.
+ */
+@interface GTLRIam_DisableServiceAccountRequest : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -696,6 +703,13 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRIam_Empty : GTLRObject
+@end
+
+
+/**
+ *  The service account enable request.
+ */
+@interface GTLRIam_EnableServiceAccountRequest : GTLRObject
 @end
 
 
@@ -1396,6 +1410,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  \@OutputOnly A bool indicate if the service account is disabled.
+ *  The field is currently in alpha phase.
  *
  *  Uses NSNumber of boolValue.
  */

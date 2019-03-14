@@ -760,8 +760,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /**
  *  Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl
- *  [Learn more](https://firebase.google.com/docs/dynamic-links/android/receive)
- *  on how to set up Dynamic Link domain associated with your Firebase project.
+ *  [Learn
+ *  more](https://firebase.google.com/docs/dynamic-links/android/receive) on
+ *  how to set up Dynamic Link domain associated with your Firebase project.
  *  Required if missing domain_uri_prefix.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicLinkDomain;
@@ -1167,9 +1168,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /**
  *  [AdWords autotagging
- *  parameter](https://support.google.com/analytics/answer/1033981?hl=en);
- *  used to measure Google AdWords ads. This value is generated dynamically
- *  and should never be modified.
+ *  parameter](https://support.google.com/analytics/answer/1033981?hl=en); used
+ *  to measure Google AdWords ads. This value is generated dynamically and
+ *  should never be modified.
  */
 @property(nonatomic, copy, nullable) NSString *gclid;
 

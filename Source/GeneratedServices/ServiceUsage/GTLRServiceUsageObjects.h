@@ -121,7 +121,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
  *  Requests to the following request paths will call the backend at the
  *  translated path:
  *  Request path: /api/company/widgetworks/user/johndoe
- *  Translated: https://example.appspot.com/api/company/widgetworks/user/johndoe
+ *  Translated:
+ *  https://example.appspot.com/api/company/widgetworks/user/johndoe
  *  Request path: /api/company/widgetworks/user/johndoe?timezone=EST
  *  Translated:
  *  https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
@@ -740,10 +741,10 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Optional if the key set document:
  *  - can be retrieved from
  *  [OpenID
- *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html
- *  of the issuer.
- *  - can be inferred from the email domain of the issuer (e.g. a Google service
- *  account).
+ *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of
+ *  the issuer.
+ *  - can be inferred from the email domain of the issuer (e.g. a Google
+ *  service account).
  *  Example: https://www.googleapis.com/oauth2/v1/certs
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
@@ -1275,8 +1276,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_DocumentationRule : GTLRObject
 
 /**
- *  Deprecation description of the selected element(s). It can be provided if an
- *  element is marked as `deprecated`.
+ *  Deprecation description of the selected element(s). It can be provided if
+ *  an element is marked as `deprecated`.
  */
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
@@ -1394,9 +1395,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  The specification of an Internet routable address of API frontend that will
  *  handle requests to this [API
- *  Endpoint](https://cloud.google.com/apis/design/glossary).
- *  It should be either a valid IPv4 address or a fully-qualified domain name.
- *  For example, "8.8.8.8" or "myservice.appspot.com".
+ *  Endpoint](https://cloud.google.com/apis/design/glossary). It should be
+ *  either a valid IPv4 address or a fully-qualified domain name. For example,
+ *  "8.8.8.8" or "myservice.appspot.com".
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -3076,8 +3077,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The Markdown content of the page. You can use <code>&#40;== include {path}
- *  ==&#41;</code>
- *  to include content from a Markdown file.
+ *  ==&#41;</code> to include content from a Markdown file.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3109,46 +3109,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Quota configuration helps to achieve fairness and budgeting in service
- *  usage.
- *  The quota configuration works this way:
- *  - The service configuration defines a set of metrics.
- *  - For API calls, the quota.metric_rules maps methods to metrics with
- *  corresponding costs.
- *  - The quota.limits defines limits on the metrics, which will be used for
- *  quota checks at runtime.
- *  An example quota configuration in yaml format:
- *  quota:
- *  limits:
- *  - name: apiWriteQpsPerProject
- *  metric: library.googleapis.com/write_calls
- *  unit: "1/min/{project}" # rate limit for consumer projects
- *  values:
- *  STANDARD: 10000
- *  # The metric rules bind all methods to the read_calls metric,
- *  # except for the UpdateBook and DeleteBook methods. These two methods
- *  # are mapped to the write_calls metric, with the UpdateBook method
- *  # consuming at twice rate as the DeleteBook method.
- *  metric_rules:
- *  - selector: "*"
- *  metric_costs:
- *  library.googleapis.com/read_calls: 1
- *  - selector: google.example.library.v1.LibraryService.UpdateBook
- *  metric_costs:
- *  library.googleapis.com/write_calls: 2
- *  - selector: google.example.library.v1.LibraryService.DeleteBook
- *  metric_costs:
- *  library.googleapis.com/write_calls: 1
- *  Corresponding Metric definition:
- *  metrics:
- *  - name: library.googleapis.com/read_calls
- *  display_name: Read requests
- *  metric_kind: DELTA
- *  value_type: INT64
- *  - name: library.googleapis.com/write_calls
- *  display_name: Write requests
- *  metric_kind: DELTA
- *  value_type: INT64
+ *  GTLRServiceUsage_Quota
  */
 @interface GTLRServiceUsage_Quota : GTLRObject
 
@@ -3327,15 +3288,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

@@ -17,8 +17,6 @@
 
 // deletionType
 NSString * const kGTLRResellerDeletionTypeCancel           = @"cancel";
-NSString * const kGTLRResellerDeletionTypeDowngrade        = @"downgrade";
-NSString * const kGTLRResellerDeletionTypeSuspend          = @"suspend";
 NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direct";
 
 // ----------------------------------------------------------------------------

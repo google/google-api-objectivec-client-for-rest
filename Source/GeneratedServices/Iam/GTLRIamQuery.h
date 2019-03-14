@@ -23,6 +23,8 @@
 @class GTLRIam_CreateRoleRequest;
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
+@class GTLRIam_DisableServiceAccountRequest;
+@class GTLRIam_EnableServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
 @class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
@@ -336,7 +338,10 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Optional view for the returned Role objects.
+ *  Optional view for the returned Role objects. When `FULL` is specified,
+ *  the `includedPermissions` field is returned, which includes a list of all
+ *  permissions in the role. The default value is `BASIC`, which does not
+ *  return the `includedPermissions` field.
  *
  *  Likely values:
  *    @arg @c kGTLRIamViewBasic Value "BASIC"
@@ -631,7 +636,10 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Optional view for the returned Role objects.
+ *  Optional view for the returned Role objects. When `FULL` is specified,
+ *  the `includedPermissions` field is returned, which includes a list of all
+ *  permissions in the role. The default value is `BASIC`, which does not
+ *  return the `includedPermissions` field.
  *
  *  Likely values:
  *    @arg @c kGTLRIamViewBasic Value "BASIC"
@@ -819,6 +827,92 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Disables a ServiceAccount.
+ *  The API is currently in alpha phase.
+ *
+ *  Method: iam.projects.serviceAccounts.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsDisable : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsDisableWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
+ *  `unique_id` of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Disables a ServiceAccount.
+ *  The API is currently in alpha phase.
+ *
+ *  @param object The @c GTLRIam_DisableServiceAccountRequest to include in the
+ *    query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
+ *    `unique_id` of the service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsDisable
+ */
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables a ServiceAccount.
+ *  The API is currently in alpha phase.
+ *
+ *  Method: iam.projects.serviceAccounts.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsEnable : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsEnableWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Enables a ServiceAccount.
+ *  The API is currently in alpha phase.
+ *
+ *  @param object The @c GTLRIam_EnableServiceAccountRequest to include in the
+ *    query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsEnable
+ */
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a ServiceAccount.
  *
  *  Method: iam.projects.serviceAccounts.get
@@ -858,8 +952,19 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Returns the IAM access control policy for a
+ *  Returns the Cloud IAM access control policy for a
  *  ServiceAccount.
+ *  Note: Service accounts are both
+ *  [resources and
+ *  identities](/iam/docs/service-accounts#service_account_permissions).
+ *  This method treats the service account as a resource. It returns the Cloud
+ *  IAM policy that reflects what members have access to the service account.
+ *  This method does not return what resources the service account has access
+ *  to. To see if a service account has access to a resource, call the
+ *  `getIamPolicy` method on the target resource. For example, to view grants
+ *  for a project, call the
+ *  [projects.getIamPolicy](/resource-manager/reference/rest/v1/projects/getIamPolicy)
+ *  method.
  *
  *  Method: iam.projects.serviceAccounts.getIamPolicy
  *
@@ -879,8 +984,19 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Policy.
  *
- *  Returns the IAM access control policy for a
+ *  Returns the Cloud IAM access control policy for a
  *  ServiceAccount.
+ *  Note: Service accounts are both
+ *  [resources and
+ *  identities](/iam/docs/service-accounts#service_account_permissions).
+ *  This method treats the service account as a resource. It returns the Cloud
+ *  IAM policy that reflects what members have access to the service account.
+ *  This method does not return what resources the service account has access
+ *  to. To see if a service account has access to a resource, call the
+ *  `getIamPolicy` method on the target resource. For example, to view grants
+ *  for a project, call the
+ *  [projects.getIamPolicy](/resource-manager/reference/rest/v1/projects/getIamPolicy)
+ *  method.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
@@ -1130,8 +1246,21 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Sets the IAM access control policy for a
+ *  Sets the Cloud IAM access control policy for a
  *  ServiceAccount.
+ *  Note: Service accounts are both
+ *  [resources and
+ *  identities](/iam/docs/service-accounts#service_account_permissions).
+ *  This method treats the service account as a resource. Use it to grant
+ *  members access to the service account, such as when they need to
+ *  impersonate it.
+ *  This method does not grant the service account access to other resources,
+ *  such as projects. To grant a service account access to resources, include
+ *  the service account in the Cloud IAM policy for the desired resource, then
+ *  call the appropriate `setIamPolicy` method on the target resource. For
+ *  example, to grant a service account access to a project, call the
+ *  [projects.setIamPolicy](/resource-manager/reference/rest/v1/projects/setIamPolicy)
+ *  method.
  *
  *  Method: iam.projects.serviceAccounts.setIamPolicy
  *
@@ -1151,8 +1280,21 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Policy.
  *
- *  Sets the IAM access control policy for a
+ *  Sets the Cloud IAM access control policy for a
  *  ServiceAccount.
+ *  Note: Service accounts are both
+ *  [resources and
+ *  identities](/iam/docs/service-accounts#service_account_permissions).
+ *  This method treats the service account as a resource. Use it to grant
+ *  members access to the service account, such as when they need to
+ *  impersonate it.
+ *  This method does not grant the service account access to other resources,
+ *  such as projects. To grant a service account access to resources, include
+ *  the service account in the Cloud IAM policy for the desired resource, then
+ *  call the appropriate `setIamPolicy` method on the target resource. For
+ *  example, to grant a service account access to a project, call the
+ *  [projects.setIamPolicy](/resource-manager/reference/rest/v1/projects/setIamPolicy)
+ *  method.
  *
  *  @param object The @c GTLRIam_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
@@ -1306,6 +1448,8 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Restores a deleted ServiceAccount.
+ *  This is to be used as an action of last resort. A service account may
+ *  not always be restorable.
  *
  *  Method: iam.projects.serviceAccounts.undelete
  *
@@ -1328,6 +1472,8 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_UndeleteServiceAccountResponse.
  *
  *  Restores a deleted ServiceAccount.
+ *  This is to be used as an action of last resort. A service account may
+ *  not always be restorable.
  *
  *  @param object The @c GTLRIam_UndeleteServiceAccountRequest to include in the
  *    query.
@@ -1345,6 +1491,8 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Note: This method is in the process of being deprecated. Use
+ *  PatchServiceAccount instead.
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
  *  `display_name` .
@@ -1373,6 +1521,8 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_ServiceAccount.
  *
+ *  Note: This method is in the process of being deprecated. Use
+ *  PatchServiceAccount instead.
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
  *  `display_name` .
@@ -1461,7 +1611,10 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Optional view for the returned Role objects.
+ *  Optional view for the returned Role objects. When `FULL` is specified,
+ *  the `includedPermissions` field is returned, which includes a list of all
+ *  permissions in the role. The default value is `BASIC`, which does not
+ *  return the `includedPermissions` field.
  *
  *  Likely values:
  *    @arg @c kGTLRIamViewBasic Value "BASIC"

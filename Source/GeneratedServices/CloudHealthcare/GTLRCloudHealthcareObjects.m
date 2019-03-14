@@ -114,6 +114,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_BigQueryDestination
+//
+
+@implementation GTLRCloudHealthcare_BigQueryDestination
+@dynamic force, tableUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_Binding
 //
 
@@ -261,6 +271,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_ExportAnnotationsRequest
+//
+
+@implementation GTLRCloudHealthcare_ExportAnnotationsRequest
+@dynamic bigqueryDestination, gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ExportDicomDataRequest
 //
 
@@ -336,6 +356,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_Finding
 @dynamic end, infoType, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GcsDestination
+//
+
+@implementation GTLRCloudHealthcare_GcsDestination
+@dynamic uriPrefix;
 @end
 
 

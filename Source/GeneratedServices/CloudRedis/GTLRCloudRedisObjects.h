@@ -58,6 +58,12 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Creating;
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Deleting;
 /**
+ *  Redis instance is failing over (availability may be affected).
+ *
+ *  Value: "FAILING_OVER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_FailingOver;
+/**
  *  Maintenance is being performed on this Redis instance.
  *
  *  Value: "MAINTENANCE"
@@ -313,6 +319,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *        created. (Value: "CREATING")
  *    @arg @c kGTLRCloudRedis_Instance_State_Deleting Redis instance is being
  *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudRedis_Instance_State_FailingOver Redis instance is
+ *        failing over (availability may be affected). (Value: "FAILING_OVER")
  *    @arg @c kGTLRCloudRedis_Instance_State_Maintenance Maintenance is being
  *        performed on this Redis instance. (Value: "MAINTENANCE")
  *    @arg @c kGTLRCloudRedis_Instance_State_Ready Redis instance has been

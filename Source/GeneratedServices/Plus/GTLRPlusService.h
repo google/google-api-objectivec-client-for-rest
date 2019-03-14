@@ -48,7 +48,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePlusMe;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePlusUserinfoEmail;
 /**
- *  Authorization scope: View your basic profile info
+ *  Authorization scope: See your personal info, including any personal info
+ *  you've made publically available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */

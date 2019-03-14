@@ -1105,7 +1105,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandTaskInputs
-@dynamic arguments, environmentVariables, files, inlineBlobs;
+@dynamic arguments, environmentVariables, files, inlineBlobs, workingDirectory;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

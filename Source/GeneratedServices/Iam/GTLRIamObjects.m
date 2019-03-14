@@ -199,10 +199,28 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_DisableServiceAccountRequest
+//
+
+@implementation GTLRIam_DisableServiceAccountRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_Empty
 //
 
 @implementation GTLRIam_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_EnableServiceAccountRequest
+//
+
+@implementation GTLRIam_EnableServiceAccountRequest
 @end
 
 

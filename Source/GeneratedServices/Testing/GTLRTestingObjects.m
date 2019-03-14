@@ -75,9 +75,11 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DeviceAdminReceive
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ForbiddenPermissions = @"FORBIDDEN_PERMISSIONS";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible = @"INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk = @"INVALID_APK_PREVIEW_SDK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidDirectiveAction = @"INVALID_DIRECTIVE_ACTION";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk = @"INVALID_INPUT_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified = @"INVALID_MATRIX_DETAILS_UNSPECIFIED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName = @"INVALID_PACKAGE_NAME";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName = @"INVALID_RESOURCE_NAME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";

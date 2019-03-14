@@ -269,7 +269,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec
 @dynamic algorithm, enableTrialEarlyStopping, goal, hyperparameterMetricTag,
-         maxParallelTrials, maxTrials, params, resumePreviousJobId;
+         maxFailedTrials, maxParallelTrials, maxTrials, params,
+         resumePreviousJobId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -520,9 +521,9 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput
-@dynamic accelerator, batchSize, dataFormat, inputPaths, maxWorkerCount,
-         modelName, outputDataFormat, outputPath, region, runtimeVersion,
-         signatureName, uri, versionName;
+@dynamic batchSize, dataFormat, inputPaths, maxWorkerCount, modelName,
+         outputDataFormat, outputPath, region, runtimeVersion, signatureName,
+         uri, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

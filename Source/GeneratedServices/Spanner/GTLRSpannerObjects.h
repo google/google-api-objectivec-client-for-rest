@@ -48,6 +48,7 @@
 @class GTLRSpanner_QueryPlan;
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
+@class GTLRSpanner_ResultSet;
 @class GTLRSpanner_ResultSetMetadata;
 @class GTLRSpanner_ResultSetStats;
 @class GTLRSpanner_ResultSetStats_QueryStats;
@@ -55,6 +56,9 @@
 @class GTLRSpanner_Session_Labels;
 @class GTLRSpanner_ShortRepresentation;
 @class GTLRSpanner_ShortRepresentation_Subqueries;
+@class GTLRSpanner_Statement;
+@class GTLRSpanner_Statement_Params;
+@class GTLRSpanner_Statement_ParamTypes;
 @class GTLRSpanner_Status;
 @class GTLRSpanner_Status_Details_Item;
 @class GTLRSpanner_StructType;
@@ -538,6 +542,80 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRSpanner_Empty : GTLRObject
+@end
+
+
+/**
+ *  The request for ExecuteBatchDml
+ */
+@interface GTLRSpanner_ExecuteBatchDmlRequest : GTLRObject
+
+/**
+ *  A per-transaction sequence number used to identify this request. This is
+ *  used in the same space as the seqno in
+ *  ExecuteSqlRequest. See more details
+ *  in ExecuteSqlRequest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seqno;
+
+/**
+ *  The list of statements to execute in this batch. Statements are executed
+ *  serially, such that the effects of statement i are visible to statement
+ *  i+1. Each statement must be a DML statement. Execution will stop at the
+ *  first failed statement; the remaining statements will not run.
+ *  REQUIRES: statements_size() > 0.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Statement *> *statements;
+
+/**
+ *  The transaction to use. A ReadWrite transaction is required. Single-use
+ *  transactions are not supported (to avoid replay). The caller must either
+ *  supply an existing transaction ID or begin a new transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_TransactionSelector *transaction;
+
+@end
+
+
+/**
+ *  The response for ExecuteBatchDml. Contains a list
+ *  of ResultSet, one for each DML statement that has successfully executed.
+ *  If a statement fails, the error is returned as part of the response payload.
+ *  Clients can determine whether all DML statements have run successfully, or
+ *  if
+ *  a statement failed, using one of the following approaches:
+ *  1. Check if 'status' field is OkStatus.
+ *  2. Check if result_sets_size() equals the number of statements in
+ *  ExecuteBatchDmlRequest.
+ *  Example 1: A request with 5 DML statements, all executed successfully.
+ *  Result: A response with 5 ResultSets, one for each statement in the same
+ *  order, and an OK status.
+ *  Example 2: A request with 5 DML statements. The 3rd statement has a syntax
+ *  error.
+ *  Result: A response with 2 ResultSets, for the first 2 statements that
+ *  run successfully, and a syntax error (INVALID_ARGUMENT) status. From
+ *  result_set_size() client can determine that the 3rd statement has failed.
+ */
+@interface GTLRSpanner_ExecuteBatchDmlResponse : GTLRObject
+
+/**
+ *  ResultSets, one for each statement in the request that ran successfully, in
+ *  the same order as the statements in the request. Each ResultSet will
+ *  not contain any rows. The ResultSetStats in each ResultSet will
+ *  contain the number of rows modified by the statement.
+ *  Only the first ResultSet in the response contains a valid
+ *  ResultSetMetadata.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ResultSet *> *resultSets;
+
+/**
+ *  If all DML statements are executed successfully, status will be OK.
+ *  Otherwise, the error status of the first failed statement.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Status *status;
+
 @end
 
 
@@ -2219,6 +2297,83 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRSpanner_ShortRepresentation_Subqueries : GTLRObject
+@end
+
+
+/**
+ *  A single DML statement.
+ */
+@interface GTLRSpanner_Statement : GTLRObject
+
+/**
+ *  The DML string can contain parameter placeholders. A parameter
+ *  placeholder consists of `'\@'` followed by the parameter
+ *  name. Parameter names consist of any combination of letters,
+ *  numbers, and underscores.
+ *  Parameters can appear anywhere that a literal value is expected. The
+ *  same parameter name can be used more than once, for example:
+ *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
+ *  It is an error to execute an SQL statement with unbound parameters.
+ *  Parameter values are specified using `params`, which is a JSON
+ *  object whose keys are parameter names, and whose values are the
+ *  corresponding parameter values.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Statement_Params *params;
+
+/**
+ *  It is not always possible for Cloud Spanner to infer the right SQL type
+ *  from a JSON value. For example, values of type `BYTES` and values
+ *  of type `STRING` both appear in params as JSON strings.
+ *  In these cases, `param_types` can be used to specify the exact
+ *  SQL type for some or all of the SQL statement parameters. See the
+ *  definition of Type for more information
+ *  about SQL types.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Statement_ParamTypes *paramTypes;
+
+/** Required. The DML string. */
+@property(nonatomic, copy, nullable) NSString *sql;
+
+@end
+
+
+/**
+ *  The DML string can contain parameter placeholders. A parameter
+ *  placeholder consists of `'\@'` followed by the parameter
+ *  name. Parameter names consist of any combination of letters,
+ *  numbers, and underscores.
+ *  Parameters can appear anywhere that a literal value is expected. The
+ *  same parameter name can be used more than once, for example:
+ *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
+ *  It is an error to execute an SQL statement with unbound parameters.
+ *  Parameter values are specified using `params`, which is a JSON
+ *  object whose keys are parameter names, and whose values are the
+ *  corresponding parameter values.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Statement_Params : GTLRObject
+@end
+
+
+/**
+ *  It is not always possible for Cloud Spanner to infer the right SQL type
+ *  from a JSON value. For example, values of type `BYTES` and values
+ *  of type `STRING` both appear in params as JSON strings.
+ *  In these cases, `param_types` can be used to specify the exact
+ *  SQL type for some or all of the SQL statement parameters. See the
+ *  definition of Type for more information
+ *  about SQL types.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_Type. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Statement_ParamTypes : GTLRObject
 @end
 
 

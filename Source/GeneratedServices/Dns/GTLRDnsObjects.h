@@ -25,6 +25,8 @@
 @class GTLRDns_ManagedZone;
 @class GTLRDns_ManagedZone_Labels;
 @class GTLRDns_ManagedZoneDnsSecConfig;
+@class GTLRDns_ManagedZonePrivateVisibilityConfig;
+@class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_Operation;
 @class GTLRDns_OperationDnsKeyContext;
 @class GTLRDns_OperationManagedZoneContext;
@@ -103,6 +105,14 @@ GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha1;
 GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha256;
 /** Value: "sha384" */
 GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha384;
+
+// ----------------------------------------------------------------------------
+// GTLRDns_ManagedZone.visibility
+
+/** Value: "private" */
+GTLR_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Private;
+/** Value: "public" */
+GTLR_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Public;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
@@ -404,6 +414,16 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZonePrivateVisibilityConfig *privateVisibilityConfig;
+
+/**
+ *  visibility
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "private"
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Public Value "public"
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -479,6 +499,38 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_Operation *> *operations;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePrivateVisibilityConfig
+ */
+@interface GTLRDns_ManagedZonePrivateVisibilityConfig : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZonePrivateVisibilityConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigNetwork *> *networks;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePrivateVisibilityConfigNetwork
+ */
+@interface GTLRDns_ManagedZonePrivateVisibilityConfigNetwork : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZonePrivateVisibilityConfigNetwork".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
 
@@ -625,6 +677,20 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *managedZones;
+
+/**
+ *  managedZonesPerNetwork
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *managedZonesPerNetwork;
+
+/**
+ *  networksPerManagedZone
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networksPerManagedZone;
 
 /**
  *  resourceRecordsPerRrset

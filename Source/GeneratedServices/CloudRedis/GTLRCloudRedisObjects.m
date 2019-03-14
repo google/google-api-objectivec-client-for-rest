@@ -16,6 +16,7 @@
 // GTLRCloudRedis_Instance.state
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
+NSString * const kGTLRCloudRedis_Instance_State_FailingOver    = @"FAILING_OVER";
 NSString * const kGTLRCloudRedis_Instance_State_Maintenance    = @"MAINTENANCE";
 NSString * const kGTLRCloudRedis_Instance_State_Ready          = @"READY";
 NSString * const kGTLRCloudRedis_Instance_State_Repairing      = @"REPAIRING";

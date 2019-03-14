@@ -28,11 +28,15 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
+@class GTLRCloudBuild_CheckSuiteFilter;
 @class GTLRCloudBuild_FileHashes;
+@class GTLRCloudBuild_GitHubEventsConfig;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_Operation;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
+@class GTLRCloudBuild_PullRequestFilter;
+@class GTLRCloudBuild_PushFilter;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_Results;
 @class GTLRCloudBuild_Secret;
@@ -292,6 +296,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
  *  Value: "SHA256"
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_PullRequestFilter.commentControl
+
+/**
+ *  Do not require comments on Pull Requests before builds are triggered.
+ *
+ *  Value: "COMMENTS_DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled;
+/**
+ *  Enforce that repository owners or collaborators must comment on Pull
+ *  Requests before builds are triggered.
+ *
+ *  Value: "COMMENTS_ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled;
 
 /**
  *  Files in the workspace to upload to Cloud Storage upon successful
@@ -855,6 +876,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *filename;
 
 /**
+ *  GitHubEventsConfig describes the configuration of a trigger that creates
+ *  a build whenever a GitHub event is received.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitHubEventsConfig *github;
+
+/**
  *  Output only. Unique identifier of the trigger.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -944,6 +971,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
+ *  A CheckSuiteFilter is a filter that indicates that we should build on all
+ *  check suite events.
+ */
+@interface GTLRCloudBuild_CheckSuiteFilter : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -964,6 +999,41 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /** Collection of file hashes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Hash *> *fileHash;
+
+@end
+
+
+/**
+ *  GitHubEventsConfig describes the configuration of a trigger that creates a
+ *  build whenever a GitHub event is received.
+ *  This message is experimental.
+ */
+@interface GTLRCloudBuild_GitHubEventsConfig : GTLRObject
+
+/**
+ *  Output only. Indicates that a build was generated from a check suite
+ *  event.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_CheckSuiteFilter *checkSuite;
+
+/**
+ *  The installationID that emmits the GitHub event.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installationId;
+
+/** Name of the repository. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Owner of the repository. */
+@property(nonatomic, copy, nullable) NSString *owner;
+
+/** filter to match changes in pull requests. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PullRequestFilter *pullRequest;
+
+/** filter to match changes in refs like branches, tags. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PushFilter *push;
 
 @end
 
@@ -1137,6 +1207,58 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
+ *  PullRequestFilter contains filter properties for matching GitHub Pull
+ *  Requests.
+ */
+@interface GTLRCloudBuild_PullRequestFilter : GTLRObject
+
+/**
+ *  Regex of branches to match.
+ *  The syntax of the regular expressions accepted is the syntax accepted by
+ *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/**
+ *  Whether to block builds on a "/gcbrun" comment from a repository owner or
+ *  collaborator.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled
+ *        Do not require comments on Pull Requests before builds are triggered.
+ *        (Value: "COMMENTS_DISABLED")
+ *    @arg @c kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled
+ *        Enforce that repository owners or collaborators must comment on Pull
+ *        Requests before builds are triggered. (Value: "COMMENTS_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentControl;
+
+@end
+
+
+/**
+ *  Push contains filter properties for matching GitHub git pushes.
+ */
+@interface GTLRCloudBuild_PushFilter : GTLRObject
+
+/**
+ *  Regexes of branches to match.
+ *  The syntax of the regular expressions accepted is the syntax accepted by
+ *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/**
+ *  Regexes of tags to match.
+ *  The syntax of the regular expressions accepted is the syntax accepted by
+ *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
  *  Location of the source in a Google Cloud Source Repository.
  */
 @interface GTLRCloudBuild_RepoSource : GTLRObject
@@ -1181,6 +1303,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Path to the artifact manifest. Only populated when artifacts are uploaded.
  */
 @property(nonatomic, copy, nullable) NSString *artifactManifest;
+
+/** Time to push all non-container artifacts. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *artifactTiming;
 
 /**
  *  List of build step digests, in the order corresponding to build step
@@ -1329,15 +1454,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

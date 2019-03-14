@@ -1665,7 +1665,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The template id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
  *  characters. Can be empty to allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
@@ -1685,7 +1685,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The job id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
  *  characters. Can be empty to allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -1706,7 +1706,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The template id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
  *  characters. Can be empty to allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
@@ -1725,7 +1725,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The trigger id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
  *  characters. Can be empty to allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *triggerId;
@@ -1744,7 +1744,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The storedInfoType ID can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-]+`. The maximum length is 100
+ *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
  *  characters. Can be empty to allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *storedInfoTypeId;
@@ -1786,16 +1786,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Replaces an identifier with a surrogate using FPE with the FFX
- *  mode of operation; however when used in the `ReidentifyContent` API method,
- *  it serves the opposite function by reversing the surrogate back into
- *  the original identifier.
- *  The identifier must be encoded as ASCII.
- *  For a given crypto key and context, the same identifier will be
- *  replaced with the same surrogate.
- *  Identifiers must be at least two characters long.
- *  In the case that the identifier is the empty string, it will be skipped.
- *  See https://cloud.google.com/dlp/docs/pseudonymization to learn more.
+ *  Note: We recommend using CryptoDeterministicConfig for all use cases which
+ *  do not require preserving the input alphabet space and size, plus warrant
+ *  referential integrity.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
 
@@ -3559,6 +3552,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Include to use an existing data crypto key wrapped by KMS.
+ *  The wrapped key must be a 128/192/256 bit key.
  *  Authorization requires the following IAM permissions when sending a request
  *  to perform a crypto transformation using a kms-wrapped crypto key:
  *  dlp.kms.encrypt
@@ -4982,7 +4976,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Summary of a single tranformation.
+ *  Summary of a single transformation.
  *  Only one of 'transformation', 'field_transformation', or 'record_suppress'
  *  will be set.
  */
@@ -5056,7 +5050,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey : GTLRObject
 
 /**
- *  The AES 128/192/256 bit key. [required]
+ *  A 128/192/256 bit key. [required]
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5253,15 +5247,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

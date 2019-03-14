@@ -13,11 +13,8 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeGenomics                    = @"https://www.googleapis.com/auth/genomics";
-NSString * const kGTLRAuthScopeGenomicsBigquery            = @"https://www.googleapis.com/auth/bigquery";
-NSString * const kGTLRAuthScopeGenomicsCloudPlatform       = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeGenomicsDevstorageReadWrite = @"https://www.googleapis.com/auth/devstorage.read_write";
-NSString * const kGTLRAuthScopeGenomicsReadonly            = @"https://www.googleapis.com/auth/genomics.readonly";
+NSString * const kGTLRAuthScopeGenomics              = @"https://www.googleapis.com/auth/genomics";
+NSString * const kGTLRAuthScopeGenomicsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRGenomicsService

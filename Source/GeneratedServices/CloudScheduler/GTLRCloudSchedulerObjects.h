@@ -225,8 +225,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
  *  modified `User-Agent`.
  *  * `X-CloudScheduler`: This header will be set to true.
- *  If the job has an body, Cloud Scheduler sets the
- *  following headers:
+ *  If the job has an body, Cloud Scheduler sets
+ *  the following headers:
  *  * `Content-Type`: By default, the `Content-Type` header is set to
  *  `"application/octet-stream"`. The default can be overridden by explictly
  *  setting `Content-Type` to a particular media type when the job is
@@ -290,8 +290,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
  *  modified `User-Agent`.
  *  * `X-CloudScheduler`: This header will be set to true.
- *  If the job has an body, Cloud Scheduler sets the
- *  following headers:
+ *  If the job has an body, Cloud Scheduler sets
+ *  the following headers:
  *  * `Content-Type`: By default, the `Content-Type` header is set to
  *  `"application/octet-stream"`. The default can be overridden by explictly
  *  setting `Content-Type` to a particular media type when the job is
@@ -323,8 +323,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  Engine](https://cloud.google.com/appengine/docs/python/microservices-on-app-engine),
  *  [App Engine Standard request
  *  routing](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed),
- *  and
- *  [App Engine Flex request
+ *  and [App Engine Flex request
  *  routing](https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed).
  */
 @interface GTLRCloudScheduler_AppEngineRouting : GTLRObject
@@ -384,8 +383,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  App Engine Flex does not support instances. For more information, see
  *  [App Engine Standard request
  *  routing](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed)
- *  and
- *  [App Engine Flex request
+ *  and [App Engine Flex request
  *  routing](https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed).
  */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -531,6 +529,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_AppEngineHttpTarget *appEngineHttpTarget;
 
 /**
+ *  Optionally caller-specified in CreateJob or
+ *  UpdateJob.
  *  A human-readable description for the job. This string must not contain
  *  more than 500 characters.
  *
@@ -545,6 +545,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, strong, nullable) GTLRDateTime *lastAttemptTime;
 
 /**
+ *  Optionally caller-specified in CreateJob, after
+ *  which it becomes output only.
  *  The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *  * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
@@ -568,8 +570,12 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_RetryConfig *retryConfig;
 
 /**
- *  Required.
+ *  Required, except when used with UpdateJob.
  *  Describes the schedule on which the job will be executed.
+ *  The schedule can be either of the following types:
+ *  * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+ *  * English-like
+ *  [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
  *  As a general rule, execution `n + 1` of a job will not begin
  *  until execution `n` has finished. Cloud Scheduler will never
  *  allow two simultaneously outstanding executions. For example,
@@ -582,10 +588,6 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  the job will be tried a total of retry_count
  *  times, with exponential backoff, until the next scheduled start
  *  time.
- *  The schedule can be either of the following types:
- *  * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
- *  * English-like
- *  [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -918,8 +920,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 /**
  *  The time limit for retrying a failed job, measured from time when an
  *  execution was first attempted. If specified with
- *  retry_count, the job will be retried until both limits are
- *  reached.
+ *  retry_count, the job will be retried until both
+ *  limits are reached.
  *  The default value for max_retry_duration is zero, which means retry
  *  duration is unlimited.
  */

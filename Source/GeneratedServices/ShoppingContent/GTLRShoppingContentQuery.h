@@ -457,8 +457,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Retrieves the status of a Merchant Center account. Multi-client accounts can
- *  only call this method for sub-accounts.
+ *  Retrieves the status of a Merchant Center account. No itemLevelIssues are
+ *  returned for multi-client accounts.
  *
  *  Method: content.accountstatuses.get
  *
@@ -488,8 +488,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_AccountStatus.
  *
- *  Retrieves the status of a Merchant Center account. Multi-client accounts can
- *  only call this method for sub-accounts.
+ *  Retrieves the status of a Merchant Center account. No itemLevelIssues are
+ *  returned for multi-client accounts.
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
@@ -2184,7 +2184,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Retrieves an order using merchant order id.
+ *  Retrieves an order using merchant order ID.
  *
  *  Method: content.orders.getbymerchantorderid
  *
@@ -2201,17 +2201,17 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
-/** The merchant order id to be looked for. */
+/** The merchant order ID to be looked for. */
 @property(nonatomic, copy, nullable) NSString *merchantOrderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse.
  *
- *  Retrieves an order using merchant order id.
+ *  Retrieves an order using merchant order ID.
  *
  *  @param merchantId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
- *  @param merchantOrderId The merchant order id to be looked for.
+ *  @param merchantOrderId The merchant order ID to be looked for.
  *
  *  @return GTLRShoppingContentQuery_OrdersGetbymerchantorderid
  */
@@ -3004,7 +3004,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
-/** The REST id of the product. */
+/** The REST ID of the product. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
@@ -3015,7 +3015,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param merchantId The ID of the account that contains the product. This
  *    account cannot be a multi-client account.
- *  @param productId The REST id of the product.
+ *  @param productId The REST ID of the product.
  *
  *  @return GTLRShoppingContentQuery_ProductsDelete
  */
@@ -3042,7 +3042,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
-/** The REST id of the product. */
+/** The REST ID of the product. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
@@ -3052,7 +3052,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param merchantId The ID of the account that contains the product. This
  *    account cannot be a multi-client account.
- *  @param productId The REST id of the product.
+ *  @param productId The REST ID of the product.
  *
  *  @return GTLRShoppingContentQuery_ProductsGet
  */
@@ -3193,7 +3193,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
-/** The REST id of the product. */
+/** The REST ID of the product. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
@@ -3203,7 +3203,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  @param merchantId The ID of the account that contains the product. This
  *    account cannot be a multi-client account.
- *  @param productId The REST id of the product.
+ *  @param productId The REST ID of the product.
  *
  *  @return GTLRShoppingContentQuery_ProductstatusesGet
  */
@@ -3311,7 +3311,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
-/** The REST id of the product for which to update the regional inventory. */
+/** The REST ID of the product for which to update the regional inventory. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
@@ -3325,7 +3325,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    query.
  *  @param merchantId The ID of the account that contains the product. This
  *    account cannot be a multi-client account.
- *  @param productId The REST id of the product for which to update the regional
+ *  @param productId The REST ID of the product for which to update the regional
  *    inventory.
  *
  *  @return GTLRShoppingContentQuery_RegionalinventoryInsert

@@ -24,6 +24,8 @@ NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow  = @"UNHEALTHY_TENSORF
 // GTLRTPU_Node.state
 NSString * const kGTLRTPU_Node_State_Creating         = @"CREATING";
 NSString * const kGTLRTPU_Node_State_Deleting         = @"DELETING";
+NSString * const kGTLRTPU_Node_State_Hidden           = @"HIDDEN";
+NSString * const kGTLRTPU_Node_State_Hiding           = @"HIDING";
 NSString * const kGTLRTPU_Node_State_Preempted        = @"PREEMPTED";
 NSString * const kGTLRTPU_Node_State_Ready            = @"READY";
 NSString * const kGTLRTPU_Node_State_Reimaging        = @"REIMAGING";
@@ -34,6 +36,7 @@ NSString * const kGTLRTPU_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
+NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 
 // ----------------------------------------------------------------------------
 //

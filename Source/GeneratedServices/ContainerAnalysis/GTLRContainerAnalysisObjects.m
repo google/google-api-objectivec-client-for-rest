@@ -126,6 +126,14 @@ NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum = @"MAXIMUM";
 NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum = @"MINIMUM";
 NSString * const kGTLRContainerAnalysis_Version_Kind_Normal  = @"NORMAL";
 
+// GTLRContainerAnalysis_VulnerabilityDetails.effectiveSeverity
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_High = @"HIGH";
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Low = @"LOW";
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Minimal = @"MINIMAL";
+NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRContainerAnalysis_VulnerabilityDetails.severity
 NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_High = @"HIGH";
@@ -1146,7 +1154,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityDetails
-@dynamic cvssScore, packageIssue, severity, type;
+@dynamic cvssScore, effectiveSeverity, packageIssue, severity, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

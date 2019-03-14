@@ -236,9 +236,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
- *  Membership in the format: `groups/{group_id}/memberships/{member_id}`, where
- *  group_id is the unique ID assigned to the Group to which Membership belongs
- *  to, and member_id is the unique ID assigned to the member
+ *  Membership in the format: `groups/{group_id}/memberships/{member_id}`,
+ *  where group_id is the unique ID assigned to the Group to which Membership
+ *  belongs to, and member_id is the unique ID assigned to the member
  *  Must be left blank while creating a Membership.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -387,15 +387,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

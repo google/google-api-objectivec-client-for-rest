@@ -442,6 +442,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Instru
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk;
 /**
+ *  Invalid definition of action in the robo directives
+ *  (e.g. a click or ignore action includes an input text field)
+ *
+ *  Value: "INVALID_DIRECTIVE_ACTION"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidDirectiveAction;
+/**
  *  Either the provided input APK path was malformed,
  *  the APK file does not exist, or the user does not have permission to
  *  access the APK file.
@@ -463,6 +470,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *  Value: "INVALID_PACKAGE_NAME"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName;
+/**
+ *  There is at least one invalid resource name in the provided
+ *  robo directives
+ *
+ *  Value: "INVALID_RESOURCE_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName;
 /**
  *  There is a conflict in the provided robo_directives.
  *
@@ -717,25 +731,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. The id of the Android device to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *androidModelId;
 
 /**
  *  Required. The id of the Android OS version to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *androidVersionId;
 
 /**
  *  Required. The locale the test device used for testing.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Required. How the device is oriented during the test.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *orientation;
 
@@ -865,25 +879,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. The ids of the set of Android device to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidModelIds;
 
 /**
  *  Required. The ids of the set of Android OS version to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidVersionIds;
 
 /**
  *  Required. The set of locales the test device will enable for testing.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locales;
 
 /**
  *  Required. The set of orientations to test with.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orientations;
 
@@ -1549,25 +1563,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. The id of the iOS device to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *iosModelId;
 
 /**
  *  Required. The id of the iOS major software version to be used.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *iosVersionId;
 
 /**
  *  Required. The locale the test device used for testing.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Required. How the device is oriented during the test.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  */
 @property(nonatomic, copy, nullable) NSString *orientation;
 
@@ -1753,7 +1767,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  The Xcode version that should be used for the test.
- *  Use the EnvironmentDiscoveryService to get supported options.
+ *  Use the TestEnvironmentDiscoveryService to get supported options.
  *  Defaults to the latest Xcode version Firebase Test Lab supports.
  */
 @property(nonatomic, copy, nullable) NSString *xcodeVersion;
@@ -2217,6 +2231,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk
  *        APK is built for a preview SDK which is unsupported (Value:
  *        "INVALID_APK_PREVIEW_SDK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidDirectiveAction
+ *        Invalid definition of action in the robo directives
+ *        (e.g. a click or ignore action includes an input text field) (Value:
+ *        "INVALID_DIRECTIVE_ACTION")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk
  *        Either the provided input APK path was malformed,
  *        the APK file does not exist, or the user does not have permission to
@@ -2229,6 +2247,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        See also
  *        https://developer.android.com/studio/build/application-id (Value:
  *        "INVALID_PACKAGE_NAME")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName
+ *        There is at least one invalid resource name in the provided
+ *        robo directives (Value: "INVALID_RESOURCE_NAME")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives
  *        There is a conflict in the provided robo_directives. (Value:
  *        "INVALID_ROBO_DIRECTIVES")

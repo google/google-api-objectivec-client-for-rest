@@ -59,6 +59,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Creates a Group.
  *
  *  Method: cloudidentity.groups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  */
 @interface GTLRCloudIdentityQuery_GroupsCreate : GTLRCloudIdentityQuery
 // Previous library name was
@@ -81,6 +84,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Deletes a Group.
  *
  *  Method: cloudidentity.groups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  */
 @interface GTLRCloudIdentityQuery_GroupsDelete : GTLRCloudIdentityQuery
 // Previous library name was
@@ -114,6 +120,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Retrieves a Group.
  *
  *  Method: cloudidentity.groups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsGet : GTLRCloudIdentityQuery
 // Previous library name was
@@ -147,6 +157,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  List groups within a customer or a domain.
  *
  *  Method: cloudidentity.groups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsList : GTLRCloudIdentityQuery
 // Previous library name was
@@ -200,6 +214,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  its EntityKey.
  *
  *  Method: cloudidentity.groups.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsLookup : GTLRCloudIdentityQuery
 // Previous library name was
@@ -237,6 +255,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Creates a Membership.
  *
  *  Method: cloudidentity.groups.memberships.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsCreate : GTLRCloudIdentityQuery
 // Previous library name was
@@ -271,6 +292,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Deletes a Membership.
  *
  *  Method: cloudidentity.groups.memberships.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsDelete : GTLRCloudIdentityQuery
 // Previous library name was
@@ -307,6 +331,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Retrieves a Membership.
  *
  *  Method: cloudidentity.groups.memberships.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsGet : GTLRCloudIdentityQuery
 // Previous library name was
@@ -343,6 +371,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  List Memberships within a Group.
  *
  *  Method: cloudidentity.groups.memberships.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsList : GTLRCloudIdentityQuery
 // Previous library name was
@@ -404,6 +436,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  within a Group by member's EntityKey.
  *
  *  Method: cloudidentity.groups.memberships.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsLookup : GTLRCloudIdentityQuery
 // Previous library name was
@@ -455,6 +491,9 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Updates a Group.
  *
  *  Method: cloudidentity.groups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  */
 @interface GTLRCloudIdentityQuery_GroupsPatch : GTLRCloudIdentityQuery
 // Previous library name was
@@ -498,6 +537,10 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Searches for Groups.
  *
  *  Method: cloudidentity.groups.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  */
 @interface GTLRCloudIdentityQuery_GroupsSearch : GTLRCloudIdentityQuery
 // Previous library name was

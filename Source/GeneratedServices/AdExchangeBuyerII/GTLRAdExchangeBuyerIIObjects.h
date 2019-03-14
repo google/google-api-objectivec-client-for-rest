@@ -2582,7 +2582,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /**
  *  A creative and its classification data.
- *  Next ID: 40
+ *  Next ID: 42
  */
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 

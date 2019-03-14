@@ -22,6 +22,7 @@
 @class GTLRCloudHealthcare_Dataset;
 @class GTLRCloudHealthcare_DeidentifyDatasetRequest;
 @class GTLRCloudHealthcare_DicomStore;
+@class GTLRCloudHealthcare_ExportAnnotationsRequest;
 @class GTLRCloudHealthcare_ExportDicomDataRequest;
 @class GTLRCloudHealthcare_ExportResourcesRequest;
 @class GTLRCloudHealthcare_FhirStore;
@@ -327,6 +328,62 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Export
+ *  Annotations from
+ *  the Annotation
+ *  store.
+ *  Errors are noted in the error
+ *  field. Otherwise, a detailed response is returned of type
+ *  ExportAnnotationsResponse, contained in the
+ *  response field when the
+ *  operation finishes. The metadata
+ *  field type is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.annotationStores.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresExport : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresExportWithObject:annotationStore:]
+
+/**
+ *  The Annotation store name to export annotations to. The name should be in
+ *  the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/annotationStores/{annotation_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *annotationStore;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Export
+ *  Annotations from
+ *  the Annotation
+ *  store.
+ *  Errors are noted in the error
+ *  field. Otherwise, a detailed response is returned of type
+ *  ExportAnnotationsResponse, contained in the
+ *  response field when the
+ *  operation finishes. The metadata
+ *  field type is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ExportAnnotationsRequest to include
+ *    in the query.
+ *  @param annotationStore The Annotation store name to export annotations to.
+ *    The name should be in
+ *    the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/annotationStores/{annotation_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresExport
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportAnnotationsRequest *)object
+                annotationStore:(NSString *)annotationStore;
 
 @end
 
@@ -790,14 +847,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  SearchForInstances returns a list of matching instances. See
  *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
  *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.instances
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.searchForInstances
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebInstances : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForInstances : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebInstancesWithparent:dicomWebPath:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSearchForInstancesWithparent:dicomWebPath:]
 
 /**
  *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
@@ -825,7 +882,53 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    QIDO-RS standard (e.g.,
  *    `instances`).
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebInstances
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForInstances
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
+ *  SearchForSeries returns a list of matching series. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.searchForSeries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForSeries : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSearchForSeriesWithparent:dicomWebPath:]
+
+/**
+ *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
+ *  QIDO-RS standard (e.g.,
+ *  `series`).
+ */
+@property(nonatomic, copy, nullable) NSString *dicomWebPath;
+
+/**
+ *  The name of the DICOM store that is being accessed (e.g.,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  SearchForSeries returns a list of matching series. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  @param parent The name of the DICOM store that is being accessed (e.g.,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ *  @param dicomWebPath The path of the DICOMweb request, as specified in the
+ *    STOW-RS, WADO-RS, or
+ *    QIDO-RS standard (e.g.,
+ *    `series`).
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForSeries
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
@@ -879,64 +982,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.series
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSeries : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSeriesWithparent:dicomWebPath:]
-
-/**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `series`).
- */
-@property(nonatomic, copy, nullable) NSString *dicomWebPath;
-
-/**
- *  The name of the DICOM store that is being accessed (e.g.,
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  @param parent The name of the DICOM store that is being accessed (e.g.,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `series`).
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSeries
- */
-+ (instancetype)queryWithParent:(NSString *)parent
-                   dicomWebPath:(NSString *)dicomWebPath;
-
-@end
-
-/**
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See
  *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.6.1.
  *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.storeInstances
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudies : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStoreInstances : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesWithObject:parent:dicomWebPath:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStoreInstancesWithObject:parent:dicomWebPath:]
 
 /**
  *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
@@ -964,7 +1021,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    STOW-RS, WADO-RS, or
  *    QIDO-RS standard (e.g., `studies/{study_id}`).
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudies
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStoreInstances
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
@@ -1010,52 +1067,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    QIDO-RS standard (e.g., `studies/{study_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesDelete
- */
-+ (instancetype)queryWithParent:(NSString *)parent
-                   dicomWebPath:(NSString *)dicomWebPath;
-
-@end
-
-/**
- *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.instances
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesInstancesWithparent:dicomWebPath:]
-
-/**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `instances`).
- */
-@property(nonatomic, copy, nullable) NSString *dicomWebPath;
-
-/**
- *  The name of the DICOM store that is being accessed (e.g.,
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  @param parent The name of the DICOM store that is being accessed (e.g.,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `instances`).
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesInstances
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
@@ -1153,17 +1164,63 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  SearchForSeries returns a list of matching series. See
+ *  SearchForInstances returns a list of matching instances. See
  *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
  *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.searchForInstances
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeries : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForInstances : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesWithparent:dicomWebPath:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForInstancesWithparent:dicomWebPath:]
+
+/**
+ *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
+ *  QIDO-RS standard (e.g.,
+ *  `instances`).
+ */
+@property(nonatomic, copy, nullable) NSString *dicomWebPath;
+
+/**
+ *  The name of the DICOM store that is being accessed (e.g.,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  SearchForInstances returns a list of matching instances. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  @param parent The name of the DICOM store that is being accessed (e.g.,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ *  @param dicomWebPath The path of the DICOMweb request, as specified in the
+ *    STOW-RS, WADO-RS, or
+ *    QIDO-RS standard (e.g.,
+ *    `instances`).
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForInstances
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
+ *  SearchForSeries returns a list of matching series. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.searchForSeries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForSeries : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForSeriesWithparent:dicomWebPath:]
 
 /**
  *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
@@ -1191,7 +1248,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    QIDO-RS standard (e.g.,
  *    `series`).
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeries
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForSeries
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
@@ -1238,52 +1295,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesDelete
- */
-+ (instancetype)queryWithParent:(NSString *)parent
-                   dicomWebPath:(NSString *)dicomWebPath;
-
-@end
-
-/**
- *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesWithparent:dicomWebPath:]
-
-/**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `instances`).
- */
-@property(nonatomic, copy, nullable) NSString *dicomWebPath;
-
-/**
- *  The name of the DICOM store that is being accessed (e.g.,
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
- *
- *  @param parent The name of the DICOM store that is being accessed (e.g.,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `instances`).
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstances
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
@@ -1666,6 +1677,52 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesRetrieveSeries
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
+ *  SearchForInstances returns a list of matching instances. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.searchForInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesSearchForInstances : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesSearchForInstancesWithparent:dicomWebPath:]
+
+/**
+ *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
+ *  QIDO-RS standard (e.g.,
+ *  `instances`).
+ */
+@property(nonatomic, copy, nullable) NSString *dicomWebPath;
+
+/**
+ *  The name of the DICOM store that is being accessed (e.g.,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  SearchForInstances returns a list of matching instances. See
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *
+ *  @param parent The name of the DICOM store that is being accessed (e.g.,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
+ *  @param dicomWebPath The path of the DICOMweb request, as specified in the
+ *    STOW-RS, WADO-RS, or
+ *    QIDO-RS standard (e.g.,
+ *    `instances`).
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesSearchForInstances
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
@@ -2087,8 +2144,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Deletes the FHIR store and removes all resources that are contained within
- *  it.
+ *  Deletes the specified FHIR store and removes all resources within it.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.delete
  *
@@ -2105,8 +2161,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_Empty.
  *
- *  Deletes the FHIR store and removes all resources that are contained within
- *  it.
+ *  Deletes the specified FHIR store and removes all resources within it.
  *
  *  @param name The resource name of the FHIR store to delete.
  *
@@ -2117,15 +2172,47 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
+ *  Executes all the requests in the given Bundle.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.executeBundle
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExecuteBundle : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresExecuteBundleWithObject:parent:]
+
+/** Name of the FHIR store in which this bundle will be executed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Executes all the requests in the given Bundle.
+ *
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
+ *  @param parent Name of the FHIR store in which this bundle will be executed.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExecuteBundle
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Export resources from the FHIR store to the specified destination.
- *  Fatal errors will be populated in the
+ *  This method returns an Operation that can
+ *  be used to track the status of the export by calling
+ *  GetOperation.
+ *  Immediate fatal errors appear in the
  *  error field.
- *  Otherwise a detailed response will be returned as of type
- *  ExportResourcesResponse contained in the
- *  response field when the operation
- *  finishes.
- *  The metadata field type is
- *  OperationMetadata.
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ExportResourcesResponse is returned in the
+ *  response field.
+ *  The metadata field type for this
+ *  operation is OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.export
  *
@@ -2147,14 +2234,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  Export resources from the FHIR store to the specified destination.
- *  Fatal errors will be populated in the
+ *  This method returns an Operation that can
+ *  be used to track the status of the export by calling
+ *  GetOperation.
+ *  Immediate fatal errors appear in the
  *  error field.
- *  Otherwise a detailed response will be returned as of type
- *  ExportResourcesResponse contained in the
- *  response field when the operation
- *  finishes.
- *  The metadata field type is
- *  OperationMetadata.
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ExportResourcesResponse is returned in the
+ *  response field.
+ *  The metadata field type for this
+ *  operation is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ExportResourcesRequest to include
  *    in the query.
@@ -2167,40 +2256,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportResourcesRequest *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Executes all the requests in the given Bundle. Conforms to
- *  http://hl7.org/fhir/http.html#transaction except that only the transaction
- *  update is supported.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhir : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirWithObject:parent:]
-
-/** Name of the FHIR store in which this bundle will be executed. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Executes all the requests in the given Bundle. Conforms to
- *  http://hl7.org/fhir/http.html#transaction except that only the transaction
- *  update is supported.
- *
- *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent Name of the FHIR store in which this bundle will be executed.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhir
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -2401,7 +2456,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Deletes all the historical versions of a resource (excluding current
  *  version) from the FHIR store. To remove all versions of a resource, first
- *  delete the current version and call this API.
+ *  delete the current version and call this method.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete$purge
  *
@@ -2420,7 +2475,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Deletes all the historical versions of a resource (excluding current
  *  version) from the FHIR store. To remove all versions of a resource, first
- *  delete the current version and call this API.
+ *  delete the current version and call this method.
  *
  *  @param name The name of the resource to purge.
  *
@@ -2459,7 +2514,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the capabilities statement for the store.
+ *  Gets the FHIR capability statement for the store, which contains a
+ *  description of functionality supported by the server.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.getMetadata
  *
@@ -2476,7 +2532,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Gets the capabilities statement for the store.
+ *  Gets the FHIR capability statement for the store, which contains a
+ *  description of functionality supported by the server.
  *
  *  @param name Name of the FHIR store to retrieve the capabilities for.
  *
@@ -2664,8 +2721,41 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirXHistoryListWithname:]
 
+/**
+ *  Only include resource versions that were current at some point during the
+ *  time period specified in the date time value. The date parameter format is
+ *  yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]
+ *  Clients may specify any of the following:
+ *  An entire year: `_at=2019`
+ *  An entire month: `_at=2019-01`
+ *  A specific day: `_at=2019-01-20`
+ *  A specific second: `_at=2018-12-31T23:59:58Z`
+ */
+@property(nonatomic, copy, nullable) NSString *at;
+
+/** The maximum number of search results on a page. */
+@property(nonatomic, assign) NSInteger count;
+
 /** The name of the resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Used to retrieve the first, previous, next, or last page of resource
+ *  versions when using pagination. Value should be set to the value of the
+ *  `link.url` field returned in the response to the previous request, where
+ *  `link.relation` is "first", "previous", "next" or "last".
+ *  Omit `page` if no previous request has been made.
+ */
+@property(nonatomic, copy, nullable) NSString *page;
+
+/**
+ *  Only include resource versions that were created at or after the given
+ *  instant in time. The instant in time uses the format
+ *  YYYY-MM-DDThh:mm:ss.sss+zz:zz (for example 2015-02-07T13:28:17.239+02:00 or
+ *  2017-01-01T00:00:00Z). The time must be specified to the second and
+ *  include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *since;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
@@ -2713,7 +2803,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the specified FHIR store.
+ *  Gets the configuration of the specified FHIR store.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.get
  *
@@ -2730,7 +2820,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_FhirStore.
  *
- *  Gets the specified FHIR store.
+ *  Gets the configuration of the specified FHIR store.
  *
  *  @param name The resource name of the FHIR store to get.
  *
@@ -2784,7 +2874,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the capabilities statement for the store.
+ *  Gets the FHIR capability statement for the store, which contains a
+ *  description of functionality supported by the server.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.getMetadata
  *
@@ -2801,7 +2892,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Gets the capabilities statement for the store.
+ *  Gets the FHIR capability statement for the store, which contains a
+ *  description of functionality supported by the server.
  *
  *  @param name Name of the FHIR store to retrieve the capabilities for.
  *
@@ -2814,14 +2906,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Import resources to the FHIR store by loading data from the specified
  *  sources.
- *  Fatal errors will be populated in the
+ *  This method returns an Operation that can
+ *  be used to track the status of the import by calling
+ *  GetOperation.
+ *  Immediate fatal errors appear in the
  *  error field.
- *  Otherwise a detailed response will be returned as of type
- *  ImportResourcesResponse contained in the
- *  response field when the operation
- *  finishes.
- *  The metadata field type is
- *  OperationMetadata.
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ImportResourcesResponse is returned in the
+ *  response field.
+ *  The metadata field type for this
+ *  operation is OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.import
  *
@@ -2844,14 +2938,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Import resources to the FHIR store by loading data from the specified
  *  sources.
- *  Fatal errors will be populated in the
+ *  This method returns an Operation that can
+ *  be used to track the status of the import by calling
+ *  GetOperation.
+ *  Immediate fatal errors appear in the
  *  error field.
- *  Otherwise a detailed response will be returned as of type
- *  ImportResourcesResponse contained in the
- *  response field when the operation
- *  finishes.
- *  The metadata field type is
- *  OperationMetadata.
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ImportResourcesResponse is returned in the
+ *  response field.
+ *  The metadata field type for this
+ *  operation is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ImportResourcesRequest to include
  *    in the query.
@@ -2918,7 +3014,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Updates the FHIR store.
+ *  Updates the configuration of the specified FHIR store.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.patch
  *
@@ -2947,7 +3043,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_FhirStore.
  *
- *  Updates the FHIR store.
+ *  Updates the configuration of the specified FHIR store.
  *
  *  @param object The @c GTLRCloudHealthcare_FhirStore to include in the query.
  *  @param name Output only. Resource name of the FHIR store, of the form
@@ -3563,21 +3659,20 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  - PatientId(value, type), which matches if the message lists a patient
  *  having an ID of the given value and type in the PID-2, PID-3, or PID-4
  *  segments; e.g. 'PatientId("123456", "MRN")'
- *  - HasLabel(x), a boolean returning true if the message has a label with
- *  key x (having any value) set using the labels map in Message; e.g.
- *  'HasLabel("priority")'
- *  - Label(x), a string value of the label with key x as set using the labels
- *  map in Message, e.g. 'Label("priority") = "high"'
- *  Negation on the patient ID function and the label function are not
- *  supported, e.g. invalid queries: 'NOT PatientId("123456", "MRN")',
- *  'NOT HasLabel("tag1")', 'NOT Label("tag2") = "val2"'.
+ *  - labels.x, a string value of the label with key x as set using the labels
+ *  map in Message, e.g. 'labels."priority"="high"'. ":*" can be used to
+ *  assert the existence of a label, e.g. 'labels."priority":*'.
+ *  Negation on the patient ID function or the labels field is not supported,
+ *  e.g. invalid queries: 'NOT PatientId("123456", "MRN")',
+ *  'NOT labels."tag1":*', 'NOT labels."tag2"="val2"'.
  *  Conjunction of multiple patient ID functions is not supported, e.g. an
  *  invalid query: 'PatientId("123456", "MRN") AND PatientId("456789", "MRN")'.
- *  Conjunction of multiple label functions is also not supported, e.g. an
- *  invalid query: 'HasLabel("tag1") AND Label("tag2") = "val2"'.
- *  Conjunction of one patient ID function, one label function and other fields
+ *  Conjunction of multiple labels fields is also not supported, e.g. an
+ *  invalid query: 'labels."tag1":* AND labels."tag2"="val2"'.
+ *  Conjunction of one patient ID function, one labels field and other fields
  *  is supported, e.g. a valid query:
- *  'PatientId("123456", "MRN") AND HasLabel("tag1") AND message_type = "ADT"'.
+ *  'PatientId("123456", "MRN") AND labels."tag1":* AND message_type = "ADT"'.
+ *  HasLabel(x) and Label(x) are deprecated.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

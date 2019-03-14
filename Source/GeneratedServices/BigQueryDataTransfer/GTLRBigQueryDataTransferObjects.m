@@ -4,8 +4,8 @@
 // API:
 //   BigQuery Data Transfer API (bigquerydatatransfer/v1)
 // Description:
-//   Transfers data from partner SaaS applications to Google BigQuery on a
-//   scheduled, managed basis.
+//   Schedule queries or transfer external data from SaaS applications to Google
+//   BigQuery on a regular basis.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 

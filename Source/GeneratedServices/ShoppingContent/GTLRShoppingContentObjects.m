@@ -1354,11 +1354,10 @@
 //
 
 @implementation GTLRShoppingContent_Order
-@dynamic acknowledged, billingAddress, channelType, customer, deliveryDetails,
-         identifier, kind, lineItems, merchantId, merchantOrderId,
-         netPriceAmount, netTaxAmount, paymentStatus, placedDate, promotions,
-         refunds, shipments, shippingCost, shippingCostTax, status,
-         taxCollector;
+@dynamic acknowledged, billingAddress, customer, deliveryDetails, identifier,
+         kind, lineItems, merchantId, merchantOrderId, netPriceAmount,
+         netTaxAmount, paymentStatus, placedDate, promotions, refunds,
+         shipments, shippingCost, shippingCostTax, status, taxCollector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1413,7 +1412,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderCustomer
-@dynamic email, fullName, marketingRightsInfo;
+@dynamic fullName, marketingRightsInfo;
 @end
 
 
@@ -1559,9 +1558,9 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItemProduct
-@dynamic brand, channel, condition, contentLanguage, fees, gtin, identifier,
-         imageLink, itemGroupId, mpn, offerId, price, shownImage, targetCountry,
-         title, variantAttributes;
+@dynamic brand, condition, contentLanguage, fees, gtin, identifier, imageLink,
+         itemGroupId, mpn, offerId, price, shownImage, targetCountry, title,
+         variantAttributes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3114,9 +3113,9 @@
 //
 
 @implementation GTLRShoppingContent_TestOrder
-@dynamic customer, enableOrderinvoices, kind, lineItems, notificationMode,
-         predefinedBillingAddress, predefinedDeliveryAddress, promotions,
-         shippingCost, shippingOption;
+@dynamic enableOrderinvoices, kind, lineItems, notificationMode,
+         predefinedBillingAddress, predefinedDeliveryAddress, predefinedEmail,
+         promotions, shippingCost, shippingOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3126,26 +3125,6 @@
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderCustomer
-//
-
-@implementation GTLRShoppingContent_TestOrderCustomer
-@dynamic email, fullName, marketingRightsInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
-//
-
-@implementation GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
-@dynamic explicitMarketingPreference, lastUpdatedTimestamp;
 @end
 
 
@@ -3165,9 +3144,8 @@
 //
 
 @implementation GTLRShoppingContent_TestOrderLineItemProduct
-@dynamic brand, channel, condition, contentLanguage, gtin, imageLink,
-         itemGroupId, mpn, offerId, price, targetCountry, title,
-         variantAttributes;
+@dynamic brand, condition, contentLanguage, gtin, imageLink, itemGroupId, mpn,
+         offerId, price, targetCountry, title, variantAttributes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Access Context Manager API (accesscontextmanager/v1beta)
+//   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to GCP
 //   services.
@@ -31,12 +31,10 @@ NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuse
 NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted = @"UNENCRYPTED";
 
 // GTLRAccessContextManager_OsConstraint.osType
-NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android = @"ANDROID";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs = @"DESKTOP_CHROME_OS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux = @"DESKTOP_LINUX";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopMac = @"DESKTOP_MAC";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows = @"DESKTOP_WINDOWS";
-NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
@@ -88,16 +86,27 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_CancelOperationRequest
+//
+
+@implementation GTLRAccessContextManager_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_Condition
 //
 
 @implementation GTLRAccessContextManager_Condition
-@dynamic devicePolicy, ipSubnetworks, members, negate, requiredAccessLevels;
+@dynamic devicePolicy, ipSubnetworks, members, negate, regions,
+         requiredAccessLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ipSubnetworks" : [NSString class],
     @"members" : [NSString class],
+    @"regions" : [NSString class],
     @"requiredAccessLevels" : [NSString class]
   };
   return map;
@@ -113,7 +122,8 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 @implementation GTLRAccessContextManager_DevicePolicy
 @dynamic allowedDeviceManagementLevels, allowedEncryptionStatuses,
-         osConstraints, requireScreenlock;
+         osConstraints, requireAdminApproval, requireCorpOwned,
+         requireScreenlock;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -124,6 +134,15 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_Empty
+//
+
+@implementation GTLRAccessContextManager_Empty
 @end
 
 
@@ -166,6 +185,28 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (NSString *)collectionItemsKey {
   return @"accessPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ListOperationsResponse
+//
+
+@implementation GTLRAccessContextManager_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRAccessContextManager_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
 }
 
 @end
@@ -237,7 +278,7 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_OsConstraint
-@dynamic minimumVersion, osType;
+@dynamic minimumVersion, osType, requireVerifiedChromeOs;
 @end
 
 
@@ -263,14 +304,13 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeterConfig
-@dynamic accessLevels, resources, restrictedServices, unrestrictedServices;
+@dynamic accessLevels, resources, restrictedServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
     @"resources" : [NSString class],
-    @"restrictedServices" : [NSString class],
-    @"unrestrictedServices" : [NSString class]
+    @"restrictedServices" : [NSString class]
   };
   return map;
 }

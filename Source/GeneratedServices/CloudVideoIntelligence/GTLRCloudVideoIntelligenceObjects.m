@@ -62,13 +62,13 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2bet
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame.pornographyLikelihood
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Likely = @"LIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame.pornographyLikelihood
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
 // ----------------------------------------------------------------------------
 //
@@ -526,7 +526,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig
-@dynamic labelDetectionMode, model, stationaryCamera;
+@dynamic frameConfidenceThreshold, labelDetectionMode, model, stationaryCamera,
+         videoConfidenceThreshold;
 @end
 
 
@@ -1264,6 +1265,360 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1AnnotateVideoProgress
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1AnnotateVideoProgress
+@dynamic annotationProgress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotationProgress" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1AnnotateVideoResponse
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1AnnotateVideoResponse
+@dynamic annotationResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotationResults" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity
+@dynamic descriptionProperty, entityId, languageCode;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation
+@dynamic frames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame
+@dynamic pornographyLikelihood, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation
+@dynamic categoryEntities, entity, frames, segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categoryEntities" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity class],
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelFrame class],
+    @"segments" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelFrame
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelFrame
+@dynamic confidence, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment
+@dynamic confidence, segment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox
+@dynamic bottom, left, right, top;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingPoly
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingPoly
+@dynamic vertices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vertices" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex
+@dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation
+@dynamic confidence, entity, frames, segment, trackId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingFrame class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingFrame
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingFrame
+@dynamic normalizedBoundingBox, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative
+@dynamic confidence, transcript, words;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"words" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription
+@dynamic alternatives, languageCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alternatives" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingAnnotateVideoResponse
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingAnnotateVideoResponse
+@dynamic annotationResults, annotationResultsUri, error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults
+@dynamic explicitAnnotation, labelAnnotations, objectAnnotations,
+         shotAnnotations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation class],
+    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation
+@dynamic segments, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segments" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextFrame
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextFrame
+@dynamic rotatedBoundingBox, timeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextSegment
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextSegment
+@dynamic confidence, frames, segment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextFrame class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress
+@dynamic inputUri, progressPercent, startTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults
+@dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
+         objectAnnotations, segmentLabelAnnotations, shotAnnotations,
+         shotLabelAnnotations, speechTranscriptions, textAnnotations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation class],
+    @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment class],
+    @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription class],
+    @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment
+@dynamic endTimeOffset, startTimeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo
+@dynamic confidence, endTime, speakerTag, startTime, word;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ShotChangeDetectionConfig
 //
 
@@ -1483,360 +1838,6 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoProgress
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoProgress
-@dynamic annotationProgress;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotationProgress" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoResponse
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1AnnotateVideoResponse
-@dynamic annotationResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotationResults" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity
-@dynamic descriptionProperty, entityId, languageCode;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentAnnotation
-@dynamic frames;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ExplicitContentFrame
-@dynamic pornographyLikelihood, timeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categoryEntities" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1Entity class],
-    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame class],
-    @"segments" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelFrame
-@dynamic confidence, timeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelSegment
-@dynamic confidence, segment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingBox
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingBox
-@dynamic bottom, left, right, top;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingPoly
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedBoundingPoly
-@dynamic vertices;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"vertices" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1NormalizedVertex
-@dynamic x, y;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingFrame
-@dynamic normalizedBoundingBox, timeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative
-@dynamic confidence, transcript, words;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"words" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription
-@dynamic alternatives, languageCode;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"alternatives" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechRecognitionAlternative class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingAnnotateVideoResponse
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingAnnotateVideoResponse
-@dynamic annotationResults, annotationResultsUri, error;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingVideoAnnotationResults
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1StreamingVideoAnnotationResults
-@dynamic explicitAnnotation, labelAnnotations, objectAnnotations,
-         shotAnnotations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"labelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation class],
-    @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation class],
-    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation
-@dynamic segments, text;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"segments" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame
-@dynamic rotatedBoundingBox, timeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextSegment
-@dynamic confidence, frames, segment;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"frames" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextFrame class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationProgress
-@dynamic inputUri, progressPercent, startTime, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoAnnotationResults
-@dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
-         objectAnnotations, segmentLabelAnnotations, shotAnnotations,
-         shotLabelAnnotations, speechTranscriptions, textAnnotations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation class],
-    @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1ObjectTrackingAnnotation class],
-    @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation class],
-    @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment class],
-    @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1LabelAnnotation class],
-    @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1SpeechTranscription class],
-    @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1TextAnnotation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1VideoSegment
-@dynamic endTimeOffset, startTimeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo
-//
-
-@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV2beta1WordInfo
 @dynamic confidence, endTime, speakerTag, startTime, word;
 @end
 

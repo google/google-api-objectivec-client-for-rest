@@ -149,8 +149,6 @@
 @class GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry;
 @class GTLRShoppingContent_Table;
 @class GTLRShoppingContent_TestOrder;
-@class GTLRShoppingContent_TestOrderCustomer;
-@class GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo;
 @class GTLRShoppingContent_TestOrderLineItem;
 @class GTLRShoppingContent_TestOrderLineItemProduct;
 @class GTLRShoppingContent_TransitTable;
@@ -1057,7 +1055,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  State (or province) is which the tax is applicable, described by its
- *  location id (also called criteria id).
+ *  location ID (also called criteria ID).
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -2623,9 +2621,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The billing address. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderAddress *billingAddress;
 
-/** The channel type of the order: "purchaseOnGoogle" or "googleExpress". */
-@property(nonatomic, copy, nullable) NSString *channelType;
-
 /** The details of the customer who placed the order. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomer *customer;
 
@@ -2788,9 +2783,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderCustomer : GTLRObject
 
-/** Deprecated. */
-@property(nonatomic, copy, nullable) NSString *email;
-
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
@@ -2818,8 +2810,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *lastUpdatedTimestamp;
 
 /**
- *  Email address that can be used for marketing purposes. This field is only
- *  filled when explicitMarketingPreference is equal to 'granted'.
+ *  Email address that can be used for marketing purposes. The field may be
+ *  empty even if explicitMarketingPreference is 'granted'. This happens when
+ *  retrieving an old order from the customer who deleted their account.
  */
 @property(nonatomic, copy, nullable) NSString *marketingEmailAddress;
 
@@ -3068,9 +3061,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** Brand of the item. */
 @property(nonatomic, copy, nullable) NSString *brand;
 
-/** The item's channel (online or local). */
-@property(nonatomic, copy, nullable) NSString *channel;
-
 /** Condition or state of the item. */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -3117,7 +3107,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Variant attributes for the item. These are dimensions of the product, such
  *  as color, gender, material, pattern, and size. You can find a comprehensive
- *  list of variant attributes <a href="
+ *  list of variant attributes here.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderLineItemProductVariantAttribute *> *variantAttributes;
 
@@ -3443,10 +3433,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *merchantId;
 
-/** Merchant-provided id of the order. */
+/** Merchant-provided ID of the order. */
 @property(nonatomic, copy, nullable) NSString *merchantOrderId;
 
-/** The id of the order. */
+/** The ID of the order. */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
 /** Total amount for the items. */
@@ -5008,9 +4998,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *gtin;
 
 /**
- *  The REST id of the product. Content API methods that operate on products
+ *  The REST ID of the product. Content API methods that operate on products
  *  take this as their productId parameter.
- *  The REST id for a product is of the form
+ *  The REST ID for a product is of the form
  *  channel:contentLanguage:targetCountry:offerId.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -5105,7 +5095,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  stripped and multiple whitespaces are replaced by a single whitespace upon
  *  submission. Only valid unicode characters are accepted. See the products
  *  feed specification for details.
- *  Note: Content API methods that operate on products take the REST id of the
+ *  Note: Content API methods that operate on products take the REST ID of the
  *  product, not this identifier.
  */
 @property(nonatomic, copy, nullable) NSString *offerId;
@@ -5313,7 +5303,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *locationGroupName;
 
 /**
- *  The numeric id of a location that the shipping rate applies to as defined in
+ *  The numeric ID of a location that the shipping rate applies to as defined in
  *  the AdWords API.
  *
  *  Uses NSNumber of longLongValue.
@@ -5408,7 +5398,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The status of a product, i.e., information about a product computed
- *  asynchronously by the data quality analysis.
+ *  asynchronously.
  */
 @interface GTLRShoppingContent_ProductStatus : GTLRObject
 
@@ -5436,7 +5426,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The link to the product. */
 @property(nonatomic, copy, nullable) NSString *link;
 
-/** The id of the product for which status is reported. */
+/** The ID of the product for which status is reported. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /** The title of the product. */
@@ -5633,7 +5623,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  The numeric id of a location that the tax rate applies to as defined in the
+ *  The numeric ID of a location that the tax rate applies to as defined in the
  *  AdWords API.
  *
  *  Uses NSNumber of longLongValue.
@@ -5790,7 +5780,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The price of the product. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** The id (name) of the region. */
+/** The ID (name) of the region. */
 @property(nonatomic, copy, nullable) NSString *regionId;
 
 /**
@@ -6243,9 +6233,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_TestOrder : GTLRObject
 
-/** The details of the customer who placed the order. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_TestOrderCustomer *customer;
-
 /**
  *  Whether the orderinvoices service should support this order.
  *
@@ -6276,6 +6263,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *predefinedDeliveryAddress;
 
+/** Email address of the customer. */
+@property(nonatomic, copy, nullable) NSString *predefinedEmail;
+
 /** Promotions associated with the order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotion *> *promotions;
 
@@ -6288,43 +6278,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The requested shipping option. */
 @property(nonatomic, copy, nullable) NSString *shippingOption;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_TestOrderCustomer
- */
-@interface GTLRShoppingContent_TestOrderCustomer : GTLRObject
-
-/** Deprecated. */
-@property(nonatomic, copy, nullable) NSString *email;
-
-/** Full name of the customer. */
-@property(nonatomic, copy, nullable) NSString *fullName;
-
-/** Customer's marketing preferences. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo *marketingRightsInfo;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo
- */
-@interface GTLRShoppingContent_TestOrderCustomerMarketingRightsInfo : GTLRObject
-
-/**
- *  Last know user use selection regards marketing preferences. In certain cases
- *  selection might not be known, so this field would be empty.
- */
-@property(nonatomic, copy, nullable) NSString *explicitMarketingPreference;
-
-/**
- *  Timestamp when last time marketing preference was updated. Could be empty,
- *  if user wasn't offered a selection yet.
- */
-@property(nonatomic, copy, nullable) NSString *lastUpdatedTimestamp;
 
 @end
 
@@ -6360,9 +6313,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Brand of the item. */
 @property(nonatomic, copy, nullable) NSString *brand;
-
-/** The item's channel. */
-@property(nonatomic, copy, nullable) NSString *channel;
 
 /** Condition or state of the item. */
 @property(nonatomic, copy, nullable) NSString *condition;

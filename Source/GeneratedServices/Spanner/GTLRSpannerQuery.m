@@ -378,6 +378,31 @@
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteBatchDml
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRSpanner_ExecuteBatchDmlRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:executeBatchDml";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteBatchDml *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRSpanner_ExecuteBatchDmlResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.executeBatchDml";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteSql
 
 @dynamic session;

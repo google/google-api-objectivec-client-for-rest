@@ -417,6 +417,56 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsServiceAccountsDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRIamQuery_ProjectsServiceAccountsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsServiceAccountsEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRIamQuery_ProjectsServiceAccountsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.enable";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsServiceAccountsGet
 
 @dynamic name;

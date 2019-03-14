@@ -35,30 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGenomics;
 /**
- *  Authorization scope: View and manage your data in Google BigQuery
- *
- *  Value "https://www.googleapis.com/auth/bigquery"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGenomicsBigquery;
-/**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
-/**
- *  Authorization scope: Manage your data in Google Cloud Storage
- *
- *  Value "https://www.googleapis.com/auth/devstorage.read_write"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGenomicsDevstorageReadWrite;
-/**
- *  Authorization scope: View Genomics data
- *
- *  Value "https://www.googleapis.com/auth/genomics.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGenomicsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRGenomicsService
