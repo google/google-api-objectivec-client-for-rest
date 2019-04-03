@@ -175,42 +175,6 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_ImportReadGroupSetsResponse
-//
-
-@implementation GTLRGenomics_ImportReadGroupSetsResponse
-@dynamic readGroupSetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"readGroupSetIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_ImportVariantsResponse
-//
-
-@implementation GTLRGenomics_ImportVariantsResponse
-@dynamic callSetIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"callSetIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRGenomics_ListOperationsResponse
 //
 

@@ -805,7 +805,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The URI of the agent's avatar.
  *  Avatars are used throughout the Dialogflow console and in the self-hosted
- *  [Web Demo](https://dialogflow.com/docs/integrations/web-demo) integration.
+ *  [Web
+ *  Demo](https://cloud.google.com/dialogflow-enterprise/docs/integrations/web-demo)
+ *  integration.
  */
 @property(nonatomic, copy, nullable) NSString *avatarUri;
 
@@ -824,9 +826,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The default language of the agent as a language tag. See
- *  [Language Support](https://dialogflow.com/docs/reference/language) for a
- *  list of the currently supported language codes.
- *  This field cannot be set by the `Update` method.
+ *  [Language
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  for a list of the currently supported language codes. This field cannot be
+ *  set by the `Update` method.
  */
 @property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
 
@@ -898,9 +901,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
- *  [More than a dozen
- *  languages](https://dialogflow.com/docs/reference/language) are supported.
- *  Note: languages must be enabled in the agent, before they can be used.
+ *  [Many
+ *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -922,9 +926,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
- *  [More than a dozen
- *  languages](https://dialogflow.com/docs/reference/language) are supported.
- *  Note: languages must be enabled in the agent, before they can be used.
+ *  [Many
+ *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -970,9 +975,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
- *  [More than a dozen
- *  languages](https://dialogflow.com/docs/reference/language) are supported.
- *  Note: languages must be enabled in the agent, before they can be used.
+ *  [Many
+ *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1005,9 +1011,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The language of entity synonyms defined in `entity_types`. If not
  *  specified, the agent's default language is used.
- *  [More than a dozen
- *  languages](https://dialogflow.com/docs/reference/language) are supported.
- *  Note: languages must be enabled in the agent, before they can be used.
+ *  [Many
+ *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1062,9 +1069,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Optional. The language of training phrases, parameters and rich messages
  *  defined in `intents`. If not specified, the agent's default language is
- *  used. [More than a dozen
- *  languages](https://dialogflow.com/docs/reference/language) are supported.
- *  Note: languages must be enabled in the agent, before they can be used.
+ *  used. [Many
+ *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1141,8 +1149,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this doc](https://dialogflow.com/docs/actions-and-parameters) for
- *  syntax.
+ *  Refer to [this
+ *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  for syntax.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters *parameters;
 
@@ -1151,8 +1160,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this doc](https://dialogflow.com/docs/actions-and-parameters) for
- *  syntax.
+ *  Refer to [this
+ *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  for syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1264,9 +1274,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://dialogflow.com/docs/languages) for a list of the
- *  currently supported language codes. Note that queries in the same session
- *  do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  for a list of the currently supported language codes. Note that queries in
+ *  the same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2419,7 +2429,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  The language that was triggered during intent detection.
- *  See [Language Support](https://dialogflow.com/docs/reference/language)
+ *  See [Language
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -2726,8 +2737,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this doc](https://dialogflow.com/docs/actions-and-parameters) for
- *  syntax.
+ *  Refer to [this
+ *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  for syntax.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters *parameters;
 
@@ -2736,8 +2748,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this doc](https://dialogflow.com/docs/actions-and-parameters) for
- *  syntax.
+ *  Refer to [this
+ *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  for syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2913,9 +2926,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://dialogflow.com/docs/languages) for a list of the
- *  currently supported language codes. Note that queries in the same session
- *  do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  for a list of the currently supported language codes. Note that queries in
+ *  the same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3084,9 +3097,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 /**
  *  Required. The language of the supplied audio. Dialogflow does not do
  *  translations. See [Language
- *  Support](https://dialogflow.com/docs/languages) for a list of the
- *  currently supported language codes. Note that queries in the same session
- *  do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  for a list of the currently supported language codes. Note that queries in
+ *  the same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -4212,7 +4225,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  The language that was triggered during intent detection.
- *  See [Language Support](https://dialogflow.com/docs/reference/language)
+ *  See [Language
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -4430,9 +4444,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 /**
  *  Required. The language of this conversational query. See [Language
- *  Support](https://dialogflow.com/docs/languages) for a list of the
- *  currently supported language codes. Note that queries in the same session
- *  do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  for a list of the currently supported language codes. Note that queries in
+ *  the same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 

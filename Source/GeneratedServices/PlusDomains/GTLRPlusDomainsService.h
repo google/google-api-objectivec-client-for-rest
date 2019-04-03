@@ -35,14 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusCirclesRead;
 /**
- *  Authorization scope: Manage your circles and add people and pages. People
- *  and pages you add to your circles will be notified. Others may see this
- *  information publicly. People you add to circles can use Hangouts with you.
- *
- *  Value "https://www.googleapis.com/auth/plus.circles.write"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusCirclesWrite;
-/**
  *  Authorization scope: View your basic profile info, including your age range
  *  and language
  *
@@ -75,12 +67,6 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusProfilesRead;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusStreamRead;
 /**
- *  Authorization scope: Manage your Google+ posts, comments, and stream
- *
- *  Value "https://www.googleapis.com/auth/plus.stream.write"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusStreamWrite;
-/**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
@@ -88,7 +74,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsPlusStreamWrite;
 GTLR_EXTERN NSString * const kGTLRAuthScopePlusDomainsUserinfoEmail;
 /**
  *  Authorization scope: See your personal info, including any personal info
- *  you've made publically available
+ *  you've made publicly available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */

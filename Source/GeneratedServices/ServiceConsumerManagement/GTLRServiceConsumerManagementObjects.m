@@ -411,6 +411,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_DeleteTenantProjectRequest
+//
+
+@implementation GTLRServiceConsumerManagement_DeleteTenantProjectRequest
+@dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Documentation
 //
 
@@ -1303,6 +1313,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_UndeleteTenantProjectRequest
+//
+
+@implementation GTLRServiceConsumerManagement_UndeleteTenantProjectRequest
+@dynamic tag;
 @end
 
 

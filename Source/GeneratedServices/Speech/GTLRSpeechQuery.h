@@ -251,6 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  google.longrunning.Operations interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  a `LongRunningRecognizeResponse` message.
+ *  For more information on asynchronous speech recognition, see the
+ *  [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
  *
  *  Method: speech.speech.longrunningrecognize
  *
@@ -268,6 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  google.longrunning.Operations interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  a `LongRunningRecognizeResponse` message.
+ *  For more information on asynchronous speech recognition, see the
+ *  [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
  *
  *  @param object The @c GTLRSpeech_LongRunningRecognizeRequest to include in
  *    the query.

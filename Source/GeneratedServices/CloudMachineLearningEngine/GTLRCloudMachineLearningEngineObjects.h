@@ -22,6 +22,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
@@ -353,8 +354,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
 
 /**
- *  OUTPUT ONLY. Output values will be in comma-separated rows, with keys
- *  in a separate file.
+ *  Values are comma-separated rows, with keys in a separate file.
+ *  Currently available only for output data.
  *
  *  Value: "CSV"
  */
@@ -378,13 +379,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
 /**
- *  INPUT ONLY. The source file is a TFRecord file.
+ *  The source file is a TFRecord file.
+ *  Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
 /**
- *  INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
+ *  The source file is a GZIP-compressed TFRecord file.
+ *  Currently available only for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
@@ -394,8 +397,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.outputDataFormat
 
 /**
- *  OUTPUT ONLY. Output values will be in comma-separated rows, with keys
- *  in a separate file.
+ *  Values are comma-separated rows, with keys in a separate file.
+ *  Currently available only for output data.
  *
  *  Value: "CSV"
  */
@@ -419,13 +422,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text;
 /**
- *  INPUT ONLY. The source file is a TFRecord file.
+ *  The source file is a TFRecord file.
+ *  Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord;
 /**
- *  INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
+ *  The source file is a GZIP-compressed TFRecord file.
+ *  Currently available only for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
@@ -741,6 +746,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  Represents output related to a built-in algorithm Job.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput : GTLRObject
+
+/** Framework on which the built-in algorithm was trained on. */
+@property(nonatomic, copy, nullable) NSString *framework;
+
+/**
+ *  Built-in algorithm's saved model path.
+ *  Only set for non-hptuning succeeded jobs.
+ */
+@property(nonatomic, copy, nullable) NSString *modelPath;
+
+/** Python version on which the built-in algorithm was trained on. */
+@property(nonatomic, copy, nullable) NSString *pythonVersion;
+
+/** CMLE runtime version on which the built-in algorithm was trained on. */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+@end
+
+
+/**
  *  Request message for the CancelJob method.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest : GTLRObject
@@ -817,6 +845,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  populated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *> *allMetrics;
+
+/**
+ *  Details related to built-in algorithms job.
+ *  Only set this for built-in algorithms jobs and for trials that succeeded.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
 
 /** The final objective metric seen for this trial. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *finalMetric;
@@ -977,7 +1011,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents a training or prediction job.
+ *  Represents a training, prediction or explanation job.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job : GTLRObject
 
@@ -1272,7 +1306,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. If true, enables StackDriver Logging for online prediction.
+ *  Optional. If true, enables logging of stderr and stdout streams
+ *  for online prediction in Stackdriver Logging. These can be more verbose
+ *  than the standard access logs (see `online_prediction_logging`) and thus
+ *  can incur higher cost. However, they are helpful for debugging. Note that
+ *  since Stackdriver logs may incur a cost, particularly if the total QPS
+ *  in your project is high, be sure to estimate your costs before enabling
+ *  this flag.
+ *  Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onlinePredictionConsoleLogging;
+
+/**
+ *  Optional. If true, online prediction access logs are sent to StackDriver
+ *  Logging. These logs are like standard server access logs, containing
+ *  information like timestamp and latency for each request. Note that
+ *  Stackdriver logs may incur a cost, particular if the total QPS in your
+ *  project is high.
  *  Default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -1505,8 +1557,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv
- *        OUTPUT ONLY. Output values will be in comma-separated rows, with keys
- *        in a separate file. (Value: "CSV")
+ *        Values are comma-separated rows, with keys in a separate file.
+ *        Currently available only for output data. (Value: "CSV")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json
@@ -1515,16 +1567,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text
  *        Deprecated. Use JSON instead. (Value: "TEXT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord
- *        INPUT ONLY. The source file is a TFRecord file. (Value: "TF_RECORD")
+ *        The source file is a TFRecord file.
+ *        Currently available only for input data. (Value: "TF_RECORD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip
- *        INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
- *        (Value: "TF_RECORD_GZIP")
+ *        The source file is a GZIP-compressed TFRecord file.
+ *        Currently available only for input data. (Value: "TF_RECORD_GZIP")
  */
 @property(nonatomic, copy, nullable) NSString *dataFormat;
 
 /**
  *  Required. The Google Cloud Storage location of the input data files.
- *  May contain wildcards.
+ *  May contain wildcards. See <a
+ *  href="https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames</a>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputPaths;
 
@@ -1548,8 +1602,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv
- *        OUTPUT ONLY. Output values will be in comma-separated rows, with keys
- *        in a separate file. (Value: "CSV")
+ *        Values are comma-separated rows, with keys in a separate file.
+ *        Currently available only for output data. (Value: "CSV")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json
@@ -1558,10 +1612,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text
  *        Deprecated. Use JSON instead. (Value: "TEXT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord
- *        INPUT ONLY. The source file is a TFRecord file. (Value: "TF_RECORD")
+ *        The source file is a TFRecord file.
+ *        Currently available only for input data. (Value: "TF_RECORD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip
- *        INPUT ONLY. The source file is a GZIP-compressed TFRecord file.
- *        (Value: "TF_RECORD_GZIP")
+ *        The source file is a GZIP-compressed TFRecord file.
+ *        Currently available only for input data. (Value: "TF_RECORD_GZIP")
  */
 @property(nonatomic, copy, nullable) NSString *outputDataFormat;
 
@@ -2007,6 +2062,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput : GTLRObject
 
 /**
+ *  Details related to built-in algorithms job.
+ *  Only set for built-in algorithms jobs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
+
+/**
  *  The number of hyperparameter tuning trials that completed successfully.
  *  Only set for hyperparameter tuning jobs.
  *
@@ -2020,6 +2081,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *consumedMLUnits;
+
+/**
+ *  Whether this job is a built-in Algorithm job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBuiltInAlgorithmJob;
 
 /**
  *  Whether this job is a hyperparameter tuning job.
@@ -2043,7 +2111,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *  Next ID: 29
+ *  Next ID: 30
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -2352,7 +2420,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -2642,15 +2710,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

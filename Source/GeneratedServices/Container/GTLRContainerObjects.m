@@ -160,14 +160,14 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 @implementation GTLRContainer_Cluster
 @dynamic addonsConfig, clusterIpv4Cidr, conditions, createTime,
          currentMasterVersion, currentNodeCount, currentNodeVersion,
-         descriptionProperty, enableKubernetesAlpha, endpoint, expireTime,
-         initialClusterVersion, initialNodeCount, instanceGroupUrls,
+         descriptionProperty, enableKubernetesAlpha, enableTpu, endpoint,
+         expireTime, initialClusterVersion, initialNodeCount, instanceGroupUrls,
          ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
          loggingService, maintenancePolicy, masterAuth,
          masterAuthorizedNetworksConfig, monitoringService, name, network,
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
          privateClusterConfig, resourceLabels, selfLink, servicesIpv4Cidr,
-         status, statusMessage, subnetwork, zoneProperty;
+         status, statusMessage, subnetwork, tpuIpv4CidrBlock, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -371,7 +371,7 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 @dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
          createSubnetwork, nodeIpv4Cidr, nodeIpv4CidrBlock, servicesIpv4Cidr,
          servicesIpv4CidrBlock, servicesSecondaryRangeName, subnetworkName,
-         useIpAliases;
+         tpuIpv4CidrBlock, useIpAliases;
 @end
 
 

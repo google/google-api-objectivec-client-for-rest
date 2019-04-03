@@ -133,6 +133,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CountryTargeting
+//
+
+@implementation GTLRAndroidPublisher_CountryTargeting
+@dynamic countries, includeRestOfWorld;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeobfuscationFile
 //
 
@@ -662,7 +680,8 @@
 //
 
 @implementation GTLRAndroidPublisher_TrackRelease
-@dynamic name, releaseNotes, status, userFraction, versionCodes;
+@dynamic countryTargeting, name, releaseNotes, status, userFraction,
+         versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

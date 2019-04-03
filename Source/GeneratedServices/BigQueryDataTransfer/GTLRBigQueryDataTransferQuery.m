@@ -437,6 +437,31 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @end
 
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:startManualRuns";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_StartManualTransferRunsResponse class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.transferConfigs.startManualRuns";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
 
 @dynamic authorizationCode, parent, versionInfo;
@@ -661,6 +686,31 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.transferConfigs.scheduleRuns";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:startManualRuns";
+  GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_StartManualTransferRunsResponse class];
+  query.loggingName = @"bigquerydatatransfer.projects.transferConfigs.startManualRuns";
   return query;
 }
 

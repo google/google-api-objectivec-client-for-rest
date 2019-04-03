@@ -1203,10 +1203,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
- *  Frontend protos implement autoconverters for this message type. If you add
- *  fields to this proto, please add corresponding fields to the frontend proto
- *  with the same names.
- *  LINT.IfChange
+ *  Datasource is a logical namespace for items to be indexed.
+ *  All items must belong to a datasource. This is the prerequisite before
+ *  items can be indexed into Cloud Search.
  */
 @interface GTLRCloudSearch_DataSource : GTLRObject
 
@@ -1254,7 +1253,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  IDs of the Long Running Operations (LROs) currently running for this schema.
+ *  IDs of the Long Running Operations (LROs) currently running for this
+ *  schema.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
 
@@ -1791,7 +1791,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_FacetBucket : GTLRObject
 
 /**
- *  Number of results that match the bucket value.
+ *  Number of results that match the bucket value. Counts are only returned
+ *  for searches when count accuracy is ensured. Can be empty.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1799,8 +1800,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  Percent of results that match the bucket value. This value is between
- *  (0-100].
- *  This may not be accurate and is a best effort estimate.
+ *  (0-100]. Percentages are returned for all searches, but are an estimate.
+ *  Because percentages are always returned, you should render percentages
+ *  instead of counts.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1816,6 +1818,15 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  FacetResult for every source_name/object_type/operator_name combination.
  */
 @interface GTLRCloudSearch_FacetOptions : GTLRObject
+
+/**
+ *  Maximum number of facet buckets that should be returned for this facet.
+ *  Defaults to 10.
+ *  Maximum value is 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFacetBuckets;
 
 /**
  *  If object_type is set, only those objects of that type will be used to
@@ -1843,7 +1854,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_FacetResult : GTLRObject
 
-/** FacetBuckets for values in response containing atleast a single result. */
+/**
+ *  FacetBuckets for values in response containing at least a single result.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FacetBucket *> *buckets;
 
 /** Object type for which facet results are returned. Can be empty. */
@@ -4145,7 +4158,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  Whether to use freshness as a ranking signal. By default, freshness is used
- *  as a ranking signal.
+ *  as a ranking signal. Note that this setting is not available in the Admin
+ *  UI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4409,7 +4423,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 /** Title of the search result. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The URL of the result. */
+/**
+ *  The URL of the search result. The URL contains a Google redirect to the
+ *  actual item.
+ */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -4649,15 +4666,13 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

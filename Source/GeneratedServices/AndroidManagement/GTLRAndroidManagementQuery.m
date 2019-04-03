@@ -432,6 +432,113 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesWebAppsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_WebApp *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/webApps";
+  GTLRAndroidManagementQuery_EnterprisesWebAppsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidManagement_WebApp class];
+  query.loggingName = @"androidmanagement.enterprises.webApps.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesWebAppsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_EnterprisesWebAppsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_Empty class];
+  query.loggingName = @"androidmanagement.enterprises.webApps.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesWebAppsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_EnterprisesWebAppsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_WebApp class];
+  query.loggingName = @"androidmanagement.enterprises.webApps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesWebAppsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/webApps";
+  GTLRAndroidManagementQuery_EnterprisesWebAppsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidManagement_ListWebAppsResponse class];
+  query.loggingName = @"androidmanagement.enterprises.webApps.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesWebAppsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_WebApp *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_EnterprisesWebAppsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_WebApp class];
+  query.loggingName = @"androidmanagement.enterprises.webApps.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesWebTokensCreate
 
 @dynamic parent;

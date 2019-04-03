@@ -395,13 +395,17 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_ListBuildTriggersResponse
-@dynamic triggers;
+@dynamic nextPageToken, triggers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"triggers" : [GTLRCloudBuild_BuildTrigger class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"triggers";
 }
 
 @end

@@ -59,6 +59,45 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_BqmlIterationResult
+//
+
+@implementation GTLRBigquery_BqmlIterationResult
+@dynamic durationMs, evalLoss, index, learnRate, trainingLoss;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_BqmlTrainingRun
+//
+
+@implementation GTLRBigquery_BqmlTrainingRun
+@dynamic iterationResults, startTime, state, trainingOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iterationResults" : [GTLRBigquery_BqmlIterationResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_BqmlTrainingRun_TrainingOptions
+//
+
+@implementation GTLRBigquery_BqmlTrainingRun_TrainingOptions
+@dynamic earlyStop, l1Reg, l2Reg, learnRate, learnRateStrategy,
+         lineSearchInitLearnRate, maxIteration, minRelProgress, warmStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Clustering
 //
 
@@ -372,16 +411,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_IterationResult
-//
-
-@implementation GTLRBigquery_IterationResult
-@dynamic durationMs, evalLoss, index, learnRate, trainingLoss;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigquery_Job
 //
 
@@ -637,12 +666,13 @@
 //
 
 @implementation GTLRBigquery_JobStatistics2
-@dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetTable,
-         estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
-         modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
-         referencedTables, reservationUsage, schema, statementType, timeline,
-         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
-         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
+@dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetRoutine,
+         ddlTargetTable, estimatedBytesProcessed, modelTraining,
+         modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
+         numDmlAffectedRows, queryPlan, referencedTables, reservationUsage,
+         schema, statementType, timeline, totalBytesBilled, totalBytesProcessed,
+         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -748,7 +778,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"trainingRuns" : [GTLRBigquery_TrainingRun class]
+    @"trainingRuns" : [GTLRBigquery_BqmlTrainingRun class]
   };
   return map;
 }
@@ -977,6 +1007,16 @@
 
 @implementation GTLRBigquery_RangePartitioning_Range
 @dynamic end, interval, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_RoutineReference
+//
+
+@implementation GTLRBigquery_RoutineReference
+@dynamic datasetId, projectId, routineId;
 @end
 
 
@@ -1284,35 +1324,6 @@
 
 @implementation GTLRBigquery_TimePartitioning
 @dynamic expirationMs, field, requirePartitionFilter, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_TrainingRun
-//
-
-@implementation GTLRBigquery_TrainingRun
-@dynamic iterationResults, startTime, state, trainingOptions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"iterationResults" : [GTLRBigquery_IterationResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_TrainingRun_TrainingOptions
-//
-
-@implementation GTLRBigquery_TrainingRun_TrainingOptions
-@dynamic earlyStop, l1Reg, l2Reg, learnRate, learnRateStrategy,
-         lineSearchInitLearnRate, maxIteration, minRelProgress, warmStart;
 @end
 
 

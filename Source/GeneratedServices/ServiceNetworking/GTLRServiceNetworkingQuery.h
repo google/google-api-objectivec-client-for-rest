@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Networking API (servicenetworking/v1beta)
+//   Service Networking API (servicenetworking/v1)
 // Description:
 //   Provides automatic management of network configurations necessary for
 //   certain services.
@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRServiceNetworking_AddSubnetworkRequest;
+@class GTLRServiceNetworking_CancelOperationRequest;
 @class GTLRServiceNetworking_Connection;
 @class GTLRServiceNetworking_SearchRangeRequest;
 
@@ -37,6 +38,91 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: servicenetworking.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_OperationsCancel : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRServiceNetworking_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRServiceNetworkingQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: servicenetworking.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_OperationsDelete : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRServiceNetworkingQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -68,6 +154,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the operation resource.
  *
  *  @return GTLRServiceNetworkingQuery_OperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  Method: servicenetworking.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_OperationsList : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForOperationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRServiceNetworkingQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -222,7 +366,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The service that is managing peering connectivity for a service producer's
  *  organization. For Google services that support this functionality, this
  *  value is `services/servicenetworking.googleapis.com`.
- *  If you specify `-` as the parameter value, all configured public peering
+ *  If you specify `services/-` as the parameter value, all configured peering
  *  services are listed.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -237,12 +381,75 @@ NS_ASSUME_NONNULL_BEGIN
  *    service producer's
  *    organization. For Google services that support this functionality, this
  *    value is `services/servicenetworking.googleapis.com`.
- *    If you specify `-` as the parameter value, all configured public peering
+ *    If you specify `services/-` as the parameter value, all configured peering
  *    services are listed.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  Method: servicenetworking.services.connections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesConnectionsPatch : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesConnectionsPatchWithObject:name:]
+
+/**
+ *  If a previously defined allocated range is removed, force flag must be
+ *  set to true.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  The private service connection that connects to a service producer
+ *  organization. The name includes both the private service name and the VPC
+ *  network peering name in the format of
+ *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For
+ *  Google services that support this functionality, this is
+ *  `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask. If this is omitted, it defaults to "*". You can only
+ *  update the listed peering ranges.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Updates the allocated ranges that are assigned to a connection.
+ *  The response from the `get` operation will be of type `Connection` if the
+ *  operation successfully completes.
+ *
+ *  @param object The @c GTLRServiceNetworking_Connection to include in the
+ *    query.
+ *  @param name The private service connection that connects to a service
+ *    producer
+ *    organization. The name includes both the private service name and the VPC
+ *    network peering name in the format of
+ *    `services/{peering_service_name}/connections/{vpc_peering_name}`. For
+ *    Google services that support this functionality, this is
+ *    `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -295,65 +502,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_SearchRangeRequest *)object
                          parent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates the allocated ranges that are assigned to a connection.
- *  The response from the `get` operation will be of type `Connection` if the
- *  operation successfully completes.
- *
- *  Method: servicenetworking.services.updateConnections
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
- *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
- */
-@interface GTLRServiceNetworkingQuery_ServicesUpdateConnections : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesUpdateConnectionsWithObject:name:]
-
-/**
- *  If a previously defined allocated range is removed, force flag must be
- *  set to true.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
- *  The service producer peering service that is managing peering connectivity
- *  for a service producer organization.
- *  For Google services that support this functionality, this is
- *  `services/servicenetworking.googleapis.com`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The update mask. If this is omitted, it defaults to "*". You can only
- *  update the listed peering ranges.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRServiceNetworking_Operation.
- *
- *  Updates the allocated ranges that are assigned to a connection.
- *  The response from the `get` operation will be of type `Connection` if the
- *  operation successfully completes.
- *
- *  @param object The @c GTLRServiceNetworking_Connection to include in the
- *    query.
- *  @param name The service producer peering service that is managing peering
- *    connectivity
- *    for a service producer organization.
- *    For Google services that support this functionality, this is
- *    `services/servicenetworking.googleapis.com`.
- *
- *  @return GTLRServiceNetworkingQuery_ServicesUpdateConnections
- */
-+ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
-                           name:(NSString *)name;
 
 @end
 

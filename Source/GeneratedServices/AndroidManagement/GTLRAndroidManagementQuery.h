@@ -24,6 +24,7 @@
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
 @class GTLRAndroidManagement_Policy;
+@class GTLRAndroidManagement_WebApp;
 @class GTLRAndroidManagement_WebToken;
 
 // Generated comments include content from the discovery document; avoid them
@@ -783,6 +784,185 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStor
  *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Policy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a web app.
+ *
+ *  Method: androidmanagement.enterprises.webApps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesWebAppsCreate : GTLRAndroidManagementQuery
+// Previous library name was
+//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsCreateWithObject:parent:]
+
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_WebApp.
+ *
+ *  Creates a web app.
+ *
+ *  @param object The @c GTLRAndroidManagement_WebApp to include in the query.
+ *  @param parent The name of the enterprise in the form
+ *    enterprises/{enterpriseId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_WebApp *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a web app.
+ *
+ *  Method: androidmanagement.enterprises.webApps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesWebAppsDelete : GTLRAndroidManagementQuery
+// Previous library name was
+//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsDeleteWithname:]
+
+/**
+ *  The name of the web app in the form
+ *  enterprises/{enterpriseId}/webApps/{packageName}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_Empty.
+ *
+ *  Deletes a web app.
+ *
+ *  @param name The name of the web app in the form
+ *    enterprises/{enterpriseId}/webApps/{packageName}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a web app.
+ *
+ *  Method: androidmanagement.enterprises.webApps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesWebAppsGet : GTLRAndroidManagementQuery
+// Previous library name was
+//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsGetWithname:]
+
+/**
+ *  The name of the web app in the form
+ *  enterprises/{enterpriseId}/webApp/{packageName}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_WebApp.
+ *
+ *  Gets a web app.
+ *
+ *  @param name The name of the web app in the form
+ *    enterprises/{enterpriseId}/webApp/{packageName}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists web apps for a given enterprise.
+ *
+ *  Method: androidmanagement.enterprises.webApps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesWebAppsList : GTLRAndroidManagementQuery
+// Previous library name was
+//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsListWithparent:]
+
+/**
+ *  The requested page size. The actual page size may be fixed to a min or max
+ *  value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results returned by the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ListWebAppsResponse.
+ *
+ *  Lists web apps for a given enterprise.
+ *
+ *  @param parent The name of the enterprise in the form
+ *    enterprises/{enterpriseId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a web app.
+ *
+ *  Method: androidmanagement.enterprises.webApps.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesWebAppsPatch : GTLRAndroidManagementQuery
+// Previous library name was
+//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsPatchWithObject:name:]
+
+/**
+ *  The name of the web app in the form
+ *  enterprises/{enterpriseId}/webApps/{packageName}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The field mask indicating the fields to update. If not set, all modifiable
+ *  fields will be modified.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_WebApp.
+ *
+ *  Updates a web app.
+ *
+ *  @param object The @c GTLRAndroidManagement_WebApp to include in the query.
+ *  @param name The name of the web app in the form
+ *    enterprises/{enterpriseId}/webApps/{packageName}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_WebApp *)object
                            name:(NSString *)name;
 
 @end

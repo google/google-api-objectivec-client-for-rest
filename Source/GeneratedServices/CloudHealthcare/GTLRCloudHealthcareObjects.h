@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Healthcare API (healthcare/v1alpha2)
+// Description:
+//   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/healthcare
 
@@ -21,10 +23,12 @@
 @class GTLRCloudHealthcare_AnnotationStore_Labels;
 @class GTLRCloudHealthcare_AuditConfig;
 @class GTLRCloudHealthcare_AuditLogConfig;
-@class GTLRCloudHealthcare_BigQueryDestination;
 @class GTLRCloudHealthcare_Binding;
 @class GTLRCloudHealthcare_BoundingPoly;
+@class GTLRCloudHealthcare_CharacterMaskConfig;
+@class GTLRCloudHealthcare_CryptoHashConfig;
 @class GTLRCloudHealthcare_Dataset;
+@class GTLRCloudHealthcare_DateShiftConfig;
 @class GTLRCloudHealthcare_DeidentifyConfig;
 @class GTLRCloudHealthcare_Detail;
 @class GTLRCloudHealthcare_DicomConfig;
@@ -35,8 +39,8 @@
 @class GTLRCloudHealthcare_FhirConfig;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
+@class GTLRCloudHealthcare_FieldMetadata;
 @class GTLRCloudHealthcare_Finding;
-@class GTLRCloudHealthcare_GcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsSource;
@@ -49,6 +53,7 @@
 @class GTLRCloudHealthcare_HttpBody_Extensions_Item;
 @class GTLRCloudHealthcare_ImageAnnotation;
 @class GTLRCloudHealthcare_ImageConfig;
+@class GTLRCloudHealthcare_InfoTypeTransformation;
 @class GTLRCloudHealthcare_Location;
 @class GTLRCloudHealthcare_Location_Labels;
 @class GTLRCloudHealthcare_Location_Metadata;
@@ -63,6 +68,8 @@
 @class GTLRCloudHealthcare_PatientId;
 @class GTLRCloudHealthcare_Policy;
 @class GTLRCloudHealthcare_ProgressCounter;
+@class GTLRCloudHealthcare_RedactConfig;
+@class GTLRCloudHealthcare_ReplaceWithInfoTypeConfig;
 @class GTLRCloudHealthcare_ResourceAnnotation;
 @class GTLRCloudHealthcare_SchemaConfig;
 @class GTLRCloudHealthcare_Segment;
@@ -73,6 +80,7 @@
 @class GTLRCloudHealthcare_Status;
 @class GTLRCloudHealthcare_Status_Details_Item;
 @class GTLRCloudHealthcare_TagFilterList;
+@class GTLRCloudHealthcare_TextConfig;
 @class GTLRCloudHealthcare_Vertex;
 
 // Generated comments include content from the discovery document; avoid them
@@ -114,6 +122,73 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWri
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_DicomConfig.filterProfile
+
+/**
+ *  Remove tags based on DICOM Standard's Attribute Confidentiality Basic
+ *  Profile (DICOM Standard Edition 2018e).
+ *
+ *  Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile;
+/**
+ *  Inspects within tag contents and replaces sensitive text. The process
+ *  can be configured using the TextConfig.
+ *  Applies to all tags with the following Value Representation names:
+ *  AE, LO, LT, PN, SH, ST, UC, UT, DA, DT, AS
+ *
+ *  Value: "DEIDENTIFY_TAG_CONTENTS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents;
+/**
+ *  Keep all tags.
+ *
+ *  Value: "KEEP_ALL_PROFILE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile;
+/**
+ *  Keep only tags required to produce valid DICOM.
+ *
+ *  Value: "MINIMAL_KEEP_LIST_PROFILE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile;
+/**
+ *  No tag filtration profile provided. Same as KEEP_ALL_PROFILE.
+ *
+ *  Value: "TAG_FILTER_PROFILE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_FieldMetadata.action
+
+/**
+ *  No action specified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified;
+/**
+ *  Do not transform.
+ *
+ *  Value: "DO_NOT_TRANSFORM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform;
+/**
+ *  Should be inspected and any PHI found should be
+ *  transformed.
+ *
+ *  Value: "INSPECT_AND_TRANSFORM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform;
+/**
+ *  Transform the entire field.
+ *
+ *  Value: "TRANSFORM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_ImageConfig.textRedactionMode
 
 /**
@@ -122,6 +197,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogType
  *  Value: "REDACT_ALL_TEXT"
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText;
+/**
+ *  Do not redact text.
+ *
+ *  Value: "REDACT_NO_TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText;
+/**
+ *  Redact sensitive text.
+ *
+ *  Value: "REDACT_SENSITIVE_TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText;
 /**
  *  No text redaction specified. Same as REDACT_NO_TEXT.
  *
@@ -133,7 +220,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
 
 /**
- *  Each unit is a bundle, which contains one or more resources.
+ *  Each unit is a bundle, which contains one or more resources. Set the
+ *  bundle type to `history` to import resource versions.
  *
  *  Value: "BUNDLE"
  */
@@ -367,36 +455,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  The BigQuery table for export.
- */
-@interface GTLRCloudHealthcare_BigQueryDestination : GTLRObject
-
-/**
- *  If the destination table already exists and this flag is `TRUE`, the table
- *  will be overwritten by the contents of the input store. If the flag is not
- *  set and the destination table already exists, the export call returns an
- *  error.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *force;
-
-/**
- *  BigQuery URI to a table, up to 2000 characters long, must be of the form
- *  bq://projectId.bqDatasetId.tableId.
- */
-@property(nonatomic, copy, nullable) NSString *tableUri;
-
-@end
-
-
-/**
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudHealthcare_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -442,12 +506,46 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Mask a string by replacing its characters with a fixed character.
+ */
+@interface GTLRCloudHealthcare_CharacterMaskConfig : GTLRObject
+
+/**
+ *  Character to mask the sensitive values. If not supplied, defaults to "*".
+ */
+@property(nonatomic, copy, nullable) NSString *maskingCharacter;
+
+@end
+
+
+/**
  *  Creates a new message.
  */
 @interface GTLRCloudHealthcare_CreateMessageRequest : GTLRObject
 
 /** HL7v2 message. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message *message;
+
+@end
+
+
+/**
+ *  Pseudonymization method that generates surrogates via cryptographic hashing.
+ *  Uses SHA-256.
+ *  Outputs a base64-encoded representation of the hashed output
+ *  (for example, `L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=`).
+ */
+@interface GTLRCloudHealthcare_CryptoHashConfig : GTLRObject
+
+/**
+ *  An AES 128/192/256 bit key. Causes the hash to be computed based on this
+ *  key. A default key is generated for each DeidentifyDataset operation and is
+ *  used wherever crypto_key is not specified.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKey;
 
 @end
 
@@ -479,6 +577,26 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Shift a date forward or backward in time by a random amount which is
+ *  consistent for a given patient and crypto key combination.
+ */
+@interface GTLRCloudHealthcare_DateShiftConfig : GTLRObject
+
+/**
+ *  An AES 128/192/256 bit key. Causes the shift to be computed based on this
+ *  key and the patient ID. A default key is generated for each
+ *  DeidentifyDataset operation and is used wherever crypto_key is not
+ *  specified.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKey;
+
+@end
+
+
+/**
  *  Configures de-id options specific to different types of content.
  *  Each submessage customizes the handling of an
  *  https://tools.ietf.org/html/rfc6838 media type or subtype. Configs are
@@ -498,6 +616,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ImageConfig *image;
 
+/**
+ *  Configures de-identification of text wherever it is found in the
+ *  source_dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_TextConfig *text;
+
 @end
 
 
@@ -506,16 +630,76 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @interface GTLRCloudHealthcare_DeidentifyDatasetRequest : GTLRObject
 
-/** Deidentify configuration */
+/** Deidentify configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the dataset resource to which the redacted data should be
- *  written (e.g.,
+ *  The name of the dataset resource to create and write the redacted data to
+ *  (e.g.,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`).
- *  The new dataset must not exist, or the request will fail.
+ *  * The destination dataset must not exist.
+ *  * The destination dataset must be in the same project as the source
+ *  dataset. De-identifying data across multiple projects is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
+
+@end
+
+
+/**
+ *  Contains the status of the Deidentify operation.
+ */
+@interface GTLRCloudHealthcare_DeidentifyErrorDetails : GTLRObject
+
+/**
+ *  Number of resources failed to process.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureResourceCount;
+
+/**
+ *  Number of stores failed to process.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureStoreCount;
+
+/**
+ *  Number of resources successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
+
+/**
+ *  Number of stores successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successStoreCount;
+
+@end
+
+
+/**
+ *  Contains a detailed summary of the Deidentify operation.
+ */
+@interface GTLRCloudHealthcare_DeidentifySummary : GTLRObject
+
+/**
+ *  Number of resources successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
+
+/**
+ *  Number of stores successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successStoreCount;
 
 @end
 
@@ -535,8 +719,36 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @interface GTLRCloudHealthcare_DicomConfig : GTLRObject
 
+/**
+ *  Tag filtering profile that determines which tags to keep/remove.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile
+ *        Remove tags based on DICOM Standard's Attribute Confidentiality Basic
+ *        Profile (DICOM Standard Edition 2018e). (Value:
+ *        "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE")
+ *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents
+ *        Inspects within tag contents and replaces sensitive text. The process
+ *        can be configured using the TextConfig.
+ *        Applies to all tags with the following Value Representation names:
+ *        AE, LO, LT, PN, SH, ST, UC, UT, DA, DT, AS (Value:
+ *        "DEIDENTIFY_TAG_CONTENTS")
+ *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile Keep
+ *        all tags. (Value: "KEEP_ALL_PROFILE")
+ *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile
+ *        Keep only tags required to produce valid DICOM. (Value:
+ *        "MINIMAL_KEEP_LIST_PROFILE")
+ *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified
+ *        No tag filtration profile provided. Same as KEEP_ALL_PROFILE. (Value:
+ *        "TAG_FILTER_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *filterProfile;
+
 /** List of tags to keep. Remove all other tags. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_TagFilterList *keepList;
+
+/** List of tags to remove. Keep all other tags. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_TagFilterList *removeList;
 
 @end
 
@@ -619,33 +831,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /** The identifier of the resource. */
 @property(nonatomic, copy, nullable) NSString *resource;
-
-@end
-
-
-/**
- *  Request to export
- *  Annotations. The
- *  export operation is not atomic; in the event of a failure any annotations
- *  already exported will not be removed.
- */
-@interface GTLRCloudHealthcare_ExportAnnotationsRequest : GTLRObject
-
-/**
- *  The BigQuery output destination.
- *  The table schema is the flattened version of
- *  Annotation
- *  For now, only exporting to a dataset in the current project is supported.
- *  The BigQuery location requires two IAM roles:
- *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
- */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BigQueryDestination *bigqueryDestination;
-
-/**
- *  The Cloud Storage destination, which requires the
- *  `roles/storage.objectAdmin` Cloud IAM role.
- */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GcsDestination *gcsDestination;
 
 @end
 
@@ -749,6 +934,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Specifies how de-identification of a FHIR store should be handled.
  */
 @interface GTLRCloudHealthcare_FhirConfig : GTLRObject
+
+/**
+ *  Specifies FHIR paths to match and how to transform them. Any field that
+ *  is not matched by a FieldMetadata will be passed through to the output
+ *  dataset unmodified. All extensions are removed in the output.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
+
 @end
 
 
@@ -862,6 +1055,44 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Specifies FHIR paths to match, and how to handle de-identification of
+ *  matching fields.
+ */
+@interface GTLRCloudHealthcare_FieldMetadata : GTLRObject
+
+/**
+ *  Deidentify action for one field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified No
+ *        action specified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform Do not
+ *        transform. (Value: "DO_NOT_TRANSFORM")
+ *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform
+ *        Should be inspected and any PHI found should be
+ *        transformed. (Value: "INSPECT_AND_TRANSFORM")
+ *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_Transform Transform the
+ *        entire field. (Value: "TRANSFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  List of paths to FHIR fields to be redacted. Each path is a
+ *  period-separated list where each component is either a field name or
+ *  FHIR type name, for example: Patient, HumanName.
+ *  For "choice" types (those defined in the FHIR spec with the form:
+ *  field[x]) we use two separate components. e.g. "deceasedAge.unit" is
+ *  matched by "Deceased.Age.unit".
+ *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
+ *  Decimal, HumanName, Id, LanguageCode, Markdown, MimeTypeCode, Oid,
+ *  String, Uri, Uuid, Xhtml.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+@end
+
+
+/**
  *  GTLRCloudHealthcare_Finding
  */
 @interface GTLRCloudHealthcare_Finding : GTLRObject
@@ -885,24 +1116,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *start;
-
-@end
-
-
-/**
- *  The Cloud Storage location for export.
- */
-@interface GTLRCloudHealthcare_GcsDestination : GTLRObject
-
-/**
- *  The Cloud Storage destination to export to.
- *  URI for a Cloud Storage directory where result files should be written (in
- *  the format `gs://{bucket-id}/{path/to/destination/dir}`). If there is no
- *  trailing slash, the service will append one when composing the object path.
- *  The user is responsible for creating the Cloud Storage bucket referenced in
- *  `uri_prefix`.
- */
-@property(nonatomic, copy, nullable) NSString *uriPrefix;
 
 @end
 
@@ -1319,6 +1532,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText
  *        Redact all text. (Value: "REDACT_ALL_TEXT")
+ *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText Do
+ *        not redact text. (Value: "REDACT_NO_TEXT")
+ *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText
+ *        Redact sensitive text. (Value: "REDACT_SENSITIVE_TEXT")
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactionModeUnspecified
  *        No text redaction specified. Same as REDACT_NO_TEXT. (Value:
  *        "TEXT_REDACTION_MODE_UNSPECIFIED")
@@ -1334,15 +1551,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @interface GTLRCloudHealthcare_ImportDicomDataErrorDetails : GTLRObject
 
 /**
- *  The name of the DICOM store where the resources have been imported, in the
- *  format
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`
- */
-@property(nonatomic, copy, nullable) NSString *dicomStore;
-
-/**
+ *  Deprecated. Use only for debugging purposes.
  *  Contains sample errors encountered in imports of individual resources
- *  (e.g., a Cloud Storage object).
+ *  (for example, a Cloud Storage object).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_ErrorDetail *> *sampleErrors;
 
@@ -1369,11 +1580,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Request to import resources.
- *  The FHIR resources to be imported must have client supplied IDs. The server
- *  will retain the resource IDs. The import operation is idempotent. Retry will
- *  overwrite existing data identified by client supplied IDs. The import
- *  operation is not transactional. The server will not roll back any committed
- *  changes upon partial failures.
  */
 @interface GTLRCloudHealthcare_ImportResourcesRequest : GTLRObject
 
@@ -1383,7 +1589,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle
- *        Each unit is a bundle, which contains one or more resources. (Value:
+ *        Each unit is a bundle, which contains one or more resources. Set the
+ *        bundle type to `history` to import resource versions. (Value:
  *        "BUNDLE")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified
  *        Value "CONTENT_STRUCTURE_UNSPECIFIED"
@@ -1407,8 +1614,42 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Cloud IAM role.
  *  Each Cloud Storage object should be a text file that contains newline
  *  delimited JSON structures conforming to FHIR standard.
+ *  To improve performance, use multiple Cloud Storage objects where each
+ *  object contains a subset of all of the newline-delimited JSON structures.
+ *  You can select all of the objects using the uri as the
+ *  prefix. The maximum number of objects is 1,000.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirRestGcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  A transformation to apply to text that is identified as a specific
+ *  info_type.
+ */
+@interface GTLRCloudHealthcare_InfoTypeTransformation : GTLRObject
+
+/** Config for character mask. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_CharacterMaskConfig *characterMaskConfig;
+
+/** Config for crypto hash. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_CryptoHashConfig *cryptoHashConfig;
+
+/** Config for date shift. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DateShiftConfig *dateShiftConfig;
+
+/**
+ *  InfoTypes to apply this transformation to. If this is not specified, the
+ *  transformation applies to any info_type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *infoTypes;
+
+/** Config for text redaction. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_RedactConfig *redactConfig;
+
+/** Config for replace with InfoType. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_ReplaceWithInfoTypeConfig *replaceWithInfoTypeConfig;
 
 @end
 
@@ -2096,6 +2337,24 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Define how to redact sensitive values. Default behaviour is erase,
+ *  e.g. "My name is Jake." becomes "My name is ."
+ */
+@interface GTLRCloudHealthcare_RedactConfig : GTLRObject
+@end
+
+
+/**
+ *  When using the INSPECT_AND_TRANSFORM action, each match is replaced with
+ *  the name of the info_type. For example, "My name is Jake" becomes "My name
+ *  is
+ *  [PERSON_NAME]." The TRANSFORM action is equivalent to redacting.
+ */
+@interface GTLRCloudHealthcare_ReplaceWithInfoTypeConfig : GTLRObject
+@end
+
+
+/**
  *  Resource level annotation.
  */
 @interface GTLRCloudHealthcare_ResourceAnnotation : GTLRObject
@@ -2398,6 +2657,23 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  GTLRCloudHealthcare_TextConfig
+ */
+@interface GTLRCloudHealthcare_TextConfig : GTLRObject
+
+/**
+ *  Experimental de-identification config to use. For internal use only.
+ *  If not specified, it is ignored and standard DLP is used.
+ */
+@property(nonatomic, copy, nullable) NSString *experimentalConfig;
+
+/** The transformations to apply to the detected data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;
 
 @end
 

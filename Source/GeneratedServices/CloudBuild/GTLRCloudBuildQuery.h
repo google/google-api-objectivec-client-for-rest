@@ -535,6 +535,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersListWithprojectId:]
 
+/** Number of results to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** ID of the project for which to list BuildTriggers. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -547,6 +553,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param projectId ID of the project for which to list BuildTriggers.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 

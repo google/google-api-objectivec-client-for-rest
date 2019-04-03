@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Asset API (cloudasset/v1beta1)
+//   Cloud Asset API (cloudasset/v1)
 // Description:
 //   The cloud asset API manages the history and inventory of cloud resources.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/cloudasset.googleapis.com/overview
+//   https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -55,64 +55,18 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @end
 
 /**
- *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
- *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
- *
- *  Method: cloudasset.folders.exportAssets
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudAssetCloudPlatform
- */
-@interface GTLRCloudAssetQuery_FoldersExportAssets : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFoldersExportAssetsWithObject:parent:]
-
-/**
- *  Required. The relative name of the root asset. This can only be an
- *  organization number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id"), a project number (such as "projects/12345"), or
- *  a folder number (such as "folders/123").
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudAsset_Operation.
- *
- *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
- *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
- *
- *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
- *    query.
- *  @param parent Required. The relative name of the root asset. This can only
- *    be an
- *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), a project number (such as "projects/12345"), or
- *    a folder number (such as "folders/123").
- *
- *  @return GTLRCloudAssetQuery_FoldersExportAssets
- */
-+ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
- *  Method: cloudasset.folders.operations.get
+ *  Method: cloudasset.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
-@interface GTLRCloudAssetQuery_FoldersOperationsGet : GTLRCloudAssetQuery
+@interface GTLRCloudAssetQuery_OperationsGet : GTLRCloudAssetQuery
 // Previous library name was
-//   +[GTLQueryCloudAsset queryForFoldersOperationsGetWithname:]
+//   +[GTLQueryCloudAsset queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -126,7 +80,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *
  *  @param name The name of the operation resource.
  *
- *  @return GTLRCloudAssetQuery_FoldersOperationsGet
+ *  @return GTLRCloudAssetQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -141,20 +95,22 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
  *  error.
  *
- *  Method: cloudasset.organizations.batchGetAssetsHistory
+ *  Method: cloudasset.batchGetAssetsHistory
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
-@interface GTLRCloudAssetQuery_OrganizationsBatchGetAssetsHistory : GTLRCloudAssetQuery
+@interface GTLRCloudAssetQuery_V1BatchGetAssetsHistory : GTLRCloudAssetQuery
 // Previous library name was
-//   +[GTLQueryCloudAsset queryForOrganizationsBatchGetAssetsHistoryWithparent:]
+//   +[GTLQueryCloudAsset queryForBatchGetAssetsHistoryWithparent:]
 
 /**
  *  A list of the full names of the assets. For example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  and [Resource Name
+ *  Format](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/resource-name-format)
  *  for more info.
  *  The request becomes a no-op if the asset name list is empty, and the max
  *  size of the asset name list is 100 in one request.
@@ -205,7 +161,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    "projects/my-project-id")", or a project number (such as
  *    "projects/12345").
  *
- *  @return GTLRCloudAssetQuery_OrganizationsBatchGetAssetsHistory
+ *  @return GTLRCloudAssetQuery_V1BatchGetAssetsHistory
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -217,20 +173,20 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  This API implements the google.longrunning.Operation API allowing you
  *  to keep track of the export.
  *
- *  Method: cloudasset.organizations.exportAssets
+ *  Method: cloudasset.exportAssets
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
-@interface GTLRCloudAssetQuery_OrganizationsExportAssets : GTLRCloudAssetQuery
+@interface GTLRCloudAssetQuery_V1ExportAssets : GTLRCloudAssetQuery
 // Previous library name was
-//   +[GTLQueryCloudAsset queryForOrganizationsExportAssetsWithObject:parent:]
+//   +[GTLQueryCloudAsset queryForExportAssetsWithObject:parent:]
 
 /**
  *  Required. The relative name of the root asset. This can only be an
  *  organization number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id"), a project number (such as "projects/12345"), or
- *  a folder number (such as "folders/123").
+ *  "projects/my-project-id"), or a project number (such as "projects/12345"),
+ *  or a folder number (such as "folders/123").
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -247,202 +203,13 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  @param parent Required. The relative name of the root asset. This can only
  *    be an
  *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), a project number (such as "projects/12345"), or
- *    a folder number (such as "folders/123").
+ *    "projects/my-project-id"), or a project number (such as "projects/12345"),
+ *    or a folder number (such as "folders/123").
  *
- *  @return GTLRCloudAssetQuery_OrganizationsExportAssets
+ *  @return GTLRCloudAssetQuery_V1ExportAssets
  */
 + (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
                          parent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: cloudasset.organizations.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudAssetCloudPlatform
- */
-@interface GTLRCloudAssetQuery_OrganizationsOperationsGet : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForOrganizationsOperationsGetWithname:]
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudAsset_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRCloudAssetQuery_OrganizationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Batch gets the update history of assets that overlap a time window.
- *  For RESOURCE content, this API outputs history with asset in both
- *  non-delete or deleted status.
- *  For IAM_POLICY content, this API outputs history when the asset and its
- *  attached IAM POLICY both exist. This can create gaps in the output history.
- *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
- *  error.
- *
- *  Method: cloudasset.projects.batchGetAssetsHistory
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudAssetCloudPlatform
- */
-@interface GTLRCloudAssetQuery_ProjectsBatchGetAssetsHistory : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForProjectsBatchGetAssetsHistoryWithparent:]
-
-/**
- *  A list of the full names of the assets. For example:
- *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
- *  See [Resource
- *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
- *  for more info.
- *  The request becomes a no-op if the asset name list is empty, and the max
- *  size of the asset name list is 100 in one request.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *assetNames;
-
-/**
- *  Required. The content type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudAssetContentTypeContentTypeUnspecified Value
- *        "CONTENT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudAssetContentTypeResource Value "RESOURCE"
- *    @arg @c kGTLRCloudAssetContentTypeIamPolicy Value "IAM_POLICY"
- */
-@property(nonatomic, copy, nullable) NSString *contentType;
-
-/**
- *  Required. The relative name of the root asset. It can only be an
- *  organization number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id")", or a project number (such as "projects/12345").
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  End time of the time window (inclusive).
- *  Current timestamp if not specified.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowEndTime;
-
-/** Start time of the time window (exclusive). */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowStartTime;
-
-/**
- *  Fetches a @c GTLRCloudAsset_BatchGetAssetsHistoryResponse.
- *
- *  Batch gets the update history of assets that overlap a time window.
- *  For RESOURCE content, this API outputs history with asset in both
- *  non-delete or deleted status.
- *  For IAM_POLICY content, this API outputs history when the asset and its
- *  attached IAM POLICY both exist. This can create gaps in the output history.
- *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
- *  error.
- *
- *  @param parent Required. The relative name of the root asset. It can only be
- *    an
- *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id")", or a project number (such as
- *    "projects/12345").
- *
- *  @return GTLRCloudAssetQuery_ProjectsBatchGetAssetsHistory
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
- *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
- *
- *  Method: cloudasset.projects.exportAssets
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudAssetCloudPlatform
- */
-@interface GTLRCloudAssetQuery_ProjectsExportAssets : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForProjectsExportAssetsWithObject:parent:]
-
-/**
- *  Required. The relative name of the root asset. This can only be an
- *  organization number (such as "organizations/123"), a project ID (such as
- *  "projects/my-project-id"), a project number (such as "projects/12345"), or
- *  a folder number (such as "folders/123").
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudAsset_Operation.
- *
- *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
- *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
- *
- *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
- *    query.
- *  @param parent Required. The relative name of the root asset. This can only
- *    be an
- *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), a project number (such as "projects/12345"), or
- *    a folder number (such as "folders/123").
- *
- *  @return GTLRCloudAssetQuery_ProjectsExportAssets
- */
-+ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: cloudasset.projects.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudAssetCloudPlatform
- */
-@interface GTLRCloudAssetQuery_ProjectsOperationsGet : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForProjectsOperationsGetWithname:]
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudAsset_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRCloudAssetQuery_ProjectsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

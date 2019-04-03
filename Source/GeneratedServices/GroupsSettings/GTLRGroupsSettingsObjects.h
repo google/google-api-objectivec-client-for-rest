@@ -4,7 +4,7 @@
 // API:
 //   Groups Settings API (groupssettings/v1)
 // Description:
-//   Lets you manage permission levels and related settings of a group.
+//   Manages permission levels and related settings of a group.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-settings/get_started
 
@@ -48,6 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Default email to which reply to any message should go. */
 @property(nonatomic, copy, nullable) NSString *customReplyTo;
 
+/**
+ *  If any of the settings that will be merged have custom roles which is
+ *  anything other than owners, managers, or group scopes.
+ */
+@property(nonatomic, copy, nullable) NSString *customRolesEnabledForSettingsToBeMerged;
+
 /** Default message deny notification message */
 @property(nonatomic, copy, nullable) NSString *defaultMessageDenyNotificationText;
 
@@ -60,6 +66,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Email id of the group */
 @property(nonatomic, copy, nullable) NSString *email;
+
+/** If a primary Collab Inbox feature is enabled. */
+@property(nonatomic, copy, nullable) NSString *enableCollaborativeInbox;
 
 /** If favorite replies should be displayed above other replies. */
 @property(nonatomic, copy, nullable) NSString *favoriteRepliesOnTop;
@@ -136,10 +145,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *whoCanAddReferences;
 
 /**
+ *  Permission to approve members. Possible values are: ALL_OWNERS_CAN_APPROVE
+ *  ALL_MANAGERS_CAN_APPROVE ALL_MEMBERS_CAN_APPROVE NONE_CAN_APPROVE
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanApproveMembers;
+
+/**
+ *  Permission to approve pending messages in the moderation queue. Possible
+ *  values are: NONE OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanApproveMessages;
+
+/**
  *  Permission to assign topics in a forum to another user. Possible values are:
  *  NONE OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
  */
 @property(nonatomic, copy, nullable) NSString *whoCanAssignTopics;
+
+/**
+ *  Permission for content assistants. Possible values are: Possible values are:
+ *  NONE OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanAssistContent;
+
+/**
+ *  Permission to ban users. Possible values are: NONE OWNERS_ONLY
+ *  OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanBanUsers;
 
 /**
  *  Permission to contact owner of the group via web UI. Possible values are:
@@ -149,10 +182,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *whoCanContactOwner;
 
 /**
+ *  Permission to delete replies to topics. Possible values are: NONE
+ *  OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanDeleteAnyPost;
+
+/**
+ *  Permission to delete topics. Possible values are: NONE OWNERS_ONLY
+ *  OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanDeleteTopics;
+
+/**
+ *  Permission for who can discover the group. Possible values are:
+ *  ALL_MEMBERS_CAN_DISCOVER ALL_IN_DOMAIN_CAN_DISCOVER ANYONE_CAN_DISCOVER
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanDiscoverGroup;
+
+/**
  *  Permission to enter free form tags for topics in a forum. Possible values
  *  are: NONE OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
  */
 @property(nonatomic, copy, nullable) NSString *whoCanEnterFreeFormTags;
+
+/**
+ *  Permission to hide posts by reporting them as abuse. Possible values are:
+ *  NONE OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanHideAbuse;
 
 /**
  *  Permissions to invite members. Possible values are: ALL_MEMBERS_CAN_INVITE
@@ -171,6 +228,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  ALL_OWNERS_CAN_LEAVE ALL_MEMBERS_CAN_LEAVE NONE_CAN_LEAVE
  */
 @property(nonatomic, copy, nullable) NSString *whoCanLeaveGroup;
+
+/**
+ *  Permission to lock topics. Possible values are: NONE OWNERS_ONLY
+ *  OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanLockTopics;
+
+/**
+ *  Permission to make topics appear at the top of the topic list. Possible
+ *  values are: NONE OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanMakeTopicsSticky;
 
 /**
  *  Permission to mark a topic as a duplicate of another topic. Possible values
@@ -198,10 +267,46 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *whoCanMarkNoResponseNeeded;
 
 /**
+ *  Permission for content moderation. Possible values are: NONE OWNERS_ONLY
+ *  OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanModerateContent;
+
+/**
+ *  Permission for membership moderation. Possible values are: NONE OWNERS_ONLY
+ *  OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanModerateMembers;
+
+/**
+ *  Permission to modify members (change member roles). Possible values are:
+ *  NONE OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanModifyMembers;
+
+/**
  *  Permission to change tags and categories. Possible values are: NONE
  *  OWNERS_ONLY MANAGERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
  */
 @property(nonatomic, copy, nullable) NSString *whoCanModifyTagsAndCategories;
+
+/**
+ *  Permission to move topics into the group or forum. Possible values are: NONE
+ *  OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanMoveTopicsIn;
+
+/**
+ *  Permission to move topics out of the group or forum. Possible values are:
+ *  NONE OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanMoveTopicsOut;
+
+/**
+ *  Permission to post announcements, a special topic type. Possible values are:
+ *  NONE OWNERS_ONLY OWNERS_AND_MANAGERS ALL_MEMBERS
+ */
+@property(nonatomic, copy, nullable) NSString *whoCanPostAnnouncements;
 
 /**
  *  Permissions to post messages to the group. Possible values are:
@@ -237,7 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Permissions to view membership. Possible values are: ALL_IN_DOMAIN_CAN_VIEW
- *  ALL_MEMBERS_CAN_VIEW ALL_MANAGERS_CAN_VIEW
+ *  ALL_MEMBERS_CAN_VIEW ALL_MANAGERS_CAN_VIEW ALL_OWNERS_CAN_VIEW
  */
 @property(nonatomic, copy, nullable) NSString *whoCanViewMembership;
 

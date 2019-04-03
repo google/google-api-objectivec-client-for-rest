@@ -278,6 +278,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /** Value: "nativeCrash" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
+/** Value: "nonSdkApiUsageReport" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport;
 /** Value: "nonSdkApiUsageViolation" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
 /** Value: "performedGoogleLogin" */
@@ -1997,6 +1999,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Value
  *        "launcherActivityNotFound"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport Value
+ *        "nonSdkApiUsageReport"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation Value
  *        "nonSdkApiUsageViolation"
  *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin Value

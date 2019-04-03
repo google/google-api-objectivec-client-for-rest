@@ -216,6 +216,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudResourceManager/*.{h,m}'
   end
+  s.subspec 'CloudRun' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudRun/*.{h,m}'
+  end
   s.subspec 'CloudRuntimeConfig' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudRuntimeConfig/*.{h,m}'
@@ -343,6 +347,10 @@ Pod::Spec.new do |s|
   s.subspec 'DriveActivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DriveActivity/*.{h,m}'
+  end
+  s.subspec 'FactCheckTools' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FactCheckTools/*.{h,m}'
   end
   s.subspec 'FirebaseDynamicLinks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

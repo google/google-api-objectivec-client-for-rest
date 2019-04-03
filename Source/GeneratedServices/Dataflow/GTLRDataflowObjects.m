@@ -530,8 +530,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @implementation GTLRDataflow_Environment
 @dynamic clusterManagerApiService, dataset, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
-         serviceAccountEmail, tempStoragePrefix, userAgent, version,
-         workerPools;
+         serviceAccountEmail, serviceKmsKeyName, tempStoragePrefix, userAgent,
+         version, workerPools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

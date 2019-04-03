@@ -40,6 +40,7 @@ NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_S
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Advertiser = @"ADVERTISER";
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency = @"AGENCY";
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand = @"BRAND";
+NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified = @"ENTITY_TYPE_UNCLASSIFIED";
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_Client.role
@@ -74,6 +75,8 @@ NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VendorIdsAdded = @"VENDO
 NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeAdded = @"VIDEO_IN_SNIPPET_ATTRIBUTE_ADDED";
 
 // GTLRAdExchangeBuyerII_Creative.attributes
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AdobeFlashFlv = @"ADOBE_FLASH_FLV";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AnyInterstitial = @"ANY_INTERSTITIAL";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified = @"ATTRIBUTE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml = @"CREATIVE_TYPE_HTML";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo = @"CREATIVE_TYPE_VAST_VIDEO";
@@ -90,6 +93,7 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft = @"EXPANDING_DIRECTION_UP_LEFT";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown = @"EXPANDING_DIRECTION_UP_OR_DOWN";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight = @"EXPANDING_DIRECTION_UP_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ImageRichMedia = @"IMAGE_RICH_MEDIA";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo = @"IN_BANNER_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash = @"INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted = @"IS_COOKIE_TARGETED";
@@ -97,6 +101,9 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged = @"IS_TAGG
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted = @"IS_USER_INTEREST_TARGETED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible = @"NATIVE_ELIGIBILITY_ELIGIBLE";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible = @"NATIVE_ELIGIBILITY_NOT_ELIGIBLE";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial = @"NON_INTERSTITIAL";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo = @"NON_SKIPPABLE_INSTREAM_VIDEO";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid = @"NON_VPAID";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10 = @"OMSDK_1_0";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash = @"RICH_MEDIA_CAPABILITY_TYPE_FLASH";
@@ -105,6 +112,7 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityT
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid = @"RICH_MEDIA_CAPABILITY_TYPE_MRAID";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl = @"RICH_MEDIA_CAPABILITY_TYPE_NON_SSL";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl = @"RICH_MEDIA_CAPABILITY_TYPE_SSL";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_SkippableInstreamVideo = @"SKIPPABLE_INSTREAM_VIDEO";
 
 // GTLRAdExchangeBuyerII_Creative.dealsStatus
 NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved = @"APPROVED";

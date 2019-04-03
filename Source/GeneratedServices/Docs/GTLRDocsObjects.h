@@ -77,6 +77,8 @@
 @class GTLRDocs_InsertInlineImageRequest;
 @class GTLRDocs_InsertInlineImageResponse;
 @class GTLRDocs_InsertInlineSheetsChartResponse;
+@class GTLRDocs_InsertPageBreakRequest;
+@class GTLRDocs_InsertTableRequest;
 @class GTLRDocs_InsertTableRowRequest;
 @class GTLRDocs_InsertTextRequest;
 @class GTLRDocs_Link;
@@ -2825,6 +2827,78 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Inserts a page break followed by a newline at the specified location.
+ */
+@interface GTLRDocs_InsertPageBreakRequest : GTLRObject
+
+/**
+ *  Inserts the page break at the end of the document body.
+ *  Page breaks cannot be inserted inside a footnote, header or footer.
+ *  Since page breaks can only be inserted inside the body, the segment ID field
+ *  must be
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the page break at a specific index in the document.
+ *  The page break must be inserted inside the bounds of an existing
+ *  Paragraph. For instance, it cannot be
+ *  inserted at a table's start index (i.e. between the table and its
+ *  preceding paragraph).
+ *  Page breaks cannot be inserted inside a table, equation, footnote, header
+ *  or footer. Since page breaks can only be inserted inside the body, the
+ *  segment ID field must be
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+@end
+
+
+/**
+ *  Inserts a table at the specified location.
+ *  A newline character will be inserted before the inserted table.
+ */
+@interface GTLRDocs_InsertTableRequest : GTLRObject
+
+/**
+ *  The number of columns in the table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columns;
+
+/**
+ *  Inserts the table at the end of the given header, footer or document
+ *  body. A newline character will be inserted before the inserted table.
+ *  Tables cannot be inserted inside a footnote.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the table at a specific model index.
+ *  A newline character will be inserted before the inserted table, therefore
+ *  the table start index will be at the specified location index + 1.
+ *  The table must be inserted inside the bounds of an existing
+ *  Paragraph. For instance, it cannot be
+ *  inserted at a table's start index (i.e. between an existing table and its
+ *  preceding paragraph).
+ *  Tables cannot be inserted inside a footnote or equation.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+/**
+ *  The number of rows in the table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rows;
+
+@end
+
+
+/**
  *  Inserts an empty row into a table.
  */
 @interface GTLRDocs_InsertTableRowRequest : GTLRObject
@@ -4303,6 +4377,12 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Inserts an inline image at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertInlineImageRequest *insertInlineImage;
 
+/** Inserts a page break at the specified location. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertPageBreakRequest *insertPageBreak;
+
+/** Inserts a table at the specified location. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertTableRequest *insertTable;
+
 /** Inserts an empty row into a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertTableRowRequest *insertTableRow;
 
@@ -5744,13 +5824,34 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @interface GTLRDocs_WriteControl : GTLRObject
 
 /**
- *  The ID of the revision of the document that the write request will be
- *  applied to. If this is not the latest revision of the document, the
- *  request will not be processed and will return a 400 bad request error.
+ *  The revision ID of the
+ *  document that the write request will be applied to. If this is not the
+ *  latest revision of the document, the request will not be processed and
+ *  will return a 400 bad request error.
  *  When a required revision ID is returned in a response, it indicates the
  *  revision ID of the document after the request was applied.
  */
 @property(nonatomic, copy, nullable) NSString *requiredRevisionId;
+
+/**
+ *  The target revision ID of the
+ *  document that the write request will be applied to.
+ *  If collaborator changes have occurred after the document was read using
+ *  the API, the changes produced by this write request will be transformed
+ *  against the collaborator changes. This results in a new revision of the
+ *  document which incorporates both the changes in the request and the
+ *  collaborator changes, and the Docs server will resolve conflicting
+ *  changes. When using `target_revision_id`, the API client can be thought
+ *  of as another collaborator of the document.
+ *  The target revision ID may only be used to write to recent versions of a
+ *  document. If the target revision is too far behind the latest revision,
+ *  the request will not be processed and will return a 400 bad request error
+ *  and the request should be retried after reading the latest version of the
+ *  document. In most cases a `revision_id` will remain valid for use as a
+ *  target revision for several minutes after it is read, but for
+ *  frequently-edited documents this window may be shorter.
+ */
+@property(nonatomic, copy, nullable) NSString *targetRevisionId;
 
 @end
 

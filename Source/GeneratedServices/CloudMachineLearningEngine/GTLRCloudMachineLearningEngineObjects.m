@@ -175,6 +175,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput
+@dynamic framework, modelPath, pythonVersion, runtimeVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest
 //
 
@@ -226,7 +236,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput
-@dynamic allMetrics, finalMetric, hyperparameters, isTrialStoppedEarly, trialId;
+@dynamic allMetrics, builtInAlgorithmOutput, finalMetric, hyperparameters,
+         isTrialStoppedEarly, trialId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -436,7 +447,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model
 @dynamic defaultVersion, descriptionProperty, ETag, labels, name,
-         onlinePredictionLogging, regions;
+         onlinePredictionConsoleLogging, onlinePredictionLogging, regions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -602,8 +613,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput
-@dynamic completedTrialCount, consumedMLUnits, isHyperparameterTuningJob,
-         trials;
+@dynamic builtInAlgorithmOutput, completedTrialCount, consumedMLUnits,
+         isBuiltInAlgorithmJob, isHyperparameterTuningJob, trials;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -29,13 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View your basic profile info, including your age range
- *  and language
- *
- *  Value "https://www.googleapis.com/auth/plus.login"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2PlusLogin;
-/**
  *  Authorization scope: Know who you are on Google
  *
  *  Value "https://www.googleapis.com/auth/plus.me"
@@ -49,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2PlusMe;
 GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2UserinfoEmail;
 /**
  *  Authorization scope: See your personal info, including any personal info
- *  you've made publically available
+ *  you've made publicly available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */

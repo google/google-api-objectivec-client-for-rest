@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Networking API (servicenetworking/v1beta)
+//   Service Networking API (servicenetworking/v1)
 // Description:
 //   Provides automatic management of network configurations necessary for
 //   certain services.

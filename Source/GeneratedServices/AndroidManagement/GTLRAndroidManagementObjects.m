@@ -265,6 +265,12 @@ NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone = @"POSTPONE"
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified = @"SYSTEM_UPDATE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed = @"WINDOWED";
 
+// GTLRAndroidManagement_WebApp.displayMode
+NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecified = @"DISPLAY_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_FullScreen = @"FULL_SCREEN";
+NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_MinimalUi = @"MINIMAL_UI";
+NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_Standalone = @"STANDALONE";
+
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified = @"WEB_TOKEN_PERMISSION_UNSPECIFIED";
@@ -673,6 +679,28 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 + (NSString *)collectionItemsKey {
   return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ListWebAppsResponse
+//
+
+@implementation GTLRAndroidManagement_ListWebAppsResponse
+@dynamic nextPageToken, webApps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"webApps" : [GTLRAndroidManagement_WebApp class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"webApps";
 }
 
 @end
@@ -1126,6 +1154,34 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WebApp
+//
+
+@implementation GTLRAndroidManagement_WebApp
+@dynamic displayMode, icons, name, startUrl, title, versionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"icons" : [GTLRAndroidManagement_WebAppIcon class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WebAppIcon
+//
+
+@implementation GTLRAndroidManagement_WebAppIcon
+@dynamic imageData;
 @end
 
 

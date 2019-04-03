@@ -228,23 +228,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Deprecated and unused.
- */
-@interface GTLRAndroidEnterprise_AndroidDevicePolicyConfig : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#androidDevicePolicyConfig".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Deprecated and unused. */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
  *  Represents the list of app restrictions available to be pre-configured for
  *  the product.
  */
@@ -1668,6 +1651,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The auto-install policy for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AutoInstallPolicy *autoInstallPolicy;
 
+/** The managed configuration for the product. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedConfiguration *managedConfiguration;
+
 /** The ID of the product. For example, "app:com.google.android.gm". */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -2256,11 +2242,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  WebApp resource info.
+ *  A WebApps resource represents a web app created for an enterprise. Web apps
+ *  are published to managed Google Play and can be distributed like other
+ *  Android apps. On a user's device, a web app opens its specified URL.
  */
 @interface GTLRAndroidEnterprise_WebApp : GTLRObject
 
-/** The display mode of the web app. */
+/**
+ *  The display mode of the web app.
+ *  Possible values include:
+ *  - "minimalUi", the device's status bar, navigation bar, the app's URL, and a
+ *  refresh button are visible when the app is open. For HTTP URLs, you can only
+ *  select this option.
+ *  - "standalone", the device's status bar and navigation bar are visible when
+ *  the app is open.
+ *  - "fullScreen", the app opens in full screen mode, hiding the device's
+ *  status and navigation bars. All browser UI elements, page URL, system status
+ *  bar and back button are not visible, and the web app takes up the entirety
+ *  of the available display area.
+ */
 @property(nonatomic, copy, nullable) NSString *displayMode;
 
 /**
@@ -2283,8 +2283,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *startUrl;
 
 /**
- *  The title of the web application as displayed to the user (e.g., amongst a
- *  list of other applications, or as a label for an icon).
+ *  The title of the web app as displayed to the user (e.g., amongst a list of
+ *  other applications, or as a label for an icon).
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -2298,7 +2298,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
-/** The ID of the application. */
+/**
+ *  The ID of the application. A string of the form "app:<package name>" where
+ *  the package name always starts with the prefix
+ *  "com.google.enterprise.webapp." followed by a random id.
+ */
 @property(nonatomic, copy, nullable) NSString *webAppId;
 
 @end

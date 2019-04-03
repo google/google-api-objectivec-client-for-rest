@@ -771,7 +771,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  epoch). If specified, the API returns sessions modified since this time. The
  *  page token is ignored if either start or end time is specified. If none of
  *  start time, end time, and the page token is specified, sessions modified in
- *  the last 7 days are returned.
+ *  the last 30 days are returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

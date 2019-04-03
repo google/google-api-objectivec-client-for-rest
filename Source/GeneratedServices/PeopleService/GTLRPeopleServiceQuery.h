@@ -230,6 +230,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  Modify the members of a contact group owned by the authenticated user.
+ *  <br>
+ *  The only system contact groups that can have members added are
+ *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
+ *  contact groups are deprecated and can only have contacts removed.
  *
  *  Method: people.contactGroups.members.modify
  *
@@ -247,6 +251,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Fetches a @c GTLRPeopleService_ModifyContactGroupMembersResponse.
  *
  *  Modify the members of a contact group owned by the authenticated user.
+ *  <br>
+ *  The only system contact groups that can have members added are
+ *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
+ *  contact groups are deprecated and can only have contacts removed.
  *
  *  @param object The @c GTLRPeopleService_ModifyContactGroupMembersRequest to
  *    include in the query.

@@ -143,6 +143,18 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly
  *  Value "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly;
+/**
+ *  Authorization scope: See, create, and edit topics in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.topics"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomTopics;
+/**
+ *  Authorization scope: View topics in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.topics.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomTopicsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRClassroomService

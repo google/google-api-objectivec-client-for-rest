@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Bigtable Admin API (bigtableadmin/v2)
+// Description:
+//   Administer your Cloud Bigtable tables and instances.
 // Documentation:
 //   https://cloud.google.com/bigtable/
 

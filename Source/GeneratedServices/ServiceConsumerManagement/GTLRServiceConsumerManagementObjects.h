@@ -562,7 +562,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @interface GTLRServiceConsumerManagement_AddTenantProjectRequest : GTLRObject
 
 /**
- *  Configuration of the new tenant project that will be added to tenancy unit
+ *  Configuration of the new tenant project to be added to tenancy unit
  *  resources.
  */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_TenantProjectConfig *projectConfig;
@@ -665,14 +665,15 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  When attaching an external project, this is in the format of
- *  `projects/{project_number}’.
+ *  `projects/{project_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *externalResource;
 
 /**
- *  When attaching a reserved project already in Tenancy Units, this is the
- *  tag of tenant resource under the tenancy unit for the service's producer
- *  project. The reserved tenant resource must be in active state.
+ *  When attaching a reserved project already in tenancy units, this is the
+ *  tag of a tenant resource under the tenancy unit for the managed service's
+ *  service producer project. The reserved tenant resource must be in an
+ *  active state.
  */
 @property(nonatomic, copy, nullable) NSString *reservedResource;
 
@@ -1004,7 +1005,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Describes billing configuration for a new tenant project.
+ *  Describes the billing configuration for a new tenant project.
  */
 @interface GTLRServiceConsumerManagement_BillingConfig : GTLRObject
 
@@ -1137,18 +1138,20 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Request to create a tenancy unit for a consumer of a service.
+ *  Request to create a tenancy unit for a service consumer of a managed
+ *  service.
  */
 @interface GTLRServiceConsumerManagement_CreateTenancyUnitRequest : GTLRObject
 
 /**
- *  Optional producer provided identifier of the tenancy unit.
+ *  Optional service producer-provided identifier of the tenancy unit.
  *  Must be no longer than 40 characters and preferably URI friendly.
- *  If it is not provided, a UID for the tenancy unit will be auto generated.
- *  It must be unique across a service.
- *  If the tenancy unit already exists for the service and consumer pair,
- *  `CreateTenancyUnit` will return the existing tenancy unit if the provided
- *  identifier is identical or empty, otherwise the call will fail.
+ *  If it isn't provided, a UID for the tenancy unit is automatically
+ *  generated. The identifier must be unique across a managed service.
+ *  If the tenancy unit already exists for the managed service and service
+ *  consumer pair, calling `CreateTenancyUnit` returns the existing tenancy
+ *  unit if the provided identifier is identical or empty, otherwise the call
+ *  fails.
  */
 @property(nonatomic, copy, nullable) NSString *tenancyUnitId;
 
@@ -1213,6 +1216,17 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /** The path matched by this custom verb. */
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Request message to delete tenant project resource from the tenancy unit.
+ */
+@interface GTLRServiceConsumerManagement_DeleteTenantProjectRequest : GTLRObject
+
+/** Tag of the resource within the tenancy unit. */
+@property(nonatomic, copy, nullable) NSString *tag;
 
 @end
 
@@ -1331,9 +1345,9 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  The selector is a comma-separated list of patterns. Each pattern is a
  *  qualified name of the element which may end in "*", indicating a wildcard.
  *  Wildcards are only allowed at the end and for a whole component of the
- *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". To
- *  specify a default for all applicable elements, the whole pattern "*"
- *  is used.
+ *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
+ *  wildcard will match one or more components. To specify a default for all
+ *  applicable elements, the whole pattern "*" is used.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
@@ -2830,7 +2844,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  Uses the same format as in IAM policy.
- *  `member` must include both prefix and ID. For example, `user:{emailId}`,
+ *  `member` must include both a prefix and ID. For example, `user:{emailId}`,
  *  `serviceAccount:{emailId}`, `group:{emailId}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -2845,7 +2859,46 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  GTLRServiceConsumerManagement_Quota
+ *  Quota configuration helps to achieve fairness and budgeting in service
+ *  usage.
+ *  The metric based quota configuration works this way:
+ *  - The service configuration defines a set of metrics.
+ *  - For API calls, the quota.metric_rules maps methods to metrics with
+ *  corresponding costs.
+ *  - The quota.limits defines limits on the metrics, which will be used for
+ *  quota checks at runtime.
+ *  An example quota configuration in yaml format:
+ *  quota:
+ *  limits:
+ *  - name: apiWriteQpsPerProject
+ *  metric: library.googleapis.com/write_calls
+ *  unit: "1/min/{project}" # rate limit for consumer projects
+ *  values:
+ *  STANDARD: 10000
+ *  # The metric rules bind all methods to the read_calls metric,
+ *  # except for the UpdateBook and DeleteBook methods. These two methods
+ *  # are mapped to the write_calls metric, with the UpdateBook method
+ *  # consuming at twice rate as the DeleteBook method.
+ *  metric_rules:
+ *  - selector: "*"
+ *  metric_costs:
+ *  library.googleapis.com/read_calls: 1
+ *  - selector: google.example.library.v1.LibraryService.UpdateBook
+ *  metric_costs:
+ *  library.googleapis.com/write_calls: 2
+ *  - selector: google.example.library.v1.LibraryService.DeleteBook
+ *  metric_costs:
+ *  library.googleapis.com/write_calls: 1
+ *  Corresponding Metric definition:
+ *  metrics:
+ *  - name: library.googleapis.com/read_calls
+ *  display_name: Read requests
+ *  metric_kind: DELTA
+ *  value_type: INT64
+ *  - name: library.googleapis.com/write_calls
+ *  display_name: Write requests
+ *  metric_kind: DELTA
+ *  value_type: INT64
  */
 @interface GTLRServiceConsumerManagement_Quota : GTLRObject
 
@@ -2985,7 +3038,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Request message to remove tenant project resource from the tenancy unit.
+ *  Request message to remove a tenant project resource from the tenancy unit.
  */
 @interface GTLRServiceConsumerManagement_RemoveTenantProjectRequest : GTLRObject
 
@@ -3187,17 +3240,17 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Describes service account configuration for the tenant project.
+ *  Describes the service account configuration for the tenant project.
  */
 @interface GTLRServiceConsumerManagement_ServiceAccountConfig : GTLRObject
 
 /**
  *  ID of the IAM service account to be created in tenant project.
- *  The email format of the service account will be
+ *  The email format of the service account is
  *  "<account-id>\@<tenant-project-id>.iam.gserviceaccount.com".
- *  This account id has to be unique within tenant project and producers
- *  have to guarantee it. And it must be 6-30 characters long, and matches the
- *  regular expression `[a-z]([-a-z0-9]*[a-z0-9])`.
+ *  This account ID must be unique within tenant project and service
+ *  producers have to guarantee it. The ID must be 6-30 characters long, and
+ *  match the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])`.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -3437,7 +3490,8 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  \@OutputOnly Google Cloud API name of the service owning this tenancy unit.
+ *  Output only. Google Cloud API name of the managed service owning this
+ *  tenancy unit.
  *  For example 'serviceconsumermanagement.googleapis.com'.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -3453,35 +3507,34 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 /**
  *  This structure defines a tenant project to be added to the specified tenancy
- *  unit and its initial configuration and properties. A project lien will be
- *  created for the tenant project to prevent the tenant project from being
- *  deleted accidentally. The lien will be deleted as part of tenant project
- *  removal.
+ *  unit and its initial configuration and properties. A project lien is created
+ *  for the tenant project to prevent the tenant project from being deleted
+ *  accidentally. The lien is deleted as part of tenant project removal.
  */
 @interface GTLRServiceConsumerManagement_TenantProjectConfig : GTLRObject
 
-/** Billing account properties. Billing account must be specified. */
+/** Billing account properties. The billing account must be specified. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_BillingConfig *billingConfig;
 
 /**
  *  Folder where project in this tenancy unit must be located
- *  This folder must have been previously created with proper
+ *  This folder must have been previously created with the required
  *  permissions for the caller to create and configure a project in it.
  *  Valid folder resource names have the format `folders/{folder_number}`
  *  (for example, `folders/123456`).
  */
 @property(nonatomic, copy, nullable) NSString *folder;
 
-/** Labels that will be applied to this project. */
+/** Labels that are applied to this project. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_TenantProjectConfig_Labels *labels;
 
-/** Configuration for IAM service account on tenant project. */
+/** Configuration for the IAM service account on the tenant project. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_ServiceAccountConfig *serviceAccountConfig;
 
 /**
- *  Google Cloud API names of services that will be activated on this project
- *  during provisioning. If any of these services can not be activated,
- *  request will fail.
+ *  Google Cloud API names of services that are activated on this project
+ *  during provisioning. If any of these services can't be activated,
+ *  the request fails.
  *  For example: 'compute.googleapis.com','cloudfunctions.googleapis.com'
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
@@ -3493,7 +3546,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Labels that will be applied to this project.
+ *  Labels that are applied to this project.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3515,8 +3568,8 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  'roles/owner' role granted to the Service Consumer Management service
  *  account.
  *  At least one binding must have the role `roles/owner`. Among the list of
- *  members for `roles/owner`, at least one of them must be either `user` or
- *  `group` type.
+ *  members for `roles/owner`, at least one of them must be either the `user`
+ *  or `group` type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_PolicyBinding *> *policyBindings;
 
@@ -3591,6 +3644,18 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *        `proto3`. (Value: "SYNTAX_PROTO3")
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
+
+@end
+
+
+/**
+ *  Request message to undelete tenant project resource previously deleted from
+ *  the tenancy unit.
+ */
+@interface GTLRServiceConsumerManagement_UndeleteTenantProjectRequest : GTLRObject
+
+/** Tag of the resource within the tenancy unit. */
+@property(nonatomic, copy, nullable) NSString *tag;
 
 @end
 

@@ -13,6 +13,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAnalyticsReporting_Activity.activityType
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_ActivityTypeUnspecified = @"ACTIVITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Ecommerce = @"ECOMMERCE";
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Event = @"EVENT";
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Goal = @"GOAL";
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Pageview = @"PAGEVIEW";
+NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Screenview = @"SCREENVIEW";
+
 // GTLRAnalyticsReporting_Cohort.type
 NSString * const kGTLRAnalyticsReporting_Cohort_Type_FirstVisitDate = @"FIRST_VISIT_DATE";
 NSString * const kGTLRAnalyticsReporting_Cohort_Type_UnspecifiedCohortType = @"UNSPECIFIED_COHORT_TYPE";
@@ -33,6 +41,22 @@ NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Regexp
 NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_And = @"AND";
 NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_Or = @"OR";
+
+// GTLRAnalyticsReporting_EcommerceData.actionType
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_AddToCart = @"ADD_TO_CART";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Checkout = @"CHECKOUT";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_CheckoutOption = @"CHECKOUT_OPTION";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Click = @"CLICK";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_DetailsView = @"DETAILS_VIEW";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Payment = @"PAYMENT";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Refund = @"REFUND";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_RemoveFromCart = @"REMOVE_FROM_CART";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Unknown = @"UNKNOWN";
+
+// GTLRAnalyticsReporting_EcommerceData.ecommerceType
+NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Classic = @"CLASSIC";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_EcommerceTypeUnspecified = @"ECOMMERCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Enhanced = @"ENHANCED";
 
 // GTLRAnalyticsReporting_Metric.formattingType
 NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Currency = @"CURRENCY";
@@ -81,6 +105,14 @@ NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large = @"L
 NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_SamplingUnspecified = @"SAMPLING_UNSPECIFIED";
 NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small = @"SMALL";
 
+// GTLRAnalyticsReporting_SearchUserActivityRequest.activityTypes
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_ActivityTypeUnspecified = @"ACTIVITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Ecommerce = @"ECOMMERCE";
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Event = @"EVENT";
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Goal = @"GOAL";
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Pageview = @"PAGEVIEW";
+NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Screenview = @"SCREENVIEW";
+
 // GTLRAnalyticsReporting_SegmentDimensionFilter.operatorProperty
 NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_BeginsWith = @"BEGINS_WITH";
 NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_EndsWith = @"ENDS_WITH";
@@ -111,6 +143,31 @@ NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_User = @"USER
 NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_ImmediatelyPrecedes = @"IMMEDIATELY_PRECEDES";
 NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Precedes = @"PRECEDES";
 NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_UnspecifiedMatchType = @"UNSPECIFIED_MATCH_TYPE";
+
+// GTLRAnalyticsReporting_User.type
+NSString * const kGTLRAnalyticsReporting_User_Type_ClientId    = @"CLIENT_ID";
+NSString * const kGTLRAnalyticsReporting_User_Type_UserId      = @"USER_ID";
+NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified = @"USER_ID_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_Activity
+//
+
+@implementation GTLRAnalyticsReporting_Activity
+@dynamic activityTime, activityType, appview, campaign, channelGrouping,
+         customDimension, ecommerce, event, goals, hostname, keyword,
+         landingPagePath, medium, pageview, source;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customDimension" : [GTLRAnalyticsReporting_CustomDimension class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -155,6 +212,16 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_CustomDimension
+//
+
+@implementation GTLRAnalyticsReporting_CustomDimension
+@dynamic index, value;
 @end
 
 
@@ -266,6 +333,34 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsReporting_EcommerceData
+//
+
+@implementation GTLRAnalyticsReporting_EcommerceData
+@dynamic actionType, ecommerceType, products, transaction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [GTLRAnalyticsReporting_ProductData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_EventData
+//
+
+@implementation GTLRAnalyticsReporting_EventData
+@dynamic eventAction, eventCategory, eventCount, eventLabel, eventValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsReporting_GetReportsRequest
 //
 
@@ -293,6 +388,35 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"reports" : [GTLRAnalyticsReporting_Report class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_GoalData
+//
+
+@implementation GTLRAnalyticsReporting_GoalData
+@dynamic goalCompletionLocation, goalCompletions, goalIndex, goalName,
+         goalPreviousStep1, goalPreviousStep2, goalPreviousStep3, goalValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_GoalSetData
+//
+
+@implementation GTLRAnalyticsReporting_GoalSetData
+@dynamic goals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goals" : [GTLRAnalyticsReporting_GoalData class]
   };
   return map;
 }
@@ -410,6 +534,16 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsReporting_PageviewData
+//
+
+@implementation GTLRAnalyticsReporting_PageviewData
+@dynamic pagePath, pageTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsReporting_Pivot
 //
 
@@ -480,6 +614,16 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_ProductData
+//
+
+@implementation GTLRAnalyticsReporting_ProductData
+@dynamic itemRevenue, productName, productQuantity, productSku;
 @end
 
 
@@ -571,6 +715,56 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 
 @implementation GTLRAnalyticsReporting_ResourceQuotasRemaining
 @dynamic dailyQuotaTokensRemaining, hourlyQuotaTokensRemaining;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_ScreenviewData
+//
+
+@implementation GTLRAnalyticsReporting_ScreenviewData
+@dynamic appName, mobileDeviceBranding, mobileDeviceModel, screenName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_SearchUserActivityRequest
+//
+
+@implementation GTLRAnalyticsReporting_SearchUserActivityRequest
+@dynamic activityTypes, dateRange, pageSize, pageToken, user, viewId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activityTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_SearchUserActivityResponse
+//
+
+@implementation GTLRAnalyticsReporting_SearchUserActivityResponse
+@dynamic nextPageToken, sampleRate, sessions, totalRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sessions" : [GTLRAnalyticsReporting_UserActivitySession class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessions";
+}
+
 @end
 
 
@@ -718,6 +912,45 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"orFiltersForSegment" : [GTLRAnalyticsReporting_OrFiltersForSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_TransactionData
+//
+
+@implementation GTLRAnalyticsReporting_TransactionData
+@dynamic transactionId, transactionRevenue, transactionShipping, transactionTax;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_User
+//
+
+@implementation GTLRAnalyticsReporting_User
+@dynamic type, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsReporting_UserActivitySession
+//
+
+@implementation GTLRAnalyticsReporting_UserActivitySession
+@dynamic activities, dataSource, deviceCategory, platform, sessionDate,
+         sessionId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activities" : [GTLRAnalyticsReporting_Activity class]
   };
   return map;
 }

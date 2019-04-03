@@ -594,6 +594,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig
+@dynamic context, cryptoKey, surrogateInfoType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig
 //
 
@@ -1786,9 +1796,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation
-@dynamic bucketingConfig, characterMaskConfig, cryptoHashConfig,
-         cryptoReplaceFfxFpeConfig, dateShiftConfig, fixedSizeBucketingConfig,
-         redactConfig, replaceConfig, replaceWithInfoTypeConfig, timePartConfig;
+@dynamic bucketingConfig, characterMaskConfig, cryptoDeterministicConfig,
+         cryptoHashConfig, cryptoReplaceFfxFpeConfig, dateShiftConfig,
+         fixedSizeBucketingConfig, redactConfig, replaceConfig,
+         replaceWithInfoTypeConfig, timePartConfig;
 @end
 
 

@@ -131,7 +131,8 @@
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic backendType, connectionName, currentDiskSize, databaseVersion, ETag,
+@dynamic backendType, connectionName, currentDiskSize, databaseVersion,
+         diskEncryptionConfiguration, diskEncryptionStatus, ETag,
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
          project, region, replicaConfiguration, replicaNames, selfLink,
@@ -209,6 +210,26 @@
 
 @implementation GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration
 @dynamic caCertificate, clientCertificate, clientKey, kind, password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DiskEncryptionConfiguration
+//
+
+@implementation GTLRSQLAdmin_DiskEncryptionConfiguration
+@dynamic kind, kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DiskEncryptionStatus
+//
+
+@implementation GTLRSQLAdmin_DiskEncryptionStatus
+@dynamic kind, kmsKeyVersionName;
 @end
 
 

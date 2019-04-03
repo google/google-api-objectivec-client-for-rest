@@ -328,6 +328,34 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
+//
+
+@implementation GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
+@dynamic requestedRunTime, requestedTimeRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_StartManualTransferRunsResponse
+//
+
+@implementation GTLRBigQueryDataTransfer_StartManualTransferRunsResponse
+@dynamic runs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"runs" : [GTLRBigQueryDataTransfer_TransferRun class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_Status
 //
 
@@ -355,6 +383,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_TimeRange
+//
+
+@implementation GTLRBigQueryDataTransfer_TimeRange
+@dynamic endTime, startTime;
 @end
 
 

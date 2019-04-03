@@ -1091,10 +1091,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 
 /**
  *  Response containing existing `BuildTriggers`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "triggers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudBuild_ListBuildTriggersResponse : GTLRObject
+@interface GTLRCloudBuild_ListBuildTriggersResponse : GTLRCollectionObject
 
-/** `BuildTriggers` for the project, sorted by `create_time` descending. */
+/** Token to receive the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  `BuildTriggers` for the project, sorted by `create_time` descending.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuildTrigger *> *triggers;
 
 @end

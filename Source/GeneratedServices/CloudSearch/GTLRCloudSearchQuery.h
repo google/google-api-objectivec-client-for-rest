@@ -881,8 +881,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsUploadWithObject:name:]
 
 /**
- *  Name of the Data Source to start a resumable upload.
- *  Format: datasources/{source_id}
+ *  Name of the Item to start a resumable upload.
+ *  Format: datasources/{source_id}/items/{item_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -896,8 +896,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *
  *  @param object The @c GTLRCloudSearch_StartUploadItemRequest to include in
  *    the query.
- *  @param name Name of the Data Source to start a resumable upload.
- *    Format: datasources/{source_id}
+ *  @param name Name of the Item to start a resumable upload.
+ *    Format: datasources/{source_id}/items/{item_id}.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUpload
  */
@@ -1577,7 +1577,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
- *  Gets indexed item statistics aggreggated across all data sources.
+ *  Gets indexed item statistics aggreggated across all data sources. This
+ *  API only returns statistics for previous dates; it doesn't return
+ *  statistics for the current day.
  *
  *  Method: cloudsearch.stats.getIndex
  *
@@ -1611,7 +1613,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Fetches a @c GTLRCloudSearch_GetCustomerIndexStatsResponse.
  *
- *  Gets indexed item statistics aggreggated across all data sources.
+ *  Gets indexed item statistics aggreggated across all data sources. This
+ *  API only returns statistics for previous dates; it doesn't return
+ *  statistics for the current day.
  *
  *  @return GTLRCloudSearchQuery_StatsGetIndex
  */

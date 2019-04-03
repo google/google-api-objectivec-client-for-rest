@@ -3564,6 +3564,35 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesGetShieldedInstanceIdentity
+
+@dynamic instance, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/getShieldedInstanceIdentity";
+  GTLRComputeQuery_InstancesGetShieldedInstanceIdentity *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_ShieldedInstanceIdentity class];
+  query.loggingName = @"compute.instances.getShieldedInstanceIdentity";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesInsert
 
 @dynamic project, requestId, sourceInstanceTemplate, zoneProperty;
@@ -4025,6 +4054,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy
+
+@dynamic instance, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ShieldedInstanceIntegrityPolicy *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setShieldedInstanceIntegrityPolicy";
+  GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.setShieldedInstanceIntegrityPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesSetTags
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -4286,6 +4350,41 @@
   query.networkInterface = networkInterface;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instances.updateNetworkInterface";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig
+
+@dynamic instance, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ShieldedInstanceConfig *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateShieldedInstanceConfig";
+  GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.updateShieldedInstanceConfig";
   return query;
 }
 
@@ -5091,6 +5190,284 @@
   query.zoneProperty = zoneProperty;
   query.expectedObjectClass = [GTLRCompute_MachineTypeList class];
   query.loggingName = @"compute.machineTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/networkEndpointGroups";
+  GTLRComputeQuery_NetworkEndpointGroupsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupAggregatedList class];
+  query.loggingName = @"compute.networkEndpointGroups.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints
+
+@dynamic networkEndpointGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
+  GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkEndpointGroups.attachNetworkEndpoints";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsDelete
+
+@dynamic networkEndpointGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            networkEndpointGroup:(NSString *)networkEndpointGroup {
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
+  GTLRComputeQuery_NetworkEndpointGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkEndpointGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints
+
+@dynamic networkEndpointGroup, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
+  GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkEndpointGroups.detachNetworkEndpoints";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsGet
+
+@dynamic networkEndpointGroup, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            networkEndpointGroup:(NSString *)networkEndpointGroup {
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
+  GTLRComputeQuery_NetworkEndpointGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroup class];
+  query.loggingName = @"compute.networkEndpointGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsInsert
+
+@dynamic project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups";
+  GTLRComputeQuery_NetworkEndpointGroupsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkEndpointGroups.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty {
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups";
+  GTLRComputeQuery_NetworkEndpointGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupList class];
+  query.loggingName = @"compute.networkEndpointGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints
+
+@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
+         zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsListEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
+  GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints class];
+  query.loggingName = @"compute.networkEndpointGroups.listNetworkEndpoints";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{resource}/testIamPermissions";
+  GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.networkEndpointGroups.testIamPermissions";
   return query;
 }
 

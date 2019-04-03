@@ -32,6 +32,8 @@
 @class GTLRSQLAdmin_DemoteMasterConfiguration;
 @class GTLRSQLAdmin_DemoteMasterContext;
 @class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
+@class GTLRSQLAdmin_DiskEncryptionConfiguration;
+@class GTLRSQLAdmin_DiskEncryptionStatus;
 @class GTLRSQLAdmin_ExportContext;
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
@@ -387,10 +389,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The database engine type and version. The databaseVersion field can not be
  *  changed after instance creation. MySQL Second Generation instances:
- *  MYSQL_5_7 (default) or MYSQL_5_6. PostgreSQL instances: POSTGRES_9_6 MySQL
- *  First Generation instances: MYSQL_5_6 (default) or MYSQL_5_5
+ *  MYSQL_5_7 (default) or MYSQL_5_6. PostgreSQL instances: POSTGRES_9_6
+ *  (default) or POSTGRES_11 Beta. MySQL First Generation instances: MYSQL_5_6
+ *  (default) or MYSQL_5_5
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
+ *  Disk encryption configuration specific to an instance. Applies only to
+ *  Second Generation instances.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionConfiguration *diskEncryptionConfiguration;
+
+/**
+ *  Disk encryption status specific to an instance. Applies only to Second
+ *  Generation instances.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionStatus *diskEncryptionStatus;
 
 /**
  *  This field is deprecated and will be removed from a future version of the
@@ -635,6 +650,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The username for the replication connection. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Disk encryption configuration.
+ */
+@interface GTLRSQLAdmin_DiskEncryptionConfiguration : GTLRObject
+
+/** This is always sql#diskEncryptionConfiguration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** KMS key resource name */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Disk encryption status.
+ */
+@interface GTLRSQLAdmin_DiskEncryptionStatus : GTLRObject
+
+/** This is always sql#diskEncryptionStatus. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** KMS key version used to encrypt the Cloud SQL instance disk */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 @end
 

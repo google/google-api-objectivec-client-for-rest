@@ -238,6 +238,31 @@
 
 @end
 
+@implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDeleteProject
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_DeleteTenantProjectRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteProject";
+  GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDeleteProject *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceConsumerManagement_Operation class];
+  query.loggingName = @"serviceconsumermanagement.services.tenancyUnits.deleteProject";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -277,6 +302,31 @@
   query.name = name;
   query.expectedObjectClass = [GTLRServiceConsumerManagement_Operation class];
   query.loggingName = @"serviceconsumermanagement.services.tenancyUnits.removeProject";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsUndeleteProject
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceConsumerManagement_UndeleteTenantProjectRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undeleteProject";
+  GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsUndeleteProject *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceConsumerManagement_Operation class];
+  query.loggingName = @"serviceconsumermanagement.services.tenancyUnits.undeleteProject";
   return query;
 }
 

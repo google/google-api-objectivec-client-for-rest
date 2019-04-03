@@ -1003,6 +1003,137 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesTopicsCreate
+
+@dynamic courseId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_Topic *)object
+                       courseId:(NSString *)courseId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics";
+  GTLRClassroomQuery_CoursesTopicsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_Topic class];
+  query.loggingName = @"classroom.courses.topics.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesTopicsDelete
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics/{id}";
+  GTLRClassroomQuery_CoursesTopicsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.topics.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesTopicsGet
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics/{id}";
+  GTLRClassroomQuery_CoursesTopicsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Topic class];
+  query.loggingName = @"classroom.courses.topics.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesTopicsList
+
+@dynamic courseId, pageSize, pageToken;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId {
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics";
+  GTLRClassroomQuery_CoursesTopicsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_ListTopicResponse class];
+  query.loggingName = @"classroom.courses.topics.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesTopicsPatch
+
+@dynamic courseId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_Topic *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/topics/{id}";
+  GTLRClassroomQuery_CoursesTopicsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Topic class];
+  query.loggingName = @"classroom.courses.topics.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesUpdate
 
 @dynamic identifier;

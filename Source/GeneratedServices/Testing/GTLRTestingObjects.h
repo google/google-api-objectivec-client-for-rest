@@ -2463,20 +2463,6 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidTestLoop *androidTestLoop;
 
 /**
- *  Enables automatic Google account login.
- *  If set, the service will automatically generate a Google test account and
- *  add it to the device, before executing the test. Note that test accounts
- *  might be reused.
- *  Many applications show their full set of functionalities when an account is
- *  present on the device. Logging into the device with these generated
- *  accounts allows testing more functionalities.
- *  Default is false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoGoogleLogin;
-
-/**
  *  Disables performance metrics recording; may reduce test latency.
  *
  *  Uses NSNumber of boolValue.

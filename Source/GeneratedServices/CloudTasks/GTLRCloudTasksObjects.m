@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tasks API (cloudtasks/v2beta3)
+//   Cloud Tasks API (cloudtasks/v2)
 // Description:
 //   Manages the execution of large numbers of distributed requests.
 // Documentation:
@@ -43,16 +43,6 @@ NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_ViewUnspecified = @
 NSString * const kGTLRCloudTasks_Task_View_Basic           = @"BASIC";
 NSString * const kGTLRCloudTasks_Task_View_Full            = @"FULL";
 NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTasks_AppEngineHttpQueue
-//
-
-@implementation GTLRCloudTasks_AppEngineHttpQueue
-@dynamic appEngineRoutingOverride;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -309,7 +299,8 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_Queue
-@dynamic appEngineHttpQueue, name, purgeTime, rateLimits, retryConfig, state;
+@dynamic appEngineRoutingOverride, name, purgeTime, rateLimits, retryConfig,
+         state;
 @end
 
 

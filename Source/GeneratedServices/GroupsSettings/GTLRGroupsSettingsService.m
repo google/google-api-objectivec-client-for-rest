@@ -4,7 +4,7 @@
 // API:
 //   Groups Settings API (groupssettings/v1)
 // Description:
-//   Lets you manage permission levels and related settings of a group.
+//   Manages permission levels and related settings of a group.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-settings/get_started
 

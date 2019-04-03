@@ -43,6 +43,27 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
+
+/** Value: "DATA_PROTECTION_MODE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified;
+/**
+ *  Instance failover will be performed without data loss control.
+ *
+ *  Value: "FORCE_DATA_LOSS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss;
+/**
+ *  Instance failover will be protected with data loss control. More
+ *  specifically, the failover will only be performed if the current
+ *  replication offset diff between master and replica is under a certain
+ *  threshold.
+ *
+ *  Value: "LIMITED_DATA_LOSS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.state
 
 /**
@@ -128,6 +149,32 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudRedis_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request for Failover.
+ */
+@interface GTLRCloudRedis_FailoverInstanceRequest : GTLRObject
+
+/**
+ *  Optional. Available data protection modes that the user can choose. If it's
+ *  unspecified, data protection mode will be LIMITED_DATA_LOSS by default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified
+ *        Value "DATA_PROTECTION_MODE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss
+ *        Instance failover will be performed without data loss control. (Value:
+ *        "FORCE_DATA_LOSS")
+ *    @arg @c kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss
+ *        Instance failover will be protected with data loss control. More
+ *        specifically, the failover will only be performed if the current
+ *        replication offset diff between master and replica is under a certain
+ *        threshold. (Value: "LIMITED_DATA_LOSS")
+ */
+@property(nonatomic, copy, nullable) NSString *dataProtectionMode;
+
 @end
 
 
@@ -637,15 +684,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

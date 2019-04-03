@@ -1003,6 +1003,26 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertPageBreakRequest
+//
+
+@implementation GTLRDocs_InsertPageBreakRequest
+@dynamic endOfSegmentLocation, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_InsertTableRequest
+//
+
+@implementation GTLRDocs_InsertTableRequest
+@dynamic columns, endOfSegmentLocation, location, rows;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertTableRowRequest
 //
 
@@ -1542,8 +1562,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @implementation GTLRDocs_Request
 @dynamic createNamedRange, createParagraphBullets, deleteContentRange,
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
-         deleteTableColumn, deleteTableRow, insertInlineImage, insertTableRow,
-         insertText, replaceAllText, updateParagraphStyle, updateTextStyle;
+         deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
+         insertTable, insertTableRow, insertText, replaceAllText,
+         updateParagraphStyle, updateTextStyle;
 @end
 
 
@@ -2104,5 +2125,5 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_WriteControl
-@dynamic requiredRevisionId;
+@dynamic requiredRevisionId, targetRevisionId;
 @end
