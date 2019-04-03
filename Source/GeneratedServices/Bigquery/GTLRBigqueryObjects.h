@@ -21,6 +21,9 @@
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
+@class GTLRBigquery_BqmlIterationResult;
+@class GTLRBigquery_BqmlTrainingRun;
+@class GTLRBigquery_BqmlTrainingRun_TrainingOptions;
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
@@ -36,7 +39,6 @@
 @class GTLRBigquery_ExplainQueryStep;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_GoogleSheetsOptions;
-@class GTLRBigquery_IterationResult;
 @class GTLRBigquery_Job;
 @class GTLRBigquery_JobConfiguration;
 @class GTLRBigquery_JobConfiguration_Labels;
@@ -69,6 +71,7 @@
 @class GTLRBigquery_QueryTimelineSample;
 @class GTLRBigquery_RangePartitioning;
 @class GTLRBigquery_RangePartitioning_Range;
+@class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -83,8 +86,6 @@
 @class GTLRBigquery_TableRow;
 @class GTLRBigquery_TableSchema;
 @class GTLRBigquery_TimePartitioning;
-@class GTLRBigquery_TrainingRun;
-@class GTLRBigquery_TrainingRun_TrainingOptions;
 @class GTLRBigquery_UserDefinedFunctionResource;
 @class GTLRBigquery_ViewDefinition;
 
@@ -239,6 +240,159 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *readRowkeyAsString;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BqmlIterationResult
+ */
+@interface GTLRBigquery_BqmlIterationResult : GTLRObject
+
+/**
+ *  [Output-only, Beta] Time taken to run the training iteration in
+ *  milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
+
+/**
+ *  [Output-only, Beta] Eval loss computed on the eval data at the end of the
+ *  iteration. The eval loss is used for early stopping to avoid overfitting. No
+ *  eval loss if eval_split_method option is specified as no_split or auto_split
+ *  with input data size less than 500 rows.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evalLoss;
+
+/**
+ *  [Output-only, Beta] Index of the ML training iteration, starting from zero
+ *  for each training run.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  [Output-only, Beta] Learning rate used for this iteration, it varies for
+ *  different training iterations if learn_rate_strategy option is not constant.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *learnRate;
+
+/**
+ *  [Output-only, Beta] Training loss computed on the training data at the end
+ *  of the iteration. The training loss function is defined by model type.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainingLoss;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BqmlTrainingRun
+ */
+@interface GTLRBigquery_BqmlTrainingRun : GTLRObject
+
+/** [Output-only, Beta] List of each iteration results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BqmlIterationResult *> *iterationResults;
+
+/**
+ *  [Output-only, Beta] Training run start time in milliseconds since the epoch.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  [Output-only, Beta] Different state applicable for a training run. IN
+ *  PROGRESS: Training run is in progress. FAILED: Training run ended due to a
+ *  non-retryable failure. SUCCEEDED: Training run successfully completed.
+ *  CANCELLED: Training run cancelled by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  [Output-only, Beta] Training options used by this training run. These
+ *  options are mutable for subsequent training runs. Default values are
+ *  explicitly stored for options not specified in the input query of the first
+ *  training run. For subsequent training runs, any option not explicitly
+ *  specified in the input query will be copied from the previous training run.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_BqmlTrainingRun_TrainingOptions *trainingOptions;
+
+@end
+
+
+/**
+ *  [Output-only, Beta] Training options used by this training run. These
+ *  options are mutable for subsequent training runs. Default values are
+ *  explicitly stored for options not specified in the input query of the first
+ *  training run. For subsequent training runs, any option not explicitly
+ *  specified in the input query will be copied from the previous training run.
+ */
+@interface GTLRBigquery_BqmlTrainingRun_TrainingOptions : GTLRObject
+
+/**
+ *  earlyStop
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *earlyStop;
+
+/**
+ *  l1Reg
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *l1Reg;
+
+/**
+ *  l2Reg
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *l2Reg;
+
+/**
+ *  learnRate
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *learnRate;
+
+@property(nonatomic, copy, nullable) NSString *learnRateStrategy;
+
+/**
+ *  lineSearchInitLearnRate
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineSearchInitLearnRate;
+
+/**
+ *  maxIteration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIteration;
+
+/**
+ *  minRelProgress
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minRelProgress;
+
+/**
+ *  warmStart
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *warmStart;
 
 @end
 
@@ -1165,56 +1319,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBigquery_IterationResult
- */
-@interface GTLRBigquery_IterationResult : GTLRObject
-
-/**
- *  [Output-only, Beta] Time taken to run the training iteration in
- *  milliseconds.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *durationMs;
-
-/**
- *  [Output-only, Beta] Eval loss computed on the eval data at the end of the
- *  iteration. The eval loss is used for early stopping to avoid overfitting. No
- *  eval loss if eval_split_method option is specified as no_split or auto_split
- *  with input data size less than 500 rows.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *evalLoss;
-
-/**
- *  [Output-only, Beta] Index of the ML training iteration, starting from zero
- *  for each training run.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *index;
-
-/**
- *  [Output-only, Beta] Learning rate used for this iteration, it varies for
- *  different training iterations if learn_rate_strategy option is not constant.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *learnRate;
-
-/**
- *  [Output-only, Beta] Training loss computed on the training data at the end
- *  of the iteration. The training loss function is defined by model type.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *trainingLoss;
-
-@end
-
-
-/**
  *  GTLRBigquery_Job
  */
 @interface GTLRBigquery_Job : GTLRObject
@@ -2109,6 +2213,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
 
+/**
+ *  The DDL target routine. Present only for CREATE/DROP FUNCTION/PROCEDURE
+ *  queries.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RoutineReference *ddlTargetRoutine;
+
 /** The DDL target table. Present only for CREATE/DROP TABLE/VIEW queries. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
@@ -2175,8 +2285,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT.
  *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ... .
  *  "DROP_TABLE": DROP TABLE query. "CREATE_VIEW": CREATE [OR REPLACE] VIEW ...
- *  AS SELECT ... . "DROP_VIEW": DROP VIEW query. "ALTER_TABLE": ALTER TABLE
- *  query. "ALTER_VIEW": ALTER VIEW query.
+ *  AS SELECT ... . "DROP_VIEW": DROP VIEW query. "CREATE_FUNCTION": CREATE
+ *  FUNCTION query. "DROP_FUNCTION" : DROP FUNCTION query. "ALTER_TABLE": ALTER
+ *  TABLE query. "ALTER_VIEW": ALTER VIEW query.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
 
@@ -2398,7 +2509,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the model if warm start is used or if a user decides to continue a
  *  previously cancelled query.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TrainingRun *> *trainingRuns;
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BqmlTrainingRun *> *trainingRuns;
 
 @end
 
@@ -2891,6 +3002,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
+ *  GTLRBigquery_RoutineReference
+ */
+@interface GTLRBigquery_RoutineReference : GTLRObject
+
+/** [Required] The ID of the dataset containing this routine. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** [Required] The ID of the project containing this routine. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  [Required] The ID of the routine. The ID must contain only letters (a-z,
+ *  A-Z), numbers (0-9), or underscores (_). The maximum length is 256
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *routineId;
 
 @end
 
@@ -3540,109 +3672,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  per day.
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  GTLRBigquery_TrainingRun
- */
-@interface GTLRBigquery_TrainingRun : GTLRObject
-
-/** [Output-only, Beta] List of each iteration results. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
-
-/**
- *  [Output-only, Beta] Training run start time in milliseconds since the epoch.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  [Output-only, Beta] Different state applicable for a training run. IN
- *  PROGRESS: Training run is in progress. FAILED: Training run ended due to a
- *  non-retryable failure. SUCCEEDED: Training run successfully completed.
- *  CANCELLED: Training run cancelled by the user.
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  [Output-only, Beta] Training options used by this training run. These
- *  options are mutable for subsequent training runs. Default values are
- *  explicitly stored for options not specified in the input query of the first
- *  training run. For subsequent training runs, any option not explicitly
- *  specified in the input query will be copied from the previous training run.
- */
-@property(nonatomic, strong, nullable) GTLRBigquery_TrainingRun_TrainingOptions *trainingOptions;
-
-@end
-
-
-/**
- *  [Output-only, Beta] Training options used by this training run. These
- *  options are mutable for subsequent training runs. Default values are
- *  explicitly stored for options not specified in the input query of the first
- *  training run. For subsequent training runs, any option not explicitly
- *  specified in the input query will be copied from the previous training run.
- */
-@interface GTLRBigquery_TrainingRun_TrainingOptions : GTLRObject
-
-/**
- *  earlyStop
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *earlyStop;
-
-/**
- *  l1Reg
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *l1Reg;
-
-/**
- *  l2Reg
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *l2Reg;
-
-/**
- *  learnRate
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *learnRate;
-
-@property(nonatomic, copy, nullable) NSString *learnRateStrategy;
-
-/**
- *  lineSearchInitLearnRate
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *lineSearchInitLearnRate;
-
-/**
- *  maxIteration
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxIteration;
-
-/**
- *  minRelProgress
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minRelProgress;
-
-/**
- *  warmStart
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *warmStart;
 
 @end
 

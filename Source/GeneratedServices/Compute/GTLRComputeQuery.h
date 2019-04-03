@@ -64,6 +64,10 @@
 @class GTLRCompute_License;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
+@class GTLRCompute_NetworkEndpointGroup;
+@class GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest;
+@class GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest;
+@class GTLRCompute_NetworkEndpointGroupsListEndpointsRequest;
 @class GTLRCompute_NetworkInterface;
 @class GTLRCompute_NetworksAddPeeringRequest;
 @class GTLRCompute_NetworksRemovePeeringRequest;
@@ -93,6 +97,8 @@
 @class GTLRCompute_SecurityPolicy;
 @class GTLRCompute_SecurityPolicyReference;
 @class GTLRCompute_SecurityPolicyRule;
+@class GTLRCompute_ShieldedInstanceConfig;
+@class GTLRCompute_ShieldedInstanceIntegrityPolicy;
 @class GTLRCompute_SignedUrlKey;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
@@ -8145,6 +8151,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the Shielded Instance Identity of an instance
+ *
+ *  Method: compute.instances.getShieldedInstanceIdentity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetShieldedInstanceIdentity : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesGetShieldedInstanceIdentityWithproject:zoneProperty:instance:]
+
+/** Name or id of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ShieldedInstanceIdentity.
+ *
+ *  Returns the Shielded Instance Identity of an instance
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name or id of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesGetShieldedInstanceIdentity
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Creates an instance resource in the specified project using the data
  *  included in the request.
  *
@@ -9082,6 +9132,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the Shielded Instance integrity policy for an instance. You can only
+ *  use this method on a running instance. This method supports PATCH semantics
+ *  and uses the JSON merge patch format and processing rules.
+ *
+ *  Method: compute.instances.setShieldedInstanceIntegrityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetShieldedInstanceIntegrityPolicyWithObject:project:zoneProperty:instance:]
+
+/** Name or id of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Shielded Instance integrity policy for an instance. You can only
+ *  use this method on a running instance. This method supports PATCH semantics
+ *  and uses the JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_ShieldedInstanceIntegrityPolicy to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name or id of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ShieldedInstanceIntegrityPolicy *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Sets network tags for the specified instance to the data included in the
  *  request.
  *
@@ -9552,6 +9666,70 @@ NS_ASSUME_NONNULL_BEGIN
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance
                networkInterface:(NSString *)networkInterface;
+
+@end
+
+/**
+ *  Updates the Shielded Instance config for an instance. You can only use this
+ *  method on a stopped instance. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  Method: compute.instances.updateShieldedInstanceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesUpdateShieldedInstanceConfigWithObject:project:zoneProperty:instance:]
+
+/** Name or id of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the Shielded Instance config for an instance. You can only use this
+ *  method on a stopped instance. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_ShieldedInstanceConfig to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name or id of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ShieldedInstanceConfig *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
 
 @end
 
@@ -11323,6 +11501,646 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *
+ *  Method: compute.networkEndpointGroups.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsAggregatedListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupAggregatedList.
+ *
+ *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Attach a list of network endpoints to the specified network endpoint group.
+ *
+ *  Method: compute.networkEndpointGroups.attachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsAttachNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group where you are attaching network
+ *  endpoints to. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Attach a list of network endpoints to the specified network endpoint group.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group where you
+ *    are attaching network endpoints to. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Deletes the specified network endpoint group. The network endpoints in the
+ *  NEG and the VM instances they belong to are not terminated when the NEG is
+ *  deleted. Note that the NEG cannot be deleted if there are backend services
+ *  referencing it.
+ *
+ *  Method: compute.networkEndpointGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsDeleteWithproject:zoneProperty:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group to delete. It should comply with
+ *  RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified network endpoint group. The network endpoints in the
+ *  NEG and the VM instances they belong to are not terminated when the NEG is
+ *  deleted. Note that the NEG cannot be deleted if there are backend services
+ *  referencing it.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group to
+ *    delete. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Detach a list of network endpoints from the specified network endpoint
+ *  group.
+ *
+ *  Method: compute.networkEndpointGroups.detachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsDetachNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group where you are removing network
+ *  endpoints. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Detach a list of network endpoints from the specified network endpoint
+ *  group.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group where you
+ *    are removing network endpoints. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  Method: compute.networkEndpointGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsGetWithproject:zoneProperty:networkEndpointGroup:]
+
+/** The name of the network endpoint group. It should comply with RFC1035. */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
+ *
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  Method: compute.networkEndpointGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsInsertWithObject:project:zoneProperty:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where you want to create the network endpoint group. It
+ *  should comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where you want to create the
+ *    network endpoint group. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves the list of network endpoint groups that are located in the
+ *  specified project and zone.
+ *
+ *  Method: compute.networkEndpointGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsListWithproject:zoneProperty:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
+ *
+ *  Retrieves the list of network endpoint groups that are located in the
+ *  specified project and zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  Method: compute.networkEndpointGroups.listNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsListNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The name of the network endpoint group from which you want to generate a
+ *  list of included network endpoints. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the network endpoint group is located. It should
+ *  comply with RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
+ *
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroupsListEndpointsRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group from
+ *    which you want to generate a list of included network endpoints. It should
+ *    comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroupsListEndpointsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.networkEndpointGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworkEndpointGroupsTestIamPermissionsWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
 
 @end
 

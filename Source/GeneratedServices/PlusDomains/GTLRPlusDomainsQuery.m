@@ -60,31 +60,6 @@ NSString * const kGTLRPlusDomainsSortOrderDescending = @"descending";
 
 @end
 
-@implementation GTLRPlusDomainsQuery_ActivitiesInsert
-
-@dynamic preview, userId;
-
-+ (instancetype)queryWithObject:(GTLRPlusDomains_Activity *)object
-                         userId:(NSString *)userId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"people/{userId}/activities";
-  GTLRPlusDomainsQuery_ActivitiesInsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.userId = userId;
-  query.expectedObjectClass = [GTLRPlusDomains_Activity class];
-  query.loggingName = @"plusDomains.activities.insert";
-  return query;
-}
-
-@end
-
 @implementation GTLRPlusDomainsQuery_ActivitiesList
 
 @dynamic collection, maxResults, pageToken, userId;
@@ -127,77 +102,6 @@ NSString * const kGTLRPlusDomainsSortOrderDescending = @"descending";
 
 @end
 
-@implementation GTLRPlusDomainsQuery_CirclesAddPeople
-
-@dynamic circleId, email, userId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"email" : [NSString class],
-    @"userId" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithCircleId:(NSString *)circleId {
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}/people";
-  GTLRPlusDomainsQuery_CirclesAddPeople *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.circleId = circleId;
-  query.expectedObjectClass = [GTLRPlusDomains_Circle class];
-  query.loggingName = @"plusDomains.circles.addPeople";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CirclesGet
-
-@dynamic circleId;
-
-+ (instancetype)queryWithCircleId:(NSString *)circleId {
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}";
-  GTLRPlusDomainsQuery_CirclesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.circleId = circleId;
-  query.expectedObjectClass = [GTLRPlusDomains_Circle class];
-  query.loggingName = @"plusDomains.circles.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CirclesInsert
-
-@dynamic userId;
-
-+ (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
-                         userId:(NSString *)userId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"people/{userId}/circles";
-  GTLRPlusDomainsQuery_CirclesInsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.userId = userId;
-  query.expectedObjectClass = [GTLRPlusDomains_Circle class];
-  query.loggingName = @"plusDomains.circles.insert";
-  return query;
-}
-
-@end
-
 @implementation GTLRPlusDomainsQuery_CirclesList
 
 @dynamic maxResults, pageToken, userId;
@@ -217,100 +121,6 @@ NSString * const kGTLRPlusDomainsSortOrderDescending = @"descending";
 
 @end
 
-@implementation GTLRPlusDomainsQuery_CirclesPatch
-
-@dynamic circleId;
-
-+ (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
-                       circleId:(NSString *)circleId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}";
-  GTLRPlusDomainsQuery_CirclesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.circleId = circleId;
-  query.expectedObjectClass = [GTLRPlusDomains_Circle class];
-  query.loggingName = @"plusDomains.circles.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CirclesRemove
-
-@dynamic circleId;
-
-+ (instancetype)queryWithCircleId:(NSString *)circleId {
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}";
-  GTLRPlusDomainsQuery_CirclesRemove *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.circleId = circleId;
-  query.loggingName = @"plusDomains.circles.remove";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CirclesRemovePeople
-
-@dynamic circleId, email, userId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"email" : [NSString class],
-    @"userId" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithCircleId:(NSString *)circleId {
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}/people";
-  GTLRPlusDomainsQuery_CirclesRemovePeople *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.circleId = circleId;
-  query.loggingName = @"plusDomains.circles.removePeople";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CirclesUpdate
-
-@dynamic circleId;
-
-+ (instancetype)queryWithObject:(GTLRPlusDomains_Circle *)object
-                       circleId:(NSString *)circleId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}";
-  GTLRPlusDomainsQuery_CirclesUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.circleId = circleId;
-  query.expectedObjectClass = [GTLRPlusDomains_Circle class];
-  query.loggingName = @"plusDomains.circles.update";
-  return query;
-}
-
-@end
-
 @implementation GTLRPlusDomainsQuery_CommentsGet
 
 @dynamic commentId;
@@ -325,31 +135,6 @@ NSString * const kGTLRPlusDomainsSortOrderDescending = @"descending";
   query.commentId = commentId;
   query.expectedObjectClass = [GTLRPlusDomains_Comment class];
   query.loggingName = @"plusDomains.comments.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlusDomainsQuery_CommentsInsert
-
-@dynamic activityId;
-
-+ (instancetype)queryWithObject:(GTLRPlusDomains_Comment *)object
-                     activityId:(NSString *)activityId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"activityId" ];
-  NSString *pathURITemplate = @"activities/{activityId}/comments";
-  GTLRPlusDomainsQuery_CommentsInsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.activityId = activityId;
-  query.expectedObjectClass = [GTLRPlusDomains_Comment class];
-  query.loggingName = @"plusDomains.comments.insert";
   return query;
 }
 

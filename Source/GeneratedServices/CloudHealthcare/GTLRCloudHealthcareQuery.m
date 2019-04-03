@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Healthcare API (healthcare/v1alpha2)
+// Description:
+//   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/healthcare
 
@@ -175,31 +177,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
   query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresExport
-
-@dynamic annotationStore;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportAnnotationsRequest *)object
-                annotationStore:(NSString *)annotationStore {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"annotationStore" ];
-  NSString *pathURITemplate = @"v1alpha2/{+annotationStore}:export";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresExport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.annotationStore = annotationStore;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
-  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.export";
   return query;
 }
 

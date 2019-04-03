@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Asset API (cloudasset/v1beta1)
+//   Cloud Asset API (cloudasset/v1)
 // Description:
 //   The cloud asset API manages the history and inventory of cloud resources.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/cloudasset.googleapis.com/overview
+//   https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  */
 @interface GTLRCloudAsset_Asset : GTLRObject
 
-/** Type of the asset. Example: "google.compute.Disk". */
+/** Type of the asset. Example: "compute.googleapis.com/Disk". */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 @interface GTLRCloudAsset_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -293,7 +293,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 
 /**
  *  A list of asset types of which to take a snapshot for. For example:
- *  "google.compute.Disk". If specified, only matching assets will be returned.
+ *  "compute.googleapis.com/Disk". If specified, only matching assets will be
+ *  returned.
  *  See [Introduction to Cloud Asset
  *  Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
  *  for all supported asset types.

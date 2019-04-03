@@ -83,7 +83,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: oauth2.userinfo.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeOauth2PlusLogin
  *    @c kGTLRAuthScopeOauth2PlusMe
  *    @c kGTLRAuthScopeOauth2UserinfoEmail
  *    @c kGTLRAuthScopeOauth2UserinfoProfile
@@ -107,7 +106,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: oauth2.userinfo.v2.me.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeOauth2PlusLogin
  *    @c kGTLRAuthScopeOauth2PlusMe
  *    @c kGTLRAuthScopeOauth2UserinfoEmail
  *    @c kGTLRAuthScopeOauth2UserinfoProfile

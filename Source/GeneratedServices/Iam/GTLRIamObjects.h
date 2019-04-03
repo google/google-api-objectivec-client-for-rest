@@ -529,7 +529,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @interface GTLRIam_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -1011,6 +1011,23 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  The patch service account request.
+ */
+@interface GTLRIam_PatchServiceAccountRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *serviceAccount;
+
+/**
+ *  updateMask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  A permission which can be included by a role.
  */
 @interface GTLRIam_Permission : GTLRObject
@@ -1407,6 +1424,14 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  `unique_id` of the service account.
  */
 @interface GTLRIam_ServiceAccount : GTLRObject
+
+/**
+ *  Optional. A user-specified opaque description of the service account.
+ *  Must be less than or equal to 256 UTF-8 bytes.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  \@OutputOnly A bool indicate if the service account is disabled.

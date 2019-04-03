@@ -918,8 +918,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TestSpecification
 @dynamic androidInstrumentationTest, androidRoboTest, androidTestLoop,
-         autoGoogleLogin, disablePerformanceMetrics, disableVideoRecording,
-         iosTestSetup, iosXcTest, testSetup, testTimeout;
+         disablePerformanceMetrics, disableVideoRecording, iosTestSetup,
+         iosXcTest, testSetup, testTimeout;
 @end
 
 

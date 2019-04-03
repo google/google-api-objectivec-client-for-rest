@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Healthcare API (healthcare/v1alpha2)
+// Description:
+//   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/healthcare
 

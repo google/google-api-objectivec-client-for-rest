@@ -451,7 +451,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_FeatureSettings
-@dynamic splitHealthChecks;
+@dynamic splitHealthChecks, useContainerOptimizedOs;
 @end
 
 
@@ -1148,7 +1148,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
          libraries, livenessCheck, manualScaling, name, network,
          nobuildFilesRegex, readinessCheck, resources, runtime,
          runtimeApiVersion, runtimeChannel, runtimeMainExecutablePath,
-         servingStatus, threadsafe, versionUrl, vm, zones;
+         servingStatus, threadsafe, versionUrl, vm, vpcAccessConnector, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1203,6 +1203,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_Volume
 @dynamic name, sizeGb, volumeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_VpcAccessConnector
+//
+
+@implementation GTLRAppengine_VpcAccessConnector
+@dynamic name;
 @end
 
 

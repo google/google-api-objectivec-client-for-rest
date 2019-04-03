@@ -212,6 +212,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency;
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand;
 /**
+ *  An explicit value for a client that was not yet classified
+ *  as any particular entity.
+ *
+ *  Value: "ENTITY_TYPE_UNCLASSIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified;
+/**
  *  A placeholder for an undefined client entity type. Should not be used.
  *
  *  Value: "ENTITY_TYPE_UNSPECIFIED"
@@ -393,6 +400,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnipp
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.attributes
 
+/** Value: "ADOBE_FLASH_FLV" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AdobeFlashFlv;
+/** Value: "ANY_INTERSTITIAL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AnyInterstitial;
 /** Value: "ATTRIBUTE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified;
 /** Value: "CREATIVE_TYPE_HTML" */
@@ -425,6 +436,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Expandin
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown;
 /** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight;
+/** Value: "IMAGE_RICH_MEDIA" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ImageRichMedia;
 /** Value: "IN_BANNER_VIDEO" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo;
 /** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
@@ -439,6 +452,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserIn
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible;
 /** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible;
+/** Value: "NON_INTERSTITIAL" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial;
+/** Value: "NON_SKIPPABLE_INSTREAM_VIDEO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo;
+/** Value: "NON_VPAID" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid;
 /** Value: "OMSDK_1_0" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
 /** Value: "RENDERING_SIZELESS_ADX" */
@@ -455,6 +474,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMedi
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl;
+/** Value: "SKIPPABLE_INSTREAM_VIDEO" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.dealsStatus
@@ -2338,6 +2359,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *        agency. (Value: "AGENCY")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_Brand A brand. (Value:
  *        "BRAND")
+ *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified An
+ *        explicit value for a client that was not yet classified
+ *        as any particular entity. (Value: "ENTITY_TYPE_UNCLASSIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified A
  *        placeholder for an undefined client entity type. Should not be used.
  *        (Value: "ENTITY_TYPE_UNSPECIFIED")
@@ -2582,7 +2606,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /**
  *  A creative and its classification data.
- *  Next ID: 42
  */
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 
@@ -2701,7 +2724,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedSensitiveCategories;
 
-/** \@OutputOnly The filtering stats for this creative. */
+/**
+ *  \@OutputOnly The filtering stats for this creative.
+ *  Deprecated; please use
+ *  bidders.accounts.filterSets.filteredBids.creatives.list
+ *  method instead.
+ */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_FilteringStats *filteringStats;
 
 /** An HTML creative. */

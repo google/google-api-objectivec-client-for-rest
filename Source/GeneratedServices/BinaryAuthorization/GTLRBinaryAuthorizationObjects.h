@@ -26,6 +26,7 @@
 @class GTLRBinaryAuthorization_Binding;
 @class GTLRBinaryAuthorization_Expr;
 @class GTLRBinaryAuthorization_IamPolicy;
+@class GTLRBinaryAuthorization_PkixPublicKey;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
 @class GTLRBinaryAuthorization_UserOwnedDrydockNote;
 
@@ -91,6 +92,104 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *  Value: "REQUIRE_ATTESTATION"
  */
 GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_PkixPublicKey.signatureAlgorithm
+
+/**
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *
+ *  Value: "ECDSA_P256_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256;
+/**
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *
+ *  Value: "ECDSA_P384_SHA384"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384;
+/**
+ *  ECDSA on the NIST P-521 curve with a SHA512 digest.
+ *
+ *  Value: "ECDSA_P521_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512;
+/**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_PSS_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_PSS_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_PSS_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_PSS_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs12048Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512;
+/**
+ *  Not specified.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
+
+/**
+ *  Disables global policy evaluation.
+ *
+ *  Value: "DISABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable;
+/**
+ *  Enables global policy evaluation.
+ *
+ *  Value: "ENABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable;
+/**
+ *  Not specified: DISABLE is assumed.
+ *
+ *  Value: "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified;
 
 /**
  *  An admission rule specifies either that all container images
@@ -230,6 +329,15 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  A raw PKIX SubjectPublicKeyInfo format public key.
+ *  NOTE: `id` may be explicitly provided by the caller when using this
+ *  type of public key, but it MUST be a valid RFC3986 URI. If `id` is left
+ *  blank, a default one will be computed based on the digest of the DER
+ *  encoding of the public key.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_PkixPublicKey *pkixPublicKey;
+
 @end
 
 
@@ -239,7 +347,7 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
 @interface GTLRBinaryAuthorization_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -430,6 +538,69 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
 
 
 /**
+ *  A public key in the PkixPublicKey format (see
+ *  https://tools.ietf.org/html/rfc5280#section-4.1.2.7 for details).
+ *  Public keys of this type are typically textually encoded using the PEM
+ *  format.
+ */
+@interface GTLRBinaryAuthorization_PkixPublicKey : GTLRObject
+
+/**
+ *  A PEM-encoded public key, as described in
+ *  https://tools.ietf.org/html/rfc7468#section-13
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyPem;
+
+/**
+ *  The signature algorithm used to verify a message against a signature using
+ *  this key.
+ *  These signature algorithm must match the structure and any object
+ *  identifiers encoded in `public_key_pem` (i.e. this algorithm must match
+ *  that of the public key).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. (Value:
+ *        "ECDSA_P256_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
+ *        "ECDSA_P384_SHA384")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512
+ *        ECDSA on the NIST P-521 curve with a SHA512 digest. (Value:
+ *        "ECDSA_P521_SHA512")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256
+ *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_PSS_2048_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256
+ *        RSASSA-PSS 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_PSS_3072_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256
+ *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_PSS_4096_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_PSS_4096_SHA512")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs12048Sha256
+ *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_2048_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256
+ *        RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_3072_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified
+ *        Not specified. (Value: "SIGNATURE_ALGORITHM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
+
+@end
+
+
+/**
  *  A policy for container image binary authorization.
  */
 @interface GTLRBinaryAuthorization_Policy : GTLRObject
@@ -464,6 +635,23 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Controls the evaluation of a Google-maintained global admission
+ *  policy for common system-level images. Images not covered by the global
+ *  policy will be subject to the project admission policy. This setting
+ *  has no effect when specified inside a global admission policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable
+ *        Disables global policy evaluation. (Value: "DISABLE")
+ *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable
+ *        Enables global policy evaluation. (Value: "ENABLE")
+ *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified
+ *        Not specified: DISABLE is assumed. (Value:
+ *        "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *globalPolicyEvaluationMode;
 
 /**
  *  Output only. The resource name, in the format `projects/ * /policy`. There

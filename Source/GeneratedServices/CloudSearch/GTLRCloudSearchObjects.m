@@ -631,7 +631,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_FacetOptions
-@dynamic objectType, operatorName, sourceName;
+@dynamic numFacetBuckets, objectType, operatorName, sourceName;
 @end
 
 

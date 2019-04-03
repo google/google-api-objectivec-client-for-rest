@@ -1926,7 +1926,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  - This can be in one of the following formats:
  *  - project:PROJECT_ID,
  *  - project`_`number:PROJECT_NUMBER,
- *  - projects/RPOJECT_ID or PROJECT_NUMBER,
+ *  - projects/PROJECT_ID or PROJECT_NUMBER,
  *  - folders/FOLDER_NUMBER,
  *  - organizations/ORGANIZATION_NUMBER,
  *  - api`_`key:API_KEY.
@@ -2792,15 +2792,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

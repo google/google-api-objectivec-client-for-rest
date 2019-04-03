@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Networking API (servicenetworking/v1beta)
+//   Service Networking API (servicenetworking/v1)
 // Description:
 //   Provides automatic management of network configurations necessary for
 //   certain services.
@@ -19,13 +19,57 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRServiceNetworkingQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Empty class];
+  query.loggingName = @"servicenetworking.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Empty class];
+  query.loggingName = @"servicenetworking.operations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_OperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRServiceNetworkingQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -33,6 +77,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
   query.loggingName = @"servicenetworking.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_ListOperationsResponse class];
+  query.loggingName = @"servicenetworking.operations.list";
   return query;
 }
 
@@ -49,7 +112,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}:addSubnetwork";
+  NSString *pathURITemplate = @"v1/{+parent}:addSubnetwork";
   GTLRServiceNetworkingQuery_ServicesAddSubnetwork *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -74,7 +137,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/connections";
+  NSString *pathURITemplate = @"v1/{+parent}/connections";
   GTLRServiceNetworkingQuery_ServicesConnectionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -94,7 +157,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/connections";
+  NSString *pathURITemplate = @"v1/{+parent}/connections";
   GTLRServiceNetworkingQuery_ServicesConnectionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -102,6 +165,31 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRServiceNetworking_ListConnectionsResponse class];
   query.loggingName = @"servicenetworking.services.connections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesConnectionsPatch
+
+@dynamic force, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_ServicesConnectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.connections.patch";
   return query;
 }
 
@@ -118,7 +206,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}:searchRange";
+  NSString *pathURITemplate = @"v1/{+parent}:searchRange";
   GTLRServiceNetworkingQuery_ServicesSearchRange *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -127,31 +215,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
   query.loggingName = @"servicenetworking.services.searchRange";
-  return query;
-}
-
-@end
-
-@implementation GTLRServiceNetworkingQuery_ServicesUpdateConnections
-
-@dynamic force, name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/connections";
-  GTLRServiceNetworkingQuery_ServicesUpdateConnections *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
-  query.loggingName = @"servicenetworking.services.updateConnections";
   return query;
 }
 

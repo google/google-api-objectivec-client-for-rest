@@ -27,6 +27,7 @@
 @class GTLRBigQueryDataTransfer_ScheduleOptions;
 @class GTLRBigQueryDataTransfer_Status;
 @class GTLRBigQueryDataTransfer_Status_Details_Item;
+@class GTLRBigQueryDataTransfer_TimeRange;
 @class GTLRBigQueryDataTransfer_TransferConfig;
 @class GTLRBigQueryDataTransfer_TransferConfig_Params;
 @class GTLRBigQueryDataTransfer_TransferMessage;
@@ -835,6 +836,34 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 
 /**
+ *  A request to start manual transfer runs.
+ */
+@interface GTLRBigQueryDataTransfer_StartManualTransferRunsRequest : GTLRObject
+
+/**
+ *  Specific run_time for a transfer run to be started. The
+ *  requested_run_time must not be in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestedRunTime;
+
+/** Time range for the transfer runs that should be started. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TimeRange *requestedTimeRange;
+
+@end
+
+
+/**
+ *  A response to start manual transfer runs.
+ */
+@interface GTLRBigQueryDataTransfer_StartManualTransferRunsResponse : GTLRObject
+
+/** The transfer runs that were created. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferRun *> *runs;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
@@ -911,6 +940,31 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryDataTransfer_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A specification for a time range, this will request transfer runs with
+ *  run_time between start_time (inclusive) and end_time (exclusive).
+ */
+@interface GTLRBigQueryDataTransfer_TimeRange : GTLRObject
+
+/**
+ *  End time of the range of transfer runs. For example,
+ *  `"2017-05-30T00:00:00+00:00"`. The end_time must not be in the future.
+ *  Creates transfer runs where run_time is in the range betwen start_time
+ *  (inclusive) and end_time (exlusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Start time of the range of transfer runs. For example,
+ *  `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than
+ *  the end_time. Creates transfer runs where run_time is in the range betwen
+ *  start_time (inclusive) and end_time (exlusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 

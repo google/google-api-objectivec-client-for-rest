@@ -2853,7 +2853,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
-/** [required] ID of the shipment group. */
+/**
+ *  [required] ID of the shipment group. It is assigned by the merchant in the
+ *  shipLineItems method and is used to group multiple line items that have the
+ *  same kind of shipping charges.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentGroupId;
 
 @end
@@ -4223,6 +4227,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updated delivery by date, in ISO 8601 format. If not specified only ship by
  *  date is updated.
+ *  Provided date should be within 1 year timeframe and can not be a date in the
+ *  past.
  */
 @property(nonatomic, copy, nullable) NSString *deliverByDate;
 
@@ -4246,6 +4252,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updated ship by date, in ISO 8601 format. If not specified only deliver by
  *  date is updated.
+ *  Provided date should be within 1 year timeframe and can not be a date in the
+ *  past.
  */
 @property(nonatomic, copy, nullable) NSString *shipByDate;
 
@@ -4923,8 +4931,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of custom (merchant-provided) attributes. It can also be used for
  *  submitting any attribute of the feed specification in its generic form
- *  (e.g., { "name": "size type", "type": "text", "value": "regular" }). This is
- *  useful for submitting attributes not explicitly exposed by the API.
+ *  (e.g., { "name": "size type", "value": "regular" }). This is useful for
+ *  submitting attributes not explicitly exposed by the API.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomAttribute *> *customAttributes;
 
@@ -5981,7 +5989,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** [required] Invoice details per line item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShipmentInvoiceLineItemInvoice *> *lineItemInvoices;
 
-/** [required] ID of the shipment group. */
+/**
+ *  [required] ID of the shipment group. It is assigned by the merchant in the
+ *  shipLineItems method and is used to group multiple line items that have the
+ *  same kind of shipping charges.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentGroupId;
 
 @end
@@ -6001,7 +6013,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** [required] Unit IDs to define specific units within the line item. */
+/**
+ *  [required] The shipment unit ID is assigned by the merchant and defines
+ *  individual quantities within a line item. The same ID can be assigned to
+ *  units that are the same while units that differ must be assigned a different
+ *  ID (for example: free or promotional units).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentUnitIds;
 
 /** [required] Invoice details for a single unit. */

@@ -22,6 +22,7 @@
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_DeviceMetadata;
@@ -231,6 +232,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A comment from a user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_CountryTargeting
+ */
+@interface GTLRAndroidPublisher_CountryTargeting : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
+
+/**
+ *  includeRestOfWorld
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeRestOfWorld;
 
 @end
 
@@ -1297,6 +1315,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRAndroidPublisher_TrackRelease
  */
 @interface GTLRAndroidPublisher_TrackRelease : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CountryTargeting *countryTargeting;
 
 /**
  *  The release name, used to identify this release in the Play Console UI. Not

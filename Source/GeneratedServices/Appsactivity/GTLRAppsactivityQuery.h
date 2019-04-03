@@ -52,7 +52,7 @@ GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
 
 /**
  *  Returns a list of activities visible to the current logged in user. Visible
- *  activities are determined by the visiblity settings of the object that was
+ *  activities are determined by the visibility settings of the object that was
  *  acted on, e.g. Drive files a user can see. An activity is a record of past
  *  events. Multiple events may be merged if they are similar. A request is
  *  scoped to activities from a given Google service using the source parameter.
@@ -107,8 +107,9 @@ GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Indicates the user to return activity for. Use the special value me to
- *  indicate the currently authenticated user.
+ *  The ID used for ACL checks (does not filter the resulting event list by the
+ *  assigned value). Use the special value me to indicate the currently
+ *  authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -118,7 +119,7 @@ GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
  *  Fetches a @c GTLRAppsactivity_ListActivitiesResponse.
  *
  *  Returns a list of activities visible to the current logged in user. Visible
- *  activities are determined by the visiblity settings of the object that was
+ *  activities are determined by the visibility settings of the object that was
  *  acted on, e.g. Drive files a user can see. An activity is a record of past
  *  events. Multiple events may be merged if they are similar. A request is
  *  scoped to activities from a given Google service using the source parameter.

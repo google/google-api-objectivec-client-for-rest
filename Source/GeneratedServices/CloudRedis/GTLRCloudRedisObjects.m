@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
+NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified = @"DATA_PROTECTION_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss = @"FORCE_DATA_LOSS";
+NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss = @"LIMITED_DATA_LOSS";
+
 // GTLRCloudRedis_Instance.state
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
@@ -34,6 +39,16 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 //
 
 @implementation GTLRCloudRedis_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_FailoverInstanceRequest
+//
+
+@implementation GTLRCloudRedis_FailoverInstanceRequest
+@dynamic dataProtectionMode;
 @end
 
 

@@ -31,6 +31,8 @@ NSString * const kGTLRAuthScopeClassroomRosters                = @"https://www.g
 NSString * const kGTLRAuthScopeClassroomRostersReadonly        = @"https://www.googleapis.com/auth/classroom.rosters.readonly";
 NSString * const kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly = @"https://www.googleapis.com/auth/classroom.student-submissions.me.readonly";
 NSString * const kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly = @"https://www.googleapis.com/auth/classroom.student-submissions.students.readonly";
+NSString * const kGTLRAuthScopeClassroomTopics                 = @"https://www.googleapis.com/auth/classroom.topics";
+NSString * const kGTLRAuthScopeClassroomTopicsReadonly         = @"https://www.googleapis.com/auth/classroom.topics.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRClassroomService

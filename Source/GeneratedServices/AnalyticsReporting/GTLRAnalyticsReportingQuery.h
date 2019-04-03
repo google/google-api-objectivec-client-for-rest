@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAnalyticsReporting_GetReportsRequest;
+@class GTLRAnalyticsReporting_SearchUserActivityRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -61,6 +62,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAnalyticsReportingQuery_ReportsBatchGet
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsReporting_GetReportsRequest *)object;
+
+@end
+
+/**
+ *  Returns User Activity data.
+ *
+ *  Method: analyticsreporting.userActivity.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsReportingAnalytics
+ *    @c kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly
+ */
+@interface GTLRAnalyticsReportingQuery_UserActivitySearch : GTLRAnalyticsReportingQuery
+// Previous library name was
+//   +[GTLQueryAnalyticsReporting queryForUserActivitySearchWithObject:]
+
+/**
+ *  Fetches a @c GTLRAnalyticsReporting_SearchUserActivityResponse.
+ *
+ *  Returns User Activity data.
+ *
+ *  @param object The @c GTLRAnalyticsReporting_SearchUserActivityRequest to
+ *    include in the query.
+ *
+ *  @return GTLRAnalyticsReportingQuery_UserActivitySearch
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsReporting_SearchUserActivityRequest *)object;
 
 @end
 

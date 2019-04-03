@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Networking API (servicenetworking/v1beta)
+//   Service Networking API (servicenetworking/v1)
 // Description:
 //   Provides automatic management of network configurations necessary for
 //   certain services.
@@ -272,6 +272,15 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_CancelOperationRequest
+//
+
+@implementation GTLRServiceNetworking_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Connection
 //
 
@@ -415,6 +424,15 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Empty
+//
+
+@implementation GTLRServiceNetworking_Empty
 @end
 
 
@@ -588,6 +606,28 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
     @"connections" : [GTLRServiceNetworking_Connection class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ListOperationsResponse
+//
+
+@implementation GTLRServiceNetworking_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRServiceNetworking_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
 }
 
 @end

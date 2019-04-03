@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Healthcare API (healthcare/v1alpha2)
+// Description:
+//   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/healthcare
 
@@ -17,8 +19,23 @@ NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataRead = @"DATA_R
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_DicomConfig.filterProfile
+NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile = @"ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE";
+NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents = @"DEIDENTIFY_TAG_CONTENTS";
+NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile = @"KEEP_ALL_PROFILE";
+NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile = @"MINIMAL_KEEP_LIST_PROFILE";
+NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified = @"TAG_FILTER_PROFILE_UNSPECIFIED";
+
+// GTLRCloudHealthcare_FieldMetadata.action
+NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform = @"DO_NOT_TRANSFORM";
+NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform = @"INSPECT_AND_TRANSFORM";
+NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform = @"TRANSFORM";
+
 // GTLRCloudHealthcare_ImageConfig.textRedactionMode
 NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText = @"REDACT_ALL_TEXT";
+NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText = @"REDACT_NO_TEXT";
+NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText = @"REDACT_SENSITIVE_TEXT";
 NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactionModeUnspecified = @"TEXT_REDACTION_MODE_UNSPECIFIED";
 
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
@@ -114,16 +131,6 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudHealthcare_BigQueryDestination
-//
-
-@implementation GTLRCloudHealthcare_BigQueryDestination
-@dynamic force, tableUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudHealthcare_Binding
 //
 
@@ -160,11 +167,31 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_CharacterMaskConfig
+//
+
+@implementation GTLRCloudHealthcare_CharacterMaskConfig
+@dynamic maskingCharacter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_CreateMessageRequest
 //
 
 @implementation GTLRCloudHealthcare_CreateMessageRequest
 @dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_CryptoHashConfig
+//
+
+@implementation GTLRCloudHealthcare_CryptoHashConfig
+@dynamic cryptoKey;
 @end
 
 
@@ -180,11 +207,21 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_DateShiftConfig
+//
+
+@implementation GTLRCloudHealthcare_DateShiftConfig
+@dynamic cryptoKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_DeidentifyConfig
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyConfig
-@dynamic dicom, fhir, image;
+@dynamic dicom, fhir, image, text;
 @end
 
 
@@ -195,6 +232,27 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_DeidentifyDatasetRequest
 @dynamic config, destinationDataset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_DeidentifyErrorDetails
+//
+
+@implementation GTLRCloudHealthcare_DeidentifyErrorDetails
+@dynamic failureResourceCount, failureStoreCount, successResourceCount,
+         successStoreCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_DeidentifySummary
+//
+
+@implementation GTLRCloudHealthcare_DeidentifySummary
+@dynamic successResourceCount, successStoreCount;
 @end
 
 
@@ -222,7 +280,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_DicomConfig
-@dynamic keepList;
+@dynamic filterProfile, keepList, removeList;
 @end
 
 
@@ -271,16 +329,6 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudHealthcare_ExportAnnotationsRequest
-//
-
-@implementation GTLRCloudHealthcare_ExportAnnotationsRequest
-@dynamic bigqueryDestination, gcsDestination;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudHealthcare_ExportDicomDataRequest
 //
 
@@ -320,6 +368,15 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_FhirConfig
+@dynamic fieldMetadataList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldMetadataList" : [GTLRCloudHealthcare_FieldMetadata class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -351,21 +408,29 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudHealthcare_Finding
+//   GTLRCloudHealthcare_FieldMetadata
 //
 
-@implementation GTLRCloudHealthcare_Finding
-@dynamic end, infoType, start;
+@implementation GTLRCloudHealthcare_FieldMetadata
+@dynamic action, paths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paths" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudHealthcare_GcsDestination
+//   GTLRCloudHealthcare_Finding
 //
 
-@implementation GTLRCloudHealthcare_GcsDestination
-@dynamic uriPrefix;
+@implementation GTLRCloudHealthcare_Finding
+@dynamic end, infoType, start;
 @end
 
 
@@ -568,7 +633,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_ImportDicomDataErrorDetails
-@dynamic dicomStore, sampleErrors;
+@dynamic sampleErrors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -597,6 +662,25 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_ImportResourcesRequest
 @dynamic contentStructure, gcsErrorDestination, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_InfoTypeTransformation
+//
+
+@implementation GTLRCloudHealthcare_InfoTypeTransformation
+@dynamic characterMaskConfig, cryptoHashConfig, dateShiftConfig, infoTypes,
+         redactConfig, replaceWithInfoTypeConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1012,6 +1096,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_RedactConfig
+//
+
+@implementation GTLRCloudHealthcare_RedactConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ReplaceWithInfoTypeConfig
+//
+
+@implementation GTLRCloudHealthcare_ReplaceWithInfoTypeConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ResourceAnnotation
 //
 
@@ -1187,6 +1289,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_TextConfig
+//
+
+@implementation GTLRCloudHealthcare_TextConfig
+@dynamic experimentalConfig, transformations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transformations" : [GTLRCloudHealthcare_InfoTypeTransformation class]
   };
   return map;
 }

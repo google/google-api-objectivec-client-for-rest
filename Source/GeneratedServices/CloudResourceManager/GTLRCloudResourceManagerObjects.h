@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 @interface GTLRCloudResourceManager_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -781,9 +781,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  |lifecycleState=ACTIVE | Folders whose lifecycleState is ACTIVE.|
  *  |parent=folders/123 | Folders whose parent is "folders/123".|
  *  |parent=folders/123 AND lifecycleState=ACTIVE | Active folders whose parent
- *  is "folders/123".|
- *  |displayName=\\\\"Test String\\\\"|Folders whose display name includes both
- *  "Test" and "String".|
+ *  is "folders/123".| |displayName=\\\\"Test String\\\\"|Folders whose display
+ *  name includes both "Test" and "String".|
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -848,15 +847,13 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

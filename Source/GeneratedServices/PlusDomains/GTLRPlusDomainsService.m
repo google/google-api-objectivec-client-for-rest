@@ -14,13 +14,11 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopePlusDomainsPlusCirclesRead  = @"https://www.googleapis.com/auth/plus.circles.read";
-NSString * const kGTLRAuthScopePlusDomainsPlusCirclesWrite = @"https://www.googleapis.com/auth/plus.circles.write";
 NSString * const kGTLRAuthScopePlusDomainsPlusLogin        = @"https://www.googleapis.com/auth/plus.login";
 NSString * const kGTLRAuthScopePlusDomainsPlusMe           = @"https://www.googleapis.com/auth/plus.me";
 NSString * const kGTLRAuthScopePlusDomainsPlusMediaUpload  = @"https://www.googleapis.com/auth/plus.media.upload";
 NSString * const kGTLRAuthScopePlusDomainsPlusProfilesRead = @"https://www.googleapis.com/auth/plus.profiles.read";
 NSString * const kGTLRAuthScopePlusDomainsPlusStreamRead   = @"https://www.googleapis.com/auth/plus.stream.read";
-NSString * const kGTLRAuthScopePlusDomainsPlusStreamWrite  = @"https://www.googleapis.com/auth/plus.stream.write";
 NSString * const kGTLRAuthScopePlusDomainsUserinfoEmail    = @"https://www.googleapis.com/auth/userinfo.email";
 NSString * const kGTLRAuthScopePlusDomainsUserinfoProfile  = @"https://www.googleapis.com/auth/userinfo.profile";
 

@@ -291,7 +291,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersList
 
-@dynamic projectId;
+@dynamic pageSize, pageToken, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];

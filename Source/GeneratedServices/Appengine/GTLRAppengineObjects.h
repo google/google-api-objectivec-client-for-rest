@@ -76,6 +76,7 @@
 @class GTLRAppengine_Version_BetaSettings;
 @class GTLRAppengine_Version_EnvVariables;
 @class GTLRAppengine_Volume;
+@class GTLRAppengine_VpcAccessConnector;
 @class GTLRAppengine_ZipInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1427,6 +1428,15 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *splitHealthChecks;
+
+/**
+ *  If true, use Container-Optimized OS
+ *  (https://cloud.google.com/container-optimized-os/) base image for VMs,
+ *  rather than a base Debian image.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useContainerOptimizedOs;
 
 @end
 
@@ -3273,6 +3283,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) NSNumber *vm;
 
+/** Enables VPC connectivity for standard apps. */
+@property(nonatomic, strong, nullable) GTLRAppengine_VpcAccessConnector *vpcAccessConnector;
+
 /**
  *  The Google Compute Engine zones that are supported by this version in the
  *  App Engine flexible environment. Deprecated.
@@ -3326,6 +3339,20 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /** Underlying volume type, e.g. 'tmpfs'. */
 @property(nonatomic, copy, nullable) NSString *volumeType;
+
+@end
+
+
+/**
+ *  VPC access connector specification.
+ */
+@interface GTLRAppengine_VpcAccessConnector : GTLRObject
+
+/**
+ *  Full Serverless VPC Access Connector name e.g.
+ *  /projects/my-project/locations/us-central1/connectors/c1.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

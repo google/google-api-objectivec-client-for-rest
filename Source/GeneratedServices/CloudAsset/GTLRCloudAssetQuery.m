@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Asset API (cloudasset/v1beta1)
+//   Cloud Asset API (cloudasset/v1)
 // Description:
 //   The cloud asset API manages the history and inventory of cloud resources.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/cloudasset.googleapis.com/overview
+//   https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
 
 #import "GTLRCloudAssetQuery.h"
 
@@ -30,51 +30,26 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
-@implementation GTLRCloudAssetQuery_FoldersExportAssets
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}:exportAssets";
-  GTLRCloudAssetQuery_FoldersExportAssets *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.folders.exportAssets";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudAssetQuery_FoldersOperationsGet
+@implementation GTLRCloudAssetQuery_OperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudAssetQuery_FoldersOperationsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.folders.operations.get";
+  query.loggingName = @"cloudasset.operations.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudAssetQuery_OrganizationsBatchGetAssetsHistory
+@implementation GTLRCloudAssetQuery_V1BatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,
          readTimeWindowStartTime;
@@ -96,20 +71,20 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}:batchGetAssetsHistory";
-  GTLRCloudAssetQuery_OrganizationsBatchGetAssetsHistory *query =
+  NSString *pathURITemplate = @"v1/{+parent}:batchGetAssetsHistory";
+  GTLRCloudAssetQuery_V1BatchGetAssetsHistory *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudAsset_BatchGetAssetsHistoryResponse class];
-  query.loggingName = @"cloudasset.organizations.batchGetAssetsHistory";
+  query.loggingName = @"cloudasset.batchGetAssetsHistory";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudAssetQuery_OrganizationsExportAssets
+@implementation GTLRCloudAssetQuery_V1ExportAssets
 
 @dynamic parent;
 
@@ -120,113 +95,15 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}:exportAssets";
-  GTLRCloudAssetQuery_OrganizationsExportAssets *query =
+  NSString *pathURITemplate = @"v1/{+parent}:exportAssets";
+  GTLRCloudAssetQuery_V1ExportAssets *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.organizations.exportAssets";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudAssetQuery_OrganizationsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudAssetQuery_OrganizationsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.organizations.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudAssetQuery_ProjectsBatchGetAssetsHistory
-
-@dynamic assetNames, contentType, parent, readTimeWindowEndTime,
-         readTimeWindowStartTime;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"readTimeWindowEndTime" : @"readTimeWindow.endTime",
-    @"readTimeWindowStartTime" : @"readTimeWindow.startTime"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"assetNames" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}:batchGetAssetsHistory";
-  GTLRCloudAssetQuery_ProjectsBatchGetAssetsHistory *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudAsset_BatchGetAssetsHistoryResponse class];
-  query.loggingName = @"cloudasset.projects.batchGetAssetsHistory";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudAssetQuery_ProjectsExportAssets
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}:exportAssets";
-  GTLRCloudAssetQuery_ProjectsExportAssets *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.projects.exportAssets";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudAssetQuery_ProjectsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudAssetQuery_ProjectsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
-  query.loggingName = @"cloudasset.projects.operations.get";
+  query.loggingName = @"cloudasset.exportAssets";
   return query;
 }
 

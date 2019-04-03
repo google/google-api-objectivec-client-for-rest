@@ -81,6 +81,31 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesFailover
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_FailoverInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:failover";
+  GTLRCloudRedisQuery_ProjectsLocationsInstancesFailover *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.instances.failover";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesGet
 
 @dynamic name;

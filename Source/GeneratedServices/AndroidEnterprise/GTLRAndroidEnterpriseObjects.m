@@ -101,16 +101,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_AndroidDevicePolicyConfig
-//
-
-@implementation GTLRAndroidEnterprise_AndroidDevicePolicyConfig
-@dynamic kind, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_AppRestrictionsSchema
 //
 
@@ -825,7 +815,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductPolicy
-@dynamic autoInstallPolicy, productId, trackIds, tracks;
+@dynamic autoInstallPolicy, managedConfiguration, productId, trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

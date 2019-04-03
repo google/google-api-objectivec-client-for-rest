@@ -25,6 +25,25 @@ NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDen
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified = @"EVALUATION_MODE_UNSPECIFIED";
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation = @"REQUIRE_ATTESTATION";
 
+// GTLRBinaryAuthorization_PkixPublicKey.signatureAlgorithm
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256 = @"ECDSA_P256_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384 = @"ECDSA_P384_SHA384";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512 = @"ECDSA_P521_SHA512";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256 = @"RSA_PSS_2048_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256 = @"RSA_PSS_3072_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256 = @"RSA_PSS_4096_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha512 = @"RSA_PSS_4096_SHA512";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
+
+// GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
+NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable = @"DISABLE";
+NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable = @"ENABLE";
+NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified = @"GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBinaryAuthorization_AdmissionRule
@@ -74,7 +93,7 @@ NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAt
 //
 
 @implementation GTLRBinaryAuthorization_AttestorPublicKey
-@dynamic asciiArmoredPgpPublicKey, comment, identifier;
+@dynamic asciiArmoredPgpPublicKey, comment, identifier, pkixPublicKey;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -171,12 +190,23 @@ NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAt
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_PkixPublicKey
+//
+
+@implementation GTLRBinaryAuthorization_PkixPublicKey
+@dynamic publicKeyPem, signatureAlgorithm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_Policy
 //
 
 @implementation GTLRBinaryAuthorization_Policy
 @dynamic admissionWhitelistPatterns, clusterAdmissionRules,
-         defaultAdmissionRule, descriptionProperty, name, updateTime;
+         defaultAdmissionRule, descriptionProperty, globalPolicyEvaluationMode,
+         name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tasks API (cloudtasks/v2beta3)
+//   Cloud Tasks API (cloudtasks/v2)
 // Description:
 //   Manages the execution of large numbers of distributed requests.
 // Documentation:

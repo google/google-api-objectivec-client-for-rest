@@ -261,6 +261,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_OidcToken
+//
+
+@implementation GTLRPubsub_OidcToken
+@dynamic audience, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Policy
 //
 
@@ -351,7 +361,7 @@
 //
 
 @implementation GTLRPubsub_PushConfig
-@dynamic attributes, pushEndpoint;
+@dynamic attributes, oidcToken, pushEndpoint;
 @end
 
 

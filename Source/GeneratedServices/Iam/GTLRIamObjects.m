@@ -356,6 +356,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_PatchServiceAccountRequest
+//
+
+@implementation GTLRIam_PatchServiceAccountRequest
+@dynamic serviceAccount, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_Permission
 //
 
@@ -536,11 +546,15 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_ServiceAccount
-@dynamic disabled, displayName, email, ETag, name, oauth2ClientId, projectId,
-         uniqueId;
+@dynamic descriptionProperty, disabled, displayName, email, ETag, name,
+         oauth2ClientId, projectId, uniqueId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end

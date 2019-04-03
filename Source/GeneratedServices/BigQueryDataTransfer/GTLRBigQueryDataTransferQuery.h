@@ -21,6 +21,7 @@
 
 @class GTLRBigQueryDataTransfer_CheckValidCredsRequest;
 @class GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest;
+@class GTLRBigQueryDataTransfer_StartManualTransferRunsRequest;
 @class GTLRBigQueryDataTransfer_TransferConfig;
 
 // Generated comments include content from the discovery document; avoid them
@@ -922,6 +923,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
+ *  DEPRECATED: use StartManualTransferRuns instead.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns
  *
@@ -946,6 +948,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
+ *  DEPRECATED: use StartManualTransferRuns instead.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
@@ -955,6 +958,48 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns
  */
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Start manual transfer runs to be executed now with schedule_time equal to
+ *  current time. The transfer runs can be created for a time range where the
+ *  run_time is between start_time (inclusive) and end_time (exclusive), or for
+ *  a specific run_time.
+ *
+ *  Method: bigquerydatatransfer.projects.locations.transferConfigs.startManualRuns
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
+// Previous library name was
+//   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsStartManualRunsWithObject:parent:]
+
+/**
+ *  Transfer configuration name in the form:
+ *  `projects/{project_id}/transferConfigs/{config_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_StartManualTransferRunsResponse.
+ *
+ *  Start manual transfer runs to be executed now with schedule_time equal to
+ *  current time. The transfer runs can be created for a time range where the
+ *  run_time is between start_time (inclusive) and end_time (exclusive), or for
+ *  a specific run_time.
+ *
+ *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
+ *    to include in the query.
+ *  @param parent Transfer configuration name in the form:
+ *    `projects/{project_id}/transferConfigs/{config_id}`.
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1451,6 +1496,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
+ *  DEPRECATED: use StartManualTransferRuns instead.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.scheduleRuns
  *
@@ -1475,6 +1521,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  For each date - or whatever granularity the data source supports - in the
  *  range, one transfer run is created.
  *  Note that runs are created per UTC time in the time range.
+ *  DEPRECATED: use StartManualTransferRuns instead.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
@@ -1484,6 +1531,48 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns
  */
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Start manual transfer runs to be executed now with schedule_time equal to
+ *  current time. The transfer runs can be created for a time range where the
+ *  run_time is between start_time (inclusive) and end_time (exclusive), or for
+ *  a specific run_time.
+ *
+ *  Method: bigquerydatatransfer.projects.transferConfigs.startManualRuns
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
+// Previous library name was
+//   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsStartManualRunsWithObject:parent:]
+
+/**
+ *  Transfer configuration name in the form:
+ *  `projects/{project_id}/transferConfigs/{config_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_StartManualTransferRunsResponse.
+ *
+ *  Start manual transfer runs to be executed now with schedule_time equal to
+ *  current time. The transfer runs can be created for a time range where the
+ *  run_time is between start_time (inclusive) and end_time (exclusive), or for
+ *  a specific run_time.
+ *
+ *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
+ *    to include in the query.
+ *  @param parent Transfer configuration name in the form:
+ *    `projects/{project_id}/transferConfigs/{config_id}`.
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent;
 
 @end

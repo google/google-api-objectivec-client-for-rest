@@ -33,6 +33,7 @@
 @class GTLRClassroom_Student;
 @class GTLRClassroom_StudentSubmission;
 @class GTLRClassroom_Teacher;
+@class GTLRClassroom_Topic;
 @class GTLRClassroom_TurnInStudentSubmissionRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -2554,6 +2555,293 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *        information.
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Creates a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create a topic in the requested course,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  Method: classroom.courses.topics.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomTopics
+ */
+@interface GTLRClassroomQuery_CoursesTopicsCreate : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesTopicsCreateWithObject:courseId:]
+
+/**
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Fetches a @c GTLRClassroom_Topic.
+ *
+ *  Creates a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create a topic in the requested course,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  @param object The @c GTLRClassroom_Topic to include in the query.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *
+ *  @return GTLRClassroomQuery_CoursesTopicsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_Topic *)object
+                       courseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Deletes a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not allowed to delete the
+ *  requested topic or for access errors.
+ *  * `FAILED_PRECONDITION` if the requested topic has already been
+ *  deleted.
+ *  * `NOT_FOUND` if no course or topic exists with the requested ID.
+ *
+ *  Method: classroom.courses.topics.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomTopics
+ */
+@interface GTLRClassroomQuery_CoursesTopicsDelete : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesTopicsDeleteWithcourseId:identifier:]
+
+/**
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the topic to delete.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not allowed to delete the
+ *  requested topic or for access errors.
+ *  * `FAILED_PRECONDITION` if the requested topic has already been
+ *  deleted.
+ *  * `NOT_FOUND` if no course or topic exists with the requested ID.
+ *
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *  @param identifier Identifier of the topic to delete.
+ *
+ *  @return GTLRClassroomQuery_CoursesTopicsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or topic, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or topic does not exist.
+ *
+ *  Method: classroom.courses.topics.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomTopics
+ *    @c kGTLRAuthScopeClassroomTopicsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesTopicsGet : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesTopicsGetWithcourseId:identifier:]
+
+/** Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the topic.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Topic.
+ *
+ *  Returns a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or topic, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or topic does not exist.
+ *
+ *  @param courseId Identifier of the course.
+ *  @param identifier Identifier of the topic.
+ *
+ *  @return GTLRClassroomQuery_CoursesTopicsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns the list of topics that the requester is permitted to view.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  the requested course or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  Method: classroom.courses.topics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomTopics
+ *    @c kGTLRAuthScopeClassroomTopicsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesTopicsList : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesTopicsListWithcourseId:]
+
+/**
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListTopicResponse.
+ *
+ *  Returns the list of topics that the requester is permitted to view.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  the requested course or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *
+ *  @return GTLRClassroomQuery_CoursesTopicsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Updates one or more fields of a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding topic or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or topic does not exist
+ *
+ *  Method: classroom.courses.topics.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomTopics
+ */
+@interface GTLRClassroomQuery_CoursesTopicsPatch : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesTopicsPatchWithObject:courseId:identifier:]
+
+/**
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the topic.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Mask that identifies which fields on the topic to update.
+ *  This field is required to do an update. The update fails if invalid
+ *  fields are specified. If a field supports empty values, it can be cleared
+ *  by specifying it in the update mask and not in the Topic object. If a
+ *  field that does not support empty values is included in the update mask and
+ *  not set in the Topic object, an `INVALID_ARGUMENT` error will be
+ *  returned.
+ *  The following fields may be specified:
+ *  * `name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_Topic.
+ *
+ *  Updates one or more fields of a topic.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding topic or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or topic does not exist
+ *
+ *  @param object The @c GTLRClassroom_Topic to include in the query.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *  @param identifier Identifier of the topic.
+ *
+ *  @return GTLRClassroomQuery_CoursesTopicsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_Topic *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier;
 
 @end
 

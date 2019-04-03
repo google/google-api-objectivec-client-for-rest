@@ -27,6 +27,8 @@
 @class GTLRCloudScheduler_Location;
 @class GTLRCloudScheduler_Location_Labels;
 @class GTLRCloudScheduler_Location_Metadata;
+@class GTLRCloudScheduler_OAuthToken;
+@class GTLRCloudScheduler_OidcToken;
 @class GTLRCloudScheduler_PubsubMessage_Attributes;
 @class GTLRCloudScheduler_PubsubTarget;
 @class GTLRCloudScheduler_PubsubTarget_Attributes;
@@ -481,6 +483,26 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, copy, nullable) NSString *httpMethod;
 
 /**
+ *  If specified, an
+ *  [OAuth token](https://developers.google.com/identity/protocols/OAuth2)
+ *  will be generated and attached as an `Authorization` header in the HTTP
+ *  request.
+ *  This type of authorization should be used when sending requests to a GCP
+ *  endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudScheduler_OAuthToken *oauthToken;
+
+/**
+ *  If specified, an
+ *  [OIDC](https://developers.google.com/identity/protocols/OpenIDConnect)
+ *  token will be generated and attached as an `Authorization` header in the
+ *  HTTP request.
+ *  This type of authorization should be used when sending requests to third
+ *  party endpoints.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudScheduler_OidcToken *oidcToken;
+
+/**
  *  Required.
  *  The full URI path that the request will be sent to. This string
  *  must begin with either "http://" or "https://". Some examples of
@@ -527,6 +549,20 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 /** App Engine HTTP target. */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_AppEngineHttpTarget *appEngineHttpTarget;
+
+/**
+ *  The deadline for job attempts. If the request handler does not respond by
+ *  this deadline then the request is cancelled and the attempt is marked as a
+ *  `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
+ *  execution logs. Cloud Scheduler will retry the job according
+ *  to the RetryConfig.
+ *  The allowed duration for this deadline is:
+ *  * For HTTP targets, between 15 seconds and 30 minutes.
+ *  * For App Engine HTTP targets, between 15
+ *  seconds and 24 hours.
+ *  * For PubSub targets, this field is ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *attemptDeadline;
 
 /**
  *  Optionally caller-specified in CreateJob or
@@ -761,6 +797,58 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
+ *  Contains information needed for generating an
+ *  [OAuth token](https://developers.google.com/identity/protocols/OAuth2).
+ *  This type of authorization should be used when sending requests to a GCP
+ *  endpoint.
+ */
+@interface GTLRCloudScheduler_OAuthToken : GTLRObject
+
+/**
+ *  OAuth scope to be used for generating OAuth access token.
+ *  If not specified, "https://www.googleapis.com/auth/cloud-platform"
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
+ *  to be used for generating OAuth token.
+ *  The service account must be within the same project as the job. The caller
+ *  must have iam.serviceAccounts.actAs permission for the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
+ *  Contains information needed for generating an
+ *  [OpenID Connect
+ *  token](https://developers.google.com/identity/protocols/OpenIDConnect). This
+ *  type of authorization should be used when sending requests to third party
+ *  endpoints.
+ */
+@interface GTLRCloudScheduler_OidcToken : GTLRObject
+
+/**
+ *  Audience to be used when generating OIDC token. If not specified, the URI
+ *  specified in target will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
+ *  to be used for generating OIDC token.
+ *  The service account must be within the same project as the job. The caller
+ *  must have iam.serviceAccounts.actAs permission for the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
  *  Request message for PauseJob.
  */
 @interface GTLRCloudScheduler_PauseJobRequest : GTLRObject
@@ -965,15 +1053,13 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

@@ -26,6 +26,7 @@
 @class GTLRIam_DisableServiceAccountRequest;
 @class GTLRIam_EnableServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
+@class GTLRIam_PatchServiceAccountRequest;
 @class GTLRIam_QueryAuditableServicesRequest;
 @class GTLRIam_QueryGrantableRolesRequest;
 @class GTLRIam_QueryTestablePermissionsRequest;
@@ -956,9 +957,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  ServiceAccount.
  *  Note: Service accounts are both
  *  [resources and
- *  identities](/iam/docs/service-accounts#service_account_permissions).
- *  This method treats the service account as a resource. It returns the Cloud
- *  IAM policy that reflects what members have access to the service account.
+ *  identities](/iam/docs/service-accounts#service_account_permissions). This
+ *  method treats the service account as a resource. It returns the Cloud IAM
+ *  policy that reflects what members have access to the service account.
  *  This method does not return what resources the service account has access
  *  to. To see if a service account has access to a resource, call the
  *  `getIamPolicy` method on the target resource. For example, to view grants
@@ -988,9 +989,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  ServiceAccount.
  *  Note: Service accounts are both
  *  [resources and
- *  identities](/iam/docs/service-accounts#service_account_permissions).
- *  This method treats the service account as a resource. It returns the Cloud
- *  IAM policy that reflects what members have access to the service account.
+ *  identities](/iam/docs/service-accounts#service_account_permissions). This
+ *  method treats the service account as a resource. It returns the Cloud IAM
+ *  policy that reflects what members have access to the service account.
  *  This method does not return what resources the service account has access
  *  to. To see if a service account has access to a resource, call the
  *  `getIamPolicy` method on the target resource. For example, to view grants
@@ -1246,14 +1247,69 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Patches a ServiceAccount.
+ *  Currently, only the following fields are updatable:
+ *  `display_name` and `description`.
+ *  Only fields specified in the request are guaranteed to be returned in
+ *  the response. Other fields in the response may be empty.
+ *  Note: The field mask is required.
+ *
+ *  Method: iam.projects.serviceAccounts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsPatch : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsPatchWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *  project from the `account` and the `ACCOUNT` value can be the `email`
+ *  address or the `unique_id` of the service account.
+ *  In responses the resource name will always be in the format
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_ServiceAccount.
+ *
+ *  Patches a ServiceAccount.
+ *  Currently, only the following fields are updatable:
+ *  `display_name` and `description`.
+ *  Only fields specified in the request are guaranteed to be returned in
+ *  the response. Other fields in the response may be empty.
+ *  Note: The field mask is required.
+ *
+ *  @param object The @c GTLRIam_PatchServiceAccountRequest to include in the
+ *    query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Requests using `-` as a wildcard for the `PROJECT_ID` will infer the
+ *    project from the `account` and the `ACCOUNT` value can be the `email`
+ *    address or the `unique_id` of the service account.
+ *    In responses the resource name will always be in the format
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_PatchServiceAccountRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the Cloud IAM access control policy for a
  *  ServiceAccount.
  *  Note: Service accounts are both
  *  [resources and
- *  identities](/iam/docs/service-accounts#service_account_permissions).
- *  This method treats the service account as a resource. Use it to grant
- *  members access to the service account, such as when they need to
- *  impersonate it.
+ *  identities](/iam/docs/service-accounts#service_account_permissions). This
+ *  method treats the service account as a resource. Use it to grant members
+ *  access to the service account, such as when they need to impersonate it.
  *  This method does not grant the service account access to other resources,
  *  such as projects. To grant a service account access to resources, include
  *  the service account in the Cloud IAM policy for the desired resource, then
@@ -1284,10 +1340,9 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  ServiceAccount.
  *  Note: Service accounts are both
  *  [resources and
- *  identities](/iam/docs/service-accounts#service_account_permissions).
- *  This method treats the service account as a resource. Use it to grant
- *  members access to the service account, such as when they need to
- *  impersonate it.
+ *  identities](/iam/docs/service-accounts#service_account_permissions). This
+ *  method treats the service account as a resource. Use it to grant members
+ *  access to the service account, such as when they need to impersonate it.
  *  This method does not grant the service account access to other resources,
  *  such as projects. To grant a service account access to resources, include
  *  the service account in the Cloud IAM policy for the desired resource, then

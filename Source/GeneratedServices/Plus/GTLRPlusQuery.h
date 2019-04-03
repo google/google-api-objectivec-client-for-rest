@@ -114,7 +114,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  Get an activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.activities.get
  *
@@ -132,7 +133,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_Activity.
  *
- *  Get an activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param activityId The ID of the activity to get.
  *
@@ -143,8 +145,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  List all of the activities in the specified collection for a particular
- *  user.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.activities.list
  *
@@ -191,8 +193,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_ActivityFeed.
  *
- *  List all of the activities in the specified collection for a particular
- *  user.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param userId The ID of the user to get activities for. The special value
  *    "me" can be used to indicate the authenticated user.
@@ -214,7 +216,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  Search public activities.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.activities.search
  *
@@ -271,7 +274,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_ActivityFeed.
  *
- *  Search public activities.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param query Full-text search query string.
  *
@@ -286,7 +290,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  Get a comment.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.comments.get
  *
@@ -304,7 +309,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_Comment.
  *
- *  Get a comment.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param commentId The ID of the comment to get.
  *
@@ -315,7 +321,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  List all of the comments for an activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.comments.list
  *
@@ -364,7 +371,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_CommentFeed.
  *
- *  List all of the comments for an activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param activityId The ID of the activity to get comments for.
  *
@@ -508,8 +516,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  List all of the people in the specified collection for a particular
- *  activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.people.listByActivity
  *
@@ -555,8 +563,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_PeopleFeed.
  *
- *  List all of the people in the specified collection for a particular
- *  activity.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param activityId The ID of the activity to get the list of people for.
  *  @param collection The collection of people to list.
@@ -579,7 +587,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @end
 
 /**
- *  Search all public profiles.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  Method: plus.people.search
  *
@@ -624,7 +633,8 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 /**
  *  Fetches a @c GTLRPlus_PeopleFeed.
  *
- *  Search all public profiles.
+ *  Shut down. See https://developers.google.com/+/api-shutdown for more
+ *  details.
  *
  *  @param query Specify a query string for full text search of public text in
  *    all profiles.

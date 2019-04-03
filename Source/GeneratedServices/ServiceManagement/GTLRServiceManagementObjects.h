@@ -166,7 +166,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_AuditLogConfig_LogType_LogTy
  *  Requests to the following request paths will call the backend at the
  *  translated path:
  *  Request path: /api/company/widgetworks/user/johndoe
- *  Translated: https://example.appspot.com/api/company/widgetworks/user/johndoe
+ *  Translated:
+ *  https://example.appspot.com/api/company/widgetworks/user/johndoe
  *  Request path: /api/company/widgetworks/user/johndoe?timezone=EST
  *  Translated:
  *  https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
@@ -1071,10 +1072,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Optional if the key set document:
  *  - can be retrieved from
  *  [OpenID
- *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html
- *  of the issuer.
- *  - can be inferred from the email domain of the issuer (e.g. a Google service
- *  account).
+ *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of
+ *  the issuer.
+ *  - can be inferred from the email domain of the issuer (e.g. a Google
+ *  service account).
  *  Example: https://www.googleapis.com/oauth2/v1/certs
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
@@ -1282,7 +1283,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
+ *  The condition that is associated with this binding.
  *  NOTE: an unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
@@ -1374,8 +1375,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  used for the index (usually selector, name, or id). For maps, the term
  *  'key' is used. If the field has no unique identifier, the numeric index
  *  is used.
- *  Examples:
- *  - visibility.rules[selector=="google.LibraryService.CreateBook"].restriction
+ *  ## Examples:
+ *  visibility.rules[selector=="google.LibraryService.CreateBook"].restriction
  *  - quota.metric_rules[selector=="google"].metric_costs[key=="reads"].value
  *  - logging.producer_destinations[0]
  */
@@ -1786,8 +1787,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_DocumentationRule : GTLRObject
 
 /**
- *  Deprecation description of the selected element(s). It can be provided if an
- *  element is marked as `deprecated`.
+ *  Deprecation description of the selected element(s). It can be provided if
+ *  an element is marked as `deprecated`.
  */
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
@@ -1877,9 +1878,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  The specification of an Internet routable address of API frontend that will
  *  handle requests to this [API
- *  Endpoint](https://cloud.google.com/apis/design/glossary).
- *  It should be either a valid IPv4 address or a fully-qualified domain name.
- *  For example, "8.8.8.8" or "myservice.appspot.com".
+ *  Endpoint](https://cloud.google.com/apis/design/glossary). It should be
+ *  either a valid IPv4 address or a fully-qualified domain name. For example,
+ *  "8.8.8.8" or "myservice.appspot.com".
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -3496,8 +3497,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  The Markdown content of the page. You can use <code>&#40;== include {path}
- *  ==&#41;</code>
- *  to include content from a Markdown file.
+ *  ==&#41;</code> to include content from a Markdown file.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -4049,15 +4049,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

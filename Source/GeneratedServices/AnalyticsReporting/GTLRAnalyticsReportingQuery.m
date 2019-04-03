@@ -37,3 +37,23 @@
 }
 
 @end
+
+@implementation GTLRAnalyticsReportingQuery_UserActivitySearch
+
++ (instancetype)queryWithObject:(GTLRAnalyticsReporting_SearchUserActivityRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v4/userActivity:search";
+  GTLRAnalyticsReportingQuery_UserActivitySearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAnalyticsReporting_SearchUserActivityResponse class];
+  query.loggingName = @"analyticsreporting.userActivity.search";
+  return query;
+}
+
+@end

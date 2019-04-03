@@ -48,6 +48,8 @@ NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin = @"https://www.googleapi
     @"sql#demoteMasterConfiguration" : [GTLRSQLAdmin_DemoteMasterConfiguration class],
     @"sql#demoteMasterContext" : [GTLRSQLAdmin_DemoteMasterContext class],
     @"sql#demoteMasterMysqlReplicaConfiguration" : [GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration class],
+    @"sql#diskEncryptionConfiguration" : [GTLRSQLAdmin_DiskEncryptionConfiguration class],
+    @"sql#diskEncryptionStatus" : [GTLRSQLAdmin_DiskEncryptionStatus class],
     @"sql#exportContext" : [GTLRSQLAdmin_ExportContext class],
     @"sql#failoverContext" : [GTLRSQLAdmin_FailoverContext class],
     @"sql#flag" : [GTLRSQLAdmin_Flag class],

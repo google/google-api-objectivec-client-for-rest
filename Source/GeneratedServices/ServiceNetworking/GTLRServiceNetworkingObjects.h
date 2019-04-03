@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Networking API (servicenetworking/v1beta)
+//   Service Networking API (servicenetworking/v1)
 // Description:
 //   Provides automatic management of network configurations necessary for
 //   certain services.
@@ -59,6 +59,7 @@
 @class GTLRServiceNetworking_Monitoring;
 @class GTLRServiceNetworking_MonitoringDestination;
 @class GTLRServiceNetworking_OAuthRequirements;
+@class GTLRServiceNetworking_Operation;
 @class GTLRServiceNetworking_Operation_Metadata;
 @class GTLRServiceNetworking_Operation_Response;
 @class GTLRServiceNetworking_Option;
@@ -990,6 +991,13 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRServiceNetworking_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  Represents a private connection resource. A private connection is
  *  implemented
  *  as a VPC Network Peering connection between a service producer's VPC network
@@ -1017,9 +1025,12 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 /**
  *  The name of one or more allocated IP address ranges for this service
  *  producer of type `PEERING`.
- *  Note that invoking this method with a different range when connection is
- *  already established will not modify already provisioned service
- *  producer subnetworks.
+ *  Note that invoking CreateConnection method with a different range when
+ *  connection is already established will not modify already provisioned
+ *  service producer subnetworks.
+ *  If CreateConnection method is invoked repeatedly to reconnect when peering
+ *  connection had been disconnected on the consumer side, leaving this field
+ *  empty will restore previously allocated IP ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reservedPeeringRanges;
 
@@ -1300,12 +1311,25 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  The selector is a comma-separated list of patterns. Each pattern is a
  *  qualified name of the element which may end in "*", indicating a wildcard.
  *  Wildcards are only allowed at the end and for a whole component of the
- *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". To
- *  specify a default for all applicable elements, the whole pattern "*"
- *  is used.
+ *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
+ *  wildcard will match one or more components. To specify a default for all
+ *  applicable elements, the whole pattern "*" is used.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRServiceNetworking_Empty : GTLRObject
 @end
 
 
@@ -1935,6 +1959,30 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 /** The list of Connections. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Connection *> *connections;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRServiceNetworking_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Operation *> *operations;
 
 @end
 
@@ -2775,7 +2823,46 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  GTLRServiceNetworking_Quota
+ *  Quota configuration helps to achieve fairness and budgeting in service
+ *  usage.
+ *  The metric based quota configuration works this way:
+ *  - The service configuration defines a set of metrics.
+ *  - For API calls, the quota.metric_rules maps methods to metrics with
+ *  corresponding costs.
+ *  - The quota.limits defines limits on the metrics, which will be used for
+ *  quota checks at runtime.
+ *  An example quota configuration in yaml format:
+ *  quota:
+ *  limits:
+ *  - name: apiWriteQpsPerProject
+ *  metric: library.googleapis.com/write_calls
+ *  unit: "1/min/{project}" # rate limit for consumer projects
+ *  values:
+ *  STANDARD: 10000
+ *  # The metric rules bind all methods to the read_calls metric,
+ *  # except for the UpdateBook and DeleteBook methods. These two methods
+ *  # are mapped to the write_calls metric, with the UpdateBook method
+ *  # consuming at twice rate as the DeleteBook method.
+ *  metric_rules:
+ *  - selector: "*"
+ *  metric_costs:
+ *  library.googleapis.com/read_calls: 1
+ *  - selector: google.example.library.v1.LibraryService.UpdateBook
+ *  metric_costs:
+ *  library.googleapis.com/write_calls: 2
+ *  - selector: google.example.library.v1.LibraryService.DeleteBook
+ *  metric_costs:
+ *  library.googleapis.com/write_calls: 1
+ *  Corresponding Metric definition:
+ *  metrics:
+ *  - name: library.googleapis.com/read_calls
+ *  display_name: Read requests
+ *  metric_kind: DELTA
+ *  value_type: INT64
+ *  - name: library.googleapis.com/write_calls
+ *  display_name: Write requests
+ *  metric_kind: DELTA
+ *  value_type: INT64
  */
 @interface GTLRServiceNetworking_Quota : GTLRObject
 

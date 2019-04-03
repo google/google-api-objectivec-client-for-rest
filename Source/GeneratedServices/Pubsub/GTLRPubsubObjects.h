@@ -25,6 +25,7 @@
 @class GTLRPubsub_Expr;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
+@class GTLRPubsub_OidcToken;
 @class GTLRPubsub_Policy;
 @class GTLRPubsub_PushConfig;
 @class GTLRPubsub_PushConfig_Attributes;
@@ -98,11 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the `CreateSnapshot` method.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in
- *  backward-incompatible ways and is not recommended for production use.
- *  It is not subject to any SLA or deprecation policy.
+ *  Request for the `CreateSnapshot` method.
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
 
@@ -214,10 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response for the `ListSnapshots` method.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  Response for the `ListSnapshots` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "snapshots" property. If returned as the result of a query, it
@@ -272,10 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response for the `ListTopicSnapshots` method.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  Response for the `ListTopicSnapshots` method.
  */
 @interface GTLRPubsub_ListTopicSnapshotsResponse : GTLRObject
 
@@ -430,6 +421,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  the subscription if `Pull` or `StreamingPull` is not called.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
+
+@end
+
+
+/**
+ *  Contains information needed for generating an
+ *  [OpenID Connect
+ *  token](https://developers.google.com/identity/protocols/OpenIDConnect).
+ */
+@interface GTLRPubsub_OidcToken : GTLRObject
+
+/**
+ *  Audience to be used when generating OIDC token. The audience claim
+ *  identifies the recipients that the JWT is intended for. The audience
+ *  value is a single case-sensitive string. Having multiple values (array)
+ *  for the audience field is not supported. More info about the OIDC JWT
+ *  token audience here: https://tools.ietf.org/html/rfc7519#section-4.1.3
+ *  Note: if not specified, the Push endpoint URL will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
+ *  [Service account
+ *  email](https://cloud.google.com/iam/docs/service-accounts)
+ *  to be used for generating the OIDC token. The caller (for
+ *  CreateSubscription, UpdateSubscription, and ModifyPushConfig RPCs) must
+ *  have the iam.serviceAccounts.actAs permission for the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 @end
 
@@ -603,6 +623,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig_Attributes *attributes;
 
 /**
+ *  If specified, Pub/Sub will generate and attach an OIDC JWT token as an
+ *  `Authorization` header in the HTTP request for every pushed message.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_OidcToken *oidcToken;
+
+/**
  *  A URL locating the endpoint to which messages should be pushed.
  *  For example, a Webhook endpoint might use "https://example.com/push".
  */
@@ -653,10 +679,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the `Seek` method. <br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  Request for the `Seek` method.
  */
 @interface GTLRPubsub_SeekRequest : GTLRObject
 
@@ -714,10 +737,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  operations, which allow
  *  you to manage message acknowledgments in bulk. That is, you can set the
  *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  captured by a snapshot.
  */
 @interface GTLRPubsub_Snapshot : GTLRObject
 
@@ -816,10 +836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If `retain_acked_messages` is true, then this also configures the retention
  *  of acknowledged messages, and thus configures how far back in time a `Seek`
  *  can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10
- *  minutes.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
@@ -847,10 +864,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  window. This must be true if you would like to
  *  <a href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
  *  Seek to a timestamp</a>.
- *  <br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -948,10 +961,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request for the UpdateSnapshot method.<br><br>
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
+ *  Request for the UpdateSnapshot method.
  */
 @interface GTLRPubsub_UpdateSnapshotRequest : GTLRObject
 

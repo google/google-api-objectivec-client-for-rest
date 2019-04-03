@@ -4,7 +4,7 @@
 // API:
 //   Groups Settings API (groupssettings/v1)
 // Description:
-//   Lets you manage permission levels and related settings of a group.
+//   Manages permission levels and related settings of a group.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-settings/get_started
 
@@ -18,19 +18,26 @@
 @implementation GTLRGroupsSettings_Groups
 @dynamic allowExternalMembers, allowGoogleCommunication, allowWebPosting,
          archiveOnly, customFooterText, customReplyTo,
+         customRolesEnabledForSettingsToBeMerged,
          defaultMessageDenyNotificationText, descriptionProperty, email,
-         favoriteRepliesOnTop, includeCustomFooter, includeInGlobalAddressList,
-         isArchived, kind, maxMessageBytes, membersCanPostAsTheGroup,
-         messageDisplayFont, messageModerationLevel, name, primaryLanguage,
-         replyTo, sendMessageDenyNotification, showInGroupDirectory,
-         spamModerationLevel, whoCanAdd, whoCanAddReferences,
-         whoCanAssignTopics, whoCanContactOwner, whoCanEnterFreeFormTags,
-         whoCanInvite, whoCanJoin, whoCanLeaveGroup, whoCanMarkDuplicate,
+         enableCollaborativeInbox, favoriteRepliesOnTop, includeCustomFooter,
+         includeInGlobalAddressList, isArchived, kind, maxMessageBytes,
+         membersCanPostAsTheGroup, messageDisplayFont, messageModerationLevel,
+         name, primaryLanguage, replyTo, sendMessageDenyNotification,
+         showInGroupDirectory, spamModerationLevel, whoCanAdd,
+         whoCanAddReferences, whoCanApproveMembers, whoCanApproveMessages,
+         whoCanAssignTopics, whoCanAssistContent, whoCanBanUsers,
+         whoCanContactOwner, whoCanDeleteAnyPost, whoCanDeleteTopics,
+         whoCanDiscoverGroup, whoCanEnterFreeFormTags, whoCanHideAbuse,
+         whoCanInvite, whoCanJoin, whoCanLeaveGroup, whoCanLockTopics,
+         whoCanMakeTopicsSticky, whoCanMarkDuplicate,
          whoCanMarkFavoriteReplyOnAnyTopic, whoCanMarkFavoriteReplyOnOwnTopic,
-         whoCanMarkNoResponseNeeded, whoCanModifyTagsAndCategories,
-         whoCanPostMessage, whoCanTakeTopics, whoCanUnassignTopic,
-         whoCanUnmarkFavoriteReplyOnAnyTopic, whoCanViewGroup,
-         whoCanViewMembership;
+         whoCanMarkNoResponseNeeded, whoCanModerateContent,
+         whoCanModerateMembers, whoCanModifyMembers,
+         whoCanModifyTagsAndCategories, whoCanMoveTopicsIn, whoCanMoveTopicsOut,
+         whoCanPostAnnouncements, whoCanPostMessage, whoCanTakeTopics,
+         whoCanUnassignTopic, whoCanUnmarkFavoriteReplyOnAnyTopic,
+         whoCanViewGroup, whoCanViewMembership;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

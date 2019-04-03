@@ -558,28 +558,6 @@ GTLR_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 
 
 /**
- *  The read group set import response.
- */
-@interface GTLRGenomics_ImportReadGroupSetsResponse : GTLRObject
-
-/** IDs of the read group sets that were created. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *readGroupSetIds;
-
-@end
-
-
-/**
- *  The variant data import response.
- */
-@interface GTLRGenomics_ImportVariantsResponse : GTLRObject
-
-/** IDs of the call sets created during the import. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *callSetIds;
-
-@end
-
-
-/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -634,11 +612,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  If importing ReadGroupSets, an ImportReadGroupSetsResponse is returned. If
- *  importing Variants, an ImportVariantsResponse is returned. For pipelines and
- *  exports, an Empty response is returned.
- */
+/** An Empty object. */
 @property(nonatomic, strong, nullable) GTLRGenomics_Operation_Response *response;
 
 @end
@@ -658,9 +632,7 @@ GTLR_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 
 
 /**
- *  If importing ReadGroupSets, an ImportReadGroupSetsResponse is returned. If
- *  importing Variants, an ImportVariantsResponse is returned. For pipelines and
- *  exports, an Empty response is returned.
+ *  An Empty object.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
