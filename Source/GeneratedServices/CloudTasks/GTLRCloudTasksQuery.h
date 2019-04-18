@@ -141,8 +141,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  Method: cloudtasks.projects.locations.queues.create
  *
@@ -175,8 +175,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
  *  @param parent Required.
@@ -202,8 +202,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  Method: cloudtasks.projects.locations.queues.delete
  *
@@ -232,8 +232,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  @param name Required.
  *    The queue name. For example:
@@ -413,8 +413,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  Method: cloudtasks.projects.locations.queues.patch
  *
@@ -467,8 +467,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
  *  Read
  *  [Overview of Queue Management and
- *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml)
- *  before using this method.
+ *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
+ *  this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
  *  @param name Caller-specified and required in CreateQueue,

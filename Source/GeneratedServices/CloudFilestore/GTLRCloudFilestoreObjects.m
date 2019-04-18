@@ -14,6 +14,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready = @"READY";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing = @"REPAIRING";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
+
 // GTLRCloudFilestore_Instance.state
 NSString * const kGTLRCloudFilestore_Instance_State_Creating   = @"CREATING";
 NSString * const kGTLRCloudFilestore_Instance_State_Deleting   = @"DELETING";
@@ -56,6 +64,154 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 @implementation GTLRCloudFilestore_FileShareConfig
 @dynamic capacityGb, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
+@dynamic createTime, labels, maintenancePolicyNames, name, producerMetadata,
+         provisionedResources, rolloutMetadata, sloMetadata, softwareVersions,
+         state, tenantProjectId, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"provisionedResources" : [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
+@dynamic rescheduled, scheduledEndTime, scheduledStartTime, targetRelease;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
+@dynamic resourceType, resourceUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
+@dynamic notification, releaseName, rolloutName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
+@dynamic exclusionDuration, exclusionStartTime, reason, sloName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
+@dynamic exclusions, tier;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusions" : [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
+  };
+  return map;
+}
+
 @end
 
 

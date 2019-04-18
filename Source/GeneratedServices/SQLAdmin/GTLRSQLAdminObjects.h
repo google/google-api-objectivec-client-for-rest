@@ -486,6 +486,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The replicas of the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaNames;
 
+/** Initial root password. Use only on creation. */
+@property(nonatomic, copy, nullable) NSString *rootPassword;
+
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 

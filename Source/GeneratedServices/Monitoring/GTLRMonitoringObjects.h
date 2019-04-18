@@ -3949,16 +3949,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
 
 /**
- *  If this is true, then checks are made only from the 'internal_checkers'. If
- *  it is false, then checks are made only from the 'selected_regions'. It is an
- *  error to provide 'selected_regions' when is_internal is true, or to provide
- *  'internal_checkers' when is_internal is false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isInternal;
-
-/**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
  *  are supported for uptime checks: uptime_url gce_instance gae_app

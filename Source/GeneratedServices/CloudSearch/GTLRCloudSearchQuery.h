@@ -100,8 +100,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsCheckAccessWithObject:name:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -179,8 +179,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsUnmappedidsListWithparent:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -233,8 +233,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForDebugIdentitysourcesItemsListForunmappedidentityWithparent:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -287,8 +287,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForDebugIdentitysourcesUnmappedidsListWithparent:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -360,8 +360,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesDeleteSchemaWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -400,8 +400,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesGetSchemaWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -446,8 +446,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -556,8 +556,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -660,8 +660,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1091,8 +1091,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL requestOptionsDebugOptionsEnableDebugging;
 
@@ -1101,6 +1101,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  For more information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  For translations.
+ *  When specified, the documents in search results are biased towards the
+ *  specified language.
+ *  Suggest API does not use this parameter. It autocompletes only based on
+ *  characters in the query.
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 
@@ -1199,8 +1203,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsDatasourcesDeleteWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1239,8 +1243,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsDatasourcesGetWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1279,8 +1283,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsDatasourcesList]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1391,8 +1395,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsSearchapplicationsDeleteWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1431,8 +1435,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsSearchapplicationsGetWithname:]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
@@ -1471,8 +1475,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 //   +[GTLQueryCloudSearch queryForSettingsSearchapplicationsList]
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 

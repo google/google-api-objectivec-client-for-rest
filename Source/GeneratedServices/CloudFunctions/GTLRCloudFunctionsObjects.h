@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -411,8 +411,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  The limit on the maximum number of function instances that may coexist at a
- *  given time. This feature is currently in alpha, available only for
- *  whitelisted users.
+ *  given time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -442,14 +441,12 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The runtime in which the function is going to run. Example values include:
- *  `go111`: for Go 1.11
- *  `nodejs6`: for Node.js 6
- *  `nodejs8`: for Node.js 8
- *  `nodejs10`: for Node.js 10
- *  `python37`: for Python 3.7
- *  `ruby25`: for Ruby 2.5
- *  If empty, defaults to `nodejs6`.
+ *  Required. The runtime in which the function is going to run. Choices:
+ *  * `nodejs6`: Node.js 6
+ *  * `nodejs8`: Node.js 8
+ *  * `nodejs10`: Node.js 10
+ *  * `python37`: Python 3.7
+ *  * `go111`: Go 1.11
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
 

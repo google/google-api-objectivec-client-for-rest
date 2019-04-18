@@ -101,6 +101,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload;
@@ -108,8 +109,13 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_WebhookPayload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2Sentiment;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
+@class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleLongrunningOperation_Metadata;
 @class GTLRDialogflow_GoogleLongrunningOperation_Response;
@@ -768,6 +774,38 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
+
+/**
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
+ *  Audio content returned as LINEAR16 also contains a WAV header.
+ *
+ *  Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16;
+/**
+ *  MP3 audio.
+ *
+ *  Value: "OUTPUT_AUDIO_ENCODING_MP3"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
+/**
+ *  Opus encoded audio wrapped in an ogg container. The result will be a
+ *  file which can be played natively on Android, and in browsers (at least
+ *  Chrome and Firefox). The quality of the encoding is considerably higher
+ *  than MP3 while using approximately the same bitrate.
+ *
+ *  Value: "OUTPUT_AUDIO_ENCODING_OGG_OPUS"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus;
+/**
+ *  Not specified.
+ *
+ *  Value: "OUTPUT_AUDIO_ENCODING_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.entityOverrideMode
 
 /**
@@ -796,6 +834,35 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams.ssmlGender
+
+/**
+ *  A female voice.
+ *
+ *  Value: "SSML_VOICE_GENDER_FEMALE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale;
+/**
+ *  A male voice.
+ *
+ *  Value: "SSML_VOICE_GENDER_MALE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale;
+/**
+ *  A gender-neutral voice.
+ *
+ *  Value: "SSML_VOICE_GENDER_NEUTRAL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral;
+/**
+ *  An unspecified gender, which means that the client doesn't care which
+ *  gender the selected voice will have.
+ *
+ *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
 
 /**
  *  Represents a conversational agent.
@@ -2777,6 +2844,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 @property(nonatomic, copy, nullable) NSString *inputAudio;
 
 /**
+ *  Optional. Instructs the speech synthesizer how to generate the output
+ *  audio. If this field is not set and agent-level speech synthesizer is not
+ *  configured, no output audio is generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig *outputAudioConfig;
+
+/**
  *  Required. The input specification. It can be set to:
  *  1. an audio config
  *  which instructs the speech recognizer how to process the speech audio,
@@ -2795,6 +2869,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  The message returned from the DetectIntent method.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse : GTLRObject
+
+/**
+ *  The audio data bytes encoded as specified in the request.
+ *  Note: The output audio is generated based on the values of default platform
+ *  text responses found in the `query_result.fulfillment_messages` field. If
+ *  multiple default text responses exist, they will be concatenated when
+ *  generating audio. If no default platform text responses exist, the
+ *  generated audio content will be empty.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *outputAudio;
+
+/** The config used by the speech synthesizer to generate the output audio. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig *outputAudioConfig;
 
 /**
  *  The selected results of the conversational query or event processing.
@@ -4092,6 +4182,51 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Instructs the speech synthesizer how to generate the output audio content.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig : GTLRObject
+
+/**
+ *  Required. Audio encoding of the synthesized audio content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16
+ *        Uncompressed 16-bit signed little-endian samples (Linear PCM).
+ *        Audio content returned as LINEAR16 also contains a WAV header. (Value:
+ *        "OUTPUT_AUDIO_ENCODING_LINEAR_16")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3
+ *        MP3 audio. (Value: "OUTPUT_AUDIO_ENCODING_MP3")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus
+ *        Opus encoded audio wrapped in an ogg container. The result will be a
+ *        file which can be played natively on Android, and in browsers (at
+ *        least
+ *        Chrome and Firefox). The quality of the encoding is considerably
+ *        higher
+ *        than MP3 while using approximately the same bitrate. (Value:
+ *        "OUTPUT_AUDIO_ENCODING_OGG_OPUS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified
+ *        Not specified. (Value: "OUTPUT_AUDIO_ENCODING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *audioEncoding;
+
+/**
+ *  Optional. The synthesis sample rate (in hertz) for this audio. If not
+ *  provided, then the synthesizer will use the default sample rate based on
+ *  the audio encoding. If this is different from the voice's natural sample
+ *  rate, then the synthesizer will honor this request by converting to the
+ *  desired sample rate (which might result in worse audio quality).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
+
+/** Optional. Configuration of how speech should be synthesized. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig *synthesizeSpeechConfig;
+
+@end
+
+
+/**
  *  Represents the query input. It can contain either:
  *  1. An audio config which
  *  instructs the speech recognizer how to process the speech audio.
@@ -4139,6 +4274,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
+
+/**
+ *  Optional. Configures the type of sentiment analysis to perform. If not
+ *  provided, sentiment analysis is not performed.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig *sentimentAnalysisRequestConfig;
 
 /**
  *  Optional. Additional session entity types to replace or extend developer
@@ -4252,6 +4393,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  - If an event was provided as input, `query_text` is not set.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
+
+/**
+ *  The sentiment analysis result, which depends on the
+ *  `sentiment_analysis_request_config` specified in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult *sentimentAnalysisResult;
 
 /**
  *  The Speech recognition confidence between 0.0 and 1.0. A higher number
@@ -4384,6 +4531,60 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  The sentiment, such as positive/negative feeling or association, for a unit
+ *  of analysis, such as the query text.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2Sentiment : GTLRObject
+
+/**
+ *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  magnitude of sentiment, regardless of score (positive or negative).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *magnitude;
+
+/**
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
+ *  sentiment).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Configures the types of sentiment analysis to perform.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig : GTLRObject
+
+/**
+ *  Optional. Instructs the service to perform sentiment analysis on
+ *  `query_text`. If not provided, sentiment analysis is not performed on
+ *  `query_text`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analyzeQueryTextSentiment;
+
+@end
+
+
+/**
+ *  The result of sentiment analysis as configured by
+ *  `sentiment_analysis_request_config`.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult : GTLRObject
+
+/** The sentiment analysis result for `query_text`. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Sentiment *queryTextSentiment;
+
+@end
+
+
+/**
  *  Represents a session entity type.
  *  Extends or replaces a developer entity type at the user session level (we
  *  refer to the entity types defined at the agent level as "developer entity
@@ -4438,6 +4639,57 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
 
 
 /**
+ *  Configuration of how speech should be synthesized.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig : GTLRObject
+
+/**
+ *  Optional. An identifier which selects 'audio effects' profiles that are
+ *  applied on (post synthesized) text to speech. Effects are applied on top of
+ *  each other in the order they are given.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectsProfileId;
+
+/**
+ *  Optional. Speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20
+ *  semitones from the original pitch. -20 means decrease 20 semitones from the
+ *  original pitch.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pitch;
+
+/**
+ *  Optional. Speaking rate/speed, in the range [0.25, 4.0]. 1.0 is the normal
+ *  native speed supported by the specific voice. 2.0 is twice as fast, and
+ *  0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed. Any
+ *  other values < 0.25 or > 4.0 will return an error.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakingRate;
+
+/** Optional. The desired voice of the synthesized audio. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams *voice;
+
+/**
+ *  Optional. Volume gain (in dB) of the normal native volume supported by the
+ *  specific voice, in the range [-96.0, 16.0]. If unset, or set to a value of
+ *  0.0 (dB), will play at normal native signal amplitude. A value of -6.0 (dB)
+ *  will play at approximately half the amplitude of the normal native signal
+ *  amplitude. A value of +6.0 (dB) will play at approximately twice the
+ *  amplitude of the normal native signal amplitude. We strongly recommend not
+ *  to exceed +10 (dB) as there's usually no effective increase in loudness for
+ *  any value greater than that.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeGainDb;
+
+@end
+
+
+/**
  *  Represents the natural language text to be processed.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2TextInput : GTLRObject
@@ -4463,6 +4715,41 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  The request message for Agents.TrainAgent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest : GTLRObject
+@end
+
+
+/**
+ *  Description of which voice to use for speech synthesis.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams : GTLRObject
+
+/**
+ *  Optional. The name of the voice. If not set, the service will choose a
+ *  voice based on the other parameters such as language_code and gender.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The preferred gender of the voice. If not set, the service will
+ *  choose a voice based on the other parameters such as language_code and
+ *  name. Note that this is only a preference, not requirement. If a
+ *  voice of the appropriate gender is not available, the synthesizer should
+ *  substitute a voice with a different gender rather than failing the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale
+ *        A female voice. (Value: "SSML_VOICE_GENDER_FEMALE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale
+ *        A male voice. (Value: "SSML_VOICE_GENDER_MALE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral
+ *        A gender-neutral voice. (Value: "SSML_VOICE_GENDER_NEUTRAL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified
+ *        An unspecified gender, which means that the client doesn't care which
+ *        gender the selected voice will have. (Value:
+ *        "SSML_VOICE_GENDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ssmlGender;
+
 @end
 
 

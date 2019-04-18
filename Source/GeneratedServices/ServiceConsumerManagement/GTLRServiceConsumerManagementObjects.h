@@ -85,6 +85,9 @@
 @class GTLRServiceConsumerManagement_Type;
 @class GTLRServiceConsumerManagement_Usage;
 @class GTLRServiceConsumerManagement_UsageRule;
+@class GTLRServiceConsumerManagement_V1Beta1QuotaOverride;
+@class GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions;
+@class GTLRServiceConsumerManagement_V1ServiceAccount;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -768,7 +771,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
- *  Configuration for an anthentication provider, including support for
+ *  Configuration for an authentication provider, including support for
  *  [JSON Web Token
  *  (JWT)](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32).
  */
@@ -1802,16 +1805,16 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  side, all characters except `[-_.~0-9a-zA-Z]` are percent-encoded. The
  *  server side does the reverse decoding. Such variables show up in the
  *  [Discovery
- *  Document](https://developers.google.com/discovery/v1/reference/apis)
- *  as `{var}`.
+ *  Document](https://developers.google.com/discovery/v1/reference/apis) as
+ *  `{var}`.
  *  If a variable contains multiple path segments, such as `"{var=foo/ *}"`
  *  or `"{var=**}"`, when such a variable is expanded into a URL path on the
  *  client side, all characters except `[-_.~/0-9a-zA-Z]` are percent-encoded.
  *  The server side does the reverse decoding, except "%2F" and "%2f" are left
  *  unchanged. Such variables show up in the
  *  [Discovery
- *  Document](https://developers.google.com/discovery/v1/reference/apis)
- *  as `{+var}`.
+ *  Document](https://developers.google.com/discovery/v1/reference/apis) as
+ *  `{+var}`.
  *  ## Using gRPC API Service Configuration
  *  gRPC API Service Configuration (service config) is a configuration language
  *  for configuring a gRPC service to become a user-facing product. The
@@ -3739,6 +3742,242 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipServiceControl;
+
+@end
+
+
+/**
+ *  Response message for the `AddVisibilityLabels` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1AddVisibilityLabelsResponse : GTLRObject
+
+/** The updated set of visibility labels for this consumer on this service. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+@end
+
+
+/**
+ *  Response message for BatchCreateProducerOverrides
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1BatchCreateProducerOverridesResponse : GTLRObject
+
+/** The overrides that were created. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_V1Beta1QuotaOverride *> *overrides;
+
+@end
+
+
+/**
+ *  Response message for the `DisableConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1DisableConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `EnableConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1EnableConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for ImportProducerOverrides
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1ImportProducerOverridesResponse : GTLRObject
+
+/** The overrides that were created from the imported data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_V1Beta1QuotaOverride *> *overrides;
+
+@end
+
+
+/**
+ *  A quota override
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1QuotaOverride : GTLRObject
+
+/**
+ *  If this map is nonempty, then this override applies only to specific values
+ *  for dimensions defined in the limit unit.
+ *  For example, an override on a limit with the unit 1/{project}/{region}
+ *  could contain an entry with the key "region" and the value "us-east-1";
+ *  the override is only applied to quota consumed in that region.
+ *  This map has the following restrictions:
+ *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  Any string appearing in {brackets} in the unit (besides {project} or
+ *  {user}) is a defined key.
+ *  - "project" is not a valid key; the project is already specified in
+ *  the parent resource name.
+ *  - "user" is not a valid key; the API does not support quota overrides
+ *  that apply only to a specific user.
+ *  - If "region" appears as a key, its value must be a valid Cloud region.
+ *  - If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  - If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the map.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions *dimensions;
+
+/**
+ *  The name of the metric to which this override applies.
+ *  An example name would be:
+ *  `compute.googleapis.com/cpus`
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  The resource name of the producer override.
+ *  An example name would be:
+ *  `services/compute.googleapis.com/projects/123/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/producerOverrides/4a3f2c1d`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The overriding quota limit value.
+ *  Can be any nonnegative integer, or -1 (unlimited quota).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overrideValue;
+
+/**
+ *  The limit unit of the limit to which this override applies.
+ *  An example unit would be:
+ *  `1/{project}/{region}`
+ *  Note that `{project}` and `{region}` are not placeholders in this example;
+ *  the literal characters `{` and `}` occur in the string.
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+@end
+
+
+/**
+ *  If this map is nonempty, then this override applies only to specific values
+ *  for dimensions defined in the limit unit.
+ *  For example, an override on a limit with the unit 1/{project}/{region}
+ *  could contain an entry with the key "region" and the value "us-east-1";
+ *  the override is only applied to quota consumed in that region.
+ *  This map has the following restrictions:
+ *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  Any string appearing in {brackets} in the unit (besides {project} or
+ *  {user}) is a defined key.
+ *  - "project" is not a valid key; the project is already specified in
+ *  the parent resource name.
+ *  - "user" is not a valid key; the API does not support quota overrides
+ *  that apply only to a specific user.
+ *  - If "region" appears as a key, its value must be a valid Cloud region.
+ *  - If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  - If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the map.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `RefreshConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1RefreshConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `DisableConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1DisableConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `EnableConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1EnableConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `GenerateServiceAccount` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1GenerateServiceAccountResponse : GTLRObject
+
+/** ServiceAccount that was created or retrieved. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_V1ServiceAccount *account;
+
+@end
+
+
+/**
+ *  Response message for the `RefreshConsumer` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1RefreshConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `RemoveVisibilityLabels` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1RemoveVisibilityLabelsResponse : GTLRObject
+
+/** The updated set of visibility labels for this consumer on this service. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+@end
+
+
+/**
+ *  A service account in the Identity and Access Management API.
+ */
+@interface GTLRServiceConsumerManagement_V1ServiceAccount : GTLRObject
+
+/** The email address of the service account. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  The IAM resource name of the service account in the following format:
+ *  projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}.
+ */
+@property(nonatomic, copy, nullable) NSString *iamAccountName;
+
+/**
+ *  P4 SA resource name.
+ *  An example name would be:
+ *  `services/serviceconsumermanagement.googleapis.com/projects/123/serviceAccounts/default`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The P4 SA configuration tag. This must be defined in activation_grants.
+ *  If not specified when creating the account, the tag is set to "default".
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/** The unique and stable id of the service account. */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
 
 @end
 

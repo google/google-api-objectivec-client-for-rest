@@ -733,7 +733,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Configuration for an anthentication provider, including support for
+ *  Configuration for an authentication provider, including support for
  *  [JSON Web Token
  *  (JWT)](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32).
  */
@@ -1800,16 +1800,16 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  side, all characters except `[-_.~0-9a-zA-Z]` are percent-encoded. The
  *  server side does the reverse decoding. Such variables show up in the
  *  [Discovery
- *  Document](https://developers.google.com/discovery/v1/reference/apis)
- *  as `{var}`.
+ *  Document](https://developers.google.com/discovery/v1/reference/apis) as
+ *  `{var}`.
  *  If a variable contains multiple path segments, such as `"{var=foo/ *}"`
  *  or `"{var=**}"`, when such a variable is expanded into a URL path on the
  *  client side, all characters except `[-_.~/0-9a-zA-Z]` are percent-encoded.
  *  The server side does the reverse decoding, except "%2F" and "%2f" are left
  *  unchanged. Such variables show up in the
  *  [Discovery
- *  Document](https://developers.google.com/discovery/v1/reference/apis)
- *  as `{+var}`.
+ *  Document](https://developers.google.com/discovery/v1/reference/apis) as
+ *  `{+var}`.
  *  ## Using gRPC API Service Configuration
  *  gRPC API Service Configuration (service config) is a configuration language
  *  for configuring a gRPC service to become a user-facing product. The

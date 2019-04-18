@@ -26,6 +26,7 @@
 @class GTLRAndroidManagement_ApplicationPolicy;
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
 @class GTLRAndroidManagement_ApplicationReport;
+@class GTLRAndroidManagement_ApplicationReportingSettings;
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_Device;
@@ -34,6 +35,7 @@
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
+@class GTLRAndroidManagement_KeyedAppState;
 @class GTLRAndroidManagement_LaunchAppAction;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables;
@@ -542,6 +544,29 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificati
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified;
 /** Value: "STATUS_REPORT" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_KeyedAppState.severity
+
+/**
+ *  Error severity level. This should only be set for genuine error conditions
+ *  that a management organization needs to take action to fix.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error;
+/**
+ *  Information severity level.
+ *
+ *  Value: "INFO"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info;
+/**
+ *  Unspecified severity level.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ManagedProperty.type
@@ -1580,6 +1605,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /** The package name of the app that installed this app. */
 @property(nonatomic, copy, nullable) NSString *installerPackageName;
 
+/** List of keyed app states reported by the app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_KeyedAppState *> *keyedAppStates;
+
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -1619,6 +1647,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /** The app version as displayed to the user. */
 @property(nonatomic, copy, nullable) NSString *versionName;
+
+@end
+
+
+/**
+ *  Settings controlling the behavior of application reports.
+ */
+@interface GTLRAndroidManagement_ApplicationReportingSettings : GTLRObject
+
+/**
+ *  Whether removed apps are included in application reports.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeRemovedApps;
 
 @end
 
@@ -2441,6 +2484,55 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *skinTemperatures;
+
+@end
+
+
+/**
+ *  Keyed app state reported by the app.
+ */
+@interface GTLRAndroidManagement_KeyedAppState : GTLRObject
+
+/** The creation time of the app state on the device. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optionally, a machine-readable value to be read by the EMM. For example,
+ *  setting values that the admin can choose to query against in the EMM console
+ *  (e.g. “notify me if the battery_warning data < 10”).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  The key for the app state. Acts as a point of reference for what the app is
+ *  providing state for. For example, when providing managed configuration
+ *  feedback, this key could be the managed configuration key.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The time the app state was most recently updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  Optionally, a free-form message string to explain the app state. If the
+ *  state was triggered by a particular value (e.g. a managed configuration
+ *  value), it should be included in the message.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The severity of the app state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_KeyedAppState_Severity_Error Error severity
+ *        level. This should only be set for genuine error conditions that a
+ *        management organization needs to take action to fix. (Value: "ERROR")
+ *    @arg @c kGTLRAndroidManagement_KeyedAppState_Severity_Info Information
+ *        severity level. (Value: "INFO")
+ *    @arg @c kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified
+ *        Unspecified severity level. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 @end
 
@@ -4092,6 +4184,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Settings controlling the behavior of status reports.
  */
 @interface GTLRAndroidManagement_StatusReportingSettings : GTLRObject
+
+/**
+ *  Application reporting settings. Only applicable if
+ *  application_reports_enabled is true.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationReportingSettings *applicationReportingSettings;
 
 /**
  *  Whether app reports are enabled.

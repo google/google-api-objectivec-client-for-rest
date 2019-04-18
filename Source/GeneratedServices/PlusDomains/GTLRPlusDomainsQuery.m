@@ -254,22 +254,3 @@ NSString * const kGTLRPlusDomainsSortOrderDescending = @"descending";
 }
 
 @end
-
-@implementation GTLRPlusDomainsQuery_PeopleListByCircle
-
-@dynamic circleId, maxResults, pageToken;
-
-+ (instancetype)queryWithCircleId:(NSString *)circleId {
-  NSArray *pathParams = @[ @"circleId" ];
-  NSString *pathURITemplate = @"circles/{circleId}/people";
-  GTLRPlusDomainsQuery_PeopleListByCircle *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.circleId = circleId;
-  query.expectedObjectClass = [GTLRPlusDomains_PeopleFeed class];
-  query.loggingName = @"plusDomains.people.listByCircle";
-  return query;
-}
-
-@end

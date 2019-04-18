@@ -356,8 +356,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  * **Python**: Must be the return value of
  *  [`traceback.format_exc()`](https://docs.python.org/2/library/traceback.html#traceback.format_exc).
  *  * **JavaScript**: Must be the value of
- *  [`error.stack`](https://github.com/v8/v8/wiki/Stack-Trace-API)
- *  as returned by V8.
+ *  [`error.stack`](https://github.com/v8/v8/wiki/Stack-Trace-API) as returned
+ *  by V8.
  *  * **Ruby**: Must contain frames returned by
  *  [`Exception.backtrace`](https://ruby-doc.org/core-2.2.0/Exception.html#method-i-backtrace).
  *  * **C#**: Must be the return value of

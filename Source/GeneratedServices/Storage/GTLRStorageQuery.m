@@ -1234,6 +1234,120 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_ProjectsHmacKeysCreate
+
+@dynamic projectId, serviceAccountEmail;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+               serviceAccountEmail:(NSString *)serviceAccountEmail {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"projects/{projectId}/hmacKeys";
+  GTLRStorageQuery_ProjectsHmacKeysCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.serviceAccountEmail = serviceAccountEmail;
+  query.expectedObjectClass = [GTLRStorage_HmacKey class];
+  query.loggingName = @"storage.projects.hmacKeys.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ProjectsHmacKeysDelete
+
+@dynamic accessId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          accessId:(NSString *)accessId {
+  NSArray *pathParams = @[
+    @"accessId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{projectId}/hmacKeys/{accessId}";
+  GTLRStorageQuery_ProjectsHmacKeysDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.accessId = accessId;
+  query.loggingName = @"storage.projects.hmacKeys.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ProjectsHmacKeysGet
+
+@dynamic accessId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          accessId:(NSString *)accessId {
+  NSArray *pathParams = @[
+    @"accessId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{projectId}/hmacKeys/{accessId}";
+  GTLRStorageQuery_ProjectsHmacKeysGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.accessId = accessId;
+  query.expectedObjectClass = [GTLRStorage_HmacKeyMetadata class];
+  query.loggingName = @"storage.projects.hmacKeys.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ProjectsHmacKeysList
+
+@dynamic maxResults, pageToken, projectId, serviceAccountEmail, showDeletedKeys;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"projects/{projectId}/hmacKeys";
+  GTLRStorageQuery_ProjectsHmacKeysList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRStorage_HmacKeysMetadata class];
+  query.loggingName = @"storage.projects.hmacKeys.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ProjectsHmacKeysUpdate
+
+@dynamic accessId, projectId;
+
++ (instancetype)queryWithObject:(GTLRStorage_HmacKeyMetadata *)object
+                      projectId:(NSString *)projectId
+                       accessId:(NSString *)accessId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accessId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{projectId}/hmacKeys/{accessId}";
+  GTLRStorageQuery_ProjectsHmacKeysUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.accessId = accessId;
+  query.expectedObjectClass = [GTLRStorage_HmacKeyMetadata class];
+  query.loggingName = @"storage.projects.hmacKeys.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_ProjectsServiceAccountGet
 
 @dynamic projectId, userProject;

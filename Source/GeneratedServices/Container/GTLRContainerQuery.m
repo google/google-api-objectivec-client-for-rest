@@ -19,6 +19,25 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/aggregated/usableSubnetworks";
+  GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainer_ListUsableSubnetworksResponse class];
+  query.loggingName = @"container.projects.aggregated.usableSubnetworks.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
 
 @dynamic name;

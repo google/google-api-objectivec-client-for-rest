@@ -35,6 +35,31 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_ActivityRule
+//
+
+@implementation GTLRAlertCenter_ActivityRule
+@dynamic actionNames, createTime, descriptionProperty, displayName, name, query,
+         supersededAlerts, supersedingAlert, threshold, triggerSource,
+         updateTime, windowSize;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actionNames" : [NSString class],
+    @"supersededAlerts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_Alert
 //
 

@@ -53,6 +53,7 @@
 @class GTLRToolResults_StepDimensionValueEntry;
 @class GTLRToolResults_StepLabelsEntry;
 @class GTLRToolResults_SuccessDetail;
+@class GTLRToolResults_TestCase;
 @class GTLRToolResults_TestCaseReference;
 @class GTLRToolResults_TestExecutionStep;
 @class GTLRToolResults_TestIssue;
@@ -220,6 +221,18 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_InProgress;
 GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_Pending;
 /** Value: "unknownState" */
 GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_TestCase.status
+
+/** Value: "error" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Error;
+/** Value: "failed" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Failed;
+/** Value: "passed" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Passed;
+/** Value: "skipped" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Skipped;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_TestIssue.category
@@ -1226,6 +1239,29 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 
 
 /**
+ *  Response message for StepService.ListTestCases.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "testCases" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRToolResults_ListTestCasesResponse : GTLRCollectionObject
+
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of test cases.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestCase *> *testCases;
+
+@end
+
+
+/**
  *  GTLRToolResults_MemoryInfo
  */
 @interface GTLRToolResults_MemoryInfo : GTLRObject
@@ -1857,6 +1893,64 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *otherNativeCrash;
+
+@end
+
+
+/**
+ *  GTLRToolResults_TestCase
+ */
+@interface GTLRToolResults_TestCase : GTLRObject
+
+/**
+ *  The end time of the test case.
+ *  Optional.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *endTime;
+
+/**
+ *  Why the test case was skipped.
+ *  Present only for skipped test case
+ */
+@property(nonatomic, copy, nullable) NSString *skippedMessage;
+
+/**
+ *  The stack trace details if the test case failed or encountered an error.
+ *  The maximum size of the stack traces is 100KiB, beyond which the stack track
+ *  will be truncated.
+ *  Zero if the test case passed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StackTrace *> *stackTraces;
+
+/**
+ *  The start time of the test case.
+ *  Optional.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *startTime;
+
+/**
+ *  The status of the test case.
+ *  Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_TestCase_Status_Error Value "error"
+ *    @arg @c kGTLRToolResults_TestCase_Status_Failed Value "failed"
+ *    @arg @c kGTLRToolResults_TestCase_Status_Passed Value "passed"
+ *    @arg @c kGTLRToolResults_TestCase_Status_Skipped Value "skipped"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** A unique identifier within a Step for this Test Case. */
+@property(nonatomic, copy, nullable) NSString *testCaseId;
+
+/**
+ *  Test case reference, e.g. name, class name and test suite name.
+ *  Required.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_TestCaseReference *testCaseReference;
+
+/** References to opaque files of any format output by the tool execution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ToolOutputReference *> *toolOutputs;
 
 @end
 

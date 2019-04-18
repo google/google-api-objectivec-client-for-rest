@@ -896,29 +896,6 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete
-
-@dynamic creativeId, ownerName;
-
-+ (instancetype)queryWithOwnerName:(NSString *)ownerName
-                        creativeId:(NSString *)creativeId {
-  NSArray *pathParams = @[
-    @"creativeId", @"ownerName"
-  ];
-  NSString *pathURITemplate = @"v2beta1/{+ownerName}/creatives/{creativeId}";
-  GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.ownerName = ownerName;
-  query.creativeId = creativeId;
-  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Empty class];
-  query.loggingName = @"adexchangebuyer2.bidders.accounts.creatives.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList
 
 @dynamic filterSetName, pageSize, pageToken;

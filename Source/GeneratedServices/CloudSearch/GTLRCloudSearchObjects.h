@@ -1303,6 +1303,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  Filters with the same object type are joined conjunctively, then
  *  the resulting expressions are joined disjunctively.
  *  The maximum number of elements is 20.
+ *  NOTE: Suggest API supports only few filters at the moment:
+ *  "objecttype", "type" and "mimetype".
+ *  For now, schema specific filters cannot be used to filter suggestions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FilterOptions *> *filterOptions;
 
@@ -1421,8 +1424,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_DebugOptions : GTLRObject
 
 /**
- *  If set, the request will enable debugging features of Cloud Search.
- *  Only turn on this field, if asked by Google to help with debugging.
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3315,7 +3318,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
- *  A people suggestion.
+ *  This field contains information about the person being suggested.
  */
 @interface GTLRCloudSearch_PeopleSuggestion : GTLRObject
 
@@ -3891,7 +3894,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
- *  A completed query suggestion.
+ *  This field does not contain anything as of now and is just used as an
+ *  indicator that the suggest result was a phrase completion.
  */
 @interface GTLRCloudSearch_QuerySuggestion : GTLRObject
 @end
@@ -3961,6 +3965,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  For more information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  For translations.
+ *  When specified, the documents in search results are biased towards the
+ *  specified language.
+ *  Suggest API does not use this parameter. It autocompletes only based on
+ *  characters in the query.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -4777,10 +4785,16 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 /**
  *  The sources to use for suggestions. If not specified, all data sources
  *  from the current search application are used.
+ *  Suggestions are based on Gmail titles. Suggestions from third party sources
+ *  are not available.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceRestriction *> *dataSourceRestrictions;
 
-/** Partial query for the completion suggestion. */
+/**
+ *  Partial query for which autocomplete suggestions will be shown.
+ *  For example, if the query is "sea", then the server might return
+ *  "season", "search", "seagull" and so on.
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /** Request options, such as the search application and user timezone. */
@@ -4794,7 +4808,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_SuggestResponse : GTLRObject
 
-/** List of suggestion results. */
+/** List of suggestions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SuggestResult *> *suggestResults;
 
 @end
@@ -4805,7 +4819,17 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_SuggestResult : GTLRObject
 
+/**
+ *  This is present when the suggestion indicates a person. It
+ *  contains more information about the person - like their email ID,
+ *  name etc.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PeopleSuggestion *peopleSuggestion;
+
+/**
+ *  This field will be present if the suggested query is a word/phrase
+ *  completion.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_QuerySuggestion *querySuggestion;
 
 /** The source of the suggestion. */

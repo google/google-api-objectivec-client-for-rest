@@ -253,7 +253,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -294,8 +294,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 /**
  *  A list of asset types of which to take a snapshot for. For example:
  *  "compute.googleapis.com/Disk". If specified, only matching assets will be
- *  returned.
- *  See [Introduction to Cloud Asset
+ *  returned. See [Introduction to Cloud Asset
  *  Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
  *  for all supported asset types.
  */
@@ -386,6 +385,19 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  The uri prefix of all generated Cloud Storage objects. For example:
+ *  "gs://bucket_name/object_name_prefix". Each object uri is in format:
+ *  "gs://bucket_name/object_name_prefix/<asset type>/<shard number> and only
+ *  contains assets for that type. <shard number> starts from 0. For example:
+ *  "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is
+ *  the first shard of output objects containing all
+ *  compute.googleapis.com/Disk assets. An INVALID_ARGUMENT error will be
+ *  returned if file with the same name "gs://bucket_name/object_name_prefix"
+ *  already exists.
+ */
+@property(nonatomic, copy, nullable) NSString *uriPrefix;
 
 @end
 

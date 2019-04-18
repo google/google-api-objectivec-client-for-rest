@@ -20,6 +20,16 @@
 #endif
 
 @class GTLRCloudFilestore_FileShareConfig;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
 @class GTLRCloudFilestore_Location;
@@ -41,6 +51,46 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
+
+/**
+ *  Instance is being created.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
+/**
+ *  Instance is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
+/**
+ *  Instance has been created and is ready to use.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
+/**
+ *  Instance is unheathy and under repair.
+ *
+ *  Value: "REPAIRING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
+/**
+ *  Instance is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.state
@@ -150,6 +200,370 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 /** The name of the file share (must be 16 characters or less). */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Instance represents the interface for SLM services to actuate the state
+ *  of control plane resources.
+ *  Example Instance in JSON, where
+ *  consumer-project=snapchat,
+ *  producer-project=cloud-sql:
+ *  ```json
+ *  Instance:
+ *  {
+ *  "name":
+ *  "projects/snapchat/locations/us-east1/instances/prod-instance",
+ *  "create_time": {
+ *  "seconds": 1526406431,
+ *  },
+ *  "labels": {
+ *  "env": "prod",
+ *  "foo": "bar"
+ *  },
+ *  "state": READY,
+ *  "software_version": "cloud-sql-09-28-2018",
+ *  "maintenance_policy_names": {
+ *  "UpdatePolicy":
+ *  "projects/snapchat/locations/us-east1/maintenancePolicies/prod-update-policy",
+ *  }
+ *  "rollout_metadata": {
+ *  "projects/cloud-sql/locations/global/rolloutTypes/software_update": {
+ *  "release":
+ *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-28-2018",
+ *  "rollout":
+ *  "projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-28-2018-canary",
+ *  }
+ *  "projects/cloud-sql/locations/global/rolloutTypes/instance_restart": {
+ *  "release":
+ *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-20-repair",
+ *  "rollout":
+ *  "projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-20-repair-100-percent",
+ *  }
+ *  }
+ *  "tenant_project_id": "cloud-sql-test-tenant",
+ *  "producer_metadata": {
+ *  "cloud-sql-tier": "basic",
+ *  "cloud-sql-instance-size": "1G",
+ *  },
+ *  "provisioned_resources": [
+ *  {
+ *  "resource-type": "compute-instance",
+ *  "resource-url":
+ *  "https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1",
+ *  }
+ *  ],
+ *  }
+ *  ```
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance : GTLRObject
+
+/** Output only. Timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Resource labels to represent user provided metadata. Each label
+ *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  provided by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
+
+/**
+ *  The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  type. For complete details of MaintenancePolicy, please refer to
+ *  //depot/google3/google/cloud/saasaccelerator/maintenancepolicy/api/v1/maintenance_policy_resources.proto
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames *maintenancePolicyNames;
+
+/**
+ *  Unique name of the resource. It uses the form:
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Custom string attributes used primarily to expose
+ *  producer-specific information in monitoring dashboards.
+ *  See go/get-instance-metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata *producerMetadata;
+
+/**
+ *  Output only. The list of data plane resources provisioned for this
+ *  instance, e.g. compute VMs. See go/get-instance-metadata.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource *> *provisionedResources;
+
+/**
+ *  The map between RolloutType and the corresponding RolloutMetadata.
+ *  This is only mutated by rollout service. For actuation implementation,
+ *  this information is pass-through for Rollout management. Producer shall
+ *  not modify by itself.
+ *  For update of a single entry in this map, the update field mask shall
+ *  follow this sementics: go/advanced-field-masks
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata *rolloutMetadata;
+
+/**
+ *  Output only. SLO metadata for instance classification in the
+ *  Standardized dataplane SLO platform.
+ *  See go/cloud-ssa-standard-slo for feature description.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata *sloMetadata;
+
+/**
+ *  Software versions that are used to deploy this instance. This can be
+ *  mutated by rollout services.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions *softwareVersions;
+
+/**
+ *  Output only. Current lifecycle state of the resource (e.g. if it's being
+ *  created or ready to use).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating
+ *        Instance is being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting
+ *        Instance is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready
+ *        Instance has been created and is ready to use. (Value: "READY")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing
+ *        Instance is unheathy and under repair. (Value: "REPAIRING")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating
+ *        Instance is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. ID of the associated GCP tenant project.
+ *  See go/get-instance-metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantProjectId;
+
+/** Output only. Timestamp when the resource was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Resource labels to represent user provided metadata. Each label
+ *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  provided by the user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels : GTLRObject
+@end
+
+
+/**
+ *  The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  type. For complete details of MaintenancePolicy, please refer to
+ *  //depot/google3/google/cloud/saasaccelerator/maintenancepolicy/api/v1/maintenance_policy_resources.proto
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames : GTLRObject
+@end
+
+
+/**
+ *  Output only. Custom string attributes used primarily to expose
+ *  producer-specific information in monitoring dashboards.
+ *  See go/get-instance-metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata : GTLRObject
+@end
+
+
+/**
+ *  The map between RolloutType and the corresponding RolloutMetadata.
+ *  This is only mutated by rollout service. For actuation implementation,
+ *  this information is pass-through for Rollout management. Producer shall
+ *  not modify by itself.
+ *  For update of a single entry in this map, the update field mask shall
+ *  follow this sementics: go/advanced-field-masks
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata : GTLRObject
+@end
+
+
+/**
+ *  Software versions that are used to deploy this instance. This can be
+ *  mutated by rollout services.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions : GTLRObject
+@end
+
+
+/**
+ *  NotificationMetadata is the notification state for an instance.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata : GTLRObject
+
+/**
+ *  Whether the instance update has been rescheduled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rescheduled;
+
+/**
+ *  The scheduled end time for the maintenance window during which update
+ *  can be performed on the instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
+
+/**
+ *  The scheduled start time for the maintenance window during which
+ *  update can be performed on the instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
+
+/** The target release to be applied to the instance. */
+@property(nonatomic, copy, nullable) NSString *targetRelease;
+
+@end
+
+
+/**
+ *  Describes provisioned dataplane resources.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource : GTLRObject
+
+/**
+ *  Type of the resource. This can be either a GCP resource or a custom one
+ *  (e.g. another cloud provider's VM). For GCP compute resources use singular
+ *  form of the names listed in GCP compute API documentation
+ *  (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with
+ *  'compute-', for example: 'compute-instance', 'compute-disk',
+ *  'compute-autoscaler'.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  URL identifying the resource, e.g.
+ *  "https://www.googleapis.com/compute/v1/projects/...)".
+ */
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+@end
+
+
+/**
+ *  RolloutMetadata for an actuation instance. It maps to a single RolloutType.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata : GTLRObject
+
+/** Instance level notification metadata. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata *notification;
+
+/** The last Release that has been applied to the instance. */
+@property(nonatomic, copy, nullable) NSString *releaseName;
+
+/** The last rollout that has been applied to the instance. */
+@property(nonatomic, copy, nullable) NSString *rolloutName;
+
+@end
+
+
+/**
+ *  A temporal SLO exclusion specification.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
+
+/**
+ *  Exclusion duration. No restrictions on the possible values.
+ *  When an ongoing operation is taking longer than initially expected,
+ *  an existing entry in the exclusion list can be updated by extending the
+ *  duration. This is supported by the subsystem exporting eligibility data
+ *  as long as such extension is committed at least 10 minutes before the
+ *  original exclusion expiration - otherwise it is possible that there will
+ *  be "gaps" in the exclusion application in the exported timeseries.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *exclusionDuration;
+
+/**
+ *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *exclusionStartTime;
+
+/**
+ *  Human-readable reason for the exclusion.
+ *  This should be a static string (e.g. "Disruptive update in progress")
+ *  and should not contain dynamically generated data (e.g. instance name).
+ *  Can be left empty.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  Name of an SLI/SLO that this exclusion applies to. Can be left empty,
+ *  signaling that the instance should be excluded from all SLI/SLOs defined
+ *  in the service SLO configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *sloName;
+
+@end
+
+
+/**
+ *  SloMetadata contains resources required for proper SLO classification of the
+ *  instance.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
+
+/**
+ *  List of SLO exclusion windows. When multiple entries in the list match
+ *  (matching the exclusion time-window against current time point)
+ *  the exclusion reason used in the first matching entry will be published.
+ *  It is not needed to include expired exclusion in this list, as only the
+ *  currently applicable exclusions are taken into account by the eligibility
+ *  exporting subsystem (the historical state of exclusions will be reflected
+ *  in the historically produced timeseries regardless of the current state).
+ *  This field can be used to mark the instance as temporary ineligible
+ *  for the purpose of SLO calculation. For permanent instance SLO exclusion,
+ *  a dedicated tier name can be used that does not have targets specified
+ *  in the service SLO configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
+
+/**
+ *  Name of the SLO tier the Instance belongs to. This name will be expected to
+ *  match the tiers specified in the service SLO configuration.
+ *  Field is mandatory and must not be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *tier;
 
 @end
 

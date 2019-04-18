@@ -280,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
  */
 GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 /**
- *  [Google Apps domain profile](https://admin.google.com).
+ *  [G Suite domain profile](https://support.google.com/a/answer/1628008).
  *
  *  Value: "DOMAIN_PROFILE"
  */
@@ -527,14 +527,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @interface GTLRPeopleService_ContactGroupMembership : GTLRObject
 
-/**
- *  The contact group ID for the contact group membership. The contact group
- *  ID can be custom or one of these predefined values:
- *  * `myContacts`
- *  * `starred`
- *  * A numerical ID for user-created groups.
- */
+/** The read-only contact group ID for the contact group membership. */
 @property(nonatomic, copy, nullable) NSString *contactGroupId;
+
+/**
+ *  The resource name for the contact group, assigned by the server. An ASCII
+ *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
+ *  Only contact_group_resource_name can be used for modifying memberships.
+ *  Any contact group membership can be removed, but only user group or
+ *  "myContacts" or "starred" system groups memberships can be added.
+ */
+@property(nonatomic, copy, nullable) NSString *contactGroupResourceName;
 
 @end
 
@@ -653,12 +656,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A Google Apps Domain membership.
+ *  A read-only G Suite Domain membership.
  */
 @interface GTLRPeopleService_DomainMembership : GTLRObject
 
 /**
- *  True if the person is in the viewer's Google Apps domain.
+ *  True if the person is in the viewer's G Suite domain.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -965,14 +968,15 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A person's read-only membership in a group.
+ *  A person's membership in a group. Only contact group memberships can be
+ *  modified.
  */
 @interface GTLRPeopleService_Membership : GTLRObject
 
 /** The contact group membership. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroupMembership *contactGroupMembership;
 
-/** The domain membership. */
+/** The read-only domain membership. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_DomainMembership *domainMembership;
 
 /** Metadata about the membership. */
@@ -984,7 +988,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /**
  *  A request to modify an existing contact group's members. Contacts can be
  *  removed from any group but they can only be added to a user group or
- *  myContacts or starred system groups.
+ *  "myContacts" or "starred" system groups.
  */
 @interface GTLRPeopleService_ModifyContactGroupMembersRequest : GTLRObject
 
@@ -1255,7 +1259,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's locale preferences. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Locale *> *locales;
 
-/** The person's read-only group memberships. */
+/** The person's group memberships. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Membership *> *memberships;
 
 /** Read-only metadata about the person. */
@@ -1701,8 +1705,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *        contact at https://contact.google.com/<var>id</var> where
  *        <var>id</var>
  *        is the source id. (Value: "CONTACT")
- *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [Google Apps domain
- *        profile](https://admin.google.com). (Value: "DOMAIN_PROFILE")
+ *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [G Suite domain
+ *        profile](https://support.google.com/a/answer/1628008). (Value:
+ *        "DOMAIN_PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_Profile [Google
  *        profile](https://profiles.google.com). You can view the
  *        profile at https://profiles.google.com/<var>id</var> where

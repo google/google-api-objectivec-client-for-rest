@@ -109,6 +109,67 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 
 /**
+ *  Alerts from G Suite Security Center rules service configured by admin.
+ */
+@interface GTLRAlertCenter_ActivityRule : GTLRObject
+
+/** List of action names associated with the rule threshold. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actionNames;
+
+/** Rule create timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of the rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Alert display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Rule name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Query that is used to get the data from the associated source. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  List of alert ids superseded by this alert. It is used to indicate that
+ *  this alert is essentially extension of superseded alerts and we found the
+ *  relationship after creating these alerts.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supersededAlerts;
+
+/**
+ *  Alert id superseding this alert. It is used to indicate that superseding
+ *  alert is essentially extension of this alert and we found the relationship
+ *  after creating both alerts.
+ */
+@property(nonatomic, copy, nullable) NSString *supersedingAlert;
+
+/** Alert threshold is for example “COUNT > 5”. */
+@property(nonatomic, copy, nullable) NSString *threshold;
+
+/**
+ *  The trigger sources for this rule.
+ *  * GMAIL_EVENTS
+ *  * DEVICE_EVENTS
+ *  * USER_EVENTS
+ */
+@property(nonatomic, copy, nullable) NSString *triggerSource;
+
+/** The timestamp of the last update to the rule. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Rule window size. Possible values are 1 hour or 24 hours. */
+@property(nonatomic, strong, nullable) GTLRDuration *windowSize;
+
+@end
+
+
+/**
  *  An alert affecting a customer.
  */
 @interface GTLRAlertCenter_Alert : GTLRObject

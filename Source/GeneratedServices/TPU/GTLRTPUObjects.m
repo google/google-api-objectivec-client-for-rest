@@ -319,7 +319,7 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 //
 
 @implementation GTLRTPU_SchedulingConfig
-@dynamic preemptible;
+@dynamic preemptible, reserved;
 @end
 
 

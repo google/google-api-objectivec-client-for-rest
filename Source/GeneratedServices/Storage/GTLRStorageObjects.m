@@ -374,6 +374,54 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_HmacKey
+//
+
+@implementation GTLRStorage_HmacKey
+@dynamic kind, metadata, secret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_HmacKeyMetadata
+//
+
+@implementation GTLRStorage_HmacKeyMetadata
+@dynamic accessId, ETag, identifier, kind, projectId, selfLink,
+         serviceAccountEmail, state, timeCreated, updated;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_HmacKeysMetadata
+//
+
+@implementation GTLRStorage_HmacKeysMetadata
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_HmacKeyMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Notification
 //
 

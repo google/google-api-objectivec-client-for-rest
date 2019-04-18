@@ -1310,7 +1310,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_
 GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnly;
 /**
  *  A minimal view of the job, with the following attributes:
- *  Job.name, Job.requisition_id, Job.job_title,
+ *  Job.name, Job.requisition_id, Job.title,
  *  Job.company_name, Job.DerivedInfo.locations, Job.language_code.
  *
  *  Value: "JOB_VIEW_MINIMAL"
@@ -1318,7 +1318,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_
 GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal;
 /**
  *  A small view of the job, with the following attributes in the search
- *  results: Job.name, Job.requisition_id, Job.job_title,
+ *  results: Job.name, Job.requisition_id, Job.title,
  *  Job.company_name, Job.DerivedInfo.locations, Job.visibility,
  *  Job.language_code, Job.description.
  *
@@ -1549,11 +1549,15 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 /**
  *  Optional.
- *  If `true`, jobs without street level addresses may also be returned.
- *  For city level addresses, the city center is used. For state and coarser
- *  level addresses, text matching is used.
- *  If this field is set to `false` or is not specified, only jobs that include
- *  street level addresses will be returned by commute search.
+ *  If true, jobs without "precise" addresses (street level addresses or GPS
+ *  coordinates) might also be returned. For city and coarser level addresses,
+ *  text matching is used. If this field is set to false or is not specified,
+ *  only jobs that include precise addresses are returned by Commute
+ *  Search.
+ *  Note: If `allow_imprecise_addresses` is set to true, Commute Search is not
+ *  able to calculate accurate commute times to jobs with city level and
+ *  coarser address information. Jobs with imprecise addresses will return a
+ *  `travel_duration` time of 0 regardless of distance from the job seeker.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3882,12 +3886,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *        "JOB_VIEW_ID_ONLY")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal
  *        A minimal view of the job, with the following attributes:
- *        Job.name, Job.requisition_id, Job.job_title,
+ *        Job.name, Job.requisition_id, Job.title,
  *        Job.company_name, Job.DerivedInfo.locations, Job.language_code.
  *        (Value: "JOB_VIEW_MINIMAL")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewSmall A
  *        small view of the job, with the following attributes in the search
- *        results: Job.name, Job.requisition_id, Job.job_title,
+ *        results: Job.name, Job.requisition_id, Job.title,
  *        Job.company_name, Job.DerivedInfo.locations, Job.visibility,
  *        Job.language_code, Job.description. (Value: "JOB_VIEW_SMALL")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified

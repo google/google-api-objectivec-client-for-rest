@@ -120,6 +120,11 @@ NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enro
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified = @"NOTIFICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport = @"STATUS_REPORT";
 
+// GTLRAndroidManagement_KeyedAppState.severity
+NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error = @"ERROR";
+NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info = @"INFO";
+NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRAndroidManagement_ManagedProperty.type
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bool = @"BOOL";
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_BundleArray = @"BUNDLE_ARRAY";
@@ -381,17 +386,28 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationReport
 @dynamic applicationSource, displayName, events, installerPackageName,
-         packageName, packageSha256Hash, signingKeyCertFingerprints, state,
-         versionCode, versionName;
+         keyedAppStates, packageName, packageSha256Hash,
+         signingKeyCertFingerprints, state, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"events" : [GTLRAndroidManagement_ApplicationEvent class],
+    @"keyedAppStates" : [GTLRAndroidManagement_KeyedAppState class],
     @"signingKeyCertFingerprints" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ApplicationReportingSettings
+//
+
+@implementation GTLRAndroidManagement_ApplicationReportingSettings
+@dynamic includeRemovedApps;
 @end
 
 
@@ -605,6 +621,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_KeyedAppState
+//
+
+@implementation GTLRAndroidManagement_KeyedAppState
+@dynamic createTime, data, key, lastUpdateTime, message, severity;
 @end
 
 
@@ -1097,9 +1123,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_StatusReportingSettings
-@dynamic applicationReportsEnabled, deviceSettingsEnabled, displayInfoEnabled,
-         hardwareStatusEnabled, memoryInfoEnabled, networkInfoEnabled,
-         powerManagementEventsEnabled, softwareInfoEnabled;
+@dynamic applicationReportingSettings, applicationReportsEnabled,
+         deviceSettingsEnabled, displayInfoEnabled, hardwareStatusEnabled,
+         memoryInfoEnabled, networkInfoEnabled, powerManagementEventsEnabled,
+         softwareInfoEnabled;
 @end
 
 

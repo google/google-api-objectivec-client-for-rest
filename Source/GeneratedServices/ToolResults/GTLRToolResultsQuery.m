@@ -606,6 +606,62 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"perfMetricT
 
 @end
 
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet
+
+@dynamic executionId, historyId, projectId, stepId, testCaseId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                        testCaseId:(NSString *)testCaseId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId", @"testCaseId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases/{testCaseId}";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.testCaseId = testCaseId;
+  query.expectedObjectClass = [GTLRToolResults_TestCase class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.testCases.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList
+
+@dynamic executionId, historyId, pageSize, pageToken, projectId, stepId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.expectedObjectClass = [GTLRToolResults_ListTestCasesResponse class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.testCases.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList
 
 @dynamic executionId, historyId, pageSize, pageToken, projectId, stepId;

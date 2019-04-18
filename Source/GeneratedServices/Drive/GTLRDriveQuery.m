@@ -47,7 +47,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_ChangesGetStartPageToken
 
-@dynamic supportsTeamDrives, teamDriveId;
+@dynamic driveId, supportsAllDrives, supportsTeamDrives, teamDriveId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"changes/startPageToken";
@@ -64,8 +64,10 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_ChangesList
 
-@dynamic includeCorpusRemovals, includeRemoved, includeTeamDriveItems, pageSize,
-         pageToken, restrictToMyDrive, spaces, supportsTeamDrives, teamDriveId;
+@dynamic driveId, includeCorpusRemovals, includeItemsFromAllDrives,
+         includeRemoved, includeTeamDriveItems, pageSize, pageToken,
+         restrictToMyDrive, spaces, supportsAllDrives, supportsTeamDrives,
+         teamDriveId;
 
 + (instancetype)queryWithPageToken:(NSString *)pageToken {
   NSString *pathURITemplate = @"changes";
@@ -83,8 +85,10 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_ChangesWatch
 
-@dynamic includeCorpusRemovals, includeRemoved, includeTeamDriveItems, pageSize,
-         pageToken, restrictToMyDrive, spaces, supportsTeamDrives, teamDriveId;
+@dynamic driveId, includeCorpusRemovals, includeItemsFromAllDrives,
+         includeRemoved, includeTeamDriveItems, pageSize, pageToken,
+         restrictToMyDrive, spaces, supportsAllDrives, supportsTeamDrives,
+         teamDriveId;
 
 + (instancetype)queryWithObject:(GTLRDrive_Channel *)object
                       pageToken:(NSString *)pageToken {
@@ -243,10 +247,151 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_DrivesCreate
+
+@dynamic requestId;
+
++ (instancetype)queryWithObject:(GTLRDrive_Drive *)object
+                      requestId:(NSString *)requestId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"drives";
+  GTLRDriveQuery_DrivesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.requestId = requestId;
+  query.expectedObjectClass = [GTLRDrive_Drive class];
+  query.loggingName = @"drive.drives.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesDelete
+
+@dynamic driveId;
+
++ (instancetype)queryWithDriveId:(NSString *)driveId {
+  NSArray *pathParams = @[ @"driveId" ];
+  NSString *pathURITemplate = @"drives/{driveId}";
+  GTLRDriveQuery_DrivesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.driveId = driveId;
+  query.loggingName = @"drive.drives.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesGet
+
+@dynamic driveId, useDomainAdminAccess;
+
++ (instancetype)queryWithDriveId:(NSString *)driveId {
+  NSArray *pathParams = @[ @"driveId" ];
+  NSString *pathURITemplate = @"drives/{driveId}";
+  GTLRDriveQuery_DrivesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.driveId = driveId;
+  query.expectedObjectClass = [GTLRDrive_Drive class];
+  query.loggingName = @"drive.drives.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesHide
+
+@dynamic driveId;
+
++ (instancetype)queryWithDriveId:(NSString *)driveId {
+  NSArray *pathParams = @[ @"driveId" ];
+  NSString *pathURITemplate = @"drives/{driveId}/hide";
+  GTLRDriveQuery_DrivesHide *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.driveId = driveId;
+  query.expectedObjectClass = [GTLRDrive_Drive class];
+  query.loggingName = @"drive.drives.hide";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesList
+
+@dynamic pageSize, pageToken, q, useDomainAdminAccess;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"drives";
+  GTLRDriveQuery_DrivesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRDrive_DriveList class];
+  query.loggingName = @"drive.drives.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesUnhide
+
+@dynamic driveId;
+
++ (instancetype)queryWithDriveId:(NSString *)driveId {
+  NSArray *pathParams = @[ @"driveId" ];
+  NSString *pathURITemplate = @"drives/{driveId}/unhide";
+  GTLRDriveQuery_DrivesUnhide *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.driveId = driveId;
+  query.expectedObjectClass = [GTLRDrive_Drive class];
+  query.loggingName = @"drive.drives.unhide";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_DrivesUpdate
+
+@dynamic driveId, useDomainAdminAccess;
+
++ (instancetype)queryWithObject:(GTLRDrive_Drive *)object
+                        driveId:(NSString *)driveId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"driveId" ];
+  NSString *pathURITemplate = @"drives/{driveId}";
+  GTLRDriveQuery_DrivesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.driveId = driveId;
+  query.expectedObjectClass = [GTLRDrive_Drive class];
+  query.loggingName = @"drive.drives.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_FilesCopy
 
 @dynamic fileId, ignoreDefaultVisibility, keepRevisionForever, ocrLanguage,
-         supportsTeamDrives;
+         supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId {
@@ -272,7 +417,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_FilesCreate
 
 @dynamic ignoreDefaultVisibility, keepRevisionForever, ocrLanguage,
-         supportsTeamDrives, useContentAsIndexableText;
+         supportsAllDrives, supportsTeamDrives, useContentAsIndexableText;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
@@ -296,7 +441,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesDelete
 
-@dynamic fileId, supportsTeamDrives;
+@dynamic fileId, supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
@@ -375,7 +520,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesGet
 
-@dynamic acknowledgeAbuse, fileId, supportsTeamDrives;
+@dynamic acknowledgeAbuse, fileId, supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
@@ -403,8 +548,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesList
 
-@dynamic corpora, corpus, includeTeamDriveItems, orderBy, pageSize, pageToken,
-         q, spaces, supportsTeamDrives, teamDriveId;
+@dynamic corpora, corpus, driveId, includeItemsFromAllDrives,
+         includeTeamDriveItems, orderBy, pageSize, pageToken, q, spaces,
+         supportsAllDrives, supportsTeamDrives, teamDriveId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"files";
@@ -422,7 +568,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_FilesUpdate
 
 @dynamic addParents, fileId, keepRevisionForever, ocrLanguage, removeParents,
-         supportsTeamDrives, useContentAsIndexableText;
+         supportsAllDrives, supportsTeamDrives, useContentAsIndexableText;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId
@@ -449,7 +595,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesWatch
 
-@dynamic acknowledgeAbuse, fileId, supportsTeamDrives;
+@dynamic acknowledgeAbuse, fileId, supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithObject:(GTLRDrive_Channel *)object
                          fileId:(NSString *)fileId {
@@ -485,8 +631,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsCreate
 
-@dynamic emailMessage, fileId, sendNotificationEmail, supportsTeamDrives,
-         transferOwnership, useDomainAdminAccess;
+@dynamic emailMessage, fileId, sendNotificationEmail, supportsAllDrives,
+         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId {
@@ -511,7 +657,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsDelete
 
-@dynamic fileId, permissionId, supportsTeamDrives, useDomainAdminAccess;
+@dynamic fileId, permissionId, supportsAllDrives, supportsTeamDrives,
+         useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -533,7 +680,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsGet
 
-@dynamic fileId, permissionId, supportsTeamDrives, useDomainAdminAccess;
+@dynamic fileId, permissionId, supportsAllDrives, supportsTeamDrives,
+         useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -556,7 +704,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsList
 
-@dynamic fileId, pageSize, pageToken, supportsTeamDrives, useDomainAdminAccess;
+@dynamic fileId, pageSize, pageToken, supportsAllDrives, supportsTeamDrives,
+         useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
@@ -575,8 +724,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsUpdate
 
-@dynamic fileId, permissionId, removeExpiration, supportsTeamDrives,
-         transferOwnership, useDomainAdminAccess;
+@dynamic fileId, permissionId, removeExpiration, supportsAllDrives,
+         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId

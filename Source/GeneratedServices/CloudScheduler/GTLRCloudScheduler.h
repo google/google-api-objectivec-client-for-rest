@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Scheduler API (cloudscheduler/v1beta1)
+//   Cloud Scheduler API (cloudscheduler/v1)
 // Description:
 //   Creates and manages jobs run on a regular recurring schedule.
 // Documentation:

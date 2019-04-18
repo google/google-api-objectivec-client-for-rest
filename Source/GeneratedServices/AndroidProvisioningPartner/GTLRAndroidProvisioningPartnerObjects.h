@@ -731,6 +731,18 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
+/**
+ *  The timestamp when the device will exit ‘vacation mode’. This value is
+ *  present iff the device is in 'vacation mode'.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *vacationModeExpireTime;
+
+/**
+ *  The timestamp when the device was put into ‘vacation mode’. This value is
+ *  present iff the device is in 'vacation mode'.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *vacationModeStartTime;
+
 @end
 
 
@@ -1330,6 +1342,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
+/**
+ *  The duration of the vacation unlock starting from when the request is
+ *  processed. (1 day is treated as 24 hours)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vacationModeDays;
+
+/** The expiration time of the vacation unlock. */
+@property(nonatomic, strong, nullable) GTLRDateTime *vacationModeExpireTime;
+
 @end
 
 
@@ -1492,6 +1515,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
+
+/**
+ *  The duration of the vacation unlock starting from when the request is
+ *  processed. (1 day is treated as 24 hours)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vacationModeDays;
+
+/** The expiration time of the vacation unlock. */
+@property(nonatomic, strong, nullable) GTLRDateTime *vacationModeExpireTime;
 
 @end
 

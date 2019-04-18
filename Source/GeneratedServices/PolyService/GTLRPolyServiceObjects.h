@@ -1012,8 +1012,9 @@ GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unkn
 
 
 /**
- *  A response message from a request to startImport.
- *  This is returned in the response field of the Operation.
+ *  A response message from a request to
+ *  startImport. This is returned in the response
+ *  field of the Operation.
  */
 @interface GTLRPolyService_StartAssetImportResponse : GTLRObject
 

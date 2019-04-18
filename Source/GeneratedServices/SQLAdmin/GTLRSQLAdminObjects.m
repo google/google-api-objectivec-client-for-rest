@@ -135,8 +135,8 @@
          diskEncryptionConfiguration, diskEncryptionStatus, ETag,
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
-         project, region, replicaConfiguration, replicaNames, selfLink,
-         serverCaCert, serviceAccountEmailAddress, settings, state,
+         project, region, replicaConfiguration, replicaNames, rootPassword,
+         selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
          suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

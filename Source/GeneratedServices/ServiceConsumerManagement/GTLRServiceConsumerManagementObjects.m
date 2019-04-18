@@ -1353,3 +1353,173 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 @implementation GTLRServiceConsumerManagement_UsageRule
 @dynamic allowUnregisteredCalls, selector, skipServiceControl;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1AddVisibilityLabelsResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1AddVisibilityLabelsResponse
+@dynamic labels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1BatchCreateProducerOverridesResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1BatchCreateProducerOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceConsumerManagement_V1Beta1QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1DisableConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1DisableConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1EnableConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1EnableConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1ImportProducerOverridesResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1ImportProducerOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceConsumerManagement_V1Beta1QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1QuotaOverride
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1QuotaOverride
+@dynamic dimensions, metric, name, overrideValue, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1RefreshConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1RefreshConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1DisableConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1DisableConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1EnableConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1EnableConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1GenerateServiceAccountResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1GenerateServiceAccountResponse
+@dynamic account;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1RefreshConsumerResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1RefreshConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1RemoveVisibilityLabelsResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1RemoveVisibilityLabelsResponse
+@dynamic labels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1ServiceAccount
+//
+
+@implementation GTLRServiceConsumerManagement_V1ServiceAccount
+@dynamic email, iamAccountName, name, tag, uniqueId;
+@end
