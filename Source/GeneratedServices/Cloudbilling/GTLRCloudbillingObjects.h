@@ -294,8 +294,8 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUns
 @interface GTLRCloudbilling_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  The condition that is associated with this binding.
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */

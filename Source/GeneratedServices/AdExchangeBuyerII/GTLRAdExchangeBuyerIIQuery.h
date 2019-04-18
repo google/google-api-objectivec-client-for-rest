@@ -488,7 +488,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *  Typically, this is the value of
  *  ListClientUsersResponse.nextPageToken
  *  returned from the previous call to the
- *  accounts.clients.users.list method.
+ *  accounts.clients.users.list
+ *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1693,58 +1694,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *        information.
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
-
-@end
-
-/**
- *  Deletes a single creative.
- *  A creative is deactivated upon deletion and does not count against active
- *  snippet quota. A deleted creative should not be used in bidding (all bids
- *  with that creative will be rejected).
- *
- *  Method: adexchangebuyer2.bidders.accounts.creatives.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsCreativesDeleteWithownerName:creativeId:]
-
-/** The ID of the creative to delete. */
-@property(nonatomic, copy, nullable) NSString *creativeId;
-
-/**
- *  Name of the owner (bidder or account) of the creative to be deleted.
- *  For example:
- *  - For an account-level creative for the buyer account representing bidder
- *  123: `bidders/123/accounts/123`
- *  - For an account-level creative for the child seat buyer account 456
- *  whose bidder is 123: `bidders/123/accounts/456`
- */
-@property(nonatomic, copy, nullable) NSString *ownerName;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_Empty.
- *
- *  Deletes a single creative.
- *  A creative is deactivated upon deletion and does not count against active
- *  snippet quota. A deleted creative should not be used in bidding (all bids
- *  with that creative will be rejected).
- *
- *  @param ownerName Name of the owner (bidder or account) of the creative to be
- *    deleted.
- *    For example:
- *    - For an account-level creative for the buyer account representing bidder
- *    123: `bidders/123/accounts/123`
- *    - For an account-level creative for the child seat buyer account 456
- *    whose bidder is 123: `bidders/123/accounts/456`
- *  @param creativeId The ID of the creative to delete.
- *
- *  @return GTLRAdExchangeBuyerIIQuery_BiddersAccountsCreativesDelete
- */
-+ (instancetype)queryWithOwnerName:(NSString *)ownerName
-                        creativeId:(NSString *)creativeId;
 
 @end
 

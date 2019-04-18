@@ -237,8 +237,8 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *  [Required] The resource name of the Google Cloud Platform project. Written
  *  as `projects/` plus the
  *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840).
- *  Example: `projects/my-project-123`.
+ *  ID](https://support.google.com/cloud/answer/6158840). Example:
+ *  `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -259,8 +259,8 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *    project. Written
  *    as `projects/` plus the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840).
- *    Example: `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840). Example:
+ *    `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsEventsReport
  */

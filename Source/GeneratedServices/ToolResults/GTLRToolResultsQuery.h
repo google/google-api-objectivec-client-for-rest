@@ -1302,6 +1302,171 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 @end
 
 /**
+ *  Gets details of a Test Case for a Step. Experimental test cases API. Still
+ *  in active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project -
+ *  INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+ *  containing Test Case does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.testCases.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesGetWithprojectId:historyId:executionId:stepId:testCaseId:]
+
+/**
+ *  A Execution id
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id. Note: This step must include a TestExecutionStep.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  A Test Case id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *testCaseId;
+
+/**
+ *  Fetches a @c GTLRToolResults_TestCase.
+ *
+ *  Gets details of a Test Case for a Step. Experimental test cases API. Still
+ *  in active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project -
+ *  INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+ *  containing Test Case does not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id
+ *    Required.
+ *  @param stepId A Step id. Note: This step must include a TestExecutionStep.
+ *    Required.
+ *  @param testCaseId A Test Case id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                        testCaseId:(NSString *)testCaseId;
+
+@end
+
+/**
+ *  Lists Test Cases attached to a Step. Experimental test cases API. Still in
+ *  active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project -
+ *  INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+ *  containing Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.testCases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesListWithprojectId:historyId:executionId:stepId:]
+
+/**
+ *  A Execution id
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The maximum number of TestCases to fetch.
+ *  Default value: 100. The server will use this default if the field is not set
+ *  or has a value of 0.
+ *  Optional.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A continuation token to resume the query at the next item.
+ *  Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id. Note: This step must include a TestExecutionStep.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListTestCasesResponse.
+ *
+ *  Lists Test Cases attached to a Step. Experimental test cases API. Still in
+ *  active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project -
+ *  INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+ *  containing Step does not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id
+ *    Required.
+ *  @param stepId A Step id. Note: This step must include a TestExecutionStep.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
+
+@end
+
+/**
  *  Lists thumbnails of images attached to a step.
  *  May return any of the following canonical error codes: - PERMISSION_DENIED -
  *  if the user is not authorized to read from the project, or from any of the

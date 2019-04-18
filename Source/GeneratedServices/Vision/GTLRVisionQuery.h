@@ -321,6 +321,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: vision.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVisionCloudPlatform
+ *    @c kGTLRAuthScopeVisionCloudVision
+ */
+@interface GTLRVisionQuery_ProjectsLocationsOperationsGet : GTLRVisionQuery
+// Previous library name was
+//   +[GTLQueryVision queryForProjectsLocationsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVision_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRVisionQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates and returns a new product resource.
  *  Possible errors:
  *  * Returns INVALID_ARGUMENT if display_name is missing or longer than 4096
@@ -381,7 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  search queries against ProductSets containing the product may still work
  *  until all related caches are refreshed.
  *  Possible errors:
- *  * Returns NOT_FOUND if the product does not exist.
+ *  none
  *
  *  Method: vision.projects.locations.products.delete
  *
@@ -408,7 +441,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  search queries against ProductSets containing the product may still work
  *  until all related caches are refreshed.
  *  Possible errors:
- *  * Returns NOT_FOUND if the product does not exist.
+ *  none
  *
  *  @param name Resource name of product to delete.
  *    Format is:
@@ -520,7 +553,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductSet are not deleted.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
- *  * Returns NOT_FOUND if the ProductSet does not exist.
+ *  none
  *
  *  Method: vision.projects.locations.productSets.delete
  *
@@ -546,7 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductSet are not deleted.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
- *  * Returns NOT_FOUND if the ProductSet does not exist.
+ *  none
  *
  *  @param name Resource name of the ProductSet to delete.
  *    Format is:
@@ -813,7 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Removes a Product from the specified ProductSet.
  *  Possible errors:
- *  * Returns NOT_FOUND If the Product is not found under the ProductSet.
+ *  none
  *
  *  Method: vision.projects.locations.productSets.removeProduct
  *
@@ -837,7 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Removes a Product from the specified ProductSet.
  *  Possible errors:
- *  * Returns NOT_FOUND If the Product is not found under the ProductSet.
+ *  none
  *
  *  @param object The @c GTLRVision_RemoveProductFromProductSetRequest to
  *    include in the query.
@@ -1094,7 +1127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  caches are refreshed.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
- *  * Returns NOT_FOUND if the reference image does not exist.
+ *  none
  *
  *  Method: vision.projects.locations.products.referenceImages.delete
  *
@@ -1122,7 +1155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  caches are refreshed.
  *  The actual image files are not deleted from Google Cloud Storage.
  *  Possible errors:
- *  * Returns NOT_FOUND if the reference image does not exist.
+ *  none
  *
  *  @param name The resource name of the reference image to delete.
  *    Format is:
@@ -1227,6 +1260,39 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: vision.projects.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVisionCloudPlatform
+ *    @c kGTLRAuthScopeVisionCloudVision
+ */
+@interface GTLRVisionQuery_ProjectsOperationsGet : GTLRVisionQuery
+// Previous library name was
+//   +[GTLQueryVision queryForProjectsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVision_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRVisionQuery_ProjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

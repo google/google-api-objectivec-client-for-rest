@@ -40,6 +40,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Acceleratedmobilepageurl/*.{h,m}'
   end
+  s.subspec 'AccessApproval' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AccessApproval/*.{h,m}'
+  end
   s.subspec 'AccessContextManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AccessContextManager/*.{h,m}'
@@ -263,6 +267,10 @@ Pod::Spec.new do |s|
   s.subspec 'Clouderrorreporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Clouderrorreporting/*.{h,m}'
+  end
+  s.subspec 'CommentAnalyzer' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CommentAnalyzer/*.{h,m}'
   end
   s.subspec 'Compute' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -519,6 +527,10 @@ Pod::Spec.new do |s|
   s.subspec 'SearchConsole' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SearchConsole/*.{h,m}'
+  end
+  s.subspec 'SecurityCommandCenter' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/SecurityCommandCenter/*.{h,m}'
   end
   s.subspec 'ServiceBroker' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

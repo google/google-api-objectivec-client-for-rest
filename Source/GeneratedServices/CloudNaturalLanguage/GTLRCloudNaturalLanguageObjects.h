@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
  *  languages that use this encoding natively.
  *
  *  Value: "UTF16"
@@ -91,7 +91,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
  *  languages that use this encoding natively.
  *
  *  Value: "UTF16"
@@ -126,7 +126,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentReq
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
  *  languages that use this encoding natively.
  *
  *  Value: "UTF16"
@@ -161,7 +161,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_E
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
  *  languages that use this encoding natively.
  *
  *  Value: "UTF16"
@@ -196,7 +196,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_Enco
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
  *  languages that use this encoding natively.
  *
  *  Value: "UTF16"
@@ -747,11 +747,39 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeUnspeci
 // GTLRCloudNaturalLanguage_Entity.type
 
 /**
- *  Consumer goods
+ *  Address<br><br>
+ *  The metadata identifies the street number and locality plus whichever
+ *  additional elements appear in the text:<ul>
+ *  <li><code>street_number</code> &ndash; street number</li>
+ *  <li><code>locality</code> &ndash; city or town</li>
+ *  <li><code>street_name</code> &ndash; street/route name, if detected</li>
+ *  <li><code>postal_code</code> &ndash; postal code, if detected</li>
+ *  <li><code>country</code> &ndash; country, if detected</li>
+ *  <li><code>broad_region</code> &ndash; administrative area, such as the
+ *  state, if detected</li> <li><code>narrow_region</code> &ndash; smaller
+ *  administrative area, such as county, if detected</li>
+ *  <li><code>sublocality</code> &ndash; used in Asian addresses to demark a
+ *  district within a city, if detected</li></ul>
+ *
+ *  Value: "ADDRESS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Address;
+/**
+ *  Consumer product
  *
  *  Value: "CONSUMER_GOOD"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood;
+/**
+ *  Date<br><br>
+ *  The metadata identifies the components of the date:<ul>
+ *  <li><code>year</code> &ndash; four digit year, if detected</li>
+ *  <li><code>month</code> &ndash; two digit month number, if detected</li>
+ *  <li><code>day</code> &ndash; two digit day number, if detected</li></ul>
+ *
+ *  Value: "DATE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Date;
 /**
  *  Event
  *
@@ -765,13 +793,20 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Event;
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Location;
 /**
+ *  Number<br><br>
+ *  The metadata is the number itself.
+ *
+ *  Value: "NUMBER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Number;
+/**
  *  Organization
  *
  *  Value: "ORGANIZATION"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Organization;
 /**
- *  Other types
+ *  Other types of entities
  *
  *  Value: "OTHER"
  */
@@ -783,13 +818,33 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Other;
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person;
 /**
+ *  Phone number<br><br>
+ *  The metadata lists the phone number, formatted according to local
+ *  convention, plus whichever additional elements appear in the text:<ul>
+ *  <li><code>number</code> &ndash; the actual number, broken down into
+ *  sections as per local convention</li> <li><code>national_prefix</code>
+ *  &ndash; country code, if detected</li> <li><code>area_code</code> &ndash;
+ *  region or area code, if detected</li> <li><code>extension</code> &ndash;
+ *  phone extension (to be dialed after connection), if detected</li></ul>
+ *
+ *  Value: "PHONE_NUMBER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber;
+/**
+ *  Price<br><br>
+ *  The metadata identifies the <code>value</code> and <code>currency</code>.
+ *
+ *  Value: "PRICE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Price;
+/**
  *  Unknown
  *
  *  Value: "UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown;
 /**
- *  Work of art
+ *  Artwork
  *
  *  Value: "WORK_OF_ART"
  */
@@ -1377,7 +1432,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
  *        based
- *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        on the UTF-16 encoding of the input. Java and JavaScript are examples
  *        of
  *        languages that use this encoding natively. (Value: "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf32
@@ -1435,7 +1490,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
  *        based
- *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        on the UTF-16 encoding of the input. Java and JavaScript are examples
  *        of
  *        languages that use this encoding natively. (Value: "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32
@@ -1495,7 +1550,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
  *        based
- *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        on the UTF-16 encoding of the input. Java and JavaScript are examples
  *        of
  *        languages that use this encoding natively. (Value: "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32
@@ -1556,7 +1611,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
  *        based
- *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        on the UTF-16 encoding of the input. Java and JavaScript are examples
  *        of
  *        languages that use this encoding natively. (Value: "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32
@@ -1618,7 +1673,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
  *        based
- *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        on the UTF-16 encoding of the input. Java and JavaScript are examples
  *        of
  *        languages that use this encoding natively. (Value: "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf32
@@ -1988,8 +2043,9 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 
 /**
  *  Metadata associated with the entity.
- *  Currently, Wikipedia URLs and Knowledge Graph MIDs are provided, if
- *  available. The associated keys are "wikipedia_url" and "mid", respectively.
+ *  For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
+ *  and Knowledge Graph MID (`mid`), if they are available. For the metadata
+ *  associated with other entity types, see the Type table below.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Entity_Metadata *metadata;
 
@@ -2019,21 +2075,60 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  The entity type.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood Consumer goods
- *        (Value: "CONSUMER_GOOD")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Address Address<br><br>
+ *        The metadata identifies the street number and locality plus whichever
+ *        additional elements appear in the text:<ul>
+ *        <li><code>street_number</code> &ndash; street number</li>
+ *        <li><code>locality</code> &ndash; city or town</li>
+ *        <li><code>street_name</code> &ndash; street/route name, if
+ *        detected</li>
+ *        <li><code>postal_code</code> &ndash; postal code, if detected</li>
+ *        <li><code>country</code> &ndash; country, if detected</li>
+ *        <li><code>broad_region</code> &ndash; administrative area, such as the
+ *        state, if detected</li> <li><code>narrow_region</code> &ndash; smaller
+ *        administrative area, such as county, if detected</li>
+ *        <li><code>sublocality</code> &ndash; used in Asian addresses to demark
+ *        a
+ *        district within a city, if detected</li></ul> (Value: "ADDRESS")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood Consumer
+ *        product (Value: "CONSUMER_GOOD")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Date Date<br><br>
+ *        The metadata identifies the components of the date:<ul>
+ *        <li><code>year</code> &ndash; four digit year, if detected</li>
+ *        <li><code>month</code> &ndash; two digit month number, if
+ *        detected</li>
+ *        <li><code>day</code> &ndash; two digit day number, if
+ *        detected</li></ul> (Value: "DATE")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Event Event (Value: "EVENT")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Location Location (Value:
  *        "LOCATION")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Number Number<br><br>
+ *        The metadata is the number itself. (Value: "NUMBER")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Organization Organization
  *        (Value: "ORGANIZATION")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Other Other types (Value:
- *        "OTHER")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Other Other types of
+ *        entities (Value: "OTHER")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Person Person (Value:
  *        "PERSON")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber Phone
+ *        number<br><br>
+ *        The metadata lists the phone number, formatted according to local
+ *        convention, plus whichever additional elements appear in the text:<ul>
+ *        <li><code>number</code> &ndash; the actual number, broken down into
+ *        sections as per local convention</li> <li><code>national_prefix</code>
+ *        &ndash; country code, if detected</li> <li><code>area_code</code>
+ *        &ndash;
+ *        region or area code, if detected</li> <li><code>extension</code>
+ *        &ndash;
+ *        phone extension (to be dialed after connection), if detected</li></ul>
+ *        (Value: "PHONE_NUMBER")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Price Price<br><br>
+ *        The metadata identifies the <code>value</code> and
+ *        <code>currency</code>. (Value: "PRICE")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Unknown Unknown (Value:
  *        "UNKNOWN")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt Work of art
- *        (Value: "WORK_OF_ART")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt Artwork (Value:
+ *        "WORK_OF_ART")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2042,8 +2137,9 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 
 /**
  *  Metadata associated with the entity.
- *  Currently, Wikipedia URLs and Knowledge Graph MIDs are provided, if
- *  available. The associated keys are "wikipedia_url" and "mid", respectively.
+ *  For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
+ *  and Knowledge Graph MID (`mid`), if they are available. For the metadata
+ *  associated with other entity types, see the Type table below.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

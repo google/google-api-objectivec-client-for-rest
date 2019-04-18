@@ -1308,7 +1308,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_UptimeCheckConfig
-@dynamic contentMatchers, displayName, httpCheck, internalCheckers, isInternal,
+@dynamic contentMatchers, displayName, httpCheck, internalCheckers,
          monitoredResource, name, period, resourceGroup, selectedRegions,
          tcpCheck, timeout;
 

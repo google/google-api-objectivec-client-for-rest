@@ -669,9 +669,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /**
  *  Identifiers of students with access to the announcement.
  *  This field is set only if `assigneeMode` is `INDIVIDUAL_STUDENTS`.
- *  If the `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students specified
- *  in this
- *  field will be able to see the announcement.
+ *  If the `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students
+ *  specified in this field will be able to see the announcement.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_IndividualStudentsOptions *individualStudentsOptions;
 

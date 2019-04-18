@@ -129,10 +129,22 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Typ
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template = @"TEMPLATE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16 = @"OUTPUT_AUDIO_ENCODING_LINEAR_16";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3 = @"OUTPUT_AUDIO_ENCODING_MP3";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus = @"OUTPUT_AUDIO_ENCODING_OGG_OPUS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified = @"OUTPUT_AUDIO_ENCODING_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.entityOverrideMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride = @"ENTITY_OVERRIDE_MODE_OVERRIDE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams.ssmlGender
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale = @"SSML_VOICE_GENDER_FEMALE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale = @"SSML_VOICE_GENDER_MALE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral = @"SSML_VOICE_GENDER_NEUTRAL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified = @"SSML_VOICE_GENDER_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -1076,7 +1088,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest
-@dynamic inputAudio, queryInput, queryParams;
+@dynamic inputAudio, outputAudioConfig, queryInput, queryParams;
 @end
 
 
@@ -1086,7 +1098,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse
-@dynamic queryResult, responseId, webhookStatus;
+@dynamic outputAudio, outputAudioConfig, queryResult, responseId, webhookStatus;
 @end
 
 
@@ -1727,6 +1739,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig
+@dynamic audioEncoding, sampleRateHertz, synthesizeSpeechConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2QueryInput
 //
 
@@ -1741,8 +1763,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters
-@dynamic contexts, geoLocation, payload, resetContexts, sessionEntityTypes,
-         timeZone;
+@dynamic contexts, geoLocation, payload, resetContexts,
+         sentimentAnalysisRequestConfig, sessionEntityTypes, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1777,8 +1799,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2QueryResult
 @dynamic action, allRequiredParamsPresent, diagnosticInfo, fulfillmentMessages,
          fulfillmentText, intent, intentDetectionConfidence, languageCode,
-         outputContexts, parameters, queryText, speechRecognitionConfidence,
-         webhookPayload, webhookSource;
+         outputContexts, parameters, queryText, sentimentAnalysisResult,
+         speechRecognitionConfidence, webhookPayload, webhookSource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1867,6 +1889,36 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2Sentiment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2Sentiment
+@dynamic magnitude, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig
+@dynamic analyzeQueryTextSentiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult
+@dynamic queryTextSentiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
 //
 
@@ -1876,6 +1928,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"entities" : [GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig
+@dynamic effectsProfileId, pitch, speakingRate, voice, volumeGainDb;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectsProfileId" : [NSString class]
   };
   return map;
 }
@@ -1899,6 +1969,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_Entity
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams
+@dynamic name, ssmlGender;
 @end
 
 

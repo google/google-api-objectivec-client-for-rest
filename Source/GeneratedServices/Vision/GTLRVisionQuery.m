@@ -161,6 +161,25 @@
 
 @end
 
+@implementation GTLRVisionQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVisionQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVision_Operation class];
+  query.loggingName = @"vision.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRVisionQuery_ProjectsLocationsProductsCreate
 
 @dynamic parent, productId;
@@ -546,6 +565,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRVision_ListReferenceImagesResponse class];
   query.loggingName = @"vision.projects.locations.products.referenceImages.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVisionQuery_ProjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVisionQuery_ProjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVision_Operation class];
+  query.loggingName = @"vision.projects.operations.get";
   return query;
 }
 

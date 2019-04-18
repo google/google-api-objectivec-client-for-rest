@@ -81,6 +81,13 @@ NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = 
 NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator = @"SET_BY_OPERATOR";
 NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
+// GTLRContainer_UsableSubnetworkSecondaryRange.status
+NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod = @"IN_USE_MANAGED_POD";
+NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService = @"IN_USE_SERVICE";
+NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod = @"IN_USE_SHAREABLE_POD";
+NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @"UNUSED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRContainer_AcceleratorConfig
@@ -160,14 +167,15 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 @implementation GTLRContainer_Cluster
 @dynamic addonsConfig, clusterIpv4Cidr, conditions, createTime,
          currentMasterVersion, currentNodeCount, currentNodeVersion,
-         descriptionProperty, enableKubernetesAlpha, enableTpu, endpoint,
-         expireTime, initialClusterVersion, initialNodeCount, instanceGroupUrls,
-         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
-         loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, monitoringService, name, network,
-         networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
-         privateClusterConfig, resourceLabels, selfLink, servicesIpv4Cidr,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock, zoneProperty;
+         defaultMaxPodsConstraint, descriptionProperty, enableKubernetesAlpha,
+         enableTpu, endpoint, expireTime, initialClusterVersion,
+         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
+         labelFingerprint, legacyAbac, location, locations, loggingService,
+         maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
+         monitoringService, name, network, networkConfig, networkPolicy,
+         nodeConfig, nodeIpv4CidrSize, nodePools, privateClusterConfig,
+         resourceLabels, selfLink, servicesIpv4Cidr, status, statusMessage,
+         subnetwork, tpuIpv4CidrBlock, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -463,6 +471,28 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_ListUsableSubnetworksResponse
+//
+
+@implementation GTLRContainer_ListUsableSubnetworksResponse
+@dynamic nextPageToken, subnetworks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subnetworks" : [GTLRContainer_UsableSubnetwork class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"subnetworks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MaintenancePolicy
 //
 
@@ -507,6 +537,16 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MaxPodsConstraint
+//
+
+@implementation GTLRContainer_MaxPodsConstraint
+@dynamic maxPodsPerNode;
 @end
 
 
@@ -608,7 +648,8 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
 @implementation GTLRContainer_NodePool
 @dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
-         management, name, selfLink, status, statusMessage, version;
+         management, maxPodsConstraint, name, selfLink, status, statusMessage,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -983,4 +1024,32 @@ NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UsableSubnetwork
+//
+
+@implementation GTLRContainer_UsableSubnetwork
+@dynamic ipCidrRange, network, secondaryIpRanges, statusMessage, subnetwork;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secondaryIpRanges" : [GTLRContainer_UsableSubnetworkSecondaryRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UsableSubnetworkSecondaryRange
+//
+
+@implementation GTLRContainer_UsableSubnetworkSecondaryRange
+@dynamic ipCidrRange, rangeName, status;
 @end

@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGames;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
 /**
- *  Authorization scope: Know who you are on Google
+ *  Authorization scope: Associate you with your personal info on Google
  *
  *  Value "https://www.googleapis.com/auth/plus.me"
  */

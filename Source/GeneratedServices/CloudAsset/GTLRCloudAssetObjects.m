@@ -145,7 +145,7 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RE
 //
 
 @implementation GTLRCloudAsset_GcsDestination
-@dynamic uri;
+@dynamic uri, uriPrefix;
 @end
 
 

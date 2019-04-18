@@ -155,7 +155,6 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Starting;
  */
 GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 /**
- *  7 - Reserved. Was SUSPENDED.
  *  TPU node is stopped.
  *
  *  Value: "STOPPED"
@@ -500,9 +499,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  Output only. The network endpoints where TPU workers can be accessed and
- *  sent work.
- *  It is recommended that Tensorflow clients of the node reach out to the 0th
- *  entry in this map first.
+ *  sent work. It is recommended that Tensorflow clients of the node reach out
+ *  to the 0th entry in this map first.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkEndpoint *> *networkEndpoints;
 
@@ -552,8 +550,8 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *        (Value: "STARTING")
  *    @arg @c kGTLRTPU_Node_State_StateUnspecified TPU node state is not
  *        known/set. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRTPU_Node_State_Stopped 7 - Reserved. Was SUSPENDED.
- *        TPU node is stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRTPU_Node_State_Stopped TPU node is stopped. (Value:
+ *        "STOPPED")
  *    @arg @c kGTLRTPU_Node_State_Stopping TPU node is currently stopping.
  *        (Value: "STOPPING")
  *    @arg @c kGTLRTPU_Node_State_Terminated TPU node has been terminated due to
@@ -727,6 +725,13 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  Whether the node is created under a reservation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reserved;
 
 @end
 

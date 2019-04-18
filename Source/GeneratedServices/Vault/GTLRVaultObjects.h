@@ -793,8 +793,20 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** When the account was put on hold. */
+/**
+ *  The primary email address of the account. If used as an input, this takes
+ *  precedence over account ID.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Output only. The first name of the account holder. */
+@property(nonatomic, copy, nullable) NSString *firstName;
+
+/** Output only. When the account was put on hold. */
 @property(nonatomic, strong, nullable) GTLRDateTime *holdTime;
+
+/** Output only. The last name of the account holder. */
+@property(nonatomic, copy, nullable) NSString *lastName;
 
 @end
 
@@ -1401,15 +1413,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing

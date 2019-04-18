@@ -164,7 +164,7 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_ContactGroupMembership
-@dynamic contactGroupId;
+@dynamic contactGroupId, contactGroupResourceName;
 @end
 
 

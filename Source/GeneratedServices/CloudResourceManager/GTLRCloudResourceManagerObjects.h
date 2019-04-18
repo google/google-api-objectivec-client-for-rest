@@ -295,7 +295,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */

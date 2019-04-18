@@ -38,6 +38,7 @@
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
+@class GTLRContainer_MaxPodsConstraint;
 @class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
@@ -52,6 +53,8 @@
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_StatusCondition;
+@class GTLRContainer_UsableSubnetwork;
+@class GTLRContainer_UsableSubnetworkSecondaryRange;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -418,6 +421,44 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator;
  */
 GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
+// ----------------------------------------------------------------------------
+// GTLRContainer_UsableSubnetworkSecondaryRange.status
+
+/**
+ *  IN_USE_MANAGED_POD denotes this range was created by GKE and is claimed
+ *  for pods. It cannot be used for other clusters.
+ *
+ *  Value: "IN_USE_MANAGED_POD"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod;
+/**
+ *  IN_USE_SERVICE denotes that this range is claimed by a cluster for
+ *  services. It cannot be used for other clusters.
+ *
+ *  Value: "IN_USE_SERVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService;
+/**
+ *  IN_USE_SHAREABLE_POD denotes this range was created by the network admin
+ *  and is currently claimed by a cluster for pods. It can only be used by
+ *  other clusters as a pod range.
+ *
+ *  Value: "IN_USE_SHAREABLE_POD"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod;
+/**
+ *  UNKNOWN is the zero value of the Status enum. It's not a valid status.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown;
+/**
+ *  UNUSED denotes that this range is unclaimed by any cluster.
+ *
+ *  Value: "UNUSED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused;
+
 /**
  *  AcceleratorConfig represents a Hardware Accelerator request.
  */
@@ -598,12 +639,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 /**
  *  [Output only] Deprecated, use
- *  [NodePool.version](/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePool)
+ *  [NodePools.version](/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools)
  *  instead. The current version of the node software components. If they are
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
  */
 @property(nonatomic, copy, nullable) NSString *currentNodeVersion;
+
+/**
+ *  The default constraint on the maximum number of pods that can be run
+ *  simultaneously on a node in the node pool of this cluster. Only honored
+ *  if cluster created with IP Alias support.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MaxPodsConstraint *defaultMaxPodsConstraint;
 
 /**
  *  An optional description of this cluster.
@@ -1439,6 +1487,36 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 
 /**
+ *  ListUsableSubnetworksResponse is the response of
+ *  ListUsableSubnetworksRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "subnetworks" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContainer_ListUsableSubnetworksResponse : GTLRCollectionObject
+
+/**
+ *  This token allows you to get the next page of results for list requests.
+ *  If the number of results is larger than `page_size`, use the
+ *  `next_page_token` as a value for the query parameter `page_token` in the
+ *  next request. The value will become empty when there are no more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of usable subnetworks in the specified network project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UsableSubnetwork *> *subnetworks;
+
+@end
+
+
+/**
  *  MaintenancePolicy defines the maintenance policy to be used for the cluster.
  */
 @interface GTLRContainer_MaintenancePolicy : GTLRObject
@@ -1530,6 +1608,21 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Constraints applied to pods.
+ */
+@interface GTLRContainer_MaxPodsConstraint : GTLRObject
+
+/**
+ *  Constraint enforced on the max num of pods per node.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxPodsPerNode;
 
 @end
 
@@ -1873,6 +1966,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 /** NodeManagement configuration for this NodePool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
+/**
+ *  The constraint on the maximum number of pods that can be run
+ *  simultaneously on a node in the node pool.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MaxPodsConstraint *maxPodsConstraint;
 
 /** The name of the node pool. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3011,6 +3110,85 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  UsableSubnetwork resource returns the subnetwork name, its associated
+ *  network
+ *  and the primary CIDR range.
+ */
+@interface GTLRContainer_UsableSubnetwork : GTLRObject
+
+/** The range of internal addresses that are owned by this subnetwork. */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  Network Name.
+ *  Example: projects/my-project/global/networks/my-network
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Secondary IP ranges. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UsableSubnetworkSecondaryRange *> *secondaryIpRanges;
+
+/**
+ *  A human readable status message representing the reasons for cases where
+ *  the caller cannot use the secondary ranges under the subnet. For example if
+ *  the secondary_ip_ranges is empty due to a permission issue, an insufficient
+ *  permission message will be given by status_message.
+ */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Subnetwork Name.
+ *  Example: projects/my-project/regions/us-central1/subnetworks/my-subnet
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
+ *  Secondary IP range of a usable subnetwork.
+ */
+@interface GTLRContainer_UsableSubnetworkSecondaryRange : GTLRObject
+
+/** The range of IP addresses belonging to this subnetwork secondary range. */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  The name associated with this subnetwork secondary range, used when adding
+ *  an alias IP range to a VM instance.
+ */
+@property(nonatomic, copy, nullable) NSString *rangeName;
+
+/**
+ *  This field is to determine the status of the secondary range programmably.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod
+ *        IN_USE_MANAGED_POD denotes this range was created by GKE and is
+ *        claimed
+ *        for pods. It cannot be used for other clusters. (Value:
+ *        "IN_USE_MANAGED_POD")
+ *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService
+ *        IN_USE_SERVICE denotes that this range is claimed by a cluster for
+ *        services. It cannot be used for other clusters. (Value:
+ *        "IN_USE_SERVICE")
+ *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod
+ *        IN_USE_SHAREABLE_POD denotes this range was created by the network
+ *        admin
+ *        and is currently claimed by a cluster for pods. It can only be used by
+ *        other clusters as a pod range. (Value: "IN_USE_SHAREABLE_POD")
+ *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown
+ *        UNKNOWN is the zero value of the Status enum. It's not a valid status.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused UNUSED
+ *        denotes that this range is unclaimed by any cluster. (Value: "UNUSED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 

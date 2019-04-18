@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Scheduler API (cloudscheduler/v1beta1)
+//   Cloud Scheduler API (cloudscheduler/v1)
 // Description:
 //   Creates and manages jobs run on a regular recurring schedule.
 // Documentation:
@@ -89,7 +89,7 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 //
 
 @implementation GTLRCloudScheduler_HttpTarget
-@dynamic body, headers, httpMethod, oauthToken, oidcToken, uri;
+@dynamic body, headers, httpMethod, uri;
 @end
 
 
@@ -113,9 +113,9 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 //
 
 @implementation GTLRCloudScheduler_Job
-@dynamic appEngineHttpTarget, attemptDeadline, descriptionProperty, httpTarget,
-         lastAttemptTime, name, pubsubTarget, retryConfig, schedule,
-         scheduleTime, state, status, timeZone, userUpdateTime;
+@dynamic appEngineHttpTarget, descriptionProperty, httpTarget, lastAttemptTime,
+         name, pubsubTarget, retryConfig, schedule, scheduleTime, state, status,
+         timeZone, userUpdateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -203,26 +203,6 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudScheduler_OAuthToken
-//
-
-@implementation GTLRCloudScheduler_OAuthToken
-@dynamic scope, serviceAccountEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudScheduler_OidcToken
-//
-
-@implementation GTLRCloudScheduler_OidcToken
-@dynamic audience, serviceAccountEmail;
 @end
 
 

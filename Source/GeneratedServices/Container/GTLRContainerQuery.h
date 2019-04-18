@@ -59,6 +59,64 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists subnetworks that are usable for creating clusters in a project.
+ *
+ *  Method: container.projects.aggregated.usableSubnetworks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsAggregatedUsableSubnetworksListWithparent:]
+
+/**
+ *  Filtering currently only supports equality on the networkProjectId and must
+ *  be in the form: "networkProjectId=[PROJECTID]", where `networkProjectId`
+ *  is the project which owns the listed subnetworks. This defaults to the
+ *  parent project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The max number of results per page that should be returned. If the number
+ *  of available results is larger than `page_size`, a `next_page_token` is
+ *  returned which can be used to get the next page of results in subsequent
+ *  requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Specifies a page token to use. Set this to the nextPageToken returned by
+ *  previous list requests to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent project where subnetworks are usable.
+ *  Specified in the format 'projects/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainer_ListUsableSubnetworksResponse.
+ *
+ *  Lists subnetworks that are usable for creating clusters in a project.
+ *
+ *  @param parent The parent project where subnetworks are usable.
+ *    Specified in the format 'projects/ *'.
+ *
+ *  @return GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Completes master IP rotation.
  *
  *  Method: container.projects.locations.clusters.completeIpRotation
@@ -101,11 +159,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  By default, the cluster is created in the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
- *  the cluster creates routes for each node to allow the containers
+ *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
  *  cluster.
  *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range is being used by the cluster.
+ *  which CIDR range the cluster is using.
  *
  *  Method: container.projects.locations.clusters.create
  *
@@ -130,11 +188,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  By default, the cluster is created in the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
- *  the cluster creates routes for each node to allow the containers
+ *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
  *  cluster.
  *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range is being used by the cluster.
+ *  which CIDR range the cluster is using.
  *
  *  @param object The @c GTLRContainer_CreateClusterRequest to include in the
  *    query.
@@ -154,9 +212,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  nodes.
  *  Firewalls and routes that were configured during cluster creation
  *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster
- *  (e.g. load balancer resources) will not be deleted if they weren't present
- *  at the initial create time.
+ *  Other Google Compute Engine resources that might be in use by the cluster,
+ *  such as load balancer resources, are not deleted if they weren't present
+ *  when the cluster was initially created.
  *
  *  Method: container.projects.locations.clusters.delete
  *
@@ -203,9 +261,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  nodes.
  *  Firewalls and routes that were configured during cluster creation
  *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster
- *  (e.g. load balancer resources) will not be deleted if they weren't present
- *  at the initial create time.
+ *  Other Google Compute Engine resources that might be in use by the cluster,
+ *  such as load balancer resources, are not deleted if they weren't present
+ *  when the cluster was initially created.
  *
  *  @param name The name (project, location, cluster) of the cluster to delete.
  *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
@@ -273,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetJSONWebKeys gets the public component of the cluster signing keys in
+ *  Gets the public component of the cluster signing keys in
  *  JSON Web Key format.
  *  This API is not yet intended for general use, and is not available for all
  *  clusters.
@@ -296,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_GetJSONWebKeysResponse.
  *
- *  GetJSONWebKeys gets the public component of the cluster signing keys in
+ *  Gets the public component of the cluster signing keys in
  *  JSON Web Key format.
  *  This API is not yet intended for general use, and is not available for all
  *  clusters.
@@ -468,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the node pool requested.
+ *  Retrieves the requested node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.get
  *
@@ -518,7 +576,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_NodePool.
  *
- *  Retrieves the node pool requested.
+ *  Retrieves the requested node pool.
  *
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    pool to
@@ -588,8 +646,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Roll back the previously Aborted or Failed NodePool upgrade.
- *  This will be an no-op if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade.
+ *  This makes no changes if the last upgrade successfully completed.
  *
  *  Method: container.projects.locations.clusters.nodePools.rollback
  *
@@ -611,8 +669,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Roll back the previously Aborted or Failed NodePool upgrade.
- *  This will be an no-op if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade.
+ *  This makes no changes if the last upgrade successfully completed.
  *
  *  @param object The @c GTLRContainer_RollbackNodePoolUpgradeRequest to include
  *    in the query.
@@ -630,7 +688,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the autoscaling settings for a specific node pool.
+ *  Sets the autoscaling settings for the specified node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.setAutoscaling
  *
@@ -651,7 +709,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the autoscaling settings for a specific node pool.
+ *  Sets the autoscaling settings for the specified node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
@@ -746,7 +804,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the version and/or image type for a specific node pool.
+ *  Updates the version and/or image type for the specified node pool.
  *
  *  Method: container.projects.locations.clusters.nodePools.update
  *
@@ -767,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the version and/or image type for a specific node pool.
+ *  Updates the version and/or image type for the specified node pool.
  *
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
@@ -966,9 +1024,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password for a specific cluster.
- *  This can be either via password generation or explicitly set the password.
+ *  Sets master auth materials. Currently supports changing the admin password
+ *  or a specific cluster, either via password generation or explicitly setting
+ *  the password.
  *
  *  Method: container.projects.locations.clusters.setMasterAuth
  *
@@ -988,9 +1046,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password for a specific cluster.
- *  This can be either via password generation or explicitly set the password.
+ *  Sets master auth materials. Currently supports changing the admin password
+ *  or a specific cluster, either via password generation or explicitly setting
+ *  the password.
  *
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the
  *    query.
@@ -1042,7 +1100,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enables/Disables Network Policy for a cluster.
+ *  Enables or disables Network Policy for a cluster.
  *
  *  Method: container.projects.locations.clusters.setNetworkPolicy
  *
@@ -1062,7 +1120,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Enables/Disables Network Policy for a cluster.
+ *  Enables or disables Network Policy for a cluster.
  *
  *  @param object The @c GTLRContainer_SetNetworkPolicyRequest to include in the
  *    query.
@@ -1113,7 +1171,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Start master IP rotation.
+ *  Starts master IP rotation.
  *
  *  Method: container.projects.locations.clusters.startIpRotation
  *
@@ -1133,7 +1191,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Start master IP rotation.
+ *  Starts master IP rotation.
  *
  *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
  *    query.
@@ -1220,9 +1278,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetOpenIDConfig gets the OIDC discovery document for the cluster.
- *  See the OpenID Connect Discovery 1.0 specification for details.
- *  https://openid.net/specs/openid-connect-discovery-1_0.html
+ *  Gets the OIDC discovery document for the cluster.
+ *  See the
+ *  [OpenID Connect Discovery 1.0
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
+ *  for details.
  *  This API is not yet intended for general use, and is not available for all
  *  clusters.
  *
@@ -1244,9 +1304,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_GetOpenIDConfigResponse.
  *
- *  GetOpenIDConfig gets the OIDC discovery document for the cluster.
- *  See the OpenID Connect Discovery 1.0 specification for details.
- *  https://openid.net/specs/openid-connect-discovery-1_0.html
+ *  Gets the OIDC discovery document for the cluster.
+ *  See the
+ *  [OpenID Connect Discovery 1.0
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
+ *  for details.
  *  This API is not yet intended for general use, and is not available for all
  *  clusters.
  *
@@ -1261,7 +1323,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns configuration info about the Kubernetes Engine service.
+ *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  Method: container.projects.locations.getServerConfig
  *
@@ -1297,7 +1359,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_ServerConfig.
  *
- *  Returns configuration info about the Kubernetes Engine service.
+ *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  @param name The name (project and location) of the server config to get,
  *    specified in the format 'projects/ * /locations/ *'.
@@ -1581,11 +1643,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  By default, the cluster is created in the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
- *  the cluster creates routes for each node to allow the containers
+ *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
  *  cluster.
  *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range is being used by the cluster.
+ *  which CIDR range the cluster is using.
  *
  *  Method: container.projects.zones.clusters.create
  *
@@ -1621,11 +1683,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  By default, the cluster is created in the project's
  *  [default network](/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
- *  the cluster creates routes for each node to allow the containers
+ *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
  *  cluster.
  *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range is being used by the cluster.
+ *  which CIDR range the cluster is using.
  *
  *  @param object The @c GTLRContainer_CreateClusterRequest to include in the
  *    query.
@@ -1651,9 +1713,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  nodes.
  *  Firewalls and routes that were configured during cluster creation
  *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster
- *  (e.g. load balancer resources) will not be deleted if they weren't present
- *  at the initial create time.
+ *  Other Google Compute Engine resources that might be in use by the cluster,
+ *  such as load balancer resources, are not deleted if they weren't present
+ *  when the cluster was initially created.
  *
  *  Method: container.projects.zones.clusters.delete
  *
@@ -1700,9 +1762,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  nodes.
  *  Firewalls and routes that were configured during cluster creation
  *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster
- *  (e.g. load balancer resources) will not be deleted if they weren't present
- *  at the initial create time.
+ *  Other Google Compute Engine resources that might be in use by the cluster,
+ *  such as load balancer resources, are not deleted if they weren't present
+ *  when the cluster was initially created.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
@@ -2158,7 +2220,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the autoscaling settings for a specific node pool.
+ *  Sets the autoscaling settings for the specified node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.autoscaling
  *
@@ -2201,7 +2263,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the autoscaling settings for a specific node pool.
+ *  Sets the autoscaling settings for the specified node pool.
  *
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
@@ -2366,7 +2428,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the node pool requested.
+ *  Retrieves the requested node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.get
  *
@@ -2416,7 +2478,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_NodePool.
  *
- *  Retrieves the node pool requested.
+ *  Retrieves the requested node pool.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
@@ -2506,8 +2568,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Roll back the previously Aborted or Failed NodePool upgrade.
- *  This will be an no-op if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade.
+ *  This makes no changes if the last upgrade successfully completed.
  *
  *  Method: container.projects.zones.clusters.nodePools.rollback
  *
@@ -2550,8 +2612,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Roll back the previously Aborted or Failed NodePool upgrade.
- *  This will be an no-op if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade.
+ *  This makes no changes if the last upgrade successfully completed.
  *
  *  @param object The @c GTLRContainer_RollbackNodePoolUpgradeRequest to include
  *    in the query.
@@ -2721,7 +2783,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the version and/or image type for a specific node pool.
+ *  Updates the version and/or image type for the specified node pool.
  *
  *  Method: container.projects.zones.clusters.nodePools.update
  *
@@ -2764,7 +2826,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Updates the version and/or image type for a specific node pool.
+ *  Updates the version and/or image type for the specified node pool.
  *
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
@@ -2906,9 +2968,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password for a specific cluster.
- *  This can be either via password generation or explicitly set the password.
+ *  Sets master auth materials. Currently supports changing the admin password
+ *  or a specific cluster, either via password generation or explicitly setting
+ *  the password.
  *
  *  Method: container.projects.zones.clusters.setMasterAuth
  *
@@ -2945,9 +3007,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Used to set master auth materials. Currently supports :-
- *  Changing the admin password for a specific cluster.
- *  This can be either via password generation or explicitly set the password.
+ *  Sets master auth materials. Currently supports changing the admin password
+ *  or a specific cluster, either via password generation or explicitly setting
+ *  the password.
  *
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the
  *    query.
@@ -2972,7 +3034,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enables/Disables Network Policy for a cluster.
+ *  Enables or disables Network Policy for a cluster.
  *
  *  Method: container.projects.zones.clusters.setNetworkPolicy
  *
@@ -3009,7 +3071,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Enables/Disables Network Policy for a cluster.
+ *  Enables or disables Network Policy for a cluster.
  *
  *  @param object The @c GTLRContainer_SetNetworkPolicyRequest to include in the
  *    query.
@@ -3034,7 +3096,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Start master IP rotation.
+ *  Starts master IP rotation.
  *
  *  Method: container.projects.zones.clusters.startIpRotation
  *
@@ -3071,7 +3133,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Start master IP rotation.
+ *  Starts master IP rotation.
  *
  *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
  *    query.
@@ -3158,7 +3220,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns configuration info about the Kubernetes Engine service.
+ *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  Method: container.projects.zones.getServerconfig
  *
@@ -3194,7 +3256,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_ServerConfig.
  *
- *  Returns configuration info about the Kubernetes Engine service.
+ *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project

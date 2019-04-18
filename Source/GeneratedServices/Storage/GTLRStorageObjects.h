@@ -40,6 +40,7 @@
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
 @class GTLRStorage_Expr;
+@class GTLRStorage_HmacKeyMetadata;
 @class GTLRStorage_Notification;
 @class GTLRStorage_Notification_CustomAttributes;
 @class GTLRStorage_Object;
@@ -834,6 +835,108 @@ NS_ASSUME_NONNULL_BEGIN
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  JSON template to produce a JSON-style HMAC Key resource for Create
+ *  responses.
+ */
+@interface GTLRStorage_HmacKey : GTLRObject
+
+/**
+ *  The kind of item this is. For HMAC keys, this is always storage#hmacKey.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Key metadata.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id metadata;
+
+/** HMAC secret key material. */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+@end
+
+
+/**
+ *  JSON template to produce a JSON-style HMAC Key metadata resource.
+ */
+@interface GTLRStorage_HmacKeyMetadata : GTLRObject
+
+/** The ID of the HMAC Key. */
+@property(nonatomic, copy, nullable) NSString *accessId;
+
+/** HTTP 1.1 Entity tag for the access-control entry. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The ID of the HMAC key, including the Project ID and the Access ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The kind of item this is. For HMAC Key metadata, this is always
+ *  storage#hmacKeyMetadata.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Project ID owning the service account to which the key authenticates. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The link to this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** The email address of the key's associated service account. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/** The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED. */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The creation time of the HMAC key in RFC 3339 format. */
+@property(nonatomic, copy, nullable) NSString *timeCreated;
+
+/** The last modification time of the HMAC key metadata in RFC 3339 format. */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+@end
+
+
+/**
+ *  A list of hmacKeys.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRStorage_HmacKeysMetadata : GTLRCollectionObject
+
+/**
+ *  The list of items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_HmacKeyMetadata *> *items;
+
+/**
+ *  The kind of item this is. For lists of hmacKeys, this is always
+ *  storage#hmacKeysMetadata.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

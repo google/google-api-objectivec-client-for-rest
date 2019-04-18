@@ -766,8 +766,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path
  *  Pass this value in the
  *  ListReportTypesRequest.page_token
  *  field in the subsequent call to `ListReportTypes` method to retrieve the
- *  next
- *  page of results.
+ *  next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

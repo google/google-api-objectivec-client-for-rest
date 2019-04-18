@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  The condition that is associated with this binding.
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -862,7 +862,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
  *  window. This must be true if you would like to
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
+ *  <a 
+ href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
  *  Seek to a timestamp</a>.
  *
  *  Uses NSNumber of boolValue.

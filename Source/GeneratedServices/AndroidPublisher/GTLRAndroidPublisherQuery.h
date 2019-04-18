@@ -1545,10 +1545,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/**
- *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production", "rollout" or "internal".
- */
+/** The track to read or modify. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1557,8 +1554,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app that is being
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production", "rollout" or "internal".
+ *  @param track The track to read or modify.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersGet
  */
@@ -1589,10 +1585,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/**
- *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production", "rollout" or "internal".
- */
+/** The track to read or modify. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1602,8 +1595,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app that is being
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production", "rollout" or "internal".
+ *  @param track The track to read or modify.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersPatch
  */
@@ -1635,10 +1627,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/**
- *  The track to read or modify. Acceptable values are: "alpha", "beta",
- *  "production", "rollout" or "internal".
- */
+/** The track to read or modify. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1648,8 +1637,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app that is being
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify. Acceptable values are: "alpha",
- *    "beta", "production", "rollout" or "internal".
+ *  @param track The track to read or modify.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersUpdate
  */
@@ -1742,9 +1730,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
- *  Updates the track configuration for the specified track type. When halted,
- *  the rollout track cannot be updated without adding new APKs, and adding new
- *  APKs will cause it to resume. This method supports patch semantics.
+ *  Updates the track configuration for the specified track type. This method
+ *  supports patch semantics.
  *
  *  Method: androidpublisher.edits.tracks.patch
  *
@@ -1770,9 +1757,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
  *
- *  Updates the track configuration for the specified track type. When halted,
- *  the rollout track cannot be updated without adding new APKs, and adding new
- *  APKs will cause it to resume. This method supports patch semantics.
+ *  Updates the track configuration for the specified track type. This method
+ *  supports patch semantics.
  *
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
  *  @param packageName Unique identifier for the Android app that is being
@@ -1790,9 +1776,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
- *  Updates the track configuration for the specified track type. When halted,
- *  the rollout track cannot be updated without adding new APKs, and adding new
- *  APKs will cause it to resume.
+ *  Updates the track configuration for the specified track type.
  *
  *  Method: androidpublisher.edits.tracks.update
  *
@@ -1818,9 +1802,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
  *
- *  Updates the track configuration for the specified track type. When halted,
- *  the rollout track cannot be updated without adding new APKs, and adding new
- *  APKs will cause it to resume.
+ *  Updates the track configuration for the specified track type.
  *
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
  *  @param packageName Unique identifier for the Android app that is being

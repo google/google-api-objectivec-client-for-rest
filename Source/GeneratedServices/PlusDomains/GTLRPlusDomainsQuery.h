@@ -678,58 +678,6 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 
 @end
 
-/**
- *  Shut down. See https://developers.google.com/+/api-shutdown for more
- *  details.
- *
- *  Method: plusDomains.people.listByCircle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopePlusDomainsPlusCirclesRead
- *    @c kGTLRAuthScopePlusDomainsPlusLogin
- */
-@interface GTLRPlusDomainsQuery_PeopleListByCircle : GTLRPlusDomainsQuery
-// Previous library name was
-//   +[GTLQueryPlusDomains queryForPeopleListByCircleWithcircleId:]
-
-/** The ID of the circle to get the members of. */
-@property(nonatomic, copy, nullable) NSString *circleId;
-
-/**
- *  The maximum number of people to include in the response, which is used for
- *  paging. For any response, the actual number returned might be less than the
- *  specified maxResults.
- *
- *  @note If not set, the documented server-side default will be 20 (from the
- *        range 1..100).
- */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/**
- *  The continuation token, which is used to page through large result sets. To
- *  get the next page of results, set this parameter to the value of
- *  "nextPageToken" from the previous response.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRPlusDomains_PeopleFeed.
- *
- *  Shut down. See https://developers.google.com/+/api-shutdown for more
- *  details.
- *
- *  @param circleId The ID of the circle to get the members of.
- *
- *  @return GTLRPlusDomainsQuery_PeopleListByCircle
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithCircleId:(NSString *)circleId;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

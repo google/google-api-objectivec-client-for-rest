@@ -99,8 +99,8 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 @end
 
 /**
- *  Lists all public, remixable assets. These are assets with an access level of
- *  PUBLIC and published under the
+ *  Lists all public, remixable assets. These are assets with an access level
+ *  of PUBLIC and published under the
  *  CC-By license.
  *
  *  Method: poly.assets.list
@@ -112,8 +112,7 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 /**
  *  Filter assets based on the specified category. Supported values are:
  *  `animals`, `architecture`, `art`, `food`, `nature`, `objects`, `people`,
- *  `scenes`,
- *  `technology`, and `transport`.
+ *  `scenes`, `technology`, and `transport`.
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
@@ -165,15 +164,16 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 /**
  *  Specifies a continuation token from a previous search whose results were
  *  split into multiple pages. To get the next page, submit the same request
- *  specifying the value from next_page_token.
+ *  specifying the value from
+ *  next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPolyService_ListAssetsResponse.
  *
- *  Lists all public, remixable assets. These are assets with an access level of
- *  PUBLIC and published under the
+ *  Lists all public, remixable assets. These are assets with an access level
+ *  of PUBLIC and published under the
  *  CC-By license.
  *
  *  @return GTLRPolyServiceQuery_AssetsList
@@ -236,7 +236,9 @@ GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 
 /**
  *  The visibility of the assets to be returned.
- *  Defaults to VISIBILITY_UNSPECIFIED which returns all assets.
+ *  Defaults to
+ *  VISIBILITY_UNSPECIFIED
+ *  which returns all assets.
  *
  *  Likely values:
  *    @arg @c kGTLRPolyServiceVisibilityVisibilityUnspecified Value

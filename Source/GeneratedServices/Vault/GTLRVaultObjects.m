@@ -330,7 +330,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_HeldAccount
-@dynamic accountId, holdTime;
+@dynamic accountId, email, firstName, holdTime, lastName;
 @end
 
 

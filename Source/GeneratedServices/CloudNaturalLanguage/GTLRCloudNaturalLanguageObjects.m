@@ -136,12 +136,17 @@ NSString * const kGTLRCloudNaturalLanguage_Document_Type_PlainText = @"PLAIN_TEX
 NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudNaturalLanguage_Entity.type
+NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Address = @"ADDRESS";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood = @"CONSUMER_GOOD";
+NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Date    = @"DATE";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Event   = @"EVENT";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Location = @"LOCATION";
+NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Number  = @"NUMBER";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Organization = @"ORGANIZATION";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Other   = @"OTHER";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person  = @"PERSON";
+NSString * const kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber = @"PHONE_NUMBER";
+NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Price   = @"PRICE";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt = @"WORK_OF_ART";
 

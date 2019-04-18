@@ -22,6 +22,7 @@
 @class GTLRStorage_BucketAccessControl;
 @class GTLRStorage_Channel;
 @class GTLRStorage_ComposeRequest;
+@class GTLRStorage_HmacKeyMetadata;
 @class GTLRStorage_Notification;
 @class GTLRStorage_Object;
 @class GTLRStorage_ObjectAccessControl;
@@ -3220,6 +3221,206 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Creates a new HMAC key for the specified service account.
+ *
+ *  Method: storage.projects.hmacKeys.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ */
+@interface GTLRStorageQuery_ProjectsHmacKeysCreate : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsHmacKeysCreateWithprojectId:serviceAccountEmail:]
+
+/** Project ID owning the service account. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Email address of the service account. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Fetches a @c GTLRStorage_HmacKey.
+ *
+ *  Creates a new HMAC key for the specified service account.
+ *
+ *  @param projectId Project ID owning the service account.
+ *  @param serviceAccountEmail Email address of the service account.
+ *
+ *  @return GTLRStorageQuery_ProjectsHmacKeysCreate
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+               serviceAccountEmail:(NSString *)serviceAccountEmail;
+
+@end
+
+/**
+ *  Deletes an HMAC key.
+ *
+ *  Method: storage.projects.hmacKeys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ProjectsHmacKeysDelete : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsHmacKeysDeleteWithprojectId:accessId:]
+
+/** Name of the HMAC key to be deleted. */
+@property(nonatomic, copy, nullable) NSString *accessId;
+
+/** Project ID owning the requested key */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes an HMAC key.
+ *
+ *  @param projectId Project ID owning the requested key
+ *  @param accessId Name of the HMAC key to be deleted.
+ *
+ *  @return GTLRStorageQuery_ProjectsHmacKeysDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          accessId:(NSString *)accessId;
+
+@end
+
+/**
+ *  Retrieves an HMAC key's metadata
+ *
+ *  Method: storage.projects.hmacKeys.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ */
+@interface GTLRStorageQuery_ProjectsHmacKeysGet : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsHmacKeysGetWithprojectId:accessId:]
+
+/** Name of the HMAC key. */
+@property(nonatomic, copy, nullable) NSString *accessId;
+
+/** Project ID owning the service account of the requested key. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRStorage_HmacKeyMetadata.
+ *
+ *  Retrieves an HMAC key's metadata
+ *
+ *  @param projectId Project ID owning the service account of the requested key.
+ *  @param accessId Name of the HMAC key.
+ *
+ *  @return GTLRStorageQuery_ProjectsHmacKeysGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          accessId:(NSString *)accessId;
+
+@end
+
+/**
+ *  Retrieves a list of HMAC keys matching the criteria.
+ *
+ *  Method: storage.projects.hmacKeys.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ */
+@interface GTLRStorageQuery_ProjectsHmacKeysList : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsHmacKeysListWithprojectId:]
+
+/**
+ *  Maximum number of items plus prefixes to return in a single page of
+ *  responses. Because duplicate prefixes are omitted, fewer total results may
+ *  be returned than requested. The service uses this parameter or 1,000 items,
+ *  whichever is smaller.
+ *
+ *  @note If not set, the documented server-side default will be 1000.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project in which to look for HMAC keys. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** If present, only keys for the given service account are returned. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/** Whether or not to show keys in the DELETED state. */
+@property(nonatomic, assign) BOOL showDeletedKeys;
+
+/**
+ *  Fetches a @c GTLRStorage_HmacKeysMetadata.
+ *
+ *  Retrieves a list of HMAC keys matching the criteria.
+ *
+ *  @param projectId Name of the project in which to look for HMAC keys.
+ *
+ *  @return GTLRStorageQuery_ProjectsHmacKeysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
+ *  valid states.
+ *
+ *  Method: storage.projects.hmacKeys.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ */
+@interface GTLRStorageQuery_ProjectsHmacKeysUpdate : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsHmacKeysUpdateWithObject:projectId:accessId:]
+
+/** Name of the HMAC key being updated. */
+@property(nonatomic, copy, nullable) NSString *accessId;
+
+/** Project ID owning the service account of the updated key. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRStorage_HmacKeyMetadata.
+ *
+ *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
+ *  valid states.
+ *
+ *  @param object The @c GTLRStorage_HmacKeyMetadata to include in the query.
+ *  @param projectId Project ID owning the service account of the updated key.
+ *  @param accessId Name of the HMAC key being updated.
+ *
+ *  @return GTLRStorageQuery_ProjectsHmacKeysUpdate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_HmacKeyMetadata *)object
+                      projectId:(NSString *)projectId
+                       accessId:(NSString *)accessId;
 
 @end
 

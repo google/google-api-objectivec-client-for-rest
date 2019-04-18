@@ -93,7 +93,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  [self service
  *  tools](https://console.cloud.google.com/talent-solution/overview).
  *  [Learn
- *  more](https://cloud.google.com/talent-solution/job-search/docs/management-tools)
+ *  more](https://cloud.google.com/talent-solution/docs/management-tools)
  *  about self service tools.
  *
  *  Method: jobs.projects.clientEvents.create
@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  [self service
  *  tools](https://console.cloud.google.com/talent-solution/overview).
  *  [Learn
- *  more](https://cloud.google.com/talent-solution/job-search/docs/management-tools)
+ *  more](https://cloud.google.com/talent-solution/docs/management-tools)
  *  about self service tools.
  *
  *  @param object The @c GTLRCloudTalentSolution_CreateClientEventRequest to

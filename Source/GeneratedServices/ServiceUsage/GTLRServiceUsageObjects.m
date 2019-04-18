@@ -219,6 +219,42 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_BatchCreateAdminOverridesResponse
+//
+
+@implementation GTLRServiceUsage_BatchCreateAdminOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceUsage_QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchCreateConsumerOverridesResponse
+//
+
+@implementation GTLRServiceUsage_BatchCreateConsumerOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceUsage_QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_BatchEnableServicesRequest
 //
 
@@ -1115,6 +1151,30 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_QuotaOverride
+//
+
+@implementation GTLRServiceUsage_QuotaOverride
+@dynamic dimensions, name, overrideValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_QuotaOverride_Dimensions
+//
+
+@implementation GTLRServiceUsage_QuotaOverride_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

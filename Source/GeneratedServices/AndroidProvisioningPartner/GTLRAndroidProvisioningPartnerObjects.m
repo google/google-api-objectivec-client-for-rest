@@ -280,7 +280,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceClaim
-@dynamic ownerCompanyId, resellerId, sectionType;
+@dynamic ownerCompanyId, resellerId, sectionType, vacationModeExpireTime,
+         vacationModeStartTime;
 @end
 
 
@@ -577,7 +578,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_PartnerUnclaim
-@dynamic deviceId, deviceIdentifier, sectionType;
+@dynamic deviceId, deviceIdentifier, sectionType, vacationModeDays,
+         vacationModeExpireTime;
 @end
 
 
@@ -629,7 +631,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_UnclaimDeviceRequest
-@dynamic deviceId, deviceIdentifier, sectionType;
+@dynamic deviceId, deviceIdentifier, sectionType, vacationModeDays,
+         vacationModeExpireTime;
 @end
 
 

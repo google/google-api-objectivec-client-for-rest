@@ -86,6 +86,12 @@ NSString * const kGTLRToolResults_Step_State_InProgress   = @"inProgress";
 NSString * const kGTLRToolResults_Step_State_Pending      = @"pending";
 NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
+// GTLRToolResults_TestCase.status
+NSString * const kGTLRToolResults_TestCase_Status_Error   = @"error";
+NSString * const kGTLRToolResults_TestCase_Status_Failed  = @"failed";
+NSString * const kGTLRToolResults_TestCase_Status_Passed  = @"passed";
+NSString * const kGTLRToolResults_TestCase_Status_Skipped = @"skipped";
+
 // GTLRToolResults_TestIssue.category
 NSString * const kGTLRToolResults_TestIssue_Category_Common    = @"common";
 NSString * const kGTLRToolResults_TestIssue_Category_Robo      = @"robo";
@@ -509,6 +515,28 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_ListTestCasesResponse
+//
+
+@implementation GTLRToolResults_ListTestCasesResponse
+@dynamic nextPageToken, testCases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testCases" : [GTLRToolResults_TestCase class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"testCases";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_MemoryInfo
 //
 
@@ -762,6 +790,26 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 @implementation GTLRToolResults_SuccessDetail
 @dynamic otherNativeCrash;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_TestCase
+//
+
+@implementation GTLRToolResults_TestCase
+@dynamic endTime, skippedMessage, stackTraces, startTime, status, testCaseId,
+         testCaseReference, toolOutputs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stackTraces" : [GTLRToolResults_StackTrace class],
+    @"toolOutputs" : [GTLRToolResults_ToolOutputReference class]
+  };
+  return map;
+}
+
 @end
 
 

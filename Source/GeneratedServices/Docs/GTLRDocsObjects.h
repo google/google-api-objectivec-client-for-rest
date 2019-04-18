@@ -5033,10 +5033,12 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  A border around a table cell.
+ *  Table cell borders cannot be transparent. To hide a table cell border, make
+ *  its width 0.
  */
 @interface GTLRDocs_TableCellBorder : GTLRObject
 
-/** The color of the border. */
+/** The color of the border. This color cannot be transparent. */
 @property(nonatomic, strong, nullable) GTLRDocs_OptionalColor *color;
 
 /**

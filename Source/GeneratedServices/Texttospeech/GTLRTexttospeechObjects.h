@@ -51,7 +51,7 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEn
  */
 GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16;
 /**
- *  MP3 audio.
+ *  MP3 audio at 32kbps.
  *
  *  Value: "MP3"
  */
@@ -146,8 +146,8 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_S
  *        16-bit signed little-endian samples (Linear PCM).
  *        Audio content returned as LINEAR16 also contains a WAV header. (Value:
  *        "LINEAR16")
- *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 MP3 audio. (Value:
- *        "MP3")
+ *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 MP3 audio at
+ *        32kbps. (Value: "MP3")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus Opus encoded
  *        audio wrapped in an ogg container. The result will be a
  *        file which can be played natively on Android, and in browsers (at
