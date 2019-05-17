@@ -663,6 +663,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  An artifact resource which gets created when uploading an APK or Android App
+ *  Bundle through internal app sharing.
+ */
+@interface GTLRAndroidPublisher_InternalAppSharingArtifact : GTLRObject
+
+/**
+ *  The SHA256 fingerprint of the certificate used to signed the generated
+ *  artifact.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateFingerprint;
+
+/**
+ *  The download URL generated for the uploaded artifact. Users that are
+ *  authorized to download can follow the link to the Play Store app to install
+ *  it.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
+
+/**
+ *  The SHA-256 hash of the artifact represented as a lowercase hexadecimal
+ *  number, matching the output of the sha256sum command.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
+@end
+
+
+/**
  *  GTLRAndroidPublisher_Listing
  */
 @interface GTLRAndroidPublisher_Listing : GTLRObject
@@ -795,6 +823,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_ProductPurchase : GTLRObject
 
 /**
+ *  The acknowledgement state of the inapp product. Possible values are:
+ *  - Yet to be acknowledged
+ *  - Acknowledged
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgementState;
+
+/**
  *  The consumption state of the inapp product. Possible values are:
  *  - Yet to be consumed
  *  - Consumed
@@ -846,6 +883,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *purchaseType;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
+ */
+@interface GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest : GTLRObject
+
+/** Payload to attach to the purchase. */
+@property(nonatomic, copy, nullable) NSString *developerPayload;
 
 @end
 
@@ -1220,6 +1268,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userCancellationTimeMillis;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
+ */
+@interface GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest : GTLRObject
+
+/** Payload to attach to the purchase. */
+@property(nonatomic, copy, nullable) NSString *developerPayload;
 
 @end
 

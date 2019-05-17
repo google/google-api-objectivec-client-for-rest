@@ -30,6 +30,18 @@ NSString * const kGTLRSecurityCommandCenter_Finding_State_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_Finding_State_Inactive = @"INACTIVE";
 NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse.state
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
+
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
 NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Added = @"ADDED";
@@ -200,6 +212,26 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GetIamPolicyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse
+@dynamic duration, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse
+@dynamic duration, state;
 @end
 
 

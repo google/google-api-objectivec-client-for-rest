@@ -297,12 +297,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps;
 
 /** Value: "dash" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
-/** Value: "http" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Http;
+/** Value: "hls" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls;
 /** Value: "rtmp" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
-/** Value: "webrtc" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.resolution
@@ -3036,9 +3034,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Dash Value "dash"
- *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Http Value "http"
+ *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Hls Value "hls"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Rtmp Value "rtmp"
- *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Webrtc Value "webrtc"
  */
 @property(nonatomic, copy, nullable) NSString *ingestionType;
 

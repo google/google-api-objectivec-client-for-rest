@@ -95,6 +95,44 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Deletes a snapshot.
+ *
+ *  Method: dataflow.projects.deleteSnapshots
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsDeleteSnapshots : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsDeleteSnapshotsWithprojectId:]
+
+/** The location that contains this snapshot. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The ID of the Cloud Platform project that the snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+/**
+ *  Fetches a @c GTLRDataflow_DeleteSnapshotResponse.
+ *
+ *  Deletes a snapshot.
+ *
+ *  @param projectId The ID of the Cloud Platform project that the snapshot
+ *    belongs to.
+ *
+ *  @return GTLRDataflowQuery_ProjectsDeleteSnapshots
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
  *  List the jobs of a project across all regions.
  *
  *  Method: dataflow.projects.jobs.aggregated
@@ -1487,6 +1525,176 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Deletes a snapshot.
+ *
+ *  Method: dataflow.projects.locations.snapshots.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsSnapshotsDelete : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsSnapshotsDeleteWithprojectId:location:snapshotId:]
+
+/** The location that contains this snapshot. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The ID of the Cloud Platform project that the snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+/**
+ *  Fetches a @c GTLRDataflow_DeleteSnapshotResponse.
+ *
+ *  Deletes a snapshot.
+ *
+ *  @param projectId The ID of the Cloud Platform project that the snapshot
+ *    belongs to.
+ *  @param location The location that contains this snapshot.
+ *  @param snapshotId The ID of the snapshot.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsSnapshotsDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                        snapshotId:(NSString *)snapshotId;
+
+@end
+
+/**
+ *  Gets information about a snapshot.
+ *
+ *  Method: dataflow.projects.locations.snapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsSnapshotsGet : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsSnapshotsGetWithprojectId:location:snapshotId:]
+
+/** The location that contains this snapshot. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The ID of the Cloud Platform project that the snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+/**
+ *  Fetches a @c GTLRDataflow_Snapshot.
+ *
+ *  Gets information about a snapshot.
+ *
+ *  @param projectId The ID of the Cloud Platform project that the snapshot
+ *    belongs to.
+ *  @param location The location that contains this snapshot.
+ *  @param snapshotId The ID of the snapshot.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsSnapshotsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                        snapshotId:(NSString *)snapshotId;
+
+@end
+
+/**
+ *  Lists snapshots.
+ *
+ *  Method: dataflow.projects.locations.snapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsSnapshotsList : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsSnapshotsListWithprojectId:location:]
+
+/** The location to list snapshots in. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project ID to list snapshots for. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListSnapshotsResponse.
+ *
+ *  Lists snapshots.
+ *
+ *  @param projectId The project ID to list snapshots for.
+ *  @param location The location to list snapshots in.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsSnapshotsList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location;
+
+@end
+
+/**
+ *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
+ *  confirm the given query parses correctly, and if able to look up
+ *  schema information from DataCatalog, will validate that the query
+ *  analyzes properly as well.
+ *
+ *  Method: dataflow.projects.locations.sql.validate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsSqlValidate : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsSqlValidateWithprojectId:location:]
+
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Required. The ID of the Cloud Platform project that the job belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The sql query to validate. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Fetches a @c GTLRDataflow_ValidateResponse.
+ *
+ *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
+ *  confirm the given query parses correctly, and if able to look up
+ *  schema information from DataCatalog, will validate that the query
+ *  analyzes properly as well.
+ *
+ *  @param projectId Required. The ID of the Cloud Platform project that the job
+ *    belongs to.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *    which to direct the request.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsSqlValidate
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location;
+
+@end
+
+/**
  *  Creates a Cloud Dataflow job from a template.
  *
  *  Method: dataflow.projects.locations.templates.create
@@ -1703,6 +1911,80 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 + (instancetype)queryWithObject:(GTLRDataflow_SendWorkerMessagesRequest *)object
                       projectId:(NSString *)projectId
                        location:(NSString *)location;
+
+@end
+
+/**
+ *  Gets information about a snapshot.
+ *
+ *  Method: dataflow.projects.snapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsSnapshotsGet : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsSnapshotsGetWithprojectId:snapshotId:]
+
+/** The location that contains this snapshot. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The ID of the Cloud Platform project that the snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+/**
+ *  Fetches a @c GTLRDataflow_Snapshot.
+ *
+ *  Gets information about a snapshot.
+ *
+ *  @param projectId The ID of the Cloud Platform project that the snapshot
+ *    belongs to.
+ *  @param snapshotId The ID of the snapshot.
+ *
+ *  @return GTLRDataflowQuery_ProjectsSnapshotsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                        snapshotId:(NSString *)snapshotId;
+
+@end
+
+/**
+ *  Lists snapshots.
+ *
+ *  Method: dataflow.projects.snapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsSnapshotsList : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsSnapshotsListWithprojectId:]
+
+/** The location to list snapshots in. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project ID to list snapshots for. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListSnapshotsResponse.
+ *
+ *  Lists snapshots.
+ *
+ *  @param projectId The project ID to list snapshots for.
+ *
+ *  @return GTLRDataflowQuery_ProjectsSnapshotsList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
 
 @end
 

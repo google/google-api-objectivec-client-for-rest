@@ -129,6 +129,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always sql#backupConfiguration. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The location of the backup. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  Reserved for future use.
  *
@@ -190,6 +193,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** This is always sql#backupRun. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** The location of the backup. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;

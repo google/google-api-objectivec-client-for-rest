@@ -18,6 +18,7 @@
 // sortOrder
 NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending = @"FIRST_NAME_ASCENDING";
 NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending = @"LAST_MODIFIED_ASCENDING";
+NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending = @"LAST_MODIFIED_DESCENDING";
 NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASCENDING";
 
 // ----------------------------------------------------------------------------

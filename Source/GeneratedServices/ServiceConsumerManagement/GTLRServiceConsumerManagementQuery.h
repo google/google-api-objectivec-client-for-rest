@@ -304,7 +304,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAddProjectWithObject:parent:]
 
-/** Name of the tenancy unit. */
+/**
+ *  Name of the tenancy unit.
+ *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -320,6 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceConsumerManagement_AddTenantProjectRequest
  *    to include in the query.
  *  @param parent Name of the tenancy unit.
+ *    Such as
+ *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject
  */
@@ -339,6 +344,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  If specified, new billing configuration is applied.
  *  Omit a billing configuration to keep the existing one.
  *  A service account in the project is created if previously non existed.
+ *  Specified labels will be appended to tenant project, note that the value of
+ *  existing label key will be updated if the same label key is requested.
  *  The specified folder is ignored, as moving a tenant project to a different
  *  folder isn't supported.
  *  The operation fails if any of the steps fail, but no rollback of already
@@ -354,7 +361,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsApplyProjectConfigWithObject:name:]
 
-/** Name of the tenancy unit. */
+/**
+ *  Name of the tenancy unit.
+ *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -370,6 +380,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  If specified, new billing configuration is applied.
  *  Omit a billing configuration to keep the existing one.
  *  A service account in the project is created if previously non existed.
+ *  Specified labels will be appended to tenant project, note that the value of
+ *  existing label key will be updated if the same label key is requested.
  *  The specified folder is ignored, as moving a tenant project to a different
  *  folder isn't supported.
  *  The operation fails if any of the steps fail, but no rollback of already
@@ -380,6 +392,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest to include
  *    in the query.
  *  @param name Name of the tenancy unit.
+ *    Such as
+ *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig
  */
@@ -410,7 +424,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAttachProjectWithObject:name:]
 
-/** Name of the tenancy unit that the project will be attached to. */
+/**
+ *  Name of the tenancy unit that the project will be attached to.
+ *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -432,6 +449,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRServiceConsumerManagement_AttachTenantProjectRequest to include in the
  *    query.
  *  @param name Name of the tenancy unit that the project will be attached to.
+ *    Such as
+ *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject
  */

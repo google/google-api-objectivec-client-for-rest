@@ -661,9 +661,9 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
          apiUpdateTime, attributes, clickThroughUrls, corrections, creativeId,
          dealsStatus, declaredClickThroughUrls, detectedAdvertiserIds,
          detectedDomains, detectedLanguages, detectedProductCategories,
-         detectedSensitiveCategories, filteringStats, html,
-         impressionTrackingUrls, native, openAuctionStatus,
-         restrictedCategories, servingRestrictions, vendorIds, version, video;
+         detectedSensitiveCategories, html, impressionTrackingUrls, native,
+         openAuctionStatus, restrictedCategories, servingRestrictions,
+         vendorIds, version, video;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -951,24 +951,6 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_FilteredBidDetailRow
 @dynamic bidCount, detailId, rowDimensions;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAdExchangeBuyerII_FilteringStats
-//
-
-@implementation GTLRAdExchangeBuyerII_FilteringStats
-@dynamic date, reasons;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reasons" : [GTLRAdExchangeBuyerII_Reason class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1801,16 +1783,6 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_RealtimeTimeRange
 @dynamic startTimestamp;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAdExchangeBuyerII_Reason
-//
-
-@implementation GTLRAdExchangeBuyerII_Reason
-@dynamic count, status;
 @end
 
 

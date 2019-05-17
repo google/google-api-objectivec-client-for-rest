@@ -21,6 +21,7 @@
 @class GTLRScript_Deployment;
 @class GTLRScript_DeploymentConfig;
 @class GTLRScript_EntryPoint;
+@class GTLRScript_ExecutionResult;
 @class GTLRScript_File;
 @class GTLRScript_GoogleAppsScriptTypeAddOnEntryPoint;
 @class GTLRScript_GoogleAppsScriptTypeExecutionApiConfig;
@@ -31,11 +32,16 @@
 @class GTLRScript_GoogleAppsScriptTypeUser;
 @class GTLRScript_GoogleAppsScriptTypeWebAppConfig;
 @class GTLRScript_GoogleAppsScriptTypeWebAppEntryPoint;
+@class GTLRScript_ListValue;
 @class GTLRScript_MetricsValue;
 @class GTLRScript_Operation_Response;
 @class GTLRScript_StackTraceElement;
 @class GTLRScript_Status;
 @class GTLRScript_Status_Details_Item;
+@class GTLRScript_Struct;
+@class GTLRScript_Struct_Fields;
+@class GTLRScript_Value;
+@class GTLRScript_Value_ProtoValue;
 @class GTLRScript_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -380,6 +386,16 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  */
 GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDeploying;
 
+// ----------------------------------------------------------------------------
+// GTLRScript_Value.nullValue
+
+/**
+ *  Null value.
+ *
+ *  Value: "NULL_VALUE"
+ */
+GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
+
 /**
  *  The Content resource.
  */
@@ -511,6 +527,21 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 
 /**
+ *  The response for executing or debugging a function in an Apps Script
+ *  project.
+ */
+@interface GTLRScript_ExecuteStreamResponse : GTLRObject
+
+/**
+ *  The result of the execution.
+ *  TODO (johnlattin): Add debugging and logging.
+ */
+@property(nonatomic, strong, nullable) GTLRScript_ExecutionResult *result;
+
+@end
+
+
+/**
  *  An object that provides information about the nature of an error resulting
  *  from an attempted execution of a script function using the Apps Script API.
  *  If a run call
@@ -615,6 +646,24 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id result;
+
+@end
+
+
+/**
+ *  The result of an execution
+ *  Based on ScriptExecutionResult at:
+ *  google3/apps/maestro/api/frontend_execution_common.proto?q=message%5c%20ScriptExecutionResult
+ */
+@interface GTLRScript_ExecutionResult : GTLRObject
+
+/**
+ *  The returned value of the execution.
+ *  TODO (johnlattin): Add HtmlResponse
+ *  TODO (johnlattin): Add ExceptionResponse
+ *  TODO (johlnattin): Add TextResponse
+ */
+@property(nonatomic, strong, nullable) GTLRScript_Value *returnValue;
 
 @end
 
@@ -1042,6 +1091,19 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 
 /**
+ *  `ListValue` is a wrapper around a repeated field of values.
+ *  Based on LustValue at:
+ *  google3/apps/maestro/api/struct.proto?q=message%5c%20ListValue
+ */
+@interface GTLRScript_ListValue : GTLRObject
+
+/** Repeated field of dynamically typed values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRScript_Value *> *values;
+
+@end
+
+
+/**
  *  Response with the list of the versions for the specified script project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1270,6 +1332,32 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 
 
 /**
+ *  `Struct` represents a structured data value, consisting of fields which map
+ *  to dynamically typed values.
+ *  Based on Struct at:
+ *  google3/apps/maestro/api/struct.proto?q=message%5c%20Struct
+ */
+@interface GTLRScript_Struct : GTLRObject
+
+/** Unordered map of dynamically typed values. */
+@property(nonatomic, strong, nullable) GTLRScript_Struct_Fields *fields;
+
+@end
+
+
+/**
+ *  Unordered map of dynamically typed values.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRScript_Value. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRScript_Struct_Fields : GTLRObject
+@end
+
+
+/**
  *  Request with deployment information to update an existing deployment.
  */
 @interface GTLRScript_UpdateDeploymentRequest : GTLRObject
@@ -1277,6 +1365,79 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
 /** The deployment configuration. */
 @property(nonatomic, strong, nullable) GTLRScript_DeploymentConfig *deploymentConfig;
 
+@end
+
+
+/**
+ *  `Value` represents a dynamically typed value which is the outcome of an
+ *  executed script
+ *  Based on Value at:
+ *  google3/apps/maestro/api/struct.proto?q=message%5c%20Value
+ */
+@interface GTLRScript_Value : GTLRObject
+
+/**
+ *  Represents a boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Represents raw byte values.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *bytesValue;
+
+/**
+ *  Represents a date in ms since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dateValue;
+
+/** Represents a repeated `Value`. */
+@property(nonatomic, strong, nullable) GTLRScript_ListValue *listValue;
+
+/**
+ *  Represents a null value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRScript_Value_NullValue_NullValue Null value. (Value:
+ *        "NULL_VALUE")
+ */
+@property(nonatomic, copy, nullable) NSString *nullValue;
+
+/**
+ *  Represents a double value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberValue;
+
+/** Represents a structured proto value. */
+@property(nonatomic, strong, nullable) GTLRScript_Value_ProtoValue *protoValue;
+
+/** Represents a string value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/** Represents a structured value. */
+@property(nonatomic, strong, nullable) GTLRScript_Struct *structValue;
+
+@end
+
+
+/**
+ *  Represents a structured proto value.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRScript_Value_ProtoValue : GTLRObject
 @end
 
 

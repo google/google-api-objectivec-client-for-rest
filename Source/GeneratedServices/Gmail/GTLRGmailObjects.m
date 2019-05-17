@@ -333,6 +333,16 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_LanguageSettings
+//
+
+@implementation GTLRGmail_LanguageSettings
+@dynamic displayLanguage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_ListDelegatesResponse
 //
 

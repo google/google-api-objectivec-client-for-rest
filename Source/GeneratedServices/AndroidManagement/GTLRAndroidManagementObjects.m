@@ -413,6 +413,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_BlockAction
+//
+
+@implementation GTLRAndroidManagement_BlockAction
+@dynamic blockAfterDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_ChoosePrivateKeyRule
 //
 
@@ -480,7 +490,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, policyCompliant,
          policyName, powerManagementEvents, previousDeviceNames, softwareInfo,
-         state, user, userName;
+         state, systemProperties, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -493,6 +503,20 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"previousDeviceNames" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_Device_SystemProperties
+//
+
+@implementation GTLRAndroidManagement_Device_SystemProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -958,18 +982,19 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
          installUnknownSourcesAllowed, keyguardDisabled,
          keyguardDisabledFeatures, kioskCustomLauncherEnabled, locationMode,
-         longSupportMessage, maximumTimeToLock, mobileNetworksConfigDisabled,
-         modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
-         networkEscapeHatchEnabled, networkResetDisabled,
-         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
-         passwordPolicies, passwordRequirements, permissionGrants,
-         permittedInputMethods, persistentPreferredActivities, playStoreMode,
-         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
-         safeBootDisabled, screenCaptureDisabled, setupActions,
-         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
-         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
-         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
-         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
+         longSupportMessage, maximumTimeToLock, minimumApiLevel,
+         mobileNetworksConfigDisabled, modifyAccountsDisabled,
+         mountPhysicalMediaDisabled, name, networkEscapeHatchEnabled,
+         networkResetDisabled, openNetworkConfiguration, outgoingBeamDisabled,
+         outgoingCallsDisabled, passwordPolicies, passwordRequirements,
+         permissionGrants, permittedInputMethods, persistentPreferredActivities,
+         playStoreMode, policyEnforcementRules, privateKeySelectionEnabled,
+         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
+         screenCaptureDisabled, setupActions, setUserIconDisabled,
+         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
+         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
+         statusReportingSettings, stayOnPluggedModes, systemUpdate,
+         tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -986,6 +1011,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"passwordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],
+    @"policyEnforcementRules" : [GTLRAndroidManagement_PolicyEnforcementRule class],
     @"setupActions" : [GTLRAndroidManagement_SetupAction class],
     @"stayOnPluggedModes" : [NSString class]
   };
@@ -1006,6 +1032,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_PolicyEnforcementRule
+//
+
+@implementation GTLRAndroidManagement_PolicyEnforcementRule
+@dynamic blockAction, settingName, wipeAction;
 @end
 
 
@@ -1227,4 +1263,14 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WipeAction
+//
+
+@implementation GTLRAndroidManagement_WipeAction
+@dynamic preserveFrp, wipeAfterDays;
 @end

@@ -12,29 +12,6 @@
 
 #import "GTLRWebmastersObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// category
-NSString * const kGTLRWebmastersCategoryAuthPermissions   = @"authPermissions";
-NSString * const kGTLRWebmastersCategoryFlashContent      = @"flashContent";
-NSString * const kGTLRWebmastersCategoryManyToOneRedirect = @"manyToOneRedirect";
-NSString * const kGTLRWebmastersCategoryNotFollowed       = @"notFollowed";
-NSString * const kGTLRWebmastersCategoryNotFound          = @"notFound";
-NSString * const kGTLRWebmastersCategoryOther             = @"other";
-NSString * const kGTLRWebmastersCategoryRoboted           = @"roboted";
-NSString * const kGTLRWebmastersCategoryServerError       = @"serverError";
-NSString * const kGTLRWebmastersCategorySoft404           = @"soft404";
-
-// platform
-NSString * const kGTLRWebmastersPlatformMobile         = @"mobile";
-NSString * const kGTLRWebmastersPlatformSmartphoneOnly = @"smartphoneOnly";
-NSString * const kGTLRWebmastersPlatformWeb            = @"web";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRWebmastersQuery
 
 @dynamic fields;
@@ -217,101 +194,6 @@ NSString * const kGTLRWebmastersPlatformWeb            = @"web";
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRWebmasters_SitesListResponse class];
   query.loggingName = @"webmasters.sites.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRWebmastersQuery_UrlcrawlerrorscountsQuery
-
-@dynamic category, latestCountsOnly, platform, siteUrl;
-
-+ (instancetype)queryWithSiteUrl:(NSString *)siteUrl {
-  NSArray *pathParams = @[ @"siteUrl" ];
-  NSString *pathURITemplate = @"sites/{siteUrl}/urlCrawlErrorsCounts/query";
-  GTLRWebmastersQuery_UrlcrawlerrorscountsQuery *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.siteUrl = siteUrl;
-  query.expectedObjectClass = [GTLRWebmasters_UrlCrawlErrorsCountsQueryResponse class];
-  query.loggingName = @"webmasters.urlcrawlerrorscounts.query";
-  return query;
-}
-
-@end
-
-@implementation GTLRWebmastersQuery_UrlcrawlerrorssamplesGet
-
-@dynamic category, platform, siteUrl, url;
-
-+ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
-                             url:(NSString *)url
-                        category:(NSString *)category
-                        platform:(NSString *)platform {
-  NSArray *pathParams = @[
-    @"siteUrl", @"url"
-  ];
-  NSString *pathURITemplate = @"sites/{siteUrl}/urlCrawlErrorsSamples/{url}";
-  GTLRWebmastersQuery_UrlcrawlerrorssamplesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.siteUrl = siteUrl;
-  query.url = url;
-  query.category = category;
-  query.platform = platform;
-  query.expectedObjectClass = [GTLRWebmasters_UrlCrawlErrorsSample class];
-  query.loggingName = @"webmasters.urlcrawlerrorssamples.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRWebmastersQuery_UrlcrawlerrorssamplesList
-
-@dynamic category, platform, siteUrl;
-
-+ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
-                        category:(NSString *)category
-                        platform:(NSString *)platform {
-  NSArray *pathParams = @[ @"siteUrl" ];
-  NSString *pathURITemplate = @"sites/{siteUrl}/urlCrawlErrorsSamples";
-  GTLRWebmastersQuery_UrlcrawlerrorssamplesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.siteUrl = siteUrl;
-  query.category = category;
-  query.platform = platform;
-  query.expectedObjectClass = [GTLRWebmasters_UrlCrawlErrorsSamplesListResponse class];
-  query.loggingName = @"webmasters.urlcrawlerrorssamples.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRWebmastersQuery_UrlcrawlerrorssamplesMarkAsFixed
-
-@dynamic category, platform, siteUrl, url;
-
-+ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
-                             url:(NSString *)url
-                        category:(NSString *)category
-                        platform:(NSString *)platform {
-  NSArray *pathParams = @[
-    @"siteUrl", @"url"
-  ];
-  NSString *pathURITemplate = @"sites/{siteUrl}/urlCrawlErrorsSamples/{url}";
-  GTLRWebmastersQuery_UrlcrawlerrorssamplesMarkAsFixed *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.siteUrl = siteUrl;
-  query.url = url;
-  query.category = category;
-  query.platform = platform;
-  query.loggingName = @"webmasters.urlcrawlerrorssamples.markAsFixed";
   return query;
 }
 

@@ -95,11 +95,12 @@
 @implementation GTLRPagespeedonline_LighthouseResultV5
 @dynamic audits, categories, categoryGroups, configSettings, environment,
          fetchTime, finalUrl, i18n, lighthouseVersion, requestedUrl,
-         runtimeError, runWarnings, timing, userAgent;
+         runtimeError, runWarnings, stackPacks, timing, userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"runWarnings" : [NSObject class]
+    @"runWarnings" : [NSObject class],
+    @"stackPacks" : [GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item class]
   };
   return map;
 }
@@ -192,6 +193,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item
+@dynamic descriptions, iconDataURL, identifier, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPagespeedonline_LighthouseResultV5_Timing
 //
 
@@ -227,6 +243,20 @@
          notApplicableAuditsGroupTitle, opportunityResourceColumnLabel,
          opportunitySavingsColumnLabel, passedAuditsGroupTitle, scorescaleLabel,
          toplevelWarningsMessage, varianceDisclaimer, warningHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item_Descriptions
+//
+
+@implementation GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item_Descriptions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

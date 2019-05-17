@@ -131,6 +131,64 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Inactive;
 GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse.state
+
+/**
+ *  Asset discovery run completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Completed;
+/**
+ *  Asset discovery run state was unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
+/**
+ *  Asset discovery run was cancelled with tasks still pending, as another
+ *  run for the same organization was started with a higher priority.
+ *
+ *  Value: "SUPERSEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded;
+/**
+ *  Asset discovery run was killed and terminated.
+ *
+ *  Value: "TERMINATED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
+
+/**
+ *  Asset discovery run completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed;
+/**
+ *  Asset discovery run state was unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified;
+/**
+ *  Asset discovery run was cancelled with tasks still pending, as another
+ *  run for the same organization was started with a higher priority.
+ *
+ *  Value: "SUPERSEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded;
+/**
+ *  Asset discovery run was killed and terminated.
+ *
+ *  Value: "TERMINATED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
 
 /**
@@ -631,6 +689,64 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
+ *  Response of asset discovery run
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse : GTLRObject
+
+/** The duration between asset discovery run start and end */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  The state of an asset discovery run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Completed
+ *        Asset discovery run completed successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_StateUnspecified
+ *        Asset discovery run state was unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded
+ *        Asset discovery run was cancelled with tasks still pending, as another
+ *        run for the same organization was started with a higher priority.
+ *        (Value: "SUPERSEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated
+ *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Response of asset discovery run
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse : GTLRObject
+
+/** The duration between asset discovery run start and end */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  The state of an asset discovery run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed
+ *        Asset discovery run completed successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified
+ *        Asset discovery run state was unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded
+ *        Asset discovery run was cancelled with tasks still pending, as another
+ *        run for the same organization was started with a higher priority.
+ *        (Value: "SUPERSEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated
+ *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Request message for grouping by assets.
  */
 @interface GTLRSecurityCommandCenter_GroupAssetsRequest : GTLRObject
@@ -682,16 +798,17 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  * integer literals without quotes.
  *  * boolean literals `true` and `false` without quotes.
  *  The following field and operator combinations are supported:
- *  name | `=`
- *  update_time | `>`, `<`, `>=`, `<=`
- *  iam_policy.policy_blob | '=', ':'
- *  resource_properties | '=', ':', `>`, `<`, `>=`, `<=`
- *  security_marks | '=', ':'
- *  security_center_properties.resource_name | '=', ':'
- *  security_center_properties.resource_type | '=', ':'
- *  security_center_properties.resource_parent | '=', ':'
- *  security_center_properties.resource_project | '=', ':'
- *  security_center_properties.resource_owners | '=', ':'
+ *  * name: `=`
+ *  * update_time: `>`, `<`, `>=`, `<=`, `=`
+ *  * create_time: `>`, `<`, `>=`, `<=`, `=`
+ *  * iam_policy.policy_blob: `=`, `:`
+ *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
+ *  * security_marks: `=`, `:`
+ *  * security_center_properties.resource_name: `=`, `:`
+ *  * security_center_properties.resource_type: `=`, `:`
+ *  * security_center_properties.resource_parent: `=`, `:`
+ *  * security_center_properties.resource_project: `=`, `:`
+ *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -824,15 +941,15 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  * integer literals without quotes.
  *  * boolean literals `true` and `false` without quotes.
  *  The following field and operator combinations are supported:
- *  name | `=`
- *  parent | '=', ':'
- *  resource_name | '=', ':'
- *  state | '=', ':'
- *  category | '=', ':'
- *  external_uri | '=', ':'
- *  event_time | `>`, `<`, `>=`, `<=`
- *  security_marks | '=', ':'
- *  source_properties | '=', ':', `>`, `<`, `>=`, `<=`
+ *  * name: `=`
+ *  * parent: `=`, `:`
+ *  * resource_name: `=`, `:`
+ *  * state: `=`, `:`
+ *  * category: `=`, `:`
+ *  * external_uri: `=`, `:`
+ *  * event_time: `>`, `<`, `>=`, `<=`
+ *  * security_marks: `=`, `:`
+ *  * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  For example, `source_properties.size = 100` is a valid filter string.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1176,7 +1293,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

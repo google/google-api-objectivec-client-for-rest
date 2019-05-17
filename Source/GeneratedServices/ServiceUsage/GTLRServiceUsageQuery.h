@@ -233,8 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Parent to enable services on.
  *  An example name would be:
- *  `projects/123`
- *  where `123` is the project number (not project ID).
+ *  `projects/123` where `123` is the project number.
  *  The `BatchEnableServices` method currently only supports projects.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -249,8 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param parent Parent to enable services on.
  *    An example name would be:
- *    `projects/123`
- *    where `123` is the project number (not project ID).
+ *    `projects/123` where `123` is the project number.
  *    The `BatchEnableServices` method currently only supports projects.
  *
  *  @return GTLRServiceUsageQuery_ServicesBatchEnable
@@ -282,8 +280,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Name of the consumer and service to disable the service on.
  *  The enable and disable methods currently only support projects.
  *  An example name would be:
- *  `projects/123/services/serviceusage.googleapis.com`
- *  where `123` is the project number (not project ID).
+ *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *  project number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -302,8 +300,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Name of the consumer and service to disable the service on.
  *    The enable and disable methods currently only support projects.
  *    An example name would be:
- *    `projects/123/services/serviceusage.googleapis.com`
- *    where `123` is the project number (not project ID).
+ *    `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *    project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesDisable
  */
@@ -332,8 +330,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Enabling a service requires that the service is public or is shared with
  *  the user enabling the service.
  *  An example name would be:
- *  `projects/123/services/serviceusage.googleapis.com`
- *  where `123` is the project number (not project ID).
+ *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *  project number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -350,8 +348,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Enabling a service requires that the service is public or is shared with
  *    the user enabling the service.
  *    An example name would be:
- *    `projects/123/services/serviceusage.googleapis.com`
- *    where `123` is the project number (not project ID).
+ *    `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *    project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesEnable
  */
@@ -376,8 +374,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Name of the consumer and service to get the `ConsumerState` for.
  *  An example name would be:
- *  `projects/123/services/serviceusage.googleapis.com`
- *  where `123` is the project number (not project ID).
+ *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *  project number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -388,8 +386,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Name of the consumer and service to get the `ConsumerState` for.
  *    An example name would be:
- *    `projects/123/services/serviceusage.googleapis.com`
- *    where `123` is the project number (not project ID).
+ *    `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *    project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesGet
  */
@@ -438,8 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Parent to search for services on.
  *  An example name would be:
- *  `projects/123`
- *  where `123` is the project number (not project ID).
+ *  `projects/123` where `123` is the project number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -456,8 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Parent to search for services on.
  *    An example name would be:
- *    `projects/123`
- *    where `123` is the project number (not project ID).
+ *    `projects/123` where `123` is the project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesList
  *

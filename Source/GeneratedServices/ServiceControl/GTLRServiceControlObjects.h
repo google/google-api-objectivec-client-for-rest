@@ -320,14 +320,38 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenie
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_ConsumerInfo.type
 
-/** Value: "CONSUMER_TYPE_UNSPECIFIED" */
+/**
+ *  This is never used.
+ *
+ *  Value: "CONSUMER_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified;
-/** Value: "FOLDER" */
+/**
+ *  The consumer is a Google Cloud Folder.
+ *
+ *  Value: "FOLDER"
+ */
 GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder;
-/** Value: "ORGANIZATION" */
+/**
+ *  The consumer is a Google Cloud Organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
 GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization;
-/** Value: "PROJECT" */
+/**
+ *  The consumer is a Google Cloud Project.
+ *
+ *  Value: "PROJECT"
+ */
 GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project;
+/**
+ *  Service-specific resource container which is defined by the service
+ *  producer to offer their users the ability to manage service control
+ *  functionalities at a finer level of granularity than the PROJECT.
+ *
+ *  Value: "SERVICE_SPECIFIC"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_LogEntry.severity
@@ -1254,6 +1278,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
+/**
+ *  Unimplemented. The current service rollout id used to process the request.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRolloutId;
+
 @end
 
 
@@ -1282,15 +1311,23 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, strong, nullable) NSNumber *projectNumber;
 
 /**
- *  type
+ *  The type of the consumer which should have been defined in
+ *  [Google Resource Manager](https://cloud.google.com/resource-manager/).
  *
  *  Likely values:
- *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified
- *        Value "CONSUMER_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Folder Value "FOLDER"
- *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Organization Value
- *        "ORGANIZATION"
- *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Project Value "PROJECT"
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified This
+ *        is never used. (Value: "CONSUMER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Folder The consumer is a
+ *        Google Cloud Folder. (Value: "FOLDER")
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Organization The consumer is
+ *        a Google Cloud Organization. (Value: "ORGANIZATION")
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_Project The consumer is a
+ *        Google Cloud Project. (Value: "PROJECT")
+ *    @arg @c kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific
+ *        Service-specific resource container which is defined by the service
+ *        producer to offer their users the ability to manage service control
+ *        functionalities at a finer level of granularity than the PROJECT.
+ *        (Value: "SERVICE_SPECIFIC")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2500,6 +2537,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+/**
+ *  Unimplemented. The current service rollout id used to process the request.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRolloutId;
 
 @end
 

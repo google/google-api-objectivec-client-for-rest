@@ -34,6 +34,12 @@ NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified = @"KIND_UNSPECIFIED
 NSString * const kGTLRSpanner_PlanNode_Kind_Relational      = @"RELATIONAL";
 NSString * const kGTLRSpanner_PlanNode_Kind_Scalar          = @"SCALAR";
 
+// GTLRSpanner_ReplicaInfo.type
+NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly        = @"READ_ONLY";
+NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite       = @"READ_WRITE";
+NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness         = @"WITNESS";
+
 // GTLRSpanner_Type.code
 NSString * const kGTLRSpanner_Type_Code_Array               = @"ARRAY";
 NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
@@ -356,7 +362,15 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_InstanceConfig
-@dynamic displayName, name;
+@dynamic displayName, name, replicas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicas" : [GTLRSpanner_ReplicaInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -813,6 +827,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ReadWrite
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ReplicaInfo
+//
+
+@implementation GTLRSpanner_ReplicaInfo
+@dynamic defaultLeaderLocation, location, type;
 @end
 
 

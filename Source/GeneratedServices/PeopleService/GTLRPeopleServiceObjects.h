@@ -535,7 +535,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
  *  Only contact_group_resource_name can be used for modifying memberships.
  *  Any contact group membership can be removed, but only user group or
- *  "myContacts" or "starred" system groups memberships can be added.
+ *  "myContacts" or "starred" system groups memberships can be added. A
+ *  contact must always have at least one contact group membership.
  */
 @property(nonatomic, copy, nullable) NSString *contactGroupResourceName;
 

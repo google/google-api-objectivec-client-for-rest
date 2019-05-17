@@ -3079,7 +3079,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @interface GTLRCloudSearch_Metaline : GTLRObject
 
-/** The list of displayed properties for the metaline. */
+/**
+ *  The list of displayed properties for the metaline. The maxiumum number of
+ *  properties is 5.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DisplayedProperty *> *properties;
 
 @end
@@ -3177,7 +3180,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  to specify singular properties before repeated properties in this list. All
  *  of the properties must set
  *  is_returnable
- *  to true. The maximum number of elements is 3.
+ *  to true. The maximum number of metalines is 3.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Metaline *> *metalines;
 
@@ -3264,7 +3267,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4433,7 +4436,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  The URL of the search result. The URL contains a Google redirect to the
- *  actual item.
+ *  actual item. This URL is signed and shouldn't be changed.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

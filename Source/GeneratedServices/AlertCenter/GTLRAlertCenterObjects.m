@@ -65,7 +65,7 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 @implementation GTLRAlertCenter_Alert
 @dynamic alertId, createTime, customerId, data, deleted, endTime,
-         securityInvestigationToolLink, source, startTime, type;
+         securityInvestigationToolLink, source, startTime, type, updateTime;
 @end
 
 

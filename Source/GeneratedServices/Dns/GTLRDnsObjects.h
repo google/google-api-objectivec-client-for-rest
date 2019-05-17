@@ -141,22 +141,31 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Done;
 GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
- *  GTLRDns_Change
+ *  A Change represents a set of ResourceRecordSet additions and deletions
+ *  applied atomically to a ManagedZone. ResourceRecordSets within a ManagedZone
+ *  are modified by creating a new Change element in the Changes collection. In
+ *  turn the Changes collection also records the past modifications to the
+ *  ResourceRecordSets in a ManagedZone. The current state of the ManagedZone is
+ *  the sum effect of applying all Change elements in the Changes collection in
+ *  sequence.
  */
 @interface GTLRDns_Change : GTLRObject
 
+/** Which ResourceRecordSets to add? */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *additions;
+
+/** Which ResourceRecordSets to remove? Must match existing data exactly. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *deletions;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  isServing
+ *  If the DNS queries for the zone will be served.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -168,10 +177,16 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The time that this operation was started by the server (output only). This
+ *  is in RFC3339 text format.
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  status
+ *  Status of the operation (output only). A status of "done" means that the
+ *  request to update the authoritative servers has been sent, but the servers
+ *  might not be updated yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Change_Status_Done Value "done"
@@ -183,7 +198,8 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
- *  GTLRDns_ChangesListResponse
+ *  The response to a request to enumerate Changes to a ResourceRecordSets
+ *  collection.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "changes" property. If returned as the result of a query, it
@@ -193,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @interface GTLRDns_ChangesListResponse : GTLRCollectionObject
 
 /**
- *  changes
+ *  The requested changes.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -205,18 +221,30 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a "snapshot" of collections larger than the maximum page
+ *  size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_DnsKey
+ *  A DNSSEC key pair.
  */
 @interface GTLRDns_DnsKey : GTLRObject
 
 /**
- *  algorithm
+ *  String mnemonic specifying the DNSSEC algorithm of this key. Immutable after
+ *  creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 Value "ecdsap256sha256"
@@ -227,40 +255,57 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
+/**
+ *  The time that this resource was created in the control plane. This is in
+ *  RFC3339 text format. Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
- *  descriptionProperty
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the resource's function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Cryptographic hashes of the DNSKEY resource record associated with this
+ *  DnsKey. These digests are needed to construct a DS record that points at
+ *  this DNS key. Output only.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_KeyDigest *> *digests;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  isActive
+ *  Active keys will be used to sign subsequent changes to the ManagedZone.
+ *  Inactive keys will still be present as DNSKEY Resource Records for the use
+ *  of resolvers validating existing signatures.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isActive;
 
 /**
- *  keyLength
+ *  Length of the key in bits. Specified at creation time then immutable.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keyLength;
 
 /**
- *  keyTag
+ *  The key tag is a non-cryptographic hash of the a DNSKEY resource record
+ *  associated with this DnsKey. The key tag can be used to identify a DNSKEY
+ *  more quickly (but it is not a unique identifier). In particular, the key tag
+ *  is used in a parent zone's DS record to point at the DNSKEY in this child
+ *  ManagedZone. The key tag is a number in the range [0, 65535] and the
+ *  algorithm to calculate it is specified in RFC4034 Appendix B. Output only.
  *
  *  Uses NSNumber of intValue.
  */
@@ -272,10 +317,15 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Base64 encoded public half of this key. Output only. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
 /**
- *  type
+ *  One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the
+ *  Secure Entry Point flag set and, when active, will be used to sign only
+ *  resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag
+ *  will be cleared and this key will be used to sign only resource record sets
+ *  of other types. Immutable after creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKey_Type_KeySigning Value "keySigning"
@@ -287,7 +337,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
- *  GTLRDns_DnsKeysListResponse
+ *  The response to a request to enumerate DnsKeys in a ManagedZone.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "dnsKeys" property. If returned as the result of a query, it
@@ -297,7 +347,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @interface GTLRDns_DnsKeysListResponse : GTLRCollectionObject
 
 /**
- *  dnsKeys
+ *  The requested resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -309,18 +359,30 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a "snapshot" of collections larger than the maximum page
+ *  size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_DnsKeySpec
+ *  Parameters for DnsKey key generation. Used for generating initial keys for a
+ *  new ManagedZone and as default when adding a new DnsKey.
  */
 @interface GTLRDns_DnsKeySpec : GTLRObject
 
 /**
- *  algorithm
+ *  String mnemonic specifying the DNSSEC algorithm of this key.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256 Value
@@ -334,14 +396,18 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
- *  keyLength
+ *  Length of the keys in bits.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keyLength;
 
 /**
- *  keyType
+ *  Specifies whether this is a key signing key (KSK) or a zone signing key
+ *  (ZSK). Key signing keys have the Secure Entry Point flag set and, when
+ *  active, will only be used to sign resource record sets of type DNSKEY. Zone
+ *  signing keys do not have the Secure Entry Point flag set and will be used to
+ *  sign all other types of resource record sets.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_KeyType_KeySigning Value "keySigning"
@@ -363,10 +429,14 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @interface GTLRDns_KeyDigest : GTLRObject
 
+/**
+ *  The base-16 encoded bytes of this digest. Suitable for use in a DS resource
+ *  record.
+ */
 @property(nonatomic, copy, nullable) NSString *digest;
 
 /**
- *  type
+ *  Specifies the algorithm used to calculate this digest.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_KeyDigest_Type_Sha1 Value "sha1"
@@ -379,24 +449,34 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
- *  GTLRDns_ManagedZone
+ *  A zone is a subtree of the DNS namespace under one administrative
+ *  responsibility. A ManagedZone is a resource that represents a DNS zone
+ *  hosted by the Cloud DNS service.
  */
 @interface GTLRDns_ManagedZone : GTLRObject
 
+/**
+ *  The time that this resource was created on the server. This is in RFC3339
+ *  text format. Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
- *  descriptionProperty
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the managed zone's function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** The DNS name of this managed zone, for instance "example.com.". */
 @property(nonatomic, copy, nullable) NSString *dnsName;
+
+/** DNSSEC configuration. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneDnsSecConfig *dnssecConfig;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -410,14 +490,38 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** User labels. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone_Labels *labels;
+
+/**
+ *  User assigned name for this resource. Must be unique within the project. The
+ *  name must be 1-63 characters long, must begin with a letter, end with a
+ *  letter or digit, and only contain lowercase letters, digits or dashes.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Delegate your managed_zone to these virtual name servers; defined by the
+ *  server (output only)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
+
+/**
+ *  Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet
+ *  is a set of DNS name servers that all host the same ManagedZones. Most users
+ *  will leave this field unset.
+ */
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
+
+/**
+ *  For privately visible zones, the set of Virtual Private Cloud resources that
+ *  the zone is visible from.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZonePrivateVisibilityConfig *privateVisibilityConfig;
 
 /**
- *  visibility
+ *  The zone's visibility: public zones are exposed to the Internet, while
+ *  private zones are visible only to Virtual Private Cloud resources.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "private"
@@ -429,7 +533,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
- *  GTLRDns_ManagedZone_Labels
+ *  User labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -445,6 +549,10 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @interface GTLRDns_ManagedZoneDnsSecConfig : GTLRObject
 
+/**
+ *  Specifies parameters that will be used for generating initial DnsKeys for
+ *  this ManagedZone. Output only while state is not OFF.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *defaultKeySpecs;
 
 /**
@@ -454,7 +562,8 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  nonExistence
+ *  Specifies the mechanism used to provide authenticated denial-of-existence
+ *  responses. Output only while state is not OFF.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"
@@ -463,7 +572,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *nonExistence;
 
 /**
- *  state
+ *  Specifies whether DNSSEC is enabled, and what mode it is in.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Off Value "off"
@@ -490,10 +599,21 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  operations
+ *  The operation resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -514,6 +634,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The list of VPC networks that can see this zone. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigNetwork *> *networks;
 
 @end
@@ -530,6 +651,11 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The fully qualified URL of the VPC network to bind to. This should be
+ *  formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
@@ -551,27 +677,45 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  managedZones
+ *  The managed zone resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZone *> *managedZones;
 
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_Operation
+ *  An operation represents a successful mutation performed on a Cloud DNS
+ *  resource. Operations provide: - An audit log of server resource mutations. -
+ *  A way to recover/retry API calls in the case where the response is never
+ *  received by the caller. Use the caller specified client_operation_id.
  */
 @interface GTLRDns_Operation : GTLRObject
 
+/** Only populated if the operation targeted a DnsKey (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_OperationDnsKeyContext *dnsKeyContext;
 
 /**
- *  identifier
+ *  Unique identifier for the resource. This is the client_operation_id if the
+ *  client specified it when the mutation was initiated, otherwise, it is
+ *  generated by the server. The name must be 1-63 characters long and match the
+ *  regular expression [-a-z0-9]? (output only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -583,10 +727,17 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The time that this operation was started by the server. This is in RFC3339
+ *  text format (output only).
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  status
+ *  Status of the operation. Can be one of the following: "PENDING" or "DONE"
+ *  (output only). A status of "DONE" means that the request to update the
+ *  authoritative servers has been sent, but the servers might not be updated
+ *  yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Operation_Status_Done Value "done"
@@ -594,8 +745,20 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
+/**
+ *  Type of the operation. Operations include insert, update, and delete (output
+ *  only).
+ */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  User who requested the operation, for example: user\@example.com.
+ *  cloud-dns-system for operations automatically done by the system. (output
+ *  only)
+ */
 @property(nonatomic, copy, nullable) NSString *user;
+
+/** Only populated if the operation targeted a ManagedZone (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_OperationManagedZoneContext *zoneContext;
 
 @end
@@ -606,7 +769,10 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @interface GTLRDns_OperationDnsKeyContext : GTLRObject
 
+/** The post-operation DnsKey resource. */
 @property(nonatomic, strong, nullable) GTLRDns_DnsKey *newValue NS_RETURNS_NOT_RETAINED;
+
+/** The pre-operation DnsKey resource. */
 @property(nonatomic, strong, nullable) GTLRDns_DnsKey *oldValue;
 
 @end
@@ -617,19 +783,24 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @interface GTLRDns_OperationManagedZoneContext : GTLRObject
 
+/** The post-operation ManagedZone resource. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone *newValue NS_RETURNS_NOT_RETAINED;
+
+/** The pre-operation ManagedZone resource. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone *oldValue;
 
 @end
 
 
 /**
- *  GTLRDns_Project
+ *  A project resource. The project is a top level container for resources
+ *  including Cloud DNS ManagedZones. Projects can be created only in the APIs
+ *  console.
  */
 @interface GTLRDns_Project : GTLRObject
 
 /**
- *  identifier
+ *  User assigned unique identifier for the resource (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -642,24 +813,26 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  number
+ *  Unique numeric identifier for the resource; defined by the server (output
+ *  only).
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *number;
 
+/** Quotas assigned to this project (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_Quota *quota;
 
 @end
 
 
 /**
- *  GTLRDns_Quota
+ *  Limits associated with a Project.
  */
 @interface GTLRDns_Quota : GTLRObject
 
 /**
- *  dnsKeysPerManagedZone
+ *  Maximum allowed number of DnsKeys per ManagedZone.
  *
  *  Uses NSNumber of intValue.
  */
@@ -672,68 +845,72 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  managedZones
+ *  Maximum allowed number of managed zones in the project.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *managedZones;
 
 /**
- *  managedZonesPerNetwork
+ *  Maximum allowed number of managed zones which can be attached to a network.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *managedZonesPerNetwork;
 
 /**
- *  networksPerManagedZone
+ *  Maximum allowed number of networks to which a privately scoped zone can be
+ *  attached.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *networksPerManagedZone;
 
 /**
- *  resourceRecordsPerRrset
+ *  Maximum allowed number of ResourceRecords per ResourceRecordSet.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resourceRecordsPerRrset;
 
 /**
- *  rrsetAdditionsPerChange
+ *  Maximum allowed number of ResourceRecordSets to add per
+ *  ChangesCreateRequest.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetAdditionsPerChange;
 
 /**
- *  rrsetDeletionsPerChange
+ *  Maximum allowed number of ResourceRecordSets to delete per
+ *  ChangesCreateRequest.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetDeletionsPerChange;
 
 /**
- *  rrsetsPerManagedZone
+ *  Maximum allowed number of ResourceRecordSets per zone in the project.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetsPerManagedZone;
 
 /**
- *  totalRrdataSizePerChange
+ *  Maximum allowed size for total rrdata in one ChangesCreateRequest in bytes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalRrdataSizePerChange;
 
+/** DNSSEC algorithm and key length types that can be used for DnsKeys. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *whitelistedKeySpecs;
 
 @end
 
 
 /**
- *  GTLRDns_ResourceRecordSet
+ *  A unit of data that will be returned by the DNS servers.
  */
 @interface GTLRDns_ResourceRecordSet : GTLRObject
 
@@ -743,17 +920,29 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** For example, www.example.com. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see
+ *  examples.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
+
+/** As defined in RFC 4034 (section 3.2). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
- *  ttl
+ *  Number of seconds that this ResourceRecordSet can be cached by resolvers.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ttl;
 
+/**
+ *  The identifier of a supported record type. See the list of Supported DNS
+ *  record types.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -774,10 +963,21 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  rrsets
+ *  The resource record set resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -788,10 +988,15 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
- *  GTLRDns_ResponseHeader
+ *  Elements common to every response.
  */
 @interface GTLRDns_ResponseHeader : GTLRObject
 
+/**
+ *  For mutating operation requests that completed successfully. This is the
+ *  client_operation_id if the client specified it, otherwise it is generated by
+ *  the server (output only).
+ */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 @end

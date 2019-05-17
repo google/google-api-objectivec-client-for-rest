@@ -363,7 +363,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_IndividualOutcome
-@dynamic outcomeSummary, stepId;
+@dynamic multistepNumber, outcomeSummary, runDuration, stepId;
 @end
 
 

@@ -33,6 +33,8 @@
 @class GTLRPagespeedonline_LighthouseResultV5_I18n;
 @class GTLRPagespeedonline_LighthouseResultV5_I18n_RendererFormattedStrings;
 @class GTLRPagespeedonline_LighthouseResultV5_RuntimeError;
+@class GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item;
+@class GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item_Descriptions;
 @class GTLRPagespeedonline_LighthouseResultV5_Timing;
 @class GTLRPagespeedonline_PagespeedApiLoadingExperienceV5;
 @class GTLRPagespeedonline_PagespeedApiLoadingExperienceV5_Metrics;
@@ -224,6 +226,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray *runWarnings;
 
+/** The Stack Pack advice strings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item *> *stackPacks;
+
 /** Timing information for this LHR. */
 @property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseResultV5_Timing *timing;
 
@@ -364,6 +369,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item
+ */
+@interface GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item : GTLRObject
+
+/** The stack pack advice strings. */
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item_Descriptions *descriptions;
+
+/** The stack pack icon data uri. */
+@property(nonatomic, copy, nullable) NSString *iconDataURL;
+
+/**
+ *  The stack pack id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The stack pack title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Timing information for this LHR.
  */
 @interface GTLRPagespeedonline_LighthouseResultV5_Timing : GTLRObject
@@ -459,6 +488,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** The label shown above a bulleted list of warnings. */
 @property(nonatomic, copy, nullable) NSString *warningHeader;
 
+@end
+
+
+/**
+ *  The stack pack advice strings.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPagespeedonline_LighthouseResultV5_StackPacks_Item_Descriptions : GTLRObject
 @end
 
 

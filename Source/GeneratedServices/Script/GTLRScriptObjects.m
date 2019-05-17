@@ -79,6 +79,9 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UnknownE
 NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserAccessing = @"USER_ACCESSING";
 NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDeploying = @"USER_DEPLOYING";
 
+// GTLRScript_Value.nullValue
+NSString * const kGTLRScript_Value_NullValue_NullValue = @"NULL_VALUE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRScript_Content
@@ -161,6 +164,16 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRScript_ExecuteStreamResponse
+//
+
+@implementation GTLRScript_ExecuteStreamResponse
+@dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRScript_ExecutionError
 //
 
@@ -202,6 +215,16 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 
 @implementation GTLRScript_ExecutionResponse
 @dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_ExecutionResult
+//
+
+@implementation GTLRScript_ExecutionResult
+@dynamic returnValue;
 @end
 
 
@@ -389,6 +412,24 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRScript_ListValue
+//
+
+@implementation GTLRScript_ListValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRScript_Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRScript_ListVersionsResponse
 //
 
@@ -518,11 +559,60 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDepl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRScript_Struct
+//
+
+@implementation GTLRScript_Struct
+@dynamic fields;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_Struct_Fields
+//
+
+@implementation GTLRScript_Struct_Fields
+
++ (Class)classForAdditionalProperties {
+  return [GTLRScript_Value class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRScript_UpdateDeploymentRequest
 //
 
 @implementation GTLRScript_UpdateDeploymentRequest
 @dynamic deploymentConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_Value
+//
+
+@implementation GTLRScript_Value
+@dynamic boolValue, bytesValue, dateValue, listValue, nullValue, numberValue,
+         protoValue, stringValue, structValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_Value_ProtoValue
+//
+
+@implementation GTLRScript_Value_ProtoValue
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

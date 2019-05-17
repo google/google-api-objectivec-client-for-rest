@@ -71,10 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // orderBy
 
-/** Value: "placedDate asc" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByPlacedDateAsc;
-/** Value: "placedDate desc" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByPlacedDateDesc;
 /** Value: "returnCreationTimeAsc" */
 GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
 /** Value: "returnCreationTimeDesc" */
@@ -346,8 +342,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Performs an action on a link between a Merchant Center account and another
- *  account.
+ *  Performs an action on a link between two Merchant Center accounts, namely
+ *  accountId and linkedAccountId.
  *
  *  Method: content.accounts.link
  *
@@ -371,8 +367,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsLinkResponse.
  *
- *  Performs an action on a link between a Merchant Center account and another
- *  account.
+ *  Performs an action on a link between two Merchant Center accounts, namely
+ *  accountId and linkedAccountId.
  *
  *  @param object The @c GTLRShoppingContent_AccountsLinkRequest to include in
  *    the query.
@@ -1559,7 +1555,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Creates a charge invoice for a shipment group, and triggers a charge capture
- *  for non-facilitated payment orders.
+ *  for orderinvoice enabled orders.
  *
  *  Method: content.orderinvoices.createchargeinvoice
  *
@@ -1583,7 +1579,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Fetches a @c GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceResponse.
  *
  *  Creates a charge invoice for a shipment group, and triggers a charge capture
- *  for non-facilitated payment orders.
+ *  for orderinvoice enabled orders.
  *
  *  @param object The @c
  *    GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest to include in
@@ -1602,10 +1598,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Creates a refund invoice for one or more shipment groups, and triggers a
- *  refund for non-facilitated payment orders. This can only be used for line
- *  items that have previously been charged using createChargeInvoice. All
- *  amounts (except for the summary) are incremental with respect to the
- *  previous invoice.
+ *  refund for orderinvoice enabled orders. This can only be used for line items
+ *  that have previously been charged using createChargeInvoice. All amounts
+ *  (except for the summary) are incremental with respect to the previous
+ *  invoice.
  *
  *  Method: content.orderinvoices.createrefundinvoice
  *
@@ -1629,10 +1625,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Fetches a @c GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceResponse.
  *
  *  Creates a refund invoice for one or more shipment groups, and triggers a
- *  refund for non-facilitated payment orders. This can only be used for line
- *  items that have previously been charged using createChargeInvoice. All
- *  amounts (except for the summary) are incremental with respect to the
- *  previous invoice.
+ *  refund for orderinvoice enabled orders. This can only be used for line items
+ *  that have previously been charged using createChargeInvoice. All amounts
+ *  (except for the summary) are incremental with respect to the previous
+ *  invoice.
  *
  *  @param object The @c
  *    GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest to include in
@@ -2361,8 +2357,6 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  The maximum number of orders to return in the response, used for paging. The
  *  default value is 25 orders per page, and the maximum allowed value is 250
  *  orders per page.
- *  Known issue: All List calls will return all Orders without limit regardless
- *  of the value of this field.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2373,16 +2367,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
- *  The ordering of the returned list. The only supported value are placedDate
- *  desc and placedDate asc for now, which returns orders sorted by placement
- *  date. "placedDate desc" stands for listing orders by placement date, from
- *  oldest to most recent. "placedDate asc" stands for listing orders by
- *  placement date, from most recent to oldest. In future releases we'll support
- *  other sorting criteria.
- *
- *  Likely values:
- *    @arg @c kGTLRShoppingContentOrderByPlacedDateAsc Value "placedDate asc"
- *    @arg @c kGTLRShoppingContentOrderByPlacedDateDesc Value "placedDate desc"
+ *  Order results by placement date in descending or ascending order.
+ *  Acceptable values are:
+ *  - placedDateAsc
+ *  - placedDateDesc
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2403,7 +2391,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Obtains orders that match any of the specified statuses. Multiple values can
  *  be specified with comma separation. Additionally, please note that active is
  *  a shortcut for pendingShipment and partiallyShipped, and completed is a
- *  shortcut for shipped , partiallyDelivered, delivered, partiallyReturned,
+ *  shortcut for shipped, partiallyDelivered, delivered, partiallyReturned,
  *  returned, and canceled.
  *
  *  Likely values:

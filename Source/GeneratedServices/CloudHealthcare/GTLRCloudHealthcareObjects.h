@@ -175,8 +175,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUns
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform;
 /**
- *  Should be inspected and any PHI found should be
- *  transformed.
+ *  Inspect and transform any found PHI. When `AnnotationConfig` is
+ *  provided, annotations of PHI will be generated, except for Date and
+ *  Datetime.
  *
  *  Value: "INSPECT_AND_TRANSFORM"
  */
@@ -220,7 +221,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
 
 /**
- *  Each unit is a bundle, which contains one or more resources. Set the
+ *  Each line is a bundle, which contains one or more resources. Set the
  *  bundle type to `history` to import resource versions.
  *
  *  Value: "BUNDLE"
@@ -229,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_Content
 /** Value: "CONTENT_STRUCTURE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified;
 /**
- *  Each unit is a single resource.
+ *  Each line is a single resource.
  *
  *  Value: "RESOURCE"
  */
@@ -461,7 +462,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -1069,8 +1070,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform Do not
  *        transform. (Value: "DO_NOT_TRANSFORM")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform
- *        Should be inspected and any PHI found should be
- *        transformed. (Value: "INSPECT_AND_TRANSFORM")
+ *        Inspect and transform any found PHI. When `AnnotationConfig` is
+ *        provided, annotations of PHI will be generated, except for Date and
+ *        Datetime. (Value: "INSPECT_AND_TRANSFORM")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_Transform Transform the
  *        entire field. (Value: "TRANSFORM")
  */
@@ -1462,7 +1464,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  }
  *  service ResourceService {
  *  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
- *  rpc UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty);
+ *  rpc UpdateResource(google.api.HttpBody) returns
+ *  (google.protobuf.Empty);
  *  }
  *  Example with streaming methods:
  *  service CaldavService {
@@ -1589,13 +1592,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle
- *        Each unit is a bundle, which contains one or more resources. Set the
+ *        Each line is a bundle, which contains one or more resources. Set the
  *        bundle type to `history` to import resource versions. (Value:
  *        "BUNDLE")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified
  *        Value "CONTENT_STRUCTURE_UNSPECIFIED"
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource
- *        Each unit is a single resource. (Value: "RESOURCE")
+ *        Each line is a single resource. (Value: "RESOURCE")
  */
 @property(nonatomic, copy, nullable) NSString *contentStructure;
 
@@ -2107,7 +2110,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2407,7 +2410,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @interface GTLRCloudHealthcare_SearchResourcesRequest : GTLRObject
 
-/** The type of the resource to search. */
+/**
+ *  The FHIR resource type to search, such as Patient or Observation. For a
+ *  complete list, see the [FHIR Resource
+ *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
@@ -2624,7 +2631,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Elements, or Directory Structuring Elements, as defined at:
  *  http://dicom.nema.org/medical/dicom/current/output/html/part06.html#table_6-1,.
  *  They may be provided by "Keyword" or "Tag". For example "PatientID",
- *  "0010,0010".
+ *  "00100010".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 

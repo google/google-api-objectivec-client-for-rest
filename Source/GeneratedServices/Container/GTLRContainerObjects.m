@@ -648,8 +648,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_NodePool
 @dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
-         management, maxPodsConstraint, name, selfLink, status, statusMessage,
-         version;
+         management, maxPodsConstraint, name, podIpv4CidrSize, selfLink, status,
+         statusMessage, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

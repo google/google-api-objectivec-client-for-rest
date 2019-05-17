@@ -239,6 +239,9 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/** Output only. The time this alert was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 

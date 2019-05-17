@@ -4,7 +4,8 @@
 // API:
 //   Cloud OS Login API (oslogin/v1)
 // Description:
-//   Manages OS login configuration for Google account users.
+//   You can use OS Login to manage access to your VM instances using IAM roles.
+//   For more information, read [OS Login](/compute/docs/oslogin/).
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/
 

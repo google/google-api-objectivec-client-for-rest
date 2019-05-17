@@ -487,9 +487,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding. NOTE: an
- *  unsatisfied condition will not allow user access via current binding.
- *  Different bindings, including their conditions, are examined independently.
+ *  The condition that is associated with this binding. NOTE: An unsatisfied
+ *  condition will not allow user access via current binding. Different
+ *  bindings, including their conditions, are examined independently.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Expr *condition;
 
@@ -1073,8 +1073,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  Optional. The Compute Engine subnetwork to be used for machine
  *  communications. Cannot be specified with network_uri.A full URL, partial
  *  URI, or short name are valid. Examples:
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/sub0
- *  projects/[project_id]/regions/us-east1/sub0
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0
+ *  projects/[project_id]/regions/us-east1/subnetworks/sub0
  *  sub0
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
@@ -1858,7 +1858,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the name should
- *  have the format of operations/some/unique/name.
+ *  be a resource name ending with operations/{unique_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2278,7 +2278,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  Optional. The version of software inside the cluster. It must be one of the
  *  supported Cloud Dataproc Versions, such as "1.2" (including a subminor
  *  version, such as "1.2.29"), or the "preview" version. If unspecified, it
- *  defaults to the latest version.
+ *  defaults to the latest Debian version.
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 

@@ -1556,14 +1556,15 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_DownloadRequest : GTLRObject
 
 /**
- *  File types that will be returned.
+ *  File types that will be returned. If INVENTORY_SOURCE is requested, no other
+ *  file types may be requested.
  *  Acceptable values are:
  *  - "AD"
  *  - "AD_GROUP"
  *  - "CAMPAIGN"
  *  - "INSERTION_ORDER"
- *  - "LINE_ITEM"
  *  - "INVENTORY_SOURCE"
+ *  - "LINE_ITEM"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -1576,7 +1577,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *filterIds;
 
 /**
- *  Filter type used to filter entities to fetch.
+ *  Filter type used to filter entities to fetch. PARTNER_ID and
+ *  INVENTORY_SOURCE_ID may only be used when downloading inventory sources.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_AdvertiserId
@@ -1948,7 +1950,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupBys;
 
 /**
- *  Whether to include data from Invite Media.
+ *  Deprecated. This field is no longer in use.
  *
  *  Uses NSNumber of boolValue.
  */

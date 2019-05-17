@@ -70,10 +70,9 @@ NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps   = @"30fps";
 NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps   = @"60fps";
 
 // GTLRYouTube_CdnSettings.ingestionType
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash   = @"dash";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Http   = @"http";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp   = @"rtmp";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc = @"webrtc";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash = @"dash";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls  = @"hls";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp = @"rtmp";
 
 // GTLRYouTube_CdnSettings.resolution
 NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable = @"variable";

@@ -200,6 +200,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -247,6 +253,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -286,6 +298,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -322,6 +340,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -363,6 +387,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -411,6 +441,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -465,6 +501,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  value.
  */
 @property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -528,6 +570,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -553,10 +601,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeStorageCloudPlatform
- *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
- *    @c kGTLRAuthScopeStorageDevstorageReadOnly
- *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsGetIamPolicy : GTLRStorageQuery
 // Previous library name was
@@ -564,6 +609,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -654,6 +705,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
 /** The project to be billed for this request. */
 @property(nonatomic, copy, nullable) NSString *userProject;
 
@@ -718,6 +775,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
 /** The project to be billed for this request. */
 @property(nonatomic, copy, nullable) NSString *userProject;
 
@@ -760,6 +823,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  matches the given value.
  */
 @property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -865,6 +934,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -894,7 +969,6 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeStorageCloudPlatform
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
- *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsSetIamPolicy : GTLRStorageQuery
 // Previous library name was
@@ -902,6 +976,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -946,6 +1026,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Permissions to test. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1051,6 +1137,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1126,6 +1218,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1174,6 +1272,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1212,6 +1316,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1264,6 +1374,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1303,6 +1419,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1353,6 +1475,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1399,6 +1527,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *notification;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1443,6 +1577,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *notification;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1479,6 +1619,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** The parent bucket of the notification. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1519,6 +1665,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Name of a Google Cloud Storage bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1573,6 +1725,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  be path safe, see Encoding URI Path Parts.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1637,6 +1795,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1691,6 +1855,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -1742,6 +1912,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  be path safe, see Encoding URI Path Parts.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1798,6 +1974,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  be path safe, see Encoding URI Path Parts.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1861,6 +2043,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  be path safe, see Encoding URI Path Parts.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -1961,6 +2149,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  kms_key_name value, if any.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -2101,6 +2295,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
 /** Name of the bucket in which to find the source object. */
 @property(nonatomic, copy, nullable) NSString *sourceBucket;
 
@@ -2208,6 +2408,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -2300,6 +2506,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -2365,6 +2577,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  be path safe, see Encoding URI Path Parts.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -2494,6 +2712,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -2580,6 +2804,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -2697,6 +2927,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /** The project to be billed for this request, for Requester Pays buckets. */
 @property(nonatomic, copy, nullable) NSString *userProject;
@@ -2853,6 +3089,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  Include this field (from the previous rewrite response) on each rewrite
  *  request after the first one, until the rewrite response 'done' flag is true.
  *  Calls that provide a rewriteToken can omit all other request fields, but if
@@ -2939,6 +3181,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -2996,6 +3244,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Permissions to test. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -3111,6 +3365,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -3198,6 +3458,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -3243,6 +3509,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /** Email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
+/** The project to be billed for this request. */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
 /**
  *  Fetches a @c GTLRStorage_HmacKey.
  *
@@ -3277,6 +3546,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Project ID owning the requested key */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The project to be billed for this request. */
+@property(nonatomic, copy, nullable) NSString *userProject;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3314,6 +3586,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /** Project ID owning the service account of the requested key. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** The project to be billed for this request. */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
 /**
  *  Fetches a @c GTLRStorage_HmacKeyMetadata.
  *
@@ -3345,12 +3620,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForProjectsHmacKeysListWithprojectId:]
 
 /**
- *  Maximum number of items plus prefixes to return in a single page of
- *  responses. Because duplicate prefixes are omitted, fewer total results may
- *  be returned than requested. The service uses this parameter or 1,000 items,
- *  whichever is smaller.
+ *  Maximum number of items to return in a single page of responses. The service
+ *  uses this parameter or 250 items, whichever is smaller. The max number of
+ *  items per page will also be limited by the number of distinct service
+ *  accounts in the response. If the number of service accounts in a single
+ *  response is too high, the page will truncated and a next page token will be
+ *  returned.
  *
- *  @note If not set, the documented server-side default will be 1000.
+ *  @note If not set, the documented server-side default will be 250.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3368,6 +3645,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Whether or not to show keys in the DELETED state. */
 @property(nonatomic, assign) BOOL showDeletedKeys;
+
+/** The project to be billed for this request. */
+@property(nonatomic, copy, nullable) NSString *userProject;
 
 /**
  *  Fetches a @c GTLRStorage_HmacKeysMetadata.
@@ -3406,6 +3686,9 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /** Project ID owning the service account of the updated key. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** The project to be billed for this request. */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
 /**
  *  Fetches a @c GTLRStorage_HmacKeyMetadata.
  *
@@ -3443,6 +3726,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /** Project ID */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The project to be billed for this request if the target bucket is
+ *  requester-pays bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *provisionalUserProject;
 
 /** The project to be billed for this request. */
 @property(nonatomic, copy, nullable) NSString *userProject;

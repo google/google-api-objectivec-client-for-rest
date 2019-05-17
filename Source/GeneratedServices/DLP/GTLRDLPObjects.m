@@ -94,6 +94,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed = @"FAILED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending = @"PENDING";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running = @"RUNNING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_WaitingForTpCreation = @"WAITING_FOR_TP_CREATION";
 
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified = @"DLP_JOB_TYPE_UNSPECIFIED";

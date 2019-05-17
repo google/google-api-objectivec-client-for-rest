@@ -222,6 +222,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle;
 /** Value: "FACEBOOK" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Facebook;
+/** Value: "GOOGLE_HANGOUTS" */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_GoogleHangouts;
 /** Value: "KIK" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Kik;
 /** Value: "LINE" */
@@ -337,6 +339,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *  Value: "FACEBOOK"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook;
+/**
+ *  Google Hangouts.
+ *
+ *  Value: "GOOGLE_HANGOUTS"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts;
 /**
  *  Kik.
  *
@@ -583,12 +591,60 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.modelVariant
+
+/**
+ *  No model variant specified. In this case Dialogflow defaults to
+ *  USE_BEST_AVAILABLE.
+ *
+ *  Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
+/**
+ *  Use the best available variant of the Speech
+ *  model that the caller is eligible for.
+ *  Please see the [Dialogflow
+ *  docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging) for
+ *  how to make your project eligible for enhanced models.
+ *
+ *  Value: "USE_BEST_AVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable;
+/**
+ *  Use an enhanced model variant:
+ *  * If an enhanced variant does not exist for the given
+ *  model and request language, Dialogflow falls
+ *  back to the standard variant.
+ *  The [Cloud Speech
+ *  documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
+ *  describes which models have enhanced variants.
+ *  * If the API caller isn't eligible for enhanced models, Dialogflow returns
+ *  an error. Please see the [Dialogflow
+ *  docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
+ *  for how to make your project eligible.
+ *
+ *  Value: "USE_ENHANCED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced;
+/**
+ *  Use standard model variant even if an enhanced model is available. See the
+ *  [Cloud Speech
+ *  documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
+ *  for details about enhanced models.
+ *
+ *  Value: "USE_STANDARD"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.defaultResponsePlatforms
 
 /** Value: "ACTIONS_ON_GOOGLE" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle;
 /** Value: "FACEBOOK" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook;
+/** Value: "GOOGLE_HANGOUTS" */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_GoogleHangouts;
 /** Value: "KIK" */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Kik;
 /** Value: "LINE" */
@@ -702,6 +758,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *  Value: "FACEBOOK"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook;
+/**
+ *  Google Hangouts.
+ *
+ *  Value: "GOOGLE_HANGOUTS"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts;
 /**
  *  Kik.
  *
@@ -1416,8 +1478,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Optional. The list of platforms for which the first response will be
- *  taken from among the messages assigned to the DEFAULT_PLATFORM.
+ *  Optional. The list of platforms for which the first responses will be
+ *  copied from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *defaultResponsePlatforms;
 
@@ -1693,6 +1755,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts
+ *        Google Hangouts. (Value: "GOOGLE_HANGOUTS")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Kik
  *        Kik. (Value: "KIK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Line
@@ -3194,6 +3258,43 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Optional. Which variant of the Speech model to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified
+ *        No model variant specified. In this case Dialogflow defaults to
+ *        USE_BEST_AVAILABLE. (Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable
+ *        Use the best available variant of the Speech
+ *        model that the caller is eligible for.
+ *        Please see the [Dialogflow
+ *        docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
+ *        for
+ *        how to make your project eligible for enhanced models. (Value:
+ *        "USE_BEST_AVAILABLE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced
+ *        Use an enhanced model variant:
+ *        * If an enhanced variant does not exist for the given
+ *        model and request language, Dialogflow falls
+ *        back to the standard variant.
+ *        The [Cloud Speech
+ *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
+ *        describes which models have enhanced variants.
+ *        * If the API caller isn't eligible for enhanced models, Dialogflow
+ *        returns
+ *        an error. Please see the [Dialogflow
+ *        docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
+ *        for how to make your project eligible. (Value: "USE_ENHANCED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard
+ *        Use standard model variant even if an enhanced model is available. See
+ *        the
+ *        [Cloud Speech
+ *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
+ *        for details about enhanced models. (Value: "USE_STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *modelVariant;
+
+/**
  *  Optional. The collection of phrase hints which are used to boost accuracy
  *  of speech recognition.
  *  Refer to
@@ -3231,8 +3332,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Optional. The list of platforms for which the first response will be
- *  taken from among the messages assigned to the DEFAULT_PLATFORM.
+ *  Optional. The list of platforms for which the first responses will be
+ *  copied from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *defaultResponsePlatforms;
 
@@ -3493,6 +3594,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts
+ *        Google Hangouts. (Value: "GOOGLE_HANGOUTS")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Kik
  *        Kik. (Value: "KIK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line
@@ -4182,7 +4285,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Instructs the speech synthesizer how to generate the output audio content.
+ *  Instructs the speech synthesizer on how to generate the output audio
+ *  content.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig : GTLRObject
 
@@ -4914,7 +5018,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

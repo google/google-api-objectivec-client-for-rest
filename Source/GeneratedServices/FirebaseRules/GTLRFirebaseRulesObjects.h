@@ -659,8 +659,16 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The set of visited expressions for a given test. This returns positions
- *  and evaluation results of all visited expressions.
+ *  The set of visited permission expressions for a given test. This returns
+ *  the positions and evaluation results of all visited permission
+ *  expressions which were relevant to the test case, e.g.
+ *  ```
+ *  match /path {
+ *  allow read if: <expr>
+ *  }
+ *  ```
+ *  For a detailed report of the intermediate evaluation states, see the
+ *  `expression_reports` field
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_VisitedExpression *> *visitedExpressions;
 

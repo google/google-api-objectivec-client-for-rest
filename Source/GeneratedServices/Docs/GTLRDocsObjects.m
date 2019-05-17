@@ -1013,6 +1013,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertTableColumnRequest
+//
+
+@implementation GTLRDocs_InsertTableColumnRequest
+@dynamic insertRight, tableCellLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertTableRequest
 //
 
@@ -1563,8 +1573,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic createNamedRange, createParagraphBullets, deleteContentRange,
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
-         insertTable, insertTableRow, insertText, replaceAllText,
-         updateParagraphStyle, updateTextStyle;
+         insertTable, insertTableColumn, insertTableRow, insertText,
+         replaceAllText, updateParagraphStyle, updateTableColumnProperties,
+         updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -2096,6 +2107,42 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateParagraphStyleRequest
 @dynamic fields, paragraphStyle, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateTableColumnPropertiesRequest
+//
+
+@implementation GTLRDocs_UpdateTableColumnPropertiesRequest
+@dynamic columnIndices, fields, tableColumnProperties, tableStartLocation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnIndices" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateTableRowStyleRequest
+//
+
+@implementation GTLRDocs_UpdateTableRowStyleRequest
+@dynamic fields, rowIndices, tableRowStyle, tableStartLocation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rowIndices" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

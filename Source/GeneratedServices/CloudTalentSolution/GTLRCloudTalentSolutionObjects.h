@@ -3921,8 +3921,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *  * "relevance desc": By relevance descending, as determined by the API
  *  algorithms. Relevance thresholding of query results is only available
  *  with this ordering.
- *  * "posting`_`publish`_`time desc": By Job.posting_publish_time descending.
- *  * "posting`_`update`_`time desc": By Job.posting_update_time descending.
+ *  * "posting`_`publish`_`time desc": By Job.posting_publish_time
+ *  descending.
+ *  * "posting`_`update`_`time desc": By Job.posting_update_time
+ *  descending.
  *  * "title": By Job.title ascending.
  *  * "title desc": By Job.title descending.
  *  * "annualized`_`base`_`compensation": By job's

@@ -45,7 +45,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
 
-/** Value: "DATA_PROTECTION_MODE_UNSPECIFIED" */
+/**
+ *  Defaults to LIMITED_DATA_LOSS if a data protection mode is not
+ *  specified.
+ *
+ *  Value: "DATA_PROTECTION_MODE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified;
 /**
  *  Instance failover will be performed without data loss control.
@@ -163,7 +168,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified
- *        Value "DATA_PROTECTION_MODE_UNSPECIFIED"
+ *        Defaults to LIMITED_DATA_LOSS if a data protection mode is not
+ *        specified. (Value: "DATA_PROTECTION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss
  *        Instance failover will be performed without data loss control. (Value:
  *        "FORCE_DATA_LOSS")

@@ -233,14 +233,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_About_TeamDriveThemes_Item : GTLRObject
 
-/** A link to this Team Drive theme's background image. */
+/** Deprecated - use driveThemes/backgroundImageLink instead. */
 @property(nonatomic, copy, nullable) NSString *backgroundImageLink;
 
-/** The color of this Team Drive theme as an RGB hex string. */
+/** Deprecated - use driveThemes/colorRgb instead. */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
 /**
- *  The ID of the theme.
+ *  Deprecated - use driveThemes/id instead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1942,36 +1942,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Permission_TeamDrivePermissionDetails_Item : GTLRObject
 
 /**
- *  Whether this permission is inherited. This field is always populated. This
- *  is an output-only field.
+ *  Deprecated - use permissionDetails/inherited instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inherited;
 
-/**
- *  The ID of the item from which this permission is inherited. This is an
- *  output-only field and is only populated for members of the Team Drive.
- */
+/** Deprecated - use permissionDetails/inheritedFrom instead. */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
-/**
- *  The primary role for this user. While new values may be added in the future,
- *  the following are currently possible:
- *  - organizer
- *  - fileOrganizer
- *  - writer
- *  - commenter
- *  - reader
- */
+/** Deprecated - use permissionDetails/role instead. */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/**
- *  The Team Drive permission type for this user. While new values may be added
- *  in future, the following are currently possible:
- *  - file
- *  - member
- */
+/** Deprecated - use permissionDetails/permissionType instead. */
 @property(nonatomic, copy, nullable) NSString *teamDrivePermissionType;
 
 @end
@@ -2256,7 +2239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of a Team Drive.
+ *  Deprecated: use the drive collection instead.
  */
 @interface GTLRDrive_TeamDrive : GTLRObject
 

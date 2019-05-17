@@ -114,6 +114,7 @@
 @class GTLRDataflow_Sink;
 @class GTLRDataflow_Sink_Codec;
 @class GTLRDataflow_Sink_Spec;
+@class GTLRDataflow_Snapshot;
 @class GTLRDataflow_Source;
 @class GTLRDataflow_Source_BaseSpecs_Item;
 @class GTLRDataflow_Source_Codec;
@@ -1009,6 +1010,47 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
  *  Value: "UNSUPPORTED"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_Snapshot.state
+
+/**
+ *  Snapshot has been deleted.
+ *
+ *  Value: "DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Deleted;
+/**
+ *  Snapshot failed to be created.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Failed;
+/**
+ *  Snapshot intent to create has been persisted, snapshotting of state has not
+ *  yet started.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Pending;
+/**
+ *  Snapshot has been created and is ready to be used.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Ready;
+/**
+ *  Snapshotting is being performed.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Running;
+/**
+ *  Unknown state.
+ *
+ *  Value: "UNKNOWN_SNAPSHOT_STATE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
@@ -1972,6 +2014,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** ProjectId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+@end
+
+
+/**
+ *  Response from deleting a snapshot.
+ */
+@interface GTLRDataflow_DeleteSnapshotResponse : GTLRObject
 @end
 
 
@@ -3500,6 +3549,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  List of snapshots.
+ */
+@interface GTLRDataflow_ListSnapshotsResponse : GTLRObject
+
+/** Returned snapshots. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Snapshot *> *snapshots;
+
+@end
+
+
+/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -4253,7 +4313,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Additional experiment flags for the job. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
 
-/** Additional user labels attached to the job. */
+/**
+ *  Additional user labels to be specified for the job.
+ *  Keys and values should follow the restrictions specified in the [labeling
+ *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
+ *  page.
+ */
 @property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
 /**
@@ -4319,7 +4384,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Additional user labels attached to the job.
+ *  Additional user labels to be specified for the job.
+ *  Keys and values should follow the restrictions specified in the [labeling
+ *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
+ *  page.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4595,6 +4663,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The job this snapshot was created from. */
 @property(nonatomic, copy, nullable) NSString *sourceJobId;
+
+/**
+ *  State of the snapshot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_Snapshot_State_Deleted Snapshot has been deleted.
+ *        (Value: "DELETED")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Failed Snapshot failed to be created.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Pending Snapshot intent to create has
+ *        been persisted, snapshotting of state has not
+ *        yet started. (Value: "PENDING")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Ready Snapshot has been created and
+ *        is ready to be used. (Value: "READY")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Running Snapshotting is being
+ *        performed. (Value: "RUNNING")
+ *    @arg @c kGTLRDataflow_Snapshot_State_UnknownSnapshotState Unknown state.
+ *        (Value: "UNKNOWN_SNAPSHOT_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** The time after which this snapshot will be automatically deleted. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -5673,11 +5761,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Response to the validation request.
+ */
+@interface GTLRDataflow_ValidateResponse : GTLRObject
+
+/** Will be empty if validation succeeds. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
  *  WorkerHealthReport contains information about the health of a worker.
  *  The VM should be identified by the labels attached to the WorkerMessage that
  *  this health ping belongs to.
  */
 @interface GTLRDataflow_WorkerHealthReport : GTLRObject
+
+/** A message describing any unusual health reports. */
+@property(nonatomic, copy, nullable) NSString *msg;
 
 /**
  *  The pods running on the worker. See:
@@ -5695,7 +5797,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDuration *reportInterval;
 
 /**
- *  Whether the VM is healthy.
+ *  Whether the VM is in a permanently broken state.
+ *  Broken VMs should be abandoned or deleted ASAP to avoid assigning or
+ *  completing any work.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vmIsBroken;
+
+/**
+ *  Whether the VM is currently healthy.
  *
  *  Uses NSNumber of boolValue.
  */

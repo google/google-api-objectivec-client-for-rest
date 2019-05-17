@@ -103,6 +103,13 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk = @"TE
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp = @"TEST_SAME_AS_APP";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts = @"USE_DESTINATION_ARTIFACTS";
 
+// GTLRTesting_TestMatrix.outcomeSummary
+NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Failure = @"FAILURE";
+NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive = @"INCONCLUSIVE";
+NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_OutcomeSummaryUnspecified = @"OUTCOME_SUMMARY_UNSPECIFIED";
+NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Skipped = @"SKIPPED";
+NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Success = @"SUCCESS";
+
 // GTLRTesting_TestMatrix.state
 NSString * const kGTLRTesting_TestMatrix_State_Cancelled       = @"CANCELLED";
 NSString * const kGTLRTesting_TestMatrix_State_Error           = @"ERROR";
@@ -347,7 +354,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, minSdkVersion,
-         packageName;
+         packageName, targetSdkVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -782,7 +789,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_ResultStorage
-@dynamic googleCloudStorage, toolResultsExecution, toolResultsHistory;
+@dynamic googleCloudStorage, resultsUrl, toolResultsExecution,
+         toolResultsHistory;
 @end
 
 
@@ -876,8 +884,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TestMatrix
 @dynamic clientInfo, environmentMatrix, flakyTestAttempts, invalidMatrixDetails,
-         projectId, resultStorage, state, testExecutions, testMatrixId,
-         testSpecification, timestamp;
+         outcomeSummary, projectId, resultStorage, state, testExecutions,
+         testMatrixId, testSpecification, timestamp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

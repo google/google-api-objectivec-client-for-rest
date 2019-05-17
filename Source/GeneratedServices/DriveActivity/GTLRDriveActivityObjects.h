@@ -34,9 +34,13 @@
 @class GTLRDriveActivity_Delete;
 @class GTLRDriveActivity_DeletedUser;
 @class GTLRDriveActivity_Domain;
+@class GTLRDriveActivity_Drive;
 @class GTLRDriveActivity_DriveActivity;
+@class GTLRDriveActivity_DriveFile;
+@class GTLRDriveActivity_DriveFolder;
 @class GTLRDriveActivity_DriveItem;
 @class GTLRDriveActivity_DriveItemReference;
+@class GTLRDriveActivity_DriveReference;
 @class GTLRDriveActivity_Edit;
 @class GTLRDriveActivity_File;
 @class GTLRDriveActivity_FileComment;
@@ -196,29 +200,56 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_Trash;
 GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDriveActivity_Folder.type
+// GTLRDriveActivity_DriveFolder.type
 
 /**
  *  The folder is the root of a user's MyDrive.
  *
  *  Value: "MY_DRIVE_ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_MyDriveRoot;
+GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_MyDriveRoot;
+/**
+ *  The folder is the root of a shared drive.
+ *
+ *  Value: "SHARED_DRIVE_ROOT"
+ */
+GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_SharedDriveRoot;
 /**
  *  The folder is a standard, non-root, folder.
  *
  *  Value: "STANDARD_FOLDER"
  */
+GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_StandardFolder;
+/**
+ *  The folder type is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDriveActivity_Folder.type
+
+/**
+ *  This item is deprecated; please see `DriveFolder.Type` instead.
+ *
+ *  Value: "MY_DRIVE_ROOT"
+ */
+GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_MyDriveRoot;
+/**
+ *  This item is deprecated; please see `DriveFolder.Type` instead.
+ *
+ *  Value: "STANDARD_FOLDER"
+ */
 GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_StandardFolder;
 /**
- *  The folder is the root of a Team Drive. Note that this folder is
- *  a Drive item, and is a distinct entity from the Team Drive itself.
+ *  This item is deprecated; please see `DriveFolder.Type` instead.
  *
  *  Value: "TEAM_DRIVE_ROOT"
  */
 GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TeamDriveRoot;
 /**
- *  The folder type is unknown.
+ *  This item is deprecated; please see `DriveFolder.Type` instead.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -798,6 +829,27 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 
 /**
+ *  Information about a shared drive.
+ */
+@interface GTLRDriveActivity_Drive : GTLRObject
+
+/**
+ *  The resource name of the shared drive. The format is
+ *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection
+ *  ID for this resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The root of this shared drive. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveItem *root;
+
+/** The title of the shared drive. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  A single Drive activity comprising one or more Actions by one or more
  *  Actors on one or more Targets. Some Action groupings occur spontaneously,
  *  such as moving an item into a shared folder triggering a permission change.
@@ -821,7 +873,7 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 @property(nonatomic, strong, nullable) GTLRDriveActivity_ActionDetail *primaryActionDetail;
 
 /**
- *  All Drive objects this activity is about (e.g. file, folder, Team Drive).
+ *  All Google Drive objects this activity is about (e.g. file, folder, drive).
  *  This represents the state of the target immediately after the actions
  *  occurred.
  */
@@ -837,14 +889,50 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 
 /**
+ *  A Drive item which is a file.
+ */
+@interface GTLRDriveActivity_DriveFile : GTLRObject
+@end
+
+
+/**
+ *  A Drive item which is a folder.
+ */
+@interface GTLRDriveActivity_DriveFolder : GTLRObject
+
+/**
+ *  The type of Drive folder.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDriveActivity_DriveFolder_Type_MyDriveRoot The folder is the
+ *        root of a user's MyDrive. (Value: "MY_DRIVE_ROOT")
+ *    @arg @c kGTLRDriveActivity_DriveFolder_Type_SharedDriveRoot The folder is
+ *        the root of a shared drive. (Value: "SHARED_DRIVE_ROOT")
+ *    @arg @c kGTLRDriveActivity_DriveFolder_Type_StandardFolder The folder is a
+ *        standard, non-root, folder. (Value: "STANDARD_FOLDER")
+ *    @arg @c kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified The folder
+ *        type is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A Drive item, such as a file or folder.
  */
 @interface GTLRDriveActivity_DriveItem : GTLRObject
 
 /** The Drive item is a file. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFile *driveFile;
 
 /** The Drive item is a folder. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
+
+/** This field is deprecated; please use the `driveFile` field instead. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+
+/** This field is deprecated; please use the `driveFolder` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder;
 
 /**
@@ -871,15 +959,39 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 @interface GTLRDriveActivity_DriveItemReference : GTLRObject
 
 /** The Drive item is a file. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFile *driveFile;
 
 /** The Drive item is a folder. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
+
+/** This field is deprecated; please use the `driveFile` field instead. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+
+/** This field is deprecated; please use the `driveFolder` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder;
 
 /** The target Drive item. The format is "items/ITEM_ID". */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The title of the Drive item. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A lightweight reference to a shared drive.
+ */
+@interface GTLRDriveActivity_DriveReference : GTLRObject
+
+/**
+ *  The resource name of the shared drive. The format is
+ *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection
+ *  ID for this resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The title of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -893,7 +1005,7 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 
 /**
- *  A Drive item which is a file.
+ *  This item is deprecated; please see `DriveFile` instead.
  */
 @interface GTLRDriveActivity_File : GTLRObject
 @end
@@ -932,24 +1044,26 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 
 /**
- *  A Drive item which is a folder.
+ *  This item is deprecated; please see `DriveFolder` instead.
  */
 @interface GTLRDriveActivity_Folder : GTLRObject
 
 /**
- *  The type of Drive folder.
+ *  This field is deprecated; please see `DriveFolder.type` instead.
  *
  *  Likely values:
- *    @arg @c kGTLRDriveActivity_Folder_Type_MyDriveRoot The folder is the root
- *        of a user's MyDrive. (Value: "MY_DRIVE_ROOT")
- *    @arg @c kGTLRDriveActivity_Folder_Type_StandardFolder The folder is a
- *        standard, non-root, folder. (Value: "STANDARD_FOLDER")
- *    @arg @c kGTLRDriveActivity_Folder_Type_TeamDriveRoot The folder is the
- *        root of a Team Drive. Note that this folder is
- *        a Drive item, and is a distinct entity from the Team Drive itself.
- *        (Value: "TEAM_DRIVE_ROOT")
- *    @arg @c kGTLRDriveActivity_Folder_Type_TypeUnspecified The folder type is
- *        unknown. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDriveActivity_Folder_Type_MyDriveRoot This item is
+ *        deprecated; please see `DriveFolder.Type` instead. (Value:
+ *        "MY_DRIVE_ROOT")
+ *    @arg @c kGTLRDriveActivity_Folder_Type_StandardFolder This item is
+ *        deprecated; please see `DriveFolder.Type` instead. (Value:
+ *        "STANDARD_FOLDER")
+ *    @arg @c kGTLRDriveActivity_Folder_Type_TeamDriveRoot This item is
+ *        deprecated; please see `DriveFolder.Type` instead. (Value:
+ *        "TEAM_DRIVE_ROOT")
+ *    @arg @c kGTLRDriveActivity_Folder_Type_TypeUnspecified This item is
+ *        deprecated; please see `DriveFolder.Type` instead. (Value:
+ *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1051,7 +1165,10 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 /** The domain of the Drive item owner. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Domain *domain;
 
-/** The Team Drive that owns the Drive item. */
+/** The drive that owns the item. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveReference *drive;
+
+/** This field is deprecated; please use the `drive` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive;
 
 /** The user that owns the Drive item. */
@@ -1400,13 +1517,16 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
  */
 @interface GTLRDriveActivity_Target : GTLRObject
 
+/** The target is a shared drive. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Drive *drive;
+
 /** The target is a Drive item. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveItem *driveItem;
 
 /** The target is a comment on a Drive file. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_FileComment *fileComment;
 
-/** The target is a Team Drive. */
+/** This field is deprecated; please use the `drive` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDrive *teamDrive;
 
 @end
@@ -1417,47 +1537,44 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
  */
 @interface GTLRDriveActivity_TargetReference : GTLRObject
 
+/** The target is a shared drive. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_DriveReference *drive;
+
 /** The target is a Drive item. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveItemReference *driveItem;
 
-/** The target is a Team Drive. */
+/** This field is deprecated; please use the `drive` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive;
 
 @end
 
 
 /**
- *  Information about a Team Drive.
+ *  This item is deprecated; please see `Drive` instead.
  */
 @interface GTLRDriveActivity_TeamDrive : GTLRObject
 
-/**
- *  The resource name of the Team Drive. The format is
- *  "teamDrives/TEAM_DRIVE_ID".
- */
+/** This field is deprecated; please see `Drive.name` instead. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The root of this Team Drive. */
+/** This field is deprecated; please see `Drive.root` instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveItem *root;
 
-/** The title of the Team Drive. */
+/** This field is deprecated; please see `Drive.title` instead. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
 
 /**
- *  A lightweight reference to a Team Drive.
+ *  This item is deprecated; please see `DriveReference` instead.
  */
 @interface GTLRDriveActivity_TeamDriveReference : GTLRObject
 
-/**
- *  The resource name of the Team Drive. The format is
- *  "teamDrives/TEAM_DRIVE_ID".
- */
+/** This field is deprecated; please see `DriveReference.name` instead. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The title of the Team Drive. */
+/** This field is deprecated; please see `DriveReference.title` instead. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end

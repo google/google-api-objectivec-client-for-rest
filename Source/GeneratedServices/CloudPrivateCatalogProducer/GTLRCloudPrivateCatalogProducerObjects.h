@@ -7,7 +7,7 @@
 //   Enables cloud users to manage and share enterprise catalogs intheir
 //   organizations.
 // Documentation:
-//   https://sites.google.com/corp/google.com/cloudprivatecatalog
+//   https://cloud.google.com/private-catalog/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -828,7 +828,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -1056,7 +1056,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

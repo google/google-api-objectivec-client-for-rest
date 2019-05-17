@@ -7,7 +7,7 @@
 //   Enables cloud users to manage and share enterprise catalogs intheir
 //   organizations.
 // Documentation:
-//   https://sites.google.com/corp/google.com/cloudprivatecatalog
+//   https://cloud.google.com/private-catalog/
 
 #import "GTLRCloudPrivateCatalogProducerObjects.h"
 

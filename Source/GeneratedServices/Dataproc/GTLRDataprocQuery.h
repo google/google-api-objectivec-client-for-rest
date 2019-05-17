@@ -64,6 +64,126 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataproc.projects.locations.autoscalingPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRDataproc_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: dataproc.projects.locations.autoscalingPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataproc.projects.locations.autoscalingPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDataproc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates new workflow template.
  *
  *  Method: dataproc.projects.locations.workflowTemplates.create
@@ -497,6 +617,126 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 + (instancetype)queryWithObject:(GTLRDataproc_WorkflowTemplate *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataproc.projects.regions.autoscalingPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRDataproc_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: dataproc.projects.regions.autoscalingPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataproc.projects.regions.autoscalingPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataproc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDataproc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

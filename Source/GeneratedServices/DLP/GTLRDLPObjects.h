@@ -496,6 +496,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending;
  *  Value: "RUNNING"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running;
+/**
+ *  Job waiting on Tenant Project creation.
+ *
+ *  Value: "WAITING_FOR_TP_CREATION"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_WaitingForTpCreation;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
@@ -2476,6 +2482,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *        yet started. (Value: "PENDING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running The job is
  *        currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_WaitingForTpCreation Job
+ *        waiting on Tenant Project creation. (Value: "WAITING_FOR_TP_CREATION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3188,10 +3196,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectJobConfig : GTLRObject
 
-/**
- *  Actions to execute at the completion of the job. Are executed in the order
- *  provided.
- */
+/** Actions to execute at the completion of the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Action *> *actions;
 
 /** How and what to scan for. */
@@ -4213,7 +4218,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Publish the results of a DlpJob to a pub sub channel.
+ *  Publish a message into given Pub/Sub topic when DlpJob has completed. The
+ *  message contains a single field, `DlpJobName`, which is equal to the
+ *  finished job's
+ *  [`DlpJob.name`](/dlp/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
  *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToPubSub : GTLRObject

@@ -247,7 +247,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic build, createTime, descriptionProperty, disabled, filename, github,
-         identifier, ignoredFiles, includedFiles, substitutions,
+         identifier, ignoredFiles, includedFiles, substitutions, tags,
          triggerTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -261,7 +261,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ignoredFiles" : [NSString class],
-    @"includedFiles" : [NSString class]
+    @"includedFiles" : [NSString class],
+    @"tags" : [NSString class]
   };
   return map;
 }

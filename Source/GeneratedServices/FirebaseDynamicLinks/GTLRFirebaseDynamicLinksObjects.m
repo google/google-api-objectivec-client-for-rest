@@ -265,7 +265,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 @dynamic appMinimumVersion, attributionConfidence, deepLink,
          externalBrowserDestinationLink, fallbackLink, invitationId,
          isStrongMatchExecutable, matchMessage, requestedLink, requestIpVersion,
-         resolvedLink, utmCampaign, utmMedium, utmSource;
+         resolvedLink, utmCampaign, utmContent, utmMedium, utmSource, utmTerm;
 @end
 
 
@@ -286,7 +286,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse
 @dynamic deepLink, invitationId, iosMinAppVersion, resolvedLink, utmCampaign,
-         utmMedium, utmSource;
+         utmContent, utmMedium, utmSource, utmTerm;
 @end
 
 

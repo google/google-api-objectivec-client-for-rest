@@ -188,6 +188,31 @@
 
 @end
 
+@implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposSync
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_SyncRepoRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:sync";
+  GTLRCloudSourceRepositoriesQuery_ProjectsReposSync *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSourceRepositories_Operation class];
+  query.loggingName = @"sourcerepo.projects.repos.sync";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposTestIamPermissions
 
 @dynamic resource;

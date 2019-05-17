@@ -136,6 +136,44 @@ NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSourceRepositories_Operation
+//
+
+@implementation GTLRCloudSourceRepositories_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Operation_Metadata
+//
+
+@implementation GTLRCloudSourceRepositories_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Operation_Response
+//
+
+@implementation GTLRCloudSourceRepositories_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSourceRepositories_Policy
 //
 
@@ -222,6 +260,47 @@ NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobu
 
 @implementation GTLRCloudSourceRepositories_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Status
+//
+
+@implementation GTLRCloudSourceRepositories_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRCloudSourceRepositories_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_Status_Details_Item
+//
+
+@implementation GTLRCloudSourceRepositories_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSourceRepositories_SyncRepoRequest
+//
+
+@implementation GTLRCloudSourceRepositories_SyncRepoRequest
 @end
 
 

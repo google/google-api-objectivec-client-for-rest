@@ -20,6 +20,7 @@
 
 @class GTLRCloudSourceRepositories_Repo;
 @class GTLRCloudSourceRepositories_SetIamPolicyRequest;
+@class GTLRCloudSourceRepositories_SyncRepoRequest;
 @class GTLRCloudSourceRepositories_TestIamPermissionsRequest;
 @class GTLRCloudSourceRepositories_UpdateProjectConfigRequest;
 @class GTLRCloudSourceRepositories_UpdateRepoRequest;
@@ -348,6 +349,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudSourceRepositories_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Synchronize a connected repo.
+ *  The response contains SyncRepoMetadata in the metadata field.
+ *
+ *  Method: sourcerepo.projects.repos.sync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ */
+@interface GTLRCloudSourceRepositoriesQuery_ProjectsReposSync : GTLRCloudSourceRepositoriesQuery
+// Previous library name was
+//   +[GTLQueryCloudSourceRepositories queryForProjectsReposSyncWithObject:name:]
+
+/**
+ *  The name of the repo to synchronize. Values are of the form
+ *  `projects/<project>/repos/<repo>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSourceRepositories_Operation.
+ *
+ *  Synchronize a connected repo.
+ *  The response contains SyncRepoMetadata in the metadata field.
+ *
+ *  @param object The @c GTLRCloudSourceRepositories_SyncRepoRequest to include
+ *    in the query.
+ *  @param name The name of the repo to synchronize. Values are of the form
+ *    `projects/<project>/repos/<repo>`.
+ *
+ *  @return GTLRCloudSourceRepositoriesQuery_ProjectsReposSync
+ */
++ (instancetype)queryWithObject:(GTLRCloudSourceRepositories_SyncRepoRequest *)object
+                           name:(NSString *)name;
 
 @end
 
